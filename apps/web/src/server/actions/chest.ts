@@ -1,6 +1,7 @@
 'use server'
 
 import { z } from 'zod'
+import { throttleIp } from '../auth/ratelimit'
 import type { AccessoryId } from '@kira/core'
 import { CHEST_ACCESSORY_IDS, CHEST_BACKGROUNDS } from '@kira/core'
 import type { ActionResult } from '@/lib/dto'
@@ -27,6 +28,7 @@ export async function openChestAction(
     'openChest',
     async () => {
       const actor = await requireLearner()
+      await throttleIp('chest', 30, actor.userId)
       noInput.parse(input)
       const ctx = orgCtx(actor)
       return inOrg(ctx, async (tx) => {

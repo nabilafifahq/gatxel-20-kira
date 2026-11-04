@@ -1,0 +1,125 @@
+{
+  "skill": "m5.divide-written",
+  "items": [
+    {
+      "id": "m5.divide-written.001",
+      "skill": "m5.divide-written",
+      "difficulty": 3,
+      "prompt": "A school shares 4,872 exercise books equally between 8 classes. How many books does each class get?",
+      "hints": [
+        "Divide the thousands and hundreds first.",
+        "48 ÷ 8 is a good start.",
+        "Remember the zero when 7 is smaller than 8."
+      ],
+      "explanation": "4,872 ÷ 8 = 609. Check: 609 × 8 = 4,872.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 609
+    },
+    {
+      "id": "m5.divide-written.002",
+      "skill": "m5.divide-written",
+      "difficulty": 3,
+      "prompt": "A shop packs 1,000 pens into boxes of 12. How many boxes are needed to hold all the pens?",
+      "hints": [
+        "Divide 1,000 by 12.",
+        "The answer has a remainder.",
+        "Think about what to do with the pens that are left over."
+      ],
+      "explanation": "1,000 ÷ 12 = 83 remainder 4. The 4 extra pens need one more box, so 84 boxes are needed.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "83",
+          "why": "83 boxes hold 996 pens, so 4 pens would be left without a box."
+        },
+        {
+          "text": "12",
+          "why": "That is the number of pens in each box, not the number of boxes."
+        },
+        {
+          "text": "4",
+          "why": "That is the remainder. The question asks for the number of boxes."
+        },
+        {
+          "text": "84"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.divide-written.003",
+      "skill": "m5.divide-written",
+      "difficulty": 4,
+      "prompt": "Wulan has 3,650 beads. She makes necklaces with 7 beads each. How many beads are left over?",
+      "hints": [
+        "Divide 3,650 by 7.",
+        "The remainder is the beads left over.",
+        "7 × 521 is close to 3,650."
+      ],
+      "explanation": "3,650 ÷ 7 = 521 remainder 3. So 3 beads are left over.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 3
+    },
+    {
+      "id": "m5.divide-written.801",
+      "skill": "m5.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1,248 ÷ 6 = 208.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check by multiplying.",
+        "6 × 208.",
+        "1,200 + 48."
+      ],
+      "explanation": "6 × 200 = 1,200 and 6 × 8 = 48. 1,200 + 48 = 1,248, so the answer is 208.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.divide-written.802",
+      "skill": "m5.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When you divide by 7, the remainder can be 7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you share out 7 more?",
+        "Remainders are the leftovers that cannot make another group.",
+        "The remainder is between 0 and 6."
+      ],
+      "explanation": "If you could take another 7 away, the remainder would be 0 and the answer one bigger. A remainder is always less than the divisor.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

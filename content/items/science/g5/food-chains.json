@@ -10,19 +10,42 @@
       "figure": {
         "kind": "icons",
         "items": [
-          { "icon": "plant", "label": "rice plant" },
-          { "icon": "mouse", "label": "rat" },
-          { "icon": "snake", "label": "snake" },
-          { "icon": "bird", "label": "eagle" }
+          {
+            "icon": "plant",
+            "label": "rice plant"
+          },
+          {
+            "icon": "mouse",
+            "label": "rat"
+          },
+          {
+            "icon": "snake",
+            "label": "snake"
+          },
+          {
+            "icon": "bird",
+            "label": "eagle"
+          }
         ],
         "arrows": "chain",
         "alt": "A food chain: rice plant, then rat, then snake, then eagle. The rat eats the rice plant, the snake eats the rat and the eagle eats the snake."
       },
       "options": [
-        { "text": "rat", "why": "The rat eats the rice plant, so it is a consumer." },
-        { "text": "rice plant" },
-        { "text": "snake", "why": "The snake eats rats, so it is a consumer." },
-        { "text": "eagle", "why": "The eagle is at the end of the chain. It is the top predator." }
+        {
+          "text": "rat",
+          "why": "The rat eats the rice plant, so it is a consumer."
+        },
+        {
+          "text": "rice plant"
+        },
+        {
+          "text": "snake",
+          "why": "The snake eats rats, so it is a consumer."
+        },
+        {
+          "text": "eagle",
+          "why": "The eagle is at the end of the chain. It is the top predator."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -38,7 +61,14 @@
       "type": "text",
       "difficulty": 1,
       "prompt": "Green plants are called ___ because they make their own food.",
-      "blanks": [{ "answers": ["producers", "producer"] }],
+      "blanks": [
+        {
+          "answers": [
+            "producers",
+            "producer"
+          ]
+        }
+      ],
       "hints": [
         "Plants do not eat other living things. They make food in their leaves.",
         "Animals are called consumers because they consume, or eat, food.",
@@ -52,7 +82,13 @@
       "type": "order",
       "difficulty": 2,
       "prompt": "Put these living things in order to make a food chain. Start with the producer.",
-      "items": ["leaf", "caterpillar", "sparrow", "snake", "eagle"],
+      "items": [
+        "leaf",
+        "caterpillar",
+        "sparrow",
+        "snake",
+        "eagle"
+      ],
       "hints": [
         "Start with the living thing that makes its own food.",
         "Each living thing is eaten by the next one in the chain.",
@@ -67,10 +103,21 @@
       "difficulty": 2,
       "prompt": "In a food chain, what does an arrow show?",
       "options": [
-        { "text": "It points from a predator to its prey.", "why": "The arrow goes the other way, from the food to the animal that eats it." },
-        { "text": "It shows which animal is the biggest.", "why": "Arrows show feeding, not size." },
-        { "text": "It points from the food to the animal that eats it." },
-        { "text": "It shows where the animal lives.", "why": "Arrows show feeding and energy, not homes." }
+        {
+          "text": "It points from a predator to its prey.",
+          "why": "The arrow goes the other way, from the food to the animal that eats it."
+        },
+        {
+          "text": "It shows which animal is the biggest.",
+          "why": "Arrows show feeding, not size."
+        },
+        {
+          "text": "It points from the food to the animal that eats it."
+        },
+        {
+          "text": "It shows where the animal lives.",
+          "why": "Arrows show feeding and energy, not homes."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -86,17 +133,48 @@
       "type": "sort",
       "difficulty": 2,
       "prompt": "Sort the animals into herbivores, carnivores and omnivores.",
-      "groups": ["Herbivore (plants only)", "Carnivore (animals only)", "Omnivore (plants and animals)"],
+      "groups": [
+        "Herbivore (plants only)",
+        "Carnivore (animals only)",
+        "Omnivore (plants and animals)"
+      ],
       "items": [
-        { "text": "cow", "group": 0 },
-        { "text": "rabbit", "group": 0 },
-        { "text": "caterpillar", "group": 0 },
-        { "text": "lion", "group": 1 },
-        { "text": "shark", "group": 1 },
-        { "text": "eagle", "group": 1 },
-        { "text": "hen", "group": 2 },
-        { "text": "long-tailed macaque", "group": 2 },
-        { "text": "sun bear", "group": 2 }
+        {
+          "text": "cow",
+          "group": 0
+        },
+        {
+          "text": "rabbit",
+          "group": 0
+        },
+        {
+          "text": "caterpillar",
+          "group": 0
+        },
+        {
+          "text": "lion",
+          "group": 1
+        },
+        {
+          "text": "shark",
+          "group": 1
+        },
+        {
+          "text": "eagle",
+          "group": 1
+        },
+        {
+          "text": "hen",
+          "group": 2
+        },
+        {
+          "text": "long-tailed macaque",
+          "group": 2
+        },
+        {
+          "text": "sun bear",
+          "group": 2
+        }
       ],
       "hints": [
         "Herbivores eat only plants, carnivores eat only animals, and omnivores eat both.",
@@ -104,7 +182,9 @@
         "Start with the animals that hunt other animals for all of their food."
       ],
       "explanation": "Cows, rabbits and caterpillars eat only plants, so they are herbivores. Lions, sharks and eagles eat only animals, while hens, macaques and sun bears eat both, so they are omnivores.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.food-chains.006",
@@ -115,19 +195,43 @@
       "figure": {
         "kind": "icons",
         "items": [
-          { "icon": "leaf", "label": "leaf" },
-          { "icon": "caterpillar", "label": "caterpillar" },
-          { "icon": "frog", "label": "frog" },
-          { "icon": "snake", "label": "snake" }
+          {
+            "icon": "leaf",
+            "label": "leaf"
+          },
+          {
+            "icon": "caterpillar",
+            "label": "caterpillar"
+          },
+          {
+            "icon": "frog",
+            "label": "frog"
+          },
+          {
+            "icon": "snake",
+            "label": "snake"
+          }
         ],
         "arrows": "chain",
         "alt": "A food chain: leaf, then caterpillar, then frog, then snake. The caterpillar eats the leaf, the frog eats the caterpillar and the snake eats the frog."
       },
       "pairs": [
-        ["producer", "leaf"],
-        ["herbivore", "caterpillar"],
-        ["predator and prey", "frog"],
-        ["top predator", "snake"]
+        [
+          "producer",
+          "leaf"
+        ],
+        [
+          "herbivore",
+          "caterpillar"
+        ],
+        [
+          "predator and prey",
+          "frog"
+        ],
+        [
+          "top predator",
+          "snake"
+        ]
       ],
       "hints": [
         "Each word describes a place in the food chain.",
@@ -135,7 +239,9 @@
         "Start with the producer. It is the first link, the one that makes its own food."
       ],
       "explanation": "The leaf makes food, so it is the producer, and the caterpillar that eats it is a herbivore. The frog eats and is eaten, so it is a predator and prey, and the snake is the top predator.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.food-chains.007",
@@ -144,10 +250,21 @@
       "difficulty": 3,
       "prompt": "Where does the energy in every food chain come from first?",
       "options": [
-        { "text": "the soil", "why": "Plants take water and minerals from the soil, but their energy comes from sunlight." },
-        { "text": "water", "why": "Plants need water, but water does not give them energy." },
-        { "text": "the top predator", "why": "Energy passes up the chain to the top predator. It does not start there." },
-        { "text": "the Sun" }
+        {
+          "text": "the soil",
+          "why": "Plants take water and minerals from the soil, but their energy comes from sunlight."
+        },
+        {
+          "text": "water",
+          "why": "Plants need water, but water does not give them energy."
+        },
+        {
+          "text": "the top predator",
+          "why": "Energy passes up the chain to the top predator. It does not start there."
+        },
+        {
+          "text": "the Sun"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -156,7 +273,9 @@
         "Ask where the plant's energy comes from before anything eats it."
       ],
       "explanation": "Green plants capture energy from sunlight to make food. When animals eat the plants, and other animals eat them, that energy passes along the chain.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.food-chains.008",
@@ -167,18 +286,38 @@
       "figure": {
         "kind": "icons",
         "items": [
-          { "icon": "plant", "label": "rice plant" },
-          { "icon": "mouse", "label": "rat" },
-          { "icon": "owl", "label": "barn owl" }
+          {
+            "icon": "plant",
+            "label": "rice plant"
+          },
+          {
+            "icon": "mouse",
+            "label": "rat"
+          },
+          {
+            "icon": "owl",
+            "label": "barn owl"
+          }
         ],
         "arrows": "chain",
         "alt": "A food chain: rice plant, then rat, then barn owl."
       },
       "options": [
-        { "text": "The number of rats goes down.", "why": "Owls eat rats. With no owls, fewer rats are eaten." },
-        { "text": "The rice plants grow better.", "why": "More rats will eat more rice, so the rice plants suffer." },
-        { "text": "The number of rats goes up." },
-        { "text": "Nothing changes in the field.", "why": "Each living thing in a chain depends on the others, so removing one changes the rest." }
+        {
+          "text": "The number of rats goes down.",
+          "why": "Owls eat rats. With no owls, fewer rats are eaten."
+        },
+        {
+          "text": "The rice plants grow better.",
+          "why": "More rats will eat more rice, so the rice plants suffer."
+        },
+        {
+          "text": "The number of rats goes up."
+        },
+        {
+          "text": "Nothing changes in the field.",
+          "why": "Each living thing in a chain depends on the others, so removing one changes the rest."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -187,7 +326,10 @@
         "Follow the arrow from the rat to the owl. Decide what happens to the rats first."
       ],
       "explanation": "Barn owls eat rats, so with no owls, fewer rats are eaten and their numbers rise. More rats then eat more rice, which is why some farmers put up nest boxes for barn owls.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.food-chains.009",
@@ -197,10 +339,22 @@
       "prompt": "Draw a food chain from a rice field or a rainforest with at least four living things. Use arrows, and label the producer and the top predator.",
       "rubric": {
         "criteria": [
-          { "label": "Starts the chain with a producer", "points": 1 },
-          { "label": "Arrows point from the food to the eater", "points": 2 },
-          { "label": "Has at least four living things in a sensible order", "points": 2 },
-          { "label": "Labels the producer and the top predator", "points": 1 }
+          {
+            "label": "Starts the chain with a producer",
+            "points": 1
+          },
+          {
+            "label": "Arrows point from the food to the eater",
+            "points": 2
+          },
+          {
+            "label": "Has at least four living things in a sensible order",
+            "points": 2
+          },
+          {
+            "label": "Labels the producer and the top predator",
+            "points": 1
+          }
         ]
       },
       "background": "blank",
@@ -217,10 +371,21 @@
       "difficulty": 5,
       "prompt": "A habitat usually has far fewer top predators than plants. Which is the best explanation?",
       "options": [
-        { "text": "At each step, most energy is used for moving and keeping warm, so little passes on." },
-        { "text": "Top predators only eat plants.", "why": "Top predators eat other animals." },
-        { "text": "Plants are eaten by top predators first.", "why": "Plants are eaten by herbivores, at the start of the chain." },
-        { "text": "Top predators are always small animals.", "why": "Many top predators, such as sharks and eagles, are large." }
+        {
+          "text": "At each step, most energy is used for moving and keeping warm, so little passes on."
+        },
+        {
+          "text": "Top predators only eat plants.",
+          "why": "Top predators eat other animals."
+        },
+        {
+          "text": "Plants are eaten by top predators first.",
+          "why": "Plants are eaten by herbivores, at the start of the chain."
+        },
+        {
+          "text": "Top predators are always small animals.",
+          "why": "Many top predators, such as sharks and eagles, are large."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -229,7 +394,857 @@
         "Ask how much energy is left over to pass to the next animal in the chain."
       ],
       "explanation": "Each living thing uses most of the energy from its food to stay alive, so only a small part passes to the next link. By the top of the chain, there is only enough energy to feed a few predators.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.food-chains.011",
+      "skill": "s5.food-chains",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label each living thing in the food chain. The arrows show the way energy moves.",
+      "figure": {
+        "kind": "scene",
+        "width": 420,
+        "height": 170,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "grass",
+            "x": 20,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "mouse",
+            "x": 120,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "snake",
+            "x": 220,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "owl",
+            "x": 320,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "line",
+            "x1": 82,
+            "y1": 60,
+            "x2": 114,
+            "y2": 60,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                114,
+                60
+              ],
+              [
+                107.9,
+                56.6
+              ],
+              [
+                107.9,
+                63.4
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 182,
+            "y1": 60,
+            "x2": 214,
+            "y2": 60,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                214,
+                60
+              ],
+              [
+                207.9,
+                56.6
+              ],
+              [
+                207.9,
+                63.4
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 282,
+            "y1": 60,
+            "x2": 314,
+            "y2": 60,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                314,
+                60
+              ],
+              [
+                307.9,
+                56.6
+              ],
+              [
+                307.9,
+                63.4
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A food chain drawn left to right with arrows between pictures: grass, a mouse, a snake and an owl."
+      },
+      "labels": [
+        "producer",
+        "herbivore",
+        "predator",
+        "top predator"
+      ],
+      "spots": [
+        {
+          "x": 11.4,
+          "y": 75.3
+        },
+        {
+          "x": 35.2,
+          "y": 75.3
+        },
+        {
+          "x": 59,
+          "y": 75.3
+        },
+        {
+          "x": 82.9,
+          "y": 75.3
+        }
+      ],
+      "extraLabels": [
+        "decomposer"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The chain starts with a living thing that makes its own food.",
+        "The last animal is not eaten by any other animal in this chain."
+      ],
+      "explanation": "Grass is the producer. The mouse eats plants, so it is a herbivore. The snake hunts the mouse and the owl hunts the snake, so the owl is at the top."
+    },
+    {
+      "id": "s5.food-chains.012",
+      "skill": "s5.food-chains",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the animal that is a predator and also prey in this food chain.",
+      "figure": {
+        "kind": "scene",
+        "width": 420,
+        "height": 170,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "leaf",
+            "x": 20,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "caterpillar",
+            "x": 120,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "bird",
+            "x": 220,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 320,
+            "y": 32,
+            "size": 56
+          },
+          {
+            "t": "line",
+            "x1": 82,
+            "y1": 60,
+            "x2": 114,
+            "y2": 60,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                114,
+                60
+              ],
+              [
+                107.9,
+                56.6
+              ],
+              [
+                107.9,
+                63.4
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 182,
+            "y1": 60,
+            "x2": 214,
+            "y2": 60,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                214,
+                60
+              ],
+              [
+                207.9,
+                56.6
+              ],
+              [
+                207.9,
+                63.4
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 282,
+            "y1": 60,
+            "x2": 314,
+            "y2": 60,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                314,
+                60
+              ],
+              [
+                307.9,
+                56.6
+              ],
+              [
+                307.9,
+                63.4
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A food chain drawn left to right with arrows between pictures: a leaf, a caterpillar, a bird and a cat."
+      },
+      "regions": [
+        {
+          "label": "leaf",
+          "x": 11.4,
+          "y": 35.3,
+          "w": 18,
+          "h": 40
+        },
+        {
+          "label": "caterpillar",
+          "x": 35.2,
+          "y": 35.3,
+          "w": 18,
+          "h": 40
+        },
+        {
+          "label": "bird",
+          "x": 59,
+          "y": 35.3,
+          "w": 18,
+          "h": 40
+        },
+        {
+          "label": "cat",
+          "x": 82.9,
+          "y": 35.3,
+          "w": 18,
+          "h": 40
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "A predator hunts other animals. Prey is hunted.",
+        "Check which animal eats another animal and is also eaten.",
+        "The caterpillar eats a plant and the cat is not eaten."
+      ],
+      "explanation": "The bird hunts the caterpillar, so it is a predator. The cat hunts the bird, so the bird is also prey."
+    },
+    {
+      "id": "s5.food-chains.013",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What do we call an animal that eats only plants?",
+      "options": [
+        {
+          "text": "Herbivore"
+        },
+        {
+          "text": "Carnivore",
+          "why": "Carnivores eat other animals."
+        },
+        {
+          "text": "Omnivore",
+          "why": "Omnivores eat both plants and animals."
+        },
+        {
+          "text": "Producer",
+          "why": "Producers make their own food and are not animals."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the first part of the word.",
+        "Herb means plant.",
+        "Pick the word that means plant eater."
+      ],
+      "explanation": "A herbivore eats only plants, a carnivore eats animals and an omnivore eats both."
+    },
+    {
+      "id": "s5.food-chains.014",
+      "skill": "s5.food-chains",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table with herbivore, carnivore or omnivore.",
+      "head": [
+        "Animal",
+        "What it eats",
+        "Type of eater"
+      ],
+      "rows": [
+        [
+          "Rabbit",
+          "Grass and clover",
+          "herbivore"
+        ],
+        [
+          "Fox",
+          "Rabbits and birds",
+          ""
+        ],
+        [
+          "Human",
+          "Plants and meat",
+          ""
+        ],
+        [
+          "Cow",
+          "Grass",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "carnivore"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "omnivore"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "answers": [
+            "herbivore"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the first row for how to answer.",
+        "Plant eaters, meat eaters and both.",
+        "Check whether each animal eats plants, animals or both."
+      ],
+      "explanation": "A fox eats animals (carnivore). A human eats plants and meat (omnivore). A cow eats only plants (herbivore)."
+    },
+    {
+      "id": "s5.food-chains.015",
+      "skill": "s5.food-chains",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the living things in order to make a pond food chain. Start with the producer.",
+      "items": [
+        "pondweed",
+        "water snail",
+        "fish",
+        "heron"
+      ],
+      "hints": [
+        "The producer is first.",
+        "Each living thing is eaten by the next one.",
+        "The heron eats fish."
+      ],
+      "explanation": "Pondweed makes food, the snail eats the pondweed, the fish eats the snail and the heron eats the fish."
+    },
+    {
+      "id": "s5.food-chains.016",
+      "skill": "s5.food-chains",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the living things into producers and consumers.",
+      "groups": [
+        "Producer",
+        "Consumer"
+      ],
+      "items": [
+        {
+          "text": "mango tree",
+          "group": 0
+        },
+        {
+          "text": "grass",
+          "group": 0
+        },
+        {
+          "text": "algae",
+          "group": 0
+        },
+        {
+          "text": "rabbit",
+          "group": 1
+        },
+        {
+          "text": "eagle",
+          "group": 1
+        },
+        {
+          "text": "frog",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A producer makes its own food.",
+        "Consumers eat other living things.",
+        "Plants and algae are producers."
+      ],
+      "explanation": "Trees, grass and algae make their own food using light. Rabbits, eagles and frogs must eat."
+    },
+    {
+      "id": "s5.food-chains.017",
+      "skill": "s5.food-chains",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the true statements about food chains.",
+      "options": [
+        {
+          "text": "Arrows show the direction energy moves."
+        },
+        {
+          "text": "Producers make their own food using light."
+        },
+        {
+          "text": "A food chain starts with a producer."
+        },
+        {
+          "text": "All animals eat plants directly."
+        },
+        {
+          "text": "Predators are hunted by their prey."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Think about where each food chain begins.",
+        "Some animals eat other animals.",
+        "Prey is hunted by predators, not the other way round."
+      ],
+      "explanation": "Food chains start with producers, and arrows show the way energy moves. Carnivores eat animals, and predators hunt prey."
+    },
+    {
+      "id": "s5.food-chains.018",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a swamp the food chain is plants, insects, frogs, snakes. A disease kills most of the frogs. What is most likely to happen first?",
+      "options": [
+        {
+          "text": "The insects increase and the snakes decrease."
+        },
+        {
+          "text": "Both insects and snakes increase.",
+          "why": "Snakes lose some of their food, so their numbers are likely to fall."
+        },
+        {
+          "text": "The insects decrease because they lose their predators.",
+          "why": "Fewer predators means more insects, not fewer."
+        },
+        {
+          "text": "The plants increase because frogs eat plants.",
+          "why": "Frogs eat insects, not plants. More insects would eat more plants."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what each animal eats.",
+        "Frogs are eaten by snakes and eat insects.",
+        "What happens to the animal below and above the frog in the chain?"
+      ],
+      "explanation": "Fewer frogs means fewer insects are eaten, so insects increase. Snakes have less food, so they decrease."
+    },
+    {
+      "id": "s5.food-chains.019",
+      "skill": "s5.food-chains",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Many food chains that join up make a food ___.",
+      "blanks": [
+        {
+          "answers": [
+            "web",
+            "webs"
+          ]
+        }
+      ],
+      "hints": [
+        "A spider makes one.",
+        "It shows that animals can eat more than one thing.",
+        "It has three letters."
+      ],
+      "explanation": "A food web shows how food chains are linked, because many animals eat more than one kind of food."
+    },
+    {
+      "id": "s5.food-chains.020",
+      "skill": "s5.food-chains",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The table shows what each animal eats. How many different animals in the table eat mice?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Animal",
+          "What it eats"
+        ],
+        "rows": [
+          [
+            "Mouse",
+            "Seeds"
+          ],
+          [
+            "Rabbit",
+            "Grass"
+          ],
+          [
+            "Snake",
+            "Mouse"
+          ],
+          [
+            "Fox",
+            "Rabbit and mouse"
+          ],
+          [
+            "Owl",
+            "Mouse and snake"
+          ]
+        ],
+        "alt": "Table of what animals eat: mouse eats seeds, rabbit eats grass, snake eats mouse, fox eats rabbit and mouse, owl eats mouse and snake."
+      },
+      "answer": 3,
+      "hints": [
+        "Read the second column.",
+        "Look for the word mouse.",
+        "Count the rows where mouse is in the right-hand column."
+      ],
+      "explanation": "Snakes, foxes and owls all eat mice, so three animals eat them."
+    },
+    {
+      "id": "s5.food-chains.021",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which food chain is written correctly?",
+      "options": [
+        {
+          "text": "snake → frog → grasshopper → grass",
+          "why": "The arrows point the wrong way. They should point from the food to the animal that eats it."
+        },
+        {
+          "text": "grass → frog → grasshopper → snake",
+          "why": "A frog does not eat grass and a grasshopper does not eat a frog."
+        },
+        {
+          "text": "frog → grass → snake → grasshopper",
+          "why": "This mixes up the order and the arrows."
+        },
+        {
+          "text": "grass → grasshopper → frog → snake"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "An arrow means is eaten by.",
+        "Start with the producer.",
+        "Check that each living thing is eaten by the next one."
+      ],
+      "explanation": "Grass is eaten by the grasshopper, which is eaten by the frog, which is eaten by the snake."
+    },
+    {
+      "id": "s5.food-chains.022",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Pond A has five kinds of fish that eat many different foods. In Pond B every fish eats only water fleas. A disease kills most of the water fleas in both ponds. Which statement is most likely?",
+      "options": [
+        {
+          "text": "The fish in Pond B are affected most, because they have no other food."
+        },
+        {
+          "text": "The fish in Pond A are affected most because they eat more kinds of food.",
+          "why": "Fish that eat many foods can switch to something else."
+        },
+        {
+          "text": "Both ponds are affected the same.",
+          "why": "Pond A fish have other foods to turn to."
+        },
+        {
+          "text": "Neither pond is affected because fish can make their own food.",
+          "why": "Fish are consumers and cannot make their own food."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what happens if an animal loses its only food.",
+        "Which fish can eat something else?",
+        "Compare the choices the fish have in each pond."
+      ],
+      "explanation": "Fish with only one food source have nowhere to turn when it disappears. Fish that eat many foods can eat other things."
+    },
+    {
+      "id": "s5.food-chains.023",
+      "skill": "s5.food-chains",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        [
+          "producer",
+          "makes its own food"
+        ],
+        [
+          "consumer",
+          "gets energy by eating other living things"
+        ],
+        [
+          "predator",
+          "hunts and eats other animals"
+        ],
+        [
+          "prey",
+          "an animal that is hunted"
+        ]
+      ],
+      "hints": [
+        "Producers are plants.",
+        "Predators hunt, prey is hunted.",
+        "Consumers cannot make their own food."
+      ],
+      "explanation": "Producers make food, consumers eat, predators hunt and prey is the animal being hunted."
+    },
+    {
+      "id": "s5.food-chains.024",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What do decomposers such as fungi do in a food web?",
+      "options": [
+        {
+          "text": "They break down dead plants and animals and return nutrients to the soil."
+        },
+        {
+          "text": "They make their own food using light.",
+          "why": "That is what producers do. Fungi cannot do this."
+        },
+        {
+          "text": "They hunt living animals.",
+          "why": "Fungi do not hunt. They feed on dead material."
+        },
+        {
+          "text": "They give energy to plants directly from the Sun.",
+          "why": "Plants capture light themselves."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what happens to a fallen leaf.",
+        "Decomposers feed on things that are dead.",
+        "Nutrients go back where plants take them in."
+      ],
+      "explanation": "Decomposers feed on dead plants and animals. This returns nutrients to the soil, where plants can use them."
+    },
+    {
+      "id": "s5.food-chains.801",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A producer is a living thing that makes its own food.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which living thing makes its own food?",
+        "Grass is one.",
+        "Plants are producers."
+      ],
+      "explanation": "Green plants are producers because they use light, water and carbon dioxide to make food.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.food-chains.802",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The arrows in a food chain show who is bigger.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do arrows follow?",
+        "Think about eaten, not size.",
+        "Arrows show energy flow."
+      ],
+      "explanation": "They show the direction the energy goes, from the food to the one that eats it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.food-chains.803",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If the number of prey falls, the number of predators may fall too.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do predators need?",
+        "Fewer prey means less food.",
+        "Predators depend on prey."
+      ],
+      "explanation": "With less food the predators may starve or move away.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.food-chains.804",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: An animal that eats both plants and animals is a carnivore.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do omnivores eat?",
+        "Herbivore eats plants only.",
+        "Both is omnivore."
+      ],
+      "explanation": "A carnivore eats only animals. An animal that eats both is an omnivore.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

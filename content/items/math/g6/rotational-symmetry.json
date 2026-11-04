@@ -1,0 +1,593 @@
+{
+  "skill": "m6.rotational-symmetry",
+  "items": [
+    {
+      "id": "m6.rotational-symmetry.001",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of an equilateral triangle?",
+      "answer": 3,
+      "hints": [
+        "It looks the same after a third of a turn.",
+        "There are three matching positions.",
+        "Count the corners."
+      ],
+      "explanation": "An equilateral triangle matches itself 3 times in a full turn, so its order is 3."
+    },
+    {
+      "id": "m6.rotational-symmetry.002",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of a square?",
+      "answer": 4,
+      "hints": [
+        "A square has four equal corners.",
+        "It looks the same after each quarter turn.",
+        "Four quarter turns make a full turn."
+      ],
+      "explanation": "A square has order 4."
+    },
+    {
+      "id": "m6.rotational-symmetry.003",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of a rhombus that is not a square?",
+      "answer": 2,
+      "hints": [
+        "Turn it a quarter turn. Does it look the same?",
+        "It matches after a half turn.",
+        "It has two pairs of matching corners."
+      ],
+      "explanation": "A rhombus looks the same after a half turn and a full turn, so its order is 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.004",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of a parallelogram that is not a rectangle?",
+      "answer": 2,
+      "hints": [
+        "It has opposite sides equal and parallel.",
+        "It matches itself after a half turn.",
+        "It does not match after a quarter turn."
+      ],
+      "explanation": "A parallelogram has order 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.005",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of the letter H?",
+      "answer": 2,
+      "hints": [
+        "Turn the H upside down.",
+        "It looks the same after a half turn.",
+        "It does not look the same after a quarter turn."
+      ],
+      "explanation": "The letter H looks the same after a half turn, so it has order 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.006",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of the letter Z?",
+      "answer": 2,
+      "hints": [
+        "Turn the Z upside down.",
+        "It looks like a Z again after a half turn.",
+        "It does not match after a quarter turn."
+      ],
+      "explanation": "The letter Z has order 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.007",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of a plus sign (+) with four equal arms?",
+      "answer": 4,
+      "hints": [
+        "Turn it a quarter turn.",
+        "It matches every quarter turn.",
+        "There are four equal arms."
+      ],
+      "explanation": "A plus sign with four equal arms matches 4 times in a full turn, so it has order 4."
+    },
+    {
+      "id": "m6.rotational-symmetry.008",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which shape has rotational symmetry of order 3?",
+      "options": [
+        {
+          "text": "a square",
+          "why": "A square has order 4."
+        },
+        {
+          "text": "an equilateral triangle"
+        },
+        {
+          "text": "a rectangle",
+          "why": "A rectangle has order 2."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Order 3 means it matches 3 times in a full turn.",
+        "It is a shape with three equal sides.",
+        "Turn it a third of a full turn."
+      ],
+      "explanation": "An equilateral triangle matches itself 3 times in a full turn."
+    },
+    {
+      "id": "m6.rotational-symmetry.009",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which shape does NOT have rotational symmetry of order 2 or more?",
+      "options": [
+        {
+          "text": "a rectangle",
+          "why": "A rectangle has order 2."
+        },
+        {
+          "text": "an isosceles triangle that is not equilateral"
+        },
+        {
+          "text": "a parallelogram",
+          "why": "A parallelogram has order 2."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It has to look the same before a full turn.",
+        "Turn the triangle upside down.",
+        "It will not match."
+      ],
+      "explanation": "A non-equilateral isosceles triangle only looks the same after a full turn, so it has order 1."
+    },
+    {
+      "id": "m6.rotational-symmetry.010",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A shape looks the same only after a full turn. What is its order of rotational symmetry?",
+      "options": [
+        {
+          "text": "0",
+          "why": "The order is at least 1."
+        },
+        {
+          "text": "1"
+        },
+        {
+          "text": "2",
+          "why": "It would look the same after a half turn."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The full turn counts as one.",
+        "It has no other matching positions.",
+        "This means no rotational symmetry."
+      ],
+      "explanation": "A shape that only matches after a full turn has order 1, which means no rotational symmetry."
+    },
+    {
+      "id": "m6.rotational-symmetry.011",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A shape looks the same after a quarter turn. What is the order of rotational symmetry?",
+      "options": [
+        {
+          "text": "2",
+          "why": "Order 2 means a half turn."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "1",
+          "why": "Order 1 means a full turn only."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A quarter turn is 90 degrees.",
+        "How many quarter turns in a full turn?",
+        "Four."
+      ],
+      "explanation": "If it matches after each quarter turn, it matches 4 times in a full turn, so its order is 4."
+    },
+    {
+      "id": "m6.rotational-symmetry.012",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which of these letters has rotational symmetry of order 2?",
+      "options": [
+        {
+          "text": "E",
+          "why": "E has order 1."
+        },
+        {
+          "text": "N"
+        },
+        {
+          "text": "T",
+          "why": "T has order 1."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Turn the letter upside down.",
+        "It must look the same after a half turn.",
+        "Some letters look different upside down."
+      ],
+      "explanation": "N looks the same after a half turn, so it has order 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.013",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which of these have rotational symmetry of order 2?",
+      "options": [
+        {
+          "text": "a rectangle that is not a square"
+        },
+        {
+          "text": "a kite",
+          "why": "A kite has order 1."
+        },
+        {
+          "text": "the letter F",
+          "why": "F has order 1."
+        },
+        {
+          "text": "the letter H"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Turn each one a half turn.",
+        "It must look exactly the same.",
+        "A kite does not."
+      ],
+      "explanation": "The letter H and a non-square rectangle both match after a half turn."
+    },
+    {
+      "id": "m6.rotational-symmetry.014",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 3,
+      "type": "sort",
+      "prompt": "Sort each shape by its order of rotational symmetry.",
+      "groups": [
+        "Order 1",
+        "Order 2",
+        "Order 3 or 4"
+      ],
+      "items": [
+        {
+          "text": "kite",
+          "group": 0
+        },
+        {
+          "text": "letter F",
+          "group": 0
+        },
+        {
+          "text": "rectangle",
+          "group": 1
+        },
+        {
+          "text": "letter H",
+          "group": 1
+        },
+        {
+          "text": "equilateral triangle",
+          "group": 2
+        },
+        {
+          "text": "square",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Order 1 means no rotational symmetry.",
+        "Order 2 matches after a half turn.",
+        "Triangle has 3, square has 4."
+      ],
+      "explanation": "A kite and F have order 1, a rectangle and H have order 2, and a triangle and square have orders 3 and 4."
+    },
+    {
+      "id": "m6.rotational-symmetry.015",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "A shape has rotational symmetry of order 4. How many degrees do you turn it to reach the first matching position?",
+      "answer": 90,
+      "unit": "degrees",
+      "hints": [
+        "A full turn is 360 degrees.",
+        "Divide 360 by the order.",
+        "360 ÷ 4."
+      ],
+      "explanation": "360 ÷ 4 = 90, so it matches after each 90 degree turn."
+    },
+    {
+      "id": "m6.rotational-symmetry.016",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A shape has rotational symmetry of order 3. How many degrees do you turn it to reach the first matching position?",
+      "answer": 120,
+      "unit": "degrees",
+      "hints": [
+        "A full turn is 360 degrees.",
+        "Divide 360 by the order.",
+        "360 ÷ 3."
+      ],
+      "explanation": "360 ÷ 3 = 120, so it matches after each 120 degree turn."
+    },
+    {
+      "id": "m6.rotational-symmetry.017",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A shape matches itself after each turn of 180 degrees. What is its order of rotational symmetry?",
+      "answer": 2,
+      "hints": [
+        "Divide 360 by the matching turn.",
+        "360 ÷ 180.",
+        "A half turn gives two matches in a full turn."
+      ],
+      "explanation": "360 ÷ 180 = 2, so the order is 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.018",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A square is rotated by 45 degrees. Does it look the same?",
+      "options": [
+        {
+          "text": "Yes, it looks the same after any turn.",
+          "why": "Only certain turns match."
+        },
+        {
+          "text": "No, a square only matches after turns of 90 degrees."
+        },
+        {
+          "text": "Yes, because a square has order 8.",
+          "why": "A square has order 4, not 8."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A square has order 4.",
+        "360 ÷ 4 = 90.",
+        "45 is not a multiple of 90."
+      ],
+      "explanation": "A square matches itself after turns of 90 degrees, so 45 degrees does not match."
+    },
+    {
+      "id": "m6.rotational-symmetry.019",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which statement is true about an equilateral triangle?",
+      "options": [
+        {
+          "text": "It looks the same after a turn of 90 degrees.",
+          "why": "That would be a square."
+        },
+        {
+          "text": "It looks the same after a turn of 120 degrees."
+        },
+        {
+          "text": "It looks the same after a turn of 180 degrees.",
+          "why": "That would match a rectangle."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "360 ÷ 3 = 120.",
+        "The triangle has three equal corners.",
+        "It matches 3 times in a full turn."
+      ],
+      "explanation": "An equilateral triangle has order 3, so it matches after each 120 degree turn."
+    },
+    {
+      "id": "m6.rotational-symmetry.020",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A pinwheel has 4 identical blades equally spaced. What is its order of rotational symmetry?",
+      "options": [
+        {
+          "text": "2",
+          "why": "Four identical blades give four matching positions."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "8",
+          "why": "There are only four blades."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the identical blades.",
+        "Turn it through the angle between blades.",
+        "The turn between blades is 90 degrees."
+      ],
+      "explanation": "With 4 identical blades equally spaced, the pinwheel matches 4 times in a full turn, so its order is 4."
+    },
+    {
+      "id": "m6.rotational-symmetry.021",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A logo has 3 identical petals equally spaced. What is the smallest turn that makes the logo look the same?",
+      "options": [
+        {
+          "text": "90 degrees",
+          "why": "That would give 4 petals."
+        },
+        {
+          "text": "120 degrees"
+        },
+        {
+          "text": "60 degrees",
+          "why": "That would give 6 petals."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Divide a full turn between the petals.",
+        "360 ÷ 3.",
+        "The turn is the same between each pair of petals."
+      ],
+      "explanation": "360 ÷ 3 = 120 degrees."
+    },
+    {
+      "id": "m6.rotational-symmetry.022",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which shape has the same order of rotational symmetry as the letter H?",
+      "options": [
+        {
+          "text": "a square",
+          "why": "A square has order 4."
+        },
+        {
+          "text": "a rectangle that is not a square"
+        },
+        {
+          "text": "an equilateral triangle",
+          "why": "An equilateral triangle has order 3."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "H has order 2.",
+        "Look for a shape that matches after a half turn.",
+        "It has opposite sides equal."
+      ],
+      "explanation": "Both the letter H and a non-square rectangle have order 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.023",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "text",
+      "prompt": "A shape that looks the same after a half turn has rotational symmetry of order ___.",
+      "blanks": [
+        {
+          "answers": [
+            "2",
+            "two"
+          ]
+        }
+      ],
+      "hints": [
+        "A half turn is 180 degrees.",
+        "360 ÷ 180.",
+        "It matches two times in a full turn."
+      ],
+      "explanation": "A half-turn match means order 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.801",
+      "skill": "m6.rotational-symmetry",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A square has rotational symmetry of order 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Turn it a quarter at a time.",
+        "It looks the same after each quarter turn.",
+        "360 ÷ 90 = 4."
+      ],
+      "explanation": "A square fits onto itself 4 times in one full turn.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.rotational-symmetry.802",
+      "skill": "m6.rotational-symmetry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rectangle that is not a square has rotational symmetry of order 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does a quarter turn fit onto itself?",
+        "A tall rectangle becomes wide.",
+        "It fits after a half turn."
+      ],
+      "explanation": "It looks the same only after a half turn, so its order is 2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.rotational-symmetry.803",
+      "skill": "m6.rotational-symmetry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The letter H has rotational symmetry of order 2.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Turn the H upside down.",
+        "A half turn looks the same.",
+        "Two positions."
+      ],
+      "explanation": "It looks the same after a half turn and a full turn.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -2,152 +2,1074 @@
   "skill": "e4.adverbials",
   "items": [
     {
-      "id": "e4.adverbials.001", "skill": "e4.adverbials", "type": "mcq", "difficulty": 1,
+      "id": "e4.adverbials.001",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Which word is an adverb?\nThe tortoise walked slowly.",
       "options": [
-        { "text": "tortoise", "why": "Tortoise is a noun. It names the animal." },
-        { "text": "walked", "why": "Walked is the verb." },
-        { "text": "slowly" },
-        { "text": "the", "why": "The is a small word that comes before a noun." }
+        {
+          "text": "tortoise",
+          "why": "Tortoise is a noun. It names the animal."
+        },
+        {
+          "text": "walked",
+          "why": "Walked is the verb."
+        },
+        {
+          "text": "slowly"
+        },
+        {
+          "text": "the",
+          "why": "The is a small word that comes before a noun."
+        }
       ],
       "answer": 2,
-      "hints": ["An adverb tells you more about a verb.", "Find the verb first.", "Ask: how did the tortoise walk?"],
+      "hints": [
+        "An adverb tells you more about a verb.",
+        "Find the verb first.",
+        "Ask: how did the tortoise walk?"
+      ],
       "explanation": "Slowly tells us how the tortoise walked, so it is an adverb.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.adverbials.002", "skill": "e4.adverbials", "type": "mcq", "difficulty": 1,
+      "id": "e4.adverbials.002",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Choose the preposition.\nThe cat is hiding ___ the bed.",
       "options": [
-        { "text": "quickly", "why": "Quickly tells how, not where." },
-        { "text": "happy", "why": "Happy describes a feeling." },
-        { "text": "and", "why": "And is a joining word." },
-        { "text": "under" }
+        {
+          "text": "quickly",
+          "why": "Quickly tells how, not where."
+        },
+        {
+          "text": "happy",
+          "why": "Happy describes a feeling."
+        },
+        {
+          "text": "and",
+          "why": "And is a joining word."
+        },
+        {
+          "text": "under"
+        }
       ],
       "answer": 3,
-      "hints": ["A preposition tells you where something is.", "Where is the cat hiding?", "Which word could describe a place near the bed?"],
+      "hints": [
+        "A preposition tells you where something is.",
+        "Where is the cat hiding?",
+        "Which word could describe a place near the bed?"
+      ],
       "explanation": "Under is a preposition. It tells us where the cat is: under the bed.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.adverbials.003", "skill": "e4.adverbials", "type": "mcq", "difficulty": 2,
+      "id": "e4.adverbials.003",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "My birthday is ___ June.",
       "options": [
-        { "text": "on", "why": "On is used for days and dates, like on Monday." },
-        { "text": "in" },
-        { "text": "at", "why": "At is used for clock times, like at three o'clock." },
-        { "text": "by", "why": "By does not fit with a month here." }
+        {
+          "text": "on",
+          "why": "On is used for days and dates, like on Monday."
+        },
+        {
+          "text": "in"
+        },
+        {
+          "text": "at",
+          "why": "At is used for clock times, like at three o'clock."
+        },
+        {
+          "text": "by",
+          "why": "By does not fit with a month here."
+        }
       ],
       "answer": 1,
-      "hints": ["June is a month.", "Think about how we say: ___ Monday, ___ three o'clock, ___ June.", "Say each one aloud with June. Which sounds right?"],
+      "hints": [
+        "June is a month.",
+        "Think about how we say: ___ Monday, ___ three o'clock, ___ June.",
+        "Say each one aloud with June. Which sounds right?"
+      ],
       "explanation": "We use in with months: in June. We use on with days and at with clock times."
     },
     {
-      "id": "e4.adverbials.004", "skill": "e4.adverbials", "type": "mcq", "difficulty": 2,
+      "id": "e4.adverbials.004",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "School starts ___ seven o'clock.",
       "options": [
-        { "text": "at" },
-        { "text": "in", "why": "In is used for months and years." },
-        { "text": "on", "why": "On is used for days and dates." },
-        { "text": "of", "why": "Of does not fit with a time." }
+        {
+          "text": "at"
+        },
+        {
+          "text": "in",
+          "why": "In is used for months and years."
+        },
+        {
+          "text": "on",
+          "why": "On is used for days and dates."
+        },
+        {
+          "text": "of",
+          "why": "Of does not fit with a time."
+        }
       ],
       "answer": 0,
-      "hints": ["Seven o'clock is a clock time.", "Think: on Monday, in June, ___ seven o'clock.", "Which little word goes with an exact time?"],
+      "hints": [
+        "Seven o'clock is a clock time.",
+        "Think: on Monday, in June, ___ seven o'clock.",
+        "Which little word goes with an exact time?"
+      ],
       "explanation": "We use at with clock times: at seven o'clock."
     },
     {
-      "id": "e4.adverbials.005", "skill": "e4.adverbials", "type": "sort", "difficulty": 3,
+      "id": "e4.adverbials.005",
+      "skill": "e4.adverbials",
+      "type": "sort",
+      "difficulty": 3,
       "prompt": "Sort the adverbs. Do they tell how, when or where?",
-      "groups": ["How", "When", "Where"],
-      "items": [
-        { "text": "quietly", "group": 0 }, { "text": "carefully", "group": 0 }, { "text": "loudly", "group": 0 },
-        { "text": "yesterday", "group": 1 }, { "text": "soon", "group": 1 }, { "text": "tomorrow", "group": 1 },
-        { "text": "outside", "group": 2 }, { "text": "upstairs", "group": 2 }, { "text": "nearby", "group": 2 }
+      "groups": [
+        "How",
+        "When",
+        "Where"
       ],
-      "hints": ["Put each word in a sentence: We played ___.", "Words ending in -ly often tell how.", "Start with yesterday. Does it tell how, when or where?"],
+      "items": [
+        {
+          "text": "quietly",
+          "group": 0
+        },
+        {
+          "text": "carefully",
+          "group": 0
+        },
+        {
+          "text": "loudly",
+          "group": 0
+        },
+        {
+          "text": "yesterday",
+          "group": 1
+        },
+        {
+          "text": "soon",
+          "group": 1
+        },
+        {
+          "text": "tomorrow",
+          "group": 1
+        },
+        {
+          "text": "outside",
+          "group": 2
+        },
+        {
+          "text": "upstairs",
+          "group": 2
+        },
+        {
+          "text": "nearby",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Put each word in a sentence: We played ___.",
+        "Words ending in -ly often tell how.",
+        "Start with yesterday. Does it tell how, when or where?"
+      ],
       "explanation": "Quietly, carefully and loudly tell how. Yesterday, soon and tomorrow tell when. Outside, upstairs and nearby tell where."
     },
     {
-      "id": "e4.adverbials.006", "skill": "e4.adverbials", "type": "mcq", "difficulty": 2,
+      "id": "e4.adverbials.006",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Where should the comma go?\nAfter lunch we played chess.",
       "options": [
-        { "text": "After, lunch we played chess.", "why": "After lunch is one phrase. Do not split it." },
-        { "text": "After lunch, we played chess." },
-        { "text": "After lunch we, played chess.", "why": "The comma goes at the end of the fronted adverbial." },
-        { "text": "After lunch we played, chess.", "why": "Chess is part of the main sentence." }
+        {
+          "text": "After, lunch we played chess.",
+          "why": "After lunch is one phrase. Do not split it."
+        },
+        {
+          "text": "After lunch, we played chess."
+        },
+        {
+          "text": "After lunch we, played chess.",
+          "why": "The comma goes at the end of the fronted adverbial."
+        },
+        {
+          "text": "After lunch we played, chess.",
+          "why": "Chess is part of the main sentence."
+        }
       ],
       "answer": 1,
-      "hints": ["After lunch tells you when.", "It has been moved to the front of the sentence.", "Put the comma straight after the words that tell you when."],
+      "hints": [
+        "After lunch tells you when.",
+        "It has been moved to the front of the sentence.",
+        "Put the comma straight after the words that tell you when."
+      ],
       "explanation": "After lunch is a fronted adverbial. A comma goes straight after it: After lunch, we played chess.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.adverbials.007", "skill": "e4.adverbials", "type": "mcq", "difficulty": 3,
+      "id": "e4.adverbials.007",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which sentence starts with a fronted adverbial?",
       "options": [
-        { "text": "Kadek fed the chickens before breakfast.", "why": "Before breakfast is at the end, not the front." },
-        { "text": "The chickens were hungry.", "why": "This sentence has no adverbial at the front." },
-        { "text": "Kadek and the chickens.", "why": "This is not a full sentence." },
-        { "text": "Before breakfast, Kadek fed the chickens." }
+        {
+          "text": "Kadek fed the chickens before breakfast.",
+          "why": "Before breakfast is at the end, not the front."
+        },
+        {
+          "text": "The chickens were hungry.",
+          "why": "This sentence has no adverbial at the front."
+        },
+        {
+          "text": "Kadek and the chickens.",
+          "why": "This is not a full sentence."
+        },
+        {
+          "text": "Before breakfast, Kadek fed the chickens."
+        }
       ],
       "answer": 3,
-      "hints": ["A fronted adverbial is at the start of the sentence.", "It tells you when, where or how.", "Look for a phrase with a comma after it, at the start."],
+      "hints": [
+        "A fronted adverbial is at the start of the sentence.",
+        "It tells you when, where or how.",
+        "Look for a phrase with a comma after it, at the start."
+      ],
       "explanation": "Before breakfast tells us when. It comes at the front of the sentence, followed by a comma."
     },
     {
-      "id": "e4.adverbials.008", "skill": "e4.adverbials", "type": "text", "difficulty": 3,
+      "id": "e4.adverbials.008",
+      "skill": "e4.adverbials",
+      "type": "text",
+      "difficulty": 3,
       "prompt": "Copy the words that tell you where.\nThe ball rolled under the car.",
-      "blanks": [{ "answers": ["under the car"] }],
-      "hints": ["Where did the ball roll?", "Find the preposition first.", "Copy the preposition and the words that go with it."],
+      "blanks": [
+        {
+          "answers": [
+            "under the car"
+          ]
+        }
+      ],
+      "hints": [
+        "Where did the ball roll?",
+        "Find the preposition first.",
+        "Copy the preposition and the words that go with it."
+      ],
       "explanation": "Under the car is a prepositional phrase. It tells us where the ball rolled."
     },
     {
-      "id": "e4.adverbials.009", "skill": "e4.adverbials", "type": "multi", "difficulty": 4,
+      "id": "e4.adverbials.009",
+      "skill": "e4.adverbials",
+      "type": "multi",
+      "difficulty": 4,
       "prompt": "Choose all the sentences with the comma in the right place.",
       "options": [
-        { "text": "In the morning, the market is busy." },
-        { "text": "Slowly, the boat drifted away." },
-        { "text": "During the storm we, stayed inside.", "why": "The comma should go straight after storm." },
-        { "text": "Without a sound, the cat crept past." },
-        { "text": "On Saturday we went, swimming.", "why": "The comma should go straight after Saturday." }
+        {
+          "text": "In the morning, the market is busy."
+        },
+        {
+          "text": "Slowly, the boat drifted away."
+        },
+        {
+          "text": "During the storm we, stayed inside.",
+          "why": "The comma should go straight after storm."
+        },
+        {
+          "text": "Without a sound, the cat crept past."
+        },
+        {
+          "text": "On Saturday we went, swimming.",
+          "why": "The comma should go straight after Saturday."
+        }
       ],
-      "answers": [0, 1, 3],
-      "hints": ["Find the fronted adverbial in each sentence.", "The comma goes right after the fronted adverbial.", "Check the first sentence. Where does In the morning end?"],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "Find the fronted adverbial in each sentence.",
+        "The comma goes right after the fronted adverbial.",
+        "Check the first sentence. Where does In the morning end?"
+      ],
       "explanation": "In the morning, Slowly and Without a sound are fronted adverbials, and each one is followed by a comma."
     },
     {
-      "id": "e4.adverbials.010", "skill": "e4.adverbials", "type": "mcq", "difficulty": 3,
+      "id": "e4.adverbials.010",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Choose the best preposition.\nWe walked ___ the forest to reach the waterfall.",
       "options": [
-        { "text": "through" },
-        { "text": "between", "why": "Between needs two things, as in between the trees." },
-        { "text": "under", "why": "You cannot walk under a forest." },
-        { "text": "on", "why": "On the forest does not make sense." }
+        {
+          "text": "through"
+        },
+        {
+          "text": "between",
+          "why": "Between needs two things, as in between the trees."
+        },
+        {
+          "text": "under",
+          "why": "You cannot walk under a forest."
+        },
+        {
+          "text": "on",
+          "why": "On the forest does not make sense."
+        }
       ],
       "answer": 0,
-      "hints": ["Picture yourself walking in a forest.", "You go in on one side and come out on the other.", "Which word means from one side to the other, inside something?"],
+      "hints": [
+        "Picture yourself walking in a forest.",
+        "You go in on one side and come out on the other.",
+        "Which word means from one side to the other, inside something?"
+      ],
       "explanation": "Through means in one side and out of the other. We walked through the forest."
     },
     {
-      "id": "e4.adverbials.011", "skill": "e4.adverbials", "type": "order", "difficulty": 4,
+      "id": "e4.adverbials.011",
+      "skill": "e4.adverbials",
+      "type": "order",
+      "difficulty": 4,
       "prompt": "Make a sentence that starts with a fronted adverbial.",
-      "items": ["As the sun rose,", "the farmers", "opened the gates", "to the rice fields."],
-      "hints": ["Find the part with a comma after it.", "That part tells you when, and it goes first.", "After the comma, say who did the action."],
+      "items": [
+        "As the sun rose,",
+        "the farmers",
+        "opened the gates",
+        "to the rice fields."
+      ],
+      "hints": [
+        "Find the part with a comma after it.",
+        "That part tells you when, and it goes first.",
+        "After the comma, say who did the action."
+      ],
       "explanation": "As the sun rose is the fronted adverbial, so it goes first with a comma. Then comes the main clause: the farmers opened the gates to the rice fields."
     },
     {
-      "id": "e4.adverbials.012", "skill": "e4.adverbials", "type": "mcq", "difficulty": 5,
+      "id": "e4.adverbials.012",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Move the adverbial to the front. Which sentence is punctuated correctly?\nWe ate rice and soup at the end of a long, busy day.",
       "options": [
-        { "text": "At the end of a long busy day we, ate rice and soup.", "why": "The comma goes after day, not after we." },
-        { "text": "At the end, of a long, busy day we ate rice and soup.", "why": "Do not put a comma inside the adverbial after end." },
-        { "text": "At the end of a long, busy day, we ate rice and soup." },
-        { "text": "At the end of a long, busy day we ate, rice and soup.", "why": "Rice and soup belongs with ate. The comma should come after day." }
+        {
+          "text": "At the end of a long busy day we, ate rice and soup.",
+          "why": "The comma goes after day, not after we."
+        },
+        {
+          "text": "At the end, of a long, busy day we ate rice and soup.",
+          "why": "Do not put a comma inside the adverbial after end."
+        },
+        {
+          "text": "At the end of a long, busy day, we ate rice and soup."
+        },
+        {
+          "text": "At the end of a long, busy day we ate, rice and soup.",
+          "why": "Rice and soup belongs with ate. The comma should come after day."
+        }
       ],
       "answer": 2,
-      "hints": ["First find the adverbial. It tells you when.", "The adverbial is a long phrase. Do not break it up.", "Put a comma where the adverbial ends and the main sentence begins."],
+      "hints": [
+        "First find the adverbial. It tells you when.",
+        "The adverbial is a long phrase. Do not break it up.",
+        "Put a comma where the adverbial ends and the main sentence begins."
+      ],
       "explanation": "At the end of a long, busy day is the fronted adverbial. The comma after long is part of the phrase, and another comma goes after day.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e4.adverbials.013",
+      "skill": "e4.adverbials",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "Choose the best word.\nThe turtle moved ___ across the sand.",
+      "gaps": [
+        {
+          "options": [
+            "slow",
+            "slowly",
+            "slower"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "The missing word tells us how the turtle moved.",
+        "Words that say how an action is done often end in -ly.",
+        "Try each word in the sentence."
+      ],
+      "explanation": "Slowly is an adverb. It tells us how the turtle moved."
+    },
+    {
+      "id": "e4.adverbials.014",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word tells you when?\nYesterday, Rina visited her aunt.",
+      "options": [
+        {
+          "text": "Rina",
+          "why": "Rina is the person. It does not tell us when."
+        },
+        {
+          "text": "visited",
+          "why": "Visited is the action. It does not tell us when."
+        },
+        {
+          "text": "aunt",
+          "why": "Aunt is the person visited. It does not tell us when."
+        },
+        {
+          "text": "Yesterday"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "When means at what time.",
+        "Look for a word about time.",
+        "It is the first word of the sentence."
+      ],
+      "explanation": "Yesterday tells us when Rina visited her aunt."
+    },
+    {
+      "id": "e4.adverbials.015",
+      "skill": "e4.adverbials",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order. Start with the fronted adverbial.",
+      "answer": "Later that day, we flew kites.",
+      "distractors": [
+        "flying",
+        "then"
+      ],
+      "hints": [
+        "A fronted adverbial comes first and is followed by a comma.",
+        "Later that day is the adverbial.",
+        "The word with the comma goes before we."
+      ],
+      "explanation": "Later that day, tells us when. A comma follows it."
+    },
+    {
+      "id": "e4.adverbials.016",
+      "skill": "e4.adverbials",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Copy the fronted adverbial.\nBefore breakfast, Hadi fed the chickens.",
+      "blanks": [
+        {
+          "answers": [
+            "Before breakfast",
+            "Before breakfast,"
+          ]
+        }
+      ],
+      "hints": [
+        "The fronted adverbial comes before the comma.",
+        "It is at the very start of the sentence.",
+        "Copy the words that come before the comma."
+      ],
+      "explanation": "Before breakfast tells us when Hadi fed the chickens. It comes first, so it is fronted."
+    },
+    {
+      "id": "e4.adverbials.017",
+      "skill": "e4.adverbials",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Copy the preposition.\nThe frog jumped into the pond.",
+      "blanks": [
+        {
+          "answers": [
+            "into"
+          ]
+        }
+      ],
+      "hints": [
+        "A preposition tells where something is or goes.",
+        "Look for a small word before the pond.",
+        "The frog went in a direction."
+      ],
+      "explanation": "Into tells us where the frog jumped."
+    },
+    {
+      "id": "e4.adverbials.018",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where does the comma go?\nIn the morning mist rose from the river.",
+      "options": [
+        {
+          "text": "In, the morning mist rose from the river.",
+          "why": "In is only the first word of the adverbial. The comma goes after the whole phrase."
+        },
+        {
+          "text": "In the, morning mist rose from the river.",
+          "why": "This splits the phrase in the middle."
+        },
+        {
+          "text": "In the morning, mist rose from the river."
+        },
+        {
+          "text": "In the morning mist, rose from the river.",
+          "why": "Mist is the subject of the sentence, so it cannot be cut off from its verb."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the phrase that says when.",
+        "The comma goes at the end of that phrase.",
+        "The sentence is about mist rising. What is the subject?"
+      ],
+      "explanation": "In the morning is the fronted adverbial of time. The comma comes after it."
+    },
+    {
+      "id": "e4.adverbials.019",
+      "skill": "e4.adverbials",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each adverbial to the question it answers.",
+      "pairs": [
+        [
+          "Beside the old well",
+          "Where?"
+        ],
+        [
+          "Every Saturday",
+          "How often?"
+        ],
+        [
+          "With a loud cheer",
+          "How?"
+        ],
+        [
+          "At dawn",
+          "When?"
+        ]
+      ],
+      "hints": [
+        "There are four questions. Each answer fits one.",
+        "Think: is it a place, a time, a way or a number of times?",
+        "Every Saturday happens again and again."
+      ],
+      "explanation": "Each adverbial answers one question: place, how often, manner or time."
+    },
+    {
+      "id": "e4.adverbials.020",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which version is punctuated correctly?",
+      "options": [
+        {
+          "text": "Without a sound the cat, crept across the floor.",
+          "why": "The comma splits the subject from its verb."
+        },
+        {
+          "text": "Without a sound the cat crept, across the floor.",
+          "why": "The comma is in the wrong place."
+        },
+        {
+          "text": "Without a sound the cat crept across the floor,",
+          "why": "A comma at the end does not follow the fronted adverbial."
+        },
+        {
+          "text": "Without a sound, the cat crept across the floor."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the fronted adverbial first.",
+        "It is the opening phrase.",
+        "Put the comma right after the opening phrase."
+      ],
+      "explanation": "Without a sound is the fronted adverbial. The comma goes straight after it."
+    },
+    {
+      "id": "e4.adverbials.021",
+      "skill": "e4.adverbials",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Choose the best preposition for each gap.\nHadi hid ___ the curtain. Then he jumped ___ the table.",
+      "gaps": [
+        {
+          "options": [
+            "behind",
+            "between",
+            "among"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "into",
+            "onto",
+            "between"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Prepositions show where something is or goes.",
+        "A table has a flat top. Where would you jump?",
+        "You can hide behind a curtain, but not between just one curtain."
+      ],
+      "explanation": "Hadi hid behind the curtain and jumped onto the table."
+    },
+    {
+      "id": "e4.adverbials.022",
+      "skill": "e4.adverbials",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences. Do they start with a fronted adverbial?",
+      "groups": [
+        "Fronted adverbial first",
+        "Does not"
+      ],
+      "items": [
+        {
+          "text": "After school, Dewi swam.",
+          "group": 0
+        },
+        {
+          "text": "Dewi swam after school.",
+          "group": 1
+        },
+        {
+          "text": "Quickly, the boy ran home.",
+          "group": 0
+        },
+        {
+          "text": "The boy ran home quickly.",
+          "group": 1
+        },
+        {
+          "text": "At noon, the bell rang.",
+          "group": 0
+        },
+        {
+          "text": "The bell rang at noon.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A fronted adverbial comes before the subject.",
+        "In each pair, one sentence has it first.",
+        "Look for a comma after the first words."
+      ],
+      "explanation": "A fronted adverbial opens the sentence and is followed by a comma."
+    },
+    {
+      "id": "e4.adverbials.023",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sekar opened the box. Which adverbial tells us HOW?",
+      "options": [
+        {
+          "text": "After supper,",
+          "why": "This tells us when, not how."
+        },
+        {
+          "text": "With trembling fingers,"
+        },
+        {
+          "text": "Behind the door,",
+          "why": "This tells us where, not how."
+        },
+        {
+          "text": "Every evening,",
+          "why": "This tells us how often, not how."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How asks about the way something is done.",
+        "Cross out times, places and number of times.",
+        "Which phrase tells you about her hands?"
+      ],
+      "explanation": "With trembling fingers tells us the way Sekar opened the box."
+    },
+    {
+      "id": "e4.adverbials.024",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses a comma wrongly?",
+      "options": [
+        {
+          "text": "Later that night, the owls called.",
+          "why": "This is right. The comma follows the fronted adverbial."
+        },
+        {
+          "text": "Under the old bridge, a troll lived.",
+          "why": "This is right. The comma follows the fronted adverbial."
+        },
+        {
+          "text": "The owls called, later that night."
+        },
+        {
+          "text": "In the deep forest, the children sang.",
+          "why": "This is right. The comma follows the fronted adverbial."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A comma follows an adverbial only when it comes first.",
+        "Look for one where the adverbial comes at the end.",
+        "Check each sentence for a comma in the middle."
+      ],
+      "explanation": "When the adverbial comes at the end, no comma is needed before it. The owls called later that night."
+    },
+    {
+      "id": "e4.adverbials.025",
+      "skill": "e4.adverbials",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the sentences that begin with a fronted adverbial.",
+      "options": [
+        {
+          "text": "Carefully, Putri lifted the tray."
+        },
+        {
+          "text": "Putri carefully lifted the tray.",
+          "why": "Carefully is inside the sentence, not at the start."
+        },
+        {
+          "text": "At the end of the lane, a tiny shop sold sweets."
+        },
+        {
+          "text": "The tiny shop at the end of the lane sold sweets.",
+          "why": "The adverbial is inside the sentence, not at the start."
+        },
+        {
+          "text": "Early in the morning, the baker lit the oven."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "The fronted adverbial must be the first part of the sentence.",
+        "There should be a comma after it.",
+        "Look at each sentence beginning in turn."
+      ],
+      "explanation": "Carefully, At the end of the lane and Early in the morning all open their sentences and are followed by a comma."
+    },
+    {
+      "id": "e4.adverbials.026",
+      "skill": "e4.adverbials",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the cards in order. The sentence must start with a fronted adverbial.",
+      "items": [
+        "Along the muddy path,",
+        "the buffalo",
+        "pulled",
+        "a heavy cart."
+      ],
+      "hints": [
+        "The fronted adverbial comes first.",
+        "Then the subject, then the action.",
+        "Look for the card with a comma."
+      ],
+      "explanation": "Along the muddy path, the buffalo pulled a heavy cart. The adverbial tells where."
+    },
+    {
+      "id": "e4.adverbials.027",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read.\nBeneath the stairs, Ines found an old trunk. Gently, she lifted the lid. Inside, a map lay folded.\nHow many fronted adverbials are there?",
+      "options": [
+        {
+          "text": "1",
+          "why": "There are more than one. Look at the start of each sentence."
+        },
+        {
+          "text": "2",
+          "why": "Check the third sentence too."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "There are only three sentences, and each has one."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the start of each sentence.",
+        "A fronted adverbial is followed by a comma.",
+        "Count the commas that come after opening phrases."
+      ],
+      "explanation": "Beneath the stairs, Gently, and Inside, are all fronted adverbials. There are three."
+    },
+    {
+      "id": "e4.adverbials.028",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence has a fronted adverbial AND a second adverbial, with correct punctuation?",
+      "options": [
+        {
+          "text": "After the rain we played, happily in the garden.",
+          "why": "The comma is in the wrong place and is missing after rain."
+        },
+        {
+          "text": "After the rain, we played happily in the garden."
+        },
+        {
+          "text": "After the rain we played happily, in the garden.",
+          "why": "The comma is in the wrong place and is missing after rain."
+        },
+        {
+          "text": "After the rain, we, played happily in the garden.",
+          "why": "There is an extra comma between the subject and the verb."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the adverbial that comes first.",
+        "Check there is only one comma, and where it sits.",
+        "Then look for more adverbials after the verb."
+      ],
+      "explanation": "After the rain, is the fronted adverbial. Happily and in the garden are further adverbials."
+    },
+    {
+      "id": "e4.adverbials.029",
+      "skill": "e4.adverbials",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose the 2 adverbs.\nThe old man walked slowly and carefully across the bridge.",
+      "options": [
+        {
+          "text": "old",
+          "why": "Old is an adjective. It describes the man."
+        },
+        {
+          "text": "slowly"
+        },
+        {
+          "text": "across",
+          "why": "Across is a preposition."
+        },
+        {
+          "text": "carefully"
+        },
+        {
+          "text": "bridge",
+          "why": "Bridge is a noun."
+        }
+      ],
+      "answers": [
+        1,
+        3
+      ],
+      "hints": [
+        "An adverb tells more about a verb.",
+        "Ask: how did the old man walk?",
+        "Adverbs often end in -ly."
+      ],
+      "explanation": "Slowly and carefully tell us how the man walked. They are adverbs."
+    },
+    {
+      "id": "e4.adverbials.030",
+      "skill": "e4.adverbials",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Copy the adverb that tells how often.\nWe always visit Grandma on Sundays.",
+      "blanks": [
+        {
+          "answers": [
+            "always"
+          ]
+        }
+      ],
+      "hints": [
+        "Ask yourself: how often do they visit?",
+        "Look for a word that tells how many times.",
+        "It comes before the verb visit."
+      ],
+      "explanation": "Always tells how often we visit Grandma, so it is an adverb of frequency."
+    },
+    {
+      "id": "e4.adverbials.031",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Silently, the cat crept towards the bird.\n\nWhy does the writer use the adverb silently?",
+      "options": [
+        {
+          "text": "to tell us where the cat went",
+          "why": "Towards the bird tells where. Silently tells how."
+        },
+        {
+          "text": "to tell us how the cat moved"
+        },
+        {
+          "text": "to tell us when the cat moved",
+          "why": "The word is not about time."
+        },
+        {
+          "text": "to tell us how many cats there were",
+          "why": "The word does not show a number."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Adverbs tell more about verbs.",
+        "Which verb does silently describe?",
+        "Is it about how, when or where?"
+      ],
+      "explanation": "Silently tells us how the cat crept. It helps the reader imagine the cat moving without a sound."
+    },
+    {
+      "id": "e4.adverbials.801",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word quickly is an adverb in the sentence \"He ran quickly\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which word says how?",
+        "It describes the verb ran.",
+        "Many adverbs end in ly."
+      ],
+      "explanation": "An adverb tells us how an action is done. Quickly tells us how he ran.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.adverbials.802",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word under is an adverb in the sentence \"The book is under the bed\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does under link to the noun bed?",
+        "Prepositions show place or position.",
+        "Under bed shows position."
+      ],
+      "explanation": "Under shows where the book is in relation to the bed, so it is a preposition.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.adverbials.803",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the sentence \"Later that day, we went home\", a comma follows the fronted adverbial.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the phrase at the start.",
+        "It tells when.",
+        "A comma follows it."
+      ],
+      "explanation": "A fronted adverbial comes at the start of a sentence and is followed by a comma.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.adverbials.804",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A fronted adverbial always comes at the end of a sentence.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the word fronted.",
+        "Fronted means at the front.",
+        "It goes first."
+      ],
+      "explanation": "A fronted adverbial comes at the front of the sentence, before the main clause.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.adverbials.805",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word beside is a preposition in the sentence \"The cat sat beside the door\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where is the cat?",
+        "Beside links the cat to the door.",
+        "It shows position."
+      ],
+      "explanation": "A preposition shows where something is in relation to a noun. Beside shows the position of the cat next to the door.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

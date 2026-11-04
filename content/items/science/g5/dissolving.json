@@ -7,16 +7,43 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort the materials into soluble and insoluble in water.",
-      "groups": ["Soluble (dissolves)", "Insoluble (does not dissolve)"],
+      "groups": [
+        "Soluble (dissolves)",
+        "Insoluble (does not dissolve)"
+      ],
       "items": [
-        { "text": "sugar", "group": 0 },
-        { "text": "salt", "group": 0 },
-        { "text": "instant coffee", "group": 0 },
-        { "text": "sand", "group": 1 },
-        { "text": "chalk", "group": 1 },
-        { "text": "flour", "group": 1 },
-        { "text": "iron filings", "group": 1 },
-        { "text": "glass marbles", "group": 1 }
+        {
+          "text": "sugar",
+          "group": 0
+        },
+        {
+          "text": "salt",
+          "group": 0
+        },
+        {
+          "text": "instant coffee",
+          "group": 0
+        },
+        {
+          "text": "sand",
+          "group": 1
+        },
+        {
+          "text": "chalk",
+          "group": 1
+        },
+        {
+          "text": "flour",
+          "group": 1
+        },
+        {
+          "text": "iron filings",
+          "group": 1
+        },
+        {
+          "text": "glass marbles",
+          "group": 1
+        }
       ],
       "hints": [
         "A soluble material seems to disappear when you stir it into water.",
@@ -32,10 +59,22 @@
       "difficulty": 1,
       "prompt": "Match each word to its meaning.",
       "pairs": [
-        ["solute", "the solid that dissolves"],
-        ["solvent", "the liquid that does the dissolving"],
-        ["solution", "the mixture made when a solid dissolves"],
-        ["insoluble", "does not dissolve"]
+        [
+          "solute",
+          "the solid that dissolves"
+        ],
+        [
+          "solvent",
+          "the liquid that does the dissolving"
+        ],
+        [
+          "solution",
+          "the mixture made when a solid dissolves"
+        ],
+        [
+          "insoluble",
+          "does not dissolve"
+        ]
       ],
       "hints": [
         "In salty water, the salt is one part and the water is another part.",
@@ -51,10 +90,21 @@
       "difficulty": 2,
       "prompt": "Mira stirs sugar into warm water. The sugar seems to disappear. What has happened to it?",
       "options": [
-        { "text": "It has melted.", "why": "Melting needs heat to turn one solid into a liquid on its own. Sugar in water dissolves." },
-        { "text": "It has gone forever.", "why": "The sugar is still there. You can taste it, and you can get it back by evaporating the water." },
-        { "text": "It has broken into pieces too small to see, spread through the water." },
-        { "text": "It has turned into water.", "why": "The sugar does not change into water. It mixes with the water." }
+        {
+          "text": "It has melted.",
+          "why": "Melting needs heat to turn one solid into a liquid on its own. Sugar in water dissolves."
+        },
+        {
+          "text": "It has gone forever.",
+          "why": "The sugar is still there. You can taste it, and you can get it back by evaporating the water."
+        },
+        {
+          "text": "It has broken into pieces too small to see, spread through the water."
+        },
+        {
+          "text": "It has turned into water.",
+          "why": "The sugar does not change into water. It mixes with the water."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -71,13 +121,29 @@
       "difficulty": 2,
       "prompt": "Choose 2 ways to make sugar dissolve faster.",
       "options": [
-        { "text": "stir the water" },
-        { "text": "use warmer water" },
-        { "text": "use bigger lumps of sugar", "why": "Bigger lumps dissolve more slowly. Smaller grains dissolve faster." },
-        { "text": "use colder water", "why": "Sugar dissolves more slowly in cold water." },
-        { "text": "put a lid on the glass", "why": "A lid does not change how fast sugar dissolves." }
+        {
+          "text": "stir the water"
+        },
+        {
+          "text": "use warmer water"
+        },
+        {
+          "text": "use bigger lumps of sugar",
+          "why": "Bigger lumps dissolve more slowly. Smaller grains dissolve faster."
+        },
+        {
+          "text": "use colder water",
+          "why": "Sugar dissolves more slowly in cold water."
+        },
+        {
+          "text": "put a lid on the glass",
+          "why": "A lid does not change how fast sugar dissolves."
+        }
       ],
-      "answers": [0, 1],
+      "answers": [
+        0,
+        1
+      ],
       "hints": [
         "Think about how you make sugar dissolve in a cup of tea quickly.",
         "Moving the water and heating the water both help the sugar to mix in.",
@@ -100,10 +166,19 @@
       ],
       "explanation": "Dissolving does not destroy the salt, so its mass is still there. 200 g + 20 g = 220 g of salt solution.",
       "solution": [
-        { "say": "The salt dissolves, but it does not disappear. Its mass is still in the glass.", "show": "No mass is lost" },
-        { "say": "Add the mass of the water and the mass of the salt.", "show": "200 g + 20 g = 220 g" }
+        {
+          "say": "The salt dissolves, but it does not disappear. Its mass is still in the glass.",
+          "show": "No mass is lost"
+        },
+        {
+          "say": "Add the mass of the water and the mass of the salt.",
+          "show": "200 g + 20 g = 220 g"
+        }
       ],
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.dissolving.006",
@@ -113,8 +188,18 @@
       "prompt": "Ahmad times how long a spoonful of sugar takes to dissolve in water at different temperatures. What does the bar chart show?",
       "figure": {
         "kind": "bars",
-        "categories": ["20 °C", "40 °C", "60 °C", "80 °C"],
-        "values": [120, 75, 45, 25],
+        "categories": [
+          "20 °C",
+          "40 °C",
+          "60 °C",
+          "80 °C"
+        ],
+        "values": [
+          120,
+          75,
+          45,
+          25
+        ],
         "axisMax": 140,
         "step": 20,
         "yLabel": "Time to dissolve (seconds)",
@@ -122,10 +207,21 @@
         "alt": "Bar chart of time for sugar to dissolve: 120 seconds at 20 °C, 75 seconds at 40 °C, 45 seconds at 60 °C and 25 seconds at 80 °C."
       },
       "options": [
-        { "text": "The hotter the water, the slower the sugar dissolves.", "why": "The bars get shorter as the water gets hotter, so dissolving takes less time." },
-        { "text": "Sugar does not dissolve in cold water.", "why": "At 20 °C the sugar still dissolved. It just took longer." },
-        { "text": "Temperature makes no difference.", "why": "The times are very different at each temperature." },
-        { "text": "The hotter the water, the faster the sugar dissolves." }
+        {
+          "text": "The hotter the water, the slower the sugar dissolves.",
+          "why": "The bars get shorter as the water gets hotter, so dissolving takes less time."
+        },
+        {
+          "text": "Sugar does not dissolve in cold water.",
+          "why": "At 20 °C the sugar still dissolved. It just took longer."
+        },
+        {
+          "text": "Temperature makes no difference.",
+          "why": "The times are very different at each temperature."
+        },
+        {
+          "text": "The hotter the water, the faster the sugar dissolves."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -142,10 +238,21 @@
       "difficulty": 3,
       "prompt": "Which of these is dissolving, not melting?",
       "options": [
-        { "text": "butter turning to liquid in a hot pan", "why": "Heat turns the butter from a solid into a liquid on its own. That is melting." },
-        { "text": "coffee granules mixing into hot water" },
-        { "text": "ice turning to water in the sun", "why": "That is melting. Only one material is involved." },
-        { "text": "chocolate going soft in your hand", "why": "Warmth from your hand melts the chocolate." }
+        {
+          "text": "butter turning to liquid in a hot pan",
+          "why": "Heat turns the butter from a solid into a liquid on its own. That is melting."
+        },
+        {
+          "text": "coffee granules mixing into hot water"
+        },
+        {
+          "text": "ice turning to water in the sun",
+          "why": "That is melting. Only one material is involved."
+        },
+        {
+          "text": "chocolate going soft in your hand",
+          "why": "Warmth from your hand melts the chocolate."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -162,10 +269,21 @@
       "difficulty": 4,
       "prompt": "Arif keeps adding salt to a glass of water and stirring. Soon, salt stays at the bottom however long he stirs. Why?",
       "options": [
-        { "text": "The water cannot dissolve any more salt, so the solution is saturated." },
-        { "text": "The salt has turned into sand.", "why": "The salt is still salt. It stops dissolving because the water cannot hold any more." },
-        { "text": "Stirring has made the salt insoluble.", "why": "Stirring helps salt dissolve faster. It does not stop it dissolving." },
-        { "text": "All the water has evaporated.", "why": "The water is still in the glass. It simply cannot hold any more salt at this temperature." }
+        {
+          "text": "The water cannot dissolve any more salt, so the solution is saturated."
+        },
+        {
+          "text": "The salt has turned into sand.",
+          "why": "The salt is still salt. It stops dissolving because the water cannot hold any more."
+        },
+        {
+          "text": "Stirring has made the salt insoluble.",
+          "why": "Stirring helps salt dissolve faster. It does not stop it dissolving."
+        },
+        {
+          "text": "All the water has evaporated.",
+          "why": "The water is still in the glass. It simply cannot hold any more salt at this temperature."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -174,7 +292,9 @@
         "Cross out the choices that say the salt or the water has changed into something else."
       ],
       "explanation": "A glass of water can only dissolve a certain amount of salt. When no more will dissolve, the solution is saturated, and any extra salt stays at the bottom.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.dissolving.009",
@@ -184,10 +304,22 @@
       "prompt": "Ana says that sugar melts in tea. Is she right? Explain the difference between melting and dissolving, with an example of each.",
       "rubric": {
         "criteria": [
-          { "label": "Says that sugar dissolves in tea", "points": 1 },
-          { "label": "Explains dissolving: a solid spreads through a liquid", "points": 2 },
-          { "label": "Explains melting: heat turns one solid into a liquid", "points": 2 },
-          { "label": "Gives a correct example of each", "points": 1 }
+          {
+            "label": "Says that sugar dissolves in tea",
+            "points": 1
+          },
+          {
+            "label": "Explains dissolving: a solid spreads through a liquid",
+            "points": 2
+          },
+          {
+            "label": "Explains melting: heat turns one solid into a liquid",
+            "points": 2
+          },
+          {
+            "label": "Gives a correct example of each",
+            "points": 1
+          }
         ]
       },
       "minWords": 30,
@@ -219,11 +351,868 @@
       ],
       "explanation": "250 g of water is 2.5 times 100 g, so it can dissolve 2.5 × 36 g = 90 g of salt. Any salt beyond this would stay undissolved.",
       "solution": [
-        { "say": "100 g of water dissolves 36 g of salt, so 200 g of water dissolves twice as much.", "show": "36 g × 2 = 72 g" },
-        { "say": "50 g of water is half of 100 g, so it dissolves half of 36 g.", "show": "36 g ÷ 2 = 18 g" },
-        { "say": "Add the two parts together.", "show": "72 g + 18 g = 90 g" }
+        {
+          "say": "100 g of water dissolves 36 g of salt, so 200 g of water dissolves twice as much.",
+          "show": "36 g × 2 = 72 g"
+        },
+        {
+          "say": "50 g of water is half of 100 g, so it dissolves half of 36 g.",
+          "show": "36 g ÷ 2 = 18 g"
+        },
+        {
+          "say": "Add the two parts together.",
+          "show": "72 g + 18 g = 90 g"
+        }
       ],
-      "tags": ["imso"]
+      "tags": [
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.dissolving.011",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Mira stirs salt into water until the water is clear. In this mixture, which is the solvent?",
+      "options": [
+        {
+          "text": "The water"
+        },
+        {
+          "text": "The salt",
+          "why": "The salt is the solid that dissolves, called the solute."
+        },
+        {
+          "text": "The salty water",
+          "why": "The salty water is the whole mixture, called the solution."
+        },
+        {
+          "text": "The spoon",
+          "why": "The spoon is not part of the mixture."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The solvent is the liquid that does the dissolving.",
+        "Salt is a solid.",
+        "Find the liquid in the question."
+      ],
+      "explanation": "Water is the solvent because it dissolves the salt. The salt is the solute and the mixture is the solution."
+    },
+    {
+      "id": "s5.dissolving.012",
+      "skill": "s5.dissolving",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Salt dissolves in water, so we say that salt is ___ in water.",
+      "blanks": [
+        {
+          "answers": [
+            "soluble"
+          ]
+        }
+      ],
+      "hints": [
+        "Some materials dissolve and some do not.",
+        "The opposite word is insoluble.",
+        "The word starts with s."
+      ],
+      "explanation": "A material that dissolves is soluble. A material that does not dissolve is insoluble."
+    },
+    {
+      "id": "s5.dissolving.013",
+      "skill": "s5.dissolving",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The table shows how much of each solid dissolves in 100 mL of water in a test. How many more grams of sugar than salt dissolve?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Solid",
+          "Mass that dissolves in 100 mL of water (g)"
+        ],
+        "rows": [
+          [
+            "Sugar",
+            "200"
+          ],
+          [
+            "Salt",
+            "36"
+          ],
+          [
+            "Baking soda",
+            "9"
+          ],
+          [
+            "Chalk",
+            "0"
+          ]
+        ],
+        "alt": "Table of the mass that dissolves in 100 millilitres of water: sugar 200 grams, salt 36 grams, baking soda 9 grams, chalk 0 grams."
+      },
+      "answer": 164,
+      "unit": "g",
+      "hints": [
+        "Find the sugar row and the salt row.",
+        "You need the difference between the two amounts.",
+        "Subtract the salt mass from the sugar mass."
+      ],
+      "explanation": "200 - 36 = 164 g more sugar than salt dissolves."
+    },
+    {
+      "id": "s5.dissolving.014",
+      "skill": "s5.dissolving",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Joko dissolves 40 g of sugar in 250 g of water. What is the mass of the sugar solution?",
+      "answer": 290,
+      "unit": "g",
+      "hints": [
+        "Nothing is lost when a solid dissolves.",
+        "Think of the mass of water plus the mass of sugar.",
+        "Add the two masses."
+      ],
+      "explanation": "250 + 40 = 290 g. The mass of the solution equals the mass of the water plus the mass of the sugar."
+    },
+    {
+      "id": "s5.dissolving.015",
+      "skill": "s5.dissolving",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Tom tests how water temperature affects how fast sugar dissolves. Choose 3 things he must keep the same.",
+      "options": [
+        {
+          "text": "The volume of water"
+        },
+        {
+          "text": "The mass of sugar"
+        },
+        {
+          "text": "How much he stirs"
+        },
+        {
+          "text": "The temperature of the water"
+        },
+        {
+          "text": "The time taken to dissolve"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "One thing is changed and one is measured.",
+        "The rest must stay the same.",
+        "Cross out the temperature and the time taken."
+      ],
+      "explanation": "Temperature is the thing changed and time is measured. Water volume, sugar mass and stirring are kept the same."
+    },
+    {
+      "id": "s5.dissolving.016",
+      "skill": "s5.dissolving",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Dewi times how long the same mass of sugar takes to dissolve in warm water. How many times as quickly does icing sugar dissolve as a sugar cube?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Type of sugar",
+          "Time to dissolve (s)"
+        ],
+        "rows": [
+          [
+            "Sugar cube",
+            "120"
+          ],
+          [
+            "Granulated sugar",
+            "60"
+          ],
+          [
+            "Icing sugar",
+            "20"
+          ]
+        ],
+        "alt": "Table of dissolving times: sugar cube 120 seconds, granulated sugar 60 seconds, icing sugar 20 seconds."
+      },
+      "answer": 6,
+      "hints": [
+        "Compare the cube time with the icing sugar time.",
+        "Divide the longer time by the shorter time.",
+        "120 divided by 20."
+      ],
+      "explanation": "120 / 20 = 6, so icing sugar dissolves 6 times as quickly. Smaller pieces have more surface touching the water."
+    },
+    {
+      "id": "s5.dissolving.017",
+      "skill": "s5.dissolving",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the changes into dissolving and melting.",
+      "groups": [
+        "Dissolving",
+        "Melting"
+      ],
+      "items": [
+        {
+          "text": "Coffee powder in hot milk",
+          "group": 0
+        },
+        {
+          "text": "Salt in soup",
+          "group": 0
+        },
+        {
+          "text": "Sugar in tea",
+          "group": 0
+        },
+        {
+          "text": "Chocolate on a sunny windowsill",
+          "group": 1
+        },
+        {
+          "text": "Butter on hot toast",
+          "group": 1
+        },
+        {
+          "text": "An ice lolly on a warm day",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Dissolving needs a liquid to dissolve in.",
+        "Melting is a solid turning to liquid when it gets warm.",
+        "Ask whether the solid mixes into a liquid or turns to liquid by itself."
+      ],
+      "explanation": "Dissolving happens when a solid mixes into a liquid. Melting happens when a solid is heated and turns into a liquid."
+    },
+    {
+      "id": "s5.dissolving.018",
+      "skill": "s5.dissolving",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps in order for a fair test of how fast sugar dissolves.",
+      "items": [
+        "Measure 100 mL of water into a beaker and record its temperature",
+        "Add one spoon of sugar and start the timer",
+        "Stir the water and stop the timer when no grains are left",
+        "Repeat the test and record each time"
+      ],
+      "hints": [
+        "Prepare the water first.",
+        "The timer starts when the sugar goes in.",
+        "Repeating comes last."
+      ],
+      "explanation": "Set up the water and record its temperature first, then add the sugar and time it. Repeating the test makes the results more reliable."
+    },
+    {
+      "id": "s5.dissolving.019",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Wulan weighs a cup with 200 g of water and 15 g of sugar on top: 215 g. After stirring until the water is clear, the scale still shows 215 g. What does this show?",
+      "options": [
+        {
+          "text": "The sugar is still in the water, even though we cannot see it."
+        },
+        {
+          "text": "The sugar changed into water.",
+          "why": "The mass of a solution is the water plus the sugar, so the sugar is still there."
+        },
+        {
+          "text": "The sugar disappeared and the scale is wrong.",
+          "why": "The scale is working. The mass stayed the same because the sugar is still there."
+        },
+        {
+          "text": "Dissolving makes things heavier.",
+          "why": "If it were heavier, the scale would show more than 215 g."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the mass before and after.",
+        "If something disappears, the mass would drop.",
+        "Ask what the unchanged mass tells you about the sugar."
+      ],
+      "explanation": "The mass did not change, so nothing was lost. The sugar broke into tiny pieces that spread through the water."
+    },
+    {
+      "id": "s5.dissolving.020",
+      "skill": "s5.dissolving",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "When sugar dissolves, its pieces become too ___ to see. You can get the sugar back by letting the water ___.",
+      "gaps": [
+        {
+          "options": [
+            "small",
+            "heavy",
+            "warm"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "evaporate",
+            "freeze",
+            "settle"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The sugar is still in the water.",
+        "Think about what is left in a dish after the water dries up.",
+        "What happens to water in a warm, dry place?"
+      ],
+      "explanation": "Dissolved sugar is in tiny pieces. When the water evaporates, the sugar is left behind."
+    },
+    {
+      "id": "s5.dissolving.021",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which of these makes a solution?",
+      "options": [
+        {
+          "text": "Stirring salt into water until it is clear"
+        },
+        {
+          "text": "Stirring sand into water",
+          "why": "Sand does not dissolve. It sinks to the bottom or makes the water cloudy."
+        },
+        {
+          "text": "Stirring flour into water",
+          "why": "Flour makes the water cloudy and settles. It does not dissolve."
+        },
+        {
+          "text": "Putting pebbles in water",
+          "why": "Pebbles do not dissolve at all."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A solution looks clear and the solid cannot be seen.",
+        "Which solid disappears into the water?",
+        "Think about which material is soluble."
+      ],
+      "explanation": "Salt dissolves in water to make a clear solution. Sand, flour and pebbles are insoluble."
+    },
+    {
+      "id": "s5.dissolving.022",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Amara puts the same spoon of sugar into a cup of water at 20 °C and a cup at 60 °C. Both are stirred the same. What will she see?",
+      "options": [
+        {
+          "text": "The sugar dissolves faster in the 20 °C water.",
+          "why": "Warmer water usually dissolves a solid faster, not slower."
+        },
+        {
+          "text": "The sugar dissolves at the same speed in both cups.",
+          "why": "Temperature changes how fast things dissolve."
+        },
+        {
+          "text": "The sugar dissolves faster in the 60 °C water."
+        },
+        {
+          "text": "The sugar does not dissolve in the 60 °C water.",
+          "why": "Sugar dissolves in warm water, usually faster than in cold."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about how you make a hot drink.",
+        "Does warm water make the sugar dissolve faster or slower?",
+        "Compare the two temperatures."
+      ],
+      "explanation": "Warm water dissolves most solids faster than cold water."
+    },
+    {
+      "id": "s5.dissolving.023",
+      "skill": "s5.dissolving",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of this dissolving test.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 92,
+            "y": 100,
+            "w": 136,
+            "h": 128,
+            "r": 6,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 50,
+            "w": 140,
+            "h": 180,
+            "r": 10,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                226
+              ],
+              [
+                128,
+                204
+              ],
+              [
+                150,
+                226
+              ]
+            ],
+            "closed": true,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                140,
+                226
+              ],
+              [
+                158,
+                210
+              ],
+              [
+                176,
+                226
+              ]
+            ],
+            "closed": true,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 22,
+            "x2": 176,
+            "y2": 182,
+            "tone": "warn",
+            "width": 5
+          },
+          {
+            "t": "ellipse",
+            "cx": 174,
+            "cy": 188,
+            "rx": 12,
+            "ry": 7,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A glass beaker half full of clear water. A spoon stands in the water. Small yellow crystals lie in two small heaps on the bottom of the beaker."
+      },
+      "labels": [
+        "spoon",
+        "water",
+        "undissolved sugar",
+        "beaker"
+      ],
+      "spots": [
+        {
+          "x": 61.3,
+          "y": 13.5
+        },
+        {
+          "x": 65.6,
+          "y": 46.2
+        },
+        {
+          "x": 40,
+          "y": 83.8
+        },
+        {
+          "x": 28.7,
+          "y": 57.7
+        }
+      ],
+      "extraLabels": [
+        "filter paper"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The solid on the bottom has not dissolved.",
+        "The beaker is the glass container."
+      ],
+      "explanation": "The spoon stirs the water. Some sugar has not dissolved, so it lies at the bottom of the beaker."
+    },
+    {
+      "id": "s5.dissolving.024",
+      "skill": "s5.dissolving",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the sugar that has not dissolved.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 92,
+            "y": 100,
+            "w": 136,
+            "h": 128,
+            "r": 6,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 50,
+            "w": 140,
+            "h": 180,
+            "r": 10,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                226
+              ],
+              [
+                128,
+                204
+              ],
+              [
+                150,
+                226
+              ]
+            ],
+            "closed": true,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                140,
+                226
+              ],
+              [
+                158,
+                210
+              ],
+              [
+                176,
+                226
+              ]
+            ],
+            "closed": true,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 22,
+            "x2": 176,
+            "y2": 182,
+            "tone": "warn",
+            "width": 5
+          },
+          {
+            "t": "ellipse",
+            "cx": 174,
+            "cy": 188,
+            "rx": 12,
+            "ry": 7,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A glass beaker half full of clear water. A spoon stands in the water. Small yellow crystals lie in two small heaps on the bottom of the beaker."
+      },
+      "regions": [
+        {
+          "label": "undissolved sugar",
+          "x": 40.6,
+          "y": 82.7,
+          "w": 26,
+          "h": 18
+        },
+        {
+          "label": "spoon",
+          "x": 57.8,
+          "y": 38.5,
+          "w": 10,
+          "h": 22
+        },
+        {
+          "label": "water",
+          "x": 33.8,
+          "y": 42.3,
+          "w": 20,
+          "h": 20
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Dissolved sugar cannot be seen.",
+        "Look for pieces you can see.",
+        "Look at the bottom of the beaker."
+      ],
+      "explanation": "The yellow crystals at the bottom are sugar that has not dissolved. Dissolved sugar is too small to see."
+    },
+    {
+      "id": "s5.dissolving.025",
+      "skill": "s5.dissolving",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Citra times how long salt takes to dissolve in water at 50 °C. One reading is odd. She ignores it and takes the mean of the rest. What is her mean time?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Test",
+          "Time to dissolve (s)"
+        ],
+        "rows": [
+          [
+            "1",
+            "31"
+          ],
+          [
+            "2",
+            "29"
+          ],
+          [
+            "3",
+            "58"
+          ],
+          [
+            "4",
+            "30"
+          ]
+        ],
+        "alt": "Table of dissolving times at 50 degrees: test 1 31 seconds, test 2 29 seconds, test 3 58 seconds, test 4 30 seconds."
+      },
+      "answer": 30,
+      "unit": "s",
+      "hints": [
+        "One reading is very different from the other three.",
+        "Leave out the odd reading.",
+        "Add the three similar readings and divide by 3."
+      ],
+      "explanation": "The 58 s reading is an anomaly. The mean of 31, 29 and 30 is 90 / 3 = 30 s."
+    },
+    {
+      "id": "s5.dissolving.801",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Sugar dissolves in water to make a solution.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you see the sugar afterwards?",
+        "It mixes in.",
+        "Dissolved sugar is in solution."
+      ],
+      "explanation": "The sugar spreads out into very tiny pieces that mix evenly with the water.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.802",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Sand dissolves in water if you stir it long enough.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does sand disappear?",
+        "What happens when you stop stirring?",
+        "Sand is insoluble."
+      ],
+      "explanation": "Sand is insoluble, so it does not dissolve. It stays as grains and settles at the bottom.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.803",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Stirring helps a solid to dissolve faster.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a spoon do?",
+        "Water gets moved around.",
+        "Stirring speeds it up."
+      ],
+      "explanation": "Stirring moves the dissolved parts away from the solid, so fresh water touches it and it dissolves quicker.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.804",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The mass of a solution is less than the mass of the water and the sugar added.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is the sugar still there?",
+        "Mass cannot just vanish.",
+        "The masses add up."
+      ],
+      "explanation": "The sugar is still in the solution, so the mass is the same as the sugar and water together. Dissolving does not make anything disappear.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.701",
+      "skill": "s5.dissolving",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The liquid that dissolves a solid is the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "solvent"
+          ]
+        }
+      ],
+      "hints": [
+        "In sugar water, it is the water.",
+        "The solid is the solute.",
+        "It starts with solv."
+      ],
+      "explanation": "The solvent is the liquid that dissolves the solid.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
+    },
+    {
+      "id": "s5.dissolving.702",
+      "skill": "s5.dissolving",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Sam stirred sugar into 100 ml of water at different temperatures until no more would dissolve. At 10 C, 3 spoons dissolved. At 30 C, 5 spoons. At 50 C, 7 spoons. At 70 C, 9 spoons.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many spoons dissolved at 50 C?",
+          "answer": 7,
+          "tolerance": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many more spoons dissolved at 70 C than at 10 C?",
+          "answer": 6,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the pattern?",
+          "options": [
+            {
+              "text": "Warmer water dissolves more sugar"
+            },
+            {
+              "text": "Cooler water dissolves more sugar"
+            },
+            {
+              "text": "Temperature makes no difference"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "What must be kept the same?",
+          "options": [
+            {
+              "text": "The temperature"
+            },
+            {
+              "text": "The spoons dissolved"
+            },
+            {
+              "text": "The volume of water"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Find the 50 C row.",
+        "9 take away 3.",
+        "Look at how the spoons change."
+      ],
+      "explanation": "7 spoons at 50 C. 9 - 3 = 6. Warmer water dissolves more. The volume of water stays the same.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

@@ -321,6 +321,591 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e6.paragraph-cohesion.011",
+      "skill": "e6.paragraph-cohesion",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "Bayu was hungry. ___, he made a sandwich. He liked cheese. ___, he did not like tomato.",
+      "gaps": [
+        {
+          "options": [
+            "Therefore",
+            "However",
+            "Meanwhile"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "Therefore",
+            "However",
+            "Meanwhile"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "A connective shows how two sentences are linked.",
+        "The first pair shows a result. The second pair shows a different side.",
+        "Hungry leads to making food. Liking cheese is different from disliking tomato."
+      ],
+      "explanation": "Therefore shows a result of being hungry. However shows a contrast between liking cheese and disliking tomato."
+    },
+    {
+      "id": "e6.paragraph-cohesion.012",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence would be the best ending for a paragraph about recycling at school?",
+      "options": [
+        {
+          "text": "So, by recycling every day, our school can help to protect the environment."
+        },
+        {
+          "text": "The canteen sells rice and noodles.",
+          "why": "This is a new idea and does not finish the paragraph."
+        },
+        {
+          "text": "Plastic bottles are made in many different shapes.",
+          "why": "This adds a fact but does not conclude the paragraph."
+        },
+        {
+          "text": "I like football on Fridays.",
+          "why": "This has nothing to do with recycling."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A concluding sentence sums up the main idea.",
+        "It usually links back to the topic sentence.",
+        "Look for the sentence that is about recycling and finishes the point."
+      ],
+      "explanation": "A concluding sentence ties the ideas together. This one returns to the topic of recycling and the purpose of the paragraph."
+    },
+    {
+      "id": "e6.paragraph-cohesion.013",
+      "skill": "e6.paragraph-cohesion",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the sentences in order to make a clear paragraph.",
+      "items": [
+        "Our school garden has become a busy place for learning.",
+        "At first, we cleared the weeds and dug the soil.",
+        "Next, we planted chillies, beans and spinach in neat rows.",
+        "Every morning, a different group waters the plants.",
+        "As a result, we now eat fresh vegetables at lunch."
+      ],
+      "hints": [
+        "Look for the sentence that introduces the main idea.",
+        "Then follow the time words: at first, next, every morning.",
+        "As a result belongs near the end."
+      ],
+      "explanation": "The topic sentence comes first. At first, Next and Every morning put the steps in order, and As a result gives the final effect."
+    },
+    {
+      "id": "e6.paragraph-cohesion.014",
+      "skill": "e6.paragraph-cohesion",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each connective to the job it does.",
+      "pairs": [
+        [
+          "Furthermore",
+          "adds an extra point"
+        ],
+        [
+          "Nevertheless",
+          "contrasts with what was said"
+        ],
+        [
+          "In conclusion",
+          "sums up the whole text"
+        ],
+        [
+          "Subsequently",
+          "shows what happened next"
+        ],
+        [
+          "Likewise",
+          "shows a similarity"
+        ],
+        [
+          "Otherwise",
+          "shows what would happen if not"
+        ]
+      ],
+      "hints": [
+        "Connectives tell the reader how ideas fit together.",
+        "Think of a sentence that could follow each one.",
+        "Start with In conclusion. Where in a text does it usually go?"
+      ],
+      "explanation": "Each connective has a clear job: adding, contrasting, summing up, showing sequence, showing similarity or showing a condition."
+    },
+    {
+      "id": "e6.paragraph-cohesion.015",
+      "skill": "e6.paragraph-cohesion",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the connectives by what they show.",
+      "groups": [
+        "Adding",
+        "Contrast",
+        "Cause and effect",
+        "Time"
+      ],
+      "items": [
+        {
+          "text": "In addition",
+          "group": 0
+        },
+        {
+          "text": "Moreover",
+          "group": 0
+        },
+        {
+          "text": "On the other hand",
+          "group": 1
+        },
+        {
+          "text": "Despite this",
+          "group": 1
+        },
+        {
+          "text": "Consequently",
+          "group": 2
+        },
+        {
+          "text": "Because of this",
+          "group": 2
+        },
+        {
+          "text": "Afterwards",
+          "group": 3
+        },
+        {
+          "text": "Meanwhile",
+          "group": 3
+        }
+      ],
+      "hints": [
+        "Ask what each connective does between two sentences.",
+        "Some add, some contrast, some give a result, some give time.",
+        "Start with Afterwards. Is it about time?"
+      ],
+      "explanation": "In addition and moreover add. On the other hand and despite this contrast. Consequently and because of this show a result. Afterwards and meanwhile show time."
+    },
+    {
+      "id": "e6.paragraph-cohesion.016",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: Rangga told Kofi that he had won the prize. Why is this sentence unclear, and how can it be fixed?",
+      "options": [
+        {
+          "text": "He could mean Rangga or Kofi. Use a name or rewrite it."
+        },
+        {
+          "text": "It has no verb. Add a verb.",
+          "why": "The sentence has verbs. The problem is the pronoun."
+        },
+        {
+          "text": "It is too long. Cut it in half.",
+          "why": "Length is not the problem here."
+        },
+        {
+          "text": "The word prize is wrong. Change it to gift.",
+          "why": "The noun is fine. The unclear word is he."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the word he.",
+        "Who could it be pointing to?",
+        "Try replacing he with each name in turn."
+      ],
+      "explanation": "He could refer to Rangga or to Kofi. Fix it by naming the person: Rangga told Kofi that Kofi had won the prize."
+    },
+    {
+      "id": "e6.paragraph-cohesion.017",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Paragraph 1 describes the problems caused by plastic bags. Paragraph 2 explains the solutions. Which sentence best begins paragraph 2?",
+      "options": [
+        {
+          "text": "Plastic bags are made from oil.",
+          "why": "This repeats the problem and does not link to solutions."
+        },
+        {
+          "text": "Many children like to ride bicycles.",
+          "why": "This does not link to the topic."
+        },
+        {
+          "text": "Fortunately, there are several simple ways to reduce the use of plastic bags."
+        },
+        {
+          "text": "In addition, plastic bags harm sea animals.",
+          "why": "In addition adds another problem, but paragraph 2 is about solutions."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The first sentence of a new paragraph links back and shows the new focus.",
+        "Paragraph 2 is about solutions.",
+        "Which sentence signals a change from problems to solutions?"
+      ],
+      "explanation": "Fortunately signals a change from problems to answers. It makes a smooth link between the paragraphs."
+    },
+    {
+      "id": "e6.paragraph-cohesion.018",
+      "skill": "e6.paragraph-cohesion",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write a connective that shows a result. Petrol has become more expensive. ___, many families now use bicycles.",
+      "blanks": [
+        {
+          "answers": [
+            "Therefore",
+            "As a result",
+            "Consequently",
+            "So",
+            "Because of this",
+            "For this reason"
+          ]
+        }
+      ],
+      "hints": [
+        "The second sentence is an effect of the first.",
+        "Use a connective, not a full sentence.",
+        "Try Therefore, As a result or Consequently."
+      ],
+      "explanation": "Expensive petrol is the cause and more bicycles is the effect, so you need a connective that shows a result."
+    },
+    {
+      "id": "e6.paragraph-cohesion.019",
+      "skill": "e6.paragraph-cohesion",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a sentence that shows two things happening at the same time. Use the cards.",
+      "answer": "Meanwhile, the other team waited outside.",
+      "distractors": [
+        "Previously",
+        "However"
+      ],
+      "hints": [
+        "One connective shows something happening at the same time.",
+        "The sentence starts with that connective and a comma.",
+        "The other team is the subject. The verb comes after it."
+      ],
+      "explanation": "Meanwhile shows two events happening together. The comma comes after it, and the rest forms a normal sentence."
+    },
+    {
+      "id": "e6.paragraph-cohesion.020",
+      "skill": "e6.paragraph-cohesion",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the sentences in order to make a cohesive paragraph about a lighthouse.",
+      "items": [
+        "The old lighthouse on the cliff has guided ships for over a hundred years.",
+        "Its tall tower holds a powerful lamp that can be seen from far out at sea.",
+        "However, the lamp is now controlled by a computer, not by a keeper.",
+        "Consequently, the keeper’s cottage stands empty.",
+        "Visitors can still walk inside it and imagine life there long ago."
+      ],
+      "hints": [
+        "The first sentence introduces the lighthouse.",
+        "Its in the second sentence points back to the lighthouse.",
+        "However introduces a change, and Consequently shows the result of that change."
+      ],
+      "explanation": "The topic sentence comes first, then its describes the tower. However gives a contrast, Consequently shows the effect, and the last sentence adds a final detail."
+    },
+    {
+      "id": "e6.paragraph-cohesion.021",
+      "skill": "e6.paragraph-cohesion",
+      "type": "match",
+      "difficulty": 4,
+      "prompt": "Match each sentence from the paragraph about bats to its job.",
+      "hints": [
+        "A topic sentence introduces the main idea.",
+        "Evidence gives a fact. Explanation says why the fact matters.",
+        "The last sentence usually sums up or gives advice."
+      ],
+      "explanation": "The first sentence introduces the idea, the second gives a fact, the third explains why it matters, and the last concludes.",
+      "pairs": [
+        [
+          "Bats are very useful animals.",
+          "topic sentence"
+        ],
+        [
+          "One bat can eat thousands of insects in a night.",
+          "evidence"
+        ],
+        [
+          "This helps farmers because fewer insects damage crops.",
+          "explanation"
+        ],
+        [
+          "So, we should protect bats and their homes.",
+          "conclusion"
+        ]
+      ]
+    },
+    {
+      "id": "e6.paragraph-cohesion.022",
+      "skill": "e6.paragraph-cohesion",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "We went to the market. We bought mangoes. We bought rice. We went home. Choose all the edits that would improve the flow.",
+      "options": [
+        {
+          "text": "Change mangoes to food.",
+          "why": "This makes the text vaguer and does not link the ideas."
+        },
+        {
+          "text": "Add Afterwards, before the last sentence."
+        },
+        {
+          "text": "Delete the word market.",
+          "why": "This removes information and does not help the flow."
+        },
+        {
+          "text": "Add First, at the start."
+        },
+        {
+          "text": "Change the third sentence to We also bought rice."
+        }
+      ],
+      "answers": [
+        1,
+        3,
+        4
+      ],
+      "hints": [
+        "Cohesion means the sentences link well.",
+        "Look for time words and words that add information.",
+        "Which edits show order and join the shopping ideas?"
+      ],
+      "explanation": "First and Afterwards show the order of events. Also links the two shopping sentences. The other edits do not help the flow."
+    },
+    {
+      "id": "e6.paragraph-cohesion.023",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which order makes the best paragraph? A: As a result, the pond slowly turned green and smelly. B: Last summer, a farm near our village began pouring extra fertiliser into the stream. C: That is why villagers now ask farmers to use less fertiliser. D: The fertiliser washed into the pond and made the algae grow wildly.",
+      "options": [
+        {
+          "text": "B, D, A, C"
+        },
+        {
+          "text": "B, A, D, C",
+          "why": "As a result in A must come after the cause, which is D."
+        },
+        {
+          "text": "D, B, A, C",
+          "why": "D uses the fertiliser before B has introduced it."
+        },
+        {
+          "text": "B, D, C, A",
+          "why": "C is the conclusion and should come last."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the sentence that introduces the topic. It has no linking word at the start.",
+        "As a result and That is why show effects, so they come after causes.",
+        "Put the cause (D) before the effect (A), and the conclusion last."
+      ],
+      "explanation": "B introduces the cause, D shows what happened, A is the result and C is the conclusion."
+    },
+    {
+      "id": "e6.paragraph-cohesion.024",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Read: The museum is free. ___, it is very crowded at weekends. ___, we usually go on weekdays. Which pair of connectives fits?",
+      "options": [
+        {
+          "text": "Therefore / However",
+          "why": "The first gap needs a contrast and the second a result."
+        },
+        {
+          "text": "Meanwhile / However",
+          "why": "The first gap is not about time and the second is not a contrast."
+        },
+        {
+          "text": "In addition / Meanwhile",
+          "why": "Neither shows the right contrast or result."
+        },
+        {
+          "text": "However / Therefore"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Work out how each pair of sentences is linked.",
+        "Free and crowded are a contrast. Crowded and weekdays is a result.",
+        "Fill the first gap with a contrast word."
+      ],
+      "explanation": "The first link is a contrast (free but crowded), so However. The second link is a result (because it is crowded, we go on weekdays), so Therefore."
+    },
+    {
+      "id": "e6.paragraph-cohesion.801",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A topic sentence tells the reader the main idea of a paragraph.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which sentence sums up the paragraph?",
+        "It usually comes at the start.",
+        "Topic means main idea."
+      ],
+      "explanation": "It usually comes first and the rest of the paragraph supports it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.paragraph-cohesion.802",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A new paragraph is needed for every sentence.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many ideas does a paragraph have?",
+        "Think of grouping sentences.",
+        "One idea per paragraph."
+      ],
+      "explanation": "A paragraph groups sentences about one idea, so a new paragraph begins with a new idea.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.paragraph-cohesion.803",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Connectives such as however and therefore link ideas between sentences.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do connecting words do?",
+        "However shows a difference.",
+        "They link ideas."
+      ],
+      "explanation": "However shows contrast and therefore shows a result.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.paragraph-cohesion.804",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Pronouns such as it and they can link sentences by referring back to a noun.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a pronoun stand for?",
+        "It points back.",
+        "It refers to a noun named earlier."
+      ],
+      "explanation": "A pronoun refers to a noun already named, which helps the text flow.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.paragraph-cohesion.805",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The words firstly and secondly show contrast between ideas.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count in order.",
+        "Which words show a difference?",
+        "They show sequence."
+      ],
+      "explanation": "Firstly and secondly show order. Contrast is shown by words such as however.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.paragraph-cohesion.806",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A new paragraph is usually started for a new topic, time or place.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What changes in a story when the scene changes?",
+        "Think of a new setting.",
+        "Change calls for a new paragraph."
+      ],
+      "explanation": "Paragraphs help the reader follow changes in a text.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

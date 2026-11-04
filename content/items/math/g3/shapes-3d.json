@@ -1,0 +1,57 @@
+{
+  "skill": "m3.shapes-3d",
+  "items": [
+    {
+      "id": "m3.shapes-3d.801",
+      "skill": "m3.shapes-3d",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A square based pyramid has 5 faces.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the base.",
+        "Count the triangle sides.",
+        "1 + 4 = 5."
+      ],
+      "explanation": "It has 1 square base and 4 triangle faces. 1 + 4 = 5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.shapes-3d.802",
+      "skill": "m3.shapes-3d",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A cuboid has 6 vertices.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the corners on the top.",
+        "Count the corners on the bottom.",
+        "4 + 4 = 8."
+      ],
+      "explanation": "A cuboid has 8 vertices, 4 on the top and 4 on the bottom. It has 6 faces.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

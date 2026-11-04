@@ -91,7 +91,7 @@
           "group": 0
         },
         {
-          "text": "metal",
+          "text": "wax",
           "group": 0
         },
         {
@@ -116,7 +116,7 @@
         "Think about what happens to each material in the rain.",
         "Start with paper. Does it keep water out?"
       ],
-      "explanation": "Plastic, rubber, glass and metal do not let water through, so they are waterproof. Paper, cotton, cardboard and sponge let water in or soak it up."
+      "explanation": "Plastic, rubber, glass and wax do not let water through, so they are waterproof. Paper, cotton, cardboard and sponge let water in or soak it up."
     },
     {
       "id": "s3.materials-properties.004",
@@ -379,7 +379,7 @@
       "skill": "s3.materials-properties",
       "type": "mcq",
       "difficulty": 5,
-      "prompt": "A material is hard, shiny and opaque. It rings when tapped. It bends a little without breaking. What is it most likely to be?",
+      "prompt": "A material is hard, shiny and opaque. It feels cold when you touch it. A thin sheet of it can be bent into shape. What is it most likely to be?",
       "options": [
         {
           "text": "glass",
@@ -387,7 +387,7 @@
         },
         {
           "text": "wood",
-          "why": "Wood is not shiny like this and does not ring when tapped."
+          "why": "Wood is not shiny like this and does not feel cold."
         },
         {
           "text": "metal"
@@ -400,10 +400,10 @@
       "answer": 2,
       "hints": [
         "Check each clue one at a time.",
-        "Which materials are shiny and ring like a bell?",
+        "Which materials are shiny and feel cold?",
         "Cross out any material that does not match a clue."
       ],
-      "explanation": "Metals are hard, shiny and opaque, and many ring when tapped. Thin metal can bend without breaking.",
+      "explanation": "Metals are hard, shiny and opaque. Many feel cold, and a thin sheet of metal can be bent into shape.",
       "tags": [
         "iksc",
         "olympiad"
@@ -577,14 +577,14 @@
         },
         {
           "text": "It soaks up water.",
-          "why": "It is waterproof."
+          "why": "Foil does not soak up water."
         },
         {
           "text": "It is transparent.",
           "why": "Foil is opaque."
         },
         {
-          "text": "It bends easily."
+          "text": "It folds tightly around food."
         }
       ],
       "answer": 3,
@@ -593,7 +593,7 @@
         "It does not break.",
         "Think of wrapping a sandwich."
       ],
-      "explanation": "Foil is thin and flexible, so it wraps around food easily."
+      "explanation": "Foil is thin and flexible, so it folds tightly around food."
     },
     {
       "id": "s3.materials-properties.018",
@@ -916,15 +916,15 @@
       "items": [
         "steel nail",
         "wooden block",
-        "sponge",
+        "rubber eraser",
         "cotton wool"
       ],
       "hints": [
         "Metal is hardest.",
         "Cotton wool squashes easily.",
-        "A sponge is softer than wood."
+        "A rubber eraser squashes more than wood."
       ],
-      "explanation": "A steel nail is the hardest. A wooden block is hard, a sponge is soft and cotton wool is the softest."
+      "explanation": "A steel nail is the hardest. A wooden block is hard, a rubber eraser is soft and cotton wool is the softest."
     },
     {
       "id": "s3.materials-properties.028",
@@ -1042,7 +1042,10 @@
           "type": "text",
           "prompt": "Which material tears when it is wet?",
           "answers": [
-            "paper"
+            "paper",
+            "the paper",
+            "paper bag",
+            "a paper bag"
           ],
           "caseSensitive": false
         }
@@ -1326,40 +1329,132 @@
       ]
     },
     {
-      "id": "s3.materials-properties.037",
+      "id": "s3.materials-properties.801",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Glass is transparent, so we can see through it.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a window.",
+        "Can you look through it?",
+        "Transparent means see through."
+      ],
+      "explanation": "Transparent means light passes through. That is why windows are made of glass.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.802",
       "skill": "s3.materials-properties",
       "type": "mcq",
       "difficulty": 2,
-      "prompt": "Four fabrics soak up 10, 30, 5 and 25 ml of water. Which is best for a towel?",
+      "prompt": "True or false: Rubber is a good material for making a metal saucepan.",
       "options": [
         {
-          "text": "the one that soaks up 5 ml",
-          "why": "It soaks up too little."
+          "text": "True"
         },
         {
-          "text": "the one that soaks up 10 ml",
-          "why": "It soaks up too little."
-        },
-        {
-          "text": "any of them",
-          "why": "Towels need to be absorbent."
-        },
-        {
-          "text": "the one that soaks up 30 ml"
+          "text": "False"
         }
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
-        "A towel dries you.",
-        "It should soak up a lot.",
-        "Find the biggest number."
+        "What happens to rubber in great heat?",
+        "Which material is hard and strong?",
+        "Saucepans are metal."
       ],
-      "explanation": "A towel should soak up as much water as possible. 30 ml is the most.",
+      "explanation": "Rubber is bendy and would melt or burn on a hot stove. Metals are used for saucepans because they are hard and let heat through.",
       "tags": [
-        "iksc",
-        "ksnr",
-        "reasoning"
-      ]
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.803",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A material that is waterproof does not let water pass through it.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a raincoat.",
+        "Does water soak in?",
+        "Waterproof keeps water out."
+      ],
+      "explanation": "Waterproof materials keep water out. A raincoat is made from one so that you stay dry.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.804",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Wood is a better material than plastic for making a see-through bottle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is wood opaque or transparent?",
+        "Which material lets light through?",
+        "Clear plastic is see through."
+      ],
+      "explanation": "You cannot see through wood because it is opaque. Clear plastic is transparent, so you can see what is inside.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.701",
+      "skill": "s3.materials-properties",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets light pass right through is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "transparent"
+          ]
+        }
+      ],
+      "hints": [
+        "You can see clearly through it.",
+        "Clear glass is one.",
+        "It starts with tr."
+      ],
+      "explanation": "Transparent materials let light through so you can see clearly through them.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

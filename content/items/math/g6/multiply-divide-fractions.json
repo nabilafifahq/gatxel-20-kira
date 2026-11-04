@@ -1,0 +1,207 @@
+{
+  "skill": "m6.multiply-divide-fractions",
+  "items": [
+    {
+      "id": "m6.multiply-divide-fractions.001",
+      "skill": "m6.multiply-divide-fractions",
+      "difficulty": 4,
+      "prompt": "Citra has Rp240.000. She spends 3/8 of it on books. She then spends 1/4 of what is left on snacks. How many rupiah does she have now?",
+      "hints": [
+        "Find 3/8 of Rp240.000 first.",
+        "240.000 ÷ 8 = 30.000, so 3/8 is 90.000.",
+        "Then find 1/4 of what is left and take that away."
+      ],
+      "explanation": "3/8 of 240.000 is 90.000, leaving 150.000. 1/4 of 150.000 is 37.500. She has 150.000 − 37.500 = Rp112.500.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 112500
+    },
+    {
+      "id": "m6.multiply-divide-fractions.002",
+      "skill": "m6.multiply-divide-fractions",
+      "difficulty": 3,
+      "prompt": "How many bottles of 2/3 litre can be filled from 6 litres of juice?",
+      "hints": [
+        "Count how many 2/3s fit into 6.",
+        "There are 3 thirds in every litre.",
+        "6 litres is 18 thirds. How many groups of 2 thirds?"
+      ],
+      "explanation": "6 ÷ 2/3 = 6 × 3/2 = 9. So 9 bottles can be filled.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "4",
+          "why": "You found 2/3 of 6. We need the number of 2/3s inside 6."
+        },
+        {
+          "text": "6",
+          "why": "Each bottle holds less than 1 litre, so more than 6 bottles can be filled."
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "3",
+          "why": "You may have divided 6 by 2 and ignored the 3 in the denominator."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.multiply-divide-fractions.003",
+      "skill": "m6.multiply-divide-fractions",
+      "difficulty": 4,
+      "prompt": "Sekar eats 3/4 of the 2/5 of a cake that was left in the fridge. What fraction of the whole cake did she eat?",
+      "hints": [
+        "Find 3/4 of 2/5, which means multiply.",
+        "Multiply the numerators and then the denominators.",
+        "3 × 2 over 4 × 5. Then simplify."
+      ],
+      "explanation": "3/4 × 2/5 = 6/20, which simplifies to 3/10.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "3/10",
+            "6/20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.multiply-divide-fractions.801",
+      "skill": "m6.multiply-divide-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 3/5 × 10 = 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find one fifth of 10.",
+        "Multiply by 3.",
+        "10 ÷ 5."
+      ],
+      "explanation": "10 ÷ 5 = 2 and 2 × 3 = 6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.multiply-divide-fractions.802",
+      "skill": "m6.multiply-divide-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1/2 ÷ 4 = 2.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Divide the half into 4 parts.",
+        "Each part is small.",
+        "The denominator is 2 × 4."
+      ],
+      "explanation": "Sharing half into 4 equal parts gives 1/8 each. 1/2 ÷ 4 = 1/8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.multiply-divide-fractions.701",
+      "skill": "m6.multiply-divide-fractions",
+      "difficulty": 3,
+      "prompt": "2/3 × 3/4 = ?",
+      "hints": [
+        "Multiply tops, then bottoms.",
+        "2 × 3 = 6 and 3 × 4 = 12.",
+        "Simplify 6/12."
+      ],
+      "explanation": "2/3 × 3/4 = 6/12, which simplifies to 1/2.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "1/2"
+        },
+        {
+          "text": "5/12"
+        },
+        {
+          "text": "6/7"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.multiply-divide-fractions.702",
+      "skill": "m6.multiply-divide-fractions",
+      "difficulty": 5,
+      "prompt": "Pak Bayu owns 3/4 of a hectare of land. He plants 2/3 of his land with chilli. 1 hectare is 10,000 square metres. Every 10 square metres of chilli gives 4 kg of chillies.",
+      "hints": [
+        "Multiply 3/4 by 2/3.",
+        "Half a hectare is half of 10,000.",
+        "How many lots of 10 m² are in the chilli area?"
+      ],
+      "explanation": "3/4 × 2/3 = 6/12 = 1/2 hectare. That is 5,000 m². There are 500 lots of 10 m², and 500 × 4 = 2,000 kg.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What fraction of a hectare does he plant with chilli?",
+          "options": [
+            {
+              "text": "1/2"
+            },
+            {
+              "text": "5/12"
+            },
+            {
+              "text": "2/7"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many square metres is the chilli area?",
+          "answer": 5000,
+          "unit": "m²"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many kilograms of chillies does the chilli area give?",
+          "answer": 2000,
+          "unit": "kg"
+        }
+      ]
+    }
+  ]
+}

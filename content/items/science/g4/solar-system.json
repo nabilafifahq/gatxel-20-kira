@@ -1,0 +1,668 @@
+{
+  "skill": "s4.solar-system",
+  "items": [
+    {
+      "id": "s4.solar-system.001",
+      "skill": "s4.solar-system",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What is the Sun?",
+      "options": [
+        {
+          "text": "a planet",
+          "why": "A planet travels around a star."
+        },
+        {
+          "text": "a star"
+        },
+        {
+          "text": "a moon",
+          "why": "A moon travels around a planet."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It makes its own light.",
+        "It is very hot.",
+        "There are millions of others far away."
+      ],
+      "explanation": "The Sun is a star that gives out light and heat."
+    },
+    {
+      "id": "s4.solar-system.002",
+      "skill": "s4.solar-system",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "How many planets are in our Solar System?",
+      "answer": 8,
+      "hints": [
+        "Count them from Mercury to Neptune.",
+        "It is more than six.",
+        "It is less than ten."
+      ],
+      "explanation": "There are eight planets in the Solar System."
+    },
+    {
+      "id": "s4.solar-system.003",
+      "skill": "s4.solar-system",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which planet is nearest to the Sun?",
+      "options": [
+        {
+          "text": "Neptune",
+          "why": "Neptune is the furthest planet."
+        },
+        {
+          "text": "Mercury"
+        },
+        {
+          "text": "Earth",
+          "why": "Earth is the third planet."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is the smallest planet.",
+        "It is very hot.",
+        "Its name starts with M."
+      ],
+      "explanation": "Mercury is the planet nearest the Sun."
+    },
+    {
+      "id": "s4.solar-system.004",
+      "skill": "s4.solar-system",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What do the planets travel around?",
+      "options": [
+        {
+          "text": "the Earth",
+          "why": "Only the Moon travels around the Earth."
+        },
+        {
+          "text": "the Sun"
+        },
+        {
+          "text": "the Moon",
+          "why": "The Moon travels around the Earth."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is at the centre.",
+        "It is a star.",
+        "It gives us daylight."
+      ],
+      "explanation": "All the planets travel around the Sun."
+    },
+    {
+      "id": "s4.solar-system.005",
+      "skill": "s4.solar-system",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which planet is the furthest from the Sun?",
+      "options": [
+        {
+          "text": "Mercury",
+          "why": "Mercury is the nearest."
+        },
+        {
+          "text": "Neptune"
+        },
+        {
+          "text": "Mars",
+          "why": "Mars is the fourth planet."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is the eighth planet.",
+        "It is very cold.",
+        "Its name starts with N."
+      ],
+      "explanation": "Neptune is the eighth and furthest planet from the Sun."
+    },
+    {
+      "id": "s4.solar-system.006",
+      "skill": "s4.solar-system",
+      "difficulty": 2,
+      "type": "order",
+      "prompt": "Put the first four planets in order, starting nearest the Sun.",
+      "items": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars"
+      ],
+      "hints": [
+        "Mercury is first.",
+        "Earth is third.",
+        "Mars is fourth."
+      ],
+      "explanation": "The order from the Sun is Mercury, Venus, Earth, Mars."
+    },
+    {
+      "id": "s4.solar-system.007",
+      "skill": "s4.solar-system",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which of these is a planet?",
+      "options": [
+        {
+          "text": "Sirius",
+          "why": "Sirius is a star."
+        },
+        {
+          "text": "Jupiter"
+        },
+        {
+          "text": "the Moon",
+          "why": "The Moon is a natural satellite."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is the biggest planet.",
+        "It is not a star.",
+        "It travels around the Sun."
+      ],
+      "explanation": "Jupiter is the biggest planet in the Solar System."
+    },
+    {
+      "id": "s4.solar-system.008",
+      "skill": "s4.solar-system",
+      "difficulty": 2,
+      "type": "text",
+      "prompt": "The Sun is at the ___ of the Solar System.",
+      "blanks": [
+        {
+          "answers": [
+            "centre",
+            "center",
+            "middle"
+          ]
+        }
+      ],
+      "hints": [
+        "The planets travel around it.",
+        "It is in the middle.",
+        "The word starts with c."
+      ],
+      "explanation": "The Sun is at the centre of the Solar System."
+    },
+    {
+      "id": "s4.solar-system.009",
+      "skill": "s4.solar-system",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What is an asteroid?",
+      "options": [
+        {
+          "text": "a ball of ice and dust with a long tail",
+          "why": "That describes a comet."
+        },
+        {
+          "text": "a lump of rock that travels around the Sun"
+        },
+        {
+          "text": "a star that is very far away",
+          "why": "Stars are not lumps of rock."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Most are in a belt between Mars and Jupiter.",
+        "They are made of rock or metal.",
+        "They are much smaller than planets."
+      ],
+      "explanation": "Asteroids are lumps of rock that travel around the Sun."
+    },
+    {
+      "id": "s4.solar-system.010",
+      "skill": "s4.solar-system",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What is a comet made of?",
+      "options": [
+        {
+          "text": "gas and fire",
+          "why": "Comets are not on fire."
+        },
+        {
+          "text": "ice and dust"
+        },
+        {
+          "text": "solid metal only",
+          "why": "Comets are mostly ice and dust."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It has a bright tail when near the Sun.",
+        "The tail is made of material that melts off.",
+        "Think of a dirty snowball."
+      ],
+      "explanation": "A comet is a ball of ice and dust. Near the Sun it grows a bright tail."
+    },
+    {
+      "id": "s4.solar-system.011",
+      "skill": "s4.solar-system",
+      "difficulty": 3,
+      "type": "sort",
+      "prompt": "Sort each object into the right group.",
+      "groups": [
+        "Star",
+        "Planet",
+        "Other"
+      ],
+      "items": [
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "Mars",
+          "group": 1
+        },
+        {
+          "text": "Saturn",
+          "group": 1
+        },
+        {
+          "text": "a comet",
+          "group": 2
+        },
+        {
+          "text": "an asteroid",
+          "group": 2
+        },
+        {
+          "text": "the Moon",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Stars make their own light.",
+        "Planets travel around the Sun.",
+        "Comets, asteroids and moons are not planets."
+      ],
+      "explanation": "The Sun is a star, Mars and Saturn are planets, and comets, asteroids and moons are other objects."
+    },
+    {
+      "id": "s4.solar-system.012",
+      "skill": "s4.solar-system",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which of these are found in the Solar System?",
+      "options": [
+        {
+          "text": "stars that are billions of kilometres away",
+          "why": "Other stars are outside the Solar System."
+        },
+        {
+          "text": "planets"
+        },
+        {
+          "text": "asteroids"
+        },
+        {
+          "text": "other galaxies",
+          "why": "Other galaxies are far beyond the Solar System."
+        }
+      ],
+      "answers": [
+        1,
+        2
+      ],
+      "hints": [
+        "The Solar System means the Sun and what travels around it.",
+        "Other stars are not part of it.",
+        "Planets and asteroids both travel around the Sun."
+      ],
+      "explanation": "The Solar System has the Sun, planets, asteroids, comets and moons."
+    },
+    {
+      "id": "s4.solar-system.013",
+      "skill": "s4.solar-system",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "How are the four planets nearest the Sun different from the four furthest away?",
+      "options": [
+        {
+          "text": "The nearest four are made of gas and the furthest are rock.",
+          "why": "It is the other way round."
+        },
+        {
+          "text": "The nearest four are small and rocky, and the furthest four are much bigger."
+        },
+        {
+          "text": "They are all the same size.",
+          "why": "The planets are very different sizes."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare Earth with Jupiter.",
+        "Earth is small and rocky.",
+        "Jupiter and Saturn are giants."
+      ],
+      "explanation": "The inner planets are small and rocky. The outer planets are giants made mostly of gas or ice."
+    },
+    {
+      "id": "s4.solar-system.014",
+      "skill": "s4.solar-system",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What is a planetary system?",
+      "options": [
+        {
+          "text": "a group of planets with no star",
+          "why": "A planetary system has a star at the centre."
+        },
+        {
+          "text": "a star with planets and other objects travelling around it"
+        },
+        {
+          "text": "only the planets in our Solar System",
+          "why": "Other stars can have planetary systems too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Our Solar System is one example.",
+        "It needs a star at the centre.",
+        "Other stars have them too."
+      ],
+      "explanation": "A planetary system is a star with planets and other objects travelling around it."
+    },
+    {
+      "id": "s4.solar-system.015",
+      "skill": "s4.solar-system",
+      "difficulty": 3,
+      "type": "text",
+      "prompt": "A ___ is a lump of rock that travels around the Sun.",
+      "blanks": [
+        {
+          "answers": [
+            "asteroid"
+          ]
+        }
+      ],
+      "hints": [
+        "It is smaller than a planet.",
+        "Many are found between Mars and Jupiter.",
+        "The word starts with a."
+      ],
+      "explanation": "An asteroid is a lump of rock that travels around the Sun."
+    },
+    {
+      "id": "s4.solar-system.016",
+      "skill": "s4.solar-system",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Why does Mars look like a star in the sky?",
+      "options": [
+        {
+          "text": "It makes its own light like the Sun.",
+          "why": "Planets do not make their own light."
+        },
+        {
+          "text": "It reflects sunlight and looks like a bright dot."
+        },
+        {
+          "text": "It is on fire.",
+          "why": "Planets are not burning."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Planets do not make light.",
+        "The Sun lights them up.",
+        "They look like bright dots at night."
+      ],
+      "explanation": "Planets shine because they reflect sunlight. They do not make their own light."
+    },
+    {
+      "id": "s4.solar-system.017",
+      "skill": "s4.solar-system",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which statement about the Sun is correct?",
+      "options": [
+        {
+          "text": "It is the biggest planet.",
+          "why": "The Sun is a star, not a planet."
+        },
+        {
+          "text": "It is the only star in our Solar System."
+        },
+        {
+          "text": "It travels around the Earth.",
+          "why": "The Earth travels around the Sun."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is at the centre.",
+        "It makes its own light.",
+        "Look for a statement about it being a star."
+      ],
+      "explanation": "The Sun is a star and the only one in the Solar System."
+    },
+    {
+      "id": "s4.solar-system.018",
+      "skill": "s4.solar-system",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "The Sun looks much bigger than other stars at night. What is the main reason?",
+      "options": [
+        {
+          "text": "It is the biggest star in the universe.",
+          "why": "Many stars are far bigger than the Sun."
+        },
+        {
+          "text": "It is much closer to us."
+        },
+        {
+          "text": "It is a planet.",
+          "why": "It is a star."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about distance.",
+        "Other stars are trillions of kilometres away.",
+        "Things far away look small."
+      ],
+      "explanation": "The Sun is our closest star, so it looks much bigger and brighter than the others."
+    },
+    {
+      "id": "s4.solar-system.019",
+      "skill": "s4.solar-system",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A new planet is found travelling around a distant star. What would this be an example of?",
+      "options": [
+        {
+          "text": "a new Solar System that includes the Sun",
+          "why": "It is a different star, not the Sun."
+        },
+        {
+          "text": "a planetary system"
+        },
+        {
+          "text": "a new moon of Earth",
+          "why": "It does not travel around the Earth."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a different star from the Sun.",
+        "Planets travel around a star.",
+        "A star with planets forms a system."
+      ],
+      "explanation": "A star with planets travelling around it is a planetary system."
+    },
+    {
+      "id": "s4.solar-system.020",
+      "skill": "s4.solar-system",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which sentence best describes the Moon?",
+      "options": [
+        {
+          "text": "It is a small planet that travels around the Sun alone.",
+          "why": "The Moon travels around the Earth."
+        },
+        {
+          "text": "It travels around the Earth and reflects sunlight."
+        },
+        {
+          "text": "It is a star that makes its own light.",
+          "why": "The Moon does not make light."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Moon is not a planet or a star.",
+        "It is a natural satellite.",
+        "It shines by reflecting light."
+      ],
+      "explanation": "The Moon is a natural satellite of the Earth. It shines because it reflects sunlight."
+    },
+    {
+      "id": "s4.solar-system.801",
+      "skill": "s4.solar-system",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The Sun is a star at the centre of our Solar System.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do planets go around?",
+        "Is the Sun a planet?",
+        "It is at the centre."
+      ],
+      "explanation": "All the planets orbit it. The Sun is the only star in our Solar System.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.solar-system.802",
+      "skill": "s4.solar-system",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Mars is the planet closest to the Sun.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which planet is the first?",
+        "It is very small and hot.",
+        "Mercury is closest."
+      ],
+      "explanation": "Mercury is the closest planet. Mars is the fourth planet from the Sun.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.solar-system.803",
+      "skill": "s4.solar-system",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: There are eight planets in our Solar System.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count them.",
+        "Pluto is not counted.",
+        "Eight planets."
+      ],
+      "explanation": "They are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.solar-system.804",
+      "skill": "s4.solar-system",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Jupiter is the smallest planet.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which is the gas giant?",
+        "It is huge.",
+        "Jupiter is the largest."
+      ],
+      "explanation": "Jupiter is the largest planet in the Solar System. Mercury is the smallest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.solar-system.701",
+      "skill": "s4.solar-system",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How many planets orbit the Sun?",
+      "options": [
+        {
+          "text": "9"
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count from Mercury to Neptune.",
+        "It is an even number.",
+        "It is more than 7."
+      ],
+      "explanation": "There are eight planets orbiting the Sun.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
+    }
+  ]
+}

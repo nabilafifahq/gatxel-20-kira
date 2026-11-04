@@ -1,0 +1,133 @@
+{
+  "skill": "m5.decimal-place-value",
+  "items": [
+    {
+      "id": "m5.decimal-place-value.001",
+      "skill": "m5.decimal-place-value",
+      "difficulty": 4,
+      "prompt": "Which number is made of 7 ones, 3 tenths and 12 hundredths?",
+      "hints": [
+        "12 hundredths is more than 1 tenth.",
+        "10 hundredths make 1 tenth.",
+        "Change 12 hundredths into tenths and hundredths."
+      ],
+      "explanation": "12 hundredths = 1 tenth and 2 hundredths. So there are 7 ones, 4 tenths and 2 hundredths, which is 7.42.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "7.312",
+          "why": "You wrote the 3 and the 12 side by side. 12 hundredths needs to be added to the tenths."
+        },
+        {
+          "text": "7.15",
+          "why": "You added 3 and 12 as if they were the same kind of unit."
+        },
+        {
+          "text": "7.012",
+          "why": "You changed the 3 tenths into hundredths by mistake."
+        },
+        {
+          "text": "7.42"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.decimal-place-value.002",
+      "skill": "m5.decimal-place-value",
+      "difficulty": 3,
+      "prompt": "Citra thinks of 6.08. She adds 3 tenths, then takes away 5 hundredths. What number does she get?",
+      "hints": [
+        "Write 3 tenths and 5 hundredths as decimals.",
+        "3 tenths is 0.3 and 5 hundredths is 0.05.",
+        "Do 6.08 + 0.3 first."
+      ],
+      "explanation": "6.08 + 0.3 = 6.38. Then 6.38 - 0.05 = 6.33.",
+      "type": "numeric",
+      "answer": 6.33
+    },
+    {
+      "id": "m5.decimal-place-value.003",
+      "skill": "m5.decimal-place-value",
+      "difficulty": 3,
+      "prompt": "Tom says the 7 in 4.07 stands for 7 tenths. What is the value of the 7?",
+      "hints": [
+        "Name each place after the decimal point.",
+        "The first place after the point is tenths. The second is hundredths.",
+        "Which place holds the 7?"
+      ],
+      "explanation": "In 4.07 the digit after the point is 0 tenths, and then 7 hundredths. The 7 is worth 0.07, which is 7 hundredths.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "7 hundredths"
+        },
+        {
+          "text": "7 tenths",
+          "why": "The tenths place is the first digit after the point. That digit is 0."
+        },
+        {
+          "text": "7 ones",
+          "why": "The ones place is before the decimal point. That digit is 4."
+        },
+        {
+          "text": "70 hundredths",
+          "why": "The 7 is in the hundredths place, so it is worth 7 hundredths."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.decimal-place-value.801",
+      "skill": "m5.decimal-place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 3.47 the digit 4 is worth 4 tenths.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which place is just after the point?",
+        "The first place is tenths.",
+        "4 tenths is 0.4."
+      ],
+      "explanation": "The first digit after the decimal point is the tenths place, so 4 means 0.4.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.decimal-place-value.802",
+      "skill": "m5.decimal-place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 6.08 the digit 8 stands for 8 tenths.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the places after the decimal point.",
+        "The 0 is in the tenths place.",
+        "The 8 is in the hundredths place."
+      ],
+      "explanation": "The 8 is in the second place after the point, the hundredths place, so it is 8 hundredths.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

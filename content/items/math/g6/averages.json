@@ -1,0 +1,180 @@
+{
+  "skill": "m6.averages",
+  "items": [
+    {
+      "id": "m6.averages.001",
+      "skill": "m6.averages",
+      "difficulty": 3,
+      "prompt": "Five pupils collect 12, 15, 9, 14 and 10 bottle caps. What is the mean number of caps?",
+      "hints": [
+        "The mean is the total shared out equally.",
+        "Add the five numbers: 12 + 15 + 9 + 14 + 10.",
+        "Divide the total by 5."
+      ],
+      "explanation": "The total is 60 caps. 60 ÷ 5 = 12.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m6.averages.002",
+      "skill": "m6.averages",
+      "difficulty": 4,
+      "prompt": "The mean of five numbers is 18. Four of the numbers are 15, 20, 22 and 17. What is the fifth number?",
+      "hints": [
+        "Find the total of all five numbers first.",
+        "5 × 18 = 90.",
+        "Take the four known numbers away from 90."
+      ],
+      "explanation": "The total is 5 × 18 = 90. The four known numbers add up to 74. The fifth number is 90 − 74 = 16.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 16
+    },
+    {
+      "id": "m6.averages.003",
+      "skill": "m6.averages",
+      "difficulty": 4,
+      "prompt": "Wulan records the minutes she reads on six days: 4, 9, 6, 12, 8, 15. What is the median?",
+      "hints": [
+        "Put the numbers in order first.",
+        "In order: 4, 6, 8, 9, 12, 15.",
+        "There are six numbers, so use the average of the 3rd and 4th."
+      ],
+      "explanation": "In order the data is 4, 6, 8, 9, 12, 15. The middle two are 8 and 9, and their mean is 8.5.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "9",
+          "why": "You averaged 6 and 12, the middle of the list as written. Put the data in order first."
+        },
+        {
+          "text": "10.5",
+          "why": "This is the mean of 9 and 12. The two middle values are 8 and 9."
+        },
+        {
+          "text": "9.67",
+          "why": "This is the mean of the data. The median is the middle value."
+        },
+        {
+          "text": "8.5"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m6.averages.801",
+      "skill": "m6.averages",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The mean of 4, 6, 8, 10 and 12 is 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add all the numbers.",
+        "Divide by how many there are.",
+        "40 ÷ 5."
+      ],
+      "explanation": "4 + 6 + 8 + 10 + 12 = 40 and 40 ÷ 5 = 8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.averages.802",
+      "skill": "m6.averages",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The median of 3, 9, 5, 1 and 7 is 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Put the numbers in order first.",
+        "Find the middle one.",
+        "Two numbers on each side."
+      ],
+      "explanation": "In order: 1, 3, 5, 7, 9. The middle value is 5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.averages.701",
+      "skill": "m6.averages",
+      "difficulty": 2,
+      "prompt": "What is the mean of 4, 6, 8, 10 and 12?",
+      "hints": [
+        "Add them all up.",
+        "Total is 40.",
+        "Divide by 5."
+      ],
+      "explanation": "4 + 6 + 8 + 10 + 12 = 40, and 40 ÷ 5 = 8.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 8
+    },
+    {
+      "id": "m6.averages.702",
+      "skill": "m6.averages",
+      "difficulty": 5,
+      "prompt": "A farmer weighs the rice he harvests on five days: 40 kg, 38 kg, 51 kg, 46 kg and 50 kg.",
+      "hints": [
+        "Range = largest - smallest.",
+        "Total of the five days ÷ 5.",
+        "For six days at mean 46, the total must be 6 × 46."
+      ],
+      "explanation": "Range: 51 - 38 = 13. Total 225, mean 225 ÷ 5 = 45. Ordered: 38, 40, 46, 50, 51, so the median is 46. Six days at 46 need 276 kg, so day 6 is 276 - 225 = 51 kg.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the range of the five amounts, in kg?",
+          "answer": 13,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the mean amount per day, in kg?",
+          "answer": 45,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the median amount, in kg?",
+          "answer": 46,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many kg must he harvest on day 6 for the mean of all six days to be 46 kg?",
+          "answer": 51,
+          "unit": "kg"
+        }
+      ]
+    }
+  ]
+}

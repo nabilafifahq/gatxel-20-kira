@@ -88,7 +88,7 @@ export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today, e
               <section
                 key={`${group.subject}-${group.title}`}
                 aria-label={`${group.title}, ${plural(cards.length, 'card', 'cards')}`}
-                className="flex min-w-0 flex-1 flex-col gap-3.5 rounded-card border border-divider bg-surface p-4 md:p-5.5"
+                className="flex min-w-0 flex-1 flex-col gap-3.5 rounded-card bg-surface shadow-soft p-4 md:p-5.5"
               >
                 <div className="flex items-center gap-2.5">
                   <h2 className="m-0 text-h3 font-bold md:text-h2">{group.title}</h2>

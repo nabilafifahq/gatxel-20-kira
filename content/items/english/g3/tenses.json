@@ -817,30 +817,211 @@
       ]
     },
     {
-      "id": "e3.tenses.028",
+      "id": "e3.tenses.801",
       "skill": "e3.tenses",
-      "type": "cloze",
-      "difficulty": 5,
-      "prompt": "Each of the children ___ a book.",
-      "hints": [
-        "Each means one at a time.",
-        "The verb matches one child.",
-        "It has three letters."
-      ],
-      "explanation": "Each takes has.",
-      "tags": [
-        "iklc"
-      ],
-      "gaps": [
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word walked shows that something happened in the past.",
+      "options": [
         {
-          "options": [
-            "has",
-            "have",
-            "are"
-          ],
-          "answer": 0
+          "text": "True"
+        },
+        {
+          "text": "False"
         }
-      ]
+      ],
+      "answer": 0,
+      "hints": [
+        "Did it already happen?",
+        "Look at the ending.",
+        "Walked ends in ed."
+      ],
+      "explanation": "Past tense verbs tell us about things that already happened. Example: Yesterday I walked to school.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.tenses.802",
+      "skill": "e3.tenses",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The words will walk show something that happened in the past.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Has it happened yet?",
+        "Will points to later.",
+        "Think of tomorrow."
+      ],
+      "explanation": "Will walk is future tense. It shows something that has not happened yet.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.tenses.803",
+      "skill": "e3.tenses",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence She is eating lunch is in the present tense.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it happening now?",
+        "Look at is eating.",
+        "Not yesterday or tomorrow."
+      ],
+      "explanation": "Present tense verbs tell us what is happening now. Example: She is eating lunch right now.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.tenses.804",
+      "skill": "e3.tenses",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word swam is in the present tense.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Did it already happen?",
+        "Swim is the present.",
+        "Swam is different."
+      ],
+      "explanation": "Swam is the past tense of swim. Example: Yesterday I swam in the pool.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.tenses.805",
+      "skill": "e3.tenses",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The words will go show that something will happen in the future.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Has it happened yet?",
+        "Look for the word will.",
+        "It is yet to come."
+      ],
+      "explanation": "Will plus a verb makes the future. Example: Tomorrow we will go to the zoo.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.tenses.806",
+      "skill": "e3.tenses",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: We use the past tense to talk about what will happen tomorrow.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is tomorrow past or future?",
+        "Tomorrow has not happened yet.",
+        "Use will."
+      ],
+      "explanation": "We use the future tense to talk about tomorrow. Example: I will visit my gran tomorrow.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.tenses.807",
+      "skill": "e3.tenses",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The sentence Yesterday we visited a farm is in the past tense because of the word visited.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the verb.",
+        "Check the time word.",
+        "Both clues show the past."
+      ],
+      "explanation": "Visited ends in -ed, and yesterday also shows the past. Example: Yesterday we visited a farm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.tenses.701",
+      "skill": "e3.tenses",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Tomorrow I ___ play football. (future)",
+      "blanks": [
+        {
+          "answers": [
+            "will",
+            "shall"
+          ]
+        }
+      ],
+      "hints": [
+        "It has not happened yet.",
+        "Use a helper word.",
+        "w, i, l, l."
+      ],
+      "explanation": "The future is shown with will: I will play.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

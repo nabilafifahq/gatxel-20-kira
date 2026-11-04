@@ -1,3 +1,4 @@
+import { isDerivedSolution } from './walkthrough'
 import { clipTextsOf, isClipText, passageClipPlan, speakableParts, splitClipText, styleForSkill, type SpeakableFields, type TtsClipRequest } from '@kira/core/tts'
 import { listenTextOf } from './present'
 import type { Item, Lesson, Passage } from './schema'
@@ -62,7 +63,8 @@ export function itemSpeechClips(item: Item): TtsClipRequest[] {
   const heard = listenTextOf(item)
   if (heard) for (const text of splitClipText(heard)) if (isClipText(text)) out.push({ text, style })
   // Langkah pembahasan dibacakan SolutionPlayer dengan gaya guru.
-  for (const step of item.solution ?? []) for (const text of splitClipText(step.say)) if (isClipText(text)) out.push({ text, style: 'teacher' })
+  // Langkah yang diturunkan otomatis dari penjelasan tidak dibuat massal; klipnya dibuat saat anak memutarnya.
+  if (!isDerivedSolution(item.solution)) for (const step of item.solution ?? []) for (const text of splitClipText(step.say)) if (isClipText(text)) out.push({ text, style: 'teacher' })
   return out
 }
 

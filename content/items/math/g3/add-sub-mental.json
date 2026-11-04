@@ -1,0 +1,57 @@
+{
+  "skill": "m3.add-sub-mental",
+  "items": [
+    {
+      "id": "m3.add-sub-mental.801",
+      "skill": "m3.add-sub-mental",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 58 + 30 = 88.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Only the tens change.",
+        "5 tens + 3 tens = 8 tens.",
+        "The ones stay the same."
+      ],
+      "explanation": "Add 3 tens to 58. The tens digit goes from 5 to 8, and the ones stay 8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.add-sub-mental.802",
+      "skill": "m3.add-sub-mental",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 100 - 35 = 75.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take away 30 first.",
+        "100 - 30 = 70.",
+        "Then take away 5."
+      ],
+      "explanation": "100 - 35: 100 - 30 = 70, then 70 - 5 = 65. So the answer is 65.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

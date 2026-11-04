@@ -25,7 +25,7 @@ export function XpFly({
       key={nonce}
       aria-hidden="true"
       className={cx(
-        'kira-fly pointer-events-none absolute z-10 font-display text-h2 font-semibold text-fg tabular-nums',
+        'kira-fly pointer-events-none absolute z-10 font-numbers text-h2 font-semibold text-fg tabular-nums',
         className,
       )}
       style={{ '--fly-x': `${toward.x}px`, '--fly-y': `${toward.y}px` } as CSSProperties}

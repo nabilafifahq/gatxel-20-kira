@@ -42,7 +42,17 @@
         },
         {
           "say": "Share 60 into 6 lots.",
-          "show": "60 ÷ 6 = 10"
+          "show": "60 ÷ 6 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "÷",
+            "b": 6,
+            "r": 10
+          },
+          "mark": [
+            "60"
+          ]
         },
         {
           "say": "Check.",
@@ -102,11 +112,28 @@
         },
         {
           "say": "Find A + B.",
-          "show": "121 ÷ 11 = 11"
+          "show": "121 ÷ 11 = 11",
+          "anim": {
+            "k": "combine",
+            "a": 121,
+            "op": "÷",
+            "b": 11,
+            "r": 11
+          },
+          "mark": [
+            "121"
+          ]
         },
         {
           "say": "Example.",
-          "show": "29 + 92 = 121"
+          "show": "29 + 92 = 121",
+          "anim": {
+            "k": "combine",
+            "a": 29,
+            "op": "+",
+            "b": 92,
+            "r": 121
+          }
         }
       ],
       "tags": [
@@ -158,11 +185,25 @@
         },
         {
           "say": "Digits of 10 to 19: ten tens digits plus the ones digits.",
-          "show": "10 + 45 = 55"
+          "show": "10 + 45 = 55",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "+",
+            "b": 45,
+            "r": 55
+          }
         },
         {
           "say": "Digits of 20.",
-          "show": "2 + 0 = 2"
+          "show": "2 + 0 = 2",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 0,
+            "r": 2
+          }
         },
         {
           "say": "Total.",
@@ -243,7 +284,23 @@
       "solution": [
         {
           "say": "Extra sweets needed for 1 more each.",
-          "show": "3 + 4 = 7"
+          "show": "3 + 4 = 7",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 7
+          },
+          "mark": [
+            "3",
+            "4"
+          ]
         },
         {
           "say": "Each child takes 1 of those.",
@@ -316,15 +373,46 @@
         },
         {
           "say": "Selisih harga.",
-          "show": "Rp21.000 - Rp11.000 = Rp10.000"
+          "show": "Rp21.000 - Rp11.000 = Rp10.000",
+          "anim": {
+            "k": "combine",
+            "a": 21000,
+            "op": "-",
+            "b": 11000,
+            "r": 10000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp21.000",
+            "Rp11.000"
+          ]
         },
         {
           "say": "Harga 1 buku tulis.",
-          "show": "Rp10.000 ÷ 2 = Rp5.000"
+          "show": "Rp10.000 ÷ 2 = Rp5.000",
+          "anim": {
+            "k": "combine",
+            "a": 10000,
+            "op": "÷",
+            "b": 2,
+            "r": 5000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2"
+          ]
         },
         {
           "say": "Periksa: 2 pensil Rp6.000.",
-          "show": "Rp15.000 + Rp6.000 = Rp21.000"
+          "show": "Rp15.000 + Rp6.000 = Rp21.000",
+          "anim": {
+            "k": "combine",
+            "a": 15000,
+            "op": "+",
+            "b": 6000,
+            "r": 21000,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -380,7 +468,17 @@
         },
         {
           "say": "Total.",
-          "show": "5 × 20 = 100"
+          "show": "5 × 20 = 100",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 20,
+            "r": 100
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "The first 10 odd numbers add up to 10 × 10."
@@ -408,15 +506,43 @@
       "solution": [
         {
           "say": "Multiples of 2, 3 and 4.",
-          "show": "12, 24, 36, 48"
+          "show": "12, 24, 36, 48",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "12",
+              "24",
+              "36",
+              "48"
+            ]
+          }
         },
         {
           "say": "Add 1.",
-          "show": "13, 25, 37, 49"
+          "show": "13, 25, 37, 49",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "13",
+              "25",
+              "37",
+              "49"
+            ]
+          }
         },
         {
           "say": "Check which divides by 5.",
-          "show": "25 ÷ 5 = 5"
+          "show": "25 ÷ 5 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "÷",
+            "b": 5,
+            "r": 5
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "Check the remainders.",
@@ -445,19 +571,60 @@
       "solution": [
         {
           "say": "Sum today.",
-          "show": "8 + 35 = 43"
+          "show": "8 + 35 = 43",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 35,
+            "r": 43
+          },
+          "mark": [
+            "8",
+            "35"
+          ]
         },
         {
           "say": "Growth needed.",
-          "show": "63 - 43 = 20"
+          "show": "63 - 43 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 63,
+            "op": "-",
+            "b": 43,
+            "r": 20
+          },
+          "mark": [
+            "63"
+          ]
         },
         {
           "say": "Each year adds 2.",
-          "show": "20 ÷ 2 = 10 years"
+          "show": "20 ÷ 2 = 10 years",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10,
+                "q": true
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 20
+          }
         },
         {
           "say": "Check: Ann 18 and her mum 45.",
-          "show": "18 + 45 = 63"
+          "show": "18 + 45 = 63",
+          "anim": {
+            "k": "combine",
+            "a": 18,
+            "op": "+",
+            "b": 45,
+            "r": 63
+          }
         }
       ],
       "tags": [

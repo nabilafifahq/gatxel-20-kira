@@ -334,7 +334,9 @@
           "answers": [
             "seconds",
             "second",
-            "secs"
+            "secs",
+            "sec",
+            "a second"
           ]
         }
       ],
@@ -1182,7 +1184,7 @@
       "pairs": [
         [
           "bar chart",
-          "compares amounts"
+          "uses bars to compare amounts"
         ],
         [
           "tally chart",
@@ -1202,7 +1204,7 @@
         "A pictogram has pictures.",
         "A table has rows."
       ],
-      "explanation": "A bar chart compares amounts. A tally chart counts with marks. A pictogram uses small pictures and a table has rows and columns."
+      "explanation": "A bar chart uses bars to compare amounts. A tally chart counts with marks. A pictogram uses small pictures and a table has rows and columns."
     },
     {
       "id": "s3.tables-and-charts.032",
@@ -1384,31 +1386,31 @@
       "skill": "s3.tables-and-charts",
       "type": "mcq",
       "difficulty": 4,
-      "prompt": "Three tests give 12, 14 and 13 seconds. What is the best single number to report?",
+      "prompt": "A toy car is timed three times. The results are 13, 14 and 13 seconds. Which number best shows what usually happened?",
       "options": [
         {
-          "text": "12 seconds, the smallest",
-          "why": "It is not typical."
-        },
-        {
           "text": "14 seconds, the biggest",
-          "why": "It is not typical."
+          "why": "It only happened once."
         },
         {
-          "text": "13 seconds, the average"
+          "text": "40 seconds, all added up",
+          "why": "That is a total, not a time the car took."
         },
         {
-          "text": "39 seconds, the total",
-          "why": "That is the sum, not a typical value."
+          "text": "13 seconds, it came up twice"
+        },
+        {
+          "text": "27 seconds, the two 13s added",
+          "why": "That is not a time the car took."
         }
       ],
       "answer": 2,
       "hints": [
-        "Add and divide by 3.",
-        "The numbers are close together.",
-        "The middle is 13."
+        "Look for a result that happens more than once.",
+        "Two of the three results are the same.",
+        "Which number appears twice?"
       ],
-      "explanation": "The average of 12, 14 and 13 is 13 seconds.",
+      "explanation": "The result 13 seconds came up twice, so it is the best number to report.",
       "tags": [
         "iksc",
         "ksnr",
@@ -1444,6 +1446,175 @@
         "iksc",
         "ksnr",
         "reasoning"
+      ]
+    },
+    {
+      "id": "s3.tables-and-charts.801",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A bar chart uses bars to show amounts.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do the bars look like?",
+        "Taller means more.",
+        "Bars show how much."
+      ],
+      "explanation": "The longer the bar, the greater the amount. It makes it easy to compare.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.802",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The tallest bar on a bar chart is the smallest amount.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the height.",
+        "Tall means a lot.",
+        "Tallest is the most."
+      ],
+      "explanation": "The tallest bar shows the greatest amount. The shortest bar shows the smallest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.803",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A table is a good way to record results neatly during an investigation.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of rows and columns.",
+        "Why not just write on scrap paper?",
+        "Tables keep results tidy."
+      ],
+      "explanation": "A table puts the results into rows and columns with headings, so they are easy to read and compare later.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.804",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A bar chart with no title and no labels on the axes is easy to read.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do the axes show?",
+        "How would you know the topic?",
+        "Add a title and labels."
+      ],
+      "explanation": "Without a title and labels you cannot tell what the bars show or what the numbers mean. Good charts always have both.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.701",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A bar chart has bars of 5, 8 and 3. What is the total?",
+      "answer": 16,
+      "tolerance": 0,
+      "hints": [
+        "Add all three bars.",
+        "5 plus 8 is 13.",
+        "13 plus 3."
+      ],
+      "explanation": "5 plus 8 plus 3 is 16.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s3.tables-and-charts.702",
+      "skill": "s3.tables-and-charts",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "A class voted for a favourite fruit. Apple 6, banana 9, mango 4, orange 5.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many children voted altogether?",
+          "answer": 24,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which fruit was the most popular?",
+          "options": [
+            {
+              "text": "Banana"
+            },
+            {
+              "text": "Apple"
+            },
+            {
+              "text": "Orange"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many more voted for banana than mango?",
+          "answer": 5,
+          "tolerance": 0
+        }
+      ],
+      "hints": [
+        "Add all four numbers.",
+        "Look for the biggest number.",
+        "9 take away 4."
+      ],
+      "explanation": "6 + 9 + 4 + 5 = 24. Banana got 9 votes. 9 - 4 = 5.",
+      "tags": [
+        "investigation"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-import { CHALLENGE_BAND, CORE_BAND, EASY_BAND, LEARN_BAND, TEST_BAND, pickItems, type Candidate } from './picker'
+import { CHALLENGE_BAND, CORE_BAND, EASY_BAND, LEARN_BAND, TEST_BAND, pickItems, unseenOnly, type Candidate } from './picker'
 import type { Gate } from './gates'
 import type { Rng } from './rng'
 
@@ -116,8 +116,10 @@ export function assembleSession(input: {
   }
   const band = input.kind === 'latihan' ? EASY_BAND : TEST_BAND
   const want = input.count - slots.length
+  // Tanpa `reuse`, hanya soal yang belum pernah dilihat learner; pemanggil mengisi sisanya dari skill lain.
+  const candidates = input.reuse === false ? unseenOnly(input.candidates) : input.candidates
   const pickFrom = (exclude: ReadonlySet<string>, n: number) =>
-    pickItems({ candidates: input.candidates, theta: input.theta, count: n, band, rng: input.rng, exclude })
+    pickItems({ candidates, theta: input.theta, count: n, band, rng: input.rng, exclude })
   let core = pickFrom(new Set([...used, ...avoid]), want)
   if (core.length < want && (input.reuse ?? true)) {
     // Bank soal skill ini kurang: isi sisanya dengan soal yang sudah pernah dipakai.

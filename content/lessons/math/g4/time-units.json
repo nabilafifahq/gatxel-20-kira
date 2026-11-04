@@ -1,0 +1,53 @@
+{
+  "skill": "m4.time-units",
+  "title": "Converting time",
+  "steps": [
+    {
+      "say": "There are 60 seconds in a minute and 60 minutes in an hour. There are 24 hours in a day and 7 days in a week."
+    },
+    {
+      "say": "There are 12 months in a year and 52 weeks in a year. A normal year has 365 days."
+    },
+    {
+      "say": "To change a bigger unit to a smaller unit, multiply. 3 hours is 3 × 60 = 180 minutes."
+    },
+    {
+      "say": "To change a smaller unit to a bigger unit, divide. 240 seconds is 240 ÷ 60 = 4 minutes."
+    },
+    {
+      "say": "Use the same unit before you compare. Which is longer, 100 minutes or 1 hour 30 minutes? 1 hour 30 minutes is 90 minutes."
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.time-units.901",
+      "skill": "m4.time-units",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "How many minutes are in 2 hours?",
+      "answer": 120,
+      "unit": "minutes",
+      "hints": [
+        "There are 60 minutes in an hour.",
+        "Multiply 2 by 60.",
+        "Count in sixties."
+      ],
+      "explanation": "2 × 60 = 120 minutes."
+    },
+    {
+      "id": "m4.time-units.902",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many days are in 3 weeks?",
+      "answer": 21,
+      "unit": "days",
+      "hints": [
+        "There are 7 days in a week.",
+        "Multiply 3 by 7.",
+        "Count in sevens."
+      ],
+      "explanation": "3 × 7 = 21 days."
+    }
+  ]
+}

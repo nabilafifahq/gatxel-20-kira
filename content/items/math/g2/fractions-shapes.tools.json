@@ -1,0 +1,132 @@
+{
+  "skill": "m2.fractions-shapes",
+  "items": [
+    {
+      "id": "m2.fractions-shapes.803",
+      "skill": "m2.fractions-shapes",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 1,
+      "prompt": "Shade two thirds of the bar.",
+      "rows": [
+        {
+          "den": 3
+        }
+      ],
+      "targets": [
+        {
+          "num": 2,
+          "den": 3
+        }
+      ],
+      "hints": [
+        "The bar is cut into 3 equal parts.",
+        "Each part is one third.",
+        "Shade 2 parts."
+      ],
+      "explanation": "Two thirds means 2 of the 3 equal parts are shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m2.fractions-shapes.804",
+      "skill": "m2.fractions-shapes",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Shade three eighths of the bar.",
+      "rows": [
+        {
+          "den": 8
+        }
+      ],
+      "targets": [
+        {
+          "num": 3,
+          "den": 8
+        }
+      ],
+      "hints": [
+        "Eighths are 8 equal parts.",
+        "The bottom number says how many parts in all.",
+        "Shade 3 parts."
+      ],
+      "explanation": "Three eighths means 3 of the 8 equal parts are shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m2.fractions-shapes.805",
+      "skill": "m2.fractions-shapes",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Cut the bar into sixths, then shade five sixths.",
+      "rows": [
+        {}
+      ],
+      "splits": [
+        2,
+        3,
+        4,
+        6,
+        8
+      ],
+      "targets": [
+        {
+          "num": 5,
+          "den": 6
+        }
+      ],
+      "exactSplit": true,
+      "hints": [
+        "Sixths need 6 equal parts.",
+        "Tap 6 under Cut into.",
+        "Shade 5 parts."
+      ],
+      "explanation": "Sixths come from 6 equal parts, and five sixths means 5 of them are shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m2.fractions-shapes.806",
+      "skill": "m2.fractions-shapes",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 3,
+      "prompt": "Bar 1 shows one half. Shade bar 2 so it shows the same amount.",
+      "rows": [
+        {
+          "den": 2,
+          "locked": 1
+        },
+        {
+          "den": 4
+        }
+      ],
+      "targets": [
+        null,
+        {
+          "num": 2,
+          "den": 4
+        }
+      ],
+      "hints": [
+        "Look at how much of bar 1 is shaded.",
+        "Bar 2 has smaller parts.",
+        "Shade 2 parts of bar 2 to reach the same length."
+      ],
+      "explanation": "Half of a bar cut into 4 parts is 2 parts, so 2/4 is the same as 1/2.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    }
+  ]
+}

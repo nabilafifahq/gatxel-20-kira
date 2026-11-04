@@ -1,0 +1,110 @@
+{
+  "skill": "m4.fractions-of-amounts",
+  "items": [
+    {
+      "id": "m4.fractions-of-amounts.804",
+      "skill": "m4.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 3,
+      "kind": "partwhole",
+      "prompt": "A farmer has 35 hens and two sevenths are brown. Build a part-whole model with 7 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Brown",
+          "units": 2
+        },
+        {
+          "label": "White",
+          "units": 5
+        }
+      ],
+      "extraLabels": [
+        "Black"
+      ],
+      "unitValue": 5,
+      "unitName": "hens",
+      "hints": [
+        "Sevenths mean 7 equal units in the whole.",
+        "Brown is 2 units and white is the other 5 units.",
+        "Share 35 hens equally between 7 units."
+      ],
+      "explanation": "35 divided by 7 is 5, so one unit is 5 hens. Brown is 2 units, which is 10 hens.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    },
+    {
+      "id": "m4.fractions-of-amounts.805",
+      "skill": "m4.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "partwhole",
+      "prompt": "A tank holds 48 litres and is five eighths full. Build a part-whole model with 8 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Water",
+          "units": 5
+        },
+        {
+          "label": "Space",
+          "units": 3
+        }
+      ],
+      "extraLabels": [
+        "Mud"
+      ],
+      "unitValue": 6,
+      "unitName": "litres",
+      "hints": [
+        "Eighths mean 8 equal units in the whole.",
+        "Water is 5 units and the empty space is 3 units.",
+        "Share 48 litres equally between 8 units."
+      ],
+      "explanation": "48 divided by 8 is 6, so one unit is 6 litres. The water is 5 units, which is 30 litres.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    },
+    {
+      "id": "m4.fractions-of-amounts.806",
+      "skill": "m4.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "partwhole",
+      "prompt": "A book has 90 pages and Lola has read three tenths. Build a part-whole model with 10 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Read",
+          "units": 3
+        },
+        {
+          "label": "Not read",
+          "units": 7
+        }
+      ],
+      "extraLabels": [
+        "Torn"
+      ],
+      "unitValue": 9,
+      "unitName": "pages",
+      "hints": [
+        "Tenths mean 10 equal units in the whole.",
+        "Read is 3 units and not read is 7 units.",
+        "Share 90 pages equally between 10 units."
+      ],
+      "explanation": "90 divided by 10 is 9, so one unit is 9 pages. Lola has read 3 units, which is 27 pages.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    }
+  ]
+}

@@ -703,29 +703,6 @@
       ]
     },
     {
-      "id": "e3.er-est.024",
-      "skill": "e3.er-est",
-      "type": "cloze",
-      "difficulty": 3,
-      "prompt": "This is the ___ day of the year.",
-      "hints": [
-        "The sentence says the.",
-        "It compares with all other days.",
-        "Double the t and add est."
-      ],
-      "explanation": "Hottest compares with all other days.",
-      "gaps": [
-        {
-          "options": [
-            "hottest",
-            "hotter",
-            "hot"
-          ],
-          "answer": 0
-        }
-      ]
-    },
-    {
       "id": "e3.er-est.025",
       "skill": "e3.er-est",
       "type": "mcq",
@@ -847,6 +824,212 @@
           ]
         }
       ]
+    },
+    {
+      "id": "e3.er-est.801",
+      "skill": "e3.er-est",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Tall, taller, tallest is the correct way to compare tall things.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add er then est.",
+        "Taller compares two.",
+        "Tallest compares three or more."
+      ],
+      "explanation": "Use -er to compare two things and -est to compare three or more. Example: Ali is taller than Budi.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.er-est.802",
+      "skill": "e3.er-est",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word big becomes biger when we add -er.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Short words double the last letter.",
+        "How many g letters should it have?",
+        "Say bigger slowly."
+      ],
+      "explanation": "Big has one vowel and one consonant, so we double the g: bigger.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.er-est.803",
+      "skill": "e3.er-est",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word hottest has two t letters.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Spell hot then add est.",
+        "Short words double the last letter.",
+        "Count the ts in hottest."
+      ],
+      "explanation": "Hot has a short vowel then one consonant, so we double the t before -est. Hot, hotter, hottest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.er-est.804",
+      "skill": "e3.er-est",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The ending -er is used to compare three or more things.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the things.",
+        "Two things use -er.",
+        "Three or more need -est."
+      ],
+      "explanation": "-er is used to compare two things. Use -est for three or more. Example: This is the tallest of the three trees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.er-est.805",
+      "skill": "e3.er-est",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word nicer is made by adding r to nice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the last letter of nice.",
+        "Do not add a second e.",
+        "Nice + r."
+      ],
+      "explanation": "Nice already ends in e, so we only add -r. Nice, nicer, nicest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.er-est.806",
+      "skill": "e3.er-est",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The word nice becomes niceest when we add -est.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the end of nice.",
+        "Do not double the e.",
+        "Nice + st."
+      ],
+      "explanation": "Nice ends in e, so we only add -st. The word is nicest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.er-est.807",
+      "skill": "e3.er-est",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The word happiest is made by changing the y in happy to i and adding -est.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens to the y?",
+        "The y changes to i.",
+        "Happy, happier, happiest."
+      ],
+      "explanation": "When a word ends in a consonant and y, we change the y to i before -er or -est. Example: happy, happier, happiest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.er-est.701",
+      "skill": "e3.er-est",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "happy, happier, ___",
+      "blanks": [
+        {
+          "answers": [
+            "happiest"
+          ]
+        }
+      ],
+      "hints": [
+        "Change the y.",
+        "y becomes i.",
+        "happi + est"
+      ],
+      "explanation": "Change y to i and add -est: happiest.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

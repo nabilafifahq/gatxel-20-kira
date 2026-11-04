@@ -176,7 +176,7 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
         <h2 id="persetujuan" className="m-0 text-h3 font-bold">
           Persetujuan
         </h2>
-        <ul className="m-0 flex list-none flex-col rounded-card border border-divider bg-surface p-0">
+        <ul className="m-0 flex list-none flex-col rounded-card bg-surface shadow-soft p-0">
           {purposes.map((p) => {
             const labelId = `izin-${p.id}`
             const descId = `izin-${p.id}-isi`
@@ -228,7 +228,7 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
         <h2 id="data-learner" className="m-0 text-h3 font-bold">
           Data {name}
         </h2>
-        <div className="flex flex-col rounded-card border border-divider bg-surface">
+        <div className="flex flex-col rounded-card bg-surface shadow-soft">
           <div className="flex flex-col gap-3 border-b border-divider px-4 py-4 sm:px-5">
             <div className="flex flex-col gap-0.5">
               <span className="text-body font-bold">Unduh salinan data</span>
@@ -268,7 +268,7 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
           <h2 id="simpan" className="m-0 text-h3 font-bold">
             Lama penyimpanan
           </h2>
-          <dl className="m-0 flex flex-col rounded-card border border-divider bg-surface">
+          <dl className="m-0 flex flex-col rounded-card bg-surface shadow-soft">
             {data.retention.map((r) => (
               <div key={r.label} className="flex flex-wrap gap-x-4 gap-y-0.5 border-b border-divider px-4 py-3 last:border-b-0 sm:px-5">
                 <dt className="min-w-0 flex-[1_1_200px] text-body text-fg-muted">{r.label}</dt>
@@ -284,7 +284,7 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
           Riwayat persetujuan
         </h2>
         {data.history.length ? (
-          <ol className="m-0 flex list-none flex-col rounded-card border border-divider bg-surface p-0">
+          <ol className="m-0 flex list-none flex-col rounded-card bg-surface shadow-soft p-0">
             {data.history.map((h, i) => (
               <li key={`${h.date}-${i}`} className="flex flex-col gap-0.5 border-b border-divider px-4 py-3 last:border-b-0 sm:px-5">
                 <span className="text-small text-fg-muted tabular">{dateTimeId(h.date)}</span>

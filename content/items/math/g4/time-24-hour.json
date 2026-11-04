@@ -1,0 +1,148 @@
+{
+  "skill": "m4.time-24-hour",
+  "items": [
+    {
+      "id": "m4.time-24-hour.001",
+      "skill": "m4.time-24-hour",
+      "difficulty": 2,
+      "prompt": "A train leaves at 18:45. What time is that on a 12-hour clock?",
+      "hints": [
+        "After 12:00 you subtract 12 from the hours.",
+        "18 - 12.",
+        "Is it morning or afternoon?"
+      ],
+      "explanation": "18:45 is after noon, and 18 - 12 = 6. So it is 6:45 p.m.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "6:45 p.m."
+        },
+        {
+          "text": "8:45 p.m.",
+          "why": "You subtracted 10. Subtract 12 from the hours instead."
+        },
+        {
+          "text": "6:45 a.m.",
+          "why": "Times after 12:00 are p.m."
+        },
+        {
+          "text": "1:45 p.m.",
+          "why": "You subtracted 17, not 12."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m4.time-24-hour.002",
+      "skill": "m4.time-24-hour",
+      "difficulty": 4,
+      "prompt": "A film starts at 7:20 p.m. and lasts 2 hours 50 minutes. At what time does it end, using the 24-hour clock?",
+      "hints": [
+        "Start by writing 7:20 p.m. as a 24-hour time.",
+        "19:20 + 2 hours.",
+        "Add the 50 minutes. Remember 60 minutes make an hour."
+      ],
+      "explanation": "7:20 p.m. is 19:20. Adding 2 hours gives 21:20, and 50 more minutes gives 22:10.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "21:70",
+          "why": "Minutes cannot go above 59. Carry 60 minutes into the hours."
+        },
+        {
+          "text": "22:10"
+        },
+        {
+          "text": "22:30",
+          "why": "That is 20 minutes too late. 50 minutes after 21:20 is 22:10."
+        },
+        {
+          "text": "21:10",
+          "why": "You forgot that 7:20 p.m. is 19:20, and then 2 hours 50 minutes is more than 2 hours."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m4.time-24-hour.801",
+      "skill": "m4.time-24-hour",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The time 15:00 is the same as 3 pm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Subtract 12 from hours past 12.",
+        "15 - 12.",
+        "After noon."
+      ],
+      "explanation": "15 - 12 = 3, so 15:00 is 3 pm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-24-hour.802",
+      "skill": "m4.time-24-hour",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The time 8:30 pm is written as 08:30 on a 24-hour clock.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add 12 to pm hours.",
+        "8 + 12.",
+        "It is the evening."
+      ],
+      "explanation": "08:30 is in the morning. 8:30 pm is 8 + 12 = 20, so 20:30.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-24-hour.803",
+      "skill": "m4.time-24-hour",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The time 00:15 is 15 minutes after midnight.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is 00:00?",
+        "Add 15 minutes.",
+        "Just after midnight."
+      ],
+      "explanation": "00:00 is midnight, so 00:15 is 15 minutes later.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

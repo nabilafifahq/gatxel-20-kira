@@ -1,5 +1,6 @@
 import { createRng } from '@kira/core/rng'
 import { itemSchema, SKILL_ID, type Item } from '../schema'
+import { withWalkthrough } from '../walkthrough'
 import type { Generator, Level } from './types'
 import { generators as g1 } from './g1'
 import { generators as g2 } from './g2'
@@ -55,5 +56,13 @@ export function generateUncached(ref: string): Item {
   if (!gen) throw new Error(`Generator tidak ada untuk skill ${parsed.skill}`)
   if (!gen.levels.includes(parsed.level)) throw new Error(`Generator ${parsed.skill} tidak punya tingkat ${parsed.level}`)
   const body = gen.generate({ rng: createRng(`${parsed.skill}:${parsed.level}:${parsed.seed}`), level: parsed.level })
-  return itemSchema.parse({ ...body, id: ref, skill: parsed.skill, difficulty: parsed.level })
+  return withWalkthrough(itemSchema.parse({ ...body, id: ref, skill: parsed.skill, difficulty: parsed.level }))
+}
+
+/** Tanda pengenal instans generator: isi soal tanpa id, supaya dua seed yang menghasilkan soal sama terdeteksi. */
+export function instanceSignature(ref: string): string {
+  const p = parseGenRef(ref)
+  if (!p || !GENERATORS.has(p.skill)) return ref
+  const { id: _id, ...rest } = generateItem(ref)
+  return JSON.stringify(rest)
 }

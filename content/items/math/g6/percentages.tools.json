@@ -1,0 +1,40 @@
+{
+  "skill": "m6.percentages",
+  "items": [
+    {
+      "id": "m6.percentages.804",
+      "skill": "m6.percentages",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "partwhole",
+      "prompt": "A bike costs 80 dollars. Fitri has saved 30 percent of the price. Build a model with 10 equal units, each worth 10 percent, and say what one unit is worth in dollars.",
+      "bars": [
+        {
+          "label": "Saved",
+          "units": 3
+        },
+        {
+          "label": "Still needed",
+          "units": 7
+        }
+      ],
+      "extraLabels": [
+        "Spent"
+      ],
+      "unitValue": 8,
+      "unitName": "dollars",
+      "hints": [
+        "10 percent is one tenth, so the whole is 10 units.",
+        "Saved is 3 units and still needed is 7 units.",
+        "Share 80 dollars equally between 10 units."
+      ],
+      "explanation": "80 divided by 10 is 8, so one unit is 8 dollars. Fitri has saved 3 units, which is 24 dollars.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    }
+  ]
+}

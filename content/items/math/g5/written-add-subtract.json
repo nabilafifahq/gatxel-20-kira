@@ -1,0 +1,122 @@
+{
+  "skill": "m5.written-add-subtract",
+  "items": [
+    {
+      "id": "m5.written-add-subtract.001",
+      "skill": "m5.written-add-subtract",
+      "difficulty": 3,
+      "prompt": "Village A has 358,476 trees and village B has 267,859 trees. How many trees are there altogether?",
+      "hints": [
+        "Line up the digits in columns.",
+        "Start adding from the ones column.",
+        "Remember to carry when a column makes 10 or more."
+      ],
+      "explanation": "358,476 + 267,859 = 626,335 trees.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 626335
+    },
+    {
+      "id": "m5.written-add-subtract.002",
+      "skill": "m5.written-add-subtract",
+      "difficulty": 4,
+      "prompt": "Bayu works out 502,300 - 187,645 and gets 485,345. What is the correct answer?",
+      "hints": [
+        "Bayu's answer is too big. 502,300 - 187,645 is less than 400,000.",
+        "Borrow across the zeros, starting at the ones column.",
+        "Check by adding your answer to 187,645."
+      ],
+      "explanation": "502,300 - 187,645 = 314,655. Check: 314,655 + 187,645 = 502,300.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "485,345",
+          "why": "In each column Bayu took the smaller digit from the bigger one. You must borrow when the top digit is smaller."
+        },
+        {
+          "text": "315,655",
+          "why": "One borrow went missing. Check the thousands column."
+        },
+        {
+          "text": "324,655",
+          "why": "Check the borrow in the ten thousands column. It is easy to lose 1 there."
+        },
+        {
+          "text": "314,655"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.written-add-subtract.003",
+      "skill": "m5.written-add-subtract",
+      "difficulty": 4,
+      "prompt": "A stadium has 48,250 visitors on day 1. On day 2 there are 5,780 fewer. On day 3 there are 2,305 more than on day 2. How many visitors came over the three days?",
+      "hints": [
+        "Find the day 2 visitors first.",
+        "Day 2 is 48,250 - 5,780.",
+        "Then find day 3 and add all three days."
+      ],
+      "explanation": "Day 2: 48,250 - 5,780 = 42,470. Day 3: 42,470 + 2,305 = 44,775. Total: 48,250 + 42,470 + 44,775 = 135,495.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 135495
+    },
+    {
+      "id": "m5.written-add-subtract.801",
+      "skill": "m5.written-add-subtract",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 48,375 + 6,925 = 55,300.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Line up the digits by place value.",
+        "Carry whenever a column reaches 10 or more.",
+        "Estimate: 48,000 + 7,000."
+      ],
+      "explanation": "Add in columns: 5+5=10, 7+2+1=10, 3+9+1=13, 8+6+1=15, and 4+1=5. The result is 55,300.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.written-add-subtract.802",
+      "skill": "m5.written-add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 70,000 - 28,456 = 41,644.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add your answer back to 28,456.",
+        "Does 41,644 + 28,456 make 70,000?",
+        "Estimate: 70,000 - 28,000 = 42,000, then take away 456 more."
+      ],
+      "explanation": "70,000 - 28,456 = 41,544. Check: 41,544 + 28,456 = 70,000, but 41,644 + 28,456 = 70,100.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import type { ReactElement, ReactNode } from 'react'
 import { Avatar } from '@kira/figures'
@@ -5,6 +6,7 @@ import type { AvatarName, LearnerShell } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
 import { MoreNav } from './MoreNav'
+import { effectiveOn, type FeatureKey } from '@kira/core/features'
 import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
 
 /**
@@ -17,14 +19,18 @@ import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
  * Delapan tujuan utama. Rel tablet menampilkan semuanya. Bar bawah di HP hanya memuat PHONE_PRIMARY;
  * sisanya ada di lembar "More" (MoreNav).
  */
-const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string }[] = [
+const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string; features?: FeatureKey[] }[] = [
   { key: 'today', label: 'Today', icon: 'sun', href: LEARNER_ROUTES.today },
   { key: 'map', label: 'Map', icon: 'map', href: LEARNER_ROUTES.map },
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
-  { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions },
-  { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english },
-  { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths },
-  { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena },
+  { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions, features: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
+  { key: 'practice', label: 'Practice', icon: 'pencil', href: LEARNER_ROUTES.practice },
+  { key: 'reading', label: 'Reading Room', icon: 'book', href: LEARNER_ROUTES.reading },
+  { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
+  { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
+  { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },
+  { key: 'tools', label: 'Maths Tools', icon: 'pencil', href: LEARNER_ROUTES.tools },
+  { key: 'world', label: 'Kira World', icon: 'star', href: LEARNER_ROUTES.world },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
@@ -47,7 +53,7 @@ export function avatarLabel(avatar: AvatarName): string {
 const PHONE_PRIMARY: readonly LearnerNavKey[] = ['today', 'map', 'review', 'me']
 
 function navItems(shell: LearnerShell) {
-  return NAV.filter((n) => n.key !== 'review' || shell.showReview)
+  return NAV.filter((n) => (n.key !== 'review' || shell.showReview) && (!n.features || n.features.some((f) => effectiveOn(shell.features ?? {}, f))))
 }
 
 function ReviewCount({ shell }: { shell: LearnerShell }): ReactElement | null {
@@ -68,9 +74,9 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
     <>
       <nav
         aria-label="Main"
-        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 border-r border-divider bg-surface px-1 overflow-y-auto py-5 md:flex"
+        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
-        <div className="mb-3 font-display text-h1 font-bold">Kira</div>
+        <KiraLogo size={36} stacked className="mb-3" />
         {items.map((n) => {
           const on = n.key === current
           return (
@@ -80,7 +86,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               aria-current={on ? 'page' : undefined}
               className={cx(
                 'relative flex min-h-16 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 px-1 py-1.5 text-center text-small leading-tight no-underline',
-                on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted hover:border-divider hover:text-fg',
+                on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg hover:bg-lavender',
               )}
             >
               <UiIcon name={n.icon} size={26} />
@@ -92,7 +98,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
       </nav>
       <nav
         aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-30 flex h-19 gap-2 border-t border-divider bg-surface px-4 py-1.5 md:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 flex h-19 gap-2 rounded-t-xl bg-surface px-4 py-1.5 shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
       >
         {phone.map((n) => {
           const on = n.key === current
@@ -103,7 +109,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               aria-current={on ? 'page' : undefined}
               className={cx(
                 'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 no-underline',
-                on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted',
+                on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg',
               )}
             >
               <UiIcon name={n.icon} size={24} />

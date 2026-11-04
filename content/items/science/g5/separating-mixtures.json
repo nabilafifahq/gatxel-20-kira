@@ -8,10 +8,22 @@
       "difficulty": 1,
       "prompt": "Match each mixture to the best way to separate it.",
       "pairs": [
-        ["dried beans and flour", "sieving"],
-        ["sand and water", "filtering"],
-        ["salt dissolved in water", "evaporating"],
-        ["iron nails and sawdust", "using a magnet"]
+        [
+          "dried beans and flour",
+          "sieving"
+        ],
+        [
+          "sand and water",
+          "filtering"
+        ],
+        [
+          "salt dissolved in water",
+          "evaporating"
+        ],
+        [
+          "iron nails and sawdust",
+          "using a magnet"
+        ]
       ],
       "hints": [
         "Look at what is different about the two materials in each mixture: size, dissolving or magnetism.",
@@ -27,10 +39,21 @@
       "difficulty": 1,
       "prompt": "Ravi has muddy water with sand in it. What should he use to remove the sand?",
       "options": [
-        { "text": "a magnet", "why": "Sand is not magnetic, so a magnet cannot pick it up." },
-        { "text": "a filter paper in a funnel" },
-        { "text": "a sieve with large holes", "why": "Grains of sand are tiny and would pass through large holes." },
-        { "text": "a thermometer", "why": "A thermometer measures temperature. It cannot separate anything." }
+        {
+          "text": "a magnet",
+          "why": "Sand is not magnetic, so a magnet cannot pick it up."
+        },
+        {
+          "text": "a filter paper in a funnel"
+        },
+        {
+          "text": "a sieve with large holes",
+          "why": "Grains of sand are tiny and would pass through large holes."
+        },
+        {
+          "text": "a thermometer",
+          "why": "A thermometer measures temperature. It cannot separate anything."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -47,10 +70,21 @@
       "difficulty": 2,
       "prompt": "A mixture contains sand and iron filings. Which is the quickest way to separate them?",
       "options": [
-        { "text": "filtering", "why": "Neither sand nor iron dissolves, so both would stay on the filter paper together." },
-        { "text": "evaporating", "why": "There is no water to evaporate, and both solids would be left together." },
-        { "text": "sieving", "why": "Sand grains and iron filings are about the same size, so a sieve cannot sort them." },
-        { "text": "using a magnet" }
+        {
+          "text": "filtering",
+          "why": "Neither sand nor iron dissolves, so both would stay on the filter paper together."
+        },
+        {
+          "text": "evaporating",
+          "why": "There is no water to evaporate, and both solids would be left together."
+        },
+        {
+          "text": "sieving",
+          "why": "Sand grains and iron filings are about the same size, so a sieve cannot sort them."
+        },
+        {
+          "text": "using a magnet"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -67,10 +101,21 @@
       "difficulty": 3,
       "prompt": "Why can filter paper not separate salt from salty water?",
       "options": [
-        { "text": "Dissolved salt is in pieces so tiny that they pass through the filter paper." },
-        { "text": "Salt is magnetic.", "why": "Salt is not magnetic, and magnetism has nothing to do with filtering." },
-        { "text": "Filter paper dissolves in salty water.", "why": "Filter paper does not dissolve. It stays whole while water passes through." },
-        { "text": "Salt is too big to pass through.", "why": "If the salt were too big, the filter would catch it. Dissolved salt passes through." }
+        {
+          "text": "Dissolved salt is in pieces so tiny that they pass through the filter paper."
+        },
+        {
+          "text": "Salt is magnetic.",
+          "why": "Salt is not magnetic, and magnetism has nothing to do with filtering."
+        },
+        {
+          "text": "Filter paper dissolves in salty water.",
+          "why": "Filter paper does not dissolve. It stays whole while water passes through."
+        },
+        {
+          "text": "Salt is too big to pass through.",
+          "why": "If the salt were too big, the filter would catch it. Dissolved salt passes through."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -87,20 +132,40 @@
       "difficulty": 4,
       "prompt": "A mixture contains iron filings, sand and salt. Choose 3 methods that together separate all three.",
       "options": [
-        { "text": "using a magnet" },
-        { "text": "dissolving the salt, then filtering out the sand" },
-        { "text": "evaporating the water from the salty liquid" },
-        { "text": "sieving", "why": "All three are small grains, so a sieve cannot sort them." },
-        { "text": "melting", "why": "These materials melt only at very high temperatures, and melting would not separate them." }
+        {
+          "text": "using a magnet"
+        },
+        {
+          "text": "dissolving the salt, then filtering out the sand"
+        },
+        {
+          "text": "evaporating the water from the salty liquid"
+        },
+        {
+          "text": "sieving",
+          "why": "All three are small grains, so a sieve cannot sort them."
+        },
+        {
+          "text": "melting",
+          "why": "These materials melt only at very high temperatures, and melting would not separate them."
+        }
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "hints": [
         "Each of the three materials has a different property you can use.",
         "Iron is magnetic, salt dissolves in water and sand does not dissolve.",
         "Take out the iron first. Then add water to the sand and salt, and think about the next step."
       ],
       "explanation": "A magnet removes the iron filings. Adding water dissolves the salt, filtering removes the sand, and evaporating the water leaves the salt behind.",
-      "tags": ["iksc", "imso", "osn-sd"]
+      "tags": [
+        "iksc",
+        "imso",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.separating-mixtures.006",
@@ -108,14 +173,22 @@
       "type": "order",
       "difficulty": 3,
       "prompt": "Rock salt is salt mixed with sand and grit. Put the steps in order to get clean salt from it.",
-      "items": ["crush the rock salt", "add water and stir", "filter the mixture", "evaporate the water from the salty liquid"],
+      "items": [
+        "crush the rock salt",
+        "add water and stir",
+        "filter the mixture",
+        "evaporate the water from the salty liquid"
+      ],
       "hints": [
         "Sand and grit do not dissolve, but salt does.",
         "First the salt must dissolve, then the sand can be removed, then the salt can be collected.",
         "Start by making the lumps of rock salt smaller so the salt dissolves faster."
       ],
       "explanation": "Crushing makes small pieces, and stirring in water dissolves the salt. Filtering removes the sand and grit, and evaporating the water leaves clean salt.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.separating-mixtures.007",
@@ -124,10 +197,21 @@
       "difficulty": 3,
       "prompt": "On the island of Madura, farmers let sea water stand in shallow ponds in the dry season. How do they get salt?",
       "options": [
-        { "text": "The salt sinks and the water is poured away.", "why": "Dissolved salt does not sink. The water has to evaporate." },
-        { "text": "The salt freezes at night.", "why": "Madura is warm, and sea water does not freeze there." },
-        { "text": "The Sun's heat evaporates the water and leaves the salt behind." },
-        { "text": "Filtering the sea water traps the salt.", "why": "Dissolved salt passes through a filter. The water must evaporate instead." }
+        {
+          "text": "The salt sinks and the water is poured away.",
+          "why": "Dissolved salt does not sink. The water has to evaporate."
+        },
+        {
+          "text": "The salt freezes at night.",
+          "why": "Madura is warm, and sea water does not freeze there."
+        },
+        {
+          "text": "The Sun's heat evaporates the water and leaves the salt behind."
+        },
+        {
+          "text": "Filtering the sea water traps the salt.",
+          "why": "Dissolved salt passes through a filter. The water must evaporate instead."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -136,7 +220,9 @@
         "Ask which part of the sea water can turn into a gas and leave the pond."
       ],
       "explanation": "The Sun's heat makes the water evaporate, leaving the dissolved salt behind as crystals. Shallow ponds and dry weather help the water evaporate faster.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.separating-mixtures.008",
@@ -145,10 +231,21 @@
       "difficulty": 2,
       "prompt": "Which mixture is best separated with a sieve?",
       "options": [
-        { "text": "salt and water", "why": "Salt dissolves, so it passes straight through a sieve. Evaporate the water instead." },
-        { "text": "pebbles and sand" },
-        { "text": "iron filings and sand", "why": "Both are tiny grains of a similar size. Use a magnet instead." },
-        { "text": "sugar and water", "why": "Sugar dissolves, so it passes through a sieve. Evaporate the water instead." }
+        {
+          "text": "salt and water",
+          "why": "Salt dissolves, so it passes straight through a sieve. Evaporate the water instead."
+        },
+        {
+          "text": "pebbles and sand"
+        },
+        {
+          "text": "iron filings and sand",
+          "why": "Both are tiny grains of a similar size. Use a magnet instead."
+        },
+        {
+          "text": "sugar and water",
+          "why": "Sugar dissolves, so it passes through a sieve. Evaporate the water instead."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -166,11 +263,26 @@
       "prompt": "Draw how to filter muddy water using a funnel, filter paper and a beaker. Label the funnel, filter paper, beaker, sand and clean water.",
       "rubric": {
         "criteria": [
-          { "label": "Draws a funnel sitting in a beaker", "points": 1 },
-          { "label": "Shows filter paper folded inside the funnel", "points": 1 },
-          { "label": "Shows the sand trapped on the filter paper", "points": 2 },
-          { "label": "Shows clear water collected in the beaker", "points": 1 },
-          { "label": "Labels all five parts", "points": 1 }
+          {
+            "label": "Draws a funnel sitting in a beaker",
+            "points": 1
+          },
+          {
+            "label": "Shows filter paper folded inside the funnel",
+            "points": 1
+          },
+          {
+            "label": "Shows the sand trapped on the filter paper",
+            "points": 2
+          },
+          {
+            "label": "Shows clear water collected in the beaker",
+            "points": 1
+          },
+          {
+            "label": "Labels all five parts",
+            "points": 1
+          }
         ]
       },
       "background": "blank",
@@ -187,10 +299,21 @@
       "difficulty": 5,
       "prompt": "Kiki builds a filter from gravel, sand and cloth. Dirty river water comes out looking clear. Is it safe to drink?",
       "options": [
-        { "text": "Yes, because it looks clear.", "why": "Clear water can still contain microorganisms that are too small to see." },
-        { "text": "Yes, because sand kills all germs.", "why": "Sand traps bits of dirt, but it does not kill microorganisms." },
-        { "text": "No, because filtering adds salt to the water.", "why": "A filter does not add salt." },
-        { "text": "No. Tiny microorganisms can pass through, so the water should be boiled first." }
+        {
+          "text": "Yes, because it looks clear.",
+          "why": "Clear water can still contain microorganisms that are too small to see."
+        },
+        {
+          "text": "Yes, because sand kills all germs.",
+          "why": "Sand traps bits of dirt, but it does not kill microorganisms."
+        },
+        {
+          "text": "No, because filtering adds salt to the water.",
+          "why": "A filter does not add salt."
+        },
+        {
+          "text": "No. Tiny microorganisms can pass through, so the water should be boiled first."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -199,7 +322,839 @@
         "Ask whether a sand filter can stop something smaller than the gaps in it."
       ],
       "explanation": "A sand filter removes mud and bits, but harmful microorganisms are small enough to pass through. Boiling the water kills them, which makes it safe to drink.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s5.separating-mixtures.011",
+      "skill": "s5.separating-mixtures",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the equipment and materials in this filtering set-up.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                90,
+                70
+              ],
+              [
+                230,
+                70
+              ],
+              [
+                176,
+                150
+              ],
+              [
+                144,
+                150
+              ]
+            ],
+            "closed": true,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 150,
+            "y": 150,
+            "w": 20,
+            "h": 42,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                105,
+                76
+              ],
+              [
+                215,
+                76
+              ],
+              [
+                166,
+                138
+              ],
+              [
+                154,
+                138
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                140,
+                98
+              ],
+              [
+                180,
+                98
+              ],
+              [
+                168,
+                128
+              ],
+              [
+                152,
+                128
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 204,
+            "r": 3,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 92,
+            "y": 250,
+            "w": 136,
+            "h": 38,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 200,
+            "w": 140,
+            "h": 90,
+            "r": 8,
+            "tone": "muted",
+            "fill": "none"
+          }
+        ],
+        "alt": "A funnel lined with a paper cone sits above a glass beaker. Brown mud is caught inside the paper cone. A drop of clear water falls from the funnel stem into the beaker, which holds a little clear water."
+      },
+      "labels": [
+        "funnel",
+        "residue",
+        "filtrate",
+        "beaker"
+      ],
+      "spots": [
+        {
+          "x": 70.3,
+          "y": 24
+        },
+        {
+          "x": 50,
+          "y": 36.7
+        },
+        {
+          "x": 50,
+          "y": 90.7
+        },
+        {
+          "x": 30,
+          "y": 75
+        }
+      ],
+      "extraLabels": [
+        "thermometer",
+        "magnet"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The residue is the solid left behind in the paper.",
+        "The filtrate is the liquid that passes through."
+      ],
+      "explanation": "The funnel holds the filter paper. The residue stays in the paper and the filtrate drips into the beaker."
+    },
+    {
+      "id": "s5.separating-mixtures.012",
+      "skill": "s5.separating-mixtures",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the equipment you would use to separate iron filings from sand.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 140,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "thermometer",
+            "x": 30,
+            "y": 40,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "scissors",
+            "x": 132,
+            "y": 40,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "magnet",
+            "x": 234,
+            "y": 40,
+            "size": 56
+          }
+        ],
+        "alt": "Three pieces of equipment in a row: a thermometer on the left, a pair of scissors in the middle and a magnet on the right."
+      },
+      "regions": [
+        {
+          "label": "thermometer",
+          "x": 18.1,
+          "y": 48.6,
+          "w": 24,
+          "h": 48
+        },
+        {
+          "label": "scissors",
+          "x": 50,
+          "y": 48.6,
+          "w": 24,
+          "h": 48
+        },
+        {
+          "label": "magnet",
+          "x": 81.9,
+          "y": 48.6,
+          "w": 24,
+          "h": 48
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Iron has a special property.",
+        "Sand does not have this property.",
+        "Which object attracts iron?"
+      ],
+      "explanation": "Iron is magnetic and sand is not, so a magnet picks out the iron filings."
+    },
+    {
+      "id": "s5.separating-mixtures.013",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is a mixture?",
+      "options": [
+        {
+          "text": "Two or more materials mixed together, each keeping its own properties"
+        },
+        {
+          "text": "A material that is the same all the way through, such as pure water",
+          "why": "That is a pure substance, not a mixture."
+        },
+        {
+          "text": "A solid that dissolves in water",
+          "why": "This is a soluble solid. A mixture is more than one material."
+        },
+        {
+          "text": "Any liquid in a bottle",
+          "why": "Some liquids are mixtures and some are pure, so this does not define a mixture."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about a fruit salad.",
+        "You can often get the parts back again.",
+        "Look for the answer that says more than one material."
+      ],
+      "explanation": "In a mixture the materials are mixed but not joined, so they can usually be separated."
+    },
+    {
+      "id": "s5.separating-mixtures.014",
+      "skill": "s5.separating-mixtures",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Rangga sieves 1000 g of garden soil through two sieves. Complete the table.",
+      "head": [
+        "Where the soil stopped",
+        "Mass (g)"
+      ],
+      "rows": [
+        [
+          "Top sieve, largest holes",
+          "420"
+        ],
+        [
+          "Middle sieve",
+          "380"
+        ],
+        [
+          "Tray at the bottom",
+          ""
+        ],
+        [
+          "Total",
+          "1000"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "200"
+          ]
+        }
+      ],
+      "hints": [
+        "The three amounts add up to the total.",
+        "Add the two known masses first.",
+        "1000 minus (420 + 380)."
+      ],
+      "explanation": "420 + 380 = 800, and 1000 - 800 = 200 g, so 200 g of fine soil passed through both sieves into the tray."
+    },
+    {
+      "id": "s5.separating-mixtures.015",
+      "skill": "s5.separating-mixtures",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A salt solution has a mass of 340 g and contains 40 g of salt. All the water evaporates. What mass of water was lost?",
+      "answer": 300,
+      "unit": "g",
+      "hints": [
+        "The salt stays behind when the water evaporates.",
+        "Total mass = salt + water.",
+        "Take the salt away from the total mass."
+      ],
+      "explanation": "340 - 40 = 300 g of water evaporated, leaving 40 g of salt."
+    },
+    {
+      "id": "s5.separating-mixtures.016",
+      "skill": "s5.separating-mixtures",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the mixtures.",
+      "options": [
+        {
+          "text": "Air"
+        },
+        {
+          "text": "Sea water"
+        },
+        {
+          "text": "Soil"
+        },
+        {
+          "text": "A pure iron nail"
+        },
+        {
+          "text": "Distilled water"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "A mixture has more than one material.",
+        "Pure materials contain only one thing.",
+        "Air contains several gases."
+      ],
+      "explanation": "Air, sea water and soil each contain several materials. A pure iron nail and distilled water are single substances."
+    },
+    {
+      "id": "s5.separating-mixtures.017",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A set of sieves is stacked with the 6 mm sieve on top, then the 3 mm, then the 1 mm sieve, and a tray at the bottom. Which stone is caught in the 1 mm sieve?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Stone",
+          "Width (mm)"
+        ],
+        "rows": [
+          [
+            "A",
+            "8"
+          ],
+          [
+            "B",
+            "5"
+          ],
+          [
+            "C",
+            "2"
+          ],
+          [
+            "D",
+            "0.5"
+          ]
+        ],
+        "alt": "Table of stone widths: A is 8 millimetres, B is 5, C is 2, D is 0.5."
+      },
+      "options": [
+        {
+          "text": "Stone C"
+        },
+        {
+          "text": "Stone A",
+          "why": "Stone A is wider than 6 mm, so it is stopped by the first sieve."
+        },
+        {
+          "text": "Stone B",
+          "why": "Stone B is stopped by the 3 mm sieve because it is wider than 3 mm."
+        },
+        {
+          "text": "Stone D",
+          "why": "Stone D is smaller than 1 mm, so it falls through every sieve into the tray."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A stone is caught by the first sieve with holes smaller than the stone.",
+        "Check each stone against 6 mm, then 3 mm, then 1 mm.",
+        "Which stone passes through 3 mm but not 1 mm?"
+      ],
+      "explanation": "Stone C is 2 mm. It passes the 6 mm and 3 mm sieves but is too big for the 1 mm holes."
+    },
+    {
+      "id": "s5.separating-mixtures.018",
+      "skill": "s5.separating-mixtures",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the steps in order to separate steel pins, sand and salt.",
+      "items": [
+        "Use a magnet to take out the steel pins",
+        "Add water and stir to dissolve the salt",
+        "Filter the mixture to remove the sand",
+        "Heat the filtrate until the water has evaporated"
+      ],
+      "hints": [
+        "Start with the easiest separation.",
+        "The salt has to be dissolved before it can pass through the filter paper.",
+        "The sand stays in the filter paper."
+      ],
+      "explanation": "The magnet removes the steel pins. Water dissolves the salt so filtering can remove the sand. Evaporating the filtrate leaves the salt."
+    },
+    {
+      "id": "s5.separating-mixtures.019",
+      "skill": "s5.separating-mixtures",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The liquid that passes through the filter paper is called the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "filtrate",
+            "the filtrate",
+            "filtered water",
+            "clean water"
+          ]
+        }
+      ],
+      "hints": [
+        "The solid left in the paper is the residue.",
+        "The word starts with f.",
+        "It ends with trate."
+      ],
+      "explanation": "The filtrate is the liquid that passes through the filter paper. The solid left behind is the residue."
+    },
+    {
+      "id": "s5.separating-mixtures.020",
+      "skill": "s5.separating-mixtures",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Kiki tests which material filters muddy water best. Choose 3 things she must keep the same.",
+      "options": [
+        {
+          "text": "The type of filter material"
+        },
+        {
+          "text": "The volume of muddy water"
+        },
+        {
+          "text": "The size of the funnel"
+        },
+        {
+          "text": "The amount of mud in the water"
+        },
+        {
+          "text": "How clear the filtered water is"
+        }
+      ],
+      "answers": [
+        1,
+        2,
+        3
+      ],
+      "hints": [
+        "One thing is changed and one is measured.",
+        "Everything else must be the same.",
+        "Cross out the thing she changes and the thing she measures."
+      ],
+      "explanation": "The filter material is changed and the clearness is measured. The volume of water, funnel size and amount of mud must stay the same."
+    },
+    {
+      "id": "s5.separating-mixtures.021",
+      "skill": "s5.separating-mixtures",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Kiki scores the clearness of filtered water out of 5 three times for each filter. What is the mean score for the coffee filter?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Filter",
+          "Test 1",
+          "Test 2",
+          "Test 3"
+        ],
+        "rows": [
+          [
+            "Coffee filter",
+            "4",
+            "5",
+            "3"
+          ],
+          [
+            "Cloth",
+            "2",
+            "2",
+            "3"
+          ],
+          [
+            "Cotton wool",
+            "3",
+            "3",
+            "3"
+          ]
+        ],
+        "alt": "Table of clearness scores out of 5. Coffee filter: 4, 5, 3. Cloth: 2, 2, 3. Cotton wool: 3, 3, 3."
+      },
+      "answer": 4,
+      "hints": [
+        "Mean means add and share equally.",
+        "Use only the coffee filter row.",
+        "4 + 5 + 3 gives the total."
+      ],
+      "explanation": "4 + 5 + 3 = 12, and 12 / 3 = 4."
+    },
+    {
+      "id": "s5.separating-mixtures.022",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Sekar leaves salty water in dish X for five days in a cool room. She heats dish Y until it is dry in ten minutes. Both start with the same amount of salty water. What is most likely?",
+      "options": [
+        {
+          "text": "Dish X gives larger salt crystals than dish Y."
+        },
+        {
+          "text": "Dish Y gives more salt because it was heated.",
+          "why": "The same mass of salt is in both dishes, so the same mass is left."
+        },
+        {
+          "text": "Dish X gives no salt because the water leaves too slowly.",
+          "why": "The water slowly evaporates and the salt stays behind."
+        },
+        {
+          "text": "Dish X and dish Y give the same size of crystals.",
+          "why": "Slow evaporation gives the crystals time to grow larger."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the amount of salt in each dish at the start.",
+        "Does the speed of evaporation change the amount of salt?",
+        "Slow evaporation gives crystals more time to grow."
+      ],
+      "explanation": "Both dishes contain the same mass of salt. Slow evaporation gives the crystals time to grow larger."
+    },
+    {
+      "id": "s5.separating-mixtures.023",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A mixture contains sawdust, sand and salt. Which plan separates all three?",
+      "options": [
+        {
+          "text": "Evaporate first, then filter, then add water.",
+          "why": "Evaporating a dry mixture does nothing, and the solids would remain mixed."
+        },
+        {
+          "text": "Filter the dry mixture, then evaporate the filtrate.",
+          "why": "A dry mixture cannot be filtered. The salt must be dissolved first."
+        },
+        {
+          "text": "Add water and stir, skim off the sawdust that floats, filter out the sand, then evaporate the filtrate."
+        },
+        {
+          "text": "Use a magnet to remove the sawdust, then sieve out the sand.",
+          "why": "None of these three materials is magnetic."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which material dissolves? Which one floats? Which one sinks and stays solid?",
+        "Dissolve the salt first.",
+        "Water helps separate all three materials."
+      ],
+      "explanation": "Sawdust floats and can be skimmed off. The sand is filtered out, and evaporating the filtrate leaves the salt behind."
+    },
+    {
+      "id": "s5.separating-mixtures.024",
+      "skill": "s5.separating-mixtures",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each method to why it works.",
+      "pairs": [
+        [
+          "sieving",
+          "the pieces are different sizes"
+        ],
+        [
+          "using a magnet",
+          "one material is magnetic"
+        ],
+        [
+          "filtering",
+          "one solid does not dissolve"
+        ],
+        [
+          "evaporating",
+          "the liquid turns into a gas"
+        ]
+      ],
+      "hints": [
+        "Each method uses a different property.",
+        "A magnet only works on magnetic materials.",
+        "Evaporation involves a change of state."
+      ],
+      "explanation": "Each method works because of a difference between the materials: size, magnetism, solubility or the liquid turning to gas."
+    },
+    {
+      "id": "s5.separating-mixtures.025",
+      "skill": "s5.separating-mixtures",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the mixtures by the best way to separate them.",
+      "groups": [
+        "Sieve",
+        "Filter",
+        "Magnet"
+      ],
+      "items": [
+        {
+          "text": "Pebbles and rice",
+          "group": 0
+        },
+        {
+          "text": "Gravel and sand",
+          "group": 0
+        },
+        {
+          "text": "Chalk powder and water",
+          "group": 1
+        },
+        {
+          "text": "Muddy water",
+          "group": 1
+        },
+        {
+          "text": "Iron nails and sand",
+          "group": 2
+        },
+        {
+          "text": "Steel pins and salt",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Think about which property is different.",
+        "A sieve separates different sizes of solid.",
+        "Filtering is for an insoluble solid in a liquid."
+      ],
+      "explanation": "Sieves separate different sized pieces, filters remove insoluble solids from liquids, and magnets pick out iron or steel."
+    },
+    {
+      "id": "s5.separating-mixtures.801",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A sieve can separate pebbles from sand.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which pieces are larger?",
+        "What do the holes allow?",
+        "Sieving separates different sizes."
+      ],
+      "explanation": "The holes let small sand grains pass through but hold back the larger pebbles.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.separating-mixtures.802",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Filtering can separate salt that has dissolved in water.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is dissolved salt in pieces you can catch?",
+        "Which method turns water into vapour?",
+        "Evaporate the water."
+      ],
+      "explanation": "Dissolved salt is too small and passes through filter paper. To get the salt back, you can evaporate the water.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.separating-mixtures.803",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A magnet can be used to separate iron filings from sand.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one is magnetic?",
+        "Use the magnet.",
+        "Iron sticks to magnets."
+      ],
+      "explanation": "Iron is magnetic and sand is not, so the magnet pulls out the iron.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.separating-mixtures.701",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How can you separate sand from water?",
+      "options": [
+        {
+          "text": "Burning it"
+        },
+        {
+          "text": "Filtering"
+        },
+        {
+          "text": "Using a magnet"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Sand does not dissolve.",
+        "Pour through paper.",
+        "Paper catches the sand."
+      ],
+      "explanation": "Sand does not dissolve, so filter paper catches it and the water passes through.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s5.separating-mixtures.702",
+      "skill": "s5.separating-mixtures",
+      "type": "story",
+      "difficulty": 4,
+      "prompt": "Lina had a mixture of sand, salt and iron filings. First she used a magnet. Then she added water and stirred. She poured it through filter paper. At last she heated the salty water in a dish until it was dry.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What did the magnet remove?",
+          "options": [
+            {
+              "text": "Sand"
+            },
+            {
+              "text": "Salt"
+            },
+            {
+              "text": "Iron filings"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "What stayed on the filter paper?",
+          "options": [
+            {
+              "text": "Iron"
+            },
+            {
+              "text": "Sand"
+            },
+            {
+              "text": "Salt"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What was left in the dish after heating?",
+          "answers": [
+            "salt"
+          ]
+        }
+      ],
+      "hints": [
+        "Magnets attract iron.",
+        "Sand does not dissolve.",
+        "Salt dissolves, then stays behind when the water evaporates."
+      ],
+      "explanation": "The magnet takes the iron. Sand does not dissolve so the filter catches it. Salt is left after evaporation.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

@@ -147,7 +147,7 @@ export function EmptyState({
     <section
       role="status"
       className={cx(
-        'flex flex-col items-center justify-center gap-2.5 rounded-card border border-divider bg-surface text-center',
+        'flex flex-col items-center justify-center gap-2.5 rounded-card bg-surface shadow-soft text-center',
         compact ? 'px-6 py-7' : 'min-h-[260px] p-8',
         className,
       )}

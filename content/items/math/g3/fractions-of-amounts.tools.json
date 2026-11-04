@@ -1,0 +1,110 @@
+{
+  "skill": "m3.fractions-of-amounts",
+  "items": [
+    {
+      "id": "m3.fractions-of-amounts.803",
+      "skill": "m3.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 2,
+      "kind": "partwhole",
+      "prompt": "Kiki has 20 sweets and eats one fifth of them. Build a part-whole model with 5 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Eaten",
+          "units": 1
+        },
+        {
+          "label": "Left",
+          "units": 4
+        }
+      ],
+      "extraLabels": [
+        "Shared"
+      ],
+      "unitValue": 4,
+      "unitName": "sweets",
+      "hints": [
+        "One fifth means the whole is cut into 5 equal units.",
+        "Eaten is 1 unit and left is the other 4 units.",
+        "Share 20 sweets equally between 5 units."
+      ],
+      "explanation": "20 divided by 5 is 4, so one unit is 4 sweets. Kiki eats 1 unit and has 4 units left.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    },
+    {
+      "id": "m3.fractions-of-amounts.804",
+      "skill": "m3.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 3,
+      "kind": "partwhole",
+      "prompt": "There are 18 children in a class and one third wear glasses. Build a part-whole model with 3 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Glasses",
+          "units": 1
+        },
+        {
+          "label": "No glasses",
+          "units": 2
+        }
+      ],
+      "extraLabels": [
+        "Hats"
+      ],
+      "unitValue": 6,
+      "unitName": "children",
+      "hints": [
+        "One third means 3 equal units in the whole.",
+        "Glasses is 1 unit and no glasses is the other 2 units.",
+        "Share 18 children equally between 3 units."
+      ],
+      "explanation": "18 divided by 3 is 6, so one unit is 6 children. Glasses is 1 unit and no glasses is 2 units.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    },
+    {
+      "id": "m3.fractions-of-amounts.805",
+      "skill": "m3.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 3,
+      "kind": "partwhole",
+      "prompt": "A jar holds 24 coins and three quarters are silver. Build a part-whole model with 4 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Silver",
+          "units": 3
+        },
+        {
+          "label": "Other coins",
+          "units": 1
+        }
+      ],
+      "extraLabels": [
+        "Gold"
+      ],
+      "unitValue": 6,
+      "unitName": "coins",
+      "hints": [
+        "Quarters mean 4 equal units in the whole.",
+        "Silver is 3 units and the other coins are 1 unit.",
+        "Share 24 coins equally between 4 units."
+      ],
+      "explanation": "24 divided by 4 is 6, so one unit is 6 coins. Silver is 3 units, which is 18 coins.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    }
+  ]
+}

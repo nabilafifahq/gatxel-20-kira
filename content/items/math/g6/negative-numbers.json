@@ -1,0 +1,173 @@
+{
+  "skill": "m6.negative-numbers",
+  "items": [
+    {
+      "id": "m6.negative-numbers.001",
+      "skill": "m6.negative-numbers",
+      "difficulty": 3,
+      "prompt": "The freezer in the canteen is at −18°C. The kitchen is at 27°C. How many degrees warmer is the kitchen than the freezer?",
+      "hints": [
+        "Find the distance between the two temperatures.",
+        "From −18 up to 0 is 18 degrees.",
+        "Then from 0 up to 27 is another 27 degrees."
+      ],
+      "explanation": "18 + 27 = 45. The kitchen is 45 degrees warmer.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "degrees",
+      "type": "numeric",
+      "answer": 45
+    },
+    {
+      "id": "m6.negative-numbers.002",
+      "skill": "m6.negative-numbers",
+      "difficulty": 4,
+      "prompt": "A diver is at −35 m. She rises 12 m, then dives down 20 m. What is her new position in metres?",
+      "hints": [
+        "Rising means adding. Diving down means subtracting.",
+        "−35 + 12 first.",
+        "Then take away 20 from your answer."
+      ],
+      "explanation": "−35 + 12 = −23. Then −23 − 20 = −43. She is at −43 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "allowNegative": true,
+      "type": "numeric",
+      "answer": -43
+    },
+    {
+      "id": "m6.negative-numbers.003",
+      "skill": "m6.negative-numbers",
+      "difficulty": 4,
+      "prompt": "Maya works out −8 − (−3) and gets −11. What is the correct answer?",
+      "hints": [
+        "Subtracting a negative number is the same as adding a positive.",
+        "So −8 − (−3) is the same as −8 + 3.",
+        "Start at −8 on a number line and move 3 to the right."
+      ],
+      "explanation": "Taking away −3 is the same as adding 3. −8 + 3 = −5.",
+      "tags": [
+        "error-analysis"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "−11",
+          "why": "Subtracting a negative number is the same as adding its opposite."
+        },
+        {
+          "text": "5",
+          "why": "The answer is below zero because you start at −8 and move up only 3."
+        },
+        {
+          "text": "−5"
+        },
+        {
+          "text": "11",
+          "why": "Both the sign and the size are wrong here."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.negative-numbers.801",
+      "skill": "m6.negative-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: -3 + 8 = 5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Use a number line.",
+        "Count to zero first.",
+        "3 + 5 = 8."
+      ],
+      "explanation": "Start at -3 and count on 8: 3 steps reach 0, and 5 more reach 5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.negative-numbers.802",
+      "skill": "m6.negative-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: -4 - 3 = -1.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which way do you move when you subtract?",
+        "Left, away from zero.",
+        "-4, -5, -6, -7."
+      ],
+      "explanation": "Taking away 3 moves you further left on the number line: -4 - 3 = -7.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.negative-numbers.803",
+      "skill": "m6.negative-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The difference between 6 and -4 is 10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the steps from -4 to 0.",
+        "Then 0 to 6.",
+        "4 + 6."
+      ],
+      "explanation": "From -4 to 0 is 4, then 0 to 6 is 6. 4 + 6 = 10.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.negative-numbers.701",
+      "skill": "m6.negative-numbers",
+      "difficulty": 4,
+      "prompt": "(-5) - (-2) = ?",
+      "hints": [
+        "Subtracting a negative adds.",
+        "-5 + 2.",
+        "Start at -5 and go up 2."
+      ],
+      "explanation": "Subtracting -2 is the same as adding 2, so -5 + 2 = -3.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": -3,
+      "allowNegative": true
+    }
+  ]
+}

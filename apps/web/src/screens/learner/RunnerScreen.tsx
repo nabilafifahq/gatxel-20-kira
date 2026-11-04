@@ -1,8 +1,9 @@
 'use client'
 
-import type { ReactElement } from 'react'
+import { useEffect, type ReactElement } from 'react'
 import type { RunnerActions, RunnerDTO } from '@/lib/dto'
 import { ToastProvider } from '@/components/ui/Toast'
+import { warmManipulatives } from '@/components/widgets/Widget'
 import { PracticeRunner } from './runner/PracticeRunner'
 import type { RunnerUpload } from './runner/shared'
 import { SprintRunner } from './runner/SprintRunner'
@@ -18,6 +19,9 @@ export type { RunnerUpload } from './runner/shared'
  * gambar. Tanpa fungsi ini kedua widget menampilkan keadaan "dimatikan" dan bisa dilewati.
  */
 export function RunnerScreen({ data, actions, onUpload }: { data: RunnerDTO; actions: RunnerActions; onUpload?: RunnerUpload }): ReactElement {
+  useEffect(() => {
+    warmManipulatives(data.items.map((i) => i.type))
+  }, [data.items])
   let body: ReactElement
   if (data.mode === 'kilat') body = <SprintRunner data={data} actions={actions} />
   else if (!data.showFeedback) body = <TestRunner data={data} actions={actions} onUpload={onUpload} />

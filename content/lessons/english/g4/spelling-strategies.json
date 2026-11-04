@@ -1,0 +1,90 @@
+{
+  "skill": "e4.spelling-strategies",
+  "title": "Tricks for tricky spellings",
+  "steps": [
+    {
+      "say": "Some letters are written but not said. These are silent letters.",
+      "show": "knife, wrong, lamb"
+    },
+    {
+      "say": "Words that sound the same can have different spellings and meanings.",
+      "show": "their (belongs), there (place), they're (they are)"
+    },
+    {
+      "say": "The letters ough say different sounds. Learn them in groups.",
+      "show": "tough, through, plough, cough"
+    },
+    {
+      "say": "A memory trick helps with a tricky part. Say the word, picture the trick, and then write it.",
+      "show": "there is a rat in sepArate"
+    },
+    {
+      "say": "Keep a spelling log. Write the correct spelling next to each mistake and practise it.",
+      "show": "Look, say, cover, write, check"
+    }
+  ],
+  "check": [
+    {
+      "id": "e4.spelling-strategies.901",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word has a silent letter?",
+      "options": [
+        {
+          "text": "gnat"
+        },
+        {
+          "text": "hand",
+          "why": "Every letter in hand is sounded."
+        },
+        {
+          "text": "seat",
+          "why": "Every letter in seat is sounded."
+        },
+        {
+          "text": "tent",
+          "why": "Every letter in tent is sounded."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say each word and listen.",
+        "A silent letter is written but not heard.",
+        "Look at the word that starts with two consonants."
+      ],
+      "explanation": "In gnat the g is silent, so we say nat."
+    },
+    {
+      "id": "e4.spelling-strategies.902",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the right pair of words.\n___ coats are on the hook over ___.",
+      "options": [
+        {
+          "text": "Their, there"
+        },
+        {
+          "text": "There, their",
+          "why": "There is a place. Their shows who owns the coats."
+        },
+        {
+          "text": "They're, there",
+          "why": "They're means they are."
+        },
+        {
+          "text": "Their, their",
+          "why": "The second gap needs a place word."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Their shows owning. There shows a place.",
+        "The coats belong to someone.",
+        "Try the first gap first."
+      ],
+      "explanation": "Their shows the coats belong to them. There shows the place."
+    }
+  ]
+}

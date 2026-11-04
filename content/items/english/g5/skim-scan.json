@@ -1,0 +1,534 @@
+{
+  "skill": "e5.skim-scan",
+  "items": [
+    {
+      "id": "e5.skim-scan.001",
+      "skill": "e5.skim-scan",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Which reading skill do you need? Sort the jobs.",
+      "groups": [
+        "Skim",
+        "Scan"
+      ],
+      "items": [
+        {
+          "text": "find the price of a ticket",
+          "group": 1
+        },
+        {
+          "text": "decide if a book is about sports",
+          "group": 0
+        },
+        {
+          "text": "find the word Tuesday in a letter",
+          "group": 1
+        },
+        {
+          "text": "get the main idea of an article",
+          "group": 0
+        },
+        {
+          "text": "check the winner's name",
+          "group": 1
+        },
+        {
+          "text": "see what a chapter is about",
+          "group": 0
+        }
+      ],
+      "hints": [
+        "Skimming gives the gist. Scanning finds one detail.",
+        "If you know the word you want, you scan for it.",
+        "Ask: do I need the big idea or one exact fact?"
+      ],
+      "explanation": "Skim when you want the main idea. Scan when you look for a particular word, name or number."
+    },
+    {
+      "id": "e5.skim-scan.002",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "You want to find the date of the school fair in a long letter. What should you do?",
+      "options": [
+        {
+          "text": "Read every word slowly from the start.",
+          "why": "This takes too long when you only need one detail."
+        },
+        {
+          "text": "Read only the first line and stop.",
+          "why": "The date may not be in the first line."
+        },
+        {
+          "text": "Scan for the words school fair and for numbers or months."
+        },
+        {
+          "text": "Skim only the heading and guess.",
+          "why": "Guessing could give you the wrong date."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "You need one fact, not the whole story.",
+        "Move your eyes quickly looking for key words.",
+        "Which words will stand out near the date?"
+      ],
+      "explanation": "To find one fact you scan for key words such as fair and for dates."
+    },
+    {
+      "id": "e5.skim-scan.003",
+      "skill": "e5.skim-scan",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each reading way to its meaning.",
+      "pairs": [
+        [
+          "skimming",
+          "reading quickly to get the main idea"
+        ],
+        [
+          "scanning",
+          "looking quickly for one fact"
+        ],
+        [
+          "close reading",
+          "reading slowly to understand details"
+        ]
+      ],
+      "hints": [
+        "Think about how fast you read in each way.",
+        "Scanning looks for something exact.",
+        "Start with close reading: how carefully do you read?"
+      ],
+      "explanation": "Skimming gives the gist, scanning finds a specific fact and close reading means careful reading."
+    },
+    {
+      "id": "e5.skim-scan.004",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Use the contents page. On which page should Wulan start to read about the Arctic?",
+      "options": [
+        {
+          "text": "3",
+          "why": "Page 3 is about rainforests."
+        },
+        {
+          "text": "11",
+          "why": "Page 11 is about deserts."
+        },
+        {
+          "text": "19"
+        },
+        {
+          "text": "27",
+          "why": "Page 27 is about grasslands."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The Arctic is a very cold place.",
+        "Scan the titles for a cold region.",
+        "Look at the chapter called Polar regions."
+      ],
+      "explanation": "The Arctic is a polar region, so the chapter Polar regions on page 19 is the right place to start.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Chapter",
+          "Title",
+          "Page"
+        ],
+        "rows": [
+          [
+            "1",
+            "Rainforests",
+            "3"
+          ],
+          [
+            "2",
+            "Deserts",
+            "11"
+          ],
+          [
+            "3",
+            "Polar regions",
+            "19"
+          ],
+          [
+            "4",
+            "Grasslands",
+            "27"
+          ],
+          [
+            "",
+            "Glossary",
+            "35"
+          ],
+          [
+            "",
+            "Index",
+            "37"
+          ]
+        ],
+        "alt": "A contents page: Rainforests page 3, Deserts page 11, Polar regions page 19, Grasslands page 27, Glossary page 35, Index page 37."
+      }
+    },
+    {
+      "id": "e5.skim-scan.005",
+      "skill": "e5.skim-scan",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Use the index entries: camels 12, 14; cacti 13; canyons 22; caves 24 to 25. Tom wants to read about cacti only. Which page number should he turn to?",
+      "blanks": [
+        {
+          "answers": [
+            "13",
+            "page 13",
+            "p13"
+          ]
+        }
+      ],
+      "hints": [
+        "Scan the index for the word cacti.",
+        "Words in an index are in alphabetical order.",
+        "Look for the entry that starts with cac."
+      ],
+      "explanation": "The index shows cacti on page 13."
+    },
+    {
+      "id": "e5.skim-scan.006",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You want to find out how a volcano forms. Which heading should you skim first?",
+      "options": [
+        {
+          "text": "Where volcanoes are found",
+          "why": "This heading is about location."
+        },
+        {
+          "text": "How a volcano is formed"
+        },
+        {
+          "text": "Famous eruptions",
+          "why": "This heading is about events in history."
+        },
+        {
+          "text": "Staying safe near a volcano",
+          "why": "This heading is about safety."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Read the headings only.",
+        "Match the heading to the question.",
+        "Which heading uses the word formed or how?"
+      ],
+      "explanation": "The heading \"How a volcano is formed\" matches the question, so you start there."
+    },
+    {
+      "id": "e5.skim-scan.007",
+      "skill": "e5.skim-scan",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Use the timetable. Ferry C leaves the harbour at 13:00. How many minutes does the journey to the island take?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ferry",
+          "Leaves harbour",
+          "Arrives at island"
+        ],
+        "rows": [
+          [
+            "A",
+            "07:30",
+            "08:15"
+          ],
+          [
+            "B",
+            "09:45",
+            "10:30"
+          ],
+          [
+            "C",
+            "13:00",
+            "13:45"
+          ],
+          [
+            "D",
+            "16:20",
+            "17:05"
+          ]
+        ],
+        "alt": "Timetable of four ferries: A leaves 07:30 and arrives 08:15, B leaves 09:45 and arrives 10:30, C leaves 13:00 and arrives 13:45, D leaves 16:20 and arrives 17:05."
+      },
+      "answer": 45,
+      "unit": "minutes",
+      "hints": [
+        "Find the row for ferry C.",
+        "Subtract the leaving time from the arrival time.",
+        "13:00 to 14:00 is 60 minutes. Work out how much less it is."
+      ],
+      "explanation": "Ferry C leaves at 13:00 and arrives at 13:45, so the journey takes 45 minutes."
+    },
+    {
+      "id": "e5.skim-scan.008",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Use the timetable. Dewi must be on the island by 11:00. Which is the latest ferry she can take?",
+      "options": [
+        {
+          "text": "A",
+          "why": "This ferry arrives early, but it is not the latest that works."
+        },
+        {
+          "text": "C",
+          "why": "This ferry arrives at 13:45, which is too late."
+        },
+        {
+          "text": "D",
+          "why": "This ferry arrives at 17:05, which is too late."
+        },
+        {
+          "text": "B"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the arrival column.",
+        "Find the ferries that arrive by 11:00.",
+        "Pick the one that leaves latest out of those."
+      ],
+      "explanation": "Ferries A and B arrive before 11:00. Ferry B leaves later, so it is the latest she can take.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ferry",
+          "Leaves harbour",
+          "Arrives at island"
+        ],
+        "rows": [
+          [
+            "A",
+            "07:30",
+            "08:15"
+          ],
+          [
+            "B",
+            "09:45",
+            "10:30"
+          ],
+          [
+            "C",
+            "13:00",
+            "13:45"
+          ],
+          [
+            "D",
+            "16:20",
+            "17:05"
+          ]
+        ],
+        "alt": "Timetable of four ferries: A leaves 07:30 and arrives 08:15, B leaves 09:45 and arrives 10:30, C leaves 13:00 and arrives 13:45, D leaves 16:20 and arrives 17:05."
+      }
+    },
+    {
+      "id": "e5.skim-scan.009",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Skim this notice. What is it mostly about?\n\"Garden club notice. Our garden club meets every Wednesday in Room 6. We plant beans, water the seedlings and learn how compost helps soil. Members take home vegetables to share. Come and see how food grows, and bring a hat for the sunny days.\"",
+      "options": [
+        {
+          "text": "how to cook vegetables",
+          "why": "The notice does not talk about cooking."
+        },
+        {
+          "text": "a club where children grow plants and learn about soil"
+        },
+        {
+          "text": "a rule about wearing hats",
+          "why": "The hat is only a small detail."
+        },
+        {
+          "text": "a room that needs cleaning",
+          "why": "Room 6 is only where the club meets."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Skimming means reading to get the big idea.",
+        "Look at the first and last sentences.",
+        "Ignore small details like the hat."
+      ],
+      "explanation": "The notice is about a garden club where children plant, water and learn about soil."
+    },
+    {
+      "id": "e5.skim-scan.010",
+      "skill": "e5.skim-scan",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Scan the notice for the fee.\n\"Chess club starts on 12 March. We meet on Thursdays at 3:15 p.m. in Room 4. There are 18 places. The fee for the term is Rp25.000. Bring a pencil.\"\nHow much is the fee, in rupiah? Type the number only, with no dot.",
+      "answer": 25000,
+      "hints": [
+        "Scan for the word fee.",
+        "Look for the amount of money in that sentence.",
+        "Ignore the date, the time and the number of places."
+      ],
+      "explanation": "The fee for the term is Rp25.000, so the number is 25000."
+    },
+    {
+      "id": "e5.skim-scan.011",
+      "skill": "e5.skim-scan",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps in a good order for finding an answer in a non-fiction text.",
+      "items": [
+        "Read the question and underline the key words.",
+        "Skim the headings to choose the right section.",
+        "Scan that section for the key words.",
+        "Read the sentences around the key words carefully.",
+        "Check that your answer matches the question."
+      ],
+      "hints": [
+        "Start with the question, then work through the text.",
+        "Skim first to find the right place, then scan.",
+        "The first step is to know what you are looking for."
+      ],
+      "explanation": "First know what you need, then skim to find the section, scan to find the word, read closely there and finally check."
+    },
+    {
+      "id": "e5.skim-scan.012",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: \"The shop's lights were off and the chairs were turned upside down on the tables. A sign on the door said: Back tomorrow.\" Which information is stated directly in the text?",
+      "options": [
+        {
+          "text": "The owner has gone home for the night.",
+          "why": "This is not said; the reader works it out."
+        },
+        {
+          "text": "It is night time.",
+          "why": "This is not said; the reader works it out."
+        },
+        {
+          "text": "The sign says the shop will be back tomorrow."
+        },
+        {
+          "text": "The owner is on holiday.",
+          "why": "Nothing in the text says this."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Explicit means the writer says it in the words.",
+        "Implicit means you have to work it out.",
+        "Find the option that matches the words exactly."
+      ],
+      "explanation": "The sign says \"Back tomorrow\", so that fact is stated directly. The others are guesses."
+    },
+    {
+      "id": "e5.skim-scan.013",
+      "skill": "e5.skim-scan",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read: \"Rangga fed the hens at six. By seven he had swept the yard. His mother called him in for breakfast, and he ate two bananas.\" Choose all the facts stated directly.",
+      "options": [
+        {
+          "text": "Rangga fed the hens at six."
+        },
+        {
+          "text": "Rangga is a hard worker.",
+          "why": "The text does not say this. The reader infers it."
+        },
+        {
+          "text": "He had swept the yard by seven."
+        },
+        {
+          "text": "Rangga was hungry.",
+          "why": "The text does not say this."
+        },
+        {
+          "text": "He ate two bananas."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Stated directly means the words are in the text.",
+        "Check each option against the text.",
+        "Cross out the ones that describe how Rangga is or feels."
+      ],
+      "explanation": "The text says when he fed the hens, swept the yard and what he ate. His character and hunger are only guesses."
+    },
+    {
+      "id": "e5.skim-scan.014",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Poster: \"Beach clean-up, Saturday 8 a.m. Meet at the main gate. Bring gloves.\" Teacher note: \"Because heavy rain is forecast, the clean-up will start at 10 a.m. instead. The meeting place stays the same.\" What should students do?",
+      "options": [
+        {
+          "text": "Meet at the main gate at 8 a.m.",
+          "why": "The teacher's note changed the time."
+        },
+        {
+          "text": "Meet at the beach at 10 a.m.",
+          "why": "The meeting place has not changed."
+        },
+        {
+          "text": "Meet at the main gate at 10 a.m. and bring gloves."
+        },
+        {
+          "text": "Stay at home because of the rain.",
+          "why": "The note says the event is moved, not cancelled."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Two texts give different information.",
+        "The note was written after the poster.",
+        "Combine the new time with the unchanged details."
+      ],
+      "explanation": "The note changes the time to 10 a.m. but keeps the main gate, and the poster still asks for gloves."
+    },
+    {
+      "id": "e5.skim-scan.015",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which question is best answered by scanning, not skimming?",
+      "options": [
+        {
+          "text": "What is this article mostly about?",
+          "why": "This asks for the main idea, so you skim."
+        },
+        {
+          "text": "What was the name of the ship's captain?"
+        },
+        {
+          "text": "Does this book seem interesting?",
+          "why": "This asks for a general impression, so you skim."
+        },
+        {
+          "text": "How does the writer feel about the sea?",
+          "why": "This needs careful reading, not scanning."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Scanning is for a specific fact.",
+        "Which question has an exact answer such as a name?",
+        "Look for a question that begins with what or who and asks for one detail."
+      ],
+      "explanation": "A name is a single fact, so you can scan for it. The other questions need a general idea or careful reading."
+    }
+  ]
+}

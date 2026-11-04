@@ -17,6 +17,120 @@
       "max": 10,
       "step": 1,
       "answer": 7
+    },
+    {
+      "id": "m1.count-on-back.701",
+      "skill": "m1.count-on-back",
+      "difficulty": 1,
+      "prompt": "What number comes after 14?",
+      "hints": [
+        "Count: 13, 14, ...",
+        "It is one more than 14.",
+        "14 + 1."
+      ],
+      "explanation": "One more than 14 is 15.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 15
+    },
+    {
+      "id": "m1.count-on-back.702",
+      "skill": "m1.count-on-back",
+      "difficulty": 2,
+      "prompt": "What is one less than 20?",
+      "hints": [
+        "Count back from 20.",
+        "Say 20, then the next number down.",
+        "20 - 1."
+      ],
+      "explanation": "One less than 20 is 19.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 19
+    },
+    {
+      "id": "m1.count-on-back.801",
+      "skill": "m1.count-on-back",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Counting on 3 from 8 lands on 12.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Start at 8 and say the next number.",
+        "Say three numbers after 8.",
+        "9, 10, 11."
+      ],
+      "explanation": "Say 9, 10, 11. Three steps from 8 lands on 11, not 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.count-on-back.802",
+      "skill": "m1.count-on-back",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Counting back 2 from 10 lands on 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count back one step at a time.",
+        "You need two steps.",
+        "9 is only one step back."
+      ],
+      "explanation": "Counting back 2 from 10 goes 9, 8. You land on 8, not 9.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.count-on-back.803",
+      "skill": "m1.count-on-back",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Counting back 4 from 15 lands on 11.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Start at 15 and say the number before it.",
+        "Do this four times.",
+        "14, 13, 12, 11."
+      ],
+      "explanation": "Count back 14, 13, 12, 11. That is 4 steps, so you land on 11.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

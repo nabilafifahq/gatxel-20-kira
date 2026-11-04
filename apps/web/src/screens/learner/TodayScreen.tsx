@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import type { WorldPeekDTO } from '@/lib/dto-world'
+import { WorldPeek } from '@/components/learner/world/WorldPeek'
 import type { ReactElement } from 'react'
 import type { TodayDTO, TodayGroupDTO } from '@/lib/dto'
+import type { PlacementCardDTO } from '@/lib/dto-placement'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
@@ -17,7 +20,7 @@ import { DailyChest, type ChestActions } from '@/components/learner/DailyChest'
 /**
  * L02 Today (papan TodayA dan variannya, TodayAHP untuk HP). Jalur sesi wajib dikelompokkan per mapel
  * (Practice, Test, Paper), sesi yang sebaiknya dikerjakan sekarang tampil dua kali lebih besar, dan sesi
- * opsional dari tutor ada di bagian "Extra today". Hari istirahat dan batas waktu mengganti jalur dengan catatan besar.
+ * opsional dari tutor ada di bagian "Optional today". Hari istirahat dan batas waktu mengganti jalur dengan catatan besar.
  *
  * `headline` dari DTO menjadi judul bagian sesi (tersembunyi secara visual) karena papan
  * memakai sapaan "Hi, nama" sebagai h1. Tombol "See today's work" memakai `doneHref`
@@ -73,7 +76,7 @@ function Progress({ data }: { data: TodayDTO }): ReactElement {
         {done} of {total} sessions done
         {extraTotal > 0 ? (
           <span className="font-semibold text-fg-muted">
-            , extra {extraDone} of {extraTotal}
+            , optional {extraDone} of {extraTotal}
           </span>
         ) : null}
       </p>
@@ -97,7 +100,31 @@ function GroupHeading({ group }: { group: TodayGroupDTO }): ReactElement {
   )
 }
 
-export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions }): ReactElement {
+/** Kartu hari pertama: mengajak anak mengambil tes penempatan. Hari belajar tetap jalan bila dilewati. */
+function PlacementCard({ card }: { card: PlacementCardDTO }): ReactElement {
+  const started = card.subjects.some((s) => s.status === 'in_progress')
+  const names = joinAnd(card.subjects.map((s) => s.label))
+  return (
+    <section aria-labelledby="today-placement" className="flex flex-col gap-3 rounded-card border-2 border-fg bg-surface px-4 py-4 md:flex-row md:items-center md:gap-6 md:px-6">
+      <span className="flex h-14 w-14 flex-none items-center justify-center rounded-card border-2 border-fg">
+        <UiIcon name="map" size={28} />
+      </span>
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
+        <h2 id="today-placement" className="m-0 text-h3 font-bold">
+          {started ? 'Carry on with your starting point' : 'Find your starting point'}
+        </h2>
+        <p className="m-0 text-body text-fg-muted">
+          {names}: about 5 minutes each. This helps Kira pick the right questions. No timer and no score. You can still do today&apos;s sessions first.
+        </p>
+      </div>
+      <ButtonLink href="/placement" variant="primary" className="flex-none">
+        {started ? 'Carry on' : "Let's go"}
+      </ButtonLink>
+    </section>
+  )
+}
+
+export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions, placement, world }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions; placement?: PlacementCardDTO | null; world?: WorldPeekDTO | null }): ReactElement {
   const note = noteFor(data, doneHref)
   const streak = data.streak
   // Batas waktu: hanya sesi yang sudah selesai tetap tampil di jalur.
@@ -122,7 +149,9 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           }
         />
 
-        <section aria-label="Streak" className="flex flex-col gap-2.5 rounded-card border border-divider bg-surface px-3 py-3.5 sm:px-4 md:hidden">
+        {world ? <WorldPeek world={world} /> : null}
+
+        <section aria-label="Streak" className="flex flex-col gap-2.5 rounded-card bg-surface shadow-soft px-3 py-3.5 sm:px-4 md:hidden">
           <div className="flex items-center justify-between gap-3">
             <StreakCount current={streak.current} layout="inline" />
             <FreezePill count={streak.freezes} className="h-8" />
@@ -130,10 +159,12 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           <StreakChain streak={streak} size="S" animate={data.variant === 'all-done'} />
         </section>
 
+        {placement ? <PlacementCard card={placement} /> : null}
+
         {data.progress.total > 0 && data.variant !== 'rest-day' ? <Progress data={data} /> : null}
 
         {data.tracks ? (
-          <section aria-label="Your levels" className="rounded-card border border-divider bg-surface px-4 py-3.5 md:px-6">
+          <section aria-label="Your levels" className="rounded-card bg-surface shadow-soft px-4 py-3.5 md:px-6">
             <XpTrackBars tracks={data.tracks} variant="compact" />
           </section>
         ) : null}
@@ -142,6 +173,14 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           <h2 id="today-quests" className="visually-hidden">
             {data.headline}
           </h2>
+          {shown.length > 0 ? (
+            <div className="flex flex-col gap-1 pl-28 md:pl-36">
+              <h2 id="today-required" className="m-0 text-h2 font-bold">
+                Required today
+              </h2>
+              <p className="m-0 text-body text-fg-muted">Finish the required ones to keep your streak.</p>
+            </div>
+          ) : null}
           {note ? <NoteStop row={note} /> : null}
           {shown.length > 0 ? <div aria-hidden="true" className="absolute top-8 bottom-10 left-[54px] w-0 border-l-3 border-dashed border-fg md:left-[70px]" /> : null}
           {shown.length > 0 && data.progress.total > 0 ? (
@@ -170,12 +209,12 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
         {data.chest ? <DailyChest chest={data.chest} avatar={data.shell.avatar} accessory={data.shell.accessory ?? null} background={data.shell.background ?? null} actions={chestActions} /> : null}
 
         {extras.length > 0 ? (
-          <section aria-labelledby="today-extra" className="flex flex-col gap-4 rounded-card border border-divider bg-surface px-4 py-5 md:px-6">
+          <section aria-labelledby="today-extra" className="flex flex-col gap-4 rounded-card bg-surface shadow-soft px-4 py-5 md:px-6">
             <div className="flex flex-col gap-1">
               <h2 id="today-extra" className="m-0 text-h2 font-bold">
-                Extra today
+                Optional today
               </h2>
-              <p className="m-0 text-body text-fg-muted">From your tutor. Optional, and your streak does not change.</p>
+              <p className="m-0 text-body text-fg-muted">Only if you want more. Your streak does not change.</p>
             </div>
             {extras.map((stop) => (
               <QuestStopRow key={stop.questId ?? stop.href ?? stop.session} stop={stop} size="auto" />
@@ -188,7 +227,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
             {data.nextCompetition ? (
               <section
                 aria-label="Next competition"
-                className="flex h-16 min-w-0 flex-1 items-center gap-3 rounded-card border border-divider bg-surface px-4 md:h-18 md:gap-4 md:px-6"
+                className="flex h-16 min-w-0 flex-1 items-center gap-3 rounded-card bg-surface shadow-soft px-4 md:h-18 md:gap-4 md:px-6"
               >
                 <UiIcon name="trophy" size={28} className="h-6 w-6 flex-none md:h-7 md:w-7" />
                 <div className="flex min-w-0 flex-col">
@@ -199,7 +238,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
                   </span>
                 </div>
                 <div className="ml-auto flex items-baseline gap-1 md:gap-2">
-                  <span className="font-display text-h1 font-semibold tabular-nums">{data.nextCompetition.daysToGo}</span>
+                  <span className="font-numbers text-h1 font-semibold tabular-nums">{data.nextCompetition.daysToGo}</span>
                   <span className="text-body font-semibold">
                     {data.nextCompetition.daysToGo === 1 ? 'day' : 'days'}
                     <span className="hidden md:inline"> to go</span>

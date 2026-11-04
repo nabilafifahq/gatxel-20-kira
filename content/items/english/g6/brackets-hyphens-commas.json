@@ -332,6 +332,650 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.011",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 1,
+      "prompt": "Which sentence uses commas in a list correctly?",
+      "hints": [
+        "A comma separates items in a list.",
+        "The last two items are joined with and, not a comma.",
+        "Check for a missing comma after apples."
+      ],
+      "explanation": "Use commas between items in a list. The last item is usually joined by and.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "We bought apples bananas, grapes and oranges.",
+          "why": "A comma is missing after apples."
+        },
+        {
+          "text": "We bought apples, bananas, grapes and oranges."
+        },
+        {
+          "text": "We bought, apples, bananas, grapes and oranges.",
+          "why": "There is no need for a comma after bought."
+        },
+        {
+          "text": "We bought apples, bananas, grapes, and, oranges.",
+          "why": "There is no comma needed after and."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.012",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 1,
+      "prompt": "Which marks can show extra information in a sentence?",
+      "hints": [
+        "Extra information goes in the middle of a sentence.",
+        "It is put inside a pair of marks.",
+        "The marks look like curved lines."
+      ],
+      "explanation": "Brackets, commas or dashes can show extra information. Brackets are a pair of curved marks.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "question marks ? ?",
+          "why": "Question marks end questions. They do not show extra information."
+        },
+        {
+          "text": "capital letters",
+          "why": "Capital letters start sentences and names. They do not show extra information."
+        },
+        {
+          "text": "brackets ( )"
+        },
+        {
+          "text": "exclamation marks ! !",
+          "why": "These show strong feeling. They do not hold extra information."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.013",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 2,
+      "prompt": "Put the cards in order to make a sentence with brackets.",
+      "hints": [
+        "The extra information goes in brackets.",
+        "The bracket opens before a and closes after terrier.",
+        "Start with My dog."
+      ],
+      "explanation": "The extra information a small terrier is placed in brackets after the noun it describes.",
+      "type": "tiles",
+      "answer": "My dog (a small terrier) loves bones.",
+      "distractors": [
+        "with",
+        "terriers"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.014",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 2,
+      "prompt": "Which phrase means a shark that attacks people?",
+      "hints": [
+        "A hyphen joins words so they work as one describing word.",
+        "Which words describe the shark together?",
+        "Man and eating describe the shark together."
+      ],
+      "explanation": "Man-eating is a describing word made from two words. The hyphen shows that it belongs to the shark.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "a man eating shark",
+          "why": "Without the hyphen it could mean a man who is eating shark."
+        },
+        {
+          "text": "a man eating-shark",
+          "why": "The hyphen is in the wrong place."
+        },
+        {
+          "text": "a man-eating-shark",
+          "why": "Only man and eating should be joined. Shark is a separate word."
+        },
+        {
+          "text": "a man-eating shark"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.015",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 2,
+      "prompt": "Join two words with a hyphen. Write the phrase. She is a hard working nurse.",
+      "hints": [
+        "The two words join to describe the nurse.",
+        "A hyphen joins them into one describing word.",
+        "Hard comes first."
+      ],
+      "explanation": "Hard-working is a compound describing word before a noun. The hyphen joins the two words.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "hard-working"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.016",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 2,
+      "prompt": "Mr Hadi ___ our caretaker ___ is retiring.",
+      "hints": [
+        "Extra information about Mr Hadi is in the middle.",
+        "Commas can go either side of extra information.",
+        "The same mark is used on both sides."
+      ],
+      "explanation": "A pair of commas can mark off extra information in a sentence.",
+      "type": "cloze",
+      "gaps": [
+        {
+          "options": [
+            ",",
+            ".",
+            "?"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            ",",
+            ".",
+            "?"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.017",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 3,
+      "prompt": "Which sentence uses brackets correctly?",
+      "hints": [
+        "Brackets surround only the extra information.",
+        "The sentence still makes sense if you remove the brackets and what is inside.",
+        "Remove the brackets and the words inside. What remains?"
+      ],
+      "explanation": "The sentence works without the words in brackets, so they are extra information.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The orangutan (found in Borneo and Sumatra) is a red-haired ape."
+        },
+        {
+          "text": "The orangutan (found in Borneo and Sumatra, is a red-haired ape).",
+          "why": "The closing bracket is in the wrong place. The extra information ends after Sumatra."
+        },
+        {
+          "text": "The orangutan found (in Borneo and Sumatra) is a red-haired ape.",
+          "why": "The brackets do not hold the whole extra phrase."
+        },
+        {
+          "text": "(The orangutan found in Borneo and Sumatra) is a red-haired ape.",
+          "why": "The brackets are around the main part of the sentence instead of the extra part."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.018",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 3,
+      "prompt": "Match each phrase to its meaning.",
+      "hints": [
+        "The hyphen shows that re means again.",
+        "Without the hyphen the word has a new meaning.",
+        "Start with recover from a cold."
+      ],
+      "explanation": "A hyphen can show that re means again. Without it, the word may mean something else.",
+      "type": "match",
+      "pairs": [
+        [
+          "re-cover the chair",
+          "put a new cover on it"
+        ],
+        [
+          "recover from a cold",
+          "get better"
+        ],
+        [
+          "re-form the line",
+          "make the line again"
+        ],
+        [
+          "reform the law",
+          "change it to make it better"
+        ]
+      ]
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.019",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 3,
+      "prompt": "Which words should go inside brackets? Write them. The festival was held in Yogyakarta a city in Java last month.",
+      "hints": [
+        "Look for the extra information about Yogyakarta.",
+        "It gives more detail about a place.",
+        "It starts with a."
+      ],
+      "explanation": "A city in Java is extra information about Yogyakarta, so it goes inside brackets.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "a city in Java"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.020",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 3,
+      "prompt": "Which sentence has commas that mark off extra information correctly?",
+      "hints": [
+        "Extra information needs a comma on both sides.",
+        "Cover the words who lives in Surabaya. Is the sentence still complete?",
+        "Look for two commas around who lives in Surabaya."
+      ],
+      "explanation": "A pair of commas marks off extra information, one before and one after.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "My brother who lives in Surabaya, is a chef.",
+          "why": "There is a comma after Surabaya but not before who."
+        },
+        {
+          "text": "My brother, who lives in Surabaya, is a chef."
+        },
+        {
+          "text": "My brother, who lives, in Surabaya is a chef.",
+          "why": "The commas are in the wrong places. They surround the extra information."
+        },
+        {
+          "text": "My brother, who lives in Surabaya is a chef.",
+          "why": "The second comma is missing after Surabaya."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.021",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 3,
+      "prompt": "Join the describing words with hyphens.",
+      "hints": [
+        "Hyphens join words that work together before a noun.",
+        "Write the whole phrase again with hyphens.",
+        "The words well and behaved belong together."
+      ],
+      "explanation": "When words join to describe a noun, they are linked with hyphens: well-behaved, two-storey, out-of-date.",
+      "type": "table",
+      "head": [
+        "Before",
+        "After"
+      ],
+      "rows": [
+        [
+          "a well behaved dog",
+          ""
+        ],
+        [
+          "a two storey house",
+          ""
+        ],
+        [
+          "an out of date map",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "a well-behaved dog",
+            "well-behaved"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "a two-storey house",
+            "two-storey",
+            "a two-story house",
+            "two-story"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "an out-of-date map",
+            "out-of-date"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.022",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 3,
+      "prompt": "Put the cards in order to make a correct sentence.",
+      "hints": [
+        "The extra information is set off with commas.",
+        "A talented dancer tells us more about her cousin.",
+        "Start with Her cousin."
+      ],
+      "explanation": "A talented dancer is extra information about her cousin. A pair of commas surrounds it.",
+      "type": "tiles",
+      "answer": "Her cousin, a talented dancer, won first prize.",
+      "distractors": [
+        "who",
+        "that"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.023",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 4,
+      "prompt": "Which phrase means twenty bottles, each holding five litres?",
+      "hints": [
+        "Work out which words belong together as a size.",
+        "Five-litre describes each bottle.",
+        "Twenty is how many."
+      ],
+      "explanation": "Five-litre is a describing word for the bottles. Twenty is the number of bottles.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "twenty-five litre bottles",
+          "why": "This could mean twenty-five bottles of one litre each."
+        },
+        {
+          "text": "twenty five litre bottles",
+          "why": "Without hyphens we cannot tell how many bottles or how big."
+        },
+        {
+          "text": "twenty five-litre bottles"
+        },
+        {
+          "text": "twenty-five-litre bottles",
+          "why": "This means bottles that each hold twenty-five litres."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.024",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 4,
+      "prompt": "Choose all the phrases with hyphens used correctly.",
+      "hints": [
+        "Hyphens join words that work as a describing word before a noun.",
+        "In a hyphenated phrase before a noun, the middle words are singular.",
+        "Words ending in -ly are not joined with a hyphen."
+      ],
+      "explanation": "Well-known, five-year-old and up-to-date are correct. Adverbs ending in -ly do not take a hyphen.",
+      "type": "multi",
+      "options": [
+        {
+          "text": "a well-known author"
+        },
+        {
+          "text": "a five-year-old boy"
+        },
+        {
+          "text": "an up-to-date map"
+        },
+        {
+          "text": "a five-years-old boy",
+          "why": "Years should be singular when it comes before a noun in a hyphenated phrase."
+        },
+        {
+          "text": "a brightly-coloured kite",
+          "why": "Words ending in -ly do not need a hyphen."
+        },
+        {
+          "text": "a well known-author",
+          "why": "The hyphen is in the wrong place. Well and known belong together."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.025",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 5,
+      "prompt": "Which sentence means that only some of the pupils missed the bus?",
+      "hints": [
+        "Think about whether the information is essential or just extra.",
+        "Without commas, the words who were late tell us which pupils.",
+        "With commas, they are extra information about all pupils."
+      ],
+      "explanation": "Without commas, who were late identifies which pupils. With commas it is extra information about all of them.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The pupils, who were late, missed the bus.",
+          "why": "The commas make who were late extra information, so all the pupils were late."
+        },
+        {
+          "text": "The pupils who were late missed the bus."
+        },
+        {
+          "text": "The pupils (who were late) missed the bus.",
+          "why": "The brackets also make it extra information, so all the pupils were late."
+        },
+        {
+          "text": "The pupils, who were late missed the bus.",
+          "why": "The comma makes it unclear. It suggests all the pupils were late."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.026",
+      "skill": "e6.brackets-hyphens-commas",
+      "difficulty": 5,
+      "prompt": "Which phrase means twenty children who are each four years old?",
+      "hints": [
+        "Four-year-old is the age of each child.",
+        "Twenty is how many children there are.",
+        "Where do the hyphens need to go?"
+      ],
+      "explanation": "Four-year-old is a describing word and twenty is the number of children.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "twenty-four year old children",
+          "why": "This suggests twenty-four children who are each one year old."
+        },
+        {
+          "text": "twenty-four-year-old children",
+          "why": "This means children who are each twenty-four years old."
+        },
+        {
+          "text": "twenty four-year-old children"
+        },
+        {
+          "text": "twenty four year old children",
+          "why": "Without hyphens the meaning is not clear at all."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.801",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A hyphen can join words to make a compound adjective, as in \"a well-known author\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which words work together?",
+        "What do they describe?",
+        "The hyphen joins them."
+      ],
+      "explanation": "The hyphen shows that well and known work together to describe the noun.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.802",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A hyphen is used to join two separate sentences.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does a hyphen connect?",
+        "Think of well-known.",
+        "Not whole sentences."
+      ],
+      "explanation": "A hyphen joins words or parts of words. Sentences are joined by connectives or a semicolon.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.803",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A hyphen can avoid confusion, as in \"re-cover the sofa\", meaning cover it again.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare re-cover and recover.",
+        "Do they mean the same?",
+        "The hyphen makes the meaning clear."
+      ],
+      "explanation": "Without the hyphen, recover means to get better.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.804",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The phrase \"a ten-year-old girl\" is correctly hyphenated.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which word is the noun?",
+        "The words ten, year and old work together.",
+        "Hyphens join a describing phrase before a noun."
+      ],
+      "explanation": "The hyphens join the words that together describe the noun girl.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.805",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The sentence \"The girl is ten-years-old\" is correctly hyphenated.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the phrase come before a noun?",
+        "It follows the verb.",
+        "No hyphens are needed after the verb."
+      ],
+      "explanation": "After the verb is, we write ten years old without hyphens.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.806",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A comma can change the meaning of a sentence, as in \"Let's eat, Grandma\" and \"Let's eat Grandma\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the two versions.",
+        "Who is being spoken to?",
+        "The comma separates the name from the rest."
+      ],
+      "explanation": "The comma shows that we are speaking to Grandma rather than eating her.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

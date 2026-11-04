@@ -8,10 +8,21 @@
       "difficulty": 2,
       "prompt": "How do we see a book on a table in a lit room?",
       "options": [
-        { "text": "Light from a lamp or the Sun reflects off the book into our eyes." },
-        { "text": "Light comes out of our eyes and hits the book.", "why": "Our eyes do not give out light. About 1,000 years ago, Ibn al-Haytham showed that light enters the eye." },
-        { "text": "The book gives out its own light.", "why": "A book is not a light source. It only reflects light." },
-        { "text": "Our eyes can see without any light.", "why": "With no light at all, we cannot see anything." }
+        {
+          "text": "Light from a lamp or the Sun reflects off the book into our eyes."
+        },
+        {
+          "text": "Light comes out of our eyes and hits the book.",
+          "why": "Our eyes do not give out light. About 1,000 years ago, Ibn al-Haytham showed that light enters the eye."
+        },
+        {
+          "text": "The book gives out its own light.",
+          "why": "A book is not a light source. It only reflects light."
+        },
+        {
+          "text": "Our eyes can see without any light.",
+          "why": "With no light at all, we cannot see anything."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -20,7 +31,10 @@
         "Trace the light from the lamp to the book. Then decide where it goes next."
       ],
       "explanation": "Light from a source hits the book and reflects off it. Some of the reflected light enters our eyes, so we see the book.",
-      "tags": ["checkpoint", "iksc"]
+      "tags": [
+        "checkpoint",
+        "iksc"
+      ]
     },
     {
       "id": "s6.light-seeing.002",
@@ -28,15 +42,39 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort these surfaces into ones that give a clear reflection and ones that do not.",
-      "groups": ["Clear reflection", "No clear reflection"],
+      "groups": [
+        "Clear reflection",
+        "No clear reflection"
+      ],
       "items": [
-        { "text": "a flat mirror", "group": 0 },
-        { "text": "still water in a pond", "group": 0 },
-        { "text": "a polished metal tray", "group": 0 },
-        { "text": "a rough brick wall", "group": 1 },
-        { "text": "a black cloth", "group": 1 },
-        { "text": "a carpet", "group": 1 },
-        { "text": "a wooden board", "group": 1 }
+        {
+          "text": "a flat mirror",
+          "group": 0
+        },
+        {
+          "text": "still water in a pond",
+          "group": 0
+        },
+        {
+          "text": "a polished metal tray",
+          "group": 0
+        },
+        {
+          "text": "a rough brick wall",
+          "group": 1
+        },
+        {
+          "text": "a black cloth",
+          "group": 1
+        },
+        {
+          "text": "a carpet",
+          "group": 1
+        },
+        {
+          "text": "a wooden board",
+          "group": 1
+        }
       ],
       "hints": [
         "A clear reflection needs a very smooth, shiny surface.",
@@ -59,7 +97,9 @@
         "Ask how the angle of reflection compares with the angle of incidence."
       ],
       "explanation": "The angle of reflection always equals the angle of incidence. So the reflected ray leaves at 35° to the normal.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.light-seeing.004",
@@ -68,10 +108,21 @@
       "difficulty": 3,
       "prompt": "Why is the word AMBULANCE often written backwards on the front of an ambulance?",
       "options": [
-        { "text": "Because ambulances drive backwards.", "why": "Ambulances drive forwards. The word is reversed for people looking in mirrors." },
-        { "text": "To make it look more interesting.", "why": "The reason is practical: mirrors flip the word." },
-        { "text": "Because it is written in another language.", "why": "It is the same English word, just reversed." },
-        { "text": "So drivers ahead can read it the right way round in their mirrors." }
+        {
+          "text": "Because ambulances drive backwards.",
+          "why": "Ambulances drive forwards. The word is reversed for people looking in mirrors."
+        },
+        {
+          "text": "To make it look more interesting.",
+          "why": "The reason is practical: mirrors flip the word."
+        },
+        {
+          "text": "Because it is written in another language.",
+          "why": "It is the same English word, just reversed."
+        },
+        {
+          "text": "So drivers ahead can read it the right way round in their mirrors."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -80,7 +131,9 @@
         "Ask what happens to backwards writing when it is seen in a mirror."
       ],
       "explanation": "A mirror reverses an image from left to right. Writing the word backwards means drivers see it the right way round in their rear-view mirrors.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s6.light-seeing.005",
@@ -89,10 +142,21 @@
       "difficulty": 3,
       "prompt": "A straw in a glass of water looks bent at the water's surface. Why?",
       "options": [
-        { "text": "The water bends the straw.", "why": "Take the straw out and it is still straight. Only the light changes direction." },
-        { "text": "Light changes direction as it passes from water into air." },
-        { "text": "Light travels in curves through water.", "why": "Light travels in straight lines inside the water. It changes direction at the surface." },
-        { "text": "The glass acts like a mirror.", "why": "The effect comes from light passing through the water's surface, not from a reflection." }
+        {
+          "text": "The water bends the straw.",
+          "why": "Take the straw out and it is still straight. Only the light changes direction."
+        },
+        {
+          "text": "Light changes direction as it passes from water into air."
+        },
+        {
+          "text": "Light travels in curves through water.",
+          "why": "Light travels in straight lines inside the water. It changes direction at the surface."
+        },
+        {
+          "text": "The glass acts like a mirror.",
+          "why": "The effect comes from light passing through the water's surface, not from a reflection."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -101,7 +165,9 @@
         "Look at where the straw seems to bend: exactly at the surface of the water."
       ],
       "explanation": "Light from the straw changes direction as it leaves the water and enters the air. This bending of light is called refraction, and it makes the straw look bent.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.light-seeing.006",
@@ -122,7 +188,9 @@
         "The last step happens inside your head."
       ],
       "explanation": "Light travels from the Sun to the flower and reflects off it. The reflected light enters your eye, and nerves carry a signal to your brain.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.light-seeing.007",
@@ -131,10 +199,21 @@
       "difficulty": 4,
       "prompt": "Why does a swimming pool look shallower than it really is?",
       "options": [
-        { "text": "The water magnifies the tiles and brings them closer.", "why": "The effect comes from light changing direction at the surface, not from magnifying." },
-        { "text": "The pool floor rises during the day.", "why": "The floor does not move. Only the light changes direction." },
-        { "text": "Light from the bottom refracts as it leaves the water, so the bottom seems higher." },
-        { "text": "Water absorbs the light from the deep parts.", "why": "Some light is absorbed, but that does not make the pool look shallower." }
+        {
+          "text": "The water magnifies the tiles and brings them closer.",
+          "why": "The effect comes from light changing direction at the surface, not from magnifying."
+        },
+        {
+          "text": "The pool floor rises during the day.",
+          "why": "The floor does not move. Only the light changes direction."
+        },
+        {
+          "text": "Light from the bottom refracts as it leaves the water, so the bottom seems higher."
+        },
+        {
+          "text": "Water absorbs the light from the deep parts.",
+          "why": "Some light is absorbed, but that does not make the pool look shallower."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -144,7 +223,10 @@
       ],
       "explanation": "Light from the bottom bends as it leaves the water. Your brain traces the light back in a straight line, so the bottom seems higher than it really is.",
       "tip": "Always check the depth sign before you jump into a pool.",
-      "tags": ["checkpoint", "osn-sd"]
+      "tags": [
+        "checkpoint",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.light-seeing.008",
@@ -154,10 +236,22 @@
       "prompt": "Draw a ray of light hitting a flat mirror and reflecting off it. Draw the normal, and label the angle of incidence and the angle of reflection.",
       "rubric": {
         "criteria": [
-          { "label": "Draws straight rays with arrows showing the direction of light", "points": 1 },
-          { "label": "Draws the normal at 90° to the mirror", "points": 2 },
-          { "label": "Makes the angle of reflection equal to the angle of incidence", "points": 2 },
-          { "label": "Labels both angles correctly", "points": 1 }
+          {
+            "label": "Draws straight rays with arrows showing the direction of light",
+            "points": 1
+          },
+          {
+            "label": "Draws the normal at 90° to the mirror",
+            "points": 2
+          },
+          {
+            "label": "Makes the angle of reflection equal to the angle of incidence",
+            "points": 2
+          },
+          {
+            "label": "Labels both angles correctly",
+            "points": 1
+          }
         ]
       },
       "background": "grid",
@@ -166,7 +260,9 @@
         "Measure both angles from the normal, not from the mirror."
       ],
       "explanation": "The normal is a line at 90° to the mirror where the ray hits it. The angle of incidence equals the angle of reflection, and both are measured from the normal.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.light-seeing.009",
@@ -175,10 +271,21 @@
       "difficulty": 4,
       "prompt": "In 1666, Isaac Newton passed sunlight through a glass prism and saw a band of colours. What did this show?",
       "options": [
-        { "text": "The prism adds colour to the light.", "why": "Newton used a second prism to join the colours back into white light, so the colours were already in sunlight." },
-        { "text": "White light is a mixture of many colours." },
-        { "text": "Sunlight is only yellow.", "why": "The band showed many colours, from red to violet." },
-        { "text": "Glass makes its own light.", "why": "Glass is not a light source. It only bends light passing through it." }
+        {
+          "text": "The prism adds colour to the light.",
+          "why": "Newton used a second prism to join the colours back into white light, so the colours were already in sunlight."
+        },
+        {
+          "text": "White light is a mixture of many colours."
+        },
+        {
+          "text": "Sunlight is only yellow.",
+          "why": "The band showed many colours, from red to violet."
+        },
+        {
+          "text": "Glass makes its own light.",
+          "why": "Glass is not a light source. It only bends light passing through it."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -187,7 +294,10 @@
         "Ask where the colours must have come from if a prism can turn them back into white light."
       ],
       "explanation": "The prism bent each colour by a different amount and spread them out. Because a second prism could join them back into white light, Newton showed that white light is a mixture of colours.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
     },
     {
       "id": "s6.light-seeing.010",
@@ -196,10 +306,21 @@
       "difficulty": 5,
       "prompt": "You see a rainbow in the late afternoon. Where must the Sun be?",
       "options": [
-        { "text": "in front of you, behind the rain", "why": "Rainbows are seen with the Sun behind you, shining onto raindrops in front of you." },
-        { "text": "directly above you", "why": "A rainbow cannot be seen when the Sun is very high in the sky." },
-        { "text": "behind you, shining on raindrops in front of you" },
-        { "text": "hidden behind thick clouds", "why": "Sunlight must reach the raindrops for a rainbow to form." }
+        {
+          "text": "in front of you, behind the rain",
+          "why": "Rainbows are seen with the Sun behind you, shining onto raindrops in front of you."
+        },
+        {
+          "text": "directly above you",
+          "why": "A rainbow cannot be seen when the Sun is very high in the sky."
+        },
+        {
+          "text": "behind you, shining on raindrops in front of you"
+        },
+        {
+          "text": "hidden behind thick clouds",
+          "why": "Sunlight must reach the raindrops for a rainbow to form."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -208,7 +329,976 @@
         "Picture the light coming back out of the raindrops. Decide where it must have come from."
       ],
       "explanation": "Sunlight enters raindrops, is split into colours and reflects back out towards you. So the Sun must be behind you and the rain in front of you.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s6.light-seeing.011",
+      "skill": "s6.light-seeing",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the diagram that shows how we see an object.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 45,
+            "cy": 130,
+            "r": 22,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 130,
+            "y": 105,
+            "w": 60,
+            "h": 50,
+            "r": 4,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 275,
+            "cy": 130,
+            "rx": 28,
+            "ry": 18,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 275,
+            "cy": 130,
+            "r": 8,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 72,
+            "y1": 130,
+            "x2": 125,
+            "y2": 130,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                125,
+                130
+              ],
+              [
+                114.2,
+                135.2
+              ],
+              [
+                114.2,
+                124.8
+              ]
+            ],
+            "closed": true,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 195,
+            "y1": 130,
+            "x2": 242,
+            "y2": 130,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                242,
+                130
+              ],
+              [
+                231.2,
+                135.2
+              ],
+              [
+                231.2,
+                124.8
+              ]
+            ],
+            "closed": true,
+            "tone": "star",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A bright round shape on the left, a square block in the middle and an eye shape on the right. Arrows join the bright shape to the block and the block to the eye."
+      },
+      "labels": [
+        "light source",
+        "object",
+        "eye"
+      ],
+      "spots": [
+        {
+          "x": 14.1,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 85.9,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "mirror"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The light source is the thing that makes light.",
+        "The arrows show light going from the source to the object and then on to the viewer."
+      ],
+      "explanation": "The light source makes light. The light hits the object and bounces off it into the eye, and that is how we see the object."
+    },
+    {
+      "id": "s6.light-seeing.012",
+      "skill": "s6.light-seeing",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "A ray of light hits a flat mirror at 40° to the normal. Tap the ray that shows how it reflects.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 40,
+            "y1": 200,
+            "x2": 280,
+            "y2": 200,
+            "tone": "ink",
+            "width": 8
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 200,
+            "x2": 160,
+            "y2": 60,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 63.6,
+            "y1": 85.1,
+            "x2": 160,
+            "y2": 200,
+            "tone": "science",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                160,
+                200
+              ],
+              [
+                149.1,
+                195.1
+              ],
+              [
+                157.1,
+                188.4
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 200,
+            "x2": 295.9,
+            "y2": 136.6,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 200,
+            "x2": 256.4,
+            "y2": 85.1,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 200,
+            "x2": 211.3,
+            "y2": 59,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 158,
+            "text": "A",
+            "size": 18,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 272,
+            "y": 72,
+            "text": "B",
+            "size": 18,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 214,
+            "y": 44,
+            "text": "C",
+            "size": 18,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A flat mirror lies along the bottom. A vertical line stands up from the mirror. A ray comes in from the upper left. Three rays labelled A, B and C leave the mirror to the right at different angles."
+      },
+      "regions": [
+        {
+          "label": "ray A",
+          "x": 92.5,
+          "y": 52.5,
+          "w": 16,
+          "h": 16
+        },
+        {
+          "label": "ray B",
+          "x": 80.1,
+          "y": 32.7,
+          "w": 16,
+          "h": 16
+        },
+        {
+          "label": "ray C",
+          "x": 66,
+          "y": 22.7,
+          "w": 16,
+          "h": 16
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "The angle of reflection equals the angle of incidence.",
+        "Both angles are measured from the normal, not from the mirror.",
+        "The reflected ray leaves the same angle away from the normal, on the other side."
+      ],
+      "explanation": "The angle of reflection equals the angle of incidence. So the ray leaves at 40° to the normal, on the opposite side."
+    },
+    {
+      "id": "s6.light-seeing.013",
+      "skill": "s6.light-seeing",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A ray of light hits a flat mirror and makes an angle of 30° with the surface of the mirror. What is the angle of incidence, measured from the normal?",
+      "answer": 60,
+      "unit": "°",
+      "hints": [
+        "The normal is at right angles to the mirror.",
+        "A right angle is 90°.",
+        "Take the angle with the surface away from 90°."
+      ],
+      "explanation": "The normal is 90° from the mirror surface. The angle from the normal is 90° − 30° = 60°."
+    },
+    {
+      "id": "s6.light-seeing.014",
+      "skill": "s6.light-seeing",
+      "type": "table",
+      "difficulty": 2,
+      "caption": "Letting light through",
+      "prompt": "Complete the table. Choose from transparent, translucent or opaque.",
+      "head": [
+        "Material",
+        "Light passes",
+        "Type"
+      ],
+      "rows": [
+        [
+          "Clear glass",
+          "nearly all",
+          "transparent"
+        ],
+        [
+          "Frosted glass",
+          "some",
+          "translucent"
+        ],
+        [
+          "Wooden board",
+          "none",
+          ""
+        ],
+        [
+          "Baking paper",
+          "some",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "opaque"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "answers": [
+            "translucent"
+          ]
+        }
+      ],
+      "hints": [
+        "Opaque materials block all the light.",
+        "Translucent materials let some light through but you cannot see clearly.",
+        "Look at the Light passes column for the missing rows."
+      ],
+      "explanation": "Wood lets no light through, so it is opaque. Baking paper lets some light through, so it is translucent."
+    },
+    {
+      "id": "s6.light-seeing.015",
+      "skill": "s6.light-seeing",
+      "type": "table",
+      "difficulty": 4,
+      "caption": "Shadow of a stick on a clear day",
+      "prompt": "Sekar measured the shadow of a 50 cm stick during the day. The Sun is at the same height before and after noon. Complete the table.",
+      "head": [
+        "Time",
+        "Shadow (cm)"
+      ],
+      "rows": [
+        [
+          "08:00",
+          "40"
+        ],
+        [
+          "10:00",
+          "22"
+        ],
+        [
+          "12:00",
+          "8"
+        ],
+        [
+          "14:00",
+          ""
+        ],
+        [
+          "16:00",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "22"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "40"
+          ]
+        }
+      ],
+      "hints": [
+        "Look for a pattern on either side of 12:00.",
+        "The Sun climbs until noon, then falls again.",
+        "14:00 is two hours after noon. Which time is two hours before noon?"
+      ],
+      "explanation": "The Sun is at the same height two hours after noon as two hours before. So 14:00 matches 10:00 and 16:00 matches 08:00."
+    },
+    {
+      "id": "s6.light-seeing.016",
+      "skill": "s6.light-seeing",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these into things that give out their own light and things that do not.",
+      "groups": [
+        "Gives out its own light",
+        "Does not make its own light"
+      ],
+      "items": [
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "a lit candle",
+          "group": 0
+        },
+        {
+          "text": "a firefly",
+          "group": 0
+        },
+        {
+          "text": "a TV screen that is on",
+          "group": 0
+        },
+        {
+          "text": "the Moon",
+          "group": 1
+        },
+        {
+          "text": "a mirror",
+          "group": 1
+        },
+        {
+          "text": "a book",
+          "group": 1
+        },
+        {
+          "text": "a white wall",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A light source makes its own light.",
+        "The Moon is a tricky one.",
+        "The Moon shines because it reflects the light of something else."
+      ],
+      "explanation": "The Sun, a flame, a firefly and a screen make light. The Moon, a mirror, a book and a wall only reflect light."
+    },
+    {
+      "id": "s6.light-seeing.017",
+      "skill": "s6.light-seeing",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these materials by how they let light through.",
+      "groups": [
+        "Transparent",
+        "Translucent",
+        "Opaque"
+      ],
+      "items": [
+        {
+          "text": "clear plastic wrap",
+          "group": 0
+        },
+        {
+          "text": "window glass",
+          "group": 0
+        },
+        {
+          "text": "tracing paper",
+          "group": 1
+        },
+        {
+          "text": "frosted glass",
+          "group": 1
+        },
+        {
+          "text": "thick card",
+          "group": 2
+        },
+        {
+          "text": "brick",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Transparent: you can see clearly through.",
+        "Translucent: light comes through but the picture is blurry.",
+        "Opaque: no light comes through."
+      ],
+      "explanation": "Transparent materials show clear pictures. Translucent ones scatter the light. Opaque ones block it."
+    },
+    {
+      "id": "s6.light-seeing.018",
+      "skill": "s6.light-seeing",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Order the steps that let you see a ship over a wall using a periscope.",
+      "items": [
+        "Light from the ship enters the top of the periscope",
+        "Light hits the top mirror",
+        "Light travels down the tube",
+        "Light hits the bottom mirror",
+        "Light enters your eye"
+      ],
+      "hints": [
+        "Follow the light from the ship to your eye.",
+        "A periscope has a mirror at each end.",
+        "The top mirror is the first thing the light meets after entering."
+      ],
+      "explanation": "Light enters at the top, reflects off the top mirror, goes down the tube, reflects off the bottom mirror and then enters the eye."
+    },
+    {
+      "id": "s6.light-seeing.019",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "At midday the shadow of a flagpole is much shorter than at 8 o'clock in the morning. Why?",
+      "options": [
+        {
+          "text": "The Sun is higher in the sky at midday."
+        },
+        {
+          "text": "The Earth is closer to the Sun at midday.",
+          "why": "Earth's distance from the Sun hardly changes during the day."
+        },
+        {
+          "text": "The flagpole becomes shorter in the heat.",
+          "why": "The flagpole stays the same length."
+        },
+        {
+          "text": "The Sun gives out less light at midday.",
+          "why": "The Sun's light output does not change. Its height in the sky does."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about where the Sun is in the sky at different times.",
+        "A high light source makes a short shadow.",
+        "Compare the Sun at 8 o'clock and at midday."
+      ],
+      "explanation": "At midday the Sun is high in the sky, so the shadow is short. In the morning the Sun is low, so the shadow is long."
+    },
+    {
+      "id": "s6.light-seeing.020",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Citra says: \"We see things because our eyes send out light beams that touch objects.\" Which fact shows she is wrong?",
+      "options": [
+        {
+          "text": "We can see a bright lamp in the dark, even without a beam from our eyes."
+        },
+        {
+          "text": "We cannot see in the dark because our beams get tired.",
+          "why": "That is not a fact. Eyes do not send out anything."
+        },
+        {
+          "text": "Light only travels in curved lines.",
+          "why": "Light travels in straight lines."
+        },
+        {
+          "text": "Objects can only be seen when they are very close.",
+          "why": "We can see a distant star."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which way does the light actually travel?",
+        "Think about what happens to our eyes in a completely dark room.",
+        "Light from a light source or reflected from an object has to enter the eye."
+      ],
+      "explanation": "We see when light from a source, or light reflected from an object, enters our eyes. Eyes do not send out beams."
+    },
+    {
+      "id": "s6.light-seeing.021",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A black cat sits in a room that is completely dark, with the door shut. Can you see the cat?",
+      "options": [
+        {
+          "text": "Yes, because cats' eyes shine.",
+          "why": "Eyes do not make light."
+        },
+        {
+          "text": "Yes, because black things give out their own light.",
+          "why": "Black things absorb light and do not make any."
+        },
+        {
+          "text": "No, because black things cannot be seen.",
+          "why": "Black things can be seen if there is light around them."
+        },
+        {
+          "text": "No, because there is no light to reflect off the cat into your eyes."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "To see something, light must reach your eyes.",
+        "Is there any light source in the room?",
+        "Think about what the cat can reflect."
+      ],
+      "explanation": "With no light there is nothing to reflect off the cat and travel to your eyes, so you cannot see anything."
+    },
+    {
+      "id": "s6.light-seeing.022",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Joko holds a toy in front of a lamp so that it casts a shadow on a wall. He moves the toy closer to the lamp. What happens to the shadow?",
+      "options": [
+        {
+          "text": "It gets smaller.",
+          "why": "A closer object blocks more of the light, making a bigger shadow."
+        },
+        {
+          "text": "It gets bigger."
+        },
+        {
+          "text": "It stays the same size.",
+          "why": "The distance from the lamp changes the size of the shadow."
+        },
+        {
+          "text": "It disappears.",
+          "why": "The toy still blocks the light."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Light travels in straight lines.",
+        "A closer object blocks a wider fan of rays.",
+        "Picture the light rays spreading out from the lamp."
+      ],
+      "explanation": "Light spreads out from the lamp. The closer the toy is to the lamp, the more rays it blocks, so the shadow on the wall is larger."
+    },
+    {
+      "id": "s6.light-seeing.023",
+      "skill": "s6.light-seeing",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the surfaces that reflect light clearly enough to show a picture of your face.",
+      "options": [
+        {
+          "text": "a shiny spoon"
+        },
+        {
+          "text": "a flat mirror"
+        },
+        {
+          "text": "a rough stone"
+        },
+        {
+          "text": "calm water in a bowl"
+        },
+        {
+          "text": "black velvet cloth"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "A clear picture needs a smooth, shiny surface.",
+        "Rough surfaces scatter the light in many directions.",
+        "Which three are smooth and shiny?"
+      ],
+      "explanation": "Smooth and shiny surfaces such as a mirror, a spoon and calm water reflect light in an ordered way. Rough stone and cloth scatter light."
+    },
+    {
+      "id": "s6.light-seeing.024",
+      "skill": "s6.light-seeing",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "When light changes direction as it passes from air into water, this is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "refraction"
+          ]
+        }
+      ],
+      "hints": [
+        "It is the reason a straw looks bent in a glass of water.",
+        "It happens when light changes speed.",
+        "The word starts with re and ends with tion."
+      ],
+      "explanation": "The bending of light when it passes from one material into another is called refraction."
+    },
+    {
+      "id": "s6.light-seeing.025",
+      "skill": "s6.light-seeing",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "A red apple looks red because it reflects red light and ___ the other colours.",
+      "blanks": [
+        {
+          "answers": [
+            "absorbs",
+            "absorbed",
+            "absorb",
+            "absorbing",
+            "takes in",
+            "soaks up",
+            "soaks in",
+            "does not reflect"
+          ]
+        }
+      ],
+      "hints": [
+        "Light that is not reflected goes somewhere.",
+        "The apple does not let the other colours through either.",
+        "The apple takes the other colours in. What is that called?"
+      ],
+      "explanation": "The apple reflects red light into our eyes and absorbs the other colours."
+    },
+    {
+      "id": "s6.light-seeing.026",
+      "skill": "s6.light-seeing",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Light travels in ___ lines. When it bounces off a surface, this is called ___.",
+      "gaps": [
+        {
+          "options": [
+            "straight",
+            "curved",
+            "wavy"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "reflection",
+            "refraction",
+            "absorption"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Think about how light makes sharp shadows.",
+        "Refraction is a different word for bending.",
+        "A mirror makes light bounce back."
+      ],
+      "explanation": "Light travels in straight lines. Reflection is when light bounces off a surface."
+    },
+    {
+      "id": "s6.light-seeing.027",
+      "skill": "s6.light-seeing",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        [
+          "reflection",
+          "light bouncing off a surface"
+        ],
+        [
+          "refraction",
+          "light bending as it enters a new material"
+        ],
+        [
+          "absorption",
+          "light being taken in by a surface"
+        ],
+        [
+          "shadow",
+          "the dark area where light is blocked"
+        ]
+      ],
+      "hints": [
+        "Think about what each word looks like in a picture.",
+        "Refraction is the bending of light.",
+        "Shadows are made when light is blocked."
+      ],
+      "explanation": "Reflection bounces light, refraction bends it, absorption takes it in and a shadow forms where light is blocked."
+    },
+    {
+      "id": "s6.light-seeing.028",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Amara measures the height of a shadow when a card is 20 cm from a lamp. She measures it once and writes 36 cm. What would make her result more reliable?",
+      "options": [
+        {
+          "text": "Measure the shadow again several times and find the mean."
+        },
+        {
+          "text": "Change the lamp to a brighter one.",
+          "why": "Changing the lamp would change the test, not make the measurement more reliable."
+        },
+        {
+          "text": "Move the card closer to the lamp.",
+          "why": "That changes the thing she is testing."
+        },
+        {
+          "text": "Only write down the biggest number.",
+          "why": "A good scientist uses all the readings."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A single reading might have a mistake.",
+        "How can you check that the same result happens every time?",
+        "Repeating the measurement and averaging reduces errors."
+      ],
+      "explanation": "Repeating the measurement and finding the mean lowers the effect of mistakes, so the result is more reliable."
+    },
+    {
+      "id": "s6.light-seeing.029",
+      "skill": "s6.light-seeing",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Kofi sees a flash of lightning. He hears the thunder 6 seconds later. Sound travels at 340 m/s. How far away was the lightning, in metres?",
+      "answer": 2040,
+      "unit": "m",
+      "hints": [
+        "Light reaches you almost instantly, so the 6 seconds is the time for the sound.",
+        "Use distance = speed × time.",
+        "Multiply 340 by 6."
+      ],
+      "explanation": "The light arrives almost at once, so the 6 s is the travel time of the sound. 340 m/s × 6 s = 2040 m."
+    },
+    {
+      "id": "s6.light-seeing.801",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: We see an object when light from it enters our eyes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does the light go?",
+        "Eyes receive light.",
+        "Light reaches the eye."
+      ],
+      "explanation": "Light reflects off objects into our eyes, or comes from a source directly.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.802",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: We see things because our eyes send out light.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do eyes glow?",
+        "What enters the eye?",
+        "Light enters eyes."
+      ],
+      "explanation": "Eyes do not send out light. They only receive the light that comes from or is reflected off objects.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.803",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A mirror reflects light and the angle of reflection equals the angle of incidence.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which angles match?",
+        "Light bounces.",
+        "They are equal."
+      ],
+      "explanation": "Light bounces off at the same angle as it came in.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.804",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Refraction is when light bounces back off a mirror.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which word means bending?",
+        "A straw looks bent in water.",
+        "Refraction bends light."
+      ],
+      "explanation": "Refraction is the bending of light as it passes from one material into another, such as from air into water. Bouncing is reflection.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.701",
+      "skill": "s6.light-seeing",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Light bending as it enters water is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "refraction"
+          ]
+        }
+      ],
+      "hints": [
+        "A straw looks bent in water.",
+        "It starts with ref.",
+        "The word ends in tion."
+      ],
+      "explanation": "Refraction is the bending of light as it passes into another material.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

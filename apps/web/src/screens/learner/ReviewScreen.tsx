@@ -27,7 +27,7 @@ const STATUS_WORD: Record<ReviewQuestionDTO['status'], string> = {
   correct: 'correct',
   wrong: 'not yet',
   blank: 'no answer',
-  pending: 'waiting for your tutor',
+  pending: 'waiting to be looked at',
 }
 
 /** Pisahkan "B. 4" menjadi huruf dan teks. Huruf mengikuti urutan opsi di layar. */
@@ -85,7 +85,6 @@ function AnswerRow({
 }
 
 function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; data: ReviewDTO; onNext: () => void; isLast: boolean }): ReactElement {
-  const style = SUBJECT_STYLE[data.subject]
   const manual = isManualType(q.item.type)
   const ok = q.status === 'correct'
   const yours = q.status === 'blank' ? { letter: null, text: 'No answer' } : splitAnswer(q.yourAnswerText, q)
@@ -93,9 +92,9 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
   const player = q.solution && q.solution.length > 0 ? q.solution : null
   const showFigure = !player && q.item.figure
   return (
-    <section aria-labelledby={`review-q-${q.position}`} className="flex min-w-0 flex-1 flex-col gap-5 rounded-card border border-divider bg-surface p-5 md:p-7">
+    <section aria-labelledby={`review-q-${q.position}`} className="flex min-w-0 flex-1 flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-7">
       <div className="flex items-start gap-3.5">
-        <span className={cx('mt-px inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-body-lg font-bold text-white tabular-nums', style.solid)}>
+        <span className={cx('mt-px inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-body-lg font-bold text-white tabular-nums', 'bg-fg')}>
           {q.position}
         </span>
         <h2 id={`review-q-${q.position}`} tabIndex={-1} className="m-0 min-w-0 flex-1 text-question font-normal focus:outline-none">
@@ -107,7 +106,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
 
       <div className="flex min-h-0 flex-1 flex-col gap-6 lg:flex-row">
         {player ? (
-          <SolutionPlayer key={q.position} steps={player} subject={data.subject} figure={q.item.figure} className="w-full flex-none lg:w-90" lang={q.item.lang} />
+          <SolutionPlayer key={q.position} steps={player} subject={data.subject} figure={q.item.figure} prompt={q.item.prompt} className="w-full flex-none lg:w-90" lang={q.item.lang} />
         ) : showFigure && q.item.figure ? (
           <div className="w-full flex-none lg:w-90">
             <FigureFrame spec={q.item.figure} paper={data.subject === 'math'} />
@@ -117,7 +116,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
         <div className="flex min-w-0 flex-1 flex-col gap-3.5">
           <div className="flex flex-col gap-2.5">
             {manual ? (
-              <p className="m-0 text-body-lg">{q.status === 'pending' ? 'Your tutor has not marked this one yet.' : 'Your tutor marked this one.'}</p>
+              <p className="m-0 text-body-lg">{data.marker === 'grownup' ? (q.status === 'pending' ? 'Your grown-up can look at this one. It does not change your score.' : 'Your grown-up looked at this one.') : q.status === 'pending' ? 'Your tutor has not marked this one yet.' : 'Your tutor marked this one.'}</p>
             ) : (
               <>
                 <AnswerRow label="Your answer" answer={yours} tone={ok ? 'correct' : 'not-yet'} badge={ok ? 'correct' : 'not-yet'} />
@@ -127,7 +126,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
           </div>
           {q.tutorFeedback ? (
             <div className="flex flex-col gap-1 rounded-control border-2 border-fg bg-surface px-4 py-3">
-              <h3 className="m-0 text-body-lg font-bold">From your tutor</h3>
+              <h3 className="m-0 text-body-lg font-bold">{data.marker === 'grownup' ? 'From your grown-up' : 'From your tutor'}</h3>
               <p className="m-0 font-reading text-body-lg">{q.tutorFeedback}</p>
             </div>
           ) : null}
@@ -144,7 +143,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
             </div>
           ) : null}
           {q.tip ? (
-            <div className="flex items-start gap-2.5 rounded-control border border-divider bg-bg px-3.5 py-3">
+            <div className="flex items-start gap-2.5 rounded-control bg-lavender px-3.5 py-3">
               <UiIcon name="hint" size={22} className="mt-0.5 flex-none" />
               <div className="flex flex-col">
                 <span className="text-body font-bold">Tip</span>
@@ -227,7 +226,7 @@ export function ReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
                       on ? cx('border-3', style.border, style.tint) : 'border border-divider bg-surface hover:border-border',
                     )}
                   >
-                    <span className={cx('inline-flex h-8 min-w-10 flex-none items-center justify-center rounded-pill px-2.5 text-body font-bold text-white tabular-nums', style.solid)}>
+                    <span className={cx('inline-flex h-8 min-w-10 flex-none items-center justify-center rounded-pill px-2.5 text-body font-bold text-white tabular-nums', 'bg-fg')}>
                       {x.position}
                     </span>
                     <span className="hidden min-w-0 flex-1 truncate text-body font-semibold lg:block">{x.item.prompt}</span>

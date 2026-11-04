@@ -3,7 +3,7 @@ import type { Rng } from './rng'
 
 /**
  * Pemilih soal adaptif. Target peluang benar 0,75 sampai 0,85 untuk soal inti
- * dan 0,55 sampai 0,70 untuk soal tantangan. Soal yang baru dilihat diberi penalti.
+ * dan 0,55 sampai 0,70 untuk soal tantangan. Soal yang pernah dilihat baru dipakai lagi setelah bank soal skill habis, yang paling lama dilihat lebih dulu.
  * Kandidat `unlimited` (generator Math) boleh dipilih lebih dari sekali dengan seed berbeda.
  */
 
@@ -33,12 +33,21 @@ export function bandDistance(p: number, band: Band): number {
   return 0
 }
 
+/**
+ * Soal yang pernah dilihat learner tidak muncul lagi selama masih ada soal yang belum pernah dilihat:
+ * penalti 10 jauh di atas jarak pita (di bawah 1). Bila bank skill habis, soal dengan penglihatan
+ * paling lama (seenDaysAgo terbesar) dipakai lebih dulu. Generator (unlimited) tidak dihukum.
+ */
+export const SEEN_TIER = 10
+
 function seenPenalty(c: Candidate): number {
   if (c.unlimited || c.seenDaysAgo === undefined) return 0
-  if (c.seenDaysAgo < 2) return 1
-  if (c.seenDaysAgo < 7) return 0.3
-  if (c.seenDaysAgo < 30) return 0.1
-  return 0.02
+  return SEEN_TIER + 1 / (1 + c.seenDaysAgo)
+}
+
+/** Kandidat yang belum pernah dilihat learner (generator selalu dianggap baru). */
+export function unseenOnly<C extends Candidate>(candidates: readonly C[]): C[] {
+  return candidates.filter((c) => c.unlimited || c.seenDaysAgo === undefined)
 }
 
 export function pickItems<C extends Candidate>(input: {

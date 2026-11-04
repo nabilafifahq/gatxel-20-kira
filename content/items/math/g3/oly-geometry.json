@@ -47,7 +47,18 @@
       "solution": [
         {
           "say": "Length left.",
-          "show": "8 - 5 = 3 cm"
+          "show": "8 - 5 = 3 cm",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 5,
+            "r": 3
+          },
+          "mark": [
+            "8",
+            "5"
+          ]
         },
         {
           "say": "Width stays 5 cm.",
@@ -111,7 +122,18 @@
       "solution": [
         {
           "say": "Width of a strip.",
-          "show": "8 ÷ 4 = 2 cm"
+          "show": "8 ÷ 4 = 2 cm",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "÷",
+            "b": 4,
+            "r": 2
+          },
+          "mark": [
+            "8",
+            "4"
+          ]
         },
         {
           "say": "Size of a strip.",
@@ -337,15 +359,47 @@
       "solution": [
         {
           "say": "The left side and the bottom are straight.",
-          "show": "5 + 5 = 10"
+          "show": "5 + 5 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 5,
+            "r": 10
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "The steps go across 5 cm in total and up 5 cm in total.",
-          "show": "5 + 5 = 10"
+          "show": "5 + 5 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 5,
+            "r": 10
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "Total.",
-          "show": "10 + 10 = 20 cm"
+          "show": "10 + 10 = 20 cm",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 20
+          }
         }
       ],
       "tags": [
@@ -404,7 +458,14 @@
         },
         {
           "say": "Total tiles.",
-          "show": "6 × 4 = 24"
+          "show": "6 × 4 = 24",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 4,
+            "r": 24
+          }
         }
       ],
       "tags": [
@@ -436,15 +497,58 @@
       "solution": [
         {
           "say": "Side of the big square.",
-          "show": "36 ÷ 4 = 9 cm"
+          "show": "36 ÷ 4 = 9 cm",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 36
+          },
+          "mark": [
+            "36"
+          ]
         },
         {
           "say": "Side of a small square.",
-          "show": "9 ÷ 3 = 3 cm"
+          "show": "9 ÷ 3 = 3 cm",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "÷",
+            "b": 3,
+            "r": 3
+          },
+          "mark": [
+            "9",
+            "3"
+          ]
         },
         {
           "say": "Area of a small square.",
-          "show": "3 × 3 = 9 cm²"
+          "show": "3 × 3 = 9 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -482,7 +586,19 @@
         },
         {
           "say": "Each pair makes one triangle with the crossing line and one with the bottom side.",
-          "show": "6 + 6 = 12"
+          "show": "6 + 6 = 12",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 12
+          }
         }
       ],
       "tags": [
@@ -512,7 +628,17 @@
         },
         {
           "say": "One part.",
-          "show": "30 ÷ 6 = 5 cm"
+          "show": "30 ÷ 6 = 5 cm",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "÷",
+            "b": 6,
+            "r": 5
+          },
+          "mark": [
+            "30"
+          ]
         },
         {
           "say": "Length and width.",
@@ -520,7 +646,28 @@
         },
         {
           "say": "Area.",
-          "show": "10 × 5 = 50 cm²"
+          "show": "10 × 5 = 50 cm²",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 50
+          }
         }
       ],
       "tags": [
@@ -579,7 +726,29 @@
           "say": "The 4 sides are equal and they add up to 36 cm."
         },
         {
-          "say": "One side is 36 / 4 = 9 cm."
+          "say": "One side is 36 / 4 = 9 cm.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 36
+          },
+          "mark": [
+            "36"
+          ]
         }
       ],
       "tags": [
@@ -607,13 +776,49 @@
       "explanation": "The two lengths are 8 + 8 = 16 cm. That leaves 24 - 16 = 8 cm for the two widths. One width is 8 / 2 = 4 cm.",
       "solution": [
         {
-          "say": "The two lengths are 8 + 8 = 16 cm."
+          "say": "The two lengths are 8 + 8 = 16 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 8,
+            "r": 16
+          },
+          "mark": [
+            "8"
+          ]
         },
         {
-          "say": "That leaves 24 - 16 = 8 cm for the two widths."
+          "say": "That leaves 24 - 16 = 8 cm for the two widths.",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "-",
+            "b": 16,
+            "r": 8
+          },
+          "mark": [
+            "24"
+          ]
         },
         {
-          "say": "One width is 8 / 2 = 4 cm."
+          "say": "One width is 8 / 2 = 4 cm.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4,
+                "q": true
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 8
+          },
+          "mark": [
+            "8"
+          ]
         }
       ],
       "tags": [
@@ -701,7 +906,17 @@
       "explanation": "The rectangle is 3 + 3 = 6 cm long and 3 cm wide. The distance around is 6 + 3 + 6 + 3 = 18 cm.",
       "solution": [
         {
-          "say": "The rectangle is 3 + 3 = 6 cm long and 3 cm wide."
+          "say": "The rectangle is 3 + 3 = 6 cm long and 3 cm wide.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 3,
+            "r": 6
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "The distance around is 6 + 3 + 6 + 3 = 18 cm."
@@ -779,7 +994,25 @@
           "say": "A cube has 12 edges and each is 3 cm long."
         },
         {
-          "say": "The total is 12 x 3 = 36 cm."
+          "say": "The total is 12 x 3 = 36 cm.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              }
+            ],
+            "total": 36
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -815,7 +1048,22 @@
           "say": "The 2 in the middle have exactly 2 painted faces."
         },
         {
-          "say": "So there are 12 x 2 = 24 cubes."
+          "say": "So there are 12 x 2 = 24 cubes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              }
+            ],
+            "total": 24
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -879,10 +1127,35 @@
           "say": "The big square is cut into 2 by 2 small squares."
         },
         {
-          "say": "Each small square has sides of 4 / 2 = 2 cm."
+          "say": "Each small square has sides of 4 / 2 = 2 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "÷",
+            "b": 2,
+            "r": 2
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
-          "say": "The distance around is 4 x 2 = 8 cm."
+          "say": "The distance around is 4 x 2 = 8 cm.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 8
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [

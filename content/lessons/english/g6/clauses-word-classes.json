@@ -1,0 +1,52 @@
+{
+  "skill": "e6.clauses-word-classes",
+  "title": "Clauses, word classes and sentence effect",
+  "steps": [
+    {
+      "say": "A main clause makes sense on its own. A subordinate clause depends on a main clause.",
+      "show": "Although it rained, we played. (main clause: we played)"
+    },
+    {
+      "say": "Subordinate clauses often begin with words such as because, although, when and who."
+    },
+    {
+      "say": "Word classes: nouns name, verbs act, adjectives describe nouns, adverbs describe verbs, prepositions show position, conjunctions join."
+    },
+    {
+      "say": "Short sentences can build tension or speed. Long sentences can slow the pace and create calm."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.clauses-word-classes.901",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which group of words is a subordinate clause?",
+      "options": [
+        {
+          "text": "we played outside",
+          "why": "This can stand alone, so it is a main clause."
+        },
+        {
+          "text": "because the sun was out"
+        },
+        {
+          "text": "the sun was hot",
+          "why": "This can stand alone as a sentence."
+        },
+        {
+          "text": "Bayu ran",
+          "why": "This can stand alone as a sentence."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A subordinate clause cannot stand alone.",
+        "Look for a conjunction at the start.",
+        "Because needs another part to finish the idea."
+      ],
+      "explanation": "Because the sun was out depends on a main clause, so it is a subordinate clause."
+    }
+  ]
+}

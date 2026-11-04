@@ -3,14 +3,16 @@ import { eq } from 'drizzle-orm'
 import { formatDateEn, jakartaDate, type IsoDate } from '@kira/core'
 import { tables } from '@kira/db'
 import { answerText, MANUAL_TYPES, type Item } from '@kira/content'
+import { analysePegs, blocksValue, formatLength, parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { bestIndex } from '@kira/core'
 import type { ResultsDTO, RetryDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
 import type { Tx } from '../db'
 import { preset, resolveItems, skill, toClient } from './content'
 import { presetForAttempt } from './learner-competition'
-import { learnerShell, loadLearner } from './learner-core'
+import { learnerShell, loadLearner, markerFor } from './learner-core'
 import { xpBarFor } from './learner-xpbar'
 import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
+import { worldPeek } from './kira-world'
 import { familyOf, retryInfo, scoreOf, scoreText } from './learner-session'
 
 const { response } = tables
@@ -90,11 +92,31 @@ export function yourAnswerText(item: Item, answer: unknown): string {
       const n = item.size
       return Array.from({ length: n }, (_, r) => cells.slice(r * n, r * n + n).map((c) => (c === 0 ? '_' : String(c))).join(' ')).join(' / ')
     }
+    case 'blocks': {
+      const b = parseBlocks(a.blocks)
+      return b ? `${blocksValue(b)}: ${b.h} hundreds, ${b.t} tens, ${b.o} ones` : 'No answer'
+    }
+    case 'fractionbar':
+      return (parseBars(a.bars) ?? []).map((b, i) => `bar ${i + 1}: ${b.shaded}/${b.den}`).join('; ') || 'No answer'
+    case 'barmodel': {
+      const m = parseModel(a.model)
+      return m ? m.bars.map((b) => `${b.label}: ${b.units}`).join('; ') + (m.unit !== undefined ? `; 1 unit = ${m.unit}` : '') : 'No answer'
+    }
+    case 'tangram': {
+      const placed = parsePlacements(a.placed, item.slots.length, item.pieces.length)
+      return placed ? `${placed.filter(Boolean).length} of ${item.slots.length} pieces placed` : 'No answer'
+    }
+    case 'geoboard': {
+      const pegs = parsePegs(a.pegs, item.size)
+      if (!pegs) return 'No answer'
+      const info = analysePegs(pegs)
+      return info.ok ? `${info.sides} sides, area ${formatLength(info.area)}, perimeter ${formatLength(info.perimeter)}` : 'Shape not closed'
+    }
   }
 }
 
-function headlineFor(pct: number, pending: number): { headline: string; detail: string; tone: ResultsDTO['tone'] } {
-  if (pending > 0 && pct >= 0.5) return { headline: 'Great work so far', detail: 'Your tutor will mark the rest.', tone: 'normal' }
+function headlineFor(pct: number, pending: number, marker: 'tutor' | 'grownup' = 'tutor'): { headline: string; detail: string; tone: ResultsDTO['tone'] } {
+  if (pending > 0 && pct >= 0.5) return { headline: 'Great work so far', detail: marker === 'grownup' ? 'Your grown-up can look at the rest.' : 'Your tutor will mark the rest.', tone: 'normal' }
   if (pct >= 1) return { headline: 'Every one right', detail: 'That is a full score. Brilliant.', tone: 'full' }
   if (pct >= 0.7) return { headline: 'Strong work', detail: 'Look at the ones marked Not yet to see the steps.', tone: 'normal' }
   if (pct >= 0.4) return { headline: 'Good effort', detail: 'Some of these were tricky. The steps will help.', tone: 'low' }
@@ -112,10 +134,12 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status === 'in_progress') return { inProgress: true }
   const learner = await loadLearner(tx, learnerId)
-  const items = (a.items as AttemptItem[]) ?? []
+  const marker = await markerFor(tx)
+  // Soal serupa dari putaran perbaikan tidak ikut skor sesi (tetap ada di review).
+  const items = ((a.items as AttemptItem[]) ?? []).filter((i) => i.remedialOf === undefined)
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
   const latest = latestByPosition(await tx.select().from(response).where(eq(response.attemptId, a.id)))
-  const result = (a.result as { byTopic?: Topic[]; timeUsedSec?: number; pending?: number; newBadges?: ResultsDTO['newBadges'] } | null) ?? {}
+  const result = (a.result as { byTopic?: Topic[]; timeUsedSec?: number; pending?: number; newBadges?: ResultsDTO['newBadges']; world?: { stars: number; cards: string[] } } | null) ?? {}
   const questions = items.map((it) => {
     const r = latest.get(it.position)
     const item = resolved.get(it.ref)
@@ -132,7 +156,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const p = presetForAttempt(a) ?? (a.presetId ? preset(a.presetId) : undefined)
   const scaledTarget = p?.rules.passMark ?? (a.kind.startsWith('esmo') ? 70 : null)
   const pct = total > 0 ? correct / Math.max(1, total - pending) : 0
-  const tone = headlineFor(pct, pending)
+  const tone = headlineFor(pct, pending, marker)
   const topics = (result.byTopic ?? []).filter((t) => t.total > 0)
   const sorted = [...topics].sort((x, y) => y.right / y.total - x.right / x.total)
   const strongest = sorted.length > 1 ? sorted[0] : undefined
@@ -143,6 +167,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const retry = await retryDTO(tx, a, total)
   return {
     shell: await learnerShell(tx, learner),
+    marker,
     attemptId: a.id,
     subject,
     title: a.title,
@@ -156,6 +181,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     timeUsedSec: result.timeUsedSec ?? a.elapsedS,
     timeLimitSec: a.timeLimitS,
     xp: a.xp,
+    ...(result.world ? { world: { ...result.world, pet: (await worldPeek(tx, learnerId).catch(() => null))?.pet ?? null } } : {}),
     newBadges: result.newBadges ?? [],
     questions,
     strongest: strongest ? { topic: strongest.label, line: `${strongest.right} of ${strongest.total} right` } : null,
@@ -192,6 +218,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status === 'in_progress') return { inProgress: true }
   const learner = await loadLearner(tx, learnerId)
+  const marker = await markerFor(tx)
   const items = (a.items as AttemptItem[]) ?? []
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
   const latest = latestByPosition(await tx.select().from(response).where(eq(response.attemptId, a.id)))
@@ -207,7 +234,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
       position: it.position,
       item: toClient(item, { ref: it.ref, seed: presentationSeed(a), includeKey: true, includeHints: true }),
       yourAnswerText: yourAnswerText(item, r?.answer ?? null),
-      correctAnswerText: MANUAL_TYPES.includes(item.type) ? 'Your tutor will mark this.' : answerText(item),
+      correctAnswerText: MANUAL_TYPES.includes(item.type) ? `Your ${marker === 'grownup' ? 'grown-up can look at this' : 'tutor will mark this'}.` : answerText(item),
       status,
       explanation: item.explanation,
       whyYourAnswer: why,
@@ -220,6 +247,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
   const firstWrong = questions.find((q) => q.status === 'wrong')?.position ?? questions[0]?.position ?? 1
   return {
     shell: await learnerShell(tx, learner),
+    marker,
     attemptId: a.id,
     title: a.title,
     subject: a.subject as Subject,

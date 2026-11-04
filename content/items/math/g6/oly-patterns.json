@@ -38,11 +38,32 @@
       "solution": [
         {
           "say": "5th number.",
-          "show": "54 × 3 = 162"
+          "show": "54 × 3 = 162",
+          "anim": {
+            "k": "combine",
+            "a": 54,
+            "op": "×",
+            "b": 3,
+            "r": 162
+          },
+          "mark": [
+            "54",
+            "3"
+          ]
         },
         {
           "say": "6th number.",
-          "show": "162 × 3 = 486"
+          "show": "162 × 3 = 486",
+          "anim": {
+            "k": "combine",
+            "a": 162,
+            "op": "×",
+            "b": 3,
+            "r": 486
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -90,7 +111,17 @@
       "solution": [
         {
           "say": "Running totals.",
-          "show": "1, 4, 9, 16, 25"
+          "show": "1, 4, 9, 16, 25",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "4",
+              "9",
+              "16",
+              "25"
+            ]
+          }
         },
         {
           "say": "They are square numbers.",
@@ -98,7 +129,14 @@
         },
         {
           "say": "20 × 20 = 400.",
-          "show": "20 numbers"
+          "show": "20 numbers",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "×",
+            "b": 20,
+            "r": 400
+          }
         },
         {
           "say": "The last number he adds is the 20th odd number, 39."
@@ -149,19 +187,50 @@
       "solution": [
         {
           "say": "1 to 9.",
-          "show": "9 × 1 = 9"
+          "show": "9 × 1 = 9",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 1,
+            "r": 9
+          },
+          "mark": [
+            "1"
+          ]
         },
         {
           "say": "10 to 99.",
-          "show": "90 × 2 = 180"
+          "show": "90 × 2 = 180",
+          "anim": {
+            "k": "combine",
+            "a": 90,
+            "op": "×",
+            "b": 2,
+            "r": 180
+          }
         },
         {
           "say": "100 to 999.",
-          "show": "900 × 3 = 2700"
+          "show": "900 × 3 = 2700",
+          "anim": {
+            "k": "combine",
+            "a": 900,
+            "op": "×",
+            "b": 3,
+            "r": 2700
+          }
         },
         {
           "say": "1000 to 2026.",
-          "show": "1027 × 4 = 4108"
+          "show": "1027 × 4 = 4108",
+          "anim": {
+            "k": "combine",
+            "a": 1027,
+            "op": "×",
+            "b": 4,
+            "r": 4108
+          }
         },
         {
           "say": "Total.",
@@ -213,11 +282,31 @@
         },
         {
           "say": "Jump total.",
-          "show": "99 × 5 = 495"
+          "show": "99 × 5 = 495",
+          "anim": {
+            "k": "combine",
+            "a": 99,
+            "op": "×",
+            "b": 5,
+            "r": 495
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "100th number.",
-          "show": "3 + 495 = 498"
+          "show": "3 + 495 = 498",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 495,
+            "r": 498
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -242,11 +331,29 @@
       "solution": [
         {
           "say": "Cycle for 2.",
-          "show": "2, 4, 8, 6"
+          "show": "2, 4, 8, 6",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "4",
+              "8",
+              "6"
+            ]
+          }
         },
         {
           "say": "Cycle for 3.",
-          "show": "3, 9, 7, 1"
+          "show": "3, 9, 7, 1",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "3",
+              "9",
+              "7",
+              "1"
+            ]
+          }
         },
         {
           "say": "Position in the cycle.",
@@ -254,7 +361,14 @@
         },
         {
           "say": "Last digits.",
-          "show": "4 + 9 = 13, which ends in 3"
+          "show": "4 + 9 = 13, which ends in 3",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 9,
+            "r": 13
+          }
         }
       ],
       "tags": [
@@ -296,11 +410,30 @@
       "solution": [
         {
           "say": "Doublings in an hour.",
-          "show": "60 ÷ 20 = 3"
+          "show": "60 ÷ 20 = 3",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "÷",
+            "b": 20,
+            "r": 3
+          },
+          "mark": [
+            "20"
+          ]
         },
         {
           "say": "Double three times.",
-          "show": "50, 100, 200, 400"
+          "show": "50, 100, 200, 400",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "50",
+              "100",
+              "200",
+              "400"
+            ]
+          }
         }
       ],
       "tags": [
@@ -346,7 +479,14 @@
         },
         {
           "say": "Next number.",
-          "show": "120 × 6 = 720"
+          "show": "120 × 6 = 720",
+          "anim": {
+            "k": "combine",
+            "a": 120,
+            "op": "×",
+            "b": 6,
+            "r": 720
+          }
         }
       ],
       "tags": [
@@ -466,7 +606,16 @@
         },
         {
           "say": "Rows 2 to 5.",
-          "show": "30, 45, 60, 75"
+          "show": "30, 45, 60, 75",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "30",
+              "45",
+              "60",
+              "75"
+            ]
+          }
         },
         {
           "say": "Total.",
@@ -474,7 +623,14 @@
         },
         {
           "say": "Shortcut.",
-          "show": "15 × 15 = 225"
+          "show": "15 × 15 = 225",
+          "anim": {
+            "k": "combine",
+            "a": 15,
+            "op": "×",
+            "b": 15,
+            "r": 225
+          }
         }
       ],
       "tags": [
@@ -482,6 +638,339 @@
         "timo"
       ],
       "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-patterns.010",
+      "skill": "m6.oly-patterns",
+      "difficulty": 3,
+      "prompt": "Look at the numbers 5, 8, 13, 20, 29. The jumps between them grow by the same amount each time. What number comes next?",
+      "hints": [
+        "Write the jumps between the numbers.",
+        "The jumps are 3, 5, 7, 9.",
+        "The next jump is 11."
+      ],
+      "explanation": "The jumps are 3, 5, 7 and 9, and they grow by 2 each time. The next jump is 11, so the next number is 29 + 11 = 40.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "36",
+          "why": "You added 7 again. The jumps are 3, 5, 7, 9, so the next jump is 11."
+        },
+        {
+          "text": "38",
+          "why": "You added 9 again. The jump should grow to 11."
+        },
+        {
+          "text": "40"
+        },
+        {
+          "text": "41",
+          "why": "The next jump is 11, which gives 40, not 41."
+        },
+        {
+          "text": "49",
+          "why": "The jump is not 20. Look at the differences, not the numbers."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What number comes next?"
+          ]
+        },
+        {
+          "say": "The jumps are 3, 5, 7 and 9, and they grow by 2 each time."
+        },
+        {
+          "say": "The next jump is 11, so the next number is 29 + 11 = 40.",
+          "anim": {
+            "k": "line",
+            "min": 26,
+            "max": 43,
+            "start": 29,
+            "jumps": [
+              11
+            ]
+          },
+          "mark": [
+            "29"
+          ]
+        },
+        {
+          "say": "Not 36. You added 7 again. The jumps are 3, 5, 7, 9, so the next jump is 11."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 40"
+        }
+      ]
+    },
+    {
+      "id": "m6.oly-patterns.011",
+      "skill": "m6.oly-patterns",
+      "difficulty": 3,
+      "prompt": "A snail is at the bottom of a well 15 m deep. Each day it climbs 3 m. Each night it slips back 1 m. On which day does it first reach the top?",
+      "hints": [
+        "Work out how far the snail is at the end of each day.",
+        "Each full day and night gives a gain of 2 m.",
+        "Check the day when it climbs 3 m and gets out before slipping."
+      ],
+      "explanation": "After 6 full days and nights it is 12 m up. On day 7 it climbs 3 m more and reaches 15 m, so it gets out on day 7.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 7
+    },
+    {
+      "id": "m6.oly-patterns.012",
+      "skill": "m6.oly-patterns",
+      "difficulty": 4,
+      "prompt": "What is the last digit of 7 × 7 × 7 × ... × 7, where there are 100 sevens?",
+      "hints": [
+        "Write the last digits for 1, 2, 3, 4 sevens.",
+        "They are 7, 9, 3, 1, and then the cycle repeats.",
+        "The cycle has length 4. What is the remainder when 100 is divided by 4?"
+      ],
+      "explanation": "The last digits repeat in a cycle of 4: 7, 9, 3, 1. 100 is a multiple of 4, so the last digit is the 4th in the cycle, which is 1.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0",
+          "why": "A product of sevens never ends in 0. The last digits repeat 7, 9, 3, 1."
+        },
+        {
+          "text": "1"
+        },
+        {
+          "text": "3",
+          "why": "The cycle is 7, 9, 3, 1. 3 comes in position 3, 7, 11, ... but 100 is a multiple of 4."
+        },
+        {
+          "text": "7",
+          "why": "7 is the last digit when the number of sevens is 1, 5, 9, ... but 100 is a multiple of 4."
+        },
+        {
+          "text": "9",
+          "why": "9 is the last digit for 2, 6, 10, ... sevens, but 100 is a multiple of 4."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.oly-patterns.013",
+      "skill": "m6.oly-patterns",
+      "difficulty": 4,
+      "prompt": "There is 1 germ in a dish at 8:00. The number of germs triples every hour. After how many hours is the number first more than 1,000?",
+      "hints": [
+        "Write the number of germs hour by hour.",
+        "1, 3, 9, 27, 81, ...",
+        "Keep tripling until you pass 1,000."
+      ],
+      "explanation": "The numbers are 3, 9, 27, 81, 243, 729, 2,187. The count first passes 1,000 after 7 hours.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 7
+    },
+    {
+      "id": "m6.oly-patterns.014",
+      "skill": "m6.oly-patterns",
+      "difficulty": 5,
+      "prompt": "Write all the whole numbers from 1 to 99. What is the sum of all the digits that you have written?",
+      "hints": [
+        "Look at the units digits in each group of ten: 0 to 9 add to 45.",
+        "There are 10 groups of ten, from 00 to 99.",
+        "The tens digits add to 10 × (0 + 1 + ... + 9) as well."
+      ],
+      "explanation": "Units digits: 10 groups, each adding to 45, give 450. Tens digits: each digit 0 to 9 appears 10 times, giving 450. The total is 450 + 450 = 900.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "450",
+          "why": "This is only the sum of the units digits (or only the tens digits). Add both."
+        },
+        {
+          "text": "810",
+          "why": "The tens digits add up to 450, so check your units digits again."
+        },
+        {
+          "text": "900"
+        },
+        {
+          "text": "990",
+          "why": "This counts the digit 9 too many times. Each digit 0 to 9 is used equally often."
+        },
+        {
+          "text": "1800",
+          "why": "This counts every digit twice."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the sum of all the digits that you have written?"
+          ]
+        },
+        {
+          "say": "Units digits: 10 groups, each adding to 45, give 450."
+        },
+        {
+          "say": "Tens digits: each digit 0 to 9 appears 10 times, giving 450."
+        },
+        {
+          "say": "The total is 450 + 450 = 900.",
+          "anim": {
+            "k": "combine",
+            "a": 450,
+            "op": "+",
+            "b": 450,
+            "r": 900
+          }
+        },
+        {
+          "say": "Not 450. This is only the sum of the units digits (or only the tens digits). Add both."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 900"
+        }
+      ]
+    },
+    {
+      "id": "m6.oly-patterns.015",
+      "skill": "m6.oly-patterns",
+      "difficulty": 4,
+      "prompt": "The numbers 1, 3, 6, 10, 15, ... go up by 2, then 3, then 4, then 5, and so on. What is the 20th number?",
+      "hints": [
+        "Write the jumps: 2, 3, 4, 5, ...",
+        "The 20th number is 1 + the sum of the jumps from 2 to 20.",
+        "It is the same as 1 + 2 + 3 + ... + 20."
+      ],
+      "explanation": "The nth number is 1 + 2 + ... + n. For n = 20, pair the numbers: 10 pairs of 21 make 210.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 210
+    },
+    {
+      "id": "m6.oly-patterns.016",
+      "skill": "m6.oly-patterns",
+      "difficulty": 5,
+      "prompt": "Sekar writes the counting numbers in rows: row 1 has 1 number, row 2 has 2 numbers, row 3 has 3 numbers, and so on. (Row 1: 1. Row 2: 2, 3. Row 3: 4, 5, 6.) What is the first number in row 15?",
+      "hints": [
+        "Count how many numbers are in the rows before row 15.",
+        "Rows 1 to 14 have 1 + 2 + ... + 14 numbers.",
+        "The first number in row 15 is one more than that total."
+      ],
+      "explanation": "Rows 1 to 14 hold 1 + 2 + ... + 14 = 105 numbers. So row 15 starts with 106.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 106
+    },
+    {
+      "id": "m6.oly-patterns.017",
+      "skill": "m6.oly-patterns",
+      "difficulty": 5,
+      "prompt": "A clock rings once at every half hour. On the hour it rings the number of the hour (at 3:00 it rings 3 times, at 12:00 it rings 12 times). How many times does it ring in 24 hours?",
+      "hints": [
+        "Count the hour rings and the half-hour rings separately.",
+        "In 12 hours the hour rings are 1 + 2 + ... + 12 = 78.",
+        "24 hours has 2 such cycles and 24 half hours."
+      ],
+      "explanation": "The hour rings: 2 × 78 = 156. The half-hour rings: 24. The total is 156 + 24 = 180.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 180,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many times does it ring in 24 hours?"
+          ]
+        },
+        {
+          "say": "The hour rings: 2 × 78 = 156.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 78,
+            "r": 156
+          }
+        },
+        {
+          "say": "The half-hour rings: 24."
+        },
+        {
+          "say": "The total is 156 + 24 = 180.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 156
+              },
+              {
+                "v": 24
+              }
+            ],
+            "total": 180
+          },
+          "mark": [
+            "24"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "180"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,146 @@
+{
+  "skill": "m5.primes-squares",
+  "items": [
+    {
+      "id": "m5.primes-squares.001",
+      "skill": "m5.primes-squares",
+      "difficulty": 4,
+      "prompt": "Which of these numbers is a prime number?",
+      "hints": [
+        "A prime number has exactly two factors: 1 and itself.",
+        "Try dividing each number by 3 and 7.",
+        "Three of the numbers can be divided by 3 or 7."
+      ],
+      "explanation": "51 = 3 × 17, 57 = 3 × 19 and 91 = 7 × 13. Only 61 has no factors except 1 and itself.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "51",
+          "why": "51 = 3 × 17, so it has factors other than 1 and itself."
+        },
+        {
+          "text": "61"
+        },
+        {
+          "text": "57",
+          "why": "57 = 3 × 19, so it has factors other than 1 and itself."
+        },
+        {
+          "text": "91",
+          "why": "91 = 7 × 13, so it has factors other than 1 and itself."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.primes-squares.002",
+      "skill": "m5.primes-squares",
+      "difficulty": 4,
+      "prompt": "Two different prime numbers multiply to make 91. What is their sum?",
+      "hints": [
+        "Find a prime that divides 91.",
+        "Try 7 first.",
+        "91 ÷ 7 gives the other prime."
+      ],
+      "explanation": "91 = 7 × 13, and both 7 and 13 are prime. 7 + 13 = 20.",
+      "type": "numeric",
+      "answer": 20
+    },
+    {
+      "id": "m5.primes-squares.003",
+      "skill": "m5.primes-squares",
+      "difficulty": 4,
+      "prompt": "A square garden has an area of 169 m². Hadi puts a fence all around it. How many metres of fence does he need?",
+      "hints": [
+        "A square number tells you the side length.",
+        "Find the number that multiplies by itself to make 169.",
+        "The fence goes around 4 sides."
+      ],
+      "explanation": "13 × 13 = 169, so each side is 13 m. The fence is 4 × 13 = 52 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "type": "numeric",
+      "answer": 52
+    },
+    {
+      "id": "m5.primes-squares.801",
+      "skill": "m5.primes-squares",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 29 is a prime number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try dividing by 2, 3 and 5.",
+        "None go in exactly.",
+        "It has just two factors."
+      ],
+      "explanation": "29 is only divisible by 1 and 29. No smaller number except 1 divides it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.primes-squares.802",
+      "skill": "m5.primes-squares",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 51 is a prime number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try dividing 51 by 3.",
+        "Add the digits: 5 + 1 = 6.",
+        "3 × 17."
+      ],
+      "explanation": "51 = 3 × 17, so it has more than two factors.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.primes-squares.701",
+      "skill": "m5.primes-squares",
+      "difficulty": 3,
+      "prompt": "Is 51 a prime number?",
+      "hints": [
+        "A prime has exactly two factors.",
+        "Try dividing 51 by 3.",
+        "3 × 17 = 51."
+      ],
+      "explanation": "51 = 3 × 17, so it has more than two factors and is not prime.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "No"
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

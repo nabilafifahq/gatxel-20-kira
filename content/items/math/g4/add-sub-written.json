@@ -1,0 +1,39 @@
+{
+  "skill": "m4.add-sub-written",
+  "items": [
+    {
+      "id": "m4.add-sub-written.001",
+      "skill": "m4.add-sub-written",
+      "difficulty": 3,
+      "prompt": "On Saturday 3,486 people visit a zoo. On Sunday 1,258 more people visit than on Saturday. How many people visit over the two days?",
+      "hints": [
+        "Find Sunday first.",
+        "Sunday is 3,486 + 1,258.",
+        "Then add Saturday and Sunday."
+      ],
+      "explanation": "Sunday has 3,486 + 1,258 = 4,744 visitors. In total 3,486 + 4,744 = 8,230.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 8230
+    },
+    {
+      "id": "m4.add-sub-written.002",
+      "skill": "m4.add-sub-written",
+      "difficulty": 4,
+      "prompt": "A school needs 9,000 stickers for a project. It has 5,386. Another 2,749 stickers arrive. How many more stickers does it still need?",
+      "hints": [
+        "Find how many stickers it has now.",
+        "5,386 + 2,749.",
+        "Take that total away from 9,000."
+      ],
+      "explanation": "5,386 + 2,749 = 8,135. Then 9,000 - 8,135 = 865 stickers are still needed.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 865
+    }
+  ]
+}

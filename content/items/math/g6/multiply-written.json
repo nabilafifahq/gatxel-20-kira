@@ -1,0 +1,126 @@
+{
+  "skill": "m6.multiply-written",
+  "items": [
+    {
+      "id": "m6.multiply-written.001",
+      "skill": "m6.multiply-written",
+      "difficulty": 3,
+      "prompt": "A factory packs 2,348 pencils every day. How many pencils does it pack in 36 days?",
+      "hints": [
+        "Multiply 2,348 by 6 and by 30 separately.",
+        "2,348 × 6 = 14,088.",
+        "2,348 × 30 = 70,440. Now add the two parts."
+      ],
+      "explanation": "2,348 × 36 = 2,348 × 30 + 2,348 × 6 = 70,440 + 14,088 = 84,528 pencils.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 84528
+    },
+    {
+      "id": "m6.multiply-written.002",
+      "skill": "m6.multiply-written",
+      "difficulty": 4,
+      "prompt": "Pak Hadi sells oranges at Rp4.750 per kilogram. He sells 48 kg on Saturday. How many rupiah does he earn?",
+      "hints": [
+        "Multiply Rp4.750 by 48.",
+        "Split 48 into 40 and 8.",
+        "4.750 × 40 = 190.000. Then find 4.750 × 8."
+      ],
+      "explanation": "4.750 × 40 = 190.000 and 4.750 × 8 = 38.000. Together that is Rp228.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 228000
+    },
+    {
+      "id": "m6.multiply-written.003",
+      "skill": "m6.multiply-written",
+      "difficulty": 4,
+      "prompt": "Citra works out 456 × 23. She writes 456 × 3 = 1,368 and 456 × 2 = 912, then adds to get 2,280. What is the correct answer?",
+      "hints": [
+        "The digit 2 in 23 stands for 20.",
+        "456 × 20 is ten times as big as 456 × 2.",
+        "Add 456 × 3 and 456 × 20."
+      ],
+      "explanation": "456 × 3 = 1,368 and 456 × 20 = 9,120. Together they make 10,488. Citra forgot to shift the second line one place.",
+      "tags": [
+        "error-analysis"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "2,280",
+          "why": "The 2 in 23 means 2 tens, so the second line must be 9,120, not 912."
+        },
+        {
+          "text": "10,488"
+        },
+        {
+          "text": "1,824",
+          "why": "This is 456 × 4. It does not use the whole number 23."
+        },
+        {
+          "text": "9,120",
+          "why": "This is only 456 × 20. The 456 × 3 part is missing."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.multiply-written.801",
+      "skill": "m6.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 36 × 24 = 864.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 24 into 20 and 4.",
+        "Multiply 36 by each.",
+        "Add the two answers."
+      ],
+      "explanation": "36 × 20 = 720 and 36 × 4 = 144. 720 + 144 = 864.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.multiply-written.802",
+      "skill": "m6.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 125 × 16 = 2,500.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "125 × 8 = 1,000.",
+        "16 is 8 × 2.",
+        "Double 1,000."
+      ],
+      "explanation": "125 × 16 = 125 × 8 × 2 = 1,000 × 2 = 2,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

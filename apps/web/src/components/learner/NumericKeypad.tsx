@@ -4,7 +4,6 @@ import { useEffect, useId, useRef, type ReactElement } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
-import { SUBJECT_STYLE } from './subject'
 
 /**
  * Keypad angka (papan NumericKeypad). Tombol 64 px dengan angka Andika, juga menerima
@@ -34,7 +33,6 @@ const DIGITS: KeypadKey[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'clear
 export function NumericKeypad({
   value,
   onChange,
-  subject,
   disabled = false,
   feedback = null,
   allowDecimal = false,
@@ -65,7 +63,6 @@ export function NumericKeypad({
   className?: string
 }): ReactElement {
   const outputId = useId()
-  const style = SUBJECT_STYLE[subject]
   const valueRef = useRef(value)
   const onChangeRef = useRef(onChange)
   useEffect(() => {
@@ -113,8 +110,8 @@ export function NumericKeypad({
     'flex items-center justify-center rounded-control border-2 p-0 font-bold transition-transform duration-150 ease-kira',
     keyH,
     disabled
-      ? 'cursor-not-allowed border-divider bg-bg text-border'
-      : cx('cursor-pointer border-border bg-surface text-fg hover:border-fg active:scale-97', subject === 'math' ? 'active:border-math active:bg-math-50' : subject === 'english' ? 'active:border-english active:bg-english-50' : 'active:border-science active:bg-science-50'),
+      ? 'cursor-not-allowed border-lavender bg-lavender text-fg/55'
+      : 'cursor-pointer border-border bg-surface text-fg enabled:hover:-translate-y-px enabled:active:translate-y-0.5 active:bg-lilac',
   )
 
   const keyLabel = (k: KeypadKey) => (k === 'clear' ? 'Clear' : k === 'del' ? 'Delete' : k === 'dot' ? 'Decimal point' : k === 'sign' ? 'Minus sign' : k)
@@ -131,15 +128,15 @@ export function NumericKeypad({
         aria-live="polite"
         aria-label={showLabel ? undefined : label}
         className={cx(
-          'flex items-center rounded-control px-5 font-reading text-h1 tabular-nums',
+          'flex items-center rounded-md px-5 font-numbers text-[40px] leading-[48px] font-bold tabular-nums',
           size === 'L' ? 'h-18' : 'h-14',
           feedback === 'correct'
-            ? 'border-3 border-success bg-success-50'
+            ? 'border-3 border-success bg-surface'
             : feedback === 'not-yet'
-              ? 'border-3 border-warn bg-surface'
+              ? 'border-3 border-dashed border-fg bg-lavender'
               : disabled
-                ? 'border-2 border-divider bg-bg'
-                : cx('border-3 bg-surface', style.border),
+                ? 'border-2 border-lavender bg-lavender'
+                : 'border-3 border-fg bg-surface ring-4 ring-lilac',
         )}
       >
         <span className="min-w-0 flex-1 truncate">{value}</span>
@@ -153,7 +150,7 @@ export function NumericKeypad({
             disabled={disabled}
             aria-label={keyLabel(k)}
             onClick={() => press(k)}
-            className={cx(keyBase, k === 'clear' ? 'text-body' : 'font-reading text-h1')}
+            className={cx(keyBase, k === 'clear' ? 'text-body font-extrabold' : k === 'del' ? 'bg-lavender' : 'font-numbers text-[30px]')}
           >
             {k === 'del' ? <UiIcon name="backspace" size={28} /> : k === 'clear' ? 'Clear' : k}
           </button>
@@ -168,7 +165,7 @@ export function NumericKeypad({
               disabled={disabled}
               aria-label={keyLabel(k)}
               onClick={() => press(k)}
-              className={cx(keyBase, 'font-reading text-h1')}
+              className={cx(keyBase, 'font-numbers text-[30px]')}
             >
               {k === 'sign' ? '−' : decimalChar}
             </button>

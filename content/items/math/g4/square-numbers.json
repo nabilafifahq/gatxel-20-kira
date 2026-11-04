@@ -1,0 +1,496 @@
+{
+  "skill": "m4.square-numbers",
+  "items": [
+    {
+      "id": "m4.square-numbers.001",
+      "skill": "m4.square-numbers",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "A square of dots has 3 rows with 3 dots in each row. How many dots are there altogether?",
+      "answer": 9,
+      "unit": "dots",
+      "hints": [
+        "Multiply 3 by 3.",
+        "Count the dots in one row, then count the rows.",
+        "It is a square number."
+      ],
+      "explanation": "3 × 3 = 9 dots."
+    },
+    {
+      "id": "m4.square-numbers.002",
+      "skill": "m4.square-numbers",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "A square of dots has 5 rows with 5 dots in each row. How many dots are there altogether?",
+      "answer": 25,
+      "unit": "dots",
+      "hints": [
+        "Multiply 5 by 5.",
+        "Count the dots in one row, then count the rows.",
+        "It is a square number."
+      ],
+      "explanation": "5 × 5 = 25 dots."
+    },
+    {
+      "id": "m4.square-numbers.003",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "A square of dots has 6 rows with 6 dots in each row. How many dots are there altogether?",
+      "answer": 36,
+      "unit": "dots",
+      "hints": [
+        "Multiply 6 by 6.",
+        "Count the dots in one row, then count the rows.",
+        "It is a square number."
+      ],
+      "explanation": "6 × 6 = 36 dots."
+    },
+    {
+      "id": "m4.square-numbers.004",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "A square of dots has 7 rows with 7 dots in each row. How many dots are there altogether?",
+      "answer": 49,
+      "unit": "dots",
+      "hints": [
+        "Multiply 7 by 7.",
+        "Count the dots in one row, then count the rows.",
+        "It is a square number."
+      ],
+      "explanation": "7 × 7 = 49 dots."
+    },
+    {
+      "id": "m4.square-numbers.005",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "A square of dots has 8 rows with 8 dots in each row. How many dots are there altogether?",
+      "answer": 64,
+      "unit": "dots",
+      "hints": [
+        "Multiply 8 by 8.",
+        "Count the dots in one row, then count the rows.",
+        "It is a square number."
+      ],
+      "explanation": "8 × 8 = 64 dots."
+    },
+    {
+      "id": "m4.square-numbers.006",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "A square of dots has 9 rows with 9 dots in each row. How many dots are there altogether?",
+      "answer": 81,
+      "unit": "dots",
+      "hints": [
+        "Multiply 9 by 9.",
+        "Count the dots in one row, then count the rows.",
+        "It is a square number."
+      ],
+      "explanation": "9 × 9 = 81 dots."
+    },
+    {
+      "id": "m4.square-numbers.007",
+      "skill": "m4.square-numbers",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which of these is a square number?",
+      "options": [
+        {
+          "text": "15",
+          "why": "It is not a number multiplied by itself."
+        },
+        {
+          "text": "16"
+        },
+        {
+          "text": "17",
+          "why": "It is not a number multiplied by itself."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "4 × 4.",
+        "Try multiplying 4 by 4.",
+        "Square numbers: 1, 4, 9, 16."
+      ],
+      "explanation": "4 × 4 = 16, so 16 is a square number."
+    },
+    {
+      "id": "m4.square-numbers.008",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which of these is NOT a square number?",
+      "options": [
+        {
+          "text": "36",
+          "why": "6 × 6 = 36."
+        },
+        {
+          "text": "30"
+        },
+        {
+          "text": "49",
+          "why": "7 × 7 = 49."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try to find a number that multiplies by itself to make each one.",
+        "6 × 6 and 7 × 7 work.",
+        "Nothing multiplied by itself gives 30."
+      ],
+      "explanation": "30 is between 25 and 36 and is not a square number."
+    },
+    {
+      "id": "m4.square-numbers.009",
+      "skill": "m4.square-numbers",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which of these are square numbers?",
+      "options": [
+        {
+          "text": "64"
+        },
+        {
+          "text": "40",
+          "why": "40 is not a number multiplied by itself."
+        },
+        {
+          "text": "72",
+          "why": "72 is not a number multiplied by itself."
+        },
+        {
+          "text": "36"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Look for numbers made from n × n.",
+        "6 × 6 and 8 × 8.",
+        "40 and 72 are between squares."
+      ],
+      "explanation": "6 × 6 = 36 and 8 × 8 = 64, so those are square numbers."
+    },
+    {
+      "id": "m4.square-numbers.010",
+      "skill": "m4.square-numbers",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "The square numbers go 1, 4, 9, 16, ... What is the 6th square number?",
+      "answer": 36,
+      "hints": [
+        "The 6th square number is 6 × 6.",
+        "Keep going: 25, then?",
+        "Multiply 6 by 6."
+      ],
+      "explanation": "6 × 6 = 36."
+    },
+    {
+      "id": "m4.square-numbers.011",
+      "skill": "m4.square-numbers",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is the next square number after 49?",
+      "answer": 64,
+      "hints": [
+        "49 is 7 × 7.",
+        "The next one is 8 × 8.",
+        "Multiply 8 by 8."
+      ],
+      "explanation": "8 × 8 = 64."
+    },
+    {
+      "id": "m4.square-numbers.012",
+      "skill": "m4.square-numbers",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is the gap between the square numbers 25 and 36?",
+      "answer": 11,
+      "hints": [
+        "Subtract the smaller from the larger.",
+        "Work out 36 − 25.",
+        "The gap is odd."
+      ],
+      "explanation": "36 − 25 = 11."
+    },
+    {
+      "id": "m4.square-numbers.013",
+      "skill": "m4.square-numbers",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "The gap between square numbers grows by 2 each time: 3, 5, 7, ... What is the gap between 49 and 64?",
+      "answer": 15,
+      "hints": [
+        "Subtract 49 from 64.",
+        "Or continue the gaps: 9, 11, 13, then?",
+        "The gaps are all odd."
+      ],
+      "explanation": "64 − 49 = 15."
+    },
+    {
+      "id": "m4.square-numbers.014",
+      "skill": "m4.square-numbers",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "? × ? = 49. What number does each ? stand for?",
+      "answer": 7,
+      "hints": [
+        "The two numbers are the same.",
+        "Think about the 7 times table.",
+        "7 × 7."
+      ],
+      "explanation": "7 × 7 = 49, so each ? is 7."
+    },
+    {
+      "id": "m4.square-numbers.015",
+      "skill": "m4.square-numbers",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "? × ? = 81. What number does each ? stand for?",
+      "answer": 9,
+      "hints": [
+        "The two numbers are the same.",
+        "Think about the 9 times table.",
+        "9 × 9."
+      ],
+      "explanation": "9 × 9 = 81, so each ? is 9."
+    },
+    {
+      "id": "m4.square-numbers.016",
+      "skill": "m4.square-numbers",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "? + 17 = 64. What number does the ? stand for?",
+      "answer": 47,
+      "hints": [
+        "Use the opposite operation.",
+        "Take 17 away from 64.",
+        "Check by adding."
+      ],
+      "explanation": "64 − 17 = 47, so ? is 47."
+    },
+    {
+      "id": "m4.square-numbers.017",
+      "skill": "m4.square-numbers",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "? + ? + ? = 27. All three ? stand for the same number. What is it?",
+      "answer": 9,
+      "hints": [
+        "Share 27 equally in three.",
+        "Divide 27 by 3.",
+        "Check by adding."
+      ],
+      "explanation": "27 ÷ 3 = 9, so each ? is 9."
+    },
+    {
+      "id": "m4.square-numbers.018",
+      "skill": "m4.square-numbers",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A square tile floor has 8 rows with 8 tiles in each row. A mat covers 5 tiles. How many tiles are not covered?",
+      "answer": 59,
+      "unit": "tiles",
+      "hints": [
+        "Work out the total tiles first.",
+        "8 × 8 = 64.",
+        "Take away the 5 covered tiles."
+      ],
+      "explanation": "8 × 8 = 64. 64 − 5 = 59 tiles."
+    },
+    {
+      "id": "m4.square-numbers.019",
+      "skill": "m4.square-numbers",
+      "difficulty": 5,
+      "type": "numeric",
+      "prompt": "A square has 100 dots in rows of 10. Take away 1 row and 1 column, leaving a smaller square. How many dots are in the smaller square? (The corner dot is in both a row and a column.)",
+      "answer": 81,
+      "unit": "dots",
+      "hints": [
+        "After taking one row and one column off, the square is 9 by 9.",
+        "Multiply 9 by 9.",
+        "The corner is counted once."
+      ],
+      "explanation": "Removing a row and a column leaves a 9 by 9 square, which has 9 × 9 = 81 dots."
+    },
+    {
+      "id": "m4.square-numbers.020",
+      "skill": "m4.square-numbers",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which number is a square number and also a multiple of 5?",
+      "options": [
+        {
+          "text": "20",
+          "why": "20 is not a square number."
+        },
+        {
+          "text": "25"
+        },
+        {
+          "text": "50",
+          "why": "50 is not a square number."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try the square numbers first.",
+        "Which square numbers end in 0 or 5?",
+        "5 × 5."
+      ],
+      "explanation": "25 = 5 × 5 is a square number and is a multiple of 5."
+    },
+    {
+      "id": "m4.square-numbers.021",
+      "skill": "m4.square-numbers",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which square number is between 40 and 60?",
+      "options": [
+        {
+          "text": "36",
+          "why": "36 is less than 40."
+        },
+        {
+          "text": "49"
+        },
+        {
+          "text": "64",
+          "why": "64 is more than 60."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List the square numbers around 40 to 60.",
+        "36, 49, 64.",
+        "Only one is between 40 and 60."
+      ],
+      "explanation": "7 × 7 = 49 is the only square number between 40 and 60."
+    },
+    {
+      "id": "m4.square-numbers.022",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "type": "text",
+      "prompt": "The square number made by 5 × 5 is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "25",
+            "twenty-five",
+            "twenty five"
+          ]
+        }
+      ],
+      "hints": [
+        "Multiply 5 by 5.",
+        "Count in fives, five times.",
+        "The number ends in 5."
+      ],
+      "explanation": "5 × 5 = 25."
+    },
+    {
+      "id": "m4.square-numbers.801",
+      "skill": "m4.square-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 36 is a square number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is there a number that multiplied by itself makes 36?",
+        "Try 6.",
+        "6 × 6."
+      ],
+      "explanation": "6 × 6 = 36, so 36 is a square number.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.square-numbers.802",
+      "skill": "m4.square-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 20 is a square number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try 4 × 4 and 5 × 5.",
+        "20 is between them.",
+        "It falls in the gap."
+      ],
+      "explanation": "4 × 4 = 16 and 5 × 5 = 25. No whole number times itself makes 20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.square-numbers.803",
+      "skill": "m4.square-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The 7th square number is 49.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The 7th square is 7 × 7.",
+        "Or list them in order.",
+        "7 × 7."
+      ],
+      "explanation": "The square numbers are 1, 4, 9, 16, 25, 36, 49. The 7th is 7 × 7 = 49.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.square-numbers.701",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "prompt": "7 squared = ?",
+      "hints": [
+        "Squared means times itself.",
+        "7 × 7.",
+        "7 × 7 is 7 sevens."
+      ],
+      "explanation": "7 squared is 7 × 7 = 49.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 49
+    }
+  ]
+}

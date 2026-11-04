@@ -301,7 +301,23 @@
           "say": "But we stop at 5:00, which is 10 minutes earlier."
         },
         {
-          "say": "So it is 60 - 10 = 50 minutes."
+          "say": "So it is 60 - 10 = 50 minutes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 50,
+                "q": true
+              }
+            ],
+            "total": 60
+          },
+          "mark": [
+            "10"
+          ]
         }
       ],
       "tags": [
@@ -434,7 +450,17 @@
           "say": "From 3:45 to 4:00 is 15 minutes."
         },
         {
-          "say": "There are 25 - 15 = 10 minutes left to add."
+          "say": "There are 25 - 15 = 10 minutes left to add.",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "-",
+            "b": 15,
+            "r": 10
+          },
+          "mark": [
+            "25"
+          ]
         },
         {
           "say": "The time is 4:10."
@@ -522,7 +548,22 @@
           "say": "From 12:30 to 6:30 is 6 hours."
         },
         {
-          "say": "In all, Mia sleeps 4 + 6 = 10 hours."
+          "say": "In all, Mia sleeps 4 + 6 = 10 hours.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 10
+          },
+          "mark": [
+            "6"
+          ]
         }
       ],
       "tags": [
@@ -556,7 +597,22 @@
           "say": "From 3:00 to 3:15 is 15 minutes more."
         },
         {
-          "say": "In all, 10 + 15 = 25 minutes."
+          "say": "In all, 10 + 15 = 25 minutes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 15
+              }
+            ],
+            "total": 25
+          },
+          "mark": [
+            "15"
+          ]
         }
       ],
       "tags": [
@@ -571,7 +627,7 @@
       "skill": "m2.oly-time-measure",
       "type": "mcq",
       "difficulty": 5,
-      "prompt": "On the hour, which time has the hands in a straight line?",
+      "prompt": "On the hour, which time has the two hands pointing in opposite directions, in a straight line?",
       "options": [
         {
           "text": "3:00",
@@ -740,7 +796,53 @@
         "kmnr"
       ],
       "points": 3,
-      "expectedSeconds": 75
+      "expectedSeconds": 75,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many days are there in 4 weeks?"
+          ]
+        },
+        {
+          "say": "Four weeks have 4 x 7 = 28 days.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 28
+          },
+          "mark": [
+            "4",
+            "7"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "28 days"
+        }
+      ]
     },
     {
       "id": "m2.oly-time-measure.017",
@@ -1179,7 +1281,7 @@
       "skill": "m2.oly-time-measure",
       "type": "numeric",
       "difficulty": 5,
-      "prompt": "Look at the calendar. Count from the first Monday to the third Tuesday. How many days is that?",
+      "prompt": "Look at the calendar. How many days after the first Monday is the third Tuesday?",
       "figure": {
         "kind": "table",
         "head": [
@@ -1257,7 +1359,20 @@
           "say": "The Tuesdays are the 7th, 14th and 21st, so the third Tuesday is the 21st."
         },
         {
-          "say": "From the 6th to the 21st is 21 - 6 = 15 days."
+          "say": "From the 6th to the 21st is 21 - 6 = 15 days.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6
+              },
+              {
+                "v": 15,
+                "q": true
+              }
+            ],
+            "total": 21
+          }
         }
       ],
       "tags": [
@@ -1291,7 +1406,22 @@
           "say": "From 31 January to 3 February is 3 more days."
         },
         {
-          "say": "In all, 6 + 3 = 9 days."
+          "say": "In all, 6 + 3 = 9 days.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 9
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -1340,7 +1470,17 @@
           "say": "From 20 June to 30 June is 10 days."
         },
         {
-          "say": "There are 12 - 10 = 2 days left."
+          "say": "There are 12 - 10 = 2 days left.",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 10,
+            "r": 2
+          },
+          "mark": [
+            "12"
+          ]
         },
         {
           "say": "They are in July, so the date is 2 July."
@@ -1402,7 +1542,14 @@
           "say": "The pencil starts at 2 cm and ends at 8 cm."
         },
         {
-          "say": "Its length is 8 - 2 = 6 cm."
+          "say": "Its length is 8 - 2 = 6 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 2,
+            "r": 6
+          }
         }
       ],
       "tags": [
@@ -1482,7 +1629,20 @@
           "say": "1 kg is 1000 g."
         },
         {
-          "say": "So 1000 - 650 = 350 g must be added."
+          "say": "So 1000 - 650 = 350 g must be added.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 650
+              },
+              {
+                "v": 350,
+                "q": true
+              }
+            ],
+            "total": 1000
+          }
         }
       ],
       "tags": [
@@ -1512,7 +1672,17 @@
           "say": "1 metre is 100 cm."
         },
         {
-          "say": "100 / 25 = 4, so there are 4 pieces."
+          "say": "100 / 25 = 4, so there are 4 pieces.",
+          "anim": {
+            "k": "combine",
+            "a": 100,
+            "op": "÷",
+            "b": 25,
+            "r": 4
+          },
+          "mark": [
+            "25"
+          ]
         }
       ],
       "tags": [
@@ -1539,10 +1709,36 @@
       "explanation": "Ana is 120 - 15 = 105 cm tall. Cil is 5 cm taller, so Cil is 105 + 5 = 110 cm tall.",
       "solution": [
         {
-          "say": "Ana is 120 - 15 = 105 cm tall."
+          "say": "Ana is 120 - 15 = 105 cm tall.",
+          "anim": {
+            "k": "combine",
+            "a": 120,
+            "op": "-",
+            "b": 15,
+            "r": 105
+          },
+          "mark": [
+            "120",
+            "15"
+          ]
         },
         {
-          "say": "Cil is 5 cm taller, so Cil is 105 + 5 = 110 cm tall."
+          "say": "Cil is 5 cm taller, so Cil is 105 + 5 = 110 cm tall.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 105
+              },
+              {
+                "v": 5
+              }
+            ],
+            "total": 110
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -1573,7 +1769,19 @@
           "say": "2 pears weigh 300 g and 3 oranges weigh 300 g."
         },
         {
-          "say": "In all, 300 + 300 = 600 g."
+          "say": "In all, 300 + 300 = 600 g.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 300
+              },
+              {
+                "v": 300
+              }
+            ],
+            "total": 600
+          }
         }
       ],
       "tags": [
@@ -1617,7 +1825,23 @@
           "say": "Two balls balance 4 cubes, so one ball balances 2 cubes."
         },
         {
-          "say": "Three balls balance 3 x 2 = 6 cubes."
+          "say": "Three balls balance 3 x 2 = 6 cubes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 6
+          },
+          "mark": [
+            "3",
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -1648,7 +1872,17 @@
           "say": "1 litre is 1000 ml."
         },
         {
-          "say": "1000 / 250 = 4, so 4 glasses can be filled."
+          "say": "1000 / 250 = 4, so 4 glasses can be filled.",
+          "anim": {
+            "k": "combine",
+            "a": 1000,
+            "op": "÷",
+            "b": 250,
+            "r": 4
+          },
+          "mark": [
+            "250"
+          ]
         }
       ],
       "tags": [
@@ -1791,7 +2025,18 @@
       "explanation": "There are 60 / 15 = 4 pieces. The last piece needs no cut, because the ribbon ends there. So Mia makes 3 cuts.",
       "solution": [
         {
-          "say": "There are 60 / 15 = 4 pieces."
+          "say": "There are 60 / 15 = 4 pieces.",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "÷",
+            "b": 15,
+            "r": 4
+          },
+          "mark": [
+            "60",
+            "15"
+          ]
         },
         {
           "say": "The last piece needs no cut, because the ribbon ends there."
@@ -1828,7 +2073,22 @@
           "say": "2 pears weigh 300 g."
         },
         {
-          "say": "With the 100 g weight, the box weighs 300 + 100 = 400 g."
+          "say": "With the 100 g weight, the box weighs 300 + 100 = 400 g.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 300
+              },
+              {
+                "v": 100
+              }
+            ],
+            "total": 400
+          },
+          "mark": [
+            "100"
+          ]
         }
       ],
       "tags": [

@@ -769,23 +769,6 @@
       ]
     },
     {
-      "id": "e2.sentence-punctuation.026",
-      "skill": "e2.sentence-punctuation",
-      "type": "tiles",
-      "difficulty": 3,
-      "prompt": "Put the words in order to make a question.",
-      "hints": [
-        "The sentence starts with a capital.",
-        "It ends with a question mark.",
-        "The first word is Can."
-      ],
-      "explanation": "Can you see the moon? is a question.",
-      "answer": "Can you see the moon?",
-      "distractors": [
-        "sees"
-      ]
-    },
-    {
       "id": "e2.sentence-punctuation.027",
       "skill": "e2.sentence-punctuation",
       "type": "order",
@@ -927,6 +910,162 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e2.sentence-punctuation.801",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A sentence that asks something needs a question mark at the end.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What shape is a question mark?",
+        "Look at the end of a question.",
+        "It looks like a curly hook with a dot."
+      ],
+      "explanation": "A question mark shows that someone is asking something. Example: What is your name?",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.sentence-punctuation.802",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence How old are you ends with a full stop.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is the sentence asking something?",
+        "Questions have their own mark.",
+        "Look for a question mark."
+      ],
+      "explanation": "It is a question, so it ends with a question mark: How old are you?",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.sentence-punctuation.803",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A sentence that makes a statement should finish with a full stop.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the sentence asking?",
+        "A dot at the end.",
+        "It tells us a fact."
+      ],
+      "explanation": "A telling sentence ends with a full stop. Example: I like apples.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.sentence-punctuation.804",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A sentence that shows strong feeling can end with an exclamation mark.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How does the sentence sound?",
+        "It shows strong feeling.",
+        "Think of Wow!"
+      ],
+      "explanation": "Exclamation marks show surprise, excitement or loud shouting. Example: Look at that big dog!",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.sentence-punctuation.805",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence What a lovely day it is should end with a question mark.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is anybody asking something?",
+        "It is an exclamation.",
+        "It shows delight."
+      ],
+      "explanation": "It is not asking anything. It shows strong feeling, so it ends with an exclamation mark or a full stop.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.sentence-punctuation.806",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Every sentence begins with a capital letter.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the first letter of any sentence.",
+        "Is it big or small?",
+        "Capital letters begin sentences."
+      ],
+      "explanation": "A sentence starts with a capital letter and ends with a full stop, a question mark or an exclamation mark.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

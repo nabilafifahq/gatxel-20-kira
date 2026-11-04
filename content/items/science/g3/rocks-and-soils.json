@@ -41,7 +41,11 @@
       "blanks": [
         {
           "answers": [
-            "humus"
+            "humus",
+            "compost",
+            "organic matter",
+            "decayed matter",
+            "rotted matter"
           ]
         }
       ],
@@ -92,7 +96,7 @@
       "items": [
         "A sea animal dies and sinks to the seabed.",
         "Mud and sand quickly cover its body.",
-        "The soft parts rot, leaving the hard shell or bones.",
+        "Under the mud, the soft parts rot, leaving the hard shell or bones.",
         "More layers press down and slowly turn into rock.",
         "Over a very long time, the rock wears away and the fossil is found."
       ],
@@ -125,7 +129,7 @@
           ],
           [
             "sandstone",
-            "yes"
+            "yes, grains rub off"
           ],
           [
             "marble",
@@ -136,7 +140,7 @@
             "no"
           ]
         ],
-        "alt": "Table of a scratch test: chalk was scratched easily, sandstone was scratched, marble was scratched a little, granite was not scratched."
+        "alt": "Table of a scratch test: chalk was scratched easily, sandstone was scratched and its grains rubbed off, marble was scratched a little, granite was not scratched."
       },
       "options": [
         {
@@ -701,7 +705,7 @@
           "group": 1
         },
         {
-          "text": "marble",
+          "text": "basalt",
           "group": 1
         },
         {
@@ -714,7 +718,7 @@
         "Granite is solid.",
         "Slate is used for roofs."
       ],
-      "explanation": "Chalk, sandstone and pumice are permeable. Water stays on top of granite, marble and slate."
+      "explanation": "Chalk, sandstone and pumice let water soak in. Water stays on top of granite, basalt and slate."
     },
     {
       "id": "s3.rocks-and-soils.022",
@@ -736,7 +740,7 @@
           "group": 0
         },
         {
-          "text": "marble",
+          "text": "flint",
           "group": 0
         },
         {
@@ -744,7 +748,7 @@
           "group": 1
         },
         {
-          "text": "sandstone",
+          "text": "limestone",
           "group": 1
         },
         {
@@ -757,7 +761,7 @@
         "Granite lasts.",
         "Pumice crumbles."
       ],
-      "explanation": "Granite, basalt and marble are hard. Chalk, sandstone and pumice are softer and wear away more easily."
+      "explanation": "Granite, basalt and flint are hard. Chalk, limestone and pumice are softer and wear away more easily."
     },
     {
       "id": "s3.rocks-and-soils.023",
@@ -799,13 +803,13 @@
       "skill": "s3.rocks-and-soils",
       "type": "multi",
       "difficulty": 2,
-      "prompt": "Choose all the things made from rock or stone.",
+      "prompt": "Choose all the things that can be made from rock or stone.",
       "options": [
         {
-          "text": "a pavement"
+          "text": "a gravestone"
         },
         {
-          "text": "a bridge"
+          "text": "a castle wall"
         },
         {
           "text": "a statue"
@@ -827,7 +831,7 @@
         "Plastic is made in factories.",
         "Rubber comes from trees."
       ],
-      "explanation": "Statues, bridges and pavements can be made from stone. Plastic and rubber are made from other materials."
+      "explanation": "Gravestones, castle walls and statues can be made from stone. Plastic and rubber are made from other materials."
     },
     {
       "id": "s3.rocks-and-soils.025",
@@ -849,16 +853,16 @@
           "full of holes"
         ],
         [
-          "marble",
-          "smooth when polished"
+          "slate",
+          "splits into thin flat sheets"
         ]
       ],
       "hints": [
         "Pumice floats.",
         "Chalk writes.",
-        "Marble is used for statues."
+        "Slate is used for roof tiles."
       ],
-      "explanation": "Granite is very hard and chalk is soft. Pumice is full of holes and marble is smooth when polished."
+      "explanation": "Granite is very hard and chalk is soft. Pumice is full of holes and slate splits into thin flat sheets."
     },
     {
       "id": "s3.rocks-and-soils.026",
@@ -1321,6 +1325,135 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.rocks-and-soils.801",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Soil is made from tiny pieces of rock and bits of dead plants and animals.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do plants drop when they die?",
+        "What is rock broken into?",
+        "Soil is rock plus humus."
+      ],
+      "explanation": "Rock grinds into small pieces over a long time. Dead plants and animals rot into humus, which is mixed with the rock bits.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.rocks-and-soils.802",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Granite is a soft rock that crumbles in your hand.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is granite used for buildings?",
+        "Would crumbly rock make a good worktop?",
+        "Granite is hard."
+      ],
+      "explanation": "Granite is a hard rock. It is used for buildings and kitchen worktops because it is strong.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.rocks-and-soils.803",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Fossils are the remains or prints of living things that died long ago.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Are fossils young or very old?",
+        "They are found in rock.",
+        "They show life from long ago."
+      ],
+      "explanation": "Plants and animals that were buried in mud turned to stone over millions of years, leaving bones, shells or prints.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.rocks-and-soils.804",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A fossil forms in just a few days after an animal dies.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is stone made quickly?",
+        "Think of how old dinosaurs are.",
+        "Fossils take a very long time."
+      ],
+      "explanation": "It takes thousands to millions of years for remains to become fossils, so it is a very slow process.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.rocks-and-soils.701",
+      "skill": "s3.rocks-and-soils",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The remains of ancient living things in rock are ___.",
+      "blanks": [
+        {
+          "answers": [
+            "fossils",
+            "fossil"
+          ]
+        }
+      ],
+      "hints": [
+        "Dinosaur bones are found like this.",
+        "They are in rock.",
+        "It starts with f."
+      ],
+      "explanation": "Fossils are the remains or marks of living things from long ago, kept in rock.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

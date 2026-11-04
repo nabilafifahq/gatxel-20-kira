@@ -1,0 +1,139 @@
+{
+  "skill": "m6.order-of-operations",
+  "items": [
+    {
+      "id": "m6.order-of-operations.001",
+      "skill": "m6.order-of-operations",
+      "difficulty": 3,
+      "prompt": "Work out 8 + 6 × (9 − 4) ÷ 2.",
+      "hints": [
+        "Brackets come first.",
+        "9 − 4 = 5. Then do × and ÷ from the left.",
+        "6 × 5 = 30, then 30 ÷ 2."
+      ],
+      "explanation": "Brackets: 9 − 4 = 5. Then 6 × 5 ÷ 2 = 15. Finally 8 + 15 = 23.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 23
+    },
+    {
+      "id": "m6.order-of-operations.002",
+      "skill": "m6.order-of-operations",
+      "difficulty": 4,
+      "prompt": "Dewi buys 3 notebooks at Rp7.500 each and 2 pens at Rp4.000 each. She pays with Rp50.000. Which expression gives her change in rupiah?",
+      "hints": [
+        "Find the total cost first, then take it from Rp50.000.",
+        "The total cost is the notebooks plus the pens.",
+        "Which expression puts the whole cost inside brackets?"
+      ],
+      "explanation": "The total cost is 3 × 7.500 + 2 × 4.000, so it goes inside brackets and is taken from 50.000. The change is Rp19.500.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "50.000 − 3 × 7.500 + 2 × 4.000",
+          "why": "This takes away only the notebooks and then adds the pens."
+        },
+        {
+          "text": "50.000 − 3 × (7.500 + 2 × 4.000)",
+          "why": "The brackets group the pens with one notebook price, which is not the story."
+        },
+        {
+          "text": "(50.000 − 3) × 7.500 + 2 × 4.000",
+          "why": "This takes 3 rupiah from the money, which makes no sense."
+        },
+        {
+          "text": "50.000 − (3 × 7.500 + 2 × 4.000)"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m6.order-of-operations.003",
+      "skill": "m6.order-of-operations",
+      "difficulty": 5,
+      "prompt": "Work out 2³ + 4 × 3² − 10 ÷ 2.",
+      "hints": [
+        "Powers come before multiplying and dividing.",
+        "2³ = 8 and 3² = 9.",
+        "Now: 8 + 4 × 9 − 10 ÷ 2. Do × and ÷ before + and −."
+      ],
+      "explanation": "2³ = 8 and 3² = 9. Then 4 × 9 = 36 and 10 ÷ 2 = 5. So 8 + 36 − 5 = 39.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 39
+    },
+    {
+      "id": "m6.order-of-operations.801",
+      "skill": "m6.order-of-operations",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: (3 + 4) × 2 = 14.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which part is done first?",
+        "Do the brackets first.",
+        "7 × 2."
+      ],
+      "explanation": "Brackets first: 3 + 4 = 7. Then 7 × 2 = 14.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.order-of-operations.802",
+      "skill": "m6.order-of-operations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 20 - 6 ÷ 2 = 7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Division comes before subtraction.",
+        "6 ÷ 2 = 3.",
+        "20 - 3."
+      ],
+      "explanation": "Divide first: 6 ÷ 2 = 3. Then 20 - 3 = 17. Doing it left to right gives the wrong answer.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.order-of-operations.701",
+      "skill": "m6.order-of-operations",
+      "difficulty": 3,
+      "prompt": "(6 + 4) × 3 - 5 = ?",
+      "hints": [
+        "Brackets first.",
+        "Then multiply.",
+        "Subtract last."
+      ],
+      "explanation": "(6 + 4) = 10, then 10 × 3 = 30, then 30 - 5 = 25.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 25
+    }
+  ]
+}

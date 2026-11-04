@@ -28,6 +28,8 @@ test('PIN salah memberi sisa percobaan, PIN benar membuka Today', async ({ page 
 })
 
 test('latihan: jawab, lihat umpan balik, selesai, dan hasil tersimpan', async ({ page }) => {
+  // Animasi masuk membuat axe menghitung kontras di tengah fade; gerak dikurangi supaya hasilnya stabil.
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   const errors = watchErrors(page)
   const items = mcqItems('e2.', 3)
   expect(items.length).toBe(3)

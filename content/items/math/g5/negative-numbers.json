@@ -1,0 +1,144 @@
+{
+  "skill": "m5.negative-numbers",
+  "items": [
+    {
+      "id": "m5.negative-numbers.001",
+      "skill": "m5.negative-numbers",
+      "difficulty": 3,
+      "prompt": "A lift starts at floor -2, a basement. It goes up 7 floors, then down 4 floors, then up 1 floor. Which floor does it reach?",
+      "hints": [
+        "Use a number line and start at -2.",
+        "Going up adds, going down takes away.",
+        "-2 + 7 first."
+      ],
+      "explanation": "-2 + 7 = 5, then 5 - 4 = 1, then 1 + 1 = 2. The lift reaches floor 2.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 2
+    },
+    {
+      "id": "m5.negative-numbers.002",
+      "skill": "m5.negative-numbers",
+      "difficulty": 3,
+      "prompt": "At the top of a mountain it is -4°C. In the town below it is 5°C. How many degrees warmer is the town?",
+      "hints": [
+        "Draw a number line from -4 to 5.",
+        "Count the steps from -4 to 0.",
+        "Then count the steps from 0 to 5."
+      ],
+      "explanation": "From -4 to 0 is 4 degrees and from 0 to 5 is 5 degrees. 4 + 5 = 9 degrees warmer.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "9"
+        },
+        {
+          "text": "1",
+          "why": "You found 5 - 4. The mountain is below zero, so you must cross zero."
+        },
+        {
+          "text": "4",
+          "why": "That is only the distance from the mountain temperature to zero."
+        },
+        {
+          "text": "-9",
+          "why": "The town is warmer, so the difference is not negative."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.negative-numbers.003",
+      "skill": "m5.negative-numbers",
+      "difficulty": 4,
+      "prompt": "Hadi owes his sister Rp15.000, which we write as -Rp15.000. He gives her Rp40.000, then borrows Rp35.000. How much does he owe now, in rupiah?",
+      "hints": [
+        "Write -15,000 and add the 40,000 he gives.",
+        "-15,000 + 40,000 is the new balance.",
+        "Borrowing 35,000 takes the balance down again."
+      ],
+      "explanation": "-15,000 + 40,000 = 25,000, so he is in credit. Then 25,000 - 35,000 = -10,000. He owes Rp10.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 10000
+    },
+    {
+      "id": "m5.negative-numbers.801",
+      "skill": "m5.negative-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number -7 is less than -3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Picture the number line.",
+        "Which is further left?",
+        "-7 is lower than -3."
+      ],
+      "explanation": "-7 is further from zero on the negative side, so it is smaller.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.negative-numbers.802",
+      "skill": "m5.negative-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Counting up 8 steps from -5 lands on 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the steps to 0 first.",
+        "How many steps are left?",
+        "The answer is 3."
+      ],
+      "explanation": "-5 + 8 = 3. Five steps reach 0 and 3 more reach 3.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.negative-numbers.701",
+      "skill": "m5.negative-numbers",
+      "difficulty": 3,
+      "prompt": "-4 - 3 = ?",
+      "hints": [
+        "Start at -4.",
+        "Moving down 3.",
+        "Count back 3 from -4."
+      ],
+      "explanation": "From -4 count back 3 steps: -5, -6, -7.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": -7,
+      "allowNegative": true
+    }
+  ]
+}

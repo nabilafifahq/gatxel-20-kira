@@ -19,6 +19,102 @@
         "num": 1,
         "den": 2
       }
+    },
+    {
+      "id": "m1.halves.701",
+      "skill": "m1.halves",
+      "difficulty": 1,
+      "prompt": "Half of 8 is what?",
+      "hints": [
+        "Share 8 into 2 equal groups.",
+        "4 + 4 makes?",
+        "Half is one of two equal parts."
+      ],
+      "explanation": "8 shared into 2 equal groups is 4 each, so half of 8 is 4.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 4
+    },
+    {
+      "id": "m1.halves.801",
+      "skill": "m1.halves",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Half of 10 is 5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Share 10 into 2 equal groups.",
+        "Double what number makes 10?",
+        "5 + 5 = 10."
+      ],
+      "explanation": "Share 10 into 2 equal groups. Each group has 5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.halves.802",
+      "skill": "m1.halves",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Half of 8 is 2.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which number doubled is 8?",
+        "2 + 2 is only 4.",
+        "4 + 4 = 8."
+      ],
+      "explanation": "Half of 8 is 4 because 4 + 4 = 8. A quarter of 8 is 2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.halves.803",
+      "skill": "m1.halves",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A shape cut into 2 parts of different sizes shows halves.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What must be true about both parts?",
+        "Are they the same size?",
+        "Halves are equal."
+      ],
+      "explanation": "Halves must be equal. Two parts of different sizes are not halves.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

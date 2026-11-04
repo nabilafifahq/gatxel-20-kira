@@ -1,0 +1,123 @@
+{
+  "skill": "m6.transformations",
+  "items": [
+    {
+      "id": "m6.transformations.001",
+      "skill": "m6.transformations",
+      "difficulty": 3,
+      "prompt": "The point (3, −2) is reflected in the y-axis. What are the coordinates of its image? Write them like (2, 3).",
+      "hints": [
+        "The y-axis is the vertical line through zero.",
+        "A reflection in it changes the sign of one coordinate.",
+        "The point stays the same distance from the axis, on the other side."
+      ],
+      "explanation": "Reflecting in the y-axis changes the sign of the x-coordinate. (3, −2) becomes (−3, −2).",
+      "tags": [],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "(-3, -2)",
+            "(-3,-2)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.transformations.002",
+      "skill": "m6.transformations",
+      "difficulty": 4,
+      "prompt": "A triangle has a corner at (−1, 4). It is translated 5 units right and 6 units down. What are the new coordinates of that corner? Write them like (2, 3).",
+      "hints": [
+        "Right changes the x-coordinate and down changes the y-coordinate.",
+        "Right adds to x. Down subtracts from y.",
+        "−1 + 5 and 4 − 6."
+      ],
+      "explanation": "−1 + 5 = 4 and 4 − 6 = −2. The new corner is at (4, −2).",
+      "tags": [],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "(4, -2)",
+            "(4,-2)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.transformations.003",
+      "skill": "m6.transformations",
+      "difficulty": 5,
+      "prompt": "The point (2, 3) is rotated 90° clockwise about the origin (0, 0). What are the coordinates of its image? Write them like (2, 3).",
+      "hints": [
+        "Picture (2, 3) in the top right quarter.",
+        "A clockwise turn takes it into the bottom right quarter.",
+        "The distances from the axes swap: 3 across and 2 down."
+      ],
+      "explanation": "A 90° clockwise turn about the origin takes (x, y) to (y, −x). So (2, 3) goes to (3, −2).",
+      "tags": [],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "(3, -2)",
+            "(3,-2)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.transformations.801",
+      "skill": "m6.transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When the point (-2, 3) is translated 5 right and 4 down, it moves to (3, -1).",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Right adds to x.",
+        "Down subtracts from y.",
+        "-2 + 5 and 3 - 4."
+      ],
+      "explanation": "x: -2 + 5 = 3. y: 3 - 4 = -1.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.transformations.802",
+      "skill": "m6.transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Rotating the point (2, 0) 90 degrees anticlockwise about the origin gives (0, -2).",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Anticlockwise from east goes to which direction?",
+        "East turns to north.",
+        "It moves up."
+      ],
+      "explanation": "An anticlockwise quarter turn takes (2, 0) on the positive x-axis up to (0, 2) on the positive y-axis.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

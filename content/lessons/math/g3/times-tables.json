@@ -39,6 +39,12 @@
     {
       "say": "Double a 4 times fact to get the 8 times fact.",
       "show": "4 × 6 = 24, so 8 × 6 = 48"
+    },
+    {
+      "say": "Your turn. Add two bars and give each one the right number of units.",
+      "tool": {
+        "kind": "barmodel"
+      }
     }
   ],
   "check": [
@@ -86,6 +92,35 @@
         "Times facts can be swapped round."
       ],
       "explanation": "You can swap the numbers in a times fact. 9 × 4 = 36 and 4 × 9 = 36."
+    },
+    {
+      "id": "m3.times-tables.903",
+      "skill": "m3.times-tables",
+      "type": "barmodel",
+      "difficulty": 2,
+      "kind": "compare",
+      "prompt": "Ella has 4 times as many beads as Fay. Fay has 3 beads. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Fay",
+          "units": 1
+        },
+        {
+          "label": "Ella",
+          "units": 4
+        }
+      ],
+      "extraLabels": [
+        "Gus"
+      ],
+      "unitValue": 3,
+      "unitName": "beads",
+      "hints": [
+        "Fay has the smaller amount, so she gets 1 unit.",
+        "Ella has 4 times as many, so she gets 4 units.",
+        "One unit is the number of beads Fay has."
+      ],
+      "explanation": "Fay is 1 unit, which is 3 beads. Ella is 4 units, which is 4 groups of 3."
     }
   ]
 }

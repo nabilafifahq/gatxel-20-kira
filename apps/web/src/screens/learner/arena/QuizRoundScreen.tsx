@@ -80,9 +80,9 @@ function OrderQuestion({ q, onSubmit, disabled }: { q: Extract<KClientQuestion, 
                 disabled={disabled || !item}
                 onClick={() => item && setPicked(picked.filter((p) => p !== item.id))}
                 aria-label={item ? `${i + 1}: ${item.label}. Tap to take it back.` : `Place ${i + 1}, empty`}
-                className={cx('flex min-h-24 w-full flex-col items-center justify-center gap-1 rounded-control border-2 p-1 text-center', item ? 'border-3 border-knowledge bg-knowledge-50' : 'border-dashed border-border bg-bg')}
+                className={cx('flex min-h-24 w-full flex-col items-center justify-center gap-1 rounded-control border-2 p-1 text-center', item ? 'border-3 border-fg bg-knowledge-50' : 'border-dashed border-border bg-bg')}
               >
-                <span className="text-body font-bold text-knowledge">{i + 1}</span>
+                <span className="text-body font-bold text-fg">{i + 1}</span>
                 {item ? (
                   <>
                     {item.pic ? <ArenaPic pic={item.pic} size={36} /> : null}
@@ -134,7 +134,7 @@ function ResultView({ data, result, actions }: { data: QuizRoundDTO; result: Qui
     }
   }
   return (
-    <section aria-label="Round done" className="flex w-full max-w-[640px] flex-col items-center gap-4 rounded-card border border-divider bg-surface px-5 py-8 text-center md:px-8">
+    <section aria-label="Round done" className="flex w-full max-w-[640px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-5 py-8 text-center md:px-8">
       <h1 className="m-0 font-display text-display font-semibold">{result.title}</h1>
       <p className="m-0 text-body-lg text-fg-muted">{result.topicTitle}</p>
       {result.lines.map((l) => (
@@ -193,15 +193,15 @@ function Cards({ data, actions, onDone }: { data: QuizRoundDTO; actions: QuizAct
     setI(i + 1)
   }
   return (
-    <section key={i} aria-label={`Card ${i + 1} of ${data.cards.length}`} className="kira-flip-in flex w-full max-w-[640px] flex-col items-center gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
-      <p className="m-0 text-body font-bold text-knowledge">
+    <section key={i} aria-label={`Card ${i + 1} of ${data.cards.length}`} className="kira-flip-in flex w-full max-w-[640px] flex-col items-center gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
+      <p className="m-0 text-body font-bold text-fg">
         Card {i + 1} of {data.cards.length}
       </p>
       <button
         type="button"
         onClick={() => setFlipped(true)}
         aria-label={flipped ? 'Answer side' : 'Tap to see the answer'}
-        className={cx('flex min-h-64 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-card border-3 p-6 text-center', flipped ? 'border-knowledge bg-knowledge-50' : 'border-border bg-surface')}
+        className={cx('flex min-h-64 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-card border-3 p-6 text-center', flipped ? 'border-fg bg-knowledge-50' : 'border-border bg-surface')}
       >
         {!flipped ? (
           <>
@@ -398,7 +398,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
         {result ? (
           <ResultView data={data} result={result} actions={actions} />
         ) : finishing || over || timeUp ? (
-          <section aria-label="Finishing" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card border border-divider bg-surface px-8 py-10 text-center">
+          <section aria-label="Finishing" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
             <h1 className="m-0 font-display text-display font-semibold">{timeUp ? "Time's up" : 'All done'}</h1>
             {error ? (
               <div role="alert" className="flex flex-col items-center gap-2">
@@ -417,7 +417,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
         ) : learn ? (
           <Cards data={data} actions={actions} onDone={() => void finish()} />
         ) : question ? (
-          <section key={index} aria-label="Question" className="kira-flip-in flex w-full max-w-[860px] flex-col items-center gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
+          <section key={index} aria-label="Question" className="kira-flip-in flex w-full max-w-[860px] flex-col items-center gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
             {!online ? (
               <p role="alert" className="m-0 flex items-center gap-2 rounded-control border-2 border-warn px-3 py-2 text-body font-bold">
                 <UiIcon name="offline" size={20} />

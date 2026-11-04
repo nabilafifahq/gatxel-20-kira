@@ -19,6 +19,58 @@
         "num": 3,
         "den": 4
       }
+    },
+    {
+      "id": "m3.fractions.801",
+      "skill": "m3.fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the fraction 3/4, the number 4 tells how many equal parts make the whole.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the bottom number.",
+        "It names the parts.",
+        "4 equal parts make the whole."
+      ],
+      "explanation": "The bottom number, the denominator, tells how many equal parts the whole is split into.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.fractions.802",
+      "skill": "m3.fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In the fraction 2/5, the number 5 tells how many parts are shaded.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which number is on top?",
+        "The top number counts the shaded parts.",
+        "2 are shaded."
+      ],
+      "explanation": "The top number tells how many parts are shaded, so 2 are shaded. The 5 tells how many equal parts there are altogether.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

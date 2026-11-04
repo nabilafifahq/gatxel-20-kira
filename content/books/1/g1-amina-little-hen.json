@@ -1,0 +1,244 @@
+{
+  "id": "g1-amina-little-hen",
+  "grade": 1,
+  "title": "Amina and the Little Hen",
+  "kind": "story",
+  "genre": "animals",
+  "blurb": "Amina's little hen is gone! Can you help her look?",
+  "cover": {
+    "motif": "bird",
+    "tint": "english"
+  },
+  "chapters": [
+    {
+      "id": "c1",
+      "title": "Where Is Pepe?",
+      "text": "Amina has a little brown hen. The hen is called Pepe. Every morning Pepe says, \"Cluck, cluck!\"\n\nToday Amina calls, \"Pepe! Pepe!\" But there is no cluck. The hen is not in the yard. The hen is not in the house.\n\n\"Oh no,\" says Amina. \"Where is Pepe?\"",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "What is the hen called?",
+          "options": [
+            "Pipi",
+            "Pepe",
+            "Papa"
+          ],
+          "answer": 1,
+          "why": "The hen is called Pepe."
+        },
+        {
+          "id": "q2",
+          "prompt": "What colour is the hen?",
+          "options": [
+            "Brown",
+            "White",
+            "Black"
+          ],
+          "answer": 0,
+          "why": "Amina has a little brown hen."
+        },
+        {
+          "id": "q3",
+          "prompt": "What does Pepe say every morning?",
+          "options": [
+            "\"Moo, moo!\"",
+            "\"Quack, quack!\"",
+            "\"Cluck, cluck!\""
+          ],
+          "answer": 2,
+          "why": "Every morning Pepe says, \"Cluck, cluck!\""
+        },
+        {
+          "id": "q4",
+          "prompt": "Does Amina hear a cluck today?",
+          "options": [
+            "Yes",
+            "No",
+            "Only at night"
+          ],
+          "answer": 1,
+          "why": "Amina calls, but there is no cluck."
+        },
+        {
+          "id": "q5",
+          "prompt": "Where does Amina look for Pepe?",
+          "options": [
+            "At the school and the shop",
+            "At the market and the sea",
+            "In the yard and in the house"
+          ],
+          "answer": 2,
+          "why": "The hen is not in the yard and not in the house, so Amina looked there."
+        },
+        {
+          "id": "q6",
+          "prompt": "What does Amina say at the end?",
+          "options": [
+            "\"I am happy!\"",
+            "\"Time for bed!\"",
+            "\"Oh no! Where is Pepe?\""
+          ],
+          "answer": 2,
+          "why": "Amina says, \"Oh no! Where is Pepe?\""
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Looking and Looking",
+      "text": "Amina looks by the big tree. No Pepe. She looks by the red gate. No Pepe.\n\nA boy called Juma sees Amina. \"Why are you sad?\" he asks.\n\n\"My hen is gone,\" says Amina.\n\n\"I will help you,\" says Juma. They look and look. Then they hear a tiny sound. \"Peep, peep!\"",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Where does Amina look first?",
+          "options": [
+            "By the red gate",
+            "By the big tree",
+            "By the river"
+          ],
+          "answer": 1,
+          "why": "Amina looks by the big tree."
+        },
+        {
+          "id": "q2",
+          "prompt": "What colour is the gate?",
+          "options": [
+            "Blue",
+            "Green",
+            "Red"
+          ],
+          "answer": 2,
+          "why": "She looks by the red gate."
+        },
+        {
+          "id": "q3",
+          "prompt": "Who sees Amina?",
+          "options": [
+            "A boy called Juma",
+            "A girl called Pepe",
+            "A man called Joko"
+          ],
+          "answer": 0,
+          "why": "A boy called Juma sees Amina."
+        },
+        {
+          "id": "q4",
+          "prompt": "Why is Amina sad?",
+          "options": [
+            "She has no shoes",
+            "Her hen is gone",
+            "It is raining"
+          ],
+          "answer": 1,
+          "why": "Amina says, \"My hen is gone.\""
+        },
+        {
+          "id": "q5",
+          "prompt": "What does Juma say?",
+          "options": [
+            "\"Go away!\"",
+            "\"I am hungry!\"",
+            "\"I will help you.\""
+          ],
+          "answer": 2,
+          "why": "Juma says, \"I will help you.\""
+        },
+        {
+          "id": "q6",
+          "prompt": "What sound do they hear?",
+          "options": [
+            "\"Peep, peep!\"",
+            "\"Woof, woof!\"",
+            "\"Meow!\""
+          ],
+          "answer": 0,
+          "why": "They hear a tiny sound, \"Peep, peep!\""
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "Pepe's Surprise",
+      "text": "Amina and Juma follow the sound. It comes from behind a box. Amina looks. There is Pepe!\n\nPepe is sitting on a nest. Under her there are four tiny yellow chicks. \"Peep, peep!\" say the chicks.\n\nAmina laughs. \"Pepe, you are a mama now!\" Amina and Juma give the chicks some seeds. Everyone is happy.",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Where does the sound come from?",
+          "options": [
+            "From a tree",
+            "From behind a box",
+            "From the river"
+          ],
+          "answer": 1,
+          "why": "It comes from behind a box."
+        },
+        {
+          "id": "q2",
+          "prompt": "What is Pepe sitting on?",
+          "options": [
+            "A chair",
+            "A bed",
+            "A nest"
+          ],
+          "answer": 2,
+          "why": "Pepe is sitting on a nest."
+        },
+        {
+          "id": "q3",
+          "prompt": "How many chicks are there?",
+          "options": [
+            "Four",
+            "Two",
+            "Ten"
+          ],
+          "answer": 0,
+          "why": "There are four tiny yellow chicks."
+        },
+        {
+          "id": "q4",
+          "prompt": "What colour are the chicks?",
+          "options": [
+            "Red",
+            "Blue",
+            "Yellow"
+          ],
+          "answer": 2,
+          "why": "The chicks are tiny and yellow."
+        },
+        {
+          "id": "q5",
+          "prompt": "What is Pepe now?",
+          "options": [
+            "A cat",
+            "A mama",
+            "A teacher"
+          ],
+          "answer": 1,
+          "why": "Amina says, \"Pepe, you are a mama now!\""
+        },
+        {
+          "id": "q6",
+          "prompt": "What do Amina and Juma give the chicks?",
+          "options": [
+            "Some cake",
+            "Some seeds",
+            "Some milk"
+          ],
+          "answer": 1,
+          "why": "They give the chicks some seeds."
+        },
+        {
+          "id": "q7",
+          "prompt": "How does everyone feel at the end?",
+          "options": [
+            "Cross",
+            "Sleepy",
+            "Happy"
+          ],
+          "answer": 2,
+          "why": "Everyone is happy."
+        }
+      ]
+    }
+  ]
+}

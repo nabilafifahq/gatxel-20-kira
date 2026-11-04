@@ -572,47 +572,7 @@
       "explanation": "I was tired, so I went to bed. The joining word so shows what happened because of the first idea.",
       "answer": "I was tired, so I went to bed.",
       "distractors": [
-        "but"
-      ]
-    },
-    {
-      "id": "e2.joining-words.020",
-      "skill": "e2.joining-words",
-      "type": "tiles",
-      "difficulty": 3,
-      "prompt": "Put the words in order to make a sentence.",
-      "hints": [
-        "The sentence has a reason in it.",
-        "The word because comes in the middle.",
-        "Why did they stay inside? Because of the weather."
-      ],
-      "explanation": "We stayed inside because it was raining. Because joins the action to its reason.",
-      "answer": "We stayed inside because it was raining.",
-      "distractors": [
-        "but"
-      ]
-    },
-    {
-      "id": "e2.joining-words.021",
-      "skill": "e2.joining-words",
-      "type": "cloze",
-      "difficulty": 2,
-      "prompt": "I wanted to play outside, ___ it was raining.",
-      "hints": [
-        "Read both parts of the sentence.",
-        "The two parts do not agree with each other.",
-        "Which joining word shows a surprise or a problem?"
-      ],
-      "explanation": "But shows that the second part is different from what you wanted. I wanted to play, but it was raining.",
-      "gaps": [
-        {
-          "options": [
-            "but",
-            "and",
-            "so"
-          ],
-          "answer": 0
-        }
+        "if"
       ]
     },
     {
@@ -767,26 +727,6 @@
       ]
     },
     {
-      "id": "e2.joining-words.027",
-      "skill": "e2.joining-words",
-      "type": "text",
-      "difficulty": 3,
-      "prompt": "Write the joining word. I wanted to play, ___ it was raining.",
-      "hints": [
-        "The two parts do not go together.",
-        "One is a wish, one stops it.",
-        "It is a word with three letters."
-      ],
-      "explanation": "But shows the rain stopped the play.",
-      "blanks": [
-        {
-          "answers": [
-            "but"
-          ]
-        }
-      ]
-    },
-    {
       "id": "e2.joining-words.028",
       "skill": "e2.joining-words",
       "type": "tiles",
@@ -800,7 +740,7 @@
       "explanation": "I was hungry so I ate rice.",
       "answer": "I was hungry so I ate rice.",
       "distractors": [
-        "but"
+        "if"
       ]
     },
     {
@@ -940,6 +880,191 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e2.joining-words.801",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word because is used to give a reason.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Why did I take my coat?",
+        "Look for the word that links the reason.",
+        "Because explains."
+      ],
+      "explanation": "Because tells us why something happened. Example: I took my coat because it was cold.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.joining-words.802",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word and is used to give a reason.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does and tell us why?",
+        "And means plus.",
+        "Because gives the reason."
+      ],
+      "explanation": "And joins two ideas that go together. Because is the word that gives a reason.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.joining-words.803",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word but is used to join two ideas that are different.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do the two ideas agree or disagree?",
+        "Which joining word shows a difference?",
+        "But shows a change."
+      ],
+      "explanation": "But shows a contrast. Example: I like tea but I do not like coffee.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.joining-words.804",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word so shows what happened as a result.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What happened because of the rain?",
+        "So comes before the result.",
+        "The rain came first."
+      ],
+      "explanation": "So tells us the result. Example: It was raining so we stayed inside.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.joining-words.805",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In the sentence I took an umbrella because it was raining, the words I took an umbrella give the reason.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The reason comes after because.",
+        "Why did I take an umbrella?",
+        "It was raining."
+      ],
+      "explanation": "The words it was raining give the reason. The word because comes right before the reason.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.joining-words.806",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: In the sentence I was tired so I went to bed, the words I was tired come first and I went to bed is the result.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which happened first in the story?",
+        "Being tired came first.",
+        "So joins cause and result."
+      ],
+      "explanation": "So joins a cause and its result. Tired is the cause. Going to bed is the result.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.joining-words.701",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I like tea ___ I do not like milk.",
+      "options": [
+        {
+          "text": "so"
+        },
+        {
+          "text": "but"
+        },
+        {
+          "text": "because"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The two ideas are different.",
+        "Which word shows a contrast?",
+        "But shows a difference."
+      ],
+      "explanation": "But joins two ideas that contrast.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

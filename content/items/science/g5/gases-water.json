@@ -1,0 +1,675 @@
+{
+  "skill": "s5.gases-water",
+  "items": [
+    {
+      "id": "s5.gases-water.001",
+      "skill": "s5.gases-water",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "At what temperature does water freeze?",
+      "options": [
+        {
+          "text": "100 °C",
+          "why": "Water boils at 100 °C."
+        },
+        {
+          "text": "0 °C"
+        },
+        {
+          "text": "10 °C",
+          "why": "Water stays liquid at 10 °C."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is the temperature of melting ice.",
+        "It is a small number.",
+        "The thermometer shows zero."
+      ],
+      "explanation": "Water freezes and ice melts at 0 °C."
+    },
+    {
+      "id": "s5.gases-water.002",
+      "skill": "s5.gases-water",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which of these is a gas at room temperature?",
+      "options": [
+        {
+          "text": "iron",
+          "why": "Iron is a solid."
+        },
+        {
+          "text": "oxygen"
+        },
+        {
+          "text": "mercury",
+          "why": "Mercury is a liquid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "You breathe it in.",
+        "It is in the air.",
+        "You cannot see it."
+      ],
+      "explanation": "Oxygen is a gas at room temperature."
+    },
+    {
+      "id": "s5.gases-water.003",
+      "skill": "s5.gases-water",
+      "difficulty": 1,
+      "type": "text",
+      "prompt": "Water boils at 100 degrees ___.",
+      "blanks": [
+        {
+          "answers": [
+            "celsius",
+            "c"
+          ]
+        }
+      ],
+      "hints": [
+        "The unit begins with the letter c.",
+        "Think of a thermometer.",
+        "The unit is named after a scientist."
+      ],
+      "explanation": "Water boils at 100 degrees Celsius."
+    },
+    {
+      "id": "s5.gases-water.004",
+      "skill": "s5.gases-water",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What do the particles of a gas do?",
+      "options": [
+        {
+          "text": "They are packed in a regular pattern.",
+          "why": "That describes a solid."
+        },
+        {
+          "text": "They are far apart and move freely."
+        },
+        {
+          "text": "They stay close and slide past each other.",
+          "why": "That describes a liquid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Gases fill their container.",
+        "There is a lot of space.",
+        "The particles move fast."
+      ],
+      "explanation": "Gas particles are far apart and move freely."
+    },
+    {
+      "id": "s5.gases-water.005",
+      "skill": "s5.gases-water",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which gas is found in the air we breathe out?",
+      "options": [
+        {
+          "text": "helium",
+          "why": "We do not breathe out helium."
+        },
+        {
+          "text": "carbon dioxide"
+        },
+        {
+          "text": "hydrogen",
+          "why": "We do not breathe out hydrogen."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Plants use this gas.",
+        "It is in fizzy drinks.",
+        "It is made when things burn."
+      ],
+      "explanation": "We breathe out carbon dioxide."
+    },
+    {
+      "id": "s5.gases-water.006",
+      "skill": "s5.gases-water",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What happens to water when it freezes?",
+      "options": [
+        {
+          "text": "It shrinks and takes up less space.",
+          "why": "Water expands when it freezes."
+        },
+        {
+          "text": "It expands and takes up more space."
+        },
+        {
+          "text": "It stays the same size.",
+          "why": "Water gets bigger."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about a bottle of water in a freezer.",
+        "The bottle can crack.",
+        "Water is unusual."
+      ],
+      "explanation": "Water expands when it freezes, which is why ice takes up more space."
+    },
+    {
+      "id": "s5.gases-water.007",
+      "skill": "s5.gases-water",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Why does ice float on water?",
+      "options": [
+        {
+          "text": "Ice is heavier than water.",
+          "why": "Ice floats because it is less dense."
+        },
+        {
+          "text": "Ice takes up more space than the same mass of liquid water."
+        },
+        {
+          "text": "Ice is made of a different substance.",
+          "why": "Ice is solid water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Ice floats in a drink.",
+        "Water expands when frozen.",
+        "Take the same mass of each."
+      ],
+      "explanation": "Ice takes up more space than the same mass of liquid water, so it floats."
+    },
+    {
+      "id": "s5.gases-water.008",
+      "skill": "s5.gases-water",
+      "difficulty": 2,
+      "type": "sort",
+      "prompt": "Sort each substance into solid, liquid or gas at room temperature.",
+      "groups": [
+        "Solid",
+        "Liquid",
+        "Gas"
+      ],
+      "items": [
+        {
+          "text": "iron",
+          "group": 0
+        },
+        {
+          "text": "salt",
+          "group": 0
+        },
+        {
+          "text": "water",
+          "group": 1
+        },
+        {
+          "text": "cooking oil",
+          "group": 1
+        },
+        {
+          "text": "oxygen",
+          "group": 2
+        },
+        {
+          "text": "nitrogen",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Think about which ones you can pour.",
+        "Which can you not see?",
+        "Which are hard?"
+      ],
+      "explanation": "Iron and salt are solids, water and oil are liquids, and oxygen and nitrogen are gases."
+    },
+    {
+      "id": "s5.gases-water.009",
+      "skill": "s5.gases-water",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A student dissolves salt in water. What can be said about the salt particles?",
+      "options": [
+        {
+          "text": "They are destroyed by the water.",
+          "why": "The particles are still there."
+        },
+        {
+          "text": "They spread out and mix with the water particles."
+        },
+        {
+          "text": "They become water particles.",
+          "why": "Particles do not change into other particles."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The salt seems to disappear.",
+        "It is still there.",
+        "Taste the water."
+      ],
+      "explanation": "In a solution the dissolved particles mix in with the water particles."
+    },
+    {
+      "id": "s5.gases-water.010",
+      "skill": "s5.gases-water",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which gas is found in the air as the biggest part?",
+      "options": [
+        {
+          "text": "carbon dioxide",
+          "why": "There is only a very small amount."
+        },
+        {
+          "text": "nitrogen"
+        },
+        {
+          "text": "oxygen",
+          "why": "This is about one fifth."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "About four fifths of the air.",
+        "It is not used for burning.",
+        "The word starts with n."
+      ],
+      "explanation": "Nitrogen makes up about four fifths of the air."
+    },
+    {
+      "id": "s5.gases-water.011",
+      "skill": "s5.gases-water",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which of these are gases at room temperature?",
+      "options": [
+        {
+          "text": "carbon dioxide"
+        },
+        {
+          "text": "water",
+          "why": "Water is a liquid."
+        },
+        {
+          "text": "sand",
+          "why": "Sand is a solid."
+        },
+        {
+          "text": "oxygen"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Some gases are in the air.",
+        "You cannot see them.",
+        "Water and sand are not gases."
+      ],
+      "explanation": "Oxygen and carbon dioxide are both gases at room temperature."
+    },
+    {
+      "id": "s5.gases-water.012",
+      "skill": "s5.gases-water",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What is a solvent?",
+      "options": [
+        {
+          "text": "a solid that melts",
+          "why": "A solvent is the liquid in a solution."
+        },
+        {
+          "text": "a liquid that dissolves other substances"
+        },
+        {
+          "text": "a gas that floats",
+          "why": "It is not a gas."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Water is a good example.",
+        "Sugar dissolves in it.",
+        "It makes a solution."
+      ],
+      "explanation": "A solvent is a liquid that other substances dissolve in. Water is a good solvent."
+    },
+    {
+      "id": "s5.gases-water.013",
+      "skill": "s5.gases-water",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A bottle of water is left in the freezer and cracks. What is the best explanation?",
+      "options": [
+        {
+          "text": "The water shrank and pulled the bottle.",
+          "why": "Water expands when frozen."
+        },
+        {
+          "text": "The water expanded as it froze."
+        },
+        {
+          "text": "The cold made the plastic expand.",
+          "why": "The ice expanded, not the plastic."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Water takes up more space as ice.",
+        "The bottle had no room.",
+        "Think about what ice does."
+      ],
+      "explanation": "Water expands when it freezes, so it pushed on the bottle and cracked it."
+    },
+    {
+      "id": "s5.gases-water.014",
+      "skill": "s5.gases-water",
+      "difficulty": 3,
+      "type": "text",
+      "prompt": "Water ___ when it freezes, so ice floats.",
+      "blanks": [
+        {
+          "answers": [
+            "expands",
+            "gets bigger"
+          ]
+        }
+      ],
+      "hints": [
+        "Ice takes up more space.",
+        "The volume increases.",
+        "The word starts with e."
+      ],
+      "explanation": "Water expands when it freezes."
+    },
+    {
+      "id": "s5.gases-water.015",
+      "skill": "s5.gases-water",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "The temperature of a pan of boiling water is 100 degrees Celsius. A cup of ice water is at 0 degrees Celsius. What is the difference?",
+      "answer": 100,
+      "unit": "°C",
+      "hints": [
+        "Take the smaller from the larger.",
+        "Work out 100 − 0.",
+        "The answer is a round number."
+      ],
+      "explanation": "100 − 0 = 100. The difference is 100 degrees Celsius."
+    },
+    {
+      "id": "s5.gases-water.016",
+      "skill": "s5.gases-water",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which of these properties of water is unusual?",
+      "options": [
+        {
+          "text": "It is a liquid at room temperature.",
+          "why": "Many substances are liquids at room temperature."
+        },
+        {
+          "text": "It expands when it freezes."
+        },
+        {
+          "text": "It boils when heated.",
+          "why": "All liquids boil."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Most substances shrink when they freeze.",
+        "Think about what happens to a bottle in a freezer.",
+        "Ice floats."
+      ],
+      "explanation": "Most substances take up less space as they freeze. Water takes up more."
+    },
+    {
+      "id": "s5.gases-water.017",
+      "skill": "s5.gases-water",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Why does the water in a puddle slowly disappear on a sunny day even though it is below 100 °C?",
+      "options": [
+        {
+          "text": "The Sun destroys the water.",
+          "why": "Matter is not destroyed."
+        },
+        {
+          "text": "Some water turns into a gas at the surface."
+        },
+        {
+          "text": "The water soaks into the Sun.",
+          "why": "This does not happen."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Water particles can escape from the surface.",
+        "The water vapour goes into the air.",
+        "This is called evaporation."
+      ],
+      "explanation": "Water particles escape from the surface and become a gas called water vapour. This is evaporation."
+    },
+    {
+      "id": "s5.gases-water.018",
+      "skill": "s5.gases-water",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which statement about gases is correct?",
+      "options": [
+        {
+          "text": "Gases do not take up space.",
+          "why": "A balloon filled with gas takes up space."
+        },
+        {
+          "text": "Many gases are invisible, but they still take up space and have mass."
+        },
+        {
+          "text": "Gases have no mass.",
+          "why": "Gases have mass."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A balloon is full of gas.",
+        "You cannot see air.",
+        "Gas can be weighed."
+      ],
+      "explanation": "Gases are matter. They take up space and have mass even if we cannot see them."
+    },
+    {
+      "id": "s5.gases-water.019",
+      "skill": "s5.gases-water",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Sea ice melts at a slightly lower temperature than pure ice. What is the likely reason?",
+      "options": [
+        {
+          "text": "It is larger.",
+          "why": "Size does not change this."
+        },
+        {
+          "text": "It contains dissolved salt."
+        },
+        {
+          "text": "It is colder.",
+          "why": "Salt changes the melting point."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Seawater is not pure.",
+        "Salt is dissolved in it.",
+        "Dissolved substances change melting and freezing points."
+      ],
+      "explanation": "Dissolved salt lowers the temperature at which water freezes, so salty ice melts at a slightly lower temperature."
+    },
+    {
+      "id": "s5.gases-water.020",
+      "skill": "s5.gases-water",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A scientist heats ice. Which sequence of states does the water pass through?",
+      "options": [
+        {
+          "text": "gas, then liquid, then solid",
+          "why": "That is the order when cooling."
+        },
+        {
+          "text": "solid, then liquid, then gas"
+        },
+        {
+          "text": "liquid, then solid, then gas",
+          "why": "Heated ice starts as solid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Heating adds energy.",
+        "Ice is a solid.",
+        "Boiling water makes a gas."
+      ],
+      "explanation": "Heating takes ice from solid to liquid and then, at 100 °C, to gas."
+    },
+    {
+      "id": "s5.gases-water.021",
+      "skill": "s5.gases-water",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which particle model picture matches a gas?",
+      "options": [
+        {
+          "text": "particles in a tight, regular pattern",
+          "why": "That is a solid."
+        },
+        {
+          "text": "particles far apart and moving fast in all directions"
+        },
+        {
+          "text": "particles close together, sliding past each other",
+          "why": "That is a liquid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Gases fill their container.",
+        "There is lots of space.",
+        "The particles move in all directions."
+      ],
+      "explanation": "In a gas the particles are far apart and move quickly in all directions."
+    },
+    {
+      "id": "s5.gases-water.801",
+      "skill": "s5.gases-water",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Water freezes into ice at 0 degrees Celsius.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is the freezing point?",
+        "Ice is cold.",
+        "It freezes at 0."
+      ],
+      "explanation": "This is the freezing point of water. Below this temperature, water turns into a solid.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.gases-water.802",
+      "skill": "s5.gases-water",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The particles in a liquid are far apart and move freely in all directions.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which state spreads out?",
+        "Liquids stay in a container's bottom.",
+        "Close but not fixed."
+      ],
+      "explanation": "That describes a gas. In a liquid the particles are close together but can slide past each other.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.gases-water.803",
+      "skill": "s5.gases-water",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Carbon dioxide is a gas that we breathe out.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What gas is breathed out?",
+        "Plants use it.",
+        "We exhale carbon dioxide."
+      ],
+      "explanation": "Our bodies make carbon dioxide when releasing energy from food, and we breathe it out.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.gases-water.804",
+      "skill": "s5.gases-water",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Water boils at 50 degrees Celsius at sea level.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is the boiling point?",
+        "Is 50 hot enough?",
+        "It boils at 100."
+      ],
+      "explanation": "Pure water boils at 100 degrees Celsius at sea level.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

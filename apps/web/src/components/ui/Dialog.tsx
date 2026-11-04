@@ -129,8 +129,8 @@ export function Dialog({
       {open ? (
         <div
           className={cx(
-            'flex max-h-[calc(100svh-32px)] flex-col gap-4 overflow-y-auto rounded-card bg-surface',
-            tone === 'learner' ? 'border-2 border-fg p-6 sm:p-8' : 'border border-divider p-6',
+            'flex max-h-[calc(100svh-32px)] flex-col gap-4 overflow-y-auto rounded-xl bg-surface shadow-soft',
+            tone === 'learner' ? 'p-6 sm:p-8' : 'p-6',
             size === 'full' && 'h-full',
             align === 'center' && 'items-center text-center',
           )}

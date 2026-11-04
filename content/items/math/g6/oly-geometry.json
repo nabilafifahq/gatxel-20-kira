@@ -43,11 +43,29 @@
       "solution": [
         {
           "say": "Rectangle.",
-          "show": "10 × 6 = 60 cm²"
+          "show": "10 × 6 = 60 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "×",
+            "b": 6,
+            "r": 60
+          },
+          "mark": [
+            "10",
+            "6"
+          ]
         },
         {
           "say": "Half of it.",
-          "show": "60 ÷ 2 = 30 cm²"
+          "show": "60 ÷ 2 = 30 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "÷",
+            "b": 2,
+            "r": 30
+          }
         }
       ],
       "tags": [
@@ -100,7 +118,14 @@
       "solution": [
         {
           "say": "Triangles from one corner.",
-          "show": "8 - 2 = 6"
+          "show": "8 - 2 = 6",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 2,
+            "r": 6
+          }
         },
         {
           "say": "Angle sum.",
@@ -169,7 +194,17 @@
         },
         {
           "say": "Square.",
-          "show": "4 × 12.5 = 50 cm²"
+          "show": "4 × 12.5 = 50 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 12.5,
+            "r": 50
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -221,7 +256,17 @@
         },
         {
           "say": "Work it out.",
-          "show": "22 × 2 = 44 cm"
+          "show": "22 × 2 = 44 cm",
+          "anim": {
+            "k": "combine",
+            "a": 22,
+            "op": "×",
+            "b": 2,
+            "r": 44
+          },
+          "mark": [
+            "22"
+          ]
         }
       ],
       "tags": [
@@ -460,11 +505,33 @@
       "solution": [
         {
           "say": "Base AB.",
-          "show": "7 - 1 = 6"
+          "show": "7 - 1 = 6",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "-",
+            "b": 1,
+            "r": 6
+          },
+          "mark": [
+            "7",
+            "1"
+          ]
         },
         {
           "say": "Height from C to AB.",
-          "show": "5 - 1 = 4"
+          "show": "5 - 1 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "-",
+            "b": 1,
+            "r": 4
+          },
+          "mark": [
+            "5",
+            "1"
+          ]
         },
         {
           "say": "Area.",
@@ -476,6 +543,387 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-geometry.010",
+      "skill": "m6.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A rectangle has a perimeter of 36 cm. Its length is twice its width. What is its area in square centimetres?",
+      "hints": [
+        "Half of the perimeter is length plus width.",
+        "Half of 36 is 18. Length is 2 parts and width is 1 part.",
+        "The width is 6 cm."
+      ],
+      "explanation": "Length plus width is 18 cm. The width is 6 cm and the length is 12 cm. The area is 12 × 6 = 72 cm².",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "36",
+          "why": "This is the perimeter. The area is length times width."
+        },
+        {
+          "text": "54",
+          "why": "Check the width: half of the perimeter is 18 cm, shared in a ratio of 2 : 1."
+        },
+        {
+          "text": "72"
+        },
+        {
+          "text": "81",
+          "why": "This is the area of a square with the same perimeter. The sides here are not equal."
+        },
+        {
+          "text": "144",
+          "why": "You may have used length 12 and width 12."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is its area in square centimetres?"
+          ]
+        },
+        {
+          "say": "Length plus width is 18 cm."
+        },
+        {
+          "say": "The width is 6 cm and the length is 12 cm."
+        },
+        {
+          "say": "The area is 12 × 6 = 72 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "×",
+            "b": 6,
+            "r": 72
+          }
+        },
+        {
+          "say": "Not 36. This is the perimeter. The area is length times width."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 72"
+        }
+      ]
+    },
+    {
+      "id": "m6.oly-geometry.011",
+      "skill": "m6.oly-geometry",
+      "difficulty": 4,
+      "prompt": "What is the smaller angle between the hour hand and the minute hand of a clock at 4:30? Give your answer in degrees.",
+      "hints": [
+        "The minute hand points to 6 at half past.",
+        "The hour hand is half-way between 4 and 5.",
+        "Each hour mark is 30° apart."
+      ],
+      "explanation": "At 4:30 the minute hand is at 180°. The hour hand has moved 4.5 hours, which is 4.5 × 30 = 135°. The difference is 45°.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 45
+    },
+    {
+      "id": "m6.oly-geometry.012",
+      "skill": "m6.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A square has side 10 cm. A small triangle with two sides of 3 cm at right angles is cut off each corner. What is the area left, in square centimetres?",
+      "hints": [
+        "Find the area of one cut-off triangle.",
+        "It has area 3 × 3 ÷ 2 = 4.5.",
+        "There are 4 corners."
+      ],
+      "explanation": "Each triangle has area 3 × 3 ÷ 2 = 4.5. Four of them make 18. So 100 − 18 = 82 cm².",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "64",
+          "why": "You cut away squares with side 3, not triangles. A triangle is half of a square."
+        },
+        {
+          "text": "82"
+        },
+        {
+          "text": "88",
+          "why": "You took away 4 × 3. Each triangle has area 3 × 3 ÷ 2."
+        },
+        {
+          "text": "91",
+          "why": "You took away only 2 triangles, but there are 4 corners."
+        },
+        {
+          "text": "100",
+          "why": "This is the square before any triangles are cut off."
+        }
+      ],
+      "answer": 1,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the area left, in square centimetres?"
+          ]
+        },
+        {
+          "say": "Each triangle has area 3 × 3 ÷ 2 = 4."
+        },
+        {
+          "say": "5."
+        },
+        {
+          "say": "Four of them make 18."
+        },
+        {
+          "say": "So 100 − 18 = 82 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 100,
+            "op": "-",
+            "b": 18,
+            "r": 82
+          }
+        },
+        {
+          "say": "Not 64. You cut away squares with side 3, not triangles. A triangle is half of a square."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "B. 82"
+        }
+      ]
+    },
+    {
+      "id": "m6.oly-geometry.013",
+      "skill": "m6.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A cube has a volume of 125 cubic centimetres. What is its total surface area in square centimetres?",
+      "hints": [
+        "Find the side length of the cube.",
+        "What number multiplied by itself three times is 125?",
+        "The side is 5 cm. A cube has 6 faces."
+      ],
+      "explanation": "The side is 5 cm because 5 × 5 × 5 = 125. Each face has area 25 cm² and there are 6 faces. 6 × 25 = 150 cm².",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 150,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is its total surface area in square centimetres?"
+          ]
+        },
+        {
+          "say": "The side is 5 cm because 5 × 5 × 5 = 125."
+        },
+        {
+          "say": "Each face has area 25 cm² and there are 6 faces."
+        },
+        {
+          "say": "6 × 25 = 150 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 25,
+            "r": 150
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "150"
+        }
+      ]
+    },
+    {
+      "id": "m6.oly-geometry.014",
+      "skill": "m6.oly-geometry",
+      "difficulty": 4,
+      "prompt": "In triangle ABC, angle A is 60°. Angle B is 4 times as big as angle C. What is the size of angle B in degrees?",
+      "hints": [
+        "The three angles add up to 180°.",
+        "Angles B and C together are 180 − 60 = 120.",
+        "B is 4 parts and C is 1 part, so 5 parts make 120°."
+      ],
+      "explanation": "B + C = 120°. In 5 equal parts, one part is 24°, so C = 24° and B = 4 × 24 = 96°.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 96,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the size of angle B in degrees?"
+          ]
+        },
+        {
+          "say": "B + C = 120°."
+        },
+        {
+          "say": "In 5 equal parts, one part is 24°, so C = 24° and B = 4 × 24 = 96°.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 24,
+            "r": 96
+          },
+          "mark": [
+            "4"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "96"
+        }
+      ]
+    },
+    {
+      "id": "m6.oly-geometry.015",
+      "skill": "m6.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A square of side 12 cm is cut into 3 rectangles by two straight cuts, both parallel to one side. What is the total perimeter of the 3 rectangles together, in centimetres?",
+      "hints": [
+        "Start with the perimeter of the whole square.",
+        "Each cut is 12 cm long and creates two new edges, one for each piece.",
+        "There are two cuts."
+      ],
+      "explanation": "The square has perimeter 48 cm. Each cut is 12 cm and makes two new edges, adding 24 cm. Two cuts add 48 cm. The total is 48 + 48 = 96 cm.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "48",
+          "why": "This is the perimeter of the square only. The cuts make new edges."
+        },
+        {
+          "text": "72",
+          "why": "You added one cut. There are two cuts, and each cut makes two new edges."
+        },
+        {
+          "text": "96"
+        },
+        {
+          "text": "120",
+          "why": "You counted each cut as adding 3 edges. Each cut adds two edges of 12 cm."
+        },
+        {
+          "text": "144",
+          "why": "You added each of the cut lengths four times."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the total perimeter of the 3 rectangles together"
+          ]
+        },
+        {
+          "say": "The square has perimeter 48 cm."
+        },
+        {
+          "say": "Each cut is 12 cm and makes two new edges, adding 24 cm."
+        },
+        {
+          "say": "Two cuts add 48 cm."
+        },
+        {
+          "say": "The total is 48 + 48 = 96 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 48,
+            "op": "+",
+            "b": 48,
+            "r": 96
+          }
+        },
+        {
+          "say": "Not 48. This is the perimeter of the square only. The cuts make new edges."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 96"
+        }
+      ]
+    },
+    {
+      "id": "m6.oly-geometry.016",
+      "skill": "m6.oly-geometry",
+      "difficulty": 5,
+      "prompt": "The three different faces of a cuboid have areas 12 cm², 15 cm² and 20 cm². What is the volume of the cuboid in cubic centimetres?",
+      "hints": [
+        "Call the edges a, b and c. The face areas are ab, bc and ac.",
+        "Multiplying all three areas gives (abc) × (abc).",
+        "12 × 15 × 20 = 3,600. What number times itself is 3,600?"
+      ],
+      "explanation": "Multiplying the three face areas gives (abc)², which is 12 × 15 × 20 = 3,600. So the volume abc is √3,600 = 60 cm³. (The edges are 3, 4 and 5.)",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 60
+    },
+    {
+      "id": "m6.oly-geometry.017",
+      "skill": "m6.oly-geometry",
+      "difficulty": 5,
+      "prompt": "On a coordinate grid, the corners of a triangle are P(−3, −2), Q(7, 0) and R(1, 6). What is the area of the triangle in square units?",
+      "hints": [
+        "Draw a rectangle round the triangle, with sides parallel to the axes.",
+        "The rectangle goes from x = −3 to 7 and y = −2 to 6, so it is 10 by 8.",
+        "Take away the three corner triangles."
+      ],
+      "explanation": "The rectangle is 10 by 8 = 80. The three corner triangles have areas 10 × 2 ÷ 2 = 10, 6 × 6 ÷ 2 = 18 and 4 × 8 ÷ 2 = 16. So the area is 80 − 10 − 18 − 16 = 36.",
+      "tags": [
+        "olympiad",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 36
     }
   ]
 }

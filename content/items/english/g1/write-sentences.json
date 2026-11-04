@@ -492,7 +492,7 @@
       "explanation": "My cat is black. The sentence starts with a capital letter and ends with a full stop.",
       "answer": "My cat is black.",
       "distractors": [
-        "dog"
+        "are"
       ]
     },
     {
@@ -598,7 +598,7 @@
       "explanation": "My cat is soft.",
       "answer": "My cat is soft.",
       "distractors": [
-        "hard"
+        "are"
       ]
     },
     {
@@ -615,7 +615,7 @@
       "explanation": "The girl has a blue bag.",
       "answer": "The girl has a blue bag.",
       "distractors": [
-        "green"
+        "have"
       ]
     },
     {
@@ -753,38 +753,6 @@
       ]
     },
     {
-      "id": "e1.write-sentences.027",
-      "skill": "e1.write-sentences",
-      "type": "write",
-      "difficulty": 3,
-      "prompt": "Write one sentence about your favourite food.",
-      "hints": [
-        "Think of your favourite food.",
-        "Start with I like or My favourite food is.",
-        "Check your capital and full stop."
-      ],
-      "explanation": "A good sentence starts with a capital letter, tells one idea and ends with a full stop.",
-      "rubric": {
-        "criteria": [
-          {
-            "label": "Writes a full sentence",
-            "points": 2
-          },
-          {
-            "label": "Starts with a capital and ends with a full stop",
-            "points": 1
-          },
-          {
-            "label": "Spells the words well",
-            "points": 1
-          }
-        ]
-      },
-      "minWords": 4,
-      "maxWords": 15,
-      "model": "My favourite food is fried rice."
-    },
-    {
       "id": "e1.write-sentences.028",
       "skill": "e1.write-sentences",
       "type": "write",
@@ -846,6 +814,136 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e1.write-sentences.801",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A sentence needs a capital letter at the start and a full stop at the end.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What goes at the start?",
+        "What goes at the end?",
+        "Capital letter and full stop."
+      ],
+      "explanation": "These two marks show where a sentence begins and ends.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.write-sentences.802",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: We should leave no spaces between words.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hold up a finger.",
+        "Words need room.",
+        "Use finger spaces."
+      ],
+      "explanation": "We leave a finger space between words so that we can read them easily.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.write-sentences.803",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"I like rice.\" is a complete sentence.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does it make sense?",
+        "Does it start and end correctly?",
+        "It is complete."
+      ],
+      "explanation": "It starts with a capital, makes sense and ends with a full stop.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.write-sentences.804",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The words \"the big\" are a complete sentence.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does it make sense on its own?",
+        "Who does what?",
+        "It is not complete."
+      ],
+      "explanation": "A sentence needs to say something complete. The big does not tell us what happened.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.write-sentences.805",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: We can use the word and to join two ideas, like \"I sat and ate\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which word joins the ideas?",
+        "It has three letters.",
+        "And joins."
+      ],
+      "explanation": "And joins two words or ideas together in one sentence.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

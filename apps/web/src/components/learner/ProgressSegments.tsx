@@ -19,9 +19,9 @@ const WORD: Record<SegmentState, string> = {
 }
 
 const RING: Record<QuestSubject, string> = {
-  math: 'border-math',
-  english: 'border-english',
-  science: 'border-science',
+  math: 'border-fg',
+  english: 'border-fg',
+  science: 'border-fg',
   bonus: 'border-fg',
 }
 
@@ -57,8 +57,8 @@ export function ProgressSegments({
             s === 'correct' && 'bg-success',
             s === 'not-yet' && 'bg-warn',
             s === 'answered' && style.solid,
-            s === 'todo' && 'bg-divider',
-            s === 'current' && cx('border-3 bg-surface', RING[subject]),
+            s === 'todo' && 'bg-lavender',
+            s === 'current' && cx('border-3 bg-lilac', RING[subject]),
           )}
         >
           {many ? null : s === 'correct' ? (
@@ -66,7 +66,7 @@ export function ProgressSegments({
           ) : s === 'not-yet' ? (
             <UiIcon name="not-yet" size={14} strokeWidth={3} />
           ) : s === 'current' ? (
-            <span className={cx('h-2 w-2 rounded-pill', style.solid)} />
+            <span className="h-2 w-2 rounded-pill bg-fg" />
           ) : null}
         </li>
       ))}

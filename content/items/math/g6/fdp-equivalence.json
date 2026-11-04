@@ -1,0 +1,168 @@
+{
+  "skill": "m6.fdp-equivalence",
+  "items": [
+    {
+      "id": "m6.fdp-equivalence.001",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 3,
+      "prompt": "Which is the largest: 0.6, 5/8, 62% or 3/5?",
+      "hints": [
+        "Change every number to a decimal.",
+        "5/8 = 5 ÷ 8.",
+        "Compare 0.600, 0.620 and your answer for 5/8."
+      ],
+      "explanation": "5/8 = 0.625, 62% = 0.62, and 0.6 = 3/5 = 0.6. The largest is 5/8.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "5/8"
+        },
+        {
+          "text": "0.6",
+          "why": "0.6 is 0.600, which is smaller than 0.625."
+        },
+        {
+          "text": "62%",
+          "why": "62% is 0.62, which is just under 0.625."
+        },
+        {
+          "text": "3/5",
+          "why": "3/5 is 0.6, smaller than 5/8."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.fdp-equivalence.002",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 4,
+      "prompt": "Write 7/40 as a percentage. Give the number only, without the % sign.",
+      "hints": [
+        "Change the fraction to a decimal first.",
+        "7 ÷ 40 = 0.175.",
+        "Multiply the decimal by 100."
+      ],
+      "explanation": "7 ÷ 40 = 0.175 and 0.175 × 100 = 17.5, so 7/40 is 17.5%.",
+      "tags": [],
+      "unit": "%",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 17.5
+    },
+    {
+      "id": "m6.fdp-equivalence.003",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 4,
+      "prompt": "Write 0.045 as a percentage. Give the number only, without the % sign.",
+      "hints": [
+        "A percentage is a number out of 100.",
+        "Multiply by 100 by moving each digit two places left.",
+        "0.045 becomes 4.5."
+      ],
+      "explanation": "0.045 × 100 = 4.5, so 0.045 is 4.5%.",
+      "tags": [],
+      "unit": "%",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 4.5
+    },
+    {
+      "id": "m6.fdp-equivalence.801",
+      "skill": "m6.fdp-equivalence",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The decimal 0.375 is equal to the fraction 3/8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide 3 by 8.",
+        "Or write 0.375 as 375/1,000.",
+        "Divide top and bottom by 125."
+      ],
+      "explanation": "3 ÷ 8 = 0.375. Also 375/1,000 simplifies to 3/8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.fdp-equivalence.802",
+      "skill": "m6.fdp-equivalence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 2/5 is equal to 25%.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Make the denominator 100.",
+        "5 × 20 = 100, so multiply the top by 20.",
+        "2 × 20."
+      ],
+      "explanation": "2/5 = 40/100 = 40%. 25% is 1/4.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.fdp-equivalence.803",
+      "skill": "m6.fdp-equivalence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 7/20 is equal to 35%.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Make the denominator 100.",
+        "20 × 5 = 100.",
+        "7 × 5."
+      ],
+      "explanation": "7/20 = 35/100 = 35%.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.fdp-equivalence.701",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 3,
+      "prompt": "Write 3/8 as a decimal.",
+      "hints": [
+        "Divide 3 by 8.",
+        "1/8 is 0.125.",
+        "3 × 0.125."
+      ],
+      "explanation": "1/8 = 0.125, so 3/8 = 3 × 0.125 = 0.375.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 0.375,
+      "allowDecimal": true
+    }
+  ]
+}

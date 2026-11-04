@@ -7,6 +7,8 @@ import { log } from '@/server/log'
 import { answerPayloadSchema, saveAnswer, submitAttempt } from '@/server/dal/learner-runner'
 import type { AnswerPayload } from '@/lib/dto'
 import { sameOrigin } from '@/server/http'
+import { throttleResponse } from '@/server/auth/ratelimit'
+import { invalidateLearnerToday } from '@/server/today-cache'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,6 +24,8 @@ export async function POST(req: Request) {
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
   if (!sameOrigin(req)) return NextResponse.json({ error: 'origin' }, { status: 403 })
+  const limited = await throttleResponse('sync', 60, actor.userId)
+  if (limited) return limited
   const len = Number(req.headers.get('content-length') ?? '0')
   if (len > 1_500_000) return NextResponse.json({ error: 'too-large' }, { status: 413 })
   const parsed = body.safeParse(await req.json().catch(() => null))
@@ -52,5 +56,6 @@ export async function POST(req: Request) {
       submits.push({ attemptId: s.attemptId, ok: false, retry: !(e instanceof AppError) })
     }
   }
+  if (answers.some((a) => a.ok) || submits.some((x) => x.ok)) await invalidateLearnerToday(actor.userId)
   return NextResponse.json({ answers, submits }, { headers: { 'Cache-Control': 'no-store' } })
 }

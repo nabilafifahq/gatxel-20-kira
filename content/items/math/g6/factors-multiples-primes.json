@@ -1,0 +1,167 @@
+{
+  "skill": "m6.factors-multiples-primes",
+  "items": [
+    {
+      "id": "m6.factors-multiples-primes.001",
+      "skill": "m6.factors-multiples-primes",
+      "difficulty": 3,
+      "prompt": "Hadi says, \"51 is a prime number.\" Which fact shows that Hadi is wrong?",
+      "hints": [
+        "A prime number has exactly two factors: 1 and itself.",
+        "To show it is not prime, find another factor.",
+        "Try dividing 51 by 3."
+      ],
+      "explanation": "51 ÷ 3 = 17, so 51 = 3 × 17. It has more than two factors, so it is not prime.",
+      "tags": [
+        "error-analysis"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "51 = 3 × 17"
+        },
+        {
+          "text": "51 is an odd number",
+          "why": "Many prime numbers are odd, so this does not prove anything."
+        },
+        {
+          "text": "51 is more than 50",
+          "why": "Prime numbers can be bigger than 50 too."
+        },
+        {
+          "text": "51 is not in the 7 times table",
+          "why": "Not being a multiple of 7 does not stop a number being composite."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.factors-multiples-primes.002",
+      "skill": "m6.factors-multiples-primes",
+      "difficulty": 4,
+      "prompt": "Which shows 180 written as a product of prime factors?",
+      "hints": [
+        "Keep splitting until every factor is prime.",
+        "180 = 2 × 90 and 90 = 2 × 45.",
+        "45 = 3 × 15 and 15 = 3 × 5."
+      ],
+      "explanation": "180 = 2 × 2 × 3 × 3 × 5, because 4 × 9 × 5 = 180. All the factors are prime.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "2 × 3 × 5 × 6",
+          "why": "6 is not prime. It can be split into 2 × 3."
+        },
+        {
+          "text": "2 × 2 × 3 × 3 × 5"
+        },
+        {
+          "text": "2 × 2 × 2 × 3 × 5",
+          "why": "This multiplies to 120, not 180."
+        },
+        {
+          "text": "2 × 9 × 10",
+          "why": "9 and 10 are not prime numbers."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.factors-multiples-primes.003",
+      "skill": "m6.factors-multiples-primes",
+      "difficulty": 4,
+      "prompt": "A floor measures 60 cm by 84 cm. Nabil covers it with square tiles, with no cutting and no gaps. What is the longest possible side length of a tile in cm?",
+      "hints": [
+        "The tile side must fit exactly into both 60 and 84.",
+        "Look for common factors of 60 and 84.",
+        "You want the greatest common factor."
+      ],
+      "explanation": "The common factors of 60 and 84 include 1, 2, 3, 4, 6 and 12. The greatest is 12, so the tile side is 12 cm.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m6.factors-multiples-primes.801",
+      "skill": "m6.factors-multiples-primes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The prime factorisation of 36 is 2 × 2 × 3 × 3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply the primes together.",
+        "4 × 9.",
+        "Are 2 and 3 prime?"
+      ],
+      "explanation": "2 × 2 × 3 × 3 = 4 × 9 = 36, and 2 and 3 are both prime.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.factors-multiples-primes.802",
+      "skill": "m6.factors-multiples-primes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The highest common factor of 24 and 36 is 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List the factors of both.",
+        "Is 12 in both lists?",
+        "12 is bigger than 6."
+      ],
+      "explanation": "Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. The biggest in both is 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.factors-multiples-primes.803",
+      "skill": "m6.factors-multiples-primes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The lowest common multiple of 6 and 8 is 24.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List the multiples of each.",
+        "Find the first match.",
+        "It is in both the 6 and 8 times tables."
+      ],
+      "explanation": "Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. The first in both is 24.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

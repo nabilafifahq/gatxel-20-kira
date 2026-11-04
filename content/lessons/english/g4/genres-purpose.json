@@ -1,0 +1,90 @@
+{
+  "skill": "e4.genres-purpose",
+  "title": "Genres and what texts are for",
+  "steps": [
+    {
+      "say": "Fiction is made up. Non-fiction gives facts.",
+      "show": "fiction: fairy tale | non-fiction: guide to birds"
+    },
+    {
+      "say": "Fiction has genres. Fantasy has magic. Historical stories are set in the past. Dilemma stories have a hard choice.",
+      "show": "fantasy, historical, dilemma"
+    },
+    {
+      "say": "Non-fiction texts have purposes. A recount tells what happened. An explanation tells how or why. An advert persuades.",
+      "show": "recount, explanation, advert"
+    },
+    {
+      "say": "Persuasive texts use strong words, exclamation marks and commands.",
+      "show": "The BEST waterpark! Come this weekend!"
+    },
+    {
+      "say": "A theme is the big idea. Different stories can share a theme such as kindness or honesty.",
+      "show": "theme: honesty"
+    }
+  ],
+  "check": [
+    {
+      "id": "e4.genres-purpose.901",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A book about a talking dragon is which kind of book?",
+      "options": [
+        {
+          "text": "non-fiction",
+          "why": "Non-fiction gives true facts, and dragons do not talk."
+        },
+        {
+          "text": "fiction"
+        },
+        {
+          "text": "an instruction text",
+          "why": "It does not tell a reader how to do something."
+        },
+        {
+          "text": "a news report",
+          "why": "News reports tell real events."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Could a dragon really talk?",
+        "Fiction is made up.",
+        "Non-fiction is true."
+      ],
+      "explanation": "A talking dragon is made up, so the book is fiction."
+    },
+    {
+      "id": "e4.genres-purpose.902",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the main purpose of an advert?",
+      "options": [
+        {
+          "text": "to persuade you to buy or do something"
+        },
+        {
+          "text": "to tell a made-up story",
+          "why": "That is the job of fiction."
+        },
+        {
+          "text": "to give steps to follow",
+          "why": "That is the job of instructions."
+        },
+        {
+          "text": "to record a diary",
+          "why": "That is the job of a diary entry."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a poster for a shop.",
+        "What does it want you to do?",
+        "It wants you to act."
+      ],
+      "explanation": "An advert tries to persuade readers to buy something or visit a place."
+    }
+  ]
+}

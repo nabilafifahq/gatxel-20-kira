@@ -40,6 +40,76 @@
           "answer": 1
         }
       ]
+    },
+    {
+      "id": "m2.money.701",
+      "skill": "m2.money",
+      "difficulty": 2,
+      "prompt": "Rp2.000 + Rp500 + Rp500 = Rp?",
+      "hints": [
+        "Add the two Rp500 coins first.",
+        "500 + 500 = 1000.",
+        "Then add 2000."
+      ],
+      "explanation": "500 + 500 = 1000 and 2000 + 1000 = 3000, so the total is Rp3.000.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 3000
+    },
+    {
+      "id": "m2.money.801",
+      "skill": "m2.money",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Two 500 rupiah coins and one 200 rupiah coin make 1200 rupiah.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add the two 500 coins first.",
+        "500 + 500 = 1000.",
+        "Add the 200."
+      ],
+      "explanation": "500 + 500 = 1000. Then 1000 + 200 = 1200.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.money.802",
+      "skill": "m2.money",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: You pay 5000 rupiah for a toy that costs 3500 rupiah and get 2500 rupiah change.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the difference.",
+        "Count up from 3500 to 5000.",
+        "3500 to 4000 is 500, then 1000 more."
+      ],
+      "explanation": "Change is 5000 - 3500 = 1500 rupiah. 2500 is wrong.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

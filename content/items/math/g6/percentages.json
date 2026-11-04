@@ -1,0 +1,208 @@
+{
+  "skill": "m6.percentages",
+  "items": [
+    {
+      "id": "m6.percentages.001",
+      "skill": "m6.percentages",
+      "difficulty": 3,
+      "prompt": "A phone costs Rp1.800.000. The shop gives a 15% discount. What is the sale price in rupiah?",
+      "hints": [
+        "Find 10% and 5% of Rp1.800.000.",
+        "10% is 180.000 and 5% is 90.000.",
+        "Take the discount from the price."
+      ],
+      "explanation": "15% of 1.800.000 is 270.000. So the sale price is 1.800.000 − 270.000 = Rp1.530.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 1530000
+    },
+    {
+      "id": "m6.percentages.002",
+      "skill": "m6.percentages",
+      "difficulty": 5,
+      "prompt": "After a 20% rise, a bag of rice costs Rp54.000. What did the bag cost before the rise, in rupiah?",
+      "hints": [
+        "Rp54.000 is 120% of the old price.",
+        "Find 10% of the old price: 54.000 ÷ 12.",
+        "The old price is 100%, which is 10 of those parts."
+      ],
+      "explanation": "120% of the old price is 54.000, so 10% is 4.500. Then 100% is 45.000, and the old price was Rp45.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 45000
+    },
+    {
+      "id": "m6.percentages.003",
+      "skill": "m6.percentages",
+      "difficulty": 4,
+      "prompt": "A jacket costs Rp100.000. The price goes up by 10%, then the new price goes down by 10%. What is the final price?",
+      "hints": [
+        "Do the rise first: find 110% of Rp100.000.",
+        "After the rise the price is Rp110.000.",
+        "Now take 10% of Rp110.000 away."
+      ],
+      "explanation": "After the rise it is Rp110.000. 10% of that is Rp11.000, so the final price is Rp99.000.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rp100.000",
+          "why": "The 10% fall is taken from a bigger amount, so it takes off more than the rise added."
+        },
+        {
+          "text": "Rp99.000"
+        },
+        {
+          "text": "Rp101.000",
+          "why": "The fall is not 10% of the old price. It is 10% of the higher price."
+        },
+        {
+          "text": "Rp90.000",
+          "why": "This ignores the rise. The two changes are done one after the other."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.percentages.801",
+      "skill": "m6.percentages",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 20% of 150 is 30.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find 10% first.",
+        "Then double it.",
+        "15 × 2."
+      ],
+      "explanation": "10% of 150 is 15, so 20% is 30.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.percentages.802",
+      "skill": "m6.percentages",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A Rp 80,000 item with 25% off costs Rp 65,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "25% is a quarter.",
+        "80,000 ÷ 4.",
+        "Take the discount from the price."
+      ],
+      "explanation": "25% of 80,000 is 20,000. 80,000 - 20,000 = Rp 60,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.percentages.803",
+      "skill": "m6.percentages",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Increasing Rp 40,000 by 10% gives Rp 44,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find 10% of the amount.",
+        "Add it on.",
+        "40,000 ÷ 10."
+      ],
+      "explanation": "10% of 40,000 is 4,000. 40,000 + 4,000 = Rp 44,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.percentages.701",
+      "skill": "m6.percentages",
+      "difficulty": 3,
+      "prompt": "20% of 150 = ?",
+      "hints": [
+        "10% of 150 is 15.",
+        "20% is double 10%.",
+        "2 × 15."
+      ],
+      "explanation": "10% of 150 = 15, so 20% = 30.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 30
+    },
+    {
+      "id": "m6.percentages.702",
+      "skill": "m6.percentages",
+      "difficulty": 5,
+      "prompt": "A warung sells 400 packets of rice in a week. 35% are nasi uduk. A packet of nasi uduk costs Rp12.000 but the price rises by 20%.",
+      "hints": [
+        "10% of 400 is 40.",
+        "Take the nasi uduk packets from 400.",
+        "20% of 12.000 is 2.400."
+      ],
+      "explanation": "35% of 400 = 140. Others: 400 - 140 = 260. 20% of 12,000 = 2,400, so the new price is 14,400. 140 × 14,400 = 2,016,000.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many packets of nasi uduk are sold?",
+          "answer": 140
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many packets of other rice are sold?",
+          "answer": 260
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the new price of one packet of nasi uduk, in rupiah?",
+          "answer": 14400
+        },
+        {
+          "type": "numeric",
+          "prompt": "How much money would 140 packets bring in at the new price, in rupiah?",
+          "answer": 2016000
+        }
+      ]
+    }
+  ]
+}

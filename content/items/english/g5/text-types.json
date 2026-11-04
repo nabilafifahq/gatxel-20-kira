@@ -1,0 +1,481 @@
+{
+  "skill": "e5.text-types",
+  "items": [
+    {
+      "id": "e5.text-types.001",
+      "skill": "e5.text-types",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the book titles.",
+      "groups": [
+        "Fiction",
+        "Non-fiction"
+      ],
+      "items": [
+        {
+          "text": "The Dragon of Mount Bromo",
+          "group": 0
+        },
+        {
+          "text": "How Volcanoes Erupt",
+          "group": 1
+        },
+        {
+          "text": "A Guide to Recycling",
+          "group": 1
+        },
+        {
+          "text": "The Talking Teapot",
+          "group": 0
+        },
+        {
+          "text": "The Life of a Famous Scientist",
+          "group": 1
+        },
+        {
+          "text": "Moonlight Mystery at the Market",
+          "group": 0
+        }
+      ],
+      "hints": [
+        "Fiction is made-up story. Non-fiction gives facts.",
+        "Titles like How or A Guide to usually mean facts.",
+        "Ask: could this be a real event or a real topic?"
+      ],
+      "explanation": "Fiction tells invented stories. Non-fiction gives true information about real topics."
+    },
+    {
+      "id": "e5.text-types.002",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which section of the library is best for a book called \"A Visual Guide to the Planets\"?",
+      "options": [
+        {
+          "text": "Poetry",
+          "why": "Poetry books are made up of poems."
+        },
+        {
+          "text": "Fantasy stories",
+          "why": "This section holds stories with magic."
+        },
+        {
+          "text": "Non-fiction: space and science"
+        },
+        {
+          "text": "Playscripts",
+          "why": "Playscripts hold plays to perform."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Is the book made of facts or invented stories?",
+        "Non-fiction books are grouped by subject.",
+        "Look at the word Planets: what subject is it?"
+      ],
+      "explanation": "A guide to the planets gives facts, so it is non-fiction and is shelved with space and science books."
+    },
+    {
+      "id": "e5.text-types.003",
+      "skill": "e5.text-types",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each genre to its main feature.",
+      "pairs": [
+        [
+          "science fiction",
+          "future technology or space travel"
+        ],
+        [
+          "mystery",
+          "a puzzle and clues to solve"
+        ],
+        [
+          "fantasy",
+          "magic and imaginary creatures"
+        ],
+        [
+          "historical fiction",
+          "an invented story set in the past"
+        ]
+      ],
+      "hints": [
+        "Think about the setting and the problem in each genre.",
+        "Match the clearest ones first.",
+        "Start with mystery: what does the reader try to do?"
+      ],
+      "explanation": "Each genre has typical features: science fiction looks to the future, mystery has clues, fantasy has magic and historical fiction is set in the past."
+    },
+    {
+      "id": "e5.text-types.004",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which genre is this? \"The old clock had stopped at midnight. Nobody had touched the locked drawer, yet the key now lay on the table. Putri counted the muddy footprints: five, leading to the window.\"",
+      "options": [
+        {
+          "text": "fantasy",
+          "why": "There is no magic or imaginary creature here."
+        },
+        {
+          "text": "mystery"
+        },
+        {
+          "text": "science fiction",
+          "why": "There is no sign of space or future technology."
+        },
+        {
+          "text": "historical fiction",
+          "why": "Nothing shows the story is set in the past."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What problem does the character face?",
+        "Look for clues and an unexplained event.",
+        "Which genre is about solving a puzzle?"
+      ],
+      "explanation": "Locked drawers, muddy footprints and an unexplained key are clues, so this is a mystery."
+    },
+    {
+      "id": "e5.text-types.005",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which genre is this? \"In the year 2150 the ship Aster landed on a planet with two moons. Captain Leo asked the robot to scan the air before anyone left.\"",
+      "options": [
+        {
+          "text": "fantasy",
+          "why": "The setting uses technology, not magic."
+        },
+        {
+          "text": "mystery",
+          "why": "There is no puzzle or clues yet."
+        },
+        {
+          "text": "adventure on land",
+          "why": "The story is set on another planet, not on Earth."
+        },
+        {
+          "text": "science fiction"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the setting and the technology.",
+        "Spaceships and robots are clues to the genre.",
+        "Which genre imagines the future?"
+      ],
+      "explanation": "A starship, a robot and another planet make this science fiction."
+    },
+    {
+      "id": "e5.text-types.006",
+      "skill": "e5.text-types",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each non-fiction text type to its purpose.",
+      "pairs": [
+        [
+          "instructions",
+          "to tell someone how to do something"
+        ],
+        [
+          "recount",
+          "to retell events in order"
+        ],
+        [
+          "report",
+          "to give facts about a topic"
+        ],
+        [
+          "persuasive text",
+          "to make the reader agree or act"
+        ]
+      ],
+      "hints": [
+        "Think about what the writer wants the reader to do or learn.",
+        "Instructions tell you what to do step by step.",
+        "Start with persuasive text: what does it try to change?"
+      ],
+      "explanation": "Instructions guide, recounts retell, reports inform and persuasive texts try to change what the reader thinks."
+    },
+    {
+      "id": "e5.text-types.007",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which text type is this? \"First, wash the rice. Next, add two cups of water. Then bring it to the boil.\"",
+      "options": [
+        {
+          "text": "recount",
+          "why": "A recount tells what happened in the past."
+        },
+        {
+          "text": "report",
+          "why": "A report gives facts and does not give orders."
+        },
+        {
+          "text": "explanation",
+          "why": "An explanation says why or how something works."
+        },
+        {
+          "text": "instructions"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the verbs at the start of each sentence.",
+        "Words like first, next and then show order.",
+        "Does the text tell you what to do?"
+      ],
+      "explanation": "Orders such as \"wash\" and \"add\" and the sequence words show that this is a set of instructions."
+    },
+    {
+      "id": "e5.text-types.008",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is written in an impersonal style?",
+      "options": [
+        {
+          "text": "I think museums are amazing, and I visit one every month.",
+          "why": "The words I and my make it personal."
+        },
+        {
+          "text": "Museums store and display objects of historical value."
+        },
+        {
+          "text": "You will love our museum!",
+          "why": "The words you and our talk directly to the reader."
+        },
+        {
+          "text": "We had a great time at the museum.",
+          "why": "The word we makes it personal."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Personal style uses I, we or you.",
+        "Impersonal style states facts without talking about the writer.",
+        "Cross out sentences that use I, you or we."
+      ],
+      "explanation": "The impersonal sentence states facts and does not use I, we or you."
+    },
+    {
+      "id": "e5.text-types.009",
+      "skill": "e5.text-types",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences.",
+      "groups": [
+        "Personal style",
+        "Impersonal style"
+      ],
+      "items": [
+        {
+          "text": "I felt nervous before the race.",
+          "group": 0
+        },
+        {
+          "text": "The race starts at nine o'clock.",
+          "group": 1
+        },
+        {
+          "text": "Our team is the best.",
+          "group": 0
+        },
+        {
+          "text": "Water boils at 100 degrees Celsius.",
+          "group": 1
+        },
+        {
+          "text": "We think you should recycle.",
+          "group": 0
+        },
+        {
+          "text": "Plastic bottles can be recycled.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Look for words like I, we, our and you.",
+        "Impersonal style states facts as they are.",
+        "Ask: does the sentence talk about feelings or the writer?"
+      ],
+      "explanation": "Personal style uses I, we, our or you. Impersonal style states facts without those words."
+    },
+    {
+      "id": "e5.text-types.010",
+      "skill": "e5.text-types",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the features.",
+      "groups": [
+        "Playscript",
+        "Story"
+      ],
+      "items": [
+        {
+          "text": "stage directions in brackets",
+          "group": 0
+        },
+        {
+          "text": "speaker names before each line",
+          "group": 0
+        },
+        {
+          "text": "paragraphs of narration",
+          "group": 1
+        },
+        {
+          "text": "speech marks around spoken words",
+          "group": 1
+        },
+        {
+          "text": "a list of characters at the start",
+          "group": 0
+        },
+        {
+          "text": "a narrator tells what happens",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Plays are written to be acted out.",
+        "Stories use narration and speech marks.",
+        "Think of what an actor needs to see on the page."
+      ],
+      "explanation": "Playscripts have speaker names, stage directions and a cast list. Stories use narration and speech marks."
+    },
+    {
+      "id": "e5.text-types.011",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which set of instructions is clearest for a reader?",
+      "options": [
+        {
+          "text": "Put the thing in the other thing and then do it up.",
+          "why": "The words are vague, so the reader cannot follow them."
+        },
+        {
+          "text": "I like planting seeds in pots in my garden.",
+          "why": "This tells a personal feeling, not steps."
+        },
+        {
+          "text": "1. Place the seed in a small pot. 2. Cover it with soil. 3. Water it gently."
+        },
+        {
+          "text": "Seeds are interesting and many people grow them.",
+          "why": "This is general information and gives no steps."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Clear instructions use steps and exact words.",
+        "Look for numbers or sequence words.",
+        "Which option tells you exactly what to do?"
+      ],
+      "explanation": "Numbered steps with specific verbs and nouns make instructions easy to follow."
+    },
+    {
+      "id": "e5.text-types.012",
+      "skill": "e5.text-types",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the features that suggest a text is a news report.",
+      "options": [
+        {
+          "text": "a headline"
+        },
+        {
+          "text": "a diary-style opening such as Dear diary",
+          "why": "A diary opening belongs to a personal recount."
+        },
+        {
+          "text": "quotations from people who saw the event"
+        },
+        {
+          "text": "a list of ingredients",
+          "why": "Ingredients belong to a recipe."
+        },
+        {
+          "text": "facts about who, what, where and when"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "News reports tell what has just happened.",
+        "They answer who, what, where and when.",
+        "Which features would you see in a newspaper?"
+      ],
+      "explanation": "News reports have headlines, facts about the event and quotations from witnesses."
+    },
+    {
+      "id": "e5.text-types.013",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Story A: Tomo finds a lost wallet and returns it even though he needs money. Story B: Citra tells the truth about a broken vase even though she might be punished. What theme do both stories share?",
+      "options": [
+        {
+          "text": "bravery in battle",
+          "why": "Neither story has a battle."
+        },
+        {
+          "text": "friendship",
+          "why": "The characters are not shown helping a friend."
+        },
+        {
+          "text": "curiosity",
+          "why": "Neither character is trying to find out something new."
+        },
+        {
+          "text": "honesty"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Ask what choice each character makes.",
+        "A theme is the big idea the story shares.",
+        "Both characters do the right thing when it is hard."
+      ],
+      "explanation": "Both characters choose to do the honest thing even when it costs them, so the shared theme is honesty."
+    },
+    {
+      "id": "e5.text-types.014",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A leaflet says: \"Don't miss out! Join our swimming club today and feel fantastic!\" Which statement is true?",
+      "options": [
+        {
+          "text": "It is a report because it gives facts about swimming.",
+          "why": "It has no facts, only strong claims."
+        },
+        {
+          "text": "It is a persuasive text because it uses exclamations and talks directly to the reader."
+        },
+        {
+          "text": "It is a recount because it tells what happened.",
+          "why": "Nothing in it is about past events."
+        },
+        {
+          "text": "It is an explanation because it says how swimming works.",
+          "why": "It does not explain how anything works."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the purpose of the leaflet.",
+        "Look at the punctuation and the way it addresses the reader.",
+        "Does it want the reader to do something?"
+      ],
+      "explanation": "The leaflet tries to make readers join the club, using exclamations and words such as \"you\" to persuade them."
+    }
+  ]
+}

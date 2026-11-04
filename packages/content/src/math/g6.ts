@@ -3783,6 +3783,23 @@ const probability: Generator = {
   levels: [1, 2, 3, 4, 5],
   generate({ rng, level }) {
     if (level === 1) {
+      if (rng.chance(0.6)) {
+        // Cakram atau tas dengan jumlah bagian acak: ruang soal jauh lebih besar dari satu dadu.
+        const colours = rng.shuffle(['red', 'blue', 'green', 'yellow'])
+        const counts = [rng.int(1, 6), rng.int(1, 6), rng.int(1, 6)]
+        const total = counts[0]! + counts[1]! + counts[2]!
+        const pick = rng.int(0, 2)
+        const n = counts[pick]!
+        const colour = colours[pick]!
+        const bag = `A bag has ${counts[0]} ${colours[0]}, ${counts[1]} ${colours[1]} and ${counts[2]} ${colours[2]} counters.`
+        return textItem({
+          prompt: `${bag} One counter is taken without looking. What is the probability that it is ${colour}? Write it as a fraction.`,
+          answers: [fracAnswers({ n, d: total }, { decimal: true })],
+          hints: ['Probability = number of ways it can happen ÷ number of possible outcomes.', `Add up all the counters to find the number of outcomes.`, `Count the ${colour} counters. That is the top of the fraction.`],
+          explanation: `There are ${total} counters and ${n} are ${colour}, so the probability is ${n}/${total}${simp({ n, d: total }).d !== total ? ` = ${fs(simp({ n, d: total }))}` : ''}.`,
+          solution: [{ say: 'Count all the counters.', show: String(total) }, { say: `Count the ${colour} counters.`, show: String(n) }, { say: 'Divide.', show: `${n}/${total}` }],
+        })
+      }
       const ev = rng.pick([
         { e: 'an even number', n: 3 },
         { e: 'a number greater than 4', n: 2 },

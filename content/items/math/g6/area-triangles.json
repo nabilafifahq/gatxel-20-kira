@@ -1,0 +1,124 @@
+{
+  "skill": "m6.area-triangles",
+  "items": [
+    {
+      "id": "m6.area-triangles.001",
+      "skill": "m6.area-triangles",
+      "difficulty": 3,
+      "prompt": "A triangle has a base of 14 cm and a perpendicular height of 9 cm. What is its area in square centimetres?",
+      "hints": [
+        "Area of a triangle is half of base times height.",
+        "14 × 9 = 126.",
+        "Halve your answer."
+      ],
+      "explanation": "14 × 9 = 126, and half of 126 is 63 cm².",
+      "tags": [],
+      "unit": "cm²",
+      "type": "numeric",
+      "answer": 63
+    },
+    {
+      "id": "m6.area-triangles.002",
+      "skill": "m6.area-triangles",
+      "difficulty": 4,
+      "prompt": "A triangular sail has an area of 2.4 square metres and a base of 3 m. What is the height of the sail in metres?",
+      "hints": [
+        "Double the area to get base × height.",
+        "2 × 2.4 = 4.8.",
+        "Divide 4.8 by the base."
+      ],
+      "explanation": "Base × height = 2 × 2.4 = 4.8. The height is 4.8 ÷ 3 = 1.6 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 1.6
+    },
+    {
+      "id": "m6.area-triangles.003",
+      "skill": "m6.area-triangles",
+      "difficulty": 4,
+      "prompt": "A right-angled triangle has sides of 6 cm, 8 cm and 10 cm. The 10 cm side is the longest. What is its area?",
+      "hints": [
+        "The base and height must meet at a right angle.",
+        "In this triangle, the two shorter sides meet at the right angle.",
+        "Use 6 and 8, then halve."
+      ],
+      "explanation": "The two shorter sides are at right angles to each other, so base = 8 and height = 6. The area is 8 × 6 ÷ 2 = 24 cm².",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "30 cm²",
+          "why": "You used the 10 cm side as the base with the 6 cm side as the height, but they are not at right angles."
+        },
+        {
+          "text": "24 cm²"
+        },
+        {
+          "text": "40 cm²",
+          "why": "You used 8 × 10 ÷ 2. The 10 cm side is slanted, so it is not a perpendicular height."
+        },
+        {
+          "text": "48 cm²",
+          "why": "This is base × height. Remember to halve it for a triangle."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.area-triangles.801",
+      "skill": "m6.area-triangles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A triangle with base 10 cm and height 6 cm has an area of 30 cm².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply base by height.",
+        "Then halve.",
+        "60 ÷ 2."
+      ],
+      "explanation": "Area = base × height ÷ 2 = 10 × 6 ÷ 2 = 30 cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.area-triangles.802",
+      "skill": "m6.area-triangles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A triangle with base 8 cm and height 5 cm has an area of 40 cm².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A triangle is half a rectangle.",
+        "Halve 40.",
+        "20 cm²."
+      ],
+      "explanation": "8 × 5 = 40 is the area of a rectangle. The triangle is half of that: 20 cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

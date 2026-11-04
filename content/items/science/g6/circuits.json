@@ -8,10 +8,22 @@
       "difficulty": 2,
       "prompt": "Match each circuit symbol to the component it stands for.",
       "pairs": [
-        ["a circle with a cross inside", "bulb"],
-        ["a long line next to a short, thick line", "cell"],
-        ["a circle with the letter M inside", "motor"],
-        ["a line lifted up to leave a gap", "open switch"]
+        [
+          "a circle with a cross inside",
+          "bulb"
+        ],
+        [
+          "a long line next to a short, thick line",
+          "cell"
+        ],
+        [
+          "a circle with the letter M inside",
+          "motor"
+        ],
+        [
+          "a line lifted up to leave a gap",
+          "open switch"
+        ]
       ],
       "hints": [
         "Circuit symbols are simple drawings that people all over the world understand.",
@@ -19,7 +31,9 @@
         "Start with the symbol that has a letter in it. It is the first letter of the component."
       ],
       "explanation": "A bulb is a circle with a cross, and a cell is a long line next to a short, thick line. A motor is a circle with M inside, and an open switch has a lifted line that leaves a gap.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.circuits.002",
@@ -29,15 +43,30 @@
       "prompt": "Look at the circuit diagram. Will the bulb light?",
       "figure": {
         "kind": "circuit",
-        "parts": ["battery", "bulb", "switch-open"],
+        "parts": [
+          "battery",
+          "bulb",
+          "switch-open"
+        ],
         "symbols": true,
         "alt": "A circuit diagram with a battery, a bulb and an open switch, all in one loop."
       },
       "options": [
-        { "text": "No, because the switch is open, so the circuit is not complete." },
-        { "text": "Yes, because the battery is connected.", "why": "The battery needs a complete loop. The open switch leaves a gap." },
-        { "text": "Yes, because bulbs light whenever a battery is nearby.", "why": "Electricity only flows around a complete circuit." },
-        { "text": "No, because a circuit needs two bulbs.", "why": "One bulb is enough in a complete circuit." }
+        {
+          "text": "No, because the switch is open, so the circuit is not complete."
+        },
+        {
+          "text": "Yes, because the battery is connected.",
+          "why": "The battery needs a complete loop. The open switch leaves a gap."
+        },
+        {
+          "text": "Yes, because bulbs light whenever a battery is nearby.",
+          "why": "Electricity only flows around a complete circuit."
+        },
+        {
+          "text": "No, because a circuit needs two bulbs.",
+          "why": "One bulb is enough in a complete circuit."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -46,7 +75,10 @@
         "Decide whether the switch is open or closed."
       ],
       "explanation": "The switch is open, so there is a gap in the circuit. Electricity cannot flow across a gap, so the bulb does not light.",
-      "tags": ["checkpoint", "osn-sd"]
+      "tags": [
+        "checkpoint",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.circuits.003",
@@ -55,10 +87,21 @@
       "difficulty": 2,
       "prompt": "A circuit has one cell and one bulb. What happens to the bulb if you add a second cell?",
       "options": [
-        { "text": "It gets dimmer.", "why": "More cells push more electricity through the bulb, so it does not get dimmer." },
-        { "text": "It stays the same.", "why": "An extra cell changes how much electricity flows." },
-        { "text": "It gets brighter." },
-        { "text": "It goes out.", "why": "The circuit is still complete, so the bulb stays lit." }
+        {
+          "text": "It gets dimmer.",
+          "why": "More cells push more electricity through the bulb, so it does not get dimmer."
+        },
+        {
+          "text": "It stays the same.",
+          "why": "An extra cell changes how much electricity flows."
+        },
+        {
+          "text": "It gets brighter."
+        },
+        {
+          "text": "It goes out.",
+          "why": "The circuit is still complete, so the bulb stays lit."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -67,7 +110,9 @@
         "Think about what a bigger push does to the bulb."
       ],
       "explanation": "Two cells give a bigger push than one, so more electricity flows through the bulb and it shines brighter. Too many cells for one bulb can make it burn out.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.circuits.004",
@@ -76,10 +121,21 @@
       "difficulty": 2,
       "prompt": "A circuit has one cell and one bulb. What happens if you add a second bulb in the same loop?",
       "options": [
-        { "text": "Both bulbs are brighter.", "why": "The same cell now has to push electricity through two bulbs, so each gets less." },
-        { "text": "Both bulbs are dimmer than the single bulb was." },
-        { "text": "Only the new bulb lights.", "why": "Both bulbs are in the same loop, so both light up together." },
-        { "text": "The cell gets stronger.", "why": "Adding a bulb does not change the cell." }
+        {
+          "text": "Both bulbs are brighter.",
+          "why": "The same cell now has to push electricity through two bulbs, so each gets less."
+        },
+        {
+          "text": "Both bulbs are dimmer than the single bulb was."
+        },
+        {
+          "text": "Only the new bulb lights.",
+          "why": "Both bulbs are in the same loop, so both light up together."
+        },
+        {
+          "text": "The cell gets stronger.",
+          "why": "Adding a bulb does not change the cell."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -88,7 +144,9 @@
         "Compare one bulb on one cell with two bulbs on one cell."
       ],
       "explanation": "With two bulbs in one loop, the same cell pushes less electricity through each bulb. Both bulbs light, but they are dimmer than one bulb on its own.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.circuits.005",
@@ -96,15 +154,40 @@
       "type": "sort",
       "difficulty": 4,
       "prompt": "Compare each circuit with a circuit of 1 cell and 1 bulb in one loop. Are its bulbs brighter, dimmer or about the same?",
-      "groups": ["Brighter", "Dimmer", "About the same"],
+      "groups": [
+        "Brighter",
+        "Dimmer",
+        "About the same"
+      ],
       "items": [
-        { "text": "2 cells, 1 bulb", "group": 0 },
-        { "text": "3 cells, 2 bulbs", "group": 0 },
-        { "text": "1 cell, 2 bulbs", "group": 1 },
-        { "text": "1 cell, 3 bulbs", "group": 1 },
-        { "text": "2 cells, 3 bulbs", "group": 1 },
-        { "text": "2 cells, 2 bulbs", "group": 2 },
-        { "text": "3 cells, 3 bulbs", "group": 2 }
+        {
+          "text": "2 cells, 1 bulb",
+          "group": 0
+        },
+        {
+          "text": "3 cells, 2 bulbs",
+          "group": 0
+        },
+        {
+          "text": "1 cell, 2 bulbs",
+          "group": 1
+        },
+        {
+          "text": "1 cell, 3 bulbs",
+          "group": 1
+        },
+        {
+          "text": "2 cells, 3 bulbs",
+          "group": 1
+        },
+        {
+          "text": "2 cells, 2 bulbs",
+          "group": 2
+        },
+        {
+          "text": "3 cells, 3 bulbs",
+          "group": 2
+        }
       ],
       "hints": [
         "More cells make bulbs brighter. More bulbs in one loop make them dimmer.",
@@ -112,7 +195,10 @@
         "Start with 2 cells and 2 bulbs. Each bulb gets one cell's worth of push."
       ],
       "explanation": "When there are more cells than bulbs, the bulbs are brighter, and when there are more bulbs than cells, they are dimmer. Equal numbers of cells and bulbs give about the same brightness as 1 cell and 1 bulb.",
-      "tags": ["checkpoint", "imso"]
+      "tags": [
+        "checkpoint",
+        "imso"
+      ]
     },
     {
       "id": "s6.circuits.006",
@@ -122,15 +208,30 @@
       "prompt": "Look at the circuit diagram. Which object, placed in the gap, would make the bulb light?",
       "figure": {
         "kind": "circuit",
-        "parts": ["battery", "bulb", "gap"],
+        "parts": [
+          "battery",
+          "bulb",
+          "gap"
+        ],
         "symbols": true,
         "alt": "A circuit diagram with a battery, a bulb and a gap where an object can be placed to complete the circuit."
       },
       "options": [
-        { "text": "a plastic ruler", "why": "Plastic is an electrical insulator, so it does not complete the circuit." },
-        { "text": "a rubber eraser", "why": "Rubber is an electrical insulator." },
-        { "text": "a dry wooden stick", "why": "Dry wood is an electrical insulator." },
-        { "text": "a steel key" }
+        {
+          "text": "a plastic ruler",
+          "why": "Plastic is an electrical insulator, so it does not complete the circuit."
+        },
+        {
+          "text": "a rubber eraser",
+          "why": "Rubber is an electrical insulator."
+        },
+        {
+          "text": "a dry wooden stick",
+          "why": "Dry wood is an electrical insulator."
+        },
+        {
+          "text": "a steel key"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -139,7 +240,9 @@
         "Look for the object made of metal."
       ],
       "explanation": "A steel key is made of metal, which is a good electrical conductor, so it completes the circuit. Plastic, rubber and dry wood are insulators.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.circuits.007",
@@ -156,7 +259,9 @@
         "Start with 2 cells: 1.5 + 1.5. Then add one more cell."
       ],
       "explanation": "Cells in a row add up, so 3 × 1.5 V = 4.5 V. A bigger voltage gives a bigger push to the electricity in the circuit.",
-      "tags": ["imso"]
+      "tags": [
+        "imso"
+      ]
     },
     {
       "id": "s6.circuits.008",
@@ -166,11 +271,26 @@
       "prompt": "Draw a circuit diagram using symbols. Put 2 cells, 1 bulb, 1 buzzer and an open switch in one loop.",
       "rubric": {
         "criteria": [
-          { "label": "Draws 2 correct cell symbols joined together", "points": 1 },
-          { "label": "Draws a correct bulb symbol", "points": 1 },
-          { "label": "Draws a correct buzzer symbol", "points": 1 },
-          { "label": "Draws a correct open switch symbol", "points": 1 },
-          { "label": "Joins every part in one complete loop with straight lines", "points": 2 }
+          {
+            "label": "Draws 2 correct cell symbols joined together",
+            "points": 1
+          },
+          {
+            "label": "Draws a correct bulb symbol",
+            "points": 1
+          },
+          {
+            "label": "Draws a correct buzzer symbol",
+            "points": 1
+          },
+          {
+            "label": "Draws a correct open switch symbol",
+            "points": 1
+          },
+          {
+            "label": "Joins every part in one complete loop with straight lines",
+            "points": 2
+          }
         ]
       },
       "background": "grid",
@@ -179,7 +299,9 @@
         "Draw the switch with its lever lifted to show that it is open."
       ],
       "explanation": "A circuit diagram uses standard symbols joined by straight lines in one loop. Because the switch is open, the bulb and buzzer would be off.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.circuits.009",
@@ -188,10 +310,21 @@
       "difficulty": 3,
       "prompt": "Kai builds a circuit with a cell, a bulb and a closed switch, but the bulb does not light. Which of these could explain it?",
       "options": [
-        { "text": "The bulb is broken." },
-        { "text": "The switch is closed.", "why": "A closed switch completes the circuit, so it helps the bulb light." },
-        { "text": "The wires are made of copper.", "why": "Copper is a good conductor, so it is the right material for wires." },
-        { "text": "The cell is brand new.", "why": "A new cell has plenty of energy to light the bulb." }
+        {
+          "text": "The bulb is broken."
+        },
+        {
+          "text": "The switch is closed.",
+          "why": "A closed switch completes the circuit, so it helps the bulb light."
+        },
+        {
+          "text": "The wires are made of copper.",
+          "why": "Copper is a good conductor, so it is the right material for wires."
+        },
+        {
+          "text": "The cell is brand new.",
+          "why": "A new cell has plenty of energy to light the bulb."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -200,7 +333,9 @@
         "Cross out the choices that describe parts working properly."
       ],
       "explanation": "A broken bulb has a snapped filament, which leaves a gap, so it cannot light. A closed switch, copper wires and a new cell all help the circuit to work.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.circuits.010",
@@ -209,10 +344,21 @@
       "difficulty": 5,
       "prompt": "A bulb is connected in one loop with two switches, A and B. When does the bulb light?",
       "options": [
-        { "text": "when either switch is closed", "why": "Both switches are in the same loop, so an open one still leaves a gap." },
-        { "text": "only when both switches are open", "why": "Open switches leave gaps, so no electricity can flow." },
-        { "text": "whenever switch A is closed", "why": "If switch B is open, there is still a gap in the loop." },
-        { "text": "only when both switches are closed" }
+        {
+          "text": "when either switch is closed",
+          "why": "Both switches are in the same loop, so an open one still leaves a gap."
+        },
+        {
+          "text": "only when both switches are open",
+          "why": "Open switches leave gaps, so no electricity can flow."
+        },
+        {
+          "text": "whenever switch A is closed",
+          "why": "If switch B is open, there is still a gap in the loop."
+        },
+        {
+          "text": "only when both switches are closed"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -221,7 +367,968 @@
         "Picture switch A closed and switch B open. Check whether there is still a gap."
       ],
       "explanation": "Both switches are in the same loop, so electricity must pass through both. If either switch is open there is a gap, so the bulb lights only when both are closed.",
-      "tags": ["iksc", "imso", "checkpoint"]
+      "tags": [
+        "iksc",
+        "imso",
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.circuits.011",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Electrical wires are covered in plastic. Why is plastic used?",
+      "options": [
+        {
+          "text": "Plastic is a conductor, so it carries the electricity.",
+          "why": "A conductor lets electricity pass. That is the job of the metal inside the wire."
+        },
+        {
+          "text": "Plastic makes the wire shiny.",
+          "why": "Appearance is not the reason. Think about what electricity does."
+        },
+        {
+          "text": "Plastic is an insulator, so it keeps electricity inside the wire and keeps us safe."
+        },
+        {
+          "text": "Plastic makes the cell last longer.",
+          "why": "The plastic does not change how long a cell lasts."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what happens if you touch a bare wire.",
+        "Is plastic a conductor or an insulator?",
+        "Decide what the cover should do to the electricity."
+      ],
+      "explanation": "Plastic is an insulator. It does not let electricity pass, so the electricity stays in the metal wire and we stay safe."
+    },
+    {
+      "id": "s6.circuits.012",
+      "skill": "s6.circuits",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "A circuit has 1 cell and 2 bulbs in one loop. The bulbs are dim. Choose 2 changes that would make them brighter.",
+      "options": [
+        {
+          "text": "Add a second cell in the same loop"
+        },
+        {
+          "text": "Take one bulb out of the loop"
+        },
+        {
+          "text": "Add a third bulb in the same loop"
+        },
+        {
+          "text": "Open the switch"
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "Bulbs get brighter when more push is shared by fewer bulbs.",
+        "Think about adding push and removing things that share it.",
+        "Check each change: does it add push or take it away?"
+      ],
+      "explanation": "A second cell adds push. Taking out a bulb means the cell pushes through fewer bulbs. A third bulb makes them dimmer and an open switch turns them off."
+    },
+    {
+      "id": "s6.circuits.013",
+      "skill": "s6.circuits",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets electricity pass through it easily is called an electrical ___.",
+      "blanks": [
+        {
+          "answers": [
+            "conductor",
+            "conductors",
+            "good conductor"
+          ]
+        }
+      ],
+      "hints": [
+        "Metals such as copper do this job inside a wire.",
+        "It is the opposite of an insulator.",
+        "Copper is an example of this kind of material."
+      ],
+      "explanation": "A conductor lets electricity flow easily. Metals are good conductors."
+    },
+    {
+      "id": "s6.circuits.014",
+      "skill": "s6.circuits",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A toy needs 4.5 V to work well. Each cell gives 1.5 V. How many cells in one row does the toy need?",
+      "answer": 3,
+      "hints": [
+        "The voltages of cells in a row add together.",
+        "Ask how many 1.5 V steps make 4.5 V.",
+        "Count in 1.5s: 1.5, 3, 4.5."
+      ],
+      "explanation": "Cells in a row add their voltages. 4.5 V divided by 1.5 V is 3 cells."
+    },
+    {
+      "id": "s6.circuits.015",
+      "skill": "s6.circuits",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Putri has two toy cars. Each car needs 6 V from 1.5 V cells in a row. A cell costs Rp3.000. How many Rupiah do the cells for both cars cost?",
+      "answer": 24000,
+      "hints": [
+        "Work out the cells for one car first.",
+        "Then double it for two cars before using the price.",
+        "6 V divided by 1.5 V gives the cells for one car."
+      ],
+      "explanation": "One car needs 6 divided by 1.5 which is 4 cells. Two cars need 8 cells. 8 cells at Rp3.000 each cost Rp24.000."
+    },
+    {
+      "id": "s6.circuits.016",
+      "skill": "s6.circuits",
+      "type": "table",
+      "difficulty": 2,
+      "caption": "Cells in a row and total voltage",
+      "prompt": "Each cell gives 1.5 V. Complete the table.",
+      "head": [
+        "Cells in a row",
+        "Voltage (V)"
+      ],
+      "rows": [
+        [
+          "1",
+          "1.5"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          ""
+        ],
+        [
+          "4",
+          ""
+        ],
+        [
+          "5",
+          "7.5"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "4.5"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "6"
+          ]
+        }
+      ],
+      "hints": [
+        "Each extra cell adds the same amount.",
+        "Look at how the voltage changes from 1 cell to 2 cells.",
+        "Add 1.5 V each time you add one cell."
+      ],
+      "explanation": "Each cell adds 1.5 V. Three cells give 4.5 V and four cells give 6 V."
+    },
+    {
+      "id": "s6.circuits.017",
+      "skill": "s6.circuits",
+      "type": "table",
+      "difficulty": 2,
+      "caption": "Materials tested in a gap",
+      "prompt": "Tom put each material in a gap in a circuit. Decide if each material is a conductor or an insulator.",
+      "head": [
+        "Material",
+        "Bulb lights?",
+        "Type"
+      ],
+      "rows": [
+        [
+          "Copper coin",
+          "Yes",
+          "conductor"
+        ],
+        [
+          "Plastic comb",
+          "No",
+          "insulator"
+        ],
+        [
+          "Steel spoon",
+          "Yes",
+          ""
+        ],
+        [
+          "Wooden stick",
+          "No",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "conductor"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "answers": [
+            "insulator"
+          ]
+        }
+      ],
+      "hints": [
+        "The bulb lights when electricity can pass through the material.",
+        "Look at the Bulb lights column for the missing rows.",
+        "Yes means the electricity got through."
+      ],
+      "explanation": "The bulb lit with the steel spoon, so steel is a conductor. It stayed off with wood, so wood is an insulator."
+    },
+    {
+      "id": "s6.circuits.018",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dewi wants to find out if the length of wire changes how bright a bulb is. She will change the length of the wire. What should she keep the same?",
+      "options": [
+        {
+          "text": "Nothing, because a fair test changes everything.",
+          "why": "A fair test changes only one thing. Everything else stays the same."
+        },
+        {
+          "text": "The length of the wire.",
+          "why": "That is the thing Dewi changes on purpose."
+        },
+        {
+          "text": "The number of cells and the type of bulb."
+        },
+        {
+          "text": "How bright the bulb looks.",
+          "why": "That is what she measures. It is the result."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A fair test changes one thing only.",
+        "Sort the things into: changed, measured, and kept the same.",
+        "Which parts of the circuit could also change the brightness?"
+      ],
+      "explanation": "In a fair test only one variable changes. The cells and bulb must stay the same so any change in brightness is caused by the wire length."
+    },
+    {
+      "id": "s6.circuits.019",
+      "skill": "s6.circuits",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these circuits in order, from the dimmest bulbs to the brightest bulbs.",
+      "items": [
+        "1 cell, 3 bulbs",
+        "1 cell, 2 bulbs",
+        "1 cell, 1 bulb",
+        "2 cells, 1 bulb",
+        "3 cells, 1 bulb"
+      ],
+      "hints": [
+        "More bulbs in one loop make each bulb dimmer.",
+        "More cells make bulbs brighter.",
+        "Start with the circuit that has the most bulbs sharing the fewest cells."
+      ],
+      "explanation": "Three bulbs sharing one cell are the dimmest. One bulb with three cells has the most push for one bulb, so it is the brightest."
+    },
+    {
+      "id": "s6.circuits.020",
+      "skill": "s6.circuits",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of this circuit.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 60,
+            "x2": 130,
+            "y2": 60,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 60,
+            "x2": 260,
+            "y2": 60,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 60,
+            "x2": 260,
+            "y2": 112,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 148,
+            "x2": 260,
+            "y2": 200,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 60,
+            "x2": 60,
+            "y2": 112,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 148,
+            "x2": 60,
+            "y2": 200,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 200,
+            "x2": 260,
+            "y2": 200,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 60,
+            "r": 24,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 44,
+            "y1": 122,
+            "x2": 76,
+            "y2": 122,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 52,
+            "y1": 138,
+            "x2": 68,
+            "y2": 138,
+            "tone": "warn",
+            "width": 7
+          },
+          {
+            "t": "line",
+            "x1": 143,
+            "y1": 43,
+            "x2": 177,
+            "y2": 77,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 177,
+            "y1": 43,
+            "x2": 143,
+            "y2": 77,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "circle",
+            "cx": 260,
+            "cy": 112,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 260,
+            "cy": 148,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 148,
+            "x2": 282,
+            "y2": 118,
+            "tone": "science",
+            "width": 4
+          }
+        ],
+        "alt": "A rectangular loop of wire. On the left side is a cell drawn as a long line and a short thick line. At the top middle is a round yellow bulb with a cross inside. On the right side is a switch drawn with its lever lifted."
+      },
+      "labels": [
+        "cell",
+        "bulb",
+        "switch"
+      ],
+      "spots": [
+        {
+          "x": 18.8,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 23.1
+        },
+        {
+          "x": 81.3,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "buzzer"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The bulb is round and gives out light.",
+        "The cell is on the left side of the loop."
+      ],
+      "explanation": "The cell is on the left, the round bulb is at the top and the switch sits on the right side of the loop."
+    },
+    {
+      "id": "s6.circuits.021",
+      "skill": "s6.circuits",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Rangga built this circuit but the bulb will not light. Tap the place where the circuit is broken.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 60,
+            "x2": 130,
+            "y2": 60,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 60,
+            "x2": 260,
+            "y2": 60,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 60,
+            "x2": 260,
+            "y2": 112,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 148,
+            "x2": 260,
+            "y2": 200,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 60,
+            "x2": 60,
+            "y2": 112,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 148,
+            "x2": 60,
+            "y2": 200,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 200,
+            "x2": 125,
+            "y2": 200,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 195,
+            "y1": 200,
+            "x2": 260,
+            "y2": 200,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "rect",
+            "x": 46,
+            "y": 112,
+            "w": 28,
+            "h": 36,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 60,
+            "r": 24,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 247,
+            "y": 112,
+            "w": 26,
+            "h": 36,
+            "r": 4,
+            "tone": "science",
+            "fill": "light"
+          }
+        ],
+        "alt": "A loop of wire with a cell on the left, a bulb at the top and a switch on the right. The wire along the bottom has a space in the middle where two ends do not meet."
+      },
+      "regions": [
+        {
+          "label": "bulb",
+          "x": 50,
+          "y": 23.1,
+          "w": 20,
+          "h": 18
+        },
+        {
+          "label": "wire along the bottom",
+          "x": 50,
+          "y": 76.9,
+          "w": 28,
+          "h": 16
+        },
+        {
+          "label": "cell",
+          "x": 18.8,
+          "y": 50,
+          "w": 16,
+          "h": 22
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "Electricity needs a complete loop.",
+        "Look for the place where two wire ends do not touch.",
+        "Follow the wire all the way round with your finger."
+      ],
+      "explanation": "The two wire ends along the bottom do not touch. A gap stops the electricity flowing, so the bulb stays off."
+    },
+    {
+      "id": "s6.circuits.022",
+      "skill": "s6.circuits",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each circuit component to its job.",
+      "pairs": [
+        [
+          "cell",
+          "pushes electricity around the circuit"
+        ],
+        [
+          "switch",
+          "opens or closes the circuit"
+        ],
+        [
+          "bulb",
+          "gives out light"
+        ],
+        [
+          "buzzer",
+          "makes a sound"
+        ]
+      ],
+      "hints": [
+        "Think about what you notice when each part is working.",
+        "Start with the part you press to turn things on and off.",
+        "The cell is the part that provides the push."
+      ],
+      "explanation": "The cell gives the push, the switch makes or breaks the loop, the bulb makes light and the buzzer makes sound."
+    },
+    {
+      "id": "s6.circuits.023",
+      "skill": "s6.circuits",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Electricity flows only around a complete ___. If there is a ___ in the wire, the bulb goes out.",
+      "gaps": [
+        {
+          "options": [
+            "loop",
+            "line",
+            "cell"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "gap",
+            "bulb",
+            "cell"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "A circuit has to go all the way round.",
+        "Think about what a broken wire leaves behind.",
+        "The first word describes a shape that has no end."
+      ],
+      "explanation": "The electricity needs a complete loop. A gap in the wire breaks the loop so nothing flows."
+    },
+    {
+      "id": "s6.circuits.024",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Two bulbs are in one loop with a cell and a closed switch. Both bulbs are lit. One bulb breaks and its wire inside snaps. What happens to the other bulb?",
+      "options": [
+        {
+          "text": "It gets brighter, because it gets all the push.",
+          "why": "The loop is broken, so nothing flows at all."
+        },
+        {
+          "text": "It stays lit, because it has its own wire.",
+          "why": "Both bulbs are in the same single loop."
+        },
+        {
+          "text": "It goes out, because the loop is now broken."
+        },
+        {
+          "text": "It flickers on and off.",
+          "why": "Nothing keeps flowing in a broken loop."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Are the bulbs on one loop or two?",
+        "What happens to a loop if a wire inside one bulb snaps?",
+        "Picture a gap in the loop."
+      ],
+      "explanation": "The two bulbs are in one loop. When one bulb breaks it makes a gap, so the electricity stops and both bulbs go out."
+    },
+    {
+      "id": "s6.circuits.025",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Joko says: \"The bulb uses up all the electricity, so none goes back to the cell.\" Which statement is best?",
+      "options": [
+        {
+          "text": "He is right, because the bulb is the end of the circuit.",
+          "why": "A circuit has no end. It is a loop."
+        },
+        {
+          "text": "He is right, because wires cannot carry electricity back.",
+          "why": "Wires carry electricity in a full loop."
+        },
+        {
+          "text": "He is wrong, because only the cell lets electricity flow.",
+          "why": "The cell gives the push but the flow needs the whole loop."
+        },
+        {
+          "text": "He is wrong, because electricity flows all the way round the loop and the bulb changes its energy into light and heat."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A circuit is a loop with no start or finish.",
+        "Does the amount flowing change as it goes round?",
+        "Think about what the bulb changes, not what it uses up."
+      ],
+      "explanation": "Electricity flows all the way round the loop. The bulb changes electrical energy into light and heat, but the electricity itself is not used up."
+    },
+    {
+      "id": "s6.circuits.026",
+      "skill": "s6.circuits",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The part of a circuit that gives the electricity its push is the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "cell",
+            "battery",
+            "cells",
+            "batteries"
+          ]
+        }
+      ],
+      "hints": [
+        "It is the part that stores energy.",
+        "A torch needs one or more to work.",
+        "It is the part you put in a torch to make it work."
+      ],
+      "explanation": "The cell (or battery) gives the push that makes electricity flow."
+    },
+    {
+      "id": "s6.circuits.027",
+      "skill": "s6.circuits",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort these into electrical conductors and electrical insulators.",
+      "groups": [
+        "Conductor",
+        "Insulator"
+      ],
+      "items": [
+        {
+          "text": "copper coin",
+          "group": 0
+        },
+        {
+          "text": "glass",
+          "group": 1
+        },
+        {
+          "text": "steel paperclip",
+          "group": 0
+        },
+        {
+          "text": "rubber eraser",
+          "group": 1
+        },
+        {
+          "text": "pencil lead (graphite)",
+          "group": 0
+        },
+        {
+          "text": "dry wood",
+          "group": 1
+        },
+        {
+          "text": "aluminium foil",
+          "group": 0
+        },
+        {
+          "text": "plastic spoon",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Most metals are conductors.",
+        "One non-metal on the list is also a conductor.",
+        "Pencil lead is made of graphite, which does let electricity pass."
+      ],
+      "explanation": "Metals conduct. Graphite, the pencil lead, also conducts. Glass, rubber, dry wood and plastic are insulators."
+    },
+    {
+      "id": "s6.circuits.028",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Wulan tested four materials in a gap in a circuit with one cell and one bulb. She wrote down how the bulb looked. Which conclusion does her evidence best support?",
+      "options": [
+        {
+          "text": "A and B are conductors, and A is a better conductor than B."
+        },
+        {
+          "text": "A and B are insulators.",
+          "why": "The bulb lit up with A and B, so electricity was passing through them."
+        },
+        {
+          "text": "C is a better conductor than D.",
+          "why": "Neither C nor D let the bulb light, so both look like insulators."
+        },
+        {
+          "text": "A is an insulator because it made the bulb brightest.",
+          "why": "A bright bulb means more electricity passed through A."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Bulb on means electricity is flowing through the material.",
+        "Brighter means more electricity gets through.",
+        "Look at which bulbs lit and compare how bright they were."
+      ],
+      "explanation": "The bulb lit with A and B, so they conduct. It was brighter with A, so A conducts better. C and D did not light the bulb, so they are insulators.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Material",
+          "Bulb"
+        ],
+        "rows": [
+          [
+            "A",
+            "Very bright"
+          ],
+          [
+            "B",
+            "Dim"
+          ],
+          [
+            "C",
+            "Off"
+          ],
+          [
+            "D",
+            "Off"
+          ]
+        ],
+        "alt": "A table of four materials. Material A made the bulb very bright, B made it dim, and C and D left it off."
+      }
+    },
+    {
+      "id": "s6.circuits.801",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A cell in a circuit pushes electricity around the loop.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What provides energy?",
+        "Is a battery a cell?",
+        "The cell gives energy."
+      ],
+      "explanation": "The cell provides the energy. A circuit works only if it is complete.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.circuits.802",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Adding more cells to a series circuit makes the bulb dimmer.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do cells give a circuit?",
+        "More push means more or less light?",
+        "More cells make the bulb brighter."
+      ],
+      "explanation": "More cells give more push to the electricity, so the bulb gets brighter, not dimmer.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.circuits.803",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Adding more bulbs in a series circuit makes each bulb dimmer.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How is the energy shared?",
+        "More bulbs in one loop.",
+        "Each bulb is dimmer."
+      ],
+      "explanation": "The energy from the cell is shared between the bulbs, so each one gets less.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.circuits.804",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The circuit symbol for a switch is a circle with a cross.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does the cross circle show?",
+        "Switch has a gap.",
+        "It is a bulb."
+      ],
+      "explanation": "A circle with a cross is the symbol for a lamp (bulb). A switch is drawn as a line with a gap.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

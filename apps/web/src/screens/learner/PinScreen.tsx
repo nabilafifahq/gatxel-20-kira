@@ -189,7 +189,7 @@ export function PinScreen({
         </section>
 
         {locked ? (
-          <section role="alert" className="flex w-full max-w-[440px] flex-col items-center gap-3.5 rounded-card border border-divider bg-surface px-6 py-9 text-center sm:px-8">
+          <section role="alert" className="flex w-full max-w-[440px] flex-col items-center gap-3.5 rounded-card bg-surface shadow-soft px-6 py-9 text-center sm:px-8">
             <span className="flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg bg-bg">
               <UiIcon name="lock" size={48} strokeWidth={1.75} />
             </span>

@@ -436,60 +436,6 @@
       ]
     },
     {
-      "id": "e1.naming-doing-words.016",
-      "skill": "e1.naming-doing-words",
-      "type": "mcq",
-      "difficulty": 1,
-      "prompt": "Which word is a naming word?",
-      "hints": [
-        "A naming word is a person, animal or thing.",
-        "You can see it.",
-        "It has wings."
-      ],
-      "explanation": "Bird is a naming word.",
-      "options": [
-        {
-          "text": "bird"
-        },
-        {
-          "text": "run",
-          "why": "Run is a doing word."
-        },
-        {
-          "text": "red",
-          "why": "Red tells us what it looks like."
-        }
-      ],
-      "answer": 0
-    },
-    {
-      "id": "e1.naming-doing-words.017",
-      "skill": "e1.naming-doing-words",
-      "type": "mcq",
-      "difficulty": 1,
-      "prompt": "Which word is a doing word?",
-      "hints": [
-        "A doing word is something you do.",
-        "You can do it with your legs.",
-        "It starts with j."
-      ],
-      "explanation": "Jump is a doing word.",
-      "options": [
-        {
-          "text": "hat",
-          "why": "A hat is a thing."
-        },
-        {
-          "text": "cat",
-          "why": "A cat is an animal."
-        },
-        {
-          "text": "jump"
-        }
-      ],
-      "answer": 2
-    },
-    {
       "id": "e1.naming-doing-words.018",
       "skill": "e1.naming-doing-words",
       "type": "mcq",
@@ -921,6 +867,165 @@
       "extraLabels": [
         "pig"
       ]
+    },
+    {
+      "id": "e1.naming-doing-words.801",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word dog is a naming word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does the word name?",
+        "You can see a dog.",
+        "Dog is a naming word."
+      ],
+      "explanation": "A naming word, or noun, names a person, animal or thing. Dog is an animal.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.naming-doing-words.802",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word run is a naming word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you do it?",
+        "You can run fast.",
+        "Run is a doing word."
+      ],
+      "explanation": "Run is a doing word because it tells what someone does.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.naming-doing-words.803",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word jump is a doing word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you jump?",
+        "It is an action.",
+        "Jump is a doing word."
+      ],
+      "explanation": "Doing words, or verbs, tell us what someone does, like jump.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.naming-doing-words.804",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word red is a doing word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you red?",
+        "Red tells the colour.",
+        "It describes."
+      ],
+      "explanation": "Red is a describing word because it tells us what something looks like.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.naming-doing-words.805",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In the sentence \"The big cat sat\", the word big is a describing word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which word tells us about the cat?",
+        "What size is the cat?",
+        "Big describes the cat."
+      ],
+      "explanation": "Big tells us more about the cat, so it is a describing word.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.naming-doing-words.701",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is a doing word?",
+      "options": [
+        {
+          "text": "red"
+        },
+        {
+          "text": "run"
+        },
+        {
+          "text": "cat"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A doing word is an action.",
+        "You can do it.",
+        "You can run."
+      ],
+      "explanation": "Run is an action, so it is a doing word.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

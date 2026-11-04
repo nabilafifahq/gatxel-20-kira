@@ -7,16 +7,43 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort these changes into reversible and irreversible.",
-      "groups": ["Reversible", "Irreversible"],
+      "groups": [
+        "Reversible",
+        "Irreversible"
+      ],
       "items": [
-        { "text": "melting butter", "group": 0 },
-        { "text": "freezing water", "group": 0 },
-        { "text": "dissolving sugar in water", "group": 0 },
-        { "text": "melting batik wax", "group": 0 },
-        { "text": "burning paper", "group": 1 },
-        { "text": "cooking an egg", "group": 1 },
-        { "text": "baking a cake", "group": 1 },
-        { "text": "an iron nail rusting", "group": 1 }
+        {
+          "text": "melting butter",
+          "group": 0
+        },
+        {
+          "text": "freezing water",
+          "group": 0
+        },
+        {
+          "text": "dissolving sugar in water",
+          "group": 0
+        },
+        {
+          "text": "melting batik wax",
+          "group": 0
+        },
+        {
+          "text": "burning paper",
+          "group": 1
+        },
+        {
+          "text": "cooking an egg",
+          "group": 1
+        },
+        {
+          "text": "baking a cake",
+          "group": 1
+        },
+        {
+          "text": "an iron nail rusting",
+          "group": 1
+        }
       ],
       "hints": [
         "A reversible change can be undone. An irreversible change makes a new material.",
@@ -24,7 +51,10 @@
         "Start with melting butter. Think about what happens when it cools down."
       ],
       "explanation": "Melting, freezing and dissolving can be reversed, so no new material is made. Burning, cooking, baking and rusting make new materials that cannot easily be turned back.",
-      "tags": ["checkpoint", "osn-sd"]
+      "tags": [
+        "checkpoint",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.reversible-changes.002",
@@ -33,10 +63,21 @@
       "difficulty": 1,
       "prompt": "Which change makes a new material?",
       "options": [
-        { "text": "melting ice", "why": "Melted ice can be frozen again. It is still water." },
-        { "text": "dissolving salt in water", "why": "You can get the salt back by evaporating the water." },
-        { "text": "burning wood" },
-        { "text": "folding paper", "why": "The paper has a new shape, but it is still paper." }
+        {
+          "text": "melting ice",
+          "why": "Melted ice can be frozen again. It is still water."
+        },
+        {
+          "text": "dissolving salt in water",
+          "why": "You can get the salt back by evaporating the water."
+        },
+        {
+          "text": "burning wood"
+        },
+        {
+          "text": "folding paper",
+          "why": "The paper has a new shape, but it is still paper."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -45,7 +86,9 @@
         "Cross out the changes you could undo by cooling, evaporating or unfolding."
       ],
       "explanation": "Burning wood makes new materials such as ash, smoke and gases. They cannot be turned back into wood, so burning is an irreversible change.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.reversible-changes.003",
@@ -54,10 +97,21 @@
       "difficulty": 2,
       "prompt": "Ayu adds vinegar to baking soda. The mixture fizzes and bubbles. What do the bubbles show?",
       "options": [
-        { "text": "A new substance, the gas carbon dioxide, is being made." },
-        { "text": "The vinegar is boiling.", "why": "The mixture does not get hot. In fact, it gets a little colder." },
-        { "text": "Air is escaping from the baking soda.", "why": "The gas is new. It is made by the reaction." },
-        { "text": "The baking soda is melting.", "why": "Melting needs heat. The bubbles show that a new gas is forming." }
+        {
+          "text": "A new substance, the gas carbon dioxide, is being made."
+        },
+        {
+          "text": "The vinegar is boiling.",
+          "why": "The mixture does not get hot. In fact, it gets a little colder."
+        },
+        {
+          "text": "Air is escaping from the baking soda.",
+          "why": "The gas is new. It is made by the reaction."
+        },
+        {
+          "text": "The baking soda is melting.",
+          "why": "Melting needs heat. The bubbles show that a new gas is forming."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -66,7 +120,10 @@
         "Look for the choice that describes a brand-new material forming."
       ],
       "explanation": "The bubbles are carbon dioxide gas, a new substance made when vinegar reacts with baking soda. Making a new substance is a sign of an irreversible change.",
-      "tags": ["iksc", "checkpoint"]
+      "tags": [
+        "iksc",
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.reversible-changes.004",
@@ -75,20 +132,38 @@
       "difficulty": 2,
       "prompt": "Choose all the changes that can be reversed.",
       "options": [
-        { "text": "chocolate melting" },
-        { "text": "water evaporating from a puddle" },
-        { "text": "salt dissolving in water" },
-        { "text": "bread toasting", "why": "Toasting makes new brown materials that cannot turn back into soft bread." },
-        { "text": "a match burning", "why": "Burning makes ash, smoke and gases, which cannot become a match again." }
+        {
+          "text": "chocolate melting"
+        },
+        {
+          "text": "water evaporating from a puddle"
+        },
+        {
+          "text": "salt dissolving in water"
+        },
+        {
+          "text": "bread toasting",
+          "why": "Toasting makes new brown materials that cannot turn back into soft bread."
+        },
+        {
+          "text": "a match burning",
+          "why": "Burning makes ash, smoke and gases, which cannot become a match again."
+        }
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "hints": [
         "Reversible changes include changes of state and dissolving.",
         "Ask whether the material is still the same material after the change.",
         "Check each change: could cooling, freezing or evaporating get it back?"
       ],
       "explanation": "Melting, evaporating and dissolving can all be reversed. Toasting and burning make new materials, so they are irreversible.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.reversible-changes.005",
@@ -97,10 +172,21 @@
       "difficulty": 3,
       "prompt": "Which things must be present for iron to rust?",
       "options": [
-        { "text": "iron, salt and sunlight", "why": "Salt speeds up rusting, but sunlight is not needed." },
-        { "text": "iron, heat and sand", "why": "Heat and sand are not needed for rusting." },
-        { "text": "iron and oil", "why": "Oil keeps water and air away from iron, so it stops rusting." },
-        { "text": "iron, water and oxygen" }
+        {
+          "text": "iron, salt and sunlight",
+          "why": "Salt speeds up rusting, but sunlight is not needed."
+        },
+        {
+          "text": "iron, heat and sand",
+          "why": "Heat and sand are not needed for rusting."
+        },
+        {
+          "text": "iron and oil",
+          "why": "Oil keeps water and air away from iron, so it stops rusting."
+        },
+        {
+          "text": "iron, water and oxygen"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -109,7 +195,9 @@
         "Cross out the choice that would stop rusting altogether."
       ],
       "explanation": "Iron rusts when it reacts with both water and oxygen from the air. Rust is a new material, so rusting is an irreversible change.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.reversible-changes.006",
@@ -120,20 +208,51 @@
       "figure": {
         "kind": "table",
         "caption": "Iron nails after one week",
-        "head": ["Tube", "Conditions", "Rust"],
+        "head": [
+          "Tube",
+          "Conditions",
+          "Rust"
+        ],
         "rows": [
-          ["A", "dry air only", "none"],
-          ["B", "boiled water under oil, no air", "none"],
-          ["C", "water and air", "some"],
-          ["D", "salty water and air", "a lot"]
+          [
+            "A",
+            "dry air only",
+            "none"
+          ],
+          [
+            "B",
+            "boiled water under oil, no air",
+            "none"
+          ],
+          [
+            "C",
+            "water and air",
+            "some"
+          ],
+          [
+            "D",
+            "salty water and air",
+            "a lot"
+          ]
         ],
         "alt": "Table of results. Tube A, dry air only: no rust. Tube B, boiled water under a layer of oil with no air: no rust. Tube C, water and air: some rust. Tube D, salty water and air: a lot of rust."
       },
       "options": [
-        { "text": "Iron rusts in dry air.", "why": "The nail in dry air, in tube A, did not rust." },
-        { "text": "Iron needs both water and air to rust, and salt makes it rust faster." },
-        { "text": "Iron only needs water to rust.", "why": "The nail in water with no air, in tube B, did not rust." },
-        { "text": "Salt stops iron from rusting.", "why": "Tube D, with salty water, rusted the most." }
+        {
+          "text": "Iron rusts in dry air.",
+          "why": "The nail in dry air, in tube A, did not rust."
+        },
+        {
+          "text": "Iron needs both water and air to rust, and salt makes it rust faster."
+        },
+        {
+          "text": "Iron only needs water to rust.",
+          "why": "The nail in water with no air, in tube B, did not rust."
+        },
+        {
+          "text": "Salt stops iron from rusting.",
+          "why": "Tube D, with salty water, rusted the most."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -142,7 +261,10 @@
         "Compare tube C with tube D to see what salt does."
       ],
       "explanation": "No rust formed without water (tube A) or without air (tube B), so iron needs both. Tube D rusted most, so salt makes rusting faster.",
-      "tags": ["checkpoint", "imso"]
+      "tags": [
+        "checkpoint",
+        "imso"
+      ]
     },
     {
       "id": "s6.reversible-changes.007",
@@ -151,10 +273,21 @@
       "difficulty": 3,
       "prompt": "A small pan of oil catches fire on a stove. Why does sliding a lid over the pan put the fire out?",
       "options": [
-        { "text": "It cools the oil to below freezing.", "why": "A lid does not freeze the oil. It cuts off the air supply." },
-        { "text": "It takes the oil away.", "why": "The oil is still in the pan. The lid cuts off the air." },
-        { "text": "It stops oxygen in the air from reaching the fire." },
-        { "text": "It adds water vapour to the pan.", "why": "A lid adds no water. It stops air reaching the flames." }
+        {
+          "text": "It cools the oil to below freezing.",
+          "why": "A lid does not freeze the oil. It cuts off the air supply."
+        },
+        {
+          "text": "It takes the oil away.",
+          "why": "The oil is still in the pan. The lid cuts off the air."
+        },
+        {
+          "text": "It stops oxygen in the air from reaching the fire."
+        },
+        {
+          "text": "It adds water vapour to the pan.",
+          "why": "A lid adds no water. It stops air reaching the flames."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -164,7 +297,9 @@
       ],
       "explanation": "Fire needs fuel, heat and oxygen. The lid stops oxygen from the air reaching the burning oil, so the fire goes out.",
       "tip": "Never pour water on burning oil. An adult should cover the pan and turn off the heat.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.reversible-changes.008",
@@ -173,10 +308,21 @@
       "difficulty": 4,
       "prompt": "Which of these is a reversible change?",
       "options": [
-        { "text": "milk going sour", "why": "Microorganisms make new substances in sour milk, so it cannot become fresh again." },
-        { "text": "clay being fired in a kiln to make a pot", "why": "Firing turns soft clay into hard pottery that cannot become soft clay again." },
-        { "text": "concrete setting hard", "why": "Setting concrete forms new materials that cannot turn back into wet cement." },
-        { "text": "water vapour condensing on a cold window" }
+        {
+          "text": "milk going sour",
+          "why": "Microorganisms make new substances in sour milk, so it cannot become fresh again."
+        },
+        {
+          "text": "clay being fired in a kiln to make a pot",
+          "why": "Firing turns soft clay into hard pottery that cannot become soft clay again."
+        },
+        {
+          "text": "concrete setting hard",
+          "why": "Setting concrete forms new materials that cannot turn back into wet cement."
+        },
+        {
+          "text": "water vapour condensing on a cold window"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -194,10 +340,22 @@
       "prompt": "Melting ice and cooking an egg both need heat. Explain why one change is reversible and the other is irreversible.",
       "rubric": {
         "criteria": [
-          { "label": "Says melting ice is reversible and cooking an egg is irreversible", "points": 1 },
-          { "label": "Explains that melted ice can be frozen back into ice", "points": 2 },
-          { "label": "Explains that cooking makes new materials in the egg", "points": 2 },
-          { "label": "Uses the words reversible and irreversible correctly", "points": 1 }
+          {
+            "label": "Says melting ice is reversible and cooking an egg is irreversible",
+            "points": 1
+          },
+          {
+            "label": "Explains that melted ice can be frozen back into ice",
+            "points": 2
+          },
+          {
+            "label": "Explains that cooking makes new materials in the egg",
+            "points": 2
+          },
+          {
+            "label": "Uses the words reversible and irreversible correctly",
+            "points": 1
+          }
         ]
       },
       "minWords": 30,
@@ -213,7 +371,9 @@
         "Ask which change makes a new material."
       ],
       "explanation": "Melted ice is still water, so cooling turns it back into ice. Heat makes new materials in an egg, so cooling a cooked egg never makes it raw again.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.reversible-changes.010",
@@ -229,7 +389,721 @@
         "Add the mass of the vinegar to the mass of the baking soda."
       ],
       "explanation": "Nothing can get in or out of the sealed bag, so the total mass stays the same: 20 g + 5 g = 25 g. The new gas has mass too, and it is trapped inside the bag.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.reversible-changes.011",
+      "skill": "s6.reversible-changes",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the one that changes for ever when it is heated and cooked.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 150,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "ice-cube",
+            "x": 22,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 50,
+            "y": 112,
+            "text": "ice cube",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "egg",
+            "x": 122,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 150,
+            "y": 112,
+            "text": "egg",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "water-drop",
+            "x": 222,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 250,
+            "y": 112,
+            "text": "water",
+            "size": 13
+          }
+        ],
+        "alt": "An ice cube, an egg and a drop of water in a row with their names under them."
+      },
+      "regions": [
+        {
+          "label": "ice cube",
+          "x": 16.7,
+          "y": 43.3,
+          "w": 26.7,
+          "h": 66.7
+        },
+        {
+          "label": "egg",
+          "x": 50,
+          "y": 43.3,
+          "w": 26.7,
+          "h": 66.7
+        },
+        {
+          "label": "water",
+          "x": 83.3,
+          "y": 43.3,
+          "w": 26.7,
+          "h": 66.7
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "Which one changes into something new when cooked?",
+        "Ice and water can change back and forth.",
+        "Think about frying an egg."
+      ],
+      "explanation": "Cooking an egg makes a new material that cannot go back. Ice and water can change back."
+    },
+    {
+      "id": "s6.reversible-changes.012",
+      "skill": "s6.reversible-changes",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of this set-up for getting salt out of salty water.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "steam",
+            "x": 122,
+            "y": 58,
+            "size": 56
+          },
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 140,
+            "w": 120,
+            "h": 40,
+            "r": 18,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 105,
+            "y1": 153,
+            "x2": 195,
+            "y2": 153,
+            "width": 2,
+            "tone": "science"
+          },
+          {
+            "t": "icon",
+            "icon": "candle",
+            "x": 126,
+            "y": 190,
+            "size": 48
+          }
+        ],
+        "alt": "A shallow dish of liquid with steam rising from it and a candle burning underneath it."
+      },
+      "labels": [
+        "water vapour",
+        "salt solution",
+        "heat source"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 33.1
+        },
+        {
+          "x": 50,
+          "y": 61.5
+        },
+        {
+          "x": 50,
+          "y": 82.3
+        }
+      ],
+      "extraLabels": [
+        "filter paper"
+      ],
+      "hints": [
+        "What rises from the dish when it is heated?",
+        "The liquid is in the bowl.",
+        "The candle gives the heat."
+      ],
+      "explanation": "Heat from the candle makes the water in the salt solution evaporate into water vapour. The salt is left behind."
+    },
+    {
+      "id": "s6.reversible-changes.013",
+      "skill": "s6.reversible-changes",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table: can each change be reversed?",
+      "head": [
+        "Change",
+        "Reversible?"
+      ],
+      "rows": [
+        [
+          "Melting chocolate",
+          "yes"
+        ],
+        [
+          "Baking a cake",
+          ""
+        ],
+        [
+          "Dissolving sugar",
+          ""
+        ],
+        [
+          "Burning wood",
+          ""
+        ],
+        [
+          "Freezing juice",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "yes"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "yes"
+          ]
+        }
+      ],
+      "hints": [
+        "Ask whether a new material is formed.",
+        "Changes of state and dissolving can usually be undone.",
+        "Baking and burning make new materials."
+      ],
+      "explanation": "Dissolving and freezing can be undone. Baking and burning make new materials that cannot go back."
+    },
+    {
+      "id": "s6.reversible-changes.014",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ayu stirs salt into water until it disappears. How can she get the salt back?",
+      "options": [
+        {
+          "text": "Freeze the water.",
+          "why": "Freezing the solution does not remove the water to leave the salt."
+        },
+        {
+          "text": "Pour the water through a filter.",
+          "why": "Dissolved salt passes through the filter paper with the water."
+        },
+        {
+          "text": "Let the water evaporate."
+        },
+        {
+          "text": "Add more water.",
+          "why": "Adding water makes the solution weaker."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The salt is still in the water.",
+        "What must happen to the water?",
+        "Water leaves as vapour when it is heated or left to dry."
+      ],
+      "explanation": "The salt dissolved but did not go away. When the water evaporates, the salt is left behind."
+    },
+    {
+      "id": "s6.reversible-changes.015",
+      "skill": "s6.reversible-changes",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 signs that a new material has been made.",
+      "options": [
+        {
+          "text": "Bubbles of gas form without heating"
+        },
+        {
+          "text": "The colour changes for good"
+        },
+        {
+          "text": "A solid forms when two clear liquids are mixed"
+        },
+        {
+          "text": "Ice melts into water",
+          "why": "This is a change of state, so no new material is made."
+        },
+        {
+          "text": "Sugar dissolves in tea",
+          "why": "The sugar is still there, just mixed in."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "New materials often show a gas, a colour change or a solid.",
+        "Melting and dissolving are usually reversible.",
+        "Choose the ones that are not state changes."
+      ],
+      "explanation": "Gas, a lasting colour change and a new solid are signs of a new material. Melting and dissolving are reversible."
+    },
+    {
+      "id": "s6.reversible-changes.016",
+      "skill": "s6.reversible-changes",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these steps in order to separate a dry mixture of sand, salt and iron filings.",
+      "items": [
+        "Use a magnet to remove the iron filings",
+        "Add water and stir to dissolve the salt",
+        "Filter the mixture to catch the sand",
+        "Heat the salt solution to evaporate the water",
+        "Salt crystals are left in the dish"
+      ],
+      "hints": [
+        "The magnet works best while the mixture is still dry.",
+        "Dissolve the salt before filtering.",
+        "Evaporate last."
+      ],
+      "explanation": "Use the magnet first. Then dissolve the salt and filter off the sand. Evaporating the water leaves the salt."
+    },
+    {
+      "id": "s6.reversible-changes.017",
+      "skill": "s6.reversible-changes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Wulan weighs an open cup of vinegar and baking soda: 120 g. After the fizzing stops, the mass is 116 g. How many grams of gas escaped?",
+      "answer": 4,
+      "hints": [
+        "The gas went into the air.",
+        "Find the difference in mass.",
+        "Take the second number from the first."
+      ],
+      "explanation": "120 − 116 = 4 g. The gas escaped into the air.",
+      "unit": "g"
+    },
+    {
+      "id": "s6.reversible-changes.018",
+      "skill": "s6.reversible-changes",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Tom dissolves 12 g of salt in 150 g of water. What is the total mass of the salt solution?",
+      "answer": 162,
+      "hints": [
+        "No material is lost when something dissolves.",
+        "Add the masses.",
+        "150 + 12."
+      ],
+      "explanation": "Dissolving does not make the mass disappear. 150 + 12 = 162 g.",
+      "unit": "g"
+    },
+    {
+      "id": "s6.reversible-changes.019",
+      "skill": "s6.reversible-changes",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Water vapour turns back to liquid water when it cools. This is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "condensation",
+            "condensing"
+          ]
+        }
+      ],
+      "hints": [
+        "It happens on a cold window.",
+        "It is the opposite of evaporation.",
+        "The word begins with con."
+      ],
+      "explanation": "Condensation is when a gas cools and turns to liquid."
+    },
+    {
+      "id": "s6.reversible-changes.020",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Kofi dissolves sugar in water at different temperatures and times it. The results are in the table. Which conclusion do the data support?",
+      "options": [
+        {
+          "text": "Sugar will dissolve in any liquid.",
+          "why": "Only water was tested."
+        },
+        {
+          "text": "Sugar dissolved faster in warmer water in this test."
+        },
+        {
+          "text": "Warm water makes the sugar disappear for ever.",
+          "why": "The sugar is still there and could be got back."
+        },
+        {
+          "text": "Cold water cannot dissolve sugar.",
+          "why": "It dissolved in 20 °C water, only slowly."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Read the times in order of temperature.",
+        "A shorter time means faster.",
+        "Only use what the table shows."
+      ],
+      "explanation": "The time fell as the temperature rose: 120 s, 70 s, 30 s. That is all the test shows.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Water temperature (°C)",
+          "Time to dissolve (s)"
+        ],
+        "rows": [
+          [
+            "20",
+            "120"
+          ],
+          [
+            "40",
+            "70"
+          ],
+          [
+            "60",
+            "30"
+          ]
+        ],
+        "alt": "Table: at 20 degrees the sugar took 120 seconds, at 40 degrees 70 seconds and at 60 degrees 30 seconds."
+      }
+    },
+    {
+      "id": "s6.reversible-changes.021",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sekar melts butter in a pan. It changes from a solid to a liquid. It is yellow and tastes the same. She leaves it to cool and it goes hard again. What does this show?",
+      "options": [
+        {
+          "text": "A new material was made.",
+          "why": "The butter is the same material both before and after."
+        },
+        {
+          "text": "It is a reversible change, because no new material was made."
+        },
+        {
+          "text": "Heating always makes new materials.",
+          "why": "Many heating changes, like melting, are reversible."
+        },
+        {
+          "text": "Cooling made new butter.",
+          "why": "It is the same butter."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is it still the same material?",
+        "Did it go back?",
+        "Melting is a change of state."
+      ],
+      "explanation": "Butter went solid to liquid and back, with no new material. That is a reversible change."
+    },
+    {
+      "id": "s6.reversible-changes.023",
+      "skill": "s6.reversible-changes",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each method to the job it does.",
+      "pairs": [
+        [
+          "filtering",
+          "separates sand from water"
+        ],
+        [
+          "evaporating",
+          "gets salt from salty water"
+        ],
+        [
+          "using a magnet",
+          "separates iron from sand"
+        ],
+        [
+          "sieving",
+          "separates stones from sand"
+        ]
+      ],
+      "hints": [
+        "Think about what each material is like.",
+        "Salt dissolves so it passes through a filter.",
+        "Magnets only pick up some metals."
+      ],
+      "explanation": "Each method suits one property. Filter holds back solids, evaporating removes liquid and magnets pick up iron."
+    },
+    {
+      "id": "s6.reversible-changes.024",
+      "skill": "s6.reversible-changes",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "In a ___ change no new material is made. Burning, rusting and cooking are ___ changes, which make ___ materials.",
+      "gaps": [
+        {
+          "options": [
+            "reversible",
+            "permanent"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "reversible",
+            "irreversible"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "old",
+            "new"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Think about whether you can undo it.",
+        "Burning cannot be undone.",
+        "The products are different from what you started with."
+      ],
+      "explanation": "Reversible changes make no new material. Burning, rusting and cooking are irreversible and make new materials."
+    },
+    {
+      "id": "s6.reversible-changes.025",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Dewi weighs a ball of steel wool at 5.0 g, burns it and weighs the grey ash at 5.4 g. Why did the mass go up?",
+      "options": [
+        {
+          "text": "The fire added metal.",
+          "why": "The fire did not add metal."
+        },
+        {
+          "text": "The ash is lighter than the wool.",
+          "why": "The ash weighed more, not less."
+        },
+        {
+          "text": "The iron joined with oxygen from the air to make a new material."
+        },
+        {
+          "text": "The scales were wrong.",
+          "why": "Careful tests give the same result when repeated."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Mass cannot appear from nothing.",
+        "Something from the air joined in.",
+        "Which gas helps things burn?"
+      ],
+      "explanation": "Burning steel wool is a chemical change. Oxygen from the air joined the iron to form a heavier new material."
+    },
+    {
+      "id": "s6.reversible-changes.801",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Melting chocolate is a reversible change.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you freeze it again?",
+        "Is it the same chocolate?",
+        "You can change it back."
+      ],
+      "explanation": "It can be cooled and goes back to a solid. No new material forms.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.reversible-changes.802",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Baking a cake is a reversible change.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you unbake a cake?",
+        "Is a new material made?",
+        "It is irreversible."
+      ],
+      "explanation": "Heating makes new materials that cannot be changed back into the mixture, so baking is irreversible.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.reversible-changes.803",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Burning wood is an irreversible change.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you get the wood back?",
+        "What is left?",
+        "New materials form."
+      ],
+      "explanation": "Burning makes new materials such as ash and gases, and you cannot get the wood back.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.reversible-changes.804",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Dissolving sugar in water is an irreversible change.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How could you get sugar out?",
+        "Evaporate the water.",
+        "It can be reversed."
+      ],
+      "explanation": "The sugar can be recovered by evaporating the water, so dissolving is reversible.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.reversible-changes.805",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A fizzing, bubbling or colour change can be a sign that a new material has formed.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do new materials look different?",
+        "Gas bubbles appear.",
+        "They suggest a new material."
+      ],
+      "explanation": "These show a chemical change is happening, such as when baking soda is mixed with vinegar and gas bubbles are made.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.reversible-changes.701",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Melting ice is a ___ change.",
+      "options": [
+        {
+          "text": "reversible"
+        },
+        {
+          "text": "irreversible"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you freeze it again?",
+        "Water can turn back to ice.",
+        "A change you can undo."
+      ],
+      "explanation": "Melted ice can be frozen again, so it is reversible.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

@@ -1,0 +1,75 @@
+{
+  "skill": "m6.ratio-proportion",
+  "items": [
+    {
+      "id": "m6.ratio-proportion.803",
+      "skill": "m6.ratio-proportion",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 5,
+      "kind": "compare",
+      "prompt": "A club has boys and girls in the ratio 4 to 5. There are 45 children in the club. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Boys",
+          "units": 4
+        },
+        {
+          "label": "Girls",
+          "units": 5
+        }
+      ],
+      "extraLabels": [
+        "Adults"
+      ],
+      "unitValue": 5,
+      "unitName": "children",
+      "hints": [
+        "The ratio 4 to 5 gives boys 4 units and girls 5 units.",
+        "There are 9 units in all.",
+        "Share 45 children equally between 9 units."
+      ],
+      "explanation": "45 divided by 9 is 5, so one unit is 5 children. There are 20 boys and 25 girls.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "compare"
+      ]
+    },
+    {
+      "id": "m6.ratio-proportion.804",
+      "skill": "m6.ratio-proportion",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 5,
+      "kind": "partwhole",
+      "prompt": "Lea has blue and green beads in the ratio 3 to 7, and 60 beads in all. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Blue",
+          "units": 3
+        },
+        {
+          "label": "Green",
+          "units": 7
+        }
+      ],
+      "extraLabels": [
+        "Red"
+      ],
+      "unitValue": 6,
+      "unitName": "beads",
+      "hints": [
+        "The ratio 3 to 7 gives blue 3 units and green 7 units.",
+        "There are 10 units in all.",
+        "Share 60 beads equally between 10 units."
+      ],
+      "explanation": "60 divided by 10 is 6, so one unit is 6 beads. Blue is 18 beads and green is 42 beads.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    }
+  ]
+}

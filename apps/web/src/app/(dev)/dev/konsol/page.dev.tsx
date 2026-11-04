@@ -26,7 +26,7 @@ export default function ConsoleGallery() {
           <h2 id={`area-${area}`} className="m-0 text-h2 font-bold">
             {AREA_TITLE[area]}
           </h2>
-          <ul className="m-0 flex list-none flex-col rounded-card border border-divider bg-surface p-0">
+          <ul className="m-0 flex list-none flex-col rounded-card bg-surface shadow-soft p-0">
             {PREVIEWS.filter((p) => p.area === area).map((p) => (
               <li key={p.name} className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-divider px-5 py-3 last:border-b-0">
                 <Link href={`/dev/konsol/${p.name}`} className="min-w-0 flex-[1_1_240px] text-body font-bold">

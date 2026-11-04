@@ -41,7 +41,7 @@ export default async function IconGallery({ searchParams }: Props) {
             <h2 id="pin" className="text-h2 font-bold">Gambar PIN, 96 px</h2>
             <ul className="mt-4 flex flex-wrap gap-4">
               {PIN_PICTURES.map((n) => (
-                <li key={n} className="flex flex-col items-center gap-2 rounded-card border border-divider bg-surface p-4">
+                <li key={n} className="flex flex-col items-center gap-2 rounded-card bg-surface shadow-soft p-4">
                   <Icon name={n} size={96} title={n} />
                   <span className="text-small text-fg-muted">{n}</span>
                 </li>
@@ -53,7 +53,7 @@ export default async function IconGallery({ searchParams }: Props) {
             <h2 id="avatar" className="text-h2 font-bold">Avatar, 96 px</h2>
             <ul className="mt-4 flex flex-wrap gap-4">
               {AVATARS.map((n) => (
-                <li key={n} className="flex flex-col items-center gap-2 rounded-card border border-divider bg-surface p-4">
+                <li key={n} className="flex flex-col items-center gap-2 rounded-card bg-surface shadow-soft p-4">
                   <Avatar name={n} size={96} title={n} />
                   <span className="text-small text-fg-muted">{n}</span>
                 </li>
@@ -71,7 +71,7 @@ export default async function IconGallery({ searchParams }: Props) {
           className={`mt-4 grid gap-4 ${large ? 'grid-cols-[repeat(auto-fill,minmax(208px,1fr))]' : 'grid-cols-[repeat(auto-fill,minmax(120px,1fr))]'}`}
         >
           {names.map((n) => (
-            <li key={n} className="flex flex-col items-center gap-2 rounded-card border border-divider bg-surface p-3">
+            <li key={n} className="flex flex-col items-center gap-2 rounded-card bg-surface shadow-soft p-3">
               <div className="flex items-end gap-3">
                 {large && <Icon name={n} size={96} />}
                 <Icon name={n} size={48} title={n} />

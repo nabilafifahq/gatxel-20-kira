@@ -1,0 +1,77 @@
+{
+  "skill": "s5.flowers",
+  "title": "Parts of a flower",
+  "steps": [
+    {
+      "say": "Many plants make flowers, but not all of them do. Ferns and mosses do not have flowers."
+    },
+    {
+      "say": "The petals are often bright. They help attract insects. Green sepals protect the flower when it is a bud."
+    },
+    {
+      "say": "The stamen is the male part. It has an anther on top that makes pollen, held up by a filament."
+    },
+    {
+      "say": "The carpel is the female part. It has a sticky stigma on top, a style, and an ovary at the bottom that holds the ovules."
+    },
+    {
+      "say": "After pollination the ovules become seeds and the ovary grows into a fruit."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.flowers.901",
+      "skill": "s5.flowers",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which part of a flower makes pollen?",
+      "options": [
+        {
+          "text": "the stigma",
+          "why": "The stigma catches pollen."
+        },
+        {
+          "text": "the anther"
+        },
+        {
+          "text": "the petal",
+          "why": "Petals attract insects."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is part of the stamen.",
+        "It sits on top of the filament.",
+        "Pollen is made on it."
+      ],
+      "explanation": "The anther makes pollen."
+    },
+    {
+      "id": "s5.flowers.902",
+      "skill": "s5.flowers",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which part of a flower catches pollen?",
+      "options": [
+        {
+          "text": "the anther",
+          "why": "The anther makes the pollen."
+        },
+        {
+          "text": "the stigma"
+        },
+        {
+          "text": "the sepal",
+          "why": "The sepal protects the bud."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is sticky.",
+        "It is at the top of the carpel.",
+        "Pollen sticks to it."
+      ],
+      "explanation": "The stigma is sticky, so it catches pollen."
+    }
+  ]
+}

@@ -284,7 +284,7 @@
           ],
           [
             "chocolate",
-            "35"
+            "30"
           ],
           [
             "candle wax",
@@ -295,7 +295,7 @@
             "1538"
           ]
         ],
-        "alt": "Table of melting points: ice 0 °C, chocolate 35 °C, candle wax 60 °C, iron 1538 °C."
+        "alt": "Table of melting points: ice 0 °C, chocolate 30 °C, candle wax 60 °C, iron 1538 °C."
       },
       "options": [
         {
@@ -322,7 +322,7 @@
         "Compare each melting point with 45 °C.",
         "Which melting points are lower than the room temperature?"
       ],
-      "explanation": "Ice melts at 0 °C and chocolate at 35 °C, so both are melted at 45 °C. Wax needs 60 °C and iron needs much more.",
+      "explanation": "Ice melts at 0 °C and chocolate at 30 °C, so both are melted at 45 °C. Wax needs 60 °C and iron needs much more.",
       "tags": [
         "iksc"
       ]
@@ -373,7 +373,12 @@
           "answers": [
             "condenses",
             "condense",
-            "condensing"
+            "condensing",
+            "turns into water",
+            "turns into a liquid",
+            "becomes liquid",
+            "becomes water",
+            "becomes a liquid"
           ]
         }
       ],
@@ -383,6 +388,899 @@
         "The word starts with con."
       ],
       "explanation": "Water vapour condenses when it cools, turning back into liquid water."
+    },
+    {
+      "id": "s4.changing-state.013",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which tool do we use to measure temperature?",
+      "options": [
+        {
+          "text": "ruler",
+          "why": "A ruler measures length."
+        },
+        {
+          "text": "thermometer"
+        },
+        {
+          "text": "measuring jug",
+          "why": "A jug measures how much liquid there is."
+        },
+        {
+          "text": "stopwatch",
+          "why": "A stopwatch measures time."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Temperature tells us how hot or cold something is.",
+        "The tool has a scale marked in degrees.",
+        "It has a bulb and a thin tube."
+      ],
+      "explanation": "A thermometer measures temperature in degrees Celsius."
+    },
+    {
+      "id": "s4.changing-state.014",
+      "skill": "s4.changing-state",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Tom puts a thermometer into a cup of warm water. What temperature does it show?",
+      "figure": {
+        "kind": "thermometer",
+        "min": 0,
+        "max": 100,
+        "value": 70,
+        "step": 10,
+        "alt": "A thermometer from 0 to 100 °C, marked every 10 degrees. The liquid stops at the 70 °C line."
+      },
+      "answer": 70,
+      "unit": "°C",
+      "hints": [
+        "Look at where the liquid stops.",
+        "Find the nearest numbered line.",
+        "Read the number on that line."
+      ],
+      "explanation": "The liquid stops at the line for 70 degrees Celsius."
+    },
+    {
+      "id": "s4.changing-state.015",
+      "skill": "s4.changing-state",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The water was 90 °C and then cooled to the temperature shown. By how many degrees did it cool?",
+      "figure": {
+        "kind": "thermometer",
+        "min": 0,
+        "max": 100,
+        "value": 35,
+        "step": 5,
+        "alt": "A thermometer from 0 to 100 °C, marked every 5 degrees. The liquid stops at the 35 °C line."
+      },
+      "answer": 55,
+      "unit": "°C",
+      "hints": [
+        "First read the thermometer.",
+        "Subtract the new reading from 90.",
+        "The marks go up in 5s."
+      ],
+      "explanation": "The thermometer reads 35 °C. The water cooled by 90 - 35 = 55 degrees."
+    },
+    {
+      "id": "s4.changing-state.016",
+      "skill": "s4.changing-state",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the place where most water evaporates.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 230,
+            "w": 400,
+            "h": 70,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 10,
+            "y": 10,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "cloud",
+            "x": 220,
+            "y": 20,
+            "size": 90
+          },
+          {
+            "t": "icon",
+            "icon": "mountain",
+            "x": 310,
+            "y": 120,
+            "size": 80
+          }
+        ],
+        "alt": "A scene with a sun at top left, a cloud at top right, a mountain at right and blue sea along the bottom."
+      },
+      "regions": [
+        {
+          "label": "sun",
+          "x": 9.5,
+          "y": 12.7,
+          "w": 16,
+          "h": 22
+        },
+        {
+          "label": "cloud",
+          "x": 66.3,
+          "y": 21.7,
+          "w": 26,
+          "h": 26
+        },
+        {
+          "label": "mountain",
+          "x": 87.5,
+          "y": 53.3,
+          "w": 20,
+          "h": 28
+        },
+        {
+          "label": "sea",
+          "x": 50,
+          "y": 88.3,
+          "w": 80,
+          "h": 18
+        }
+      ],
+      "answers": [
+        3
+      ],
+      "hints": [
+        "Evaporation turns liquid water into a gas.",
+        "It needs a big area of liquid water and some warmth.",
+        "Look for the largest area of water."
+      ],
+      "explanation": "The sea is a large body of liquid water warmed by the sun, so a lot of water evaporates from it."
+    },
+    {
+      "id": "s4.changing-state.017",
+      "skill": "s4.changing-state",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the water cycle. One label does not belong.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 230,
+            "w": 400,
+            "h": 70,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 10,
+            "y": 10,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "cloud",
+            "x": 220,
+            "y": 20,
+            "size": 90
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 215,
+            "x2": 110,
+            "y2": 125,
+            "tone": "warn",
+            "width": 5
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                100
+              ],
+              [
+                98,
+                128
+              ],
+              [
+                122,
+                128
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "water-drop",
+            "x": 260,
+            "y": 150,
+            "size": 40
+          },
+          {
+            "t": "line",
+            "x1": 280,
+            "y1": 200,
+            "x2": 280,
+            "y2": 225,
+            "tone": "math",
+            "width": 4
+          }
+        ],
+        "alt": "A water cycle picture. A sun is at top left, a large cloud at top right, and blue sea along the bottom. An arrow rises from the sea on the left. A water drop falls from the cloud towards the sea on the right."
+      },
+      "labels": [
+        "evaporation",
+        "condensation",
+        "precipitation"
+      ],
+      "spots": [
+        {
+          "x": 27.5,
+          "y": 53.3
+        },
+        {
+          "x": 66.3,
+          "y": 21.7
+        },
+        {
+          "x": 70,
+          "y": 56.7
+        }
+      ],
+      "extraLabels": [
+        "melting"
+      ],
+      "hints": [
+        "The arrow shows liquid water becoming a gas.",
+        "In the cloud, water vapour cools and becomes drops.",
+        "The falling drops are rain."
+      ],
+      "explanation": "Water evaporates from the sea, condenses to make a cloud, and falls as rain (precipitation)."
+    },
+    {
+      "id": "s4.changing-state.018",
+      "skill": "s4.changing-state",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Dewi leaves 30 ml of water in three saucers for 2 days. Fill in the water lost.",
+      "caption": "Water in saucers",
+      "head": [
+        "Place",
+        "Start (ml)",
+        "After 2 days (ml)",
+        "Water lost (ml)"
+      ],
+      "rows": [
+        [
+          "Sunny windowsill",
+          "30",
+          "5",
+          "25"
+        ],
+        [
+          "Shady shelf",
+          "30",
+          "18",
+          ""
+        ],
+        [
+          "Fridge",
+          "30",
+          "24",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 3,
+          "answers": [
+            "12"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "answers": [
+            "6"
+          ]
+        }
+      ],
+      "hints": [
+        "Water lost is the start amount minus the amount left.",
+        "For the shady shelf, work out 30 - 18.",
+        "For the fridge, work out 30 - 24."
+      ],
+      "explanation": "The shelf lost 30 - 18 = 12 ml and the fridge lost 30 - 24 = 6 ml."
+    },
+    {
+      "id": "s4.changing-state.019",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at Dewi's table. Which conclusion does it support?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Place",
+          "Start (ml)",
+          "After 2 days (ml)",
+          "Water lost (ml)"
+        ],
+        "rows": [
+          [
+            "Sunny windowsill",
+            "30",
+            "5",
+            "25"
+          ],
+          [
+            "Shady shelf",
+            "30",
+            "18",
+            "12"
+          ],
+          [
+            "Fridge",
+            "30",
+            "24",
+            "6"
+          ]
+        ],
+        "alt": "Table of water in three saucers. Sunny windowsill: 30 ml at the start, 5 ml after 2 days, 25 ml lost. Shady shelf: 30, 18, 12 lost. Fridge: 30, 24, 6 lost."
+      },
+      "options": [
+        {
+          "text": "Water evaporates faster in a colder place",
+          "why": "The fridge is the coldest place and lost the least water."
+        },
+        {
+          "text": "Water only evaporates in sunlight",
+          "why": "The saucer in the fridge still lost 6 ml."
+        },
+        {
+          "text": "Water evaporates faster in a warmer place"
+        },
+        {
+          "text": "Water does not evaporate in a fridge",
+          "why": "The fridge saucer lost 6 ml, so some water still evaporated."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the place that lost the most water.",
+        "Find the place that lost the least.",
+        "Compare the temperatures of those two places."
+      ],
+      "explanation": "The warm sunny windowsill lost the most water and the cold fridge lost the least. Warmer places make evaporation faster."
+    },
+    {
+      "id": "s4.changing-state.020",
+      "skill": "s4.changing-state",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Amara tests if a fan makes wet cloths dry faster. Choose 2 things to keep the same.",
+      "options": [
+        {
+          "text": "the size of the cloths"
+        },
+        {
+          "text": "whether the fan is on",
+          "why": "This is the one thing she changes on purpose."
+        },
+        {
+          "text": "the amount of water in each cloth"
+        },
+        {
+          "text": "how long it takes the cloth to dry",
+          "why": "This is what she measures, so it is expected to differ."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "She changes only the fan.",
+        "Everything else must be the same to be fair.",
+        "Pick the two things that are neither changed nor measured."
+      ],
+      "explanation": "Only the fan changes. The size of the cloths and the amount of water must be the same so the test is fair."
+    },
+    {
+      "id": "s4.changing-state.021",
+      "skill": "s4.changing-state",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the water cycle in order, starting at the sea.",
+      "items": [
+        "The sun warms the sea water",
+        "Water evaporates into vapour",
+        "The vapour cools and condenses into cloud",
+        "Rain falls back into the sea"
+      ],
+      "hints": [
+        "The sun warms the sea first.",
+        "Water vapour must cool before it makes cloud.",
+        "The last step is the water returning to the sea."
+      ],
+      "explanation": "The sun warms the sea so water evaporates. The vapour cools and condenses into a cloud, and then falls as rain."
+    },
+    {
+      "id": "s4.changing-state.022",
+      "skill": "s4.changing-state",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each event to the change of state.",
+      "pairs": [
+        [
+          "an ice lolly drips in the sun",
+          "melting"
+        ],
+        [
+          "wet hair dries",
+          "evaporation"
+        ],
+        [
+          "mist forms on a cold mirror",
+          "condensation"
+        ],
+        [
+          "water in a freezer turns hard",
+          "freezing"
+        ]
+      ],
+      "hints": [
+        "Think about which way the water is changing.",
+        "Ice becomes water when heated.",
+        "Water vapour becomes water when cooled."
+      ],
+      "explanation": "A dripping ice lolly is melting. Hair drying is evaporation. Mist on a cold mirror is condensation. Water becoming ice is freezing."
+    },
+    {
+      "id": "s4.changing-state.023",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Putri boils a pan of water until it is dry. Where did the water go?",
+      "options": [
+        {
+          "text": "It was destroyed",
+          "why": "Water does not disappear. It changes state."
+        },
+        {
+          "text": "It soaked into the pan",
+          "why": "A metal pan cannot soak up water."
+        },
+        {
+          "text": "It turned into a solid",
+          "why": "Heating changes water to a gas, not a solid."
+        },
+        {
+          "text": "Into the air as invisible water vapour"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Heating turns liquid water into a gas.",
+        "The gas is called water vapour.",
+        "Water vapour mixes with the air."
+      ],
+      "explanation": "The heat turned the liquid water into water vapour, which mixed with the air in the room."
+    },
+    {
+      "id": "s4.changing-state.024",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Chocolate melts at 30 °C. It melts in the hand of Kofi (34 °C) but not in his bag (25 °C). Why?",
+      "options": [
+        {
+          "text": "His hand makes chocolate melt by touching it",
+          "why": "Touch alone does nothing. The heat from the hand matters."
+        },
+        {
+          "text": "His hand is warmer than the melting point and the bag is cooler"
+        },
+        {
+          "text": "Chocolate melts only when it is in a bag",
+          "why": "The bag was cooler than 30 °C, so it did not melt there."
+        },
+        {
+          "text": "The bag is made of cold material",
+          "why": "The bag is just as cool as the air around it, 25 °C."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A solid melts when it is hotter than its melting point.",
+        "Compare 34 °C and 25 °C with 30 °C.",
+        "One is above the melting point and one is below."
+      ],
+      "explanation": "The hand at 34 °C is above the melting point of 30 °C, so the chocolate melts. The bag at 25 °C is below it."
+    },
+    {
+      "id": "s4.changing-state.025",
+      "skill": "s4.changing-state",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "When a liquid cools down and becomes a solid, it ___.",
+      "blanks": [
+        {
+          "answers": [
+            "freezes",
+            "freeze",
+            "freezing",
+            "solidifies",
+            "solidify",
+            "turns to ice",
+            "turns into ice",
+            "becomes ice"
+          ]
+        }
+      ],
+      "hints": [
+        "Water does this in a freezer.",
+        "The word ends with -s.",
+        "The word starts with the letter f."
+      ],
+      "explanation": "A liquid that cools to become a solid freezes."
+    },
+    {
+      "id": "s4.changing-state.026",
+      "skill": "s4.changing-state",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "When ice melts it changes from a ___ to a ___.",
+      "gaps": [
+        {
+          "options": [
+            "solid",
+            "liquid",
+            "gas"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "solid",
+            "liquid",
+            "gas"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Ice is hard.",
+        "Melted ice can be poured.",
+        "Think about the order of the changes."
+      ],
+      "explanation": "Ice is a solid. When it melts it becomes liquid water."
+    },
+    {
+      "id": "s4.changing-state.027",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The chart shows how long an ice cube takes to melt at different room temperatures. Predict the time at 25 °C.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "10 °C",
+          "20 °C",
+          "30 °C",
+          "40 °C"
+        ],
+        "values": [
+          40,
+          25,
+          15,
+          8
+        ],
+        "step": 5,
+        "yLabel": "Minutes to melt",
+        "alt": "Bar chart of minutes for an ice cube to melt. At 10 °C: 40. At 20 °C: 25. At 30 °C: 15. At 40 °C: 8."
+      },
+      "options": [
+        {
+          "text": "about 8 minutes",
+          "why": "That is the time at 40 °C, which is much warmer."
+        },
+        {
+          "text": "about 12 minutes",
+          "why": "That is too short. It is shorter than the time at 30 °C, but 25 °C is cooler than 30 °C."
+        },
+        {
+          "text": "about 35 minutes",
+          "why": "This is nearly as long as at 10 °C. 25 °C is much warmer than that."
+        },
+        {
+          "text": "about 20 minutes"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the bars for 20 °C and 30 °C.",
+        "The answer is between those two times.",
+        "The warmer the room, the shorter the time."
+      ],
+      "explanation": "25 °C is halfway between 20 °C (25 minutes) and 30 °C (15 minutes). So the time is about 20 minutes."
+    },
+    {
+      "id": "s4.changing-state.028",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Yuki simmers a pan of water for 20 minutes. It loses 100 ml. She repeats it with a lid on. What happens?",
+      "options": [
+        {
+          "text": "It loses more water because the lid traps heat",
+          "why": "The lid does not remove water. The vapour is caught and returns."
+        },
+        {
+          "text": "It loses the same amount because the lid is irrelevant",
+          "why": "The lid stops vapour escaping, so less water is lost."
+        },
+        {
+          "text": "It loses less water because vapour condenses on the lid and drips back"
+        },
+        {
+          "text": "It loses no water at all because the lid seals the pan",
+          "why": "A little vapour still escapes, so some water is still lost."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Water vapour rises from the hot pan.",
+        "The lid is cooler than the vapour.",
+        "Think about what vapour does when it touches something cold."
+      ],
+      "explanation": "The vapour hits the cooler lid, condenses to liquid and drips back. Less vapour escapes, so less water is lost."
+    },
+    {
+      "id": "s4.changing-state.029",
+      "skill": "s4.changing-state",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each event by whether heat is added or taken away.",
+      "groups": [
+        "Heat is added",
+        "Heat is taken away"
+      ],
+      "items": [
+        {
+          "text": "chocolate melting in the sun",
+          "group": 0
+        },
+        {
+          "text": "a puddle drying up",
+          "group": 0
+        },
+        {
+          "text": "wax melting near a flame",
+          "group": 0
+        },
+        {
+          "text": "water becoming ice",
+          "group": 1
+        },
+        {
+          "text": "mist forming on a cold window",
+          "group": 1
+        },
+        {
+          "text": "butter getting hard in a fridge",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Melting and evaporation need heat.",
+        "Freezing and condensation need cooling.",
+        "Think about whether the thing gets warmer or cooler."
+      ],
+      "explanation": "Chocolate melting, a puddle drying and wax melting need heat. Ice forming, mist on a cold window and butter hardening need heat to be taken away."
+    },
+    {
+      "id": "s4.changing-state.801",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Ice melts into water when it is warmed.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of ice on a hot day.",
+        "Which way is the change?",
+        "Solid to liquid."
+      ],
+      "explanation": "Heating gives ice energy, so it changes from a solid to a liquid. This is called melting.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.changing-state.802",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Water turns into ice at 100 degrees Celsius.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "At which temperature does water freeze?",
+        "100 is much hotter.",
+        "It freezes at 0."
+      ],
+      "explanation": "Water freezes at 0 degrees Celsius. At 100 degrees Celsius it boils and turns to steam.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.changing-state.803",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Condensation happens when water vapour cools and turns into liquid.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What forms on a cold glass?",
+        "Gas changes to liquid.",
+        "Cooling vapour condenses."
+      ],
+      "explanation": "Warm vapour touching a cold glass loses heat and forms water drops on the outside.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.changing-state.804",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Evaporation only happens when water is boiling.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do puddles disappear on a mild day?",
+        "Washing dries without boiling.",
+        "Evaporation happens at all temperatures."
+      ],
+      "explanation": "Water evaporates slowly from the surface at any temperature, like washing that dries on a line. Boiling is faster and happens at 100 degrees Celsius.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.changing-state.701",
+      "skill": "s4.changing-state",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Liquid water turning into water vapour is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "evaporation",
+            "evaporating"
+          ]
+        }
+      ],
+      "hints": [
+        "It happens when puddles dry.",
+        "Heat makes it happen.",
+        "It starts with evap."
+      ],
+      "explanation": "Evaporation is when a liquid turns into a gas.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s4.changing-state.702",
+      "skill": "s4.changing-state",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Three saucers each held 20 ml of water. Saucer A was on a sunny windowsill, B on a shady shelf and C in a fridge. After a day, A had 5 ml left, B had 14 ml and C had 18 ml.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many ml evaporated from saucer A?",
+          "answer": 15,
+          "tolerance": 0,
+          "unit": "ml"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Where did water evaporate fastest?",
+          "options": [
+            {
+              "text": "Saucer C"
+            },
+            {
+              "text": "Saucer A"
+            },
+            {
+              "text": "Saucer B"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What is the change from liquid to gas called?",
+          "answers": [
+            "evaporation",
+            "evaporating"
+          ]
+        }
+      ],
+      "hints": [
+        "20 take away 5.",
+        "The least left means most lost.",
+        "It starts with evap."
+      ],
+      "explanation": "20 - 5 = 15 ml. A lost the most so it was fastest. Heat speeds up evaporation.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

@@ -153,7 +153,7 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
       </header>
       <main className="flex flex-1 items-start justify-center px-4 pb-8 md:items-center md:px-8">
         {finished ? (
-          <section aria-label="Sprint done" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card border border-divider bg-surface px-8 py-10 text-center">
+          <section aria-label="Sprint done" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
             <h1 className="kira-pop m-0 font-display text-display font-semibold">{remaining === 0 ? "Time's up" : 'All done'}</h1>
             <p className="m-0 text-body-lg">
               You got {right} right in {limit} seconds.
@@ -174,10 +174,10 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
             )}
           </section>
         ) : item ? (
-          <section aria-label="Question" className="relative flex w-full max-w-[760px] flex-col gap-6 rounded-card border border-divider bg-surface p-5 md:flex-row md:items-center md:p-8">
+          <section aria-label="Question" className="relative flex w-full max-w-[760px] flex-col gap-6 rounded-card bg-surface shadow-soft p-5 md:flex-row md:items-center md:p-8">
             <div className="flex-1">
               {item.type === 'numeric' && !item.figure ? (
-                <p lang={item.lang} aria-live="polite" className="m-0 text-center font-display text-display font-semibold tabular-nums">
+                <p lang={item.lang} aria-live="polite" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
                   {item.prompt}
                 </p>
               ) : (

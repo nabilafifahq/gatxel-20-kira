@@ -208,7 +208,7 @@ function ProviderCard({ data, actions }: ClaudeConnectionScreenProps) {
         {result.detail}
       </p>
       {result.status === 'not-configured' ? (
-        <div className="flex flex-col gap-2 rounded-control border border-divider bg-bg px-4 py-3.5">
+        <div className="flex flex-col gap-2 rounded-control bg-lavender px-4 py-3.5">
           <span className="text-body font-bold">{SETUP_STEPS[data.provider].title}</span>
           <ol className="m-0 flex list-decimal flex-col gap-1 pl-5 text-body [overflow-wrap:anywhere]">
             {SETUP_STEPS[data.provider].steps.map((s) => (
@@ -245,7 +245,7 @@ function CopyRow({ label, value, copyLabel, toastTitle }: { label: string; value
         <code
           id={id}
           aria-labelledby={`${id}-l`}
-          className="flex min-h-11 min-w-0 flex-[1_1_260px] items-center rounded-control border border-divider bg-bg px-3 py-2 font-body text-small font-semibold [overflow-wrap:anywhere] select-all"
+          className="flex min-h-11 min-w-0 flex-[1_1_260px] items-center rounded-control bg-lavender px-3 py-2 font-body text-small font-semibold [overflow-wrap:anywhere] select-all"
         >
           {value}
         </code>
@@ -312,7 +312,7 @@ function McpCard({ data }: { data: ClaudeConnectionDTO }) {
               <li>Jalankan perintah yang muncul bersama token di terminal laptop.</li>
               <li>Jalankan /mcp di Claude Code untuk memastikan Kira tersambung.</li>
             </ol>
-            <code className="rounded-control border border-divider bg-bg px-3 py-2 font-body text-small font-semibold [overflow-wrap:anywhere]">
+            <code className="rounded-control bg-lavender px-3 py-2 font-body text-small font-semibold [overflow-wrap:anywhere]">
               {claudeCodeCommand(data.mcp.url, '<token>')}
             </code>
           </div>

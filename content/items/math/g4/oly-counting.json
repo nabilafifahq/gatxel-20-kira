@@ -158,15 +158,36 @@
         },
         {
           "say": "2 corners on line 1, 1 corner on line 2.",
-          "show": "3 × 3 = 9"
+          "show": "3 × 3 = 9",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          }
         },
         {
           "say": "2 corners on line 2, 1 corner on line 1.",
-          "show": "3 × 3 = 9"
+          "show": "3 × 3 = 9",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          }
         },
         {
           "say": "Total.",
-          "show": "9 + 9 = 18"
+          "show": "9 + 9 = 18",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "+",
+            "b": 9,
+            "r": 18
+          }
         }
       ],
       "tags": [
@@ -251,7 +272,18 @@
         },
         {
           "say": "Multiples of 5.",
-          "show": "200 ÷ 5 = 40"
+          "show": "200 ÷ 5 = 40",
+          "anim": {
+            "k": "combine",
+            "a": 200,
+            "op": "÷",
+            "b": 5,
+            "r": 40
+          },
+          "mark": [
+            "200",
+            "5"
+          ]
         },
         {
           "say": "Multiples of 15, counted twice.",
@@ -314,7 +346,14 @@
         },
         {
           "say": "Banyak tiket.",
-          "show": "9 × 10 = 90"
+          "show": "9 × 10 = 90",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 10,
+            "r": 90
+          }
         }
       ],
       "tags": [
@@ -370,7 +409,16 @@
         },
         {
           "say": "Each step adds the ways for the two steps before it.",
-          "show": "3, 5, 8, 13"
+          "show": "3, 5, 8, 13",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "3",
+              "5",
+              "8",
+              "13"
+            ]
+          }
         },
         {
           "say": "6 steps: 13 ways.",
@@ -408,11 +456,31 @@
         },
         {
           "say": "Count from every corner.",
-          "show": "6 × 3 = 18"
+          "show": "6 × 3 = 18",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 3,
+            "r": 18
+          }
         },
         {
           "say": "Each diagonal is counted twice.",
-          "show": "18 ÷ 2 = 9"
+          "show": "18 ÷ 2 = 9",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 18
+          }
         }
       ],
       "tags": [
@@ -445,7 +513,20 @@
         },
         {
           "say": "At least one 7.",
-          "show": "900 - 648 = 252"
+          "show": "900 - 648 = 252",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 648
+              },
+              {
+                "v": 252,
+                "q": true
+              }
+            ],
+            "total": 900
+          }
         }
       ],
       "tags": [
@@ -453,6 +534,254 @@
         "timo"
       ],
       "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-counting.010",
+      "skill": "m4.oly-counting",
+      "difficulty": 3,
+      "prompt": "Six friends meet and each shakes hands once with every other friend. How many handshakes are there?",
+      "hints": [
+        "Each friend shakes hands with 5 others.",
+        "Do not count the same handshake twice.",
+        "6 × 5 ÷ 2."
+      ],
+      "explanation": "Each of 6 friends shakes 5 hands, which is 30, but every handshake is counted twice. 30 ÷ 2 = 15.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 15,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many handshakes are there?"
+          ]
+        },
+        {
+          "say": "Each of 6 friends shakes 5 hands, which is 30, but every handshake is counted twice."
+        },
+        {
+          "say": "30 ÷ 2 = 15.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 15,
+                "q": true
+              },
+              {
+                "v": 15
+              }
+            ],
+            "total": 30
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "15"
+        }
+      ]
+    },
+    {
+      "id": "m4.oly-counting.011",
+      "skill": "m4.oly-counting",
+      "difficulty": 2,
+      "prompt": "Siti has 4 shirts, 3 skirts and 2 hats. She picks one of each to make an outfit. How many different outfits can she make?",
+      "hints": [
+        "Pick the shirt first.",
+        "Each shirt can go with 3 skirts.",
+        "Multiply 4 × 3 × 2."
+      ],
+      "explanation": "4 × 3 × 2 = 24 outfits.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 24
+    },
+    {
+      "id": "m4.oly-counting.012",
+      "skill": "m4.oly-counting",
+      "difficulty": 4,
+      "prompt": "A grid is made of 2 rows and 3 columns of small squares. How many rectangles of any size can you find, including the squares?",
+      "hints": [
+        "Count the rectangles of each size.",
+        "A rectangle uses 2 of the 3 vertical lines out of 4, and 2 of the 3 horizontal lines.",
+        "Choose 2 out of 4 vertical lines and 2 out of 3 horizontal lines."
+      ],
+      "explanation": "There are 4 vertical lines and 3 horizontal lines. A rectangle uses 2 vertical lines (6 ways) and 2 horizontal lines (3 ways). 6 × 3 = 18.",
+      "tags": [
+        "olympiad",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 18,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rectangles of any size can you find, including the"
+          ]
+        },
+        {
+          "say": "There are 4 vertical lines and 3 horizontal lines."
+        },
+        {
+          "say": "A rectangle uses 2 vertical lines (6 ways) and 2 horizontal lines (3 ways)."
+        },
+        {
+          "say": "6 × 3 = 18.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6
+              },
+              {
+                "v": 6
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 18
+          },
+          "mark": [
+            "3"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "18"
+        }
+      ]
+    },
+    {
+      "id": "m4.oly-counting.013",
+      "skill": "m4.oly-counting",
+      "difficulty": 4,
+      "prompt": "How many whole numbers from 1 to 100 have the digit 7 at least once?",
+      "hints": [
+        "Count the numbers that end in 7.",
+        "Count the numbers from 70 to 79.",
+        "One number is in both lists."
+      ],
+      "explanation": "Ending in 7 gives 10 numbers and 70 to 79 gives 10 numbers. 77 is in both, so 10 + 10 - 1 = 19.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 19
+    },
+    {
+      "id": "m4.oly-counting.014",
+      "skill": "m4.oly-counting",
+      "difficulty": 4,
+      "prompt": "You walk from the bottom-left corner to the top-right corner of a grid. The grid is 3 squares wide and 2 squares tall. You may only move right or up along the lines. How many different routes are there?",
+      "hints": [
+        "Each route has 3 moves right and 2 moves up.",
+        "Count the ways to place the 2 up-moves among the 5 moves.",
+        "Write out the routes, or add the routes to each corner."
+      ],
+      "explanation": "Each route has 5 moves, 3 right and 2 up. Choosing which 2 of the 5 moves are up gives 10 routes.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 10
+    },
+    {
+      "id": "m4.oly-counting.015",
+      "skill": "m4.oly-counting",
+      "difficulty": 3,
+      "prompt": "Rangga pays Rp6.000 using only Rp1.000 and Rp2.000 notes. In how many different ways can he do this?",
+      "hints": [
+        "Choose how many Rp2.000 notes to use.",
+        "He can use 0, 1, 2 or 3 of them.",
+        "The rest are Rp1.000 notes."
+      ],
+      "explanation": "He can use 0, 1, 2 or 3 two-thousand notes, and the rest are one-thousand notes. That is 4 ways.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 4
+    },
+    {
+      "id": "m4.oly-counting.016",
+      "skill": "m4.oly-counting",
+      "difficulty": 5,
+      "prompt": "The pages of a book are numbered 1 to 128. How many digits are used to number all the pages?",
+      "hints": [
+        "Count the digits on pages 1 to 9.",
+        "Pages 10 to 99 have two digits each.",
+        "Pages 100 to 128 have three digits each."
+      ],
+      "explanation": "Pages 1 to 9 use 9 digits. Pages 10 to 99 use 90 × 2 = 180. Pages 100 to 128 use 29 × 3 = 87. The total is 9 + 180 + 87 = 276.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 276,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many digits are used to number all the pages?"
+          ]
+        },
+        {
+          "say": "Pages 1 to 9 use 9 digits."
+        },
+        {
+          "say": "Pages 10 to 99 use 90 × 2 = 180.",
+          "anim": {
+            "k": "combine",
+            "a": 90,
+            "op": "×",
+            "b": 2,
+            "r": 180
+          }
+        },
+        {
+          "say": "Pages 100 to 128 use 29 × 3 = 87.",
+          "anim": {
+            "k": "combine",
+            "a": 29,
+            "op": "×",
+            "b": 3,
+            "r": 87
+          }
+        },
+        {
+          "say": "The total is 9 + 180 + 87 = 276."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "276"
+        }
+      ]
     }
   ]
 }

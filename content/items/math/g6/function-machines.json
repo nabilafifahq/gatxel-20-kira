@@ -1,0 +1,119 @@
+{
+  "skill": "m6.function-machines",
+  "items": [
+    {
+      "id": "m6.function-machines.001",
+      "skill": "m6.function-machines",
+      "difficulty": 3,
+      "prompt": "A machine multiplies the input by 3, then subtracts 4. The output is 29. What was the input?",
+      "hints": [
+        "Work backwards through the machine.",
+        "The last step was subtract 4, so add 4 first.",
+        "Then undo the multiply by 3."
+      ],
+      "explanation": "Undo the steps in reverse. 29 + 4 = 33, and 33 ÷ 3 = 11.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 11
+    },
+    {
+      "id": "m6.function-machines.002",
+      "skill": "m6.function-machines",
+      "difficulty": 4,
+      "prompt": "Machine A doubles the input and then adds 5. Machine B adds 5 and then doubles. The input to both is 6. What is the difference between the two outputs?",
+      "hints": [
+        "Work out each machine on its own.",
+        "A: 6 × 2 = 12, then add 5.",
+        "B: 6 + 5 = 11, then double it."
+      ],
+      "explanation": "A gives 12 + 5 = 17. B gives 11 × 2 = 22. The difference is 22 − 17 = 5.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0",
+          "why": "The order of the steps matters, so the outputs are not equal."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "2",
+          "why": "Check both outputs again: A gives 17."
+        },
+        {
+          "text": "10",
+          "why": "B doubles the 5 as well, which gives 10 extra."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.function-machines.003",
+      "skill": "m6.function-machines",
+      "difficulty": 5,
+      "prompt": "A machine turns an input n into 5 × n − 7. For which input is the output equal to the input plus 9?",
+      "hints": [
+        "Write the equation 5n − 7 = n + 9.",
+        "Subtract n from both sides.",
+        "Then 4n − 7 = 9. Solve for n."
+      ],
+      "explanation": "5n − 7 = n + 9 gives 4n = 16, so n = 4. Check: 5 × 4 − 7 = 13 and 4 + 9 = 13.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 4
+    },
+    {
+      "id": "m6.function-machines.801",
+      "skill": "m6.function-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: An input of 7 put through the machine multiply by 3 then subtract 4 gives an output of 17.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do the steps in order.",
+        "Multiply first.",
+        "21 - 4."
+      ],
+      "explanation": "7 × 3 = 21, then 21 - 4 = 17.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.function-machines.802",
+      "skill": "m6.function-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In the equation n + 15 = 40, the value of n is 55.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Use the inverse operation.",
+        "Subtract 15 from 40.",
+        "Check by adding."
+      ],
+      "explanation": "n = 40 - 15 = 25. Check: 25 + 15 = 40.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

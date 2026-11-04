@@ -1,0 +1,77 @@
+{
+  "skill": "s5.gases-water",
+  "title": "Gases and water",
+  "steps": [
+    {
+      "say": "In a solid, the particles are packed in a pattern. In a liquid they are close but can slide. In a gas they are far apart and move freely. In a solution, the dissolved particles are mixed in with the liquid particles."
+    },
+    {
+      "say": "Many gases are invisible. At room temperature, common gases include oxygen, nitrogen, carbon dioxide and hydrogen."
+    },
+    {
+      "say": "Water boils at 100 degrees Celsius and melts at 0 degrees Celsius."
+    },
+    {
+      "say": "Water is unusual because it expands when it freezes. Ice takes up more space than the same mass of liquid water, so ice floats."
+    },
+    {
+      "say": "Water is also a good solvent: many substances dissolve in it."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.gases-water.901",
+      "skill": "s5.gases-water",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "At what temperature does pure water boil?",
+      "options": [
+        {
+          "text": "0 °C",
+          "why": "Water melts or freezes at 0 °C."
+        },
+        {
+          "text": "100 °C"
+        },
+        {
+          "text": "50 °C",
+          "why": "Water is not boiling at 50 °C."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a round number.",
+        "It is the top of the usual thermometer.",
+        "Water at this temperature makes steam."
+      ],
+      "explanation": "Pure water boils at 100 °C."
+    },
+    {
+      "id": "s5.gases-water.902",
+      "skill": "s5.gases-water",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which gas do plants take in from the air?",
+      "options": [
+        {
+          "text": "helium",
+          "why": "Helium is not taken in by plants."
+        },
+        {
+          "text": "carbon dioxide"
+        },
+        {
+          "text": "nitrogen",
+          "why": "Plants do not use nitrogen directly from the air."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Plants make food in their leaves.",
+        "They take in a gas from the air.",
+        "You breathe this out."
+      ],
+      "explanation": "Plants take in carbon dioxide from the air."
+    }
+  ]
+}

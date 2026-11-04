@@ -4,7 +4,7 @@ import { refresh } from 'next/cache'
 import { z } from 'zod'
 import { tables } from '@kira/db'
 import { eq } from 'drizzle-orm'
-import type { ActionResult } from '@/lib/dto'
+import type { ActionResult, DayRulesDTO, PlanChangeResult } from '@/lib/dto'
 import { inOrg } from '../db'
 import { notFound, runAction } from '../errors'
 import { audit, auditTx } from '../audit'
@@ -15,6 +15,9 @@ import { listPasskeys, removePasskey } from '../auth/passkey'
 import { throttleIp } from '../auth/ratelimit'
 import { updateLearnerSoundTx } from '../dal/learner-motion'
 import { assertLearnersInOrg, LIMIT_MAX, LIMIT_MIN, updateLearnerLimitsTx } from '../dal/console-settings'
+import { resetStreak, saveDayRules } from '../dal/console-day-rules'
+
+type DayRulesDTOInput = { learnerId: string; preset: 'penuh' | 'seimbang' | 'ringan' | 'kustom'; rules: DayRulesDTO | null }
 
 /**
  * T10 Pengaturan. Semua action hanya untuk tutor (pemilik akun keluarga). Mendaftarkan browser ini
@@ -111,6 +114,7 @@ export async function inviteMemberAction(input: { email: string; role: 'tutor' |
   return runAction('inviteMember', async () => {
     const actor = await requireTutor()
     const data = inviteSchema.parse(input)
+    await throttleIp('invite-member', 10, actor.userId)
     const ctx = orgCtx(actor)
     const orgName = await inOrg(ctx, async (tx) => {
       await assertLearnersInOrg(tx, data.learnerIds)
@@ -146,5 +150,40 @@ export async function changePasswordAction(input: { current: string; next: strin
     await changePassword({ userId: actor.userId, sessionId: actor.sessionId, email: actor.email, name: actor.name }, data.current, data.next)
     await audit(orgCtx(actor), 'password.changed', actor.userId)
     return undefined
+  })
+}
+
+const ruleLevel = z.enum(['off', 'optional', 'required'])
+const sessionRules = z.object({ latihan: ruleLevel, tes: ruleLevel, paper: ruleLevel }).strict()
+const subjectRules = z.object({ math: sessionRules, english: sessionRules, science: sessionRules }).strict()
+const dayRulesSchema = z
+  .object({
+    learnerId: z.string().uuid(),
+    preset: z.enum(['penuh', 'seimbang', 'ringan', 'kustom']),
+    rules: z.object({ '1': subjectRules, '2': subjectRules, '3': subjectRules, '4': subjectRules, '5': subjectRules, '6': subjectRules }).strict().nullable(),
+  })
+  .strict()
+
+/** Aturan hari bawaan learner. Bila hari ini sudah punya sesi, tablet langsung disamakan. */
+export async function updateLearnerDayRulesAction(input: DayRulesDTOInput): Promise<ActionResult<PlanChangeResult>> {
+  return runAction('updateLearnerDayRules', async () => {
+    const actor = await requireTutor()
+    const data = dayRulesSchema.parse(input)
+    const change = await saveDayRules(actor, data)
+    refresh()
+    return change
+  })
+}
+
+const resetSchema = z.object({ learnerId: z.string().uuid(), confirmName: z.string().trim().min(1, 'Ketik nama anak untuk mengonfirmasi.').max(80) }).strict()
+
+/** Hapus riwayat hari dan pembeku streak satu learner. XP, lencana, skill, dan jawaban tetap. */
+export async function resetLearnerStreakAction(input: { learnerId: string; confirmName: string }): Promise<ActionResult<{ removedDays: number; streakBefore: number }>> {
+  return runAction('resetLearnerStreak', async () => {
+    const actor = await requireTutor()
+    const data = resetSchema.parse(input)
+    const result = await resetStreak(actor, data)
+    refresh()
+    return result
   })
 }

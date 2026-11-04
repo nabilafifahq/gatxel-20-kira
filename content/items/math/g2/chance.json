@@ -1,0 +1,57 @@
+{
+  "skill": "m2.chance",
+  "items": [
+    {
+      "id": "m2.chance.801",
+      "skill": "m2.chance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: It is certain that the day after Monday is Tuesday.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say the days in order.",
+        "Is there any other way?",
+        "It will happen."
+      ],
+      "explanation": "Days always follow in order, so Tuesday always comes after Monday. This will happen.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.chance.802",
+      "skill": "m2.chance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: When you roll an ordinary 1 to 6 dice, you might get a 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What numbers are on a dice?",
+        "Is 9 one of them?",
+        "It cannot happen."
+      ],
+      "explanation": "An ordinary dice only shows numbers from 1 to 6. A 9 will not happen.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

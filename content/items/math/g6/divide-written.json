@@ -1,0 +1,127 @@
+{
+  "skill": "m6.divide-written",
+  "items": [
+    {
+      "id": "m6.divide-written.001",
+      "skill": "m6.divide-written",
+      "difficulty": 3,
+      "prompt": "A bakery packs 1,512 rolls into boxes of 24. How many full boxes does it make?",
+      "hints": [
+        "Divide 1,512 by 24.",
+        "24 × 60 = 1,440.",
+        "What is left after 1,440, and how many 24s fit in it?"
+      ],
+      "explanation": "24 × 60 = 1,440 and 1,512 − 1,440 = 72, which is 3 more 24s. So 63 boxes.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 63
+    },
+    {
+      "id": "m6.divide-written.002",
+      "skill": "m6.divide-written",
+      "difficulty": 4,
+      "prompt": "Wulan cuts a 345 cm ribbon into 12 equal pieces. How long is each piece in centimetres?",
+      "hints": [
+        "Divide 345 by 12.",
+        "12 × 28 = 336, with 9 left over.",
+        "Write the 9 as a decimal: 9 ÷ 12 = 0.75."
+      ],
+      "explanation": "345 ÷ 12 = 28 remainder 9, and 9 ÷ 12 = 0.75. Each piece is 28.75 cm.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 28.75
+    },
+    {
+      "id": "m6.divide-written.003",
+      "skill": "m6.divide-written",
+      "difficulty": 4,
+      "prompt": "A school trip needs to carry 1,000 pupils. Each bus holds 45 pupils. How many buses are needed?",
+      "hints": [
+        "Divide 1,000 by 45.",
+        "45 × 22 = 990.",
+        "Think about what happens to the pupils who are left."
+      ],
+      "explanation": "1,000 ÷ 45 is 22 remainder 10. The remaining 10 pupils need one more bus, so 23 buses are needed.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "22",
+          "why": "22 buses carry only 990 pupils, so 10 pupils would be left behind."
+        },
+        {
+          "text": "22.2",
+          "why": "We cannot hire part of a bus."
+        },
+        {
+          "text": "23"
+        },
+        {
+          "text": "24",
+          "why": "23 buses already carry 1,035 pupils, which is enough."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.divide-written.801",
+      "skill": "m6.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 75 ÷ 4 = 18.75.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide to find the whole number part.",
+        "What is left over?",
+        "3 ÷ 4 = 0.75."
+      ],
+      "explanation": "4 × 18 = 72 with 3 left. 3 ÷ 4 = 0.75, so 75 ÷ 4 = 18.75.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.divide-written.802",
+      "skill": "m6.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 250 ÷ 15 = 16 remainder 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find 15 × 16.",
+        "Subtract from 250.",
+        "A remainder must be smaller than the divisor."
+      ],
+      "explanation": "15 × 16 = 240, so the remainder is 10. A remainder of 20 is bigger than 15, which is impossible.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -6,8 +6,8 @@ import { cx } from './cx'
 import { ConsoleIcon, Spinner, type ConsoleIconName } from './icons'
 
 /**
- * Tombol konsol (papan Button): M 44px teks 16, S 32px teks 14.
- * Varian: primary (isi --fg), secondary (garis 2px --border), quiet (tanpa garis), danger (isi --danger).
+ * Tombol konsol (papan Button): M 48px, S 36px.
+ * Varian: primary (Deep Grape, teks putih: konsol memakai teks di bawah 19 px), secondary (Lavender), quiet (garis bawah), danger (putih, garis merah).
  * Loading tetap bisa difokus dan memakai aria-busy; klik diabaikan selama memuat.
  */
 
@@ -15,29 +15,26 @@ export type ButtonVariant = 'primary' | 'secondary' | 'quiet' | 'danger'
 export type ButtonSize = 'M' | 'S'
 
 const BASE =
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-control font-bold no-underline select-none ' +
-  'transition-transform duration-150 ease-kira active:scale-97 disabled:active:scale-100 aria-disabled:active:scale-100'
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-control font-extrabold no-underline select-none ' +
+  'transition-transform duration-150 ease-kira enabled:hover:-translate-y-px enabled:active:translate-y-0.5 max-sm:h-auto max-sm:max-w-full max-sm:py-2 max-sm:whitespace-normal max-sm:text-center'
 
 const SIZE: Record<ButtonSize, string> = {
-  M: 'h-11 px-4 text-body',
-  S: 'h-8 px-3 text-small',
+  M: 'h-12 min-h-12 px-5 text-body',
+  S: 'h-9 min-h-9 px-4 text-small',
 }
 
+const DISABLED = 'disabled:border-0 disabled:bg-lavender disabled:text-fg/55 aria-disabled:border-0 aria-disabled:bg-lavender aria-disabled:text-fg/55'
+
 const DANGER_TONE: Partial<Record<ButtonVariant, string>> = {
-  secondary:
-    'border-2 border-danger bg-surface text-danger hover:border-danger hover:bg-danger-50 hover:text-danger disabled:border-divider disabled:bg-bg disabled:text-border',
-  quiet: 'border-0 bg-transparent font-semibold text-danger hover:bg-danger-50 hover:text-danger hover:underline underline-offset-3 disabled:text-border',
+  secondary: 'border-2 border-danger bg-surface text-danger hover:text-danger ' + DISABLED,
+  quiet: 'border-0 bg-transparent font-bold text-danger hover:text-danger underline underline-offset-3 decoration-2 ' + DISABLED,
 }
 
 const VARIANT: Record<ButtonVariant, string> = {
-  primary:
-    'border-0 bg-fg text-white hover:bg-fg-muted hover:text-white disabled:bg-divider disabled:text-fg-muted aria-disabled:bg-divider aria-disabled:text-fg-muted',
-  secondary:
-    'border-2 border-border bg-surface text-fg hover:border-fg hover:bg-bg hover:text-fg disabled:border-divider disabled:bg-bg disabled:text-border aria-disabled:border-divider aria-disabled:bg-bg aria-disabled:text-border',
-  quiet:
-    'border-0 bg-transparent font-semibold text-fg hover:bg-bg hover:text-fg hover:underline underline-offset-3 active:bg-divider disabled:text-border aria-disabled:text-border',
-  danger:
-    'border-0 bg-danger text-white hover:text-white hover:underline underline-offset-3 disabled:bg-divider disabled:text-fg-muted aria-disabled:bg-divider aria-disabled:text-fg-muted',
+  primary: 'border-2 border-fg bg-fg text-white hover:text-white ' + DISABLED,
+  secondary: 'border-2 border-fg bg-lavender text-fg hover:text-fg ' + DISABLED,
+  quiet: 'border-0 bg-transparent font-bold text-fg hover:text-fg underline underline-offset-3 decoration-2 ' + DISABLED,
+  danger: 'border-2 border-danger bg-surface text-danger hover:text-danger ' + DISABLED,
 }
 
 export function buttonClass(variant: ButtonVariant = 'secondary', size: ButtonSize = 'M', extra?: string, tone?: 'danger'): string {

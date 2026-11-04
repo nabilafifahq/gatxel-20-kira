@@ -1,0 +1,165 @@
+=== passwordLoginAction (email, password) ===
+[14:37:29] [WARNING] using '/tmp/sqlmap' as the output directory
+[14:37:29] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[14:37:29] [INFO] testing connection to the target URL
+[14:37:30] [WARNING] reflective value(s) found and filtering out
+[14:37:30] [INFO] testing if the target URL content is stable
+[14:37:31] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, refer to user's manual paragraph 'Page comparison'
+[14:37:31] [INFO] testing if (custom) POST parameter '#1*' is dynamic
+[14:37:32] [WARNING] (custom) POST parameter '#1*' does not appear to be dynamic
+[14:37:33] [INFO] testing for SQL injection on (custom) POST parameter '#1*'
+[14:37:36] [INFO] (custom) POST parameter '#1*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+[14:37:40] [INFO] heuristic (extended) test shows that the back-end DBMS could be 'InterSystems Cache' 
+[14:37:42] [INFO] automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+[14:37:43] [INFO] 'ORDER BY' technique appears to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending the range for current UNION query injection technique test
+[14:37:47] [INFO] target URL appears to have 38 columns in query
+[14:40:43] [WARNING] if UNION based SQL injection is not detected, please consider forcing the back-end DBMS (e.g. '--dbms=mysql') 
+[14:41:45] [WARNING] false positive or unexploitable injection point detected
+[14:41:45] [WARNING] (custom) POST parameter '#1*' does not seem to be injectable
+[14:41:45] [INFO] testing if (custom) POST parameter '#2*' is dynamic
+[14:41:46] [INFO] (custom) POST parameter '#2*' appears to be dynamic
+[14:41:47] [INFO] testing for SQL injection on (custom) POST parameter '#2*'
+[14:41:52] [INFO] (custom) POST parameter '#2*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+[14:42:56] [WARNING] false positive or unexploitable injection point detected
+[14:42:56] [WARNING] (custom) POST parameter '#2*' does not seem to be injectable
+[14:42:56] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. If you suspect that there is some kind of protection mechanism involved (e.g. WAF) maybe you could try to use option '--tamper' (e.g. '--tamper=space2comment')
+[14:42:56] [WARNING] HTTP error codes detected during run:
+=== requestResetAction (email) ===
+[14:42:57] [WARNING] using '/tmp/sqlmap' as the output directory
+[14:42:57] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Safari/605.1.15' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[14:42:58] [INFO] flushing session file
+[14:42:58] [INFO] testing connection to the target URL
+[14:43:03] [WARNING] reflective value(s) found and filtering out
+[14:43:03] [INFO] testing if the target URL content is stable
+[14:43:06] [INFO] target URL content is stable
+[14:43:06] [INFO] testing if (custom) POST parameter '#1*' is dynamic
+[14:43:08] [INFO] (custom) POST parameter '#1*' appears to be dynamic
+[14:43:11] [INFO] testing for SQL injection on (custom) POST parameter '#1*'
+=== POST /api/sync (JSON, learner) ===
+[14:49:57] [WARNING] using '/tmp/sqlmap' as the output directory
+[14:49:57] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[14:49:57] [INFO] flushing session file
+[14:49:57] [INFO] testing connection to the target URL
+[14:50:00] [INFO] testing if the target URL content is stable
+[14:50:01] [INFO] target URL content is stable
+[14:50:01] [INFO] testing if (custom) POST parameter 'JSON #1*' is dynamic
+[14:50:02] [WARNING] (custom) POST parameter 'JSON #1*' does not appear to be dynamic
+[14:50:04] [INFO] testing for SQL injection on (custom) POST parameter 'JSON #1*'
+=== POST /api/tts/request (JSON, learner) ===
+[14:56:57] [WARNING] using '/tmp/sqlmap' as the output directory
+[14:56:57] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[14:56:57] [INFO] flushing session file
+[14:56:57] [INFO] testing connection to the target URL
+[14:56:58] [WARNING] the web server responded with an HTTP error code (400) which could interfere with the results of the tests
+[14:57:00] [INFO] testing if the target URL content is stable
+[14:57:01] [INFO] target URL content is stable
+[14:57:01] [INFO] testing if (custom) POST parameter 'JSON #1*' is dynamic
+[14:57:02] [WARNING] (custom) POST parameter 'JSON #1*' does not appear to be dynamic
+[14:57:05] [INFO] testing for SQL injection on (custom) POST parameter 'JSON #1*'
+=== GET /api/media/{id} (learner) ===
+[15:03:56] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:03:56] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15 Ddg/18.6' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:03:56] [INFO] flushing session file
+[15:03:56] [INFO] testing connection to the target URL
+[15:03:57] [CRITICAL] not authorized, try to provide right HTTP authentication type and valid credentials (401). If this is intended, try to rerun by providing a valid value for option '--ignore-code'
+[15:03:57] [WARNING] HTTP error codes detected during run:
+=== GET /tts/{file} ===
+[15:03:58] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:03:58] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:03:58] [INFO] testing connection to the target URL
+[15:03:58] [CRITICAL] not authorized, try to provide right HTTP authentication type and valid credentials (401). If this is intended, try to rerun by providing a valid value for option '--ignore-code'
+[15:03:58] [WARNING] HTTP error codes detected during run:
+=== GET /konsol/learner/{id} (tutor) ===
+[15:03:59] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:03:59] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:03:59] [INFO] testing connection to the target URL
+[15:04:00] [INFO] testing if the target URL content is stable
+[15:04:01] [WARNING] URI parameter '#1*' does not appear to be dynamic
+[15:04:02] [INFO] testing for SQL injection on URI parameter '#1*'
+[15:04:02] [WARNING] reflective value(s) found and filtering out
+=== GET /masuk?next= (publik) ===
+[15:10:59] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:10:59] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4482.0 Safari/537.36 Edg/92.0.874.0' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:10:59] [INFO] flushing session file
+[15:10:59] [INFO] testing connection to the target URL
+[15:11:00] [WARNING] reflective value(s) found and filtering out
+[15:11:00] [INFO] testing if the target URL content is stable
+[15:11:00] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, refer to user's manual paragraph 'Page comparison'
+[15:11:00] [INFO] searching for dynamic content
+[15:11:00] [INFO] dynamic content marked for removal (11 regions)
+[15:11:00] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+[15:11:01] [INFO] dynamic content marked for removal (17 regions)
+[15:11:01] [INFO] target URL content is not byte-stable but structurally stable; sqlmap will base the page comparison on the page structure
+[15:11:01] [INFO] testing if URI parameter '#1*' is dynamic
+[15:11:02] [WARNING] URI parameter '#1*' does not appear to be dynamic
+[15:11:02] [INFO] testing for SQL injection on URI parameter '#1*'
+=== POST /api/internal/weekly-report (header Authorization) ===
+[15:17:58] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:17:58] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:17:58] [INFO] flushing session file
+[15:17:58] [INFO] testing connection to the target URL
+[15:17:59] [CRITICAL] not authorized, try to provide right HTTP authentication type and valid credentials (401). If this is intended, try to rerun by providing a valid value for option '--ignore-code'
+[15:17:59] [WARNING] HTTP error codes detected during run:
+SELESAI
+=== POST /api/sync (JSON, learner) ===
+[15:18:35] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:18:35] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:18:35] [INFO] testing connection to the target URL
+[15:18:37] [INFO] testing if the target URL content is stable
+[15:18:38] [INFO] target URL content is stable
+[15:18:38] [INFO] testing if (custom) POST parameter 'JSON #1*' is dynamic
+[15:18:39] [WARNING] (custom) POST parameter 'JSON #1*' does not appear to be dynamic
+[15:18:41] [INFO] testing for SQL injection on (custom) POST parameter 'JSON #1*'
+=== POST /api/tts/request (JSON, learner) ===
+[15:25:35] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:25:35] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:25:35] [INFO] flushing session file
+[15:25:35] [INFO] testing connection to the target URL
+[15:25:36] [WARNING] the web server responded with an HTTP error code (400) which could interfere with the results of the tests
+[15:25:37] [INFO] testing if the target URL content is stable
+[15:25:38] [INFO] target URL content is stable
+[15:25:38] [INFO] testing if (custom) POST parameter 'JSON #1*' is dynamic
+[15:25:39] [WARNING] (custom) POST parameter 'JSON #1*' does not appear to be dynamic
+[15:25:41] [INFO] testing for SQL injection on (custom) POST parameter 'JSON #1*'
+=== GET /api/media/{id} (learner) ===
+[15:32:34] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:32:34] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:32:34] [INFO] flushing session file
+[15:32:34] [INFO] testing connection to the target URL
+[15:32:34] [CRITICAL] page not found (404)
+[15:32:34] [WARNING] HTTP error codes detected during run:
+=== GET /tts/{file} ===
+[15:32:35] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:32:35] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:109.0) Gecko/20100101 Firefox/115.0' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:32:35] [INFO] testing connection to the target URL
+[15:32:35] [CRITICAL] page not found (404)
+[15:32:35] [WARNING] HTTP error codes detected during run:
+=== GET /konsol/learner/{id} (tutor) ===
+[15:32:36] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:32:36] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/28.0 Chrome/130.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:32:36] [INFO] testing connection to the target URL
+[15:32:36] [CRITICAL] page not found (404)
+[15:32:36] [WARNING] HTTP error codes detected during run:
+=== GET /masuk?next= (publik) ===
+[15:32:36] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:32:36] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:32:36] [INFO] testing connection to the target URL
+[15:32:37] [WARNING] reflective value(s) found and filtering out
+[15:32:37] [INFO] testing if the target URL content is stable
+[15:32:38] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, refer to user's manual paragraph 'Page comparison'
+[15:32:38] [INFO] searching for dynamic content
+[15:32:38] [INFO] dynamic content marked for removal (12 regions)
+[15:32:38] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+[15:32:38] [INFO] dynamic content marked for removal (13 regions)
+[15:32:39] [INFO] target URL content is not byte-stable but structurally stable; sqlmap will base the page comparison on the page structure
+[15:32:39] [INFO] testing if URI parameter '#1*' is dynamic
+[15:32:39] [WARNING] URI parameter '#1*' does not appear to be dynamic
+[15:32:39] [INFO] testing for SQL injection on URI parameter '#1*'
+=== POST /api/internal/weekly-report (header Authorization) ===
+[15:39:36] [WARNING] using '/tmp/sqlmap' as the output directory
+[15:39:36] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.7 Safari/605.1.15' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[15:39:36] [INFO] flushing session file
+[15:39:36] [INFO] testing connection to the target URL
+[15:39:37] [CRITICAL] not authorized, try to provide right HTTP authentication type and valid credentials (401). If this is intended, try to rerun by providing a valid value for option '--ignore-code'
+[15:39:37] [WARNING] HTTP error codes detected during run:
+SELESAI

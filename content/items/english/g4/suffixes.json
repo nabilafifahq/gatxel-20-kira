@@ -2,134 +2,1012 @@
   "skill": "e4.suffixes",
   "items": [
     {
-      "id": "e4.suffixes.001", "skill": "e4.suffixes", "type": "mcq", "difficulty": 1,
+      "id": "e4.suffixes.001",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Add -ness to kind. Which word do you make?",
       "options": [
-        { "text": "kindness" },
-        { "text": "kindnes", "why": "The suffix -ness ends in a double s." },
-        { "text": "kindment", "why": "That uses -ment, and kindment is not a word." },
-        { "text": "kindly", "why": "Kindly uses -ly, not -ness." }
+        {
+          "text": "kindness"
+        },
+        {
+          "text": "kindnes",
+          "why": "The suffix -ness ends in a double s."
+        },
+        {
+          "text": "kindment",
+          "why": "That uses -ment, and kindment is not a word."
+        },
+        {
+          "text": "kindly",
+          "why": "Kindly uses -ly, not -ness."
+        }
       ],
       "answer": 0,
-      "hints": ["The suffix -ness turns a describing word into a noun.", "Kind does not change. Just add the suffix.", "Check how many s letters the suffix has."],
+      "hints": [
+        "The suffix -ness turns a describing word into a noun.",
+        "Kind does not change. Just add the suffix.",
+        "Check how many s letters the suffix has."
+      ],
       "explanation": "Kind + ness = kindness. The root word does not change, and -ness ends in a double s.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.suffixes.002", "skill": "e4.suffixes", "type": "mcq", "difficulty": 1,
+      "id": "e4.suffixes.002",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Add -ment to enjoy. Which word do you make?",
       "options": [
-        { "text": "enjoyness", "why": "That uses -ness, and enjoyness is not a word." },
-        { "text": "enjoyement", "why": "There is no e between enjoy and -ment." },
-        { "text": "enjoyment" },
-        { "text": "enjoyed", "why": "Enjoyed is the past tense, not a -ment noun." }
+        {
+          "text": "enjoyness",
+          "why": "That uses -ness, and enjoyness is not a word."
+        },
+        {
+          "text": "enjoyement",
+          "why": "There is no e between enjoy and -ment."
+        },
+        {
+          "text": "enjoyment"
+        },
+        {
+          "text": "enjoyed",
+          "why": "Enjoyed is the past tense, not a -ment noun."
+        }
       ],
       "answer": 2,
-      "hints": ["The suffix -ment turns a verb into a noun.", "Enjoy does not change. Just add the suffix.", "Write enjoy, then add the four letters of the suffix."],
+      "hints": [
+        "The suffix -ment turns a verb into a noun.",
+        "Enjoy does not change. Just add the suffix.",
+        "Write enjoy, then add the four letters of the suffix."
+      ],
       "explanation": "Enjoy + ment = enjoyment. The y stays because a vowel comes before it.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.suffixes.003", "skill": "e4.suffixes", "type": "text", "difficulty": 2,
+      "id": "e4.suffixes.003",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Add -ness to dark.\nWe could not see anything in the ___.",
-      "blanks": [{ "answers": ["darkness"] }],
-      "hints": ["You need a noun that names something.", "Dark does not change before the suffix.", "Check that your word ends in a double s."],
+      "blanks": [
+        {
+          "answers": [
+            "darkness"
+          ]
+        }
+      ],
+      "hints": [
+        "You need a noun that names something.",
+        "Dark does not change before the suffix.",
+        "Check that your word ends in a double s."
+      ],
       "explanation": "Dark + ness = darkness. It names the state of being dark."
     },
     {
-      "id": "e4.suffixes.004", "skill": "e4.suffixes", "type": "text", "difficulty": 2,
+      "id": "e4.suffixes.004",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Add -ment to move.\nThe dancer made a slow ___ with her arms.",
-      "blanks": [{ "answers": ["movement"] }],
-      "hints": ["You need a noun after the words a slow.", "Move ends in e. Keep the e before -ment.", "Write move, then add the suffix."],
+      "blanks": [
+        {
+          "answers": [
+            "movement"
+          ]
+        }
+      ],
+      "hints": [
+        "You need a noun after the words a slow.",
+        "Move ends in e. Keep the e before -ment.",
+        "Write move, then add the suffix."
+      ],
       "explanation": "Move + ment = movement. The e stays, because -ment starts with a consonant."
     },
     {
-      "id": "e4.suffixes.005", "skill": "e4.suffixes", "type": "sort", "difficulty": 2,
+      "id": "e4.suffixes.005",
+      "skill": "e4.suffixes",
+      "type": "sort",
+      "difficulty": 2,
       "prompt": "Sort the words. Which suffix makes a real noun?",
-      "groups": ["-ness", "-ment"],
-      "items": [
-        { "text": "sad", "group": 0 }, { "text": "kind", "group": 0 }, { "text": "dark", "group": 0 }, { "text": "ill", "group": 0 },
-        { "text": "agree", "group": 1 }, { "text": "pay", "group": 1 }, { "text": "amaze", "group": 1 }, { "text": "excite", "group": 1 }
+      "groups": [
+        "-ness",
+        "-ment"
       ],
-      "hints": ["Say each word with -ness and then with -ment.", "Only one suffix sounds like a real word each time.", "Start with pay. Is it payness or payment?"],
+      "items": [
+        {
+          "text": "sad",
+          "group": 0
+        },
+        {
+          "text": "kind",
+          "group": 0
+        },
+        {
+          "text": "dark",
+          "group": 0
+        },
+        {
+          "text": "ill",
+          "group": 0
+        },
+        {
+          "text": "agree",
+          "group": 1
+        },
+        {
+          "text": "pay",
+          "group": 1
+        },
+        {
+          "text": "amaze",
+          "group": 1
+        },
+        {
+          "text": "excite",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Say each word with -ness and then with -ment.",
+        "Only one suffix sounds like a real word each time.",
+        "Start with pay. Is it payness or payment?"
+      ],
       "explanation": "We say sadness, kindness, darkness and illness. We say agreement, payment, amazement and excitement."
     },
     {
-      "id": "e4.suffixes.006", "skill": "e4.suffixes", "type": "text", "difficulty": 3,
+      "id": "e4.suffixes.006",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 3,
       "prompt": "Add -ness to happy.\nOn the last day of school, the children were full of ___.",
-      "blanks": [{ "answers": ["happiness"] }],
-      "hints": ["Happy ends in a consonant and then y.", "Remember the rule for words like this. What happens to the y?", "Think of happy and happily. Make the same change."],
+      "blanks": [
+        {
+          "answers": [
+            "happiness"
+          ]
+        }
+      ],
+      "hints": [
+        "Happy ends in a consonant and then y.",
+        "Remember the rule for words like this. What happens to the y?",
+        "Think of happy and happily. Make the same change."
+      ],
       "explanation": "Happy ends in a consonant and y, so the y changes to i: happiness."
     },
     {
-      "id": "e4.suffixes.007", "skill": "e4.suffixes", "type": "mcq", "difficulty": 3,
+      "id": "e4.suffixes.007",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which word is spelt correctly?",
       "options": [
-        { "text": "lazyness", "why": "Lazy ends in a consonant and y, so the y changes to i." },
-        { "text": "lazines", "why": "The suffix -ness has a double s." },
-        { "text": "lazieness", "why": "There is no e after the i." },
-        { "text": "laziness" }
+        {
+          "text": "lazyness",
+          "why": "Lazy ends in a consonant and y, so the y changes to i."
+        },
+        {
+          "text": "lazines",
+          "why": "The suffix -ness has a double s."
+        },
+        {
+          "text": "lazieness",
+          "why": "There is no e after the i."
+        },
+        {
+          "text": "laziness"
+        }
       ],
       "answer": 3,
-      "hints": ["Lazy ends in z and then y.", "Change the y before adding the suffix.", "Check that the end of the word is -ness with a double s."],
+      "hints": [
+        "Lazy ends in z and then y.",
+        "Change the y before adding the suffix.",
+        "Check that the end of the word is -ness with a double s."
+      ],
       "explanation": "Lazy ends in a consonant and y, so y changes to i. Lazy + ness = laziness.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.suffixes.008", "skill": "e4.suffixes", "type": "match", "difficulty": 3,
+      "id": "e4.suffixes.008",
+      "skill": "e4.suffixes",
+      "type": "match",
+      "difficulty": 3,
       "prompt": "Match each word to the noun made from it.",
-      "pairs": [["empty", "emptiness"], ["equip", "equipment"], ["ill", "illness"], ["argue", "argument"], ["bright", "brightness"]],
-      "hints": ["Each word takes -ness or -ment.", "Watch for words that change before the suffix.", "Start with ill. Which noun means being ill?"],
+      "pairs": [
+        [
+          "empty",
+          "emptiness"
+        ],
+        [
+          "equip",
+          "equipment"
+        ],
+        [
+          "ill",
+          "illness"
+        ],
+        [
+          "argue",
+          "argument"
+        ],
+        [
+          "bright",
+          "brightness"
+        ]
+      ],
+      "hints": [
+        "Each word takes -ness or -ment.",
+        "Watch for words that change before the suffix.",
+        "Start with ill. Which noun means being ill?"
+      ],
       "explanation": "Empty changes y to i to make emptiness. Argue drops its e to make argument. The others just add the suffix."
     },
     {
-      "id": "e4.suffixes.009", "skill": "e4.suffixes", "type": "mcq", "difficulty": 3,
+      "id": "e4.suffixes.009",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Ella gasped in ___ when she saw the huge cake.",
       "options": [
-        { "text": "amazeness", "why": "Amaze takes -ment, not -ness." },
-        { "text": "amazement" },
-        { "text": "amazing", "why": "Amazing describes something. After in, we need a noun." },
-        { "text": "amazed", "why": "Amazed describes how someone feels. After in, we need a noun." }
+        {
+          "text": "amazeness",
+          "why": "Amaze takes -ment, not -ness."
+        },
+        {
+          "text": "amazement"
+        },
+        {
+          "text": "amazing",
+          "why": "Amazing describes something. After in, we need a noun."
+        },
+        {
+          "text": "amazed",
+          "why": "Amazed describes how someone feels. After in, we need a noun."
+        }
       ],
       "answer": 1,
-      "hints": ["The missing word comes after in.", "You need a noun that names a feeling.", "Which suffix goes with amaze?"],
+      "hints": [
+        "The missing word comes after in.",
+        "You need a noun that names a feeling.",
+        "Which suffix goes with amaze?"
+      ],
       "explanation": "After in we need a noun. Amaze + ment = amazement.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.suffixes.010", "skill": "e4.suffixes", "type": "mcq", "difficulty": 4,
+      "id": "e4.suffixes.010",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which pair is correct?",
       "options": [
-        { "text": "argue → argument" },
-        { "text": "argue → arguement", "why": "Argue drops its e before -ment. It is one of the tricky ones." },
-        { "text": "silly → sillyness", "why": "Silly ends in a consonant and y, so it becomes silliness." },
-        { "text": "merry → merryment", "why": "Merry changes y to i: merriment." }
+        {
+          "text": "argue → argument"
+        },
+        {
+          "text": "argue → arguement",
+          "why": "Argue drops its e before -ment. It is one of the tricky ones."
+        },
+        {
+          "text": "silly → sillyness",
+          "why": "Silly ends in a consonant and y, so it becomes silliness."
+        },
+        {
+          "text": "merry → merryment",
+          "why": "Merry changes y to i: merriment."
+        }
       ],
       "answer": 0,
-      "hints": ["Check each root word for an e or a y at the end.", "Words ending in a consonant and y change y to i.", "Argue breaks the usual keep-the-e rule. Look closely at the two argue pairs."],
+      "hints": [
+        "Check each root word for an e or a y at the end.",
+        "Words ending in a consonant and y change y to i.",
+        "Argue breaks the usual keep-the-e rule. Look closely at the two argue pairs."
+      ],
       "explanation": "Argue drops its e before -ment, so it is argument. Silly becomes silliness and merry becomes merriment.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.suffixes.011", "skill": "e4.suffixes", "type": "text", "difficulty": 4,
+      "id": "e4.suffixes.011",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 4,
       "prompt": "Add -ment to excite and to announce.\nThe team cheered with ___ after the ___.",
-      "blanks": [{ "answers": ["excitement"] }, { "answers": ["announcement"] }],
-      "hints": ["Both words end in e.", "Most words ending in e keep the e before -ment.", "Write excite, then add the suffix. Do the same for announce."],
+      "blanks": [
+        {
+          "answers": [
+            "excitement"
+          ]
+        },
+        {
+          "answers": [
+            "announcement"
+          ]
+        }
+      ],
+      "hints": [
+        "Both words end in e.",
+        "Most words ending in e keep the e before -ment.",
+        "Write excite, then add the suffix. Do the same for announce."
+      ],
       "explanation": "Excite + ment = excitement, and announce + ment = announcement. Both words keep their e."
     },
     {
-      "id": "e4.suffixes.012", "skill": "e4.suffixes", "type": "mcq", "difficulty": 5,
+      "id": "e4.suffixes.012",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Add -ness to sudden. Which spelling is right?",
       "options": [
-        { "text": "suddeness", "why": "Sudden ends in n, and -ness starts with n, so you need both." },
-        { "text": "suddenness" },
-        { "text": "suddness", "why": "Do not drop the e from sudden." },
-        { "text": "suddennes", "why": "The suffix -ness ends in a double s." }
+        {
+          "text": "suddeness",
+          "why": "Sudden ends in n, and -ness starts with n, so you need both."
+        },
+        {
+          "text": "suddenness"
+        },
+        {
+          "text": "suddness",
+          "why": "Do not drop the e from sudden."
+        },
+        {
+          "text": "suddennes",
+          "why": "The suffix -ness ends in a double s."
+        }
       ],
       "answer": 1,
-      "hints": ["Write sudden first.", "Do not change sudden before adding the suffix.", "Count the letter n where the two parts join."],
+      "hints": [
+        "Write sudden first.",
+        "Do not change sudden before adding the suffix.",
+        "Count the letter n where the two parts join."
+      ],
       "explanation": "Sudden + ness = suddenness. Sudden ends in n and -ness starts with n, so there are two n letters together.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e4.suffixes.013",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a noun?",
+      "options": [
+        {
+          "text": "sad",
+          "why": "Sad describes someone. It is not the name of a feeling."
+        },
+        {
+          "text": "sadly",
+          "why": "Sadly says how something is done."
+        },
+        {
+          "text": "sadder",
+          "why": "Sadder compares two things."
+        },
+        {
+          "text": "sadness"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A noun names a thing or a feeling.",
+        "Which word could follow The?",
+        "Try: The ___ made her cry."
+      ],
+      "explanation": "Sadness names a feeling, so it is a noun. -ness turns a describing word into a noun."
+    },
+    {
+      "id": "e4.suffixes.014",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Add -ness to sad. Which word do you make?",
+      "options": [
+        {
+          "text": "sadness"
+        },
+        {
+          "text": "sadeness",
+          "why": "Sad does not need an extra e."
+        },
+        {
+          "text": "sadnes",
+          "why": "The suffix is -ness, with two s letters."
+        },
+        {
+          "text": "sadnness",
+          "why": "Only one n comes from sad and one from -ness. Count them again."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Write sad first.",
+        "Then add all of -ness.",
+        "Do not add or drop any letters."
+      ],
+      "explanation": "Sad ends in d, so we just add -ness: sadness."
+    },
+    {
+      "id": "e4.suffixes.015",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Add -ment to pay. Which word do you make?",
+      "options": [
+        {
+          "text": "payement",
+          "why": "Pay does not need an extra e."
+        },
+        {
+          "text": "payment"
+        },
+        {
+          "text": "paiment",
+          "why": "Pay keeps its y when -ment is added."
+        },
+        {
+          "text": "paymant",
+          "why": "The suffix is spelt -ment, with an e."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Write the root word first.",
+        "Then add the whole suffix.",
+        "Check you keep the y."
+      ],
+      "explanation": "Pay ends in y after a vowel, so it stays the same: payment."
+    },
+    {
+      "id": "e4.suffixes.016",
+      "skill": "e4.suffixes",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Citra was full of ___ when she heard she had won.",
+      "gaps": [
+        {
+          "options": [
+            "happy",
+            "happiness",
+            "happily",
+            "happier"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "What kind of word follows full of?",
+        "You need the name of a feeling.",
+        "Which choice is a noun?"
+      ],
+      "explanation": "After full of we need a noun. Happiness is the noun made from happy."
+    },
+    {
+      "id": "e4.suffixes.017",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add -ment to agree.\nThe two friends shook hands in ___.",
+      "blanks": [
+        {
+          "answers": [
+            "agreement"
+          ]
+        }
+      ],
+      "hints": [
+        "Write the root word first.",
+        "Add the suffix to the end.",
+        "Keep the last e of agree."
+      ],
+      "explanation": "Agree ends in e, and the suffix -ment starts with m, so we keep the e: agreement."
+    },
+    {
+      "id": "e4.suffixes.018",
+      "skill": "e4.suffixes",
+      "type": "spell",
+      "difficulty": 2,
+      "prompt": "Spell the noun for when there is no light.",
+      "word": "darkness",
+      "sentence": "We sat in the darkness and waited.",
+      "hints": [
+        "Think of the root word first.",
+        "Add the suffix that makes a noun.",
+        "Dark plus ness has a double s."
+      ],
+      "explanation": "Dark plus -ness gives darkness. The n and the s from -ness both stay."
+    },
+    {
+      "id": "e4.suffixes.019",
+      "skill": "e4.suffixes",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the root words by the suffix that makes a real noun.",
+      "groups": [
+        "-ness",
+        "-ment"
+      ],
+      "items": [
+        {
+          "text": "dark",
+          "group": 0
+        },
+        {
+          "text": "sad",
+          "group": 0
+        },
+        {
+          "text": "soft",
+          "group": 0
+        },
+        {
+          "text": "pay",
+          "group": 1
+        },
+        {
+          "text": "move",
+          "group": 1
+        },
+        {
+          "text": "equip",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Try both suffixes with each word.",
+        "Say the noun aloud.",
+        "Start with equip. Is it equipness or equipment?"
+      ],
+      "explanation": "We say darkness, sadness and softness, and payment, movement and equipment."
+    },
+    {
+      "id": "e4.suffixes.020",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Add -ness to tidy.\nMum was pleased with the ___ of my room.",
+      "blanks": [
+        {
+          "answers": [
+            "tidiness"
+          ]
+        }
+      ],
+      "hints": [
+        "The root word ends in y.",
+        "When y follows a consonant, it often changes before a suffix.",
+        "Change the y to i, then add -ness."
+      ],
+      "explanation": "Tidy ends in y after a consonant, so y changes to i: tidiness."
+    },
+    {
+      "id": "e4.suffixes.021",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Add -ness to open. Which spelling is right?",
+      "options": [
+        {
+          "text": "openess",
+          "why": "You need all of -ness. Open also ends in n."
+        },
+        {
+          "text": "opennes",
+          "why": "The suffix -ness ends in two s letters."
+        },
+        {
+          "text": "openness"
+        },
+        {
+          "text": "opness",
+          "why": "Do not drop letters from open."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Write open, then add -ness.",
+        "Both n letters stay: one from open, one from -ness.",
+        "Count the s letters at the end."
+      ],
+      "explanation": "Open ends in n and -ness starts with n, so both stay: openness."
+    },
+    {
+      "id": "e4.suffixes.022",
+      "skill": "e4.suffixes",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a sentence about a feeling. Use a noun made with -ment.",
+      "answer": "Her excitement grew as the bus arrived.",
+      "distractors": [
+        "excitness",
+        "excited"
+      ],
+      "alternatives": [],
+      "hints": [
+        "The sentence starts with a capital letter.",
+        "Choose the noun that ends in -ment.",
+        "Her goes first. Then the noun."
+      ],
+      "explanation": "Excitement is the noun made from excite with -ment."
+    },
+    {
+      "id": "e4.suffixes.023",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which pair is spelt correctly?",
+      "options": [
+        {
+          "text": "paiment and happiness",
+          "why": "Pay keeps its y before -ment."
+        },
+        {
+          "text": "payment and happyness",
+          "why": "Happy changes y to i before -ness."
+        },
+        {
+          "text": "payement and happiness",
+          "why": "Pay does not need an extra e."
+        },
+        {
+          "text": "payment and happiness"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check each word on its own.",
+        "Look at what happens to y before a suffix.",
+        "Pay keeps y after a vowel. Happy changes y after a consonant."
+      ],
+      "explanation": "Payment keeps its y after a vowel. Happy ends in y after a consonant, so it becomes happiness."
+    },
+    {
+      "id": "e4.suffixes.024",
+      "skill": "e4.suffixes",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to the noun made from it.",
+      "pairs": [
+        [
+          "happy",
+          "happiness"
+        ],
+        [
+          "lonely",
+          "loneliness"
+        ],
+        [
+          "dizzy",
+          "dizziness"
+        ],
+        [
+          "grumpy",
+          "grumpiness"
+        ],
+        [
+          "cloudy",
+          "cloudiness"
+        ]
+      ],
+      "hints": [
+        "All of these roots end in y.",
+        "Change y to i, then add -ness.",
+        "Start with dizzy. Watch the double z."
+      ],
+      "explanation": "Each word ends in y after a consonant, so y changes to i before -ness."
+    },
+    {
+      "id": "e4.suffixes.025",
+      "skill": "e4.suffixes",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the nouns made by adding -ness or -ment.",
+      "options": [
+        {
+          "text": "kindness"
+        },
+        {
+          "text": "careful",
+          "why": "Careful is made with -ful and describes someone."
+        },
+        {
+          "text": "enjoyment"
+        },
+        {
+          "text": "quickly",
+          "why": "Quickly is made with -ly and says how."
+        },
+        {
+          "text": "argument"
+        },
+        {
+          "text": "useless",
+          "why": "Useless is made with -less and describes something."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Look at the end of each word.",
+        "Only -ness and -ment are wanted.",
+        "Then check the word names something."
+      ],
+      "explanation": "Kindness, enjoyment and argument are nouns made with -ness or -ment. The others use -ful, -ly and -less."
+    },
+    {
+      "id": "e4.suffixes.026",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is NOT made by adding -ment to a root word?",
+      "options": [
+        {
+          "text": "agreement",
+          "why": "This is agree plus -ment."
+        },
+        {
+          "text": "movement",
+          "why": "This is move plus -ment."
+        },
+        {
+          "text": "cement"
+        },
+        {
+          "text": "treatment",
+          "why": "This is treat plus -ment."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Cover the ending -ment.",
+        "Is what is left a real word with a matching meaning?",
+        "Check ce."
+      ],
+      "explanation": "Ce is not a word, so cement is just one word. The others are root words plus -ment."
+    },
+    {
+      "id": "e4.suffixes.027",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Add -ness to weak and -ment to replace.\nThe ___ of the old engine meant it needed a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "weakness"
+          ]
+        },
+        {
+          "answers": [
+            "replacement"
+          ]
+        }
+      ],
+      "hints": [
+        "Fill the gaps in order.",
+        "Replace ends in e, so think about that e.",
+        "Keep the e: replace plus -ment."
+      ],
+      "explanation": "Weak plus -ness is weakness. Replace plus -ment is replacement, and the e stays."
+    },
+    {
+      "id": "e4.suffixes.028",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does the suffix -ness usually do to a word?",
+      "options": [
+        {
+          "text": "It turns a describing word into a noun."
+        },
+        {
+          "text": "It turns the word into a verb.",
+          "why": "Verbs are doing words. -ness names a quality."
+        },
+        {
+          "text": "It makes the word mean not.",
+          "why": "Not is the job of prefixes like un-."
+        },
+        {
+          "text": "It makes the word mean again.",
+          "why": "Again is the job of the prefix re-."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of kind and kindness.",
+        "Is kindness a describing word or a name?",
+        "Look at how the word is used in a sentence."
+      ],
+      "explanation": "-ness turns a describing word like kind into a noun like kindness."
+    },
+    {
+      "id": "e4.suffixes.029",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Forgetfulness is made with two suffixes. Which are they, in order?",
+      "options": [
+        {
+          "text": "-ness then -ful",
+          "why": "-ness comes last because it makes the final noun."
+        },
+        {
+          "text": "-ful then -ness"
+        },
+        {
+          "text": "-ment then -ful",
+          "why": "There is no -ment in this word."
+        },
+        {
+          "text": "-ful then -ly",
+          "why": "There is no -ly in this word."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Start with the root word forget.",
+        "Build the word one step at a time.",
+        "forget, then forgetful, then forgetfulness."
+      ],
+      "explanation": "Forget plus -ful makes forgetful. Then -ness makes the noun forgetfulness."
+    },
+    {
+      "id": "e4.suffixes.030",
+      "skill": "e4.suffixes",
+      "type": "spell",
+      "difficulty": 5,
+      "prompt": "Spell the noun for the sad feeling when something does not go as you hoped.",
+      "word": "disappointment",
+      "sentence": "Her disappointment was clear when the trip was cancelled.",
+      "hints": [
+        "It begins with a prefix.",
+        "Count the letters: one s, two p, one n, one t before -ment.",
+        "Say the root in parts: dis, ap, point."
+      ],
+      "explanation": "Disappointment is dis- plus appoint plus -ment. It has one s and two p letters."
+    },
+    {
+      "id": "e4.suffixes.801",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Adding -ness to the word kind makes the noun kindness.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the end of the new word.",
+        "Kindness names a quality.",
+        "Add n, e, s, s to kind."
+      ],
+      "explanation": "The suffix -ness turns an adjective into a noun. Kind becomes kindness.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.suffixes.802",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Adding -ness to the word sad gives the spelling sadnes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The suffix has two s letters.",
+        "Check how -ness is spelt.",
+        "Sad plus ness is sadness."
+      ],
+      "explanation": "The word sad ends in d, and -ness keeps both s letters, so the spelling is sadness.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.suffixes.803",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When -ness is added to happy, the y changes to i to make happiness.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the letter before the y.",
+        "Happy ends in p then y.",
+        "The y changes to i."
+      ],
+      "explanation": "When a word ends in a consonant plus y, change the y to i before adding -ness. Happy becomes happiness.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.suffixes.804",
+      "skill": "e4.suffixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word agreement is made by adding -ment to the word agree.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Take away the ending and see what is left.",
+        "Agree is a verb.",
+        "Add -ment to the verb."
+      ],
+      "explanation": "The suffix -ment makes a noun from a verb. Agree plus -ment is agreement, as in enjoy and enjoyment.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.suffixes.701",
+      "skill": "e4.suffixes",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Add -ness to kind: ___.",
+      "blanks": [
+        {
+          "answers": [
+            "kindness"
+          ]
+        }
+      ],
+      "hints": [
+        "The suffix makes a noun.",
+        "kind + ness",
+        "Two s letters."
+      ],
+      "explanation": "Kind plus -ness makes kindness.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

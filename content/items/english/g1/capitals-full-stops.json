@@ -399,7 +399,7 @@
       "explanation": "The sentence is I like red apples. It starts with a capital letter and ends with a full stop.",
       "answer": "I like red apples.",
       "distractors": [
-        "green"
+        "at"
       ]
     },
     {
@@ -576,7 +576,7 @@
       "explanation": "Sam has a red kite. It starts with a capital and ends with a full stop.",
       "answer": "Sam has a red kite.",
       "distractors": [
-        "blue"
+        "at"
       ]
     },
     {
@@ -751,6 +751,162 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e1.capitals-full-stops.801",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A sentence starts with a capital letter.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the first letter of a sentence.",
+        "Is it big or small?",
+        "It is a capital letter."
+      ],
+      "explanation": "Every sentence starts with a capital letter, like The cat sat.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.capitals-full-stops.802",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Names of people start with a small letter.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at how your own name is written.",
+        "Is the first letter big?",
+        "It starts with a capital."
+      ],
+      "explanation": "Names start with a capital letter, such as Mina or Budi.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.capitals-full-stops.803",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A sentence that tells us something usually ends with a full stop.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What mark ends this sentence?",
+        "It looks like a dot.",
+        "It is a full stop."
+      ],
+      "explanation": "A full stop shows where a sentence ends.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.capitals-full-stops.804",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"the dog ran\" is written correctly.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Check the first letter.",
+        "Check the end of the sentence.",
+        "It needs a capital T and a full stop."
+      ],
+      "explanation": "It should start with a capital letter and end with a full stop: The dog ran.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.capitals-full-stops.805",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word I is always written as a capital letter.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at I like cake.",
+        "Does I ever look small?",
+        "Always a capital."
+      ],
+      "explanation": "The word I is a capital letter wherever it is in a sentence.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.capitals-full-stops.701",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is written correctly?",
+      "options": [
+        {
+          "text": "The cat sat."
+        },
+        {
+          "text": "the cat sat"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the first letter.",
+        "Sentences start with a capital.",
+        "T is a capital letter."
+      ],
+      "explanation": "A sentence starts with a capital letter, so The cat sat. is correct.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

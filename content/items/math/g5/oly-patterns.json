@@ -51,11 +51,31 @@
       "solution": [
         {
           "say": "Compare with square numbers.",
-          "show": "1, 4, 9, 16, 25"
+          "show": "1, 4, 9, 16, 25",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "4",
+              "9",
+              "16",
+              "25"
+            ]
+          }
         },
         {
           "say": "Each number is one more.",
-          "show": "2, 5, 10, 17, 26"
+          "show": "2, 5, 10, 17, 26",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "5",
+              "10",
+              "17",
+              "26"
+            ]
+          }
         },
         {
           "say": "10th number.",
@@ -197,7 +217,14 @@
         },
         {
           "say": "Row 12 has 23 numbers. The middle one is the 12th.",
-          "show": "122 + 11 = 133"
+          "show": "122 + 11 = 133",
+          "anim": {
+            "k": "combine",
+            "a": 122,
+            "op": "+",
+            "b": 11,
+            "r": 133
+          }
         },
         {
           "say": "Check: halfway between 122 and 144.",
@@ -278,15 +305,45 @@
       "solution": [
         {
           "say": "Distance from the first to the last.",
-          "show": "699 - 13 = 686"
+          "show": "699 - 13 = 686",
+          "anim": {
+            "k": "combine",
+            "a": 699,
+            "op": "-",
+            "b": 13,
+            "r": 686
+          },
+          "mark": [
+            "699",
+            "13"
+          ]
         },
         {
           "say": "Jumps of 7.",
-          "show": "686 ÷ 7 = 98"
+          "show": "686 ÷ 7 = 98",
+          "anim": {
+            "k": "combine",
+            "a": 686,
+            "op": "÷",
+            "b": 7,
+            "r": 98
+          }
         },
         {
           "say": "Numbers = jumps + 1.",
-          "show": "98 + 1 = 99"
+          "show": "98 + 1 = 99",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 98
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 99
+          }
         }
       ],
       "tags": [
@@ -328,7 +385,17 @@
       "solution": [
         {
           "say": "1st bounce.",
-          "show": "160 ÷ 2 = 80 cm"
+          "show": "160 ÷ 2 = 80 cm",
+          "anim": {
+            "k": "combine",
+            "a": 160,
+            "op": "÷",
+            "b": 2,
+            "r": 80
+          },
+          "mark": [
+            "160"
+          ]
         },
         {
           "say": "2nd bounce.",
@@ -373,7 +440,17 @@
         },
         {
           "say": "Pairs make 21.",
-          "show": "10 × 21 = 210"
+          "show": "10 × 21 = 210",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "×",
+            "b": 21,
+            "r": 210
+          },
+          "mark": [
+            "10"
+          ]
         }
       ],
       "tags": [
@@ -406,7 +483,16 @@
         },
         {
           "say": "The 4th digit of the block.",
-          "show": "1, 4, 2, 8"
+          "show": "1, 4, 2, 8",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "4",
+              "2",
+              "8"
+            ]
+          }
         },
         {
           "say": "So the digit is 8.",
@@ -443,7 +529,27 @@
         },
         {
           "say": "Every third number is even.",
-          "show": "30 ÷ 3 = 10"
+          "show": "30 ÷ 3 = 10",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10,
+                "q": true
+              },
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 30
+          },
+          "mark": [
+            "30",
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -451,6 +557,331 @@
         "timo"
       ],
       "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-patterns.010",
+      "skill": "m5.oly-patterns",
+      "difficulty": 3,
+      "prompt": "The numbers 3, 7, 11, 15, ... go on in the same way. What is the 25th number?",
+      "hints": [
+        "Find how much the numbers go up by each time.",
+        "The 1st number is 3. The 2nd is 3 + 4.",
+        "The 25th number is 3 plus 24 jumps of 4."
+      ],
+      "explanation": "The numbers go up by 4. The 25th number is 24 jumps after the 1st, so 3 + 24 × 4 = 99.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "95",
+          "why": "That is the 24th number. Count one more step."
+        },
+        {
+          "text": "96",
+          "why": "You multiplied 4 × 24 and forgot to start from 3."
+        },
+        {
+          "text": "99"
+        },
+        {
+          "text": "100",
+          "why": "That is 4 × 25. The first number is 3, not 4."
+        },
+        {
+          "text": "103",
+          "why": "That is the 26th number."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-patterns.011",
+      "skill": "m5.oly-patterns",
+      "difficulty": 4,
+      "prompt": "What is the last digit of 3 × 3 × 3 × ... × 3, with 2026 threes multiplied together?",
+      "hints": [
+        "Write the last digit of 3, 9, 27, 81, 243, ...",
+        "The last digits are 3, 9, 7, 1 and then repeat.",
+        "Divide 2026 by 4 and look at the remainder."
+      ],
+      "explanation": "The last digits repeat in a cycle of 4: 3, 9, 7, 1. 2026 = 506 × 4 + 2, so the last digit is the 2nd in the cycle, which is 9.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "1",
+          "why": "The last digit is 1 only when the number of threes is a multiple of 4. 2026 is not."
+        },
+        {
+          "text": "3",
+          "why": "The last digit is 3 only after 1, 5, 9, ... threes. 2026 is not one more than a multiple of 4."
+        },
+        {
+          "text": "5",
+          "why": "Powers of 3 never end in 5, because 3 does not have a factor of 5."
+        },
+        {
+          "text": "7",
+          "why": "The last digit is 7 only after 3, 7, 11, ... threes. 2026 is 2 more than a multiple of 4."
+        },
+        {
+          "text": "9"
+        }
+      ],
+      "answer": 4
+    },
+    {
+      "id": "m5.oly-patterns.012",
+      "skill": "m5.oly-patterns",
+      "difficulty": 3,
+      "prompt": "Square numbers go 1, 4, 9, 16, 25, ... How much bigger is the 20th square number than the 19th?",
+      "hints": [
+        "Find the jumps between the first few square numbers.",
+        "The jumps are 3, 5, 7, 9, ... These are odd numbers.",
+        "Work out 20 × 20 and 19 × 19, then subtract."
+      ],
+      "explanation": "The jumps between square numbers are 3, 5, 7, ... The 20th square is 400 and the 19th is 361, and 400 - 361 = 39.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "19",
+          "why": "The jump is bigger than the position number. Check 16 - 9 = 7 for the jump to the 4th square."
+        },
+        {
+          "text": "20",
+          "why": "That is the position of the number, not the size of the jump."
+        },
+        {
+          "text": "38",
+          "why": "The jump to the 20th square is 2 × 20 - 1, not 2 × 19."
+        },
+        {
+          "text": "39"
+        },
+        {
+          "text": "40",
+          "why": "The jumps are odd numbers: 3, 5, 7, 9. 40 is even."
+        }
+      ],
+      "answer": 3,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How much bigger is the 20th square number than the 19th?"
+          ]
+        },
+        {
+          "say": "The jumps between square numbers are 3, 5, 7, ..."
+        },
+        {
+          "say": "The 20th square is 400 and the 19th is 361, and 400 - 361 = 39.",
+          "anim": {
+            "k": "combine",
+            "a": 400,
+            "op": "-",
+            "b": 361,
+            "r": 39
+          }
+        },
+        {
+          "say": "Not 19. The jump is bigger than the position number. Check 16 - 9 = 7 for the jump to the 4th square.",
+          "anim": {
+            "k": "line",
+            "min": 4,
+            "max": 19,
+            "start": 16,
+            "jumps": [
+              -9
+            ]
+          },
+          "mark": [
+            "16",
+            "9"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "D. 39"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-patterns.013",
+      "skill": "m5.oly-patterns",
+      "difficulty": 5,
+      "prompt": "In the list 1, 2, 4, 7, 13, 24, ... each number after the third is the sum of the three numbers before it. What is the 9th number?",
+      "hints": [
+        "Keep adding the last three numbers.",
+        "After 24 comes 7 + 13 + 24.",
+        "The numbers are 1, 2, 4, 7, 13, 24, 44, 81, ..."
+      ],
+      "explanation": "The next numbers are 7 + 13 + 24 = 44, then 13 + 24 + 44 = 81, then 24 + 44 + 81 = 149.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "81",
+          "why": "That is the 8th number. One more step is needed."
+        },
+        {
+          "text": "137",
+          "why": "Check the addition: 44 + 81 + 24 is the sum for the 9th number."
+        },
+        {
+          "text": "149"
+        },
+        {
+          "text": "155",
+          "why": "Check the addition: the 9th number is 24 + 44 + 81."
+        },
+        {
+          "text": "230",
+          "why": "You added all the numbers so far. Only add the last three."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-patterns.014",
+      "skill": "m5.oly-patterns",
+      "difficulty": 4,
+      "prompt": "Square tables seat 4 people. When tables are joined end to end in a row, a row of n tables seats 2n + 2 people. How many tables are needed for a row seating exactly 50 people?",
+      "hints": [
+        "Try a row of 1 table: 2 × 1 + 2 = 4 people.",
+        "Take away the 2 extra seats first.",
+        "Then divide by 2."
+      ],
+      "explanation": "2n + 2 = 50, so 2n = 48 and n = 24 tables.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 24
+    },
+    {
+      "id": "m5.oly-patterns.015",
+      "skill": "m5.oly-patterns",
+      "difficulty": 4,
+      "prompt": "What is 100 - 99 + 98 - 97 + 96 - 95 + ... + 4 - 3 + 2 - 1?",
+      "hints": [
+        "Group the numbers in pairs: (100 - 99), (98 - 97), ...",
+        "Each pair is worth the same amount.",
+        "Count how many pairs there are."
+      ],
+      "explanation": "Each pair, like 100 - 99, equals 1. There are 100 numbers, so 50 pairs. The total is 50.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 50
+    },
+    {
+      "id": "m5.oly-patterns.016",
+      "skill": "m5.oly-patterns",
+      "difficulty": 5,
+      "prompt": "2 ÷ 7 = 0.285714285714... The digits 285714 repeat forever. What is the sum of the first 100 digits after the decimal point?",
+      "hints": [
+        "Add the digits in one repeat of 285714.",
+        "One block adds to 27.",
+        "100 = 16 blocks of 6 plus 4 extra digits."
+      ],
+      "explanation": "One block 285714 adds to 27. 16 blocks give 432. The next four digits are 2, 8, 5, 7 which add to 22. 432 + 22 = 454.",
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 454,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the sum of the first 100 digits after the decimal"
+          ]
+        },
+        {
+          "say": "One block 285714 adds to 27."
+        },
+        {
+          "say": "16 blocks give 432."
+        },
+        {
+          "say": "The next four digits are 2, 8, 5, 7 which add to 22."
+        },
+        {
+          "say": "432 + 22 = 454.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 432
+              },
+              {
+                "v": 22
+              }
+            ],
+            "total": 454
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "454"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-patterns.017",
+      "skill": "m5.oly-patterns",
+      "difficulty": 3,
+      "prompt": "A snail climbs 3 m up a wall each day and slips 1 m down each night. The wall is 10 m high. On which day does the snail first reach the top?",
+      "hints": [
+        "Do not count the night slip on the last day.",
+        "After each full day and night the snail is 2 m higher.",
+        "After 4 days and nights, how high is it?"
+      ],
+      "explanation": "After each day and night the snail is 2 m higher. After 4 days it is at 8 m. On day 5 it climbs 3 m to 11 m and reaches the top.",
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 5
     }
   ]
 }

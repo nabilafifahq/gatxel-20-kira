@@ -11,6 +11,7 @@ import { inOrg } from '../db'
 import { invalid } from '../errors'
 import { shellIn } from './console-shell'
 import { promptPreview, resolveItems, skill } from './content'
+import { guardAttemptItems } from './session-guard'
 import { learnerShell, loadLearner } from './learner-core'
 import type { AttemptItem } from './learner-runner'
 import { classifyMistake, MISTAKE_LABEL, pickRedoItems, REDO_REF_PREFIX, REDO_SIZE, summariseTypes, topSkills } from './mistake-logic'
@@ -42,6 +43,9 @@ export type OpenMistake = {
 
 const redoLike = `${REDO_REF_PREFIX}%`
 
+/** Soal saudara dari putaran perbaikan di Latihan yang tetap salah: kesalahan kedua pada skill itu, jadi masuk Fix-it. */
+const remedialMiss = sql`exists (select 1 from jsonb_array_elements(${attempt.items}) e where (e->>'position')::int = ${response.position} and e->>'remedialOf' is not null)`
+
 /** Soal yang masih terbuka di Buku Salah: jawaban terakhirnya salah atau kosong di Tes atau Paper, dan belum dijawab benar sesudahnya. */
 export async function openMistakes(tx: Tx, learnerId: string): Promise<OpenMistake[]> {
   const rows = await tx
@@ -62,7 +66,7 @@ export async function openMistakes(tx: Tx, learnerId: string): Promise<OpenMista
         eq(response.learnerId, learnerId),
         inArray(response.status, ['wrong', 'blank']),
         isNotNull(attempt.submittedAt),
-        or(inArray(attempt.mode, [...TIMED_MODES]), inArray(attempt.kind, [...TIMED_KINDS])),
+        or(inArray(attempt.mode, [...TIMED_MODES]), inArray(attempt.kind, [...TIMED_KINDS]), remedialMiss),
         sql`coalesce(${attempt.refId}, '') not like ${redoLike}`,
         sql`not exists (select 1 from response r2 where r2.attempt_id = ${response.attemptId} and r2.position = ${response.position} and r2.attempt_no > ${response.attemptNo})`,
         sql`not exists (
@@ -137,7 +141,8 @@ export async function startFixItSession(tx: Tx, ctx: OrgContext, learnerId: stri
   if (usable.length === 0) throw invalid('Nothing to fix yet.')
   const rng = createRng(`${learnerId}:${today}:fix-it`)
   const picked = pickRedoItems(usable, REDO_SIZE, (xs) => rng.shuffle(xs))
-  const items: AttemptItem[] = picked.map((m, i) => ({ ref: m.ref, section: 'core', position: i + 1, difficulty: resolved.get(m.ref)!.difficulty }))
+  const redoItems: AttemptItem[] = picked.map((m, i) => ({ ref: m.ref, section: 'core', position: i + 1, difficulty: resolved.get(m.ref)!.difficulty }))
+  const items = await guardAttemptItems(tx, redoItems, { seed: `${learnerId}:${today}:fix-it`, mode: 'latihan' })
   const bySubject = new Map<Subject, number>()
   for (const m of picked) bySubject.set(m.subject, (bySubject.get(m.subject) ?? 0) + 1)
   const subject = [...bySubject.entries()].sort((a, b) => b[1] - a[1])[0]![0]

@@ -180,7 +180,18 @@
       "solution": [
         {
           "say": "Top row: same height, so the areas compare like the widths.",
-          "show": "18 ÷ 12 = 1.5"
+          "show": "18 ÷ 12 = 1.5",
+          "anim": {
+            "k": "combine",
+            "a": 18,
+            "op": "÷",
+            "b": 12,
+            "r": 1.5
+          },
+          "mark": [
+            "18",
+            "12"
+          ]
         },
         {
           "say": "Bottom row: same widths as the top.",
@@ -188,7 +199,17 @@
         },
         {
           "say": "Bottom right.",
-          "show": "20 × 1.5 = 30 cm²"
+          "show": "20 × 1.5 = 30 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "×",
+            "b": 1.5,
+            "r": 30
+          },
+          "mark": [
+            "20"
+          ]
         },
         {
           "say": "Check.",
@@ -281,7 +302,15 @@
       "solution": [
         {
           "say": "Face areas.",
-          "show": "12, 8, 6"
+          "show": "12, 8, 6",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "12",
+              "8",
+              "6"
+            ]
+          }
         },
         {
           "say": "One of each.",
@@ -289,7 +318,17 @@
         },
         {
           "say": "Each face has a twin.",
-          "show": "2 × 26 = 52 cm²"
+          "show": "2 × 26 = 52 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 26,
+            "r": 52
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -332,11 +371,32 @@
       "solution": [
         {
           "say": "Luas dasar.",
-          "show": "25 × 10 = 250 m²"
+          "show": "25 × 10 = 250 m²",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "×",
+            "b": 10,
+            "r": 250
+          },
+          "mark": [
+            "25",
+            "10"
+          ]
         },
         {
           "say": "Kalikan dengan dalamnya.",
-          "show": "250 × 2 = 500 m³"
+          "show": "250 × 2 = 500 m³",
+          "anim": {
+            "k": "combine",
+            "a": 250,
+            "op": "×",
+            "b": 2,
+            "r": 500
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -393,7 +453,17 @@
       "solution": [
         {
           "say": "Half the perimeter.",
-          "show": "40 ÷ 2 = 20 cm"
+          "show": "40 ÷ 2 = 20 cm",
+          "anim": {
+            "k": "combine",
+            "a": 40,
+            "op": "÷",
+            "b": 2,
+            "r": 20
+          },
+          "mark": [
+            "40"
+          ]
         },
         {
           "say": "Width.",
@@ -401,11 +471,51 @@
         },
         {
           "say": "Length.",
-          "show": "8 + 4 = 12 cm"
+          "show": "8 + 4 = 12 cm",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 4,
+            "r": 12
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Area.",
-          "show": "12 × 8 = 96 cm²"
+          "show": "12 × 8 = 96 cm²",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              },
+              {
+                "v": 12
+              }
+            ],
+            "total": 96
+          }
         }
       ],
       "tags": [
@@ -471,15 +581,39 @@
       "solution": [
         {
           "say": "Perimeter.",
-          "show": "3 × 16 = 48 cm"
+          "show": "3 × 16 = 48 cm",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 16,
+            "r": 48
+          },
+          "mark": [
+            "16"
+          ]
         },
         {
           "say": "Side of the square.",
-          "show": "48 ÷ 4 = 12 cm"
+          "show": "48 ÷ 4 = 12 cm",
+          "anim": {
+            "k": "combine",
+            "a": 48,
+            "op": "÷",
+            "b": 4,
+            "r": 12
+          }
         },
         {
           "say": "Area.",
-          "show": "12 × 12 = 144 cm²"
+          "show": "12 × 12 = 144 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "×",
+            "b": 12,
+            "r": 144
+          }
         }
       ],
       "tags": [
@@ -487,6 +621,501 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-geometry.010",
+      "skill": "m5.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A square has a perimeter of 36 cm. What is its area in cm²?",
+      "hints": [
+        "A square has four equal sides.",
+        "Divide the perimeter by 4 to find the side.",
+        "Multiply the side by itself."
+      ],
+      "explanation": "Each side is 36 ÷ 4 = 9 cm. The area is 9 × 9 = 81 cm².",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "36",
+          "why": "That is the perimeter. Area is the side length times itself."
+        },
+        {
+          "text": "64",
+          "why": "That is a square with sides of 8 cm. Find the side by dividing 36 by 4."
+        },
+        {
+          "text": "72",
+          "why": "You multiplied 36 by 2. Find the side length first."
+        },
+        {
+          "text": "81"
+        },
+        {
+          "text": "144",
+          "why": "That is a square with sides of 12 cm. Divide the perimeter by 4."
+        }
+      ],
+      "answer": 3,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is its area in cm²?"
+          ]
+        },
+        {
+          "say": "Each side is 36 ÷ 4 = 9 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 36,
+            "op": "÷",
+            "b": 4,
+            "r": 9
+          },
+          "mark": [
+            "36"
+          ]
+        },
+        {
+          "say": "The area is 9 × 9 = 81 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 9,
+            "r": 81
+          }
+        },
+        {
+          "say": "Not 36. That is the perimeter. Area is the side length times itself."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "D. 81"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-geometry.011",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "What is the size of each angle inside a regular octagon, in degrees?",
+      "hints": [
+        "Split the octagon into triangles from one corner.",
+        "An octagon makes 6 triangles.",
+        "Each triangle has 180°. Divide the total by 8 angles."
+      ],
+      "explanation": "6 triangles make 6 × 180 = 1080°. A regular octagon has 8 equal angles, so each is 1080 ÷ 8 = 135°.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "108",
+          "why": "That is the angle in a regular pentagon."
+        },
+        {
+          "text": "120",
+          "why": "That is the angle in a regular hexagon."
+        },
+        {
+          "text": "135"
+        },
+        {
+          "text": "140",
+          "why": "That is the angle in a regular nonagon."
+        },
+        {
+          "text": "144",
+          "why": "That is the angle in a regular decagon."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the size of each angle inside a regular octagon, in"
+          ]
+        },
+        {
+          "say": "6 triangles make 6 × 180 = 1080°.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 180,
+            "r": 1080
+          }
+        },
+        {
+          "say": "A regular octagon has 8 equal angles, so each is 1080 ÷ 8 = 135°.",
+          "anim": {
+            "k": "combine",
+            "a": 1080,
+            "op": "÷",
+            "b": 8,
+            "r": 135
+          }
+        },
+        {
+          "say": "Not 108. That is the angle in a regular pentagon."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 135"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-geometry.012",
+      "skill": "m5.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A rectangle is 12 cm long and 8 cm wide. A triangle has the 12 cm side as its base. Its top corner is on the opposite side. What is the area of the triangle in cm²?",
+      "hints": [
+        "Draw the rectangle and the triangle.",
+        "The base is 12 cm. The height is the width of the rectangle.",
+        "The area of a triangle is half of base × height."
+      ],
+      "explanation": "The triangle has base 12 cm and height 8 cm. Its area is 12 × 8 ÷ 2 = 48 cm², half of the rectangle.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "24",
+          "why": "That is half of the triangle area. The height of the triangle is the full 8 cm."
+        },
+        {
+          "text": "36",
+          "why": "Check the height. The triangle goes right across the rectangle."
+        },
+        {
+          "text": "48"
+        },
+        {
+          "text": "64",
+          "why": "Check the base and height: 12 and 8, then halve."
+        },
+        {
+          "text": "96",
+          "why": "That is the area of the rectangle. A triangle is half of that."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-geometry.013",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A square of side 10 cm has its four corners cut off. Each cut removes a right-angled triangle with two equal sides of 3 cm. What is the area of the shape that is left, in cm²?",
+      "hints": [
+        "Find the area of the whole square.",
+        "Find the area of one cut-off triangle.",
+        "Four triangles are removed."
+      ],
+      "explanation": "Each triangle has area 3 × 3 ÷ 2 = 4.5 cm². Four triangles make 18 cm². The shape that is left has area 100 - 18 = 82 cm².",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "64",
+          "why": "You may have cut off whole squares of 3 cm by 3 cm. Each cut is a triangle, half of a square."
+        },
+        {
+          "text": "72",
+          "why": "Check the area of each triangle. It is 3 × 3 ÷ 2."
+        },
+        {
+          "text": "82"
+        },
+        {
+          "text": "91",
+          "why": "You took off only one triangle. There are four corners."
+        },
+        {
+          "text": "96",
+          "why": "You took off 4 cm² altogether. Each triangle is 4.5 cm²."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the area of the shape that is left, in cm²?"
+          ]
+        },
+        {
+          "say": "Each triangle has area 3 × 3 ÷ 2 = 4."
+        },
+        {
+          "say": "5 cm²."
+        },
+        {
+          "say": "Four triangles make 18 cm²."
+        },
+        {
+          "say": "The shape that is left has area 100 - 18 = 82 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 100,
+            "op": "-",
+            "b": 18,
+            "r": 82
+          }
+        },
+        {
+          "say": "Not 64. You may have cut off whole squares of 3 cm by 3 cm. Each cut is a triangle, half of a square."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 82"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-geometry.014",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A 3 by 3 by 3 cube is painted red on the outside. It is then cut into 27 small cubes. How many small cubes have exactly two red faces?",
+      "hints": [
+        "Cubes in the corners have three red faces.",
+        "Cubes with two red faces are on the edges, but not at the corners.",
+        "A cube has 12 edges."
+      ],
+      "explanation": "Each of the 12 edges has 3 small cubes. The 2 at the ends are corners. So 1 middle cube on each edge has exactly two red faces: 12 cubes.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m5.oly-geometry.015",
+      "skill": "m5.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A rectangle 20 cm by 12 cm is cut into 4 equal rectangles by one cut across the middle each way. What is the perimeter of one small rectangle, in cm?",
+      "hints": [
+        "Find the length and width of one small rectangle.",
+        "Each side of the big rectangle is halved.",
+        "Add the sides all the way around."
+      ],
+      "explanation": "The small rectangles are 10 cm by 6 cm. The perimeter is 10 + 6 + 10 + 6 = 32 cm.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 32
+    },
+    {
+      "id": "m5.oly-geometry.016",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "An isosceles triangle has two equal angles. Each of these equal angles is twice as big as the third angle. What is the size of the third angle, in degrees?",
+      "hints": [
+        "Let the third angle be one part.",
+        "Each equal angle is two parts.",
+        "The angles add up to 180°. How many parts is that?"
+      ],
+      "explanation": "The angles are 1 part, 2 parts and 2 parts, which is 5 parts in total. 180 ÷ 5 = 36, so the third angle is 36°.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "unit": "°",
+      "type": "numeric",
+      "answer": 36,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the size of the third angle, in degrees?"
+          ]
+        },
+        {
+          "say": "The angles are 1 part, 2 parts and 2 parts, which is 5 parts in total."
+        },
+        {
+          "say": "180 ÷ 5 = 36, so the third angle is 36°.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 36,
+                "q": true
+              },
+              {
+                "v": 36
+              },
+              {
+                "v": 36
+              },
+              {
+                "v": 36
+              },
+              {
+                "v": 36
+              }
+            ],
+            "total": 180
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "36 °"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-geometry.017",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A garden is 10 m long and 8 m wide. A path 1 m wide goes all the way around the outside of the garden. What is the area of the path, in square metres?",
+      "hints": [
+        "The garden with the path is bigger on every side.",
+        "The new length and width are each 2 m more.",
+        "Find the area of the bigger rectangle and take away the garden."
+      ],
+      "explanation": "With the path the rectangle is 12 m by 10 m, area 120 m². The garden is 10 × 8 = 80 m². The path is 120 - 80 = 40 m².",
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "unit": "m²",
+      "type": "numeric",
+      "answer": 40,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the area of the path, in square metres?"
+          ]
+        },
+        {
+          "say": "With the path the rectangle is 12 m by 10 m, area 120 m²."
+        },
+        {
+          "say": "The garden is 10 × 8 = 80 m².",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "×",
+            "b": 8,
+            "r": 80
+          },
+          "mark": [
+            "10",
+            "8"
+          ]
+        },
+        {
+          "say": "The path is 120 - 80 = 40 m².",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 80
+              },
+              {
+                "v": 40,
+                "q": true
+              }
+            ],
+            "total": 120
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "40 m²"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-geometry.018",
+      "skill": "m5.oly-geometry",
+      "difficulty": 5,
+      "prompt": "A square of side 8 cm is cut into two rectangles by one straight cut. One rectangle has a perimeter of 28 cm. What is the area of the other rectangle, in cm²?",
+      "hints": [
+        "A cut parallel to a side makes two rectangles, each 8 cm long.",
+        "Let one rectangle have width w. Its perimeter is 2 × (8 + w).",
+        "2 × (8 + w) = 28 gives w. The other width is 8 - w."
+      ],
+      "explanation": "Both rectangles are 8 cm long. 2 × (8 + w) = 28 gives w = 6. The other rectangle has width 8 - 6 = 2 and area 8 × 2 = 16 cm².",
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "unit": "cm²",
+      "type": "numeric",
+      "answer": 16,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the area of the other rectangle, in cm²?"
+          ]
+        },
+        {
+          "say": "Both rectangles are 8 cm long."
+        },
+        {
+          "say": "2 × (8 + w) = 28 gives w = 6."
+        },
+        {
+          "say": "The other rectangle has width 8 - 6 = 2 and area 8 × 2 = 16 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 6,
+            "r": 2
+          },
+          "mark": [
+            "8"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "16 cm²"
+        }
+      ]
     }
   ]
 }

@@ -11,12 +11,22 @@ export const LEARNER_ROUTES = {
   /** English Skills: listening, speaking, writing, dan Spelling Bee. */
   english: '/english',
   review: '/review',
+  /** Ruang Baca: perpustakaan dan pembaca buku bab. */
+  reading: '/reading',
   /** Fix-it Book (Buku Salah) dan awal sesi ulangnya. */
   fixIt: '/fix-it',
   fixItStart: '/fix-it/start',
   me: '/me',
+  /** Kamus Ketuk: kata yang disimpan anak. */
+  myWords: '/my-words',
+  /** Kira World: bintang, teman, toko, album, cerita, robot, piala. */
+  world: '/world',
   quickMaths: '/quick-maths',
+  /** Latihan Bebas: anak memilih apa yang mau dilatih. */
+  practice: '/practice',
+  flashcards: '/practice/cards',
   quizArena: '/quiz-arena',
+  tools: '/tools',
   esmo: '/esmo',
   competitions: '/competitions',
   pick: '/',
@@ -27,4 +37,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'english' | 'quick-maths' | 'quiz-arena' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'practice' | 'english' | 'reading' | 'world' | 'quick-maths' | 'tools' | 'quiz-arena' | 'me'

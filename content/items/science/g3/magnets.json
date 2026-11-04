@@ -84,7 +84,7 @@
           "group": 0
         },
         {
-          "text": "steel spoon",
+          "text": "iron frying pan",
           "group": 0
         },
         {
@@ -589,24 +589,6 @@
       "type": "mcq",
       "difficulty": 1,
       "prompt": "Which object will a magnet not attract?",
-      "figure": {
-        "kind": "icons",
-        "items": [
-          {
-            "icon": "paperclip",
-            "label": "steel paperclip"
-          },
-          {
-            "icon": "nail",
-            "label": "iron nail"
-          },
-          {
-            "icon": "toothbrush",
-            "label": "plastic comb"
-          }
-        ],
-        "alt": "A steel paperclip, an iron nail and a plastic comb."
-      },
       "options": [
         {
           "text": "a steel paperclip",
@@ -626,7 +608,7 @@
       ],
       "answer": 1,
       "hints": [
-        "Which one is not metal?",
+        "Which one is not a metal?",
         "Magnets pick up iron and steel.",
         "Plastic is not magnetic."
       ],
@@ -846,10 +828,6 @@
           "group": 0
         },
         {
-          "text": "south and north",
-          "group": 0
-        },
-        {
           "text": "north and north",
           "group": 1
         },
@@ -879,7 +857,7 @@
           "text": "a plastic pen"
         },
         {
-          "text": "a steel screw"
+          "text": "an iron washer"
         },
         {
           "text": "an iron nail"
@@ -1080,7 +1058,7 @@
       "skill": "s3.magnets",
       "type": "story",
       "difficulty": 2,
-      "prompt": "Hana has a nail, a coin and a pencil. She holds a magnet near each one. The nail jumps to the magnet. The coin and the pencil do not move.",
+      "prompt": "Hana has a nail, a plastic spoon and a pencil. She holds a magnet near each one. The nail jumps to the magnet. The spoon and the pencil do not move.",
       "parts": [
         {
           "type": "mcq",
@@ -1090,7 +1068,7 @@
               "text": "the nail"
             },
             {
-              "text": "the coin"
+              "text": "the plastic spoon"
             },
             {
               "text": "the pencil"
@@ -1120,7 +1098,7 @@
         "Magnets attract iron.",
         "Which one moved?"
       ],
-      "explanation": "The nail is magnetic because it is made of iron. The coin and pencil are not."
+      "explanation": "The nail is magnetic because it is made of iron. The spoon and pencil are not."
     },
     {
       "id": "s3.magnets.031",
@@ -1311,7 +1289,9 @@
         {
           "answers": [
             "poles",
-            "pole"
+            "pole",
+            "north and south",
+            "north and south poles"
           ]
         }
       ],
@@ -1327,7 +1307,7 @@
       "skill": "s3.magnets",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Mia holds a magnet under a wooden table. A steel pin on top moves. What does this show?",
+      "prompt": "Mia holds a magnet under a wooden table. A paperclip on top moves. What does this show?",
       "options": [
         {
           "text": "Magnetic force can go through a thin table."
@@ -1337,7 +1317,7 @@
           "why": "Wood is not magnetic."
         },
         {
-          "text": "The steel pin moved by itself.",
+          "text": "The paperclip moved by itself.",
           "why": "The magnet made it move."
         },
         {
@@ -1347,11 +1327,11 @@
       ],
       "answer": 0,
       "hints": [
-        "The pin moves without being touched.",
+        "The paperclip moves without being touched.",
         "Wood does not stop magnets.",
         "Thin materials do not stop it."
       ],
-      "explanation": "The magnetic force goes through the wood and moves the pin.",
+      "explanation": "The magnetic force goes through the wood and moves the paperclip.",
       "tags": [
         "iksc",
         "ksnr",
@@ -1382,18 +1362,255 @@
       "skill": "s3.magnets",
       "type": "numeric",
       "difficulty": 2,
-      "prompt": "A heap has 4 steel pins, 3 plastic buttons and 2 wooden sticks. How many does a magnet pick up?",
+      "prompt": "A heap has 4 iron nails, 3 plastic buttons and 2 wooden sticks. How many does a magnet pick up?",
       "answer": 4,
       "hints": [
-        "Which are steel?",
+        "Which are iron?",
         "Plastic and wood are not magnetic.",
-        "Count the pins."
+        "Count the nails."
       ],
-      "explanation": "Only the 4 steel pins are magnetic.",
+      "explanation": "Only the 4 iron nails are magnetic.",
       "tags": [
         "iksc",
         "ksnr",
         "reasoning"
+      ]
+    },
+    {
+      "id": "s3.magnets.801",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A magnet can pick up a steel paper clip.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is steel magnetic?",
+        "Think of a fridge magnet.",
+        "Iron and steel are magnetic."
+      ],
+      "explanation": "Steel contains iron, which is a magnetic material. A magnet attracts it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.802",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A magnet attracts all metals.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Are all metals the same?",
+        "A copper coin does not stick.",
+        "Only a few metals are magnetic."
+      ],
+      "explanation": "Only some metals are magnetic, such as iron and steel. Copper, aluminium and gold are not attracted.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.803",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Two north poles of a magnet push each other away.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Like poles are the same pole.",
+        "What happens when two the same meet?",
+        "Same poles repel."
+      ],
+      "explanation": "Like poles repel, so two north poles push apart. Unlike poles attract.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.804",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A wooden spoon is attracted to a magnet because wood is a strong material.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is wood made of iron?",
+        "Strength is not the same as magnetic.",
+        "Wood is not magnetic."
+      ],
+      "explanation": "Wood is not a magnetic material. A material must contain iron, nickel or cobalt to be attracted.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.805",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A magnet's pull is strongest at its poles.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where do paper clips gather on a bar magnet?",
+        "Look at the ends.",
+        "The ends are the poles."
+      ],
+      "explanation": "The poles are at the ends of a bar magnet. Most of the pull is there, so paper clips cluster at the ends.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.701",
+      "skill": "s3.magnets",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A magnet has a north and a south ___.",
+      "blanks": [
+        {
+          "answers": [
+            "pole",
+            "poles"
+          ]
+        }
+      ],
+      "hints": [
+        "Each end is called this.",
+        "The Earth has two at the top and bottom.",
+        "It starts with p."
+      ],
+      "explanation": "The two ends of a magnet are its north pole and south pole.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s3.magnets.702",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Two north poles are put close together. They...",
+      "options": [
+        {
+          "text": "do nothing"
+        },
+        {
+          "text": "repel"
+        },
+        {
+          "text": "attract"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Like poles are the same.",
+        "Same poles push apart.",
+        "Push apart is repel."
+      ],
+      "explanation": "Like poles repel each other, so two north poles push apart.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
+    },
+    {
+      "id": "s3.magnets.703",
+      "skill": "s3.magnets",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Omar tested five objects with a magnet: paper clip (steel), iron nail, wooden spoon, rubber and copper coin. The paper clip and the iron nail stuck to the magnet. The others did not.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many objects were magnetic?",
+          "answer": 2,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which material is magnetic?",
+          "options": [
+            {
+              "text": "Wood"
+            },
+            {
+              "text": "Rubber"
+            },
+            {
+              "text": "Iron"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which pole would a north pole attract?",
+          "options": [
+            {
+              "text": "North pole"
+            },
+            {
+              "text": "South pole"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Count what stuck.",
+        "Iron is a metal that sticks.",
+        "Unlike poles attract."
+      ],
+      "explanation": "Two objects stuck. Iron is magnetic, wood and rubber are not. Unlike poles attract, so north attracts south.",
+      "tags": [
+        "investigation"
       ]
     }
   ]

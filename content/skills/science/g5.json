@@ -10,7 +10,11 @@
     "order": 10,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -22,9 +26,14 @@
     "titleId": "Menjaga kesehatan tubuh",
     "canDo": "I can explain how food, exercise, sleep and hygiene help to keep my body healthy.",
     "order": 20,
-    "prerequisites": ["s5.heart-lungs"],
+    "prerequisites": [
+      "s5.heart-lungs"
+    ],
     "term": 1,
-    "competitions": ["iksc", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -38,7 +47,11 @@
     "order": 30,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -52,7 +65,11 @@
     "order": 40,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -66,7 +83,11 @@
     "order": 50,
     "prerequisites": [],
     "term": 2,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -80,7 +101,11 @@
     "order": 60,
     "prerequisites": [],
     "term": 2,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -92,9 +117,15 @@
     "titleId": "Memisahkan campuran",
     "canDo": "I can choose sieving, filtering, evaporating or a magnet to separate a mixture.",
     "order": 70,
-    "prerequisites": ["s5.dissolving"],
+    "prerequisites": [
+      "s5.dissolving"
+    ],
     "term": 2,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -108,7 +139,11 @@
     "order": 80,
     "prerequisites": [],
     "term": 2,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -122,7 +157,11 @@
     "order": 90,
     "prerequisites": [],
     "term": 2,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -134,9 +173,15 @@
     "titleId": "Gaya gesek, hambatan udara, dan hambatan air",
     "canDo": "I can explain how friction, air resistance and water resistance slow moving things down.",
     "order": 100,
-    "prerequisites": ["s5.mass-weight"],
+    "prerequisites": [
+      "s5.mass-weight"
+    ],
     "term": 3,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -150,7 +195,10 @@
     "order": 110,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["iksc", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -164,7 +212,11 @@
     "order": 120,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["iksc", "imso", "osn-sd"],
+    "competitions": [
+      "iksc",
+      "imso",
+      "osn-sd"
+    ],
     "generator": false
   },
   {
@@ -178,7 +230,103 @@
     "order": 130,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["iksc", "imso"],
+    "competitions": [
+      "iksc",
+      "imso"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s5.adaptations",
+    "subject": "science",
+    "grade": 5,
+    "strand": "Be",
+    "title": "Adaptations to habitats",
+    "titleId": "Adaptasi terhadap habitat",
+    "canDo": "I can explain how plants and animals are adapted to hot, cold, wet and dry places and as predators or prey.",
+    "order": 140,
+    "prerequisites": [
+      "s4.habitats"
+    ],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "osn-sd"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s5.flowers",
+    "subject": "science",
+    "grade": 5,
+    "strand": "Bs",
+    "title": "Parts of a flower",
+    "titleId": "Bagian-bagian bunga",
+    "canDo": "I can name the parts of a flower, say what they do and know that not all plants make flowers.",
+    "order": 150,
+    "prerequisites": [
+      "s3.plant-parts"
+    ],
+    "term": 1,
+    "competitions": [
+      "iksc",
+      "osn-sd"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s5.air-water-pollution",
+    "subject": "science",
+    "grade": 5,
+    "strand": "ESp",
+    "title": "Air, water and pollution",
+    "titleId": "Udara, air, dan polusi",
+    "canDo": "I can describe the air around Earth, say that natural water is not pure, and explain what pollution is.",
+    "order": 160,
+    "prerequisites": [],
+    "term": 3,
+    "competitions": [
+      "iksc",
+      "osn-sd"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s5.magnets-strength",
+    "subject": "science",
+    "grade": 5,
+    "strand": "Pe",
+    "title": "Magnets and magnetic materials",
+    "titleId": "Magnet dan bahan magnetik",
+    "canDo": "I can tell a magnet from a magnetic material and explain that magnetic forces act at a distance and vary in strength.",
+    "order": 170,
+    "prerequisites": [
+      "s3.magnets"
+    ],
+    "term": 3,
+    "competitions": [
+      "iksc",
+      "osn-sd"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s5.gases-water",
+    "subject": "science",
+    "grade": 5,
+    "strand": "Cm",
+    "title": "Gases and the properties of water",
+    "titleId": "Gas dan sifat-sifat air",
+    "canDo": "I can use the particle model for solids, liquids and gases, name common gases and describe key properties of water.",
+    "order": 180,
+    "prerequisites": [
+      "s4.particles"
+    ],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "osn-sd"
+    ],
     "generator": false
   }
 ]

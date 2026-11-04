@@ -1,0 +1,158 @@
+{
+  "skill": "m1.place-value-20",
+  "items": [
+    {
+      "id": "m1.place-value-20.804",
+      "skill": "m1.place-value-20",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 1,
+      "prompt": "Show the number 13 with blocks.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 0,
+        "t": 1,
+        "o": 3
+      },
+      "exact": false,
+      "hints": [
+        "Think of 13 as one group of ten and some ones.",
+        "Add 1 ten, then count the ones you still need.",
+        "You need 1 ten and 3 ones."
+      ],
+      "explanation": "13 is 1 ten and 3 ones, because 10 and 3 more make 13.",
+      "tags": [
+        "manipulative",
+        "blocks"
+      ]
+    },
+    {
+      "id": "m1.place-value-20.805",
+      "skill": "m1.place-value-20",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 1,
+      "prompt": "Show the number 18 with blocks.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 0,
+        "t": 1,
+        "o": 8
+      },
+      "exact": false,
+      "hints": [
+        "The tens column shows groups of ten.",
+        "18 is more than 10, so use 1 ten first.",
+        "After 1 ten, add 8 ones."
+      ],
+      "explanation": "18 is 1 ten and 8 ones, because 10 and 8 more make 18.",
+      "tags": [
+        "manipulative",
+        "blocks"
+      ]
+    },
+    {
+      "id": "m1.place-value-20.806",
+      "skill": "m1.place-value-20",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 1,
+      "prompt": "Show 20 using only tens.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 0,
+        "t": 2,
+        "o": 0
+      },
+      "exact": true,
+      "hints": [
+        "Ten ones make one ten.",
+        "Count in tens: 10, 20.",
+        "Use 2 tens and 0 ones."
+      ],
+      "explanation": "20 is 2 tens and 0 ones, because 10 and 10 make 20.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m1.place-value-20.807",
+      "skill": "m1.place-value-20",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 2,
+      "prompt": "You have 12 ones. Trade ones for a ten so that 12 uses the fewest blocks.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 12
+      },
+      "target": {
+        "h": 0,
+        "t": 1,
+        "o": 2
+      },
+      "exact": true,
+      "hints": [
+        "Look for 10 ones that can become 1 ten.",
+        "Tap Trade 10 for 1 ten in the ones column.",
+        "You should end with 1 ten and 2 ones."
+      ],
+      "explanation": "10 of the 12 ones become 1 ten, so 12 is 1 ten and 2 ones.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m1.place-value-20.808",
+      "skill": "m1.place-value-20",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 2,
+      "prompt": "You have 10 ones. Trade them so that the number is shown with just one block.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 10
+      },
+      "target": {
+        "h": 0,
+        "t": 1,
+        "o": 0
+      },
+      "exact": true,
+      "hints": [
+        "How many ones make a ten?",
+        "Tap Trade 10 for 1 ten.",
+        "One ten block replaces all 10 ones."
+      ],
+      "explanation": "10 ones are worth the same as 1 ten, so one ten block shows 10.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    }
+  ]
+}

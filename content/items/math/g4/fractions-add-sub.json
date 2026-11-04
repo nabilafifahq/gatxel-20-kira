@@ -1,0 +1,135 @@
+{
+  "skill": "m4.fractions-add-sub",
+  "items": [
+    {
+      "id": "m4.fractions-add-sub.001",
+      "skill": "m4.fractions-add-sub",
+      "difficulty": 2,
+      "prompt": "A tank is 7/12 full. Then 4/12 of the tank is used. The tank is now ?/12 full. What is the missing top number?",
+      "hints": [
+        "The bottom numbers are the same.",
+        "Only subtract the top numbers.",
+        "7 - 4."
+      ],
+      "explanation": "Subtract the top numbers and keep the bottom number the same. 7/12 - 4/12 = 3/12.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 3
+    },
+    {
+      "id": "m4.fractions-add-sub.002",
+      "skill": "m4.fractions-add-sub",
+      "difficulty": 4,
+      "prompt": "Ines uses 3/8 of a ribbon for a gift and 2/8 of it for a card. The part of the ribbon left is ?/8 of the whole. What is the missing top number?",
+      "hints": [
+        "Write 1 whole as a fraction with 8 on the bottom.",
+        "1 whole = 8/8.",
+        "Add the pieces used first."
+      ],
+      "explanation": "She uses 3/8 + 2/8 = 5/8. The whole is 8/8, so 8/8 - 5/8 = 3/8 is left.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 3
+    },
+    {
+      "id": "m4.fractions-add-sub.801",
+      "skill": "m4.fractions-add-sub",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 3/8 + 2/8 = 5/8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Same denominator, add the tops.",
+        "Do not add the bottoms.",
+        "3 + 2."
+      ],
+      "explanation": "The denominators are the same, so add the numerators: 3 + 2 = 5. The denominator stays 8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.fractions-add-sub.802",
+      "skill": "m4.fractions-add-sub",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 2/5 + 1/5 = 3/10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do the parts change size when you add?",
+        "The denominator names the size of the parts.",
+        "The answer is in fifths."
+      ],
+      "explanation": "Only the numerators are added. The denominator stays 5, so the answer is 3/5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.fractions-add-sub.803",
+      "skill": "m4.fractions-add-sub",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1 - 3/7 = 4/7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Write 1 as sevenths.",
+        "7/7 equals 1.",
+        "7 - 3."
+      ],
+      "explanation": "1 whole is 7/7. 7/7 - 3/7 = 4/7.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.fractions-add-sub.701",
+      "skill": "m4.fractions-add-sub",
+      "difficulty": 2,
+      "prompt": "3/8 + 2/8 = ?/8 (write the top number)",
+      "hints": [
+        "The bottom numbers are the same.",
+        "Add the top numbers only.",
+        "3 + 2."
+      ],
+      "explanation": "The denominators are the same, so add the numerators: 3 + 2 = 5. The answer is 5/8.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 9,
+      "type": "numeric",
+      "answer": 5
+    }
+  ]
+}

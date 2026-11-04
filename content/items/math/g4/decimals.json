@@ -1,0 +1,233 @@
+{
+  "skill": "m4.decimals",
+  "items": [
+    {
+      "id": "m4.decimals.001",
+      "skill": "m4.decimals",
+      "difficulty": 3,
+      "prompt": "Which is the largest number?",
+      "hints": [
+        "Compare the tenths first.",
+        "Write 0.6 as 0.60 so all numbers have two decimal places.",
+        "Which one has the most tenths? If tied, compare hundredths."
+      ],
+      "explanation": "Writing all as hundredths gives 0.61, 0.60, 0.58 and 0.09. The biggest is 0.61.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0.6",
+          "why": "0.6 is the same as 0.60, which is less than 0.61."
+        },
+        {
+          "text": "0.61"
+        },
+        {
+          "text": "0.58",
+          "why": "Having more digits does not make a decimal bigger. 0.58 has fewer tenths than 0.61."
+        },
+        {
+          "text": "0.09",
+          "why": "0.09 has no tenths, so it is the smallest."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m4.decimals.002",
+      "skill": "m4.decimals",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A ribbon is 2.35 m long. Rangga cuts off 0.8 m. How many metres of ribbon are left?",
+      "answer": 1.55,
+      "allowDecimal": true,
+      "unit": "m",
+      "hints": [
+        "Line up the decimal points.",
+        "Write 0.8 as 0.80.",
+        "2.35 - 0.80."
+      ],
+      "explanation": "0.8 m is 0.80 m. Then 2.35 - 0.80 = 1.55 m.",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.decimals.003",
+      "skill": "m4.decimals",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Write 7 tenths and 4 hundredths as a decimal number.",
+      "answer": 0.74,
+      "allowDecimal": true,
+      "hints": [
+        "Tenths come first after the decimal point.",
+        "There is a 7 in the tenths place.",
+        "There is a 4 in the hundredths place."
+      ],
+      "explanation": "7 tenths is 0.7 and 4 hundredths is 0.04. Together they make 0.74."
+    },
+    {
+      "id": "m4.decimals.801",
+      "skill": "m4.decimals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The decimal 0.5 is the same as 5 tenths.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Name the place after the decimal point.",
+        "The first place is tenths.",
+        "0.5 = 5/10."
+      ],
+      "explanation": "The digit 5 is in the tenths place, so 0.5 means 5 tenths.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.decimals.802",
+      "skill": "m4.decimals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The decimal 0.35 is greater than 0.5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Write 0.5 as 0.50.",
+        "Compare 35 and 50.",
+        "50 is more than 35."
+      ],
+      "explanation": "0.5 is 0.50, which is 50 hundredths. 35 hundredths is less than 50 hundredths.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.decimals.803",
+      "skill": "m4.decimals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The decimal 0.07 is 7 hundredths.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which place is the 7 in?",
+        "The second place after the point is hundredths.",
+        "0.07 = 7/100."
+      ],
+      "explanation": "The 7 is in the second place after the decimal point, the hundredths place.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.decimals.804",
+      "skill": "m4.decimals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The decimals 0.6 and 0.06 are equal.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Name the place of the 6 in each.",
+        "Tenths and hundredths are different.",
+        "0.6 = 0.60."
+      ],
+      "explanation": "0.6 is 6 tenths. 0.06 is 6 hundredths, which is ten times smaller.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.decimals.701",
+      "skill": "m4.decimals",
+      "difficulty": 2,
+      "prompt": "0.3 + 0.4 = ?",
+      "hints": [
+        "3 tenths and 4 tenths.",
+        "3 + 4 = 7.",
+        "Say how many tenths."
+      ],
+      "explanation": "3 tenths + 4 tenths = 7 tenths, which is 0.7.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 0.7,
+      "allowDecimal": true
+    },
+    {
+      "id": "m4.decimals.702",
+      "skill": "m4.decimals",
+      "difficulty": 4,
+      "prompt": "Class 4 walks to a river on a nature trip. The river is 1.4 km from school. Then they walk a further 0.9 km to a farm. Afterwards they walk the same way back to school.",
+      "hints": [
+        "Add 1.4 and 0.9.",
+        "Double the one-way distance.",
+        "Add 0.35 to the round trip."
+      ],
+      "explanation": "1.4 + 0.9 = 2.3 km one way. Round trip: 2 × 2.3 = 4.6 km. Plus the walk to the bus stop: 4.6 + 0.35 = 4.95 km.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How far is it from school to the farm, in km?",
+          "answer": 2.3,
+          "allowDecimal": true,
+          "unit": "km"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How far is the whole round trip, in km?",
+          "answer": 4.6,
+          "allowDecimal": true,
+          "unit": "km"
+        },
+        {
+          "type": "numeric",
+          "prompt": "Then they walk 0.35 km to the bus stop. How many km have they walked in all?",
+          "answer": 4.95,
+          "allowDecimal": true,
+          "unit": "km"
+        }
+      ]
+    }
+  ]
+}

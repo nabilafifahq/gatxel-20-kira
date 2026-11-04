@@ -772,6 +772,217 @@
           ]
         }
       ]
+    },
+    {
+      "id": "e3.dictionary-order.801",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word apple comes before banana in a dictionary.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which letter comes first, a or b?",
+        "Look at the first letter.",
+        "A is the first letter of the alphabet."
+      ],
+      "explanation": "Words are in alphabetical order, so a comes before b.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.dictionary-order.802",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word dog comes before cat in a dictionary.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the first letters.",
+        "Which comes first, c or d?",
+        "The alphabet goes a, b, c, d."
+      ],
+      "explanation": "Cat comes before dog because c comes before d in the alphabet.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.dictionary-order.803",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word bat comes before the word bed in a dictionary.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the second letters.",
+        "A comes before e.",
+        "Check the alphabet."
+      ],
+      "explanation": "The first letters are the same, so we look at the second letters. A comes before e.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.dictionary-order.804",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word fish comes before the word fan in a dictionary.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the second letters.",
+        "Which comes first, a or i?",
+        "Fan comes first."
+      ],
+      "explanation": "Fan comes before fish because the second letters are a and i, and a comes before i.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.dictionary-order.805",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The guide words at the top of a dictionary page show the first and last word on that page.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the top of a page.",
+        "They show where the page starts and ends.",
+        "They are a map for the page."
+      ],
+      "explanation": "Guide words help you find a word quickly. Example: the page may have guide words cat and cow.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.dictionary-order.806",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The word cup could be on a dictionary page with the guide words cat and cow.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Spell the second letter of each word.",
+        "Cow comes before cup.",
+        "Compare the second letters, a, o and u."
+      ],
+      "explanation": "Cup comes after cow in the alphabet because u comes after o, so it is not on that page.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.dictionary-order.807",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The word dolphin could be on a dictionary page with the guide words dog and door.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the third letters.",
+        "G, l, o.",
+        "In the alphabet, g comes before l and l comes before o."
+      ],
+      "explanation": "Dog, dolphin and door are in order because g comes before l, and l comes before o.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.dictionary-order.701",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which comes first in a dictionary?",
+      "options": [
+        {
+          "text": "lamp"
+        },
+        {
+          "text": "lime"
+        },
+        {
+          "text": "lion"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "They all start with l.",
+        "Check the second letter.",
+        "a comes before i."
+      ],
+      "explanation": "La comes before li, so lamp comes first.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

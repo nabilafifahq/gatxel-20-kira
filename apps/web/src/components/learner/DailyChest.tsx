@@ -162,7 +162,7 @@ export function DailyChest({
     <section
       aria-labelledby="chest-title"
       className={cx(
-        'flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card border border-divider bg-surface px-4 py-4 md:px-6',
+        'flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card bg-surface shadow-soft px-4 py-4 md:px-6',
         className,
       )}
     >

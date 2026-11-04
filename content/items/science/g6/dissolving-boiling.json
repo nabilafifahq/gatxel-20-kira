@@ -1,0 +1,641 @@
+{
+  "skill": "s6.dissolving-boiling",
+  "items": [
+    {
+      "id": "s6.dissolving-boiling.001",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What happens to the speed of dissolving as the water gets warmer?",
+      "options": [
+        {
+          "text": "It gets slower.",
+          "why": "Warmer water dissolves faster."
+        },
+        {
+          "text": "It gets faster."
+        },
+        {
+          "text": "It stays the same.",
+          "why": "Temperature changes the speed."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Warm particles move faster.",
+        "Think about hot tea.",
+        "Sugar disappears quickly."
+      ],
+      "explanation": "Warm water dissolves solids faster."
+    },
+    {
+      "id": "s6.dissolving-boiling.002",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "At what temperature does pure water boil?",
+      "options": [
+        {
+          "text": "0 °C",
+          "why": "That is the melting point."
+        },
+        {
+          "text": "100 °C"
+        },
+        {
+          "text": "37 °C",
+          "why": "That is body temperature."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is the boiling point.",
+        "It is a round number.",
+        "Steam forms."
+      ],
+      "explanation": "Pure water boils at 100 °C."
+    },
+    {
+      "id": "s6.dissolving-boiling.003",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 1,
+      "type": "text",
+      "prompt": "A hot drink can dissolve ___ sugar than a cold drink.",
+      "blanks": [
+        {
+          "answers": [
+            "more"
+          ]
+        }
+      ],
+      "hints": [
+        "Warm water can hold more.",
+        "The opposite of less.",
+        "The word has four letters."
+      ],
+      "explanation": "Warmer water can usually dissolve more of a solid."
+    },
+    {
+      "id": "s6.dissolving-boiling.004",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What is the difference between boiling and evaporation?",
+      "options": [
+        {
+          "text": "They are exactly the same.",
+          "why": "They are different processes."
+        },
+        {
+          "text": "Boiling happens throughout the liquid at its boiling point, but evaporation happens at the surface at any temperature."
+        },
+        {
+          "text": "Evaporation only happens at 100 °C.",
+          "why": "Evaporation can happen at any temperature."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "One makes bubbles.",
+        "One happens at only one temperature.",
+        "Wet washing dries on a line."
+      ],
+      "explanation": "Boiling occurs throughout the liquid at the boiling point. Evaporation is surface only and happens at any temperature."
+    },
+    {
+      "id": "s6.dissolving-boiling.005",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Washing hangs on a line and dries on a cool, windy day. Is this boiling or evaporation?",
+      "options": [
+        {
+          "text": "boiling",
+          "why": "The water is not at 100 °C."
+        },
+        {
+          "text": "evaporation"
+        },
+        {
+          "text": "melting",
+          "why": "Melting is solid to liquid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The water is not hot.",
+        "It dries from the surface.",
+        "No bubbles are seen."
+      ],
+      "explanation": "The water leaves the surface of the clothes at a low temperature, so it is evaporation."
+    },
+    {
+      "id": "s6.dissolving-boiling.006",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Bubbles rise through the whole of a pan of water on a stove. What is happening?",
+      "options": [
+        {
+          "text": "evaporation",
+          "why": "Evaporation happens at the surface only."
+        },
+        {
+          "text": "boiling"
+        },
+        {
+          "text": "freezing",
+          "why": "The water is hot."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Bubbles form throughout the liquid.",
+        "The water is at 100 °C.",
+        "Steam comes out."
+      ],
+      "explanation": "Bubbles forming throughout the liquid show that it is boiling."
+    },
+    {
+      "id": "s6.dissolving-boiling.007",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which has mass: an empty balloon or the same balloon full of air?",
+      "options": [
+        {
+          "text": "They have the same mass.",
+          "why": "The air has mass."
+        },
+        {
+          "text": "The full balloon has a little more mass."
+        },
+        {
+          "text": "The empty balloon has more mass.",
+          "why": "The full balloon has the air too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Air is matter.",
+        "It takes up space.",
+        "Matter has mass."
+      ],
+      "explanation": "Air is a gas, and gases have mass, so the full balloon has more mass."
+    },
+    {
+      "id": "s6.dissolving-boiling.008",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 2,
+      "type": "sort",
+      "prompt": "Sort each situation into boiling or evaporation.",
+      "groups": [
+        "Boiling",
+        "Evaporation"
+      ],
+      "items": [
+        {
+          "text": "bubbles form throughout a hot kettle",
+          "group": 0
+        },
+        {
+          "text": "a pan of soup at 100 °C",
+          "group": 0
+        },
+        {
+          "text": "a puddle drying in the sun",
+          "group": 1
+        },
+        {
+          "text": "wet hair drying in a breeze",
+          "group": 1
+        },
+        {
+          "text": "a glass of water getting lower",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Boiling is at the boiling point.",
+        "Evaporation happens at any temperature.",
+        "Look for bubbles."
+      ],
+      "explanation": "Boiling needs the boiling point and bubbles throughout. Drying puddles and hair are evaporation."
+    },
+    {
+      "id": "s6.dissolving-boiling.009",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Why does sugar dissolve faster in warm water than in cold water?",
+      "options": [
+        {
+          "text": "Warm water has more sugar in it.",
+          "why": "It does not."
+        },
+        {
+          "text": "The warm water particles move faster and mix with the sugar more quickly."
+        },
+        {
+          "text": "Cold water destroys sugar.",
+          "why": "Sugar is not destroyed."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about how particles move.",
+        "More energy means faster movement.",
+        "More movement means more mixing."
+      ],
+      "explanation": "The faster-moving particles in warm water mix with the sugar particles more quickly."
+    },
+    {
+      "id": "s6.dissolving-boiling.010",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A scientist adds sugar to 100 ml of cold water until no more dissolves, then warms the water. What probably happens?",
+      "options": [
+        {
+          "text": "The sugar turns into water.",
+          "why": "It stays sugar."
+        },
+        {
+          "text": "More sugar can dissolve."
+        },
+        {
+          "text": "Less sugar can dissolve.",
+          "why": "Usually more can dissolve in warm water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Warmer water holds more.",
+        "The limit goes up with temperature.",
+        "Think about syrup."
+      ],
+      "explanation": "Most solids dissolve more in warm water, so more sugar can dissolve."
+    },
+    {
+      "id": "s6.dissolving-boiling.011",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A liquid boils at 78 °C. What does this tell you?",
+      "options": [
+        {
+          "text": "It is pure water.",
+          "why": "Pure water boils at 100 °C."
+        },
+        {
+          "text": "It is not pure water."
+        },
+        {
+          "text": "It is a solid.",
+          "why": "It is a liquid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare with pure water.",
+        "Each pure substance has its own boiling point.",
+        "Water boils at 100 °C."
+      ],
+      "explanation": "Pure water boils at 100 °C, so a liquid that boils at 78 °C is a different substance."
+    },
+    {
+      "id": "s6.dissolving-boiling.012",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Why can a boiling point help us identify a substance?",
+      "options": [
+        {
+          "text": "All substances boil at 100 °C.",
+          "why": "Different substances boil at different temperatures."
+        },
+        {
+          "text": "Each pure substance boils at its own fixed temperature."
+        },
+        {
+          "text": "The boiling point is different every time.",
+          "why": "It is fixed for a pure substance."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Water and alcohol boil at different temperatures.",
+        "A pure substance has a set value.",
+        "We can compare to a table."
+      ],
+      "explanation": "The boiling point is a property of a pure substance, so it can help us identify it."
+    },
+    {
+      "id": "s6.dissolving-boiling.013",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which statements about evaporation are true?",
+      "options": [
+        {
+          "text": "It can happen at temperatures below the boiling point."
+        },
+        {
+          "text": "It only happens at 100 °C.",
+          "why": "It can happen at any temperature."
+        },
+        {
+          "text": "It makes bubbles throughout the liquid.",
+          "why": "That describes boiling."
+        },
+        {
+          "text": "It happens at the surface of a liquid."
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Think about a puddle drying.",
+        "No bubbles are needed.",
+        "Boiling is different."
+      ],
+      "explanation": "Evaporation happens at the surface and at any temperature."
+    },
+    {
+      "id": "s6.dissolving-boiling.014",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 3,
+      "type": "text",
+      "prompt": "Water vapour is water in the form of a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "gas"
+          ]
+        }
+      ],
+      "hints": [
+        "It is invisible.",
+        "It rises from boiling water.",
+        "It has three letters."
+      ],
+      "explanation": "Water vapour is water as a gas."
+    },
+    {
+      "id": "s6.dissolving-boiling.015",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Why does a puddle disappear faster on a hot, windy day?",
+      "options": [
+        {
+          "text": "The wind makes the water boil.",
+          "why": "The water is not boiling."
+        },
+        {
+          "text": "Warmth and wind help more water particles escape from the surface."
+        },
+        {
+          "text": "The Sun destroys the water.",
+          "why": "The water becomes water vapour."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Warm particles move faster.",
+        "Wind carries water vapour away.",
+        "Surface evaporation is faster."
+      ],
+      "explanation": "Heat gives particles energy to escape, and wind carries the water vapour away."
+    },
+    {
+      "id": "s6.dissolving-boiling.016",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A student heats a pan of water until it boils. The temperature stays at 100 °C. What is the best explanation?",
+      "options": [
+        {
+          "text": "The thermometer is broken.",
+          "why": "The reading is correct."
+        },
+        {
+          "text": "The extra heat is used to change water into steam."
+        },
+        {
+          "text": "The water has stopped receiving heat.",
+          "why": "The stove still heats it."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "At the boiling point the temperature stays steady.",
+        "Particles are escaping as gas.",
+        "The energy changes the state."
+      ],
+      "explanation": "At the boiling point the extra heat changes water into steam, so the temperature stays at 100 °C."
+    },
+    {
+      "id": "s6.dissolving-boiling.017",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Why does a hot drink cool down faster when you blow across it?",
+      "options": [
+        {
+          "text": "The air from your mouth is colder than ice.",
+          "why": "Your breath is not that cold."
+        },
+        {
+          "text": "More water evaporates from the surface and takes heat away."
+        },
+        {
+          "text": "Blowing makes the drink boil.",
+          "why": "It cools the drink."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Evaporation needs energy.",
+        "The energy comes from the drink.",
+        "Blowing moves the vapour away."
+      ],
+      "explanation": "Evaporation takes energy from the drink, and blowing speeds it up."
+    },
+    {
+      "id": "s6.dissolving-boiling.018",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A scientist tests four liquids. Liquid A boils at 100 °C, B at 78 °C, C at 118 °C and D at 56 °C. Which could be pure water?",
+      "options": [
+        {
+          "text": "liquid B",
+          "why": "It boils at 78 °C."
+        },
+        {
+          "text": "liquid A"
+        },
+        {
+          "text": "liquid D",
+          "why": "It boils at 56 °C."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Pure water boils at 100 °C.",
+        "Check each boiling point.",
+        "Only one matches."
+      ],
+      "explanation": "Pure water boils at 100 °C, so liquid A could be water."
+    },
+    {
+      "id": "s6.dissolving-boiling.019",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "Liquid A boils at 100 °C and liquid B boils at 78 °C. How many degrees higher is the boiling point of liquid A?",
+      "answer": 22,
+      "unit": "°C",
+      "hints": [
+        "Subtract the smaller number from the larger.",
+        "Work out 100 − 78.",
+        "The answer is between 20 and 25."
+      ],
+      "explanation": "100 − 78 = 22. Liquid A boils 22 °C higher than liquid B."
+    },
+    {
+      "id": "s6.dissolving-boiling.020",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A balloon full of gas and a similar empty balloon are placed on a balance. The full balloon is heavier. What does this show?",
+      "options": [
+        {
+          "text": "Gases have no mass.",
+          "why": "The full balloon is heavier because of the gas."
+        },
+        {
+          "text": "Gases have mass."
+        },
+        {
+          "text": "The rubber got heavier.",
+          "why": "The rubber did not change."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The balloons are the same except for the gas.",
+        "Heavier means more mass.",
+        "Gas is matter."
+      ],
+      "explanation": "The gas inside adds mass, so gases have mass."
+    },
+    {
+      "id": "s6.dissolving-boiling.801",
+      "skill": "s6.dissolving-boiling",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Sugar usually dissolves faster in hot water than in cold water.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which water moves faster?",
+        "What does heat do?",
+        "Hot is quicker."
+      ],
+      "explanation": "The particles in hot water move faster, so they mix with the sugar more quickly.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.dissolving-boiling.802",
+      "skill": "s6.dissolving-boiling",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Boiling and evaporation are exactly the same thing.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where do bubbles form?",
+        "Does a puddle boil?",
+        "Boiling happens at the boiling point."
+      ],
+      "explanation": "Evaporation happens only at the surface and at any temperature. Boiling happens throughout the liquid, with bubbles, only at the boiling point.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.dissolving-boiling.803",
+      "skill": "s6.dissolving-boiling",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Pure water boils at 100 degrees Celsius at sea level.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What number is on the thermometer when bubbles rise?",
+        "It is the same as the freezing point plus 100.",
+        "It is the boiling point of water."
+      ],
+      "explanation": "This is the boiling point of water. The temperature stays at 100 degrees Celsius while it boils, as the heat is used to turn it into vapour.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.dissolving-boiling.804",
+      "skill": "s6.dissolving-boiling",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A solution is saturated when no more solid can dissolve in it at that temperature.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens to extra sugar you keep adding?",
+        "Think of a spoonful that will not vanish.",
+        "Saturated means full up."
+      ],
+      "explanation": "Once the water holds as much dissolved solid as it can, any extra solid just sinks to the bottom. This is why a warm solution can usually hold more.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

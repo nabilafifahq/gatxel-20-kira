@@ -1,0 +1,54 @@
+{
+  "skill": "m4.shapes-3d",
+  "items": [
+    {
+      "id": "m4.shapes-3d.001",
+      "skill": "m4.shapes-3d",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table about two 3D shapes.",
+      "head": [
+        "Shape",
+        "Faces",
+        "Edges",
+        "Vertices"
+      ],
+      "rows": [
+        [
+          "Cube",
+          "6",
+          "",
+          "8"
+        ],
+        [
+          "Square pyramid",
+          "",
+          "8",
+          "5"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 2,
+          "answers": [
+            "12"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "5"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of a dice for the cube.",
+        "A cube has 4 edges on top, 4 on the bottom and 4 going up.",
+        "A square pyramid has a square base and 4 triangle faces."
+      ],
+      "explanation": "A cube has 12 edges. A square pyramid has 1 square face and 4 triangle faces, which makes 5 faces."
+    }
+  ]
+}

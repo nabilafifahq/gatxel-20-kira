@@ -1,0 +1,75 @@
+{
+  "skill": "m4.add-sub-written",
+  "items": [
+    {
+      "id": "m4.add-sub-written.003",
+      "skill": "m4.add-sub-written",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 3,
+      "kind": "compare",
+      "prompt": "Mika has 3 times as many coins as Nia. Together they have 80 coins. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Nia",
+          "units": 1
+        },
+        {
+          "label": "Mika",
+          "units": 3
+        }
+      ],
+      "extraLabels": [
+        "Oka"
+      ],
+      "unitValue": 20,
+      "unitName": "coins",
+      "hints": [
+        "Nia has the smaller amount, so she gets 1 unit.",
+        "Mika gets 3 units, so there are 4 units in all.",
+        "Share 80 coins equally between 4 units."
+      ],
+      "explanation": "80 divided by 4 is 20, so one unit is 20 coins. Nia has 20 coins and Mika has 60.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "compare"
+      ]
+    },
+    {
+      "id": "m4.add-sub-written.004",
+      "skill": "m4.add-sub-written",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "compare",
+      "prompt": "Oka has twice as many marbles as Pia, and 30 more than Pia. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Pia",
+          "units": 1
+        },
+        {
+          "label": "Oka",
+          "units": 2
+        }
+      ],
+      "extraLabels": [
+        "Raka"
+      ],
+      "unitValue": 30,
+      "unitName": "marbles",
+      "hints": [
+        "Pia has the smaller amount, so she gets 1 unit.",
+        "Oka has twice as many, so he gets 2 units.",
+        "The extra unit that Oka has is worth 30 marbles."
+      ],
+      "explanation": "Oka has 1 unit more than Pia, and that unit is 30 marbles. So Pia has 30 and Oka has 60.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "compare"
+      ]
+    }
+  ]
+}

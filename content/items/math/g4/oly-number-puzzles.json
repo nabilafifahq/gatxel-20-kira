@@ -42,11 +42,25 @@
         },
         {
           "say": "Sum 13.",
-          "show": "4 + 9 = 13"
+          "show": "4 + 9 = 13",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 9,
+            "r": 13
+          }
         },
         {
           "say": "Difference.",
-          "show": "9 - 4 = 5"
+          "show": "9 - 4 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "-",
+            "b": 4,
+            "r": 5
+          }
         }
       ],
       "tags": [
@@ -102,7 +116,18 @@
         },
         {
           "say": "Number of pairs.",
-          "show": "2026 ÷ 2 = 1013"
+          "show": "2026 ÷ 2 = 1013",
+          "anim": {
+            "k": "combine",
+            "a": 2026,
+            "op": "÷",
+            "b": 2,
+            "r": 1013
+          },
+          "mark": [
+            "2026",
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -158,7 +183,16 @@
         },
         {
           "say": "Possible numbers.",
-          "show": "12, 24, 36, 48"
+          "show": "12, 24, 36, 48",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "12",
+              "24",
+              "36",
+              "48"
+            ]
+          }
         },
         {
           "say": "t = 5 would need u = 10, which is not a digit.",
@@ -206,15 +240,44 @@
       "solution": [
         {
           "say": "Total of 5 numbers.",
-          "show": "5 × 12 = 60"
+          "show": "5 × 12 = 60",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 12,
+            "r": 60
+          },
+          "mark": [
+            "5",
+            "12"
+          ]
         },
         {
           "say": "Total of 4 numbers.",
-          "show": "4 × 10 = 40"
+          "show": "4 × 10 = 40",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 10,
+            "r": 40
+          },
+          "mark": [
+            "4",
+            "10"
+          ]
         },
         {
           "say": "Removed number.",
-          "show": "60 - 40 = 20"
+          "show": "60 - 40 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "-",
+            "b": 40,
+            "r": 20
+          }
         }
       ],
       "tags": [
@@ -247,7 +310,22 @@
         },
         {
           "say": "Add the 2 back.",
-          "show": "60 + 2 = 62"
+          "show": "60 + 2 = 62",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 60
+              },
+              {
+                "v": 2
+              }
+            ],
+            "total": 62
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "Check.",
@@ -298,15 +376,36 @@
         },
         {
           "say": "Sisa pagi.",
-          "show": "3 × 10 = 30"
+          "show": "3 × 10 = 30",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 10,
+            "r": 30
+          }
         },
         {
           "say": "Sisa pagi sama dengan setengah kue awal.",
-          "show": "2 × 30 = 60"
+          "show": "2 × 30 = 60",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 30,
+            "r": 60
+          }
         },
         {
           "say": "Periksa: 60, pagi terjual 30, siang terjual 10, sisa 20.",
-          "show": "60 - 30 - 10 = 20"
+          "show": "60 - 30 - 10 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 10,
+            "r": 20
+          }
         }
       ],
       "tags": [
@@ -358,7 +457,17 @@
       "solution": [
         {
           "say": "List them.",
-          "show": "14, 23, 32, 41, 50"
+          "show": "14, 23, 32, 41, 50",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "14",
+              "23",
+              "32",
+              "41",
+              "50"
+            ]
+          }
         },
         {
           "say": "Tens.",
@@ -370,7 +479,19 @@
         },
         {
           "say": "Total.",
-          "show": "150 + 10 = 160"
+          "show": "150 + 10 = 160",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 150
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 160
+          }
         }
       ],
       "tags": [
@@ -403,7 +524,22 @@
         },
         {
           "say": "25 = 5 × 5 gives an extra 5.",
-          "show": "5 + 1 = 6"
+          "show": "5 + 1 = 6",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 6
+          },
+          "mark": [
+            "1"
+          ]
         },
         {
           "say": "So there are 6 end zeros.",
@@ -432,19 +568,59 @@
       "solution": [
         {
           "say": "All chickens.",
-          "show": "30 × 2 = 60 legs"
+          "show": "30 × 2 = 60 legs",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "×",
+            "b": 2,
+            "r": 60
+          },
+          "mark": [
+            "30"
+          ]
         },
         {
           "say": "Legs missing.",
-          "show": "74 - 60 = 14"
+          "show": "74 - 60 = 14",
+          "anim": {
+            "k": "combine",
+            "a": 74,
+            "op": "-",
+            "b": 60,
+            "r": 14
+          },
+          "mark": [
+            "74"
+          ]
         },
         {
           "say": "Each goat adds 2 legs.",
-          "show": "14 ÷ 2 = 7"
+          "show": "14 ÷ 2 = 7",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7,
+                "q": true
+              },
+              {
+                "v": 7
+              }
+            ],
+            "total": 14
+          }
         },
         {
           "say": "Check: 7 goats and 23 chickens.",
-          "show": "28 + 46 = 74"
+          "show": "28 + 46 = 74",
+          "anim": {
+            "k": "combine",
+            "a": 28,
+            "op": "+",
+            "b": 46,
+            "r": 74
+          }
         }
       ],
       "tags": [
@@ -452,6 +628,247 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-number-puzzles.010",
+      "skill": "m4.oly-number-puzzles",
+      "difficulty": 2,
+      "prompt": "I think of a number. I double it and add 9. The answer is 31. What is my number?",
+      "hints": [
+        "Work backwards.",
+        "Take away 9 from 31 first.",
+        "Then halve it."
+      ],
+      "explanation": "31 - 9 = 22, and 22 ÷ 2 = 11. The number is 11.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 11,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is my number?"
+          ]
+        },
+        {
+          "say": "31 - 9 = 22, and 22 ÷ 2 = 11.",
+          "anim": {
+            "k": "combine",
+            "a": 31,
+            "op": "-",
+            "b": 9,
+            "r": 22
+          },
+          "mark": [
+            "31",
+            "9"
+          ]
+        },
+        {
+          "say": "The number is 11."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "11"
+        }
+      ]
+    },
+    {
+      "id": "m4.oly-number-puzzles.011",
+      "skill": "m4.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "What is the largest 3-digit number with three different digits whose digit sum is 12?",
+      "hints": [
+        "Make the hundreds digit as big as possible.",
+        "Use 9 for the hundreds. Then the other two digits add up to 3.",
+        "Make the tens digit as big as possible but different from the others."
+      ],
+      "explanation": "With 9 in the hundreds place the other digits add to 3. The biggest tens digit is 3, leaving 0 for the ones place. The number is 930.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 930
+    },
+    {
+      "id": "m4.oly-number-puzzles.012",
+      "skill": "m4.oly-number-puzzles",
+      "difficulty": 3,
+      "prompt": "Two numbers add up to 50 and differ by 12. What is the larger number?",
+      "hints": [
+        "If you take 12 away from the total, two equal numbers are left.",
+        "50 - 12 = 38.",
+        "Half of 38 is the smaller number."
+      ],
+      "explanation": "50 - 12 = 38, so the smaller number is 19. The larger number is 19 + 12 = 31.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 31,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the larger number?"
+          ]
+        },
+        {
+          "say": "50 - 12 = 38, so the smaller number is 19.",
+          "anim": {
+            "k": "combine",
+            "a": 50,
+            "op": "-",
+            "b": 12,
+            "r": 38
+          },
+          "mark": [
+            "50",
+            "12"
+          ]
+        },
+        {
+          "say": "The larger number is 19 + 12 = 31.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 19
+              },
+              {
+                "v": 12
+              }
+            ],
+            "total": 31
+          },
+          "mark": [
+            "12"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "31"
+        }
+      ]
+    },
+    {
+      "id": "m4.oly-number-puzzles.013",
+      "skill": "m4.oly-number-puzzles",
+      "difficulty": 3,
+      "prompt": "The sum of five consecutive numbers is 105. What is the largest of the five numbers?",
+      "hints": [
+        "The middle number is the average.",
+        "105 ÷ 5.",
+        "Count two numbers up from the middle."
+      ],
+      "explanation": "The middle number is 105 ÷ 5 = 21. The numbers are 19, 20, 21, 22, 23, so the largest is 23.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 23,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the largest of the five numbers?"
+          ]
+        },
+        {
+          "say": "The middle number is 105 ÷ 5 = 21.",
+          "anim": {
+            "k": "combine",
+            "a": 105,
+            "op": "÷",
+            "b": 5,
+            "r": 21
+          },
+          "mark": [
+            "105"
+          ]
+        },
+        {
+          "say": "The numbers are 19, 20, 21, 22, 23, so the largest is 23."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "23"
+        }
+      ]
+    },
+    {
+      "id": "m4.oly-number-puzzles.014",
+      "skill": "m4.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "Dewi has 8 coins. Each is a Rp500 coin or a Rp1.000 coin. Altogether the coins are worth Rp5.500. How many Rp1.000 coins does she have?",
+      "hints": [
+        "What would 8 coins of Rp500 be worth?",
+        "That would be Rp4.000, but she has Rp1.500 more.",
+        "Each Rp1.000 coin adds Rp500 more."
+      ],
+      "explanation": "8 coins of Rp500 make Rp4.000. The extra Rp1.500 comes from swapping Rp500 coins for Rp1.000 coins, each swap adds Rp500. So 1.500 ÷ 500 = 3 coins.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 3
+    },
+    {
+      "id": "m4.oly-number-puzzles.015",
+      "skill": "m4.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "How many 2-digit numbers have digits whose product is 12?",
+      "hints": [
+        "Find pairs of digits with product 12.",
+        "12 = 2 × 6 = 3 × 4.",
+        "Each pair can be written in two orders."
+      ],
+      "explanation": "The digit pairs are 2 and 6, and 3 and 4. Each gives 2 numbers: 26, 62, 34, 43. That makes 4 numbers.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 4
+    },
+    {
+      "id": "m4.oly-number-puzzles.016",
+      "skill": "m4.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "A number is bigger than 10. It leaves remainder 2 when divided by 5 and remainder 3 when divided by 4. What is the smallest such number?",
+      "hints": [
+        "List numbers that leave remainder 2 when divided by 5.",
+        "These end in 2 or 7: 12, 17, 22, 27, ...",
+        "Check which one leaves remainder 3 when divided by 4."
+      ],
+      "explanation": "Numbers over 10 that leave 2 when divided by 5 are 12, 17, 22, 27. 12 ÷ 4 leaves 0, 17 leaves 1, 22 leaves 2, 27 leaves 3. So 27 is the smallest.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 27
     }
   ]
 }

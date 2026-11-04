@@ -206,7 +206,18 @@
         },
         {
           "say": "Minutes lost.",
-          "show": "6 × 5 = 30"
+          "show": "6 × 5 = 30",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 5,
+            "r": 30
+          },
+          "mark": [
+            "6",
+            "5"
+          ]
         },
         {
           "say": "Time shown.",
@@ -253,15 +264,50 @@
       "solution": [
         {
           "say": "At least one.",
-          "show": "40 - 7 = 33"
+          "show": "40 - 7 = 33",
+          "anim": {
+            "k": "combine",
+            "a": 40,
+            "op": "-",
+            "b": 7,
+            "r": 33
+          },
+          "mark": [
+            "40",
+            "7"
+          ]
         },
         {
           "say": "Add the groups.",
-          "show": "25 + 18 = 43"
+          "show": "25 + 18 = 43",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "+",
+            "b": 18,
+            "r": 43
+          },
+          "mark": [
+            "25",
+            "18"
+          ]
         },
         {
           "say": "Counted twice.",
-          "show": "43 - 33 = 10"
+          "show": "43 - 33 = 10",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 33
+              },
+              {
+                "v": 10,
+                "q": true
+              }
+            ],
+            "total": 43
+          }
         }
       ],
       "tags": [
@@ -304,15 +350,36 @@
       "solution": [
         {
           "say": "Jam buka sehari.",
-          "show": "20.00 - 08.00 = 12 jam"
+          "show": "20.00 - 08.00 = 12 jam",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "-",
+            "b": 8,
+            "r": 12
+          }
         },
         {
           "say": "Hari buka.",
-          "show": "7 - 1 = 6 hari"
+          "show": "7 - 1 = 6 hari",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "-",
+            "b": 1,
+            "r": 6
+          }
         },
         {
           "say": "Jam buka seminggu.",
-          "show": "12 × 6 = 72 jam"
+          "show": "12 × 6 = 72 jam",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "×",
+            "b": 6,
+            "r": 72
+          }
         }
       ],
       "tags": [
@@ -368,11 +435,30 @@
         },
         {
           "say": "Try girls = 3, boys = 4.",
-          "show": "4 - 1 = 3 and 4 = 2 × 2"
+          "show": "4 - 1 = 3 and 4 = 2 × 2",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "-",
+            "b": 1,
+            "r": 3
+          }
         },
         {
           "say": "Total.",
-          "show": "4 + 3 = 7"
+          "show": "4 + 3 = 7",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 7
+          }
         }
       ],
       "tags": [
@@ -434,7 +520,18 @@
       "solution": [
         {
           "say": "Gap between the two ages.",
-          "show": "6 + 4 = 10 years"
+          "show": "6 + 4 = 10 years",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 4,
+            "r": 10
+          },
+          "mark": [
+            "6",
+            "4"
+          ]
         },
         {
           "say": "Twice minus once is 10.",
@@ -442,7 +539,22 @@
         },
         {
           "say": "Ben now.",
-          "show": "10 + 6 = 16"
+          "show": "10 + 6 = 16",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 16
+          },
+          "mark": [
+            "6"
+          ]
         },
         {
           "say": "Check: in 4 years he is 20, twice 10.",
@@ -454,6 +566,507 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-logic.010",
+      "skill": "m5.oly-logic",
+      "difficulty": 3,
+      "prompt": "Mia has 3 more stickers than Ned. Ned has 4 fewer stickers than Oli. Oli has 12 stickers. How many stickers do Mia and Ned have altogether?",
+      "hints": [
+        "Find Ned first.",
+        "Ned has 4 fewer than 12.",
+        "Then find Mia and add Mia and Ned."
+      ],
+      "explanation": "Ned has 12 - 4 = 8. Mia has 8 + 3 = 11. Together 8 + 11 = 19.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "15",
+          "why": "Check Mia: she has 3 more than Ned, not 3 fewer."
+        },
+        {
+          "text": "17",
+          "why": "Check Ned: he has 4 fewer than Oli."
+        },
+        {
+          "text": "19"
+        },
+        {
+          "text": "21",
+          "why": "You may have added Oli too. Only Mia and Ned are in the question."
+        },
+        {
+          "text": "23",
+          "why": "Ned has fewer stickers than Oli, not more."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many stickers do Mia and Ned have altogether?"
+          ]
+        },
+        {
+          "say": "Ned has 12 - 4 = 8.",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 4,
+            "r": 8
+          },
+          "mark": [
+            "12",
+            "4"
+          ]
+        },
+        {
+          "say": "Mia has 8 + 3 = 11.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 3,
+            "r": 11
+          },
+          "mark": [
+            "3"
+          ]
+        },
+        {
+          "say": "Together 8 + 11 = 19.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 11,
+            "r": 19
+          }
+        },
+        {
+          "say": "Not 15. Check Mia: she has 3 more than Ned, not 3 fewer."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 19"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-logic.011",
+      "skill": "m5.oly-logic",
+      "difficulty": 4,
+      "prompt": "In a class of 20 pupils, 14 have a pet cat and 12 have a pet bird. Every pupil has at least one of these pets. What is the number of pupils who have both?",
+      "hints": [
+        "Add the two groups. Is the total more than 20?",
+        "14 + 12 = 26, but there are only 20 pupils.",
+        "The extra pupils were counted twice."
+      ],
+      "explanation": "14 + 12 = 26, which is 6 more than the 20 pupils. So 6 pupils were counted twice, and 6 pupils have both pets.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "2",
+          "why": "That is 14 - 12. It does not use the class size of 20."
+        },
+        {
+          "text": "4",
+          "why": "Check 14 + 12 - 20. The overlap is counted twice."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8",
+          "why": "That is 20 - 12, the number without a bird."
+        },
+        {
+          "text": "12",
+          "why": "That is the number of bird owners, not the overlap."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the number of pupils who have both?"
+          ]
+        },
+        {
+          "say": "14 + 12 = 26, which is 6 more than the 20 pupils.",
+          "anim": {
+            "k": "combine",
+            "a": 14,
+            "op": "+",
+            "b": 12,
+            "r": 26
+          },
+          "mark": [
+            "14",
+            "12"
+          ]
+        },
+        {
+          "say": "So 6 pupils were counted twice, and 6 pupils have both pets."
+        },
+        {
+          "say": "Not 2. That is 14 - 12. It does not use the class size of 20."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 6"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-logic.012",
+      "skill": "m5.oly-logic",
+      "difficulty": 3,
+      "prompt": "A drawer has 8 red, 6 blue and 4 green socks. Dewi takes socks out in the dark. How many socks must she take to be sure that two have the same colour?",
+      "hints": [
+        "Think about the worst luck.",
+        "Dewi could take one sock of each colour.",
+        "What happens with the next sock?"
+      ],
+      "explanation": "With 3 colours, Dewi could take one of each colour and have no pair. The 4th sock must match one of them. So she needs 4 socks.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "2",
+          "why": "Two socks could be different colours, like red and blue."
+        },
+        {
+          "text": "3",
+          "why": "Three socks could be one red, one blue and one green."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "Four socks are already enough. Think about the worst case."
+        },
+        {
+          "text": "9",
+          "why": "That is far more than you need. There are only three colours."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-logic.013",
+      "skill": "m5.oly-logic",
+      "difficulty": 4,
+      "prompt": "A bag has 8 red, 6 blue and 4 green marbles. In the dark, how many marbles must Kofi take to be sure he has at least 2 blue ones?",
+      "hints": [
+        "Think about the worst luck.",
+        "He could take all the red and all the green first.",
+        "Then he still needs 2 blue marbles."
+      ],
+      "explanation": "In the worst case Kofi takes all 8 red and 4 green marbles, which is 12, without any blue. The next 2 marbles must be blue, so he needs 12 + 2 = 14.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 14,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "In the dark, how many marbles must Kofi take to be sure he"
+          ]
+        },
+        {
+          "say": "In the worst case Kofi takes all 8 red and 4 green marbles, which is 12, without any blue."
+        },
+        {
+          "say": "The next 2 marbles must be blue, so he needs 12 + 2 = 14.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 2
+              }
+            ],
+            "total": 14
+          },
+          "mark": [
+            "2"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "14"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-logic.014",
+      "skill": "m5.oly-logic",
+      "difficulty": 4,
+      "prompt": "Tom is twice as old as Ria. In 6 years, the sum of their ages will be 45. How old is Tom now?",
+      "hints": [
+        "Ria's age now is one part. Tom is two parts.",
+        "In 6 years the sum grows by 6 + 6 = 12.",
+        "The sum of their ages now is 45 - 12."
+      ],
+      "explanation": "The sum now is 45 - 12 = 33. Tom is 2 parts and Ria 1 part, so 3 parts = 33 and one part is 11. Ria is 11 and Tom is 22.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "11",
+          "why": "That is Ria's age. Tom is twice as old."
+        },
+        {
+          "text": "15",
+          "why": "Check the sum in 6 years. Both ages grow by 6."
+        },
+        {
+          "text": "22"
+        },
+        {
+          "text": "28",
+          "why": "That is Tom's age in 6 years."
+        },
+        {
+          "text": "33",
+          "why": "That would make Ria 16.5. Check the sum of ages in 6 years."
+        }
+      ],
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How old is Tom now?"
+          ]
+        },
+        {
+          "say": "The sum now is 45 - 12 = 33.",
+          "anim": {
+            "k": "combine",
+            "a": 45,
+            "op": "-",
+            "b": 12,
+            "r": 33
+          },
+          "mark": [
+            "45"
+          ]
+        },
+        {
+          "say": "Tom is 2 parts and Ria 1 part, so 3 parts = 33 and one part is 11."
+        },
+        {
+          "say": "Ria is 11 and Tom is 22."
+        },
+        {
+          "say": "Not 11. That is Ria's age. Tom is twice as old."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 22"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-logic.015",
+      "skill": "m5.oly-logic",
+      "difficulty": 3,
+      "prompt": "On a balance, 3 mangoes weigh the same as 5 oranges. One orange weighs 120 g. How many grams does one mango weigh?",
+      "hints": [
+        "Find the weight of 5 oranges.",
+        "3 mangoes weigh as much as that.",
+        "Divide by 3 to get one mango."
+      ],
+      "explanation": "5 oranges weigh 5 × 120 = 600 g. So 3 mangoes weigh 600 g and one mango weighs 600 ÷ 3 = 200 g.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 200,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many grams does one mango weigh?"
+          ]
+        },
+        {
+          "say": "5 oranges weigh 5 × 120 = 600 g.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 120,
+            "r": 600
+          },
+          "mark": [
+            "5",
+            "120"
+          ]
+        },
+        {
+          "say": "So 3 mangoes weigh 600 g and one mango weighs 600 ÷ 3 = 200 g.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 200,
+                "q": true
+              },
+              {
+                "v": 200
+              },
+              {
+                "v": 200
+              }
+            ],
+            "total": 600
+          },
+          "mark": [
+            "3"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "200"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-logic.016",
+      "skill": "m5.oly-logic",
+      "difficulty": 4,
+      "prompt": "A clock strikes once at 1 o'clock, twice at 2 o'clock, and so on. At 6 o'clock the strikes take 5 seconds from the start of the first to the start of the last. How many seconds from the first to the last strike at 12 o'clock?",
+      "hints": [
+        "Count the gaps between strikes, not the strikes.",
+        "6 strikes have 5 gaps. All gaps are equal.",
+        "12 strikes have 11 gaps."
+      ],
+      "explanation": "6 strikes have 5 gaps, and 5 seconds means each gap is 1 second. 12 strikes have 11 gaps, so it takes 11 seconds.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 11
+    },
+    {
+      "id": "m5.oly-logic.017",
+      "skill": "m5.oly-logic",
+      "difficulty": 5,
+      "prompt": "Ten people stand in a line. Person 1 says, \"Exactly 1 of us is a liar.\" Person 2 says, \"Exactly 2 of us are liars.\" This continues up to person 10, who says, \"Exactly 10 of us are liars.\" Liars always lie and truth-tellers always tell the truth. How many liars are there?",
+      "hints": [
+        "Only one number of liars can be right.",
+        "So at most one person is telling the truth.",
+        "If one person tells the truth, how many people lie?"
+      ],
+      "explanation": "At most one statement can be true, because the number of liars is a single number. If nobody told the truth, the number of liars would be 10, which makes person 10 truthful, a contradiction. So exactly one person is truthful and 9 are liars. Person 9 is the truthful one.",
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 9
+    },
+    {
+      "id": "m5.oly-logic.018",
+      "skill": "m5.oly-logic",
+      "difficulty": 4,
+      "prompt": "Seven different positive whole numbers add up to 30. What is the greatest value the largest of them can have?",
+      "hints": [
+        "To make one number large, make the others small.",
+        "The smallest six different positive numbers are 1, 2, 3, 4, 5, 6.",
+        "Add them and take from 30."
+      ],
+      "explanation": "The other six numbers are as small as possible: 1 + 2 + 3 + 4 + 5 + 6 = 21. The largest is then 30 - 21 = 9.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 9,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the greatest value the largest of them can have?"
+          ]
+        },
+        {
+          "say": "The other six numbers are as small as possible: 1 + 2 + 3 + 4 + 5 + 6 = 21."
+        },
+        {
+          "say": "The largest is then 30 - 21 = 9.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 21
+              },
+              {
+                "v": 9,
+                "q": true
+              }
+            ],
+            "total": 30
+          },
+          "mark": [
+            "30"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "9"
+        }
+      ]
     }
   ]
 }

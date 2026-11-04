@@ -472,6 +472,1033 @@
         "Say where you want heat to go, and where you do not."
       ],
       "explanation": "The metal base is a thermal conductor, so heat moves quickly to the food. The plastic handle is a thermal insulator, so it stays cool to hold."
+    },
+    {
+      "id": "s4.conductors-insulators.013",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is an electrical conductor?",
+      "options": [
+        {
+          "text": "Rubber",
+          "why": "Rubber is an insulator."
+        },
+        {
+          "text": "Wood",
+          "why": "Wood is an insulator."
+        },
+        {
+          "text": "Copper"
+        },
+        {
+          "text": "Plastic",
+          "why": "Plastic is an insulator."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the metals.",
+        "Wires inside cables are made of this material.",
+        "Conductors let electricity pass."
+      ],
+      "explanation": "Copper is a metal and conducts electricity very well. That is why it is used inside wires."
+    },
+    {
+      "id": "s4.conductors-insulators.014",
+      "skill": "s4.conductors-insulators",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the object that is an electrical conductor.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 160,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "spoon",
+            "x": 12,
+            "y": 25,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 92,
+            "y": 25,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 172,
+            "y": 25,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "rubber-band",
+            "x": 252,
+            "y": 25,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 40,
+            "y": 110,
+            "text": "metal spoon",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 120,
+            "y": 110,
+            "text": "wooden spoon",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 200,
+            "y": 110,
+            "text": "glass",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 280,
+            "y": 110,
+            "text": "rubber band",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "Four objects in a row: a metal spoon, a wooden spoon, a glass and a rubber band."
+      },
+      "hints": [
+        "Conductors are usually metals.",
+        "Plastic, wood and rubber are not conductors.",
+        "Look at the first object."
+      ],
+      "explanation": "The metal spoon is the conductor. Wood, glass and rubber do not let electricity flow.",
+      "regions": [
+        {
+          "label": "metal spoon",
+          "x": 12.5,
+          "y": 31.3,
+          "w": 21.9,
+          "h": 50
+        },
+        {
+          "label": "wooden spoon",
+          "x": 37.5,
+          "y": 31.3,
+          "w": 21.9,
+          "h": 50
+        },
+        {
+          "label": "glass",
+          "x": 62.5,
+          "y": 31.3,
+          "w": 21.9,
+          "h": 50
+        },
+        {
+          "label": "rubber band",
+          "x": 87.5,
+          "y": 31.3,
+          "w": 21.9,
+          "h": 50
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.015",
+      "skill": "s4.conductors-insulators",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Maya tests materials in the gap of a circuit. Complete the table.",
+      "head": [
+        "Material",
+        "Bulb lights?",
+        "Type"
+      ],
+      "rows": [
+        [
+          "iron nail",
+          "yes",
+          "conductor"
+        ],
+        [
+          "plastic comb",
+          "no",
+          ""
+        ],
+        [
+          "copper coin",
+          "yes",
+          ""
+        ],
+        [
+          "rubber eraser",
+          "no",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "insulator"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "conductor"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "answers": [
+            "insulator"
+          ]
+        }
+      ],
+      "hints": [
+        "If the bulb lights, electricity flowed.",
+        "Conductors let electricity pass.",
+        "Look at the Bulb lights column for each row."
+      ],
+      "explanation": "Materials that light the bulb are conductors. The comb and the eraser do not, so they are insulators."
+    },
+    {
+      "id": "s4.conductors-insulators.016",
+      "skill": "s4.conductors-insulators",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the test circuit used to check a material.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 138,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 182,
+            "y1": 40,
+            "x2": 260,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 60,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 180,
+            "x2": 110,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 210,
+            "y1": 180,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 40,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "rect",
+            "x": 44,
+            "y": 85,
+            "w": 32,
+            "h": 60,
+            "r": 0,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 40,
+            "r": 20,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 40,
+            "x2": 170,
+            "y2": 40,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "rect",
+            "x": 110,
+            "y": 168,
+            "w": 100,
+            "h": 24,
+            "r": 0,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A circuit loop with a battery on the left, a bulb in the top wire and a gap in the bottom wire. A block of the material being tested bridges the gap."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The material fills the gap in the bottom wire.",
+        "The battery is on the left."
+      ],
+      "explanation": "The battery pushes the electricity and the bulb shows if it flows. The material under test is placed in the gap.",
+      "labels": [
+        "battery",
+        "bulb",
+        "material being tested",
+        "wire"
+      ],
+      "spots": [
+        {
+          "x": 18.8,
+          "y": 52.3
+        },
+        {
+          "x": 50,
+          "y": 18.2
+        },
+        {
+          "x": 50,
+          "y": 81.8
+        },
+        {
+          "x": 81.3,
+          "y": 50
+        }
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.017",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Four cups of hot water are wrapped in different materials. Which wrap is the best thermal insulator?",
+      "options": [
+        {
+          "text": "Aluminium foil",
+          "why": "The foil cup cooled the most, so foil is the worst insulator."
+        },
+        {
+          "text": "Paper",
+          "why": "Paper cooled more than foam and wool."
+        },
+        {
+          "text": "Wool",
+          "why": "Wool was good, but one wrap kept the water warmer."
+        },
+        {
+          "text": "Plastic foam"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look for the highest temperature.",
+        "The best insulator keeps the water warmest.",
+        "Compare all four numbers."
+      ],
+      "explanation": "Plastic foam kept the water at 66 °C, the warmest. So it is the best thermal insulator of the four.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Cup wrapped in",
+          "Temperature after 10 minutes (°C)"
+        ],
+        "rows": [
+          [
+            "wool",
+            "62"
+          ],
+          [
+            "aluminium foil",
+            "41"
+          ],
+          [
+            "paper",
+            "52"
+          ],
+          [
+            "plastic foam",
+            "66"
+          ]
+        ],
+        "alt": "Table of temperatures after 10 minutes: wool 62, aluminium foil 41, paper 52, plastic foam 66 degrees Celsius."
+      }
+    },
+    {
+      "id": "s4.conductors-insulators.018",
+      "skill": "s4.conductors-insulators",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The wool cup was at 62 °C and the foil cup at 41 °C. How many degrees warmer was the wool cup?",
+      "answer": 21,
+      "unit": "°C",
+      "hints": [
+        "Find the two temperatures.",
+        "Find the difference.",
+        "Take 41 away from 62."
+      ],
+      "explanation": "62 take away 41 is 21. The wool cup was 21 °C warmer."
+    },
+    {
+      "id": "s4.conductors-insulators.019",
+      "skill": "s4.conductors-insulators",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 3 electrical insulators.",
+      "options": [
+        {
+          "text": "Rubber glove"
+        },
+        {
+          "text": "Wooden spoon"
+        },
+        {
+          "text": "Glass jar"
+        },
+        {
+          "text": "Steel fork"
+        },
+        {
+          "text": "Aluminium foil"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Metals are conductors.",
+        "Look for materials that are not metals.",
+        "Rubber, wood and glass do not let electricity pass."
+      ],
+      "explanation": "Rubber, wood and glass are insulators. Steel and aluminium are metals, so they conduct."
+    },
+    {
+      "id": "s4.conductors-insulators.020",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ines wraps an ice block in a thick blanket. Her brother says the blanket is warm, so the ice will melt fast. What is really happening?",
+      "options": [
+        {
+          "text": "The blanket makes heat, so the ice melts fast.",
+          "why": "A blanket does not make heat."
+        },
+        {
+          "text": "The blanket is a thermal insulator, so heat from the air reaches the ice slowly."
+        },
+        {
+          "text": "The blanket turns the heat into cold.",
+          "why": "Heat is not turned into cold."
+        },
+        {
+          "text": "The blanket has no effect on the ice.",
+          "why": "Insulators do slow down the movement of heat."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A blanket does not make heat.",
+        "Think about where the heat for melting comes from.",
+        "Insulators slow down the movement of heat."
+      ],
+      "explanation": "A blanket is an insulator and makes no heat of its own. It slows down the heat moving from the warm air to the ice."
+    },
+    {
+      "id": "s4.conductors-insulators.021",
+      "skill": "s4.conductors-insulators",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps in order to test if a material conducts electricity.",
+      "items": [
+        "Build a circuit with a gap.",
+        "Place the material across the gap.",
+        "Look at the bulb.",
+        "Write down the result."
+      ],
+      "hints": [
+        "The test needs a circuit first.",
+        "Then put the material in.",
+        "Watch before writing."
+      ],
+      "explanation": "You build the circuit, put the material in the gap, watch the bulb and then record whether it lit."
+    },
+    {
+      "id": "s4.conductors-insulators.022",
+      "skill": "s4.conductors-insulators",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each object to the reason for its material.",
+      "pairs": [
+        [
+          "metal base of a pan",
+          "conducts heat well"
+        ],
+        [
+          "plastic pan handle",
+          "insulates against heat"
+        ],
+        [
+          "rubber around a plug cable",
+          "stops electricity reaching you"
+        ],
+        [
+          "copper wire inside a cable",
+          "lets electricity flow"
+        ]
+      ],
+      "hints": [
+        "Think about heat for the pan.",
+        "Think about electricity for the cable.",
+        "Metals conduct, plastic and rubber insulate."
+      ],
+      "explanation": "Metal conducts heat and electricity. Plastic and rubber insulate, so they keep you safe."
+    },
+    {
+      "id": "s4.conductors-insulators.023",
+      "skill": "s4.conductors-insulators",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the materials. Are they good thermal conductors or insulators?",
+      "groups": [
+        "Thermal conductor",
+        "Thermal insulator"
+      ],
+      "items": [
+        {
+          "text": "iron",
+          "group": 0
+        },
+        {
+          "text": "aluminium",
+          "group": 0
+        },
+        {
+          "text": "copper",
+          "group": 0
+        },
+        {
+          "text": "plastic foam",
+          "group": 1
+        },
+        {
+          "text": "cork",
+          "group": 1
+        },
+        {
+          "text": "wool",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Heat travels through metals easily.",
+        "Soft, fluffy or airy materials hold heat in.",
+        "Ask of each: is it a metal?"
+      ],
+      "explanation": "Metals are good conductors of heat. Foam, cork and wool trap heat, so they are insulators."
+    },
+    {
+      "id": "s4.conductors-insulators.024",
+      "skill": "s4.conductors-insulators",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 things to keep the same when testing which wrap keeps an ice cube longest.",
+      "options": [
+        {
+          "text": "The size of the ice cube"
+        },
+        {
+          "text": "The material of the wrap"
+        },
+        {
+          "text": "The room the test is in"
+        },
+        {
+          "text": "The time you leave it"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ],
+      "hints": [
+        "The wrap is what you change.",
+        "Everything else must stay the same.",
+        "Name the things that would also change the melting."
+      ],
+      "explanation": "The wrap is what we change, so it differs. Ice size, room and time stay the same to make it a fair test."
+    },
+    {
+      "id": "s4.conductors-insulators.025",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Bayu tests three materials in a circuit. A lights the bulb brightly, B lights it dimly, C does not light it. Which is correct?",
+      "options": [
+        {
+          "text": "A is the best electrical conductor and C is an insulator."
+        },
+        {
+          "text": "C is the best electrical conductor.",
+          "why": "C did not light the bulb."
+        },
+        {
+          "text": "B is an insulator.",
+          "why": "B let some electricity pass."
+        },
+        {
+          "text": "A and C are the same.",
+          "why": "They gave different results."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A brighter bulb means more electricity flows.",
+        "No light means no flow.",
+        "Rank the three materials."
+      ],
+      "explanation": "The brighter the bulb, the better the material conducts. C stopped the flow, so it is an insulator.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Material",
+          "Bulb"
+        ],
+        "rows": [
+          [
+            "A",
+            "bright"
+          ],
+          [
+            "B",
+            "dim"
+          ],
+          [
+            "C",
+            "off"
+          ]
+        ],
+        "alt": "Table: material A bright, material B dim, material C off."
+      }
+    },
+    {
+      "id": "s4.conductors-insulators.026",
+      "skill": "s4.conductors-insulators",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Metals are good ___ of heat and electricity.",
+      "blanks": [
+        {
+          "answers": [
+            "conductors",
+            "conductor"
+          ]
+        }
+      ],
+      "hints": [
+        "The word starts with c.",
+        "It describes materials that let heat or electricity pass.",
+        "Opposite of insulator."
+      ],
+      "explanation": "Metals are good conductors. They let heat and electricity pass through easily."
+    },
+    {
+      "id": "s4.conductors-insulators.027",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Electricians use screwdrivers with plastic handles. Why?",
+      "options": [
+        {
+          "text": "Plastic is a conductor, so the tool works better.",
+          "why": "Plastic is not a conductor."
+        },
+        {
+          "text": "Plastic is an electrical insulator, so it protects the hand."
+        },
+        {
+          "text": "Plastic is heavier than metal.",
+          "why": "Weight is not the reason."
+        },
+        {
+          "text": "Plastic is shiny.",
+          "why": "Looks do not keep you safe."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about safety.",
+        "What stops electricity?",
+        "Plastic insulates."
+      ],
+      "explanation": "A plastic handle is an electrical insulator. It keeps electricity from passing to the hand."
+    },
+    {
+      "id": "s4.conductors-insulators.028",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Frozen peas melt faster on a metal tray than on a wooden board. Why?",
+      "options": [
+        {
+          "text": "Metal is a better thermal conductor, so heat reaches the peas faster."
+        },
+        {
+          "text": "Wood makes the peas colder.",
+          "why": "Wood does not add cold."
+        },
+        {
+          "text": "Metal is warmer than the room.",
+          "why": "Both are the same temperature as the room."
+        },
+        {
+          "text": "Wood is a conductor.",
+          "why": "Wood is an insulator."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The room is the same for both.",
+        "Think about how heat moves into the peas.",
+        "Compare metal and wood as conductors."
+      ],
+      "explanation": "Metal conducts heat well, so warmth moves quickly from the air into the peas. Wood is an insulator and slows this down."
+    },
+    {
+      "id": "s4.conductors-insulators.029",
+      "skill": "s4.conductors-insulators",
+      "type": "hotspot",
+      "difficulty": 4,
+      "prompt": "The end of a mains cable is cut open. Tap the part that carries the electricity.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 160,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 10,
+            "y": 50,
+            "w": 160,
+            "h": 60,
+            "r": 12,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 170,
+            "y1": 70,
+            "x2": 230,
+            "y2": 60,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 170,
+            "y1": 80,
+            "x2": 236,
+            "y2": 80,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 170,
+            "y1": 90,
+            "x2": 230,
+            "y2": 100,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "rect",
+            "x": 250,
+            "y": 40,
+            "w": 60,
+            "h": 80,
+            "r": 8,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 280,
+            "y1": 20,
+            "x2": 280,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          }
+        ],
+        "alt": "A cable cut at the end. A thick outer covering is on the left, thin metal strands stick out in the middle and a solid plug body is on the right."
+      },
+      "hints": [
+        "Electricity flows through conductors.",
+        "Conductors are usually metals.",
+        "Look for the thin metal strands."
+      ],
+      "explanation": "The metal strands are the conductor. They carry the electricity. The plastic covering is an insulator and keeps you safe.",
+      "regions": [
+        {
+          "label": "outer covering",
+          "x": 28.1,
+          "y": 50,
+          "w": 43.8,
+          "h": 43.8
+        },
+        {
+          "label": "metal strands",
+          "x": 64.1,
+          "y": 50,
+          "w": 18.8,
+          "h": 37.5
+        },
+        {
+          "label": "plug body",
+          "x": 87.5,
+          "y": 50,
+          "w": 18.8,
+          "h": 50
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.801",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Metals are good electrical conductors.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What are wires made of?",
+        "Would plastic be better?",
+        "Metals conduct."
+      ],
+      "explanation": "Electricity flows easily through copper, iron and other metals. That is why wires are made of metal.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.802",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Plastic is a good conductor of electricity.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What coats an electric wire?",
+        "Is it safe to touch?",
+        "Plastic is an insulator."
+      ],
+      "explanation": "Plastic is an insulator, so electricity does not flow through it. That is why wires are coated in plastic.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.803",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A metal spoon in hot soup soon gets hot at the handle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which material carries heat well?",
+        "Think of a wooden spoon.",
+        "Metal conducts heat."
+      ],
+      "explanation": "Metal is a good thermal conductor, so heat travels along it quickly from the soup to your hand.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.804",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A wooden handle on a pan is used because wood is a good thermal conductor.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Why do we not burn our hands on the handle?",
+        "A good conductor would get hot.",
+        "Wood is an insulator."
+      ],
+      "explanation": "Wood is a thermal insulator. It does not let heat pass easily, so the handle stays cool to hold.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.701",
+      "skill": "s4.conductors-insulators",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets electricity pass through is a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "conductor",
+            "electrical conductor"
+          ]
+        }
+      ],
+      "hints": [
+        "Metals are good at this.",
+        "The opposite is an insulator.",
+        "It starts with c."
+      ],
+      "explanation": "A conductor lets electricity pass through. Metals are good conductors.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s4.conductors-insulators.702",
+      "skill": "s4.conductors-insulators",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Ella tested materials in a circuit gap. The bulb lit with the copper wire, the iron nail and the aluminium foil. It did not light with the plastic comb, the wooden stick or the rubber.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many materials made the bulb light?",
+          "answer": 3,
+          "tolerance": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What do we call a material that lets electricity pass?",
+          "answers": [
+            "conductor",
+            "a conductor"
+          ]
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which is an insulator?",
+          "options": [
+            {
+              "text": "Copper"
+            },
+            {
+              "text": "Iron"
+            },
+            {
+              "text": "Rubber"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Count the ones that lit the bulb.",
+        "Metals did well.",
+        "Insulators stop electricity."
+      ],
+      "explanation": "Three materials lit the bulb. Materials that let electricity pass are conductors. Rubber is an insulator.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

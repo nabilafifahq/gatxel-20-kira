@@ -47,6 +47,8 @@ const baseConfig: NextConfig = {
     ],
   },
   poweredByHeader: false,
+  // Kira tidak memakai next/image. Pengoptimal gambar (/_next/image) dimatikan, jadi SVG dan sumber luar tidak pernah diproses.
+  images: { unoptimized: true, dangerouslyAllowSVG: false },
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
   devIndicators: false,
@@ -56,6 +58,8 @@ const baseConfig: NextConfig = {
   serverExternalPackages: ['@node-rs/argon2', 'postgres'],
   experimental: {
     // 61 MB: PDF paket resmi sampai 60 MB lewat Server Action impor (T12). Semua action tetap memeriksa sesi.
+    // Batas ini berlaku untuk semua action; proxy (deploy/proxy/Caddyfile) menurunkannya menjadi 8 MB di semua jalur
+    // kecuali /konsol/impor dan /api/media, jadi jalur learner tidak pernah menerima isi lebih dari 8 MB.
     // allowedOrigins: alamat publik Kira (KIRA_ORIGIN saat build image) bila proxy tidak meneruskan host aslinya.
     serverActions: { bodySizeLimit: '61mb', ...(publicHost ? { allowedOrigins: [publicHost] } : {}) },
     globalNotFound: true,
@@ -65,7 +69,11 @@ const baseConfig: NextConfig = {
       { source: '/(.*)', headers: securityHeaders },
       // no-transform: Cloudflare tidak boleh mengubah isi halaman (misalnya menyisipkan skrip analitik),
       // karena CSP learner melarang skrip luar.
-      { source: '/((?!_next/static|fonts|icons|sounds).*)', headers: [{ key: 'Cache-Control', value: 'no-store, no-transform, max-age=0' }] },
+      { source: '/((?!_next/static|fonts|icons|sounds|dict|panduan-img).*)', headers: [{ key: 'Cache-Control', value: 'no-store, no-transform, max-age=0' }] },
+      // Kamus Ketuk (public/dict): nama berhash, tidak pernah berubah isinya.
+      { source: '/dict/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
+      // Gambar panduan publik (public/panduan-img): boleh disimpan Cloudflare dan browser, karena dibaca lewat data seluler.
+      { source: '/panduan-img/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=604800, no-transform' }] },
       // Efek suara CC0 (public/sounds): berkas kecil yang tidak berubah, boleh disimpan sehari.
       { source: '/sounds/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, no-transform' }] },
     ]

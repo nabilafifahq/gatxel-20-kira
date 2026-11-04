@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "What is a food web?",
       "options": [
-        { "text": "many food chains in one habitat that link together" },
-        { "text": "a spider's web used to catch food", "why": "In science, a food web is a diagram of feeding links, not a real web." },
-        { "text": "a list of the foods people like to eat", "why": "A food web shows what eats what in a habitat." },
-        { "text": "one single line of what eats what", "why": "One line is a food chain. A web joins many chains together." }
+        {
+          "text": "many food chains in one habitat that link together"
+        },
+        {
+          "text": "a spider's web used to catch food",
+          "why": "In science, a food web is a diagram of feeding links, not a real web."
+        },
+        {
+          "text": "a list of the foods people like to eat",
+          "why": "A food web shows what eats what in a habitat."
+        },
+        {
+          "text": "one single line of what eats what",
+          "why": "One line is a food chain. A web joins many chains together."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -20,7 +31,9 @@
         "Cross out the choices about real spider webs and favourite foods."
       ],
       "explanation": "A food web shows many food chains in one habitat and how they link together. Most animals eat more than one kind of food, so their chains cross.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.food-webs.002",
@@ -31,32 +44,71 @@
       "figure": {
         "kind": "table",
         "caption": "A rice field food web",
-        "head": ["Living thing", "Is eaten by"],
+        "head": [
+          "Living thing",
+          "Is eaten by"
+        ],
         "rows": [
-          ["rice plant", "grasshopper, rat"],
-          ["grasshopper", "frog, sparrow"],
-          ["rat", "snake, owl"],
-          ["frog", "snake"],
-          ["sparrow", "owl"],
-          ["snake", "eagle"]
+          [
+            "rice plant",
+            "grasshopper, rat"
+          ],
+          [
+            "grasshopper",
+            "frog, sparrow"
+          ],
+          [
+            "rat",
+            "snake, owl"
+          ],
+          [
+            "frog",
+            "snake"
+          ],
+          [
+            "sparrow",
+            "owl"
+          ],
+          [
+            "snake",
+            "eagle"
+          ]
         ],
         "alt": "A rice field food web as a table. Rice plants are eaten by grasshoppers and rats. Grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls. Frogs are eaten by snakes, sparrows by owls and snakes by eagles."
       },
       "options": [
-        { "text": "frog" },
-        { "text": "sparrow" },
-        { "text": "rat", "why": "In this food web, rats eat rice plants." },
-        { "text": "eagle", "why": "In this food web, eagles eat snakes." },
-        { "text": "snake", "why": "In this food web, snakes eat rats and frogs." }
+        {
+          "text": "frog"
+        },
+        {
+          "text": "sparrow"
+        },
+        {
+          "text": "rat",
+          "why": "In this food web, rats eat rice plants."
+        },
+        {
+          "text": "eagle",
+          "why": "In this food web, eagles eat snakes."
+        },
+        {
+          "text": "snake",
+          "why": "In this food web, snakes eat rats and frogs."
+        }
       ],
-      "answers": [0, 1],
+      "answers": [
+        0,
+        1
+      ],
       "hints": [
         "Find the row for grasshopper in the table.",
         "The second column lists the animals that eat it.",
         "Read across the grasshopper row and check each choice."
       ],
       "explanation": "The table shows that grasshoppers are eaten by frogs and sparrows. Rats eat rice plants, while eagles and snakes eat other animals in this web.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.food-webs.003",
@@ -64,14 +116,23 @@
       "type": "text",
       "difficulty": 2,
       "prompt": "Fungi and bacteria that break down dead plants and animals are called ___.",
-      "blanks": [{ "answers": ["decomposers", "decomposer"] }],
+      "blanks": [
+        {
+          "answers": [
+            "decomposers",
+            "decomposer"
+          ]
+        }
+      ],
       "hints": [
         "These living things recycle dead material back into the soil.",
         "When leaves fall in a forest, these tiny living things make them rot away.",
         "The word starts with de- and ends with -ers."
       ],
       "explanation": "Decomposers such as fungi and bacteria break down dead plants and animals. This returns minerals to the soil, which plants then use to grow.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.food-webs.004",
@@ -82,22 +143,54 @@
       "figure": {
         "kind": "table",
         "caption": "A rice field food web",
-        "head": ["Living thing", "Is eaten by"],
+        "head": [
+          "Living thing",
+          "Is eaten by"
+        ],
         "rows": [
-          ["rice plant", "grasshopper, rat"],
-          ["grasshopper", "frog, sparrow"],
-          ["rat", "snake, owl"],
-          ["frog", "snake"],
-          ["sparrow", "owl"],
-          ["snake", "eagle"]
+          [
+            "rice plant",
+            "grasshopper, rat"
+          ],
+          [
+            "grasshopper",
+            "frog, sparrow"
+          ],
+          [
+            "rat",
+            "snake, owl"
+          ],
+          [
+            "frog",
+            "snake"
+          ],
+          [
+            "sparrow",
+            "owl"
+          ],
+          [
+            "snake",
+            "eagle"
+          ]
         ],
         "alt": "A rice field food web as a table. Rice plants are eaten by grasshoppers and rats. Grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls. Frogs are eaten by snakes, sparrows by owls and snakes by eagles."
       },
       "options": [
-        { "text": "It will go down, because frogs help grasshoppers.", "why": "Frogs eat grasshoppers. Without frogs, fewer grasshoppers are eaten." },
-        { "text": "It will go up, because fewer grasshoppers are eaten." },
-        { "text": "It will stay exactly the same, because sparrows eat them too.", "why": "Sparrows still eat some grasshoppers, but with no frogs, fewer are eaten overall." },
-        { "text": "Grasshoppers will start to eat snakes.", "why": "Grasshoppers eat plants. Animals do not suddenly change what they eat like this." }
+        {
+          "text": "It will go down, because frogs help grasshoppers.",
+          "why": "Frogs eat grasshoppers. Without frogs, fewer grasshoppers are eaten."
+        },
+        {
+          "text": "It will go up, because fewer grasshoppers are eaten."
+        },
+        {
+          "text": "It will stay exactly the same, because sparrows eat them too.",
+          "why": "Sparrows still eat some grasshoppers, but with no frogs, fewer are eaten overall."
+        },
+        {
+          "text": "Grasshoppers will start to eat snakes.",
+          "why": "Grasshoppers eat plants. Animals do not suddenly change what they eat like this."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -106,7 +199,10 @@
         "Cross the frogs out of the table and read the grasshopper row again."
       ],
       "explanation": "Frogs eat grasshoppers, so with no frogs, fewer grasshoppers are eaten and their number rises. Sparrows still eat some, but not enough to make up for the frogs.",
-      "tags": ["osn-sd", "checkpoint"]
+      "tags": [
+        "osn-sd",
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.food-webs.005",
@@ -117,22 +213,54 @@
       "figure": {
         "kind": "table",
         "caption": "A rice field food web",
-        "head": ["Living thing", "Is eaten by"],
+        "head": [
+          "Living thing",
+          "Is eaten by"
+        ],
         "rows": [
-          ["rice plant", "grasshopper, rat"],
-          ["grasshopper", "frog, sparrow"],
-          ["rat", "snake, owl"],
-          ["frog", "snake"],
-          ["sparrow", "owl"],
-          ["snake", "eagle"]
+          [
+            "rice plant",
+            "grasshopper, rat"
+          ],
+          [
+            "grasshopper",
+            "frog, sparrow"
+          ],
+          [
+            "rat",
+            "snake, owl"
+          ],
+          [
+            "frog",
+            "snake"
+          ],
+          [
+            "sparrow",
+            "owl"
+          ],
+          [
+            "snake",
+            "eagle"
+          ]
         ],
         "alt": "A rice field food web as a table. Rice plants are eaten by grasshoppers and rats. Grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls. Frogs are eaten by snakes, sparrows by owls and snakes by eagles."
       },
       "options": [
-        { "text": "More rice plants will grow, because frogs eat rice.", "why": "Frogs do not eat rice. They eat grasshoppers, which eat rice." },
-        { "text": "Nothing will happen, because frogs do not eat plants.", "why": "Frogs do not eat rice, but they control the grasshoppers that do." },
-        { "text": "There may be fewer rice plants, because more grasshoppers will eat them." },
-        { "text": "The rice plants will grow taller to escape the grasshoppers.", "why": "Plants cannot grow away from the animals that eat them." }
+        {
+          "text": "More rice plants will grow, because frogs eat rice.",
+          "why": "Frogs do not eat rice. They eat grasshoppers, which eat rice."
+        },
+        {
+          "text": "Nothing will happen, because frogs do not eat plants.",
+          "why": "Frogs do not eat rice, but they control the grasshoppers that do."
+        },
+        {
+          "text": "There may be fewer rice plants, because more grasshoppers will eat them."
+        },
+        {
+          "text": "The rice plants will grow taller to escape the grasshoppers.",
+          "why": "Plants cannot grow away from the animals that eat them."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -141,7 +269,11 @@
         "First decide what happens to the grasshoppers. Then decide what they do to the rice."
       ],
       "explanation": "Without frogs, more grasshoppers survive. More grasshoppers eat more rice plants, so the farmers may lose some of their crop.",
-      "tags": ["osn-sd", "checkpoint", "imso"]
+      "tags": [
+        "osn-sd",
+        "checkpoint",
+        "imso"
+      ]
     },
     {
       "id": "s6.food-webs.006",
@@ -149,16 +281,43 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort these actions into ones that help a habitat and ones that harm it.",
-      "groups": ["Helps a habitat", "Harms a habitat"],
+      "groups": [
+        "Helps a habitat",
+        "Harms a habitat"
+      ],
       "items": [
-        { "text": "replanting mangroves on the coast", "group": 0 },
-        { "text": "making a national park", "group": 0 },
-        { "text": "recycling plastic bottles", "group": 0 },
-        { "text": "planting native trees", "group": 0 },
-        { "text": "dropping plastic on the beach", "group": 1 },
-        { "text": "cutting down rainforest for farms", "group": 1 },
-        { "text": "catching too many fish", "group": 1 },
-        { "text": "pouring oil into a river", "group": 1 }
+        {
+          "text": "replanting mangroves on the coast",
+          "group": 0
+        },
+        {
+          "text": "making a national park",
+          "group": 0
+        },
+        {
+          "text": "recycling plastic bottles",
+          "group": 0
+        },
+        {
+          "text": "planting native trees",
+          "group": 0
+        },
+        {
+          "text": "dropping plastic on the beach",
+          "group": 1
+        },
+        {
+          "text": "cutting down rainforest for farms",
+          "group": 1
+        },
+        {
+          "text": "catching too many fish",
+          "group": 1
+        },
+        {
+          "text": "pouring oil into a river",
+          "group": 1
+        }
       ],
       "hints": [
         "Think about what each action does to the plants and animals that live there.",
@@ -166,7 +325,9 @@
         "Start with the mangroves. Think about the fish and crabs that live among their roots."
       ],
       "explanation": "Replanting mangroves, protecting parks, recycling and planting native trees all help habitats. Littering, clearing rainforest, overfishing and pouring oil into rivers damage habitats and the food webs in them.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.food-webs.007",
@@ -175,10 +336,21 @@
       "difficulty": 3,
       "prompt": "Sea turtles sometimes swallow floating plastic bags. Why?",
       "options": [
-        { "text": "Plastic bags taste like seaweed.", "why": "Turtles are tricked by how bags look in the water, not by their taste." },
-        { "text": "Turtles use plastic to build nests.", "why": "Sea turtles dig their nests in the sand on beaches." },
-        { "text": "Plastic is good food for turtles.", "why": "Plastic cannot be digested and can block a turtle's gut." },
-        { "text": "Floating bags look like jellyfish, which turtles eat." }
+        {
+          "text": "Plastic bags taste like seaweed.",
+          "why": "Turtles are tricked by how bags look in the water, not by their taste."
+        },
+        {
+          "text": "Turtles use plastic to build nests.",
+          "why": "Sea turtles dig their nests in the sand on beaches."
+        },
+        {
+          "text": "Plastic is good food for turtles.",
+          "why": "Plastic cannot be digested and can block a turtle's gut."
+        },
+        {
+          "text": "Floating bags look like jellyfish, which turtles eat."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -187,7 +359,10 @@
         "Ask which sea animal a drifting bag looks like."
       ],
       "explanation": "A floating plastic bag looks like a jellyfish, which many sea turtles eat. Swallowed plastic cannot be digested and can block the turtle's gut.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.food-webs.008",
@@ -196,10 +371,21 @@
       "difficulty": 3,
       "prompt": "Large areas of rainforest in Sumatra and Borneo have been cleared. Why does this put orangutans in danger?",
       "options": [
-        { "text": "They lose their habitat and the fruit trees they feed on." },
-        { "text": "Orangutans can only live in cold places.", "why": "Orangutans live in warm rainforests. The problem is that their forest home is gone." },
-        { "text": "The new farms are too noisy for orangutans to sleep.", "why": "Noise is not the main problem. They lose their food and shelter." },
-        { "text": "Orangutans need to eat the soil under the trees.", "why": "Orangutans eat mostly fruit, with some leaves, bark and insects. They need the trees." }
+        {
+          "text": "They lose their habitat and the fruit trees they feed on."
+        },
+        {
+          "text": "Orangutans can only live in cold places.",
+          "why": "Orangutans live in warm rainforests. The problem is that their forest home is gone."
+        },
+        {
+          "text": "The new farms are too noisy for orangutans to sleep.",
+          "why": "Noise is not the main problem. They lose their food and shelter."
+        },
+        {
+          "text": "Orangutans need to eat the soil under the trees.",
+          "why": "Orangutans eat mostly fruit, with some leaves, bark and insects. They need the trees."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -208,7 +394,9 @@
         "Ask what an orangutan loses when its trees are cut down."
       ],
       "explanation": "Orangutans live high in the rainforest and feed mainly on fruit from the trees. When the forest is cleared, they lose their homes and their food.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.food-webs.009",
@@ -218,10 +406,22 @@
       "prompt": "A company plans to cut down a mangrove forest to build a shrimp farm. Describe two effects on living things. Then suggest one way to reduce the harm.",
       "rubric": {
         "criteria": [
-          { "label": "Describes one effect on animals that live or breed in mangroves", "points": 2 },
-          { "label": "Describes a second effect, such as coast erosion or fewer fish", "points": 2 },
-          { "label": "Suggests a sensible way to reduce the harm", "points": 1 },
-          { "label": "Writes clear sentences with scientific words", "points": 1 }
+          {
+            "label": "Describes one effect on animals that live or breed in mangroves",
+            "points": 2
+          },
+          {
+            "label": "Describes a second effect, such as coast erosion or fewer fish",
+            "points": 2
+          },
+          {
+            "label": "Suggests a sensible way to reduce the harm",
+            "points": 1
+          },
+          {
+            "label": "Writes clear sentences with scientific words",
+            "points": 1
+          }
         ]
       },
       "minWords": 40,
@@ -237,7 +437,9 @@
         "Mangroves also protect the coast from waves."
       ],
       "explanation": "Mangroves are nurseries for young fish, crabs and shrimps, and they protect coasts from waves. Keeping or replanting a strip of mangroves reduces the harm.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.food-webs.010",
@@ -246,10 +448,21 @@
       "difficulty": 5,
       "prompt": "In 1962, Rachel Carson wrote about a pesticide called DDT. Insects held small amounts of it, but eagles and other birds of prey held large amounts. Why did the top predators have the most DDT?",
       "options": [
-        { "text": "Eagles sprayed DDT on their nests.", "why": "Birds do not spray pesticides. People sprayed DDT on crops and land." },
-        { "text": "Birds of prey breathe in more DDT from the air.", "why": "Most of the DDT entered their bodies through the food they ate." },
-        { "text": "Each predator ate many animals that each held a little DDT, so it built up." },
-        { "text": "Top predators make DDT in their own bodies.", "why": "DDT is made by people. Animals cannot make it." }
+        {
+          "text": "Eagles sprayed DDT on their nests.",
+          "why": "Birds do not spray pesticides. People sprayed DDT on crops and land."
+        },
+        {
+          "text": "Birds of prey breathe in more DDT from the air.",
+          "why": "Most of the DDT entered their bodies through the food they ate."
+        },
+        {
+          "text": "Each predator ate many animals that each held a little DDT, so it built up."
+        },
+        {
+          "text": "Top predators make DDT in their own bodies.",
+          "why": "DDT is made by people. Animals cannot make it."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -258,7 +471,1544 @@
         "Follow the DDT up the food chain and add it up at each step."
       ],
       "explanation": "DDT stayed in the bodies of animals that took it in. Each predator ate many prey animals, so the DDT built up to large amounts at the top of the food chain.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.food-webs.011",
+      "skill": "s6.food-webs",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the producer in this pond food web.",
+      "figure": {
+        "kind": "scene",
+        "width": 420,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 195,
+            "y1": 222,
+            "x2": 129.99384141282164,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                126,
+                176
+              ],
+              [
+                135.09708321809376,
+                176.77658027471534
+              ],
+              [
+                130.21572149131174,
+                184.09862286488834
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 225,
+            "y1": 222,
+            "x2": 290.00615858717833,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                294,
+                176
+              ],
+              [
+                289.7842785086882,
+                184.09862286488834
+              ],
+              [
+                284.90291678190624,
+                176.77658027471534
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 122,
+            "x2": 110,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                80
+              ],
+              [
+                114.4,
+                88
+              ],
+              [
+                105.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 310,
+            "y1": 122,
+            "x2": 310,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                310,
+                80
+              ],
+              [
+                314.4,
+                88
+              ],
+              [
+                305.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 284,
+            "y1": 50,
+            "x2": 142.8,
+            "y2": 50,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                138,
+                50
+              ],
+              [
+                146,
+                45.6
+              ],
+              [
+                146,
+                54.4
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 182,
+            "y": 222,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 292,
+            "text": "pondweed",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 82,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 192,
+            "text": "snail",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "tadpole",
+            "x": 282,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 192,
+            "text": "tadpole",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "duck",
+            "x": 82,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 92,
+            "text": "duck",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 282,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 92,
+            "text": "fish",
+            "size": 12
+          }
+        ],
+        "alt": "A pond food web with arrows pointing from food to the eater. Pondweed at the bottom has arrows to a snail and a tadpole. An arrow goes from the snail up to a duck. An arrow goes from the tadpole up to a fish, and another arrow goes from the fish across to the duck."
+      },
+      "regions": [
+        {
+          "label": "pondweed",
+          "x": 50,
+          "y": 83.3,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "snail",
+          "x": 26.2,
+          "y": 50,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "tadpole",
+          "x": 73.8,
+          "y": 50,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "duck",
+          "x": 26.2,
+          "y": 16.7,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "fish",
+          "x": 73.8,
+          "y": 16.7,
+          "w": 18.1,
+          "h": 25.3
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "A producer makes its own food.",
+        "Plants are producers.",
+        "It is at the bottom of the web."
+      ],
+      "explanation": "The pondweed is a producer because it makes its own food using light."
+    },
+    {
+      "id": "s6.food-webs.012",
+      "skill": "s6.food-webs",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the role of each living thing in the pond food web.",
+      "figure": {
+        "kind": "scene",
+        "width": 420,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 195,
+            "y1": 222,
+            "x2": 129.99384141282164,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                126,
+                176
+              ],
+              [
+                135.09708321809376,
+                176.77658027471534
+              ],
+              [
+                130.21572149131174,
+                184.09862286488834
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 225,
+            "y1": 222,
+            "x2": 290.00615858717833,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                294,
+                176
+              ],
+              [
+                289.7842785086882,
+                184.09862286488834
+              ],
+              [
+                284.90291678190624,
+                176.77658027471534
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 122,
+            "x2": 110,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                80
+              ],
+              [
+                114.4,
+                88
+              ],
+              [
+                105.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 310,
+            "y1": 122,
+            "x2": 310,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                310,
+                80
+              ],
+              [
+                314.4,
+                88
+              ],
+              [
+                305.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 284,
+            "y1": 50,
+            "x2": 142.8,
+            "y2": 50,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                138,
+                50
+              ],
+              [
+                146,
+                45.6
+              ],
+              [
+                146,
+                54.4
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 182,
+            "y": 222,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 292,
+            "text": "pondweed",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 82,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 192,
+            "text": "snail",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "tadpole",
+            "x": 282,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 192,
+            "text": "tadpole",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "duck",
+            "x": 82,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 92,
+            "text": "duck",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 282,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 92,
+            "text": "fish",
+            "size": 12
+          }
+        ],
+        "alt": "A pond food web with arrows pointing from food to the eater. Pondweed at the bottom has arrows to a snail and a tadpole. An arrow goes from the snail up to a duck. An arrow goes from the tadpole up to a fish, and another arrow goes from the fish across to the duck."
+      },
+      "labels": [
+        "producer",
+        "herbivore",
+        "carnivore"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 83.3
+        },
+        {
+          "x": 26.2,
+          "y": 50
+        },
+        {
+          "x": 73.8,
+          "y": 16.7
+        }
+      ],
+      "extraLabels": [
+        "decomposer"
+      ],
+      "hints": [
+        "Producers make food. Herbivores eat plants. Carnivores eat animals.",
+        "The pondweed is at the bottom.",
+        "The snail eats pondweed. The fish eats other animals."
+      ],
+      "explanation": "Pondweed makes food, so it is a producer. The snail eats plants, so it is a herbivore. The fish eats animals, so it is a carnivore."
+    },
+    {
+      "id": "s6.food-webs.013",
+      "skill": "s6.food-webs",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "A disease kills all the snails. Tap the animal that is most likely to eat more fish as it has less food.",
+      "figure": {
+        "kind": "scene",
+        "width": 420,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 195,
+            "y1": 222,
+            "x2": 129.99384141282164,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                126,
+                176
+              ],
+              [
+                135.09708321809376,
+                176.77658027471534
+              ],
+              [
+                130.21572149131174,
+                184.09862286488834
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 225,
+            "y1": 222,
+            "x2": 290.00615858717833,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                294,
+                176
+              ],
+              [
+                289.7842785086882,
+                184.09862286488834
+              ],
+              [
+                284.90291678190624,
+                176.77658027471534
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 122,
+            "x2": 110,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                80
+              ],
+              [
+                114.4,
+                88
+              ],
+              [
+                105.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 310,
+            "y1": 122,
+            "x2": 310,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                310,
+                80
+              ],
+              [
+                314.4,
+                88
+              ],
+              [
+                305.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 284,
+            "y1": 50,
+            "x2": 142.8,
+            "y2": 50,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                138,
+                50
+              ],
+              [
+                146,
+                45.6
+              ],
+              [
+                146,
+                54.4
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 182,
+            "y": 222,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 292,
+            "text": "pondweed",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 82,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 192,
+            "text": "snail",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "tadpole",
+            "x": 282,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 192,
+            "text": "tadpole",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "duck",
+            "x": 82,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 92,
+            "text": "duck",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 282,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 92,
+            "text": "fish",
+            "size": 12
+          }
+        ],
+        "alt": "A pond food web with arrows pointing from food to the eater. Pondweed at the bottom has arrows to a snail and a tadpole. An arrow goes from the snail up to a duck. An arrow goes from the tadpole up to a fish, and another arrow goes from the fish across to the duck."
+      },
+      "regions": [
+        {
+          "label": "pondweed",
+          "x": 50,
+          "y": 83.3,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "snail",
+          "x": 26.2,
+          "y": 50,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "tadpole",
+          "x": 73.8,
+          "y": 50,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "duck",
+          "x": 26.2,
+          "y": 16.7,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "fish",
+          "x": 73.8,
+          "y": 16.7,
+          "w": 18.1,
+          "h": 25.3
+        }
+      ],
+      "answers": [
+        3
+      ],
+      "hints": [
+        "Look at what eats snails.",
+        "Which animal has another food choice?",
+        "The duck eats the snail and also the fish."
+      ],
+      "explanation": "The duck loses its snails, so it is likely to eat more fish. Tadpoles and fish do not eat snails."
+    },
+    {
+      "id": "s6.food-webs.014",
+      "skill": "s6.food-webs",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the 2 animals that eat pondweed.",
+      "figure": {
+        "kind": "scene",
+        "width": 420,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 195,
+            "y1": 222,
+            "x2": 129.99384141282164,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                126,
+                176
+              ],
+              [
+                135.09708321809376,
+                176.77658027471534
+              ],
+              [
+                130.21572149131174,
+                184.09862286488834
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 225,
+            "y1": 222,
+            "x2": 290.00615858717833,
+            "y2": 178.6625609418811,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                294,
+                176
+              ],
+              [
+                289.7842785086882,
+                184.09862286488834
+              ],
+              [
+                284.90291678190624,
+                176.77658027471534
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 122,
+            "x2": 110,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                80
+              ],
+              [
+                114.4,
+                88
+              ],
+              [
+                105.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 310,
+            "y1": 122,
+            "x2": 310,
+            "y2": 84.8,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                310,
+                80
+              ],
+              [
+                314.4,
+                88
+              ],
+              [
+                305.6,
+                88
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 284,
+            "y1": 50,
+            "x2": 142.8,
+            "y2": 50,
+            "width": 2.5,
+            "tone": "ink"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                138,
+                50
+              ],
+              [
+                146,
+                45.6
+              ],
+              [
+                146,
+                54.4
+              ]
+            ],
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 182,
+            "y": 222,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 292,
+            "text": "pondweed",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 82,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 192,
+            "text": "snail",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "tadpole",
+            "x": 282,
+            "y": 122,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 192,
+            "text": "tadpole",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "duck",
+            "x": 82,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 92,
+            "text": "duck",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 282,
+            "y": 22,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 310,
+            "y": 92,
+            "text": "fish",
+            "size": 12
+          }
+        ],
+        "alt": "A pond food web with arrows pointing from food to the eater. Pondweed at the bottom has arrows to a snail and a tadpole. An arrow goes from the snail up to a duck. An arrow goes from the tadpole up to a fish, and another arrow goes from the fish across to the duck."
+      },
+      "regions": [
+        {
+          "label": "pondweed",
+          "x": 50,
+          "y": 83.3,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "snail",
+          "x": 26.2,
+          "y": 50,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "tadpole",
+          "x": 73.8,
+          "y": 50,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "duck",
+          "x": 26.2,
+          "y": 16.7,
+          "w": 18.1,
+          "h": 25.3
+        },
+        {
+          "label": "fish",
+          "x": 73.8,
+          "y": 16.7,
+          "w": 18.1,
+          "h": 25.3
+        }
+      ],
+      "answers": [
+        1,
+        2
+      ],
+      "hints": [
+        "Follow the arrows that start at the pondweed.",
+        "An arrow points to the eater.",
+        "Two arrows leave the pondweed."
+      ],
+      "explanation": "Arrows from the pondweed go to the snail and the tadpole, so both eat pondweed."
+    },
+    {
+      "id": "s6.food-webs.015",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In a food web, an arrow goes from the pondweed to the snail. What does it mean?",
+      "options": [
+        {
+          "text": "The pondweed eats the snail.",
+          "why": "The arrow points to the eater, not the food."
+        },
+        {
+          "text": "The snail makes food for the pondweed.",
+          "why": "The snail does not make food."
+        },
+        {
+          "text": "The snail eats the pondweed, and the energy passes to the snail."
+        },
+        {
+          "text": "The snail lives on top of the pondweed.",
+          "why": "The arrows show what eats what, not where animals live."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which one gets eaten?",
+        "Arrows go from food to the eater.",
+        "Ask where the energy goes."
+      ],
+      "explanation": "An arrow points from the food to the animal that eats it. It shows energy moving along the food chain."
+    },
+    {
+      "id": "s6.food-webs.016",
+      "skill": "s6.food-webs",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Animals that eat only plants are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "herbivores",
+            "herbivore"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what a rabbit eats.",
+        "The word begins with h.",
+        "Carnivores eat meat, so these are different."
+      ],
+      "explanation": "Herbivores eat only plants."
+    },
+    {
+      "id": "s6.food-webs.017",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In a pond food web, snails and tadpoles eat pondweed, tadpoles are eaten by fish, and ducks eat both snails and fish. A disease kills most of the snails. Which prediction is most sensible?",
+      "options": [
+        {
+          "text": "The pondweed will decrease because there are fewer snails.",
+          "why": "Fewer snails means less pondweed is eaten, so there will be more."
+        },
+        {
+          "text": "The tadpoles will die because the snails ate them.",
+          "why": "Snails do not feed tadpoles."
+        },
+        {
+          "text": "More pondweed will survive, and the duck may eat more fish."
+        },
+        {
+          "text": "Nothing will change because the snail is small.",
+          "why": "Taking out one living thing changes the others it is linked to."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Follow the arrows to and from the snail.",
+        "What does the snail eat? What eats the snail?",
+        "Fewer snails means less eaten and less food."
+      ],
+      "explanation": "Fewer snails means less pondweed is eaten. The duck loses a food source so it may turn to the fish."
+    },
+    {
+      "id": "s6.food-webs.018",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The table shows the numbers of rabbits and foxes on a farm over five years. Which statement do the data support?",
+      "options": [
+        {
+          "text": "Foxes make rabbits disappear forever.",
+          "why": "The rabbit numbers rose again in years 4 and 5."
+        },
+        {
+          "text": "The rabbit numbers fell by the same amount each year.",
+          "why": "Rabbits fell by 100, then 120, then rose."
+        },
+        {
+          "text": "Rabbit numbers were lowest in the same year that fox numbers were highest."
+        },
+        {
+          "text": "Fox numbers were highest in year 1.",
+          "why": "Year 1 had the lowest fox number."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the highest fox number first.",
+        "Look at the rabbit number in that same year.",
+        "Only use what the table shows."
+      ],
+      "explanation": "Foxes peaked at 50 in year 3, when rabbits were at their lowest, 180.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Year",
+          "Rabbits",
+          "Foxes"
+        ],
+        "rows": [
+          [
+            "1",
+            "400",
+            "20"
+          ],
+          [
+            "2",
+            "300",
+            "35"
+          ],
+          [
+            "3",
+            "180",
+            "50"
+          ],
+          [
+            "4",
+            "250",
+            "30"
+          ],
+          [
+            "5",
+            "380",
+            "22"
+          ]
+        ],
+        "alt": "Table of five years. Year 1: 400 rabbits, 20 foxes. Year 2: 300, 35. Year 3: 180, 50. Year 4: 250, 30. Year 5: 380, 22."
+      }
+    },
+    {
+      "id": "s6.food-webs.019",
+      "skill": "s6.food-webs",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put this food chain in the right order, starting with the producer.",
+      "items": [
+        "algae",
+        "shrimp",
+        "small fish",
+        "seal"
+      ],
+      "hints": [
+        "A food chain starts with a producer.",
+        "Each animal eats the one before it.",
+        "Algae are tiny plants."
+      ],
+      "explanation": "Algae make food, shrimp eat the algae, small fish eat the shrimp, and seals eat the fish."
+    },
+    {
+      "id": "s6.food-webs.020",
+      "skill": "s6.food-webs",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these living things by their role in a food web.",
+      "groups": [
+        "Producer",
+        "Consumer",
+        "Decomposer"
+      ],
+      "items": [
+        {
+          "text": "grass",
+          "group": 0
+        },
+        {
+          "text": "seaweed",
+          "group": 0
+        },
+        {
+          "text": "rabbit",
+          "group": 1
+        },
+        {
+          "text": "hawk",
+          "group": 1
+        },
+        {
+          "text": "shark",
+          "group": 1
+        },
+        {
+          "text": "mushroom",
+          "group": 2
+        },
+        {
+          "text": "bacteria",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Producers make their own food.",
+        "Consumers eat other living things.",
+        "Decomposers break down dead things."
+      ],
+      "explanation": "Grass and seaweed are producers. Rabbits, hawks and sharks are consumers. Mushrooms and bacteria are decomposers."
+    },
+    {
+      "id": "s6.food-webs.021",
+      "skill": "s6.food-webs",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A pond sample has 480 water fleas, 60 small fish and 4 big fish. The fleas feed the small fish. How many times as many water fleas as small fish are there?",
+      "answer": 8,
+      "hints": [
+        "You are comparing two numbers.",
+        "Divide the larger by the smaller.",
+        "480 divided by 60."
+      ],
+      "explanation": "480 ÷ 60 = 8 times as many."
+    },
+    {
+      "id": "s6.food-webs.022",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Fertiliser from a farm washes into a pond. Algae grow so thickly that they cover the surface. What is most likely to happen to the pondweed on the pond floor?",
+      "options": [
+        {
+          "text": "It gets more light and grows faster.",
+          "why": "The algae block the light."
+        },
+        {
+          "text": "It gets less light, makes less food and may die."
+        },
+        {
+          "text": "It grows because algae make food for it.",
+          "why": "Plants make their own food, they do not take it from algae."
+        },
+        {
+          "text": "Nothing changes because pondweed is underwater.",
+          "why": "Pondweed still needs light to make food."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does the thick layer of algae block?",
+        "What do plants need to make food?",
+        "Predict how pondweed will change."
+      ],
+      "explanation": "The algae cover the surface and block light. Without light, pondweed cannot make enough food and may die."
+    },
+    {
+      "id": "s6.food-webs.023",
+      "skill": "s6.food-webs",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each human action to its likely effect on a habitat.",
+      "pairs": [
+        [
+          "Cutting down a mangrove forest",
+          "Fish nurseries and shelter are lost"
+        ],
+        [
+          "Planting trees on bare land",
+          "More food and homes for animals"
+        ],
+        [
+          "Dropping litter in a river",
+          "Animals can be trapped or poisoned"
+        ],
+        [
+          "Building a dam across a river",
+          "Fish cannot swim to where they breed"
+        ]
+      ],
+      "hints": [
+        "Think about what each habitat gives animals.",
+        "Which actions help? Which harm?",
+        "A dam blocks the path of animals."
+      ],
+      "explanation": "People change habitats in good and bad ways. Losing the home or the food of an animal harms it."
+    },
+    {
+      "id": "s6.food-webs.024",
+      "skill": "s6.food-webs",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "In a food chain the arrow shows the direction in which ___ passes. Plants are the ___ because they make their own food. An animal that eats other animals is a ___.",
+      "gaps": [
+        {
+          "options": [
+            "light",
+            "energy",
+            "water"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "producers",
+            "consumers",
+            "predators"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "herbivore",
+            "carnivore",
+            "decomposer"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Think about what food gives to the eater.",
+        "Which living things make their own food?",
+        "Carni- means meat."
+      ],
+      "explanation": "Arrows show energy passing from food to the eater. Plants are producers, and animals that eat other animals are carnivores."
+    },
+    {
+      "id": "s6.food-webs.025",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A few rabbits are brought to an island with lots of grass and no foxes. Which is the most likely pattern for the rabbit numbers over many years?",
+      "options": [
+        {
+          "text": "The numbers fall quickly because there are no foxes.",
+          "why": "No foxes means fewer enemies, so rabbits survive better."
+        },
+        {
+          "text": "The numbers rise for ever.",
+          "why": "The grass will run out, which limits the rabbits."
+        },
+        {
+          "text": "The numbers rise quickly at first, then may fall when the grass runs short."
+        },
+        {
+          "text": "The numbers stay exactly the same each year.",
+          "why": "Populations change when food and enemies change."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about food and enemies at the start.",
+        "Can the grass last for ever?",
+        "What happens when food runs out?"
+      ],
+      "explanation": "With plenty of grass and no predators the rabbits increase quickly. When food gets short, the number can fall."
+    },
+    {
+      "id": "s6.food-webs.801",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A food web shows many food chains joined together.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does a fox eat one thing only?",
+        "Many chains.",
+        "A web has many links."
+      ],
+      "explanation": "Most animals eat more than one thing, so chains link into a web.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.food-webs.802",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: If one animal in a food web dies out, nothing else is affected.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Who eats that animal?",
+        "What does it eat?",
+        "Changes spread."
+      ],
+      "explanation": "Other living things that ate it lose a food source and the things it ate may increase. Everything in a web is linked.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.food-webs.803",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If rabbits are removed from a food web, the number of foxes that eat only rabbits may fall.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What would foxes eat?",
+        "Fewer prey means fewer predators.",
+        "Foxes depend on the rabbits."
+      ],
+      "explanation": "The foxes lose their main food, so they may starve or move away.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.food-webs.804",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Cutting down a forest affects only the trees in that place.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Who lives in the trees?",
+        "Do other animals use them?",
+        "The whole habitat changes."
+      ],
+      "explanation": "Animals that depend on trees for food and shelter lose their homes, and the food webs in that area change.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -62,6 +62,53 @@ function eligibleFacts(topic: KTopic, know: KnowMap): string[] {
   return topic.facts.filter((f) => f.tier <= tier || isKnown(know[f.id])).map((f) => f.id)
 }
 
+/** Tanda soal yang dilihat anak, tanpa urutan pilihan: dua soal dengan tanda sama dianggap soal yang sama. */
+export function questionSignature(q: KQuestion): string {
+  const c = q.client as Record<string, unknown>
+  const opts = Array.isArray(c.options) ? (c.options as unknown[]).map((o) => JSON.stringify(o && typeof o === 'object' ? { ...(o as object), i: undefined, id: undefined } : o)).sort() : undefined
+  const items = Array.isArray(c.items) ? (c.items as { label?: string; id?: string }[]).map((x) => x.label ?? x.id ?? '').sort() : undefined
+  return JSON.stringify([c.kind, c.prompt, c.pic ?? null, opts ?? null, items ?? null])
+}
+
+/**
+ * Satu ronde tidak boleh menanyakan hal yang sama dua kali: fakta yang berulang atau dua fakta yang menghasilkan soal
+ * sama diganti fakta lain dari `pool` yang soalnya belum ada. Bila pool habis, ronde menjadi lebih pendek.
+ */
+export function dedupePlan(plan: readonly string[], seed: string, pool: readonly string[]): string[] {
+  const out: string[] = []
+  const seen = new Set<string>()
+  const unusedPool = pool.filter((id) => !plan.includes(id))
+  const sigOf = (id: string, index: number): string | null => {
+    try {
+      const q = roundQuestion([...out, id], seed, index)
+      return questionSignature(q)
+    } catch {
+      return null
+    }
+  }
+  for (const id of plan) {
+    let pick: string | null = null
+    const sig = sigOf(id, out.length)
+    const afterOrder = id.startsWith('order:') && (out[out.length - 1]?.startsWith('order:') ?? false)
+    if (sig && !seen.has(sig) && !afterOrder) {
+      pick = id
+      seen.add(sig)
+    } else {
+      while (unusedPool.length > 0) {
+        const cand = unusedPool.shift()!
+        const cs = sigOf(cand, out.length)
+        if (cs && !seen.has(cs)) {
+          pick = cand
+          seen.add(cs)
+          break
+        }
+      }
+    }
+    if (pick) out.push(pick)
+  }
+  return out
+}
+
 /** Daftar id fakta (atau `order:...`) untuk satu ronde. */
 export function planRound(input: { topic: RoundTopic; mode: KRoundMode; seed: string; know: KnowMap }): string[] {
   const rng = createRng(`${input.seed}#plan`)
@@ -81,7 +128,7 @@ export function planRound(input: { topic: RoundTopic; mode: KRoundMode; seed: st
       used.add(pick)
       plan.push(pick)
     }
-    return plan
+    return dedupePlan(plan, input.seed, TOPICS.flatMap((t) => eligibleFacts(t, input.know)))
   }
 
   const topic = topicById(input.topic)
@@ -100,7 +147,7 @@ export function planRound(input: { topic: RoundTopic; mode: KRoundMode; seed: st
       }
     }
   }
-  return plan
+  return dedupePlan(plan, input.seed, ids)
 }
 
 /** Soal ke-`index` dari rencana ronde. */

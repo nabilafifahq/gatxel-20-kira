@@ -1,0 +1,122 @@
+{
+  "skill": "m5.mental-add-subtract",
+  "items": [
+    {
+      "id": "m5.mental-add-subtract.001",
+      "skill": "m5.mental-add-subtract",
+      "difficulty": 3,
+      "prompt": "Kofi adds 1,999 + 3,998 in his head. What is the answer?",
+      "hints": [
+        "Round each number to a nearby thousand.",
+        "1,999 is 1 less than 2,000. 3,998 is 2 less than 4,000.",
+        "Add 2,000 + 4,000, then take away 3."
+      ],
+      "explanation": "2,000 + 4,000 = 6,000. Then take away 1 and 2, which is 3. 6,000 - 3 = 5,997.",
+      "type": "numeric",
+      "answer": 5997
+    },
+    {
+      "id": "m5.mental-add-subtract.002",
+      "skill": "m5.mental-add-subtract",
+      "difficulty": 3,
+      "prompt": "At a market Maya buys items for Rp39.900, Rp59.900 and Rp19.900. Which is the best estimate for the total?",
+      "hints": [
+        "Round each price to the nearest Rp10.000.",
+        "Each price is just under a nice round number.",
+        "Add Rp40.000, Rp60.000 and Rp20.000."
+      ],
+      "explanation": "The prices are just under Rp40.000, Rp60.000 and Rp20.000. These add to Rp120.000, so the total is a bit less than that. Rp120.000 is the best estimate.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rp100.000",
+          "why": "That is too low. Each price is just under Rp40.000, Rp60.000 or Rp20.000, so the total is close to Rp120.000."
+        },
+        {
+          "text": "Rp110.000",
+          "why": "You rounded each price down. Rp39.900 is nearer to Rp40.000 than to Rp30.000."
+        },
+        {
+          "text": "Rp120.000"
+        },
+        {
+          "text": "Rp130.000",
+          "why": "That is too high. The prices are each just under a round number, so the total is under Rp120.000 but not far under."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.mental-add-subtract.003",
+      "skill": "m5.mental-add-subtract",
+      "difficulty": 4,
+      "prompt": "Putri has Rp8.000. She spends Rp2.985 on a pen and then Rp1.015 on a ruler. How much money does she have left, in rupiah?",
+      "hints": [
+        "Look at the two prices that she spends.",
+        "Add the two prices before subtracting from 8,000.",
+        "2,985 + 1,015 makes a round number."
+      ],
+      "explanation": "Rp2.985 + Rp1.015 = Rp4.000. Then Rp8.000 - Rp4.000 = Rp4.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 4000
+    },
+    {
+      "id": "m5.mental-add-subtract.801",
+      "skill": "m5.mental-add-subtract",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 198 + 47 = 245.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Round 198 up to 200.",
+        "Do 200 + 47.",
+        "Subtract the extra 2."
+      ],
+      "explanation": "Add 200 + 47 = 247, then take away 2: 245.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.mental-add-subtract.802",
+      "skill": "m5.mental-add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1,000 - 357 = 653.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add your answer to 357 to check.",
+        "357 + 643.",
+        "Count up from 357 to 400, then to 1,000."
+      ],
+      "explanation": "Check 357 + 653 = 1,010, not 1,000. The answer is 643.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

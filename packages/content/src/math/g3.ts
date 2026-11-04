@@ -3578,6 +3578,21 @@ const perimeterArea3: Generator = {
   skill: 'm3.perimeter-area',
   levels: [1, 2, 3, 4, 5],
   generate({ rng, level }) {
+    // Tingkat 2 kadang meminta anak menggambar persegi panjang di geoboard (alat peraga).
+    if (level === 2 && rng.chance(0.3)) {
+      const [w, h] = rng.pick([[3, 2], [4, 2], [5, 2], [3, 3], [4, 3], [6, 2]] as const)
+      const area = w * h
+      return {
+        type: 'geoboard',
+        size: 7,
+        prompt: `Make a rectangle with an area of ${area} square units on the geoboard.`,
+        rule: { shape: 'rectangle', area },
+        example: [[0, 0], [w, 0], [w, h], [0, h]],
+        hints: ['Area is the number of unit squares inside the shape.', 'For a rectangle, multiply the length by the width.', `Think of two numbers that multiply to make ${area}.`],
+        explanation: `A rectangle ${w} units long and ${h} units wide has an area of ${w} times ${h}, which is ${area} square units.`,
+        tags: ['manipulative', 'geoboard'],
+      }
+    }
     const gridItem = (cells: Cell[], rows: number, cols: number, ask: 'area' | 'perimeter', shapeWord: string): GeneratedItem => {
       const area = cells.length
       const per = cellPerimeter(cells)

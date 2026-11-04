@@ -128,7 +128,7 @@ export function StreakCount({ current, layout = 'stack', className }: { current:
   }
   return (
     <div className={cx('flex', layout === 'stack' ? 'flex-col items-start' : 'items-baseline gap-1.5', className)}>
-      <span className="font-display text-h1 font-semibold tabular-nums">{current}</span>
+      <span className="font-numbers text-h1 font-semibold tabular-nums">{current}</span>
       <span className="text-body font-bold">day streak</span>
     </div>
   )
@@ -138,8 +138,8 @@ export function StreakCount({ current, layout = 'stack', className }: { current:
 export function FreezePill({ count, saved = false, className }: { count: number; saved?: boolean; className?: string }): ReactElement | null {
   if (count <= 0) return null
   return (
-    <span className={cx('inline-flex h-10 flex-none items-center gap-1.5 rounded-pill border border-math bg-math-50 pr-3 pl-2 text-body font-bold whitespace-nowrap', className)}>
-      <UiIcon name="snowflake" size={20} className="text-math" />
+    <span className={cx('inline-flex h-10 flex-none items-center gap-1.5 rounded-pill border border-fg bg-math-50 pr-3 pl-2 text-body font-bold whitespace-nowrap', className)}>
+      <UiIcon name="snowflake" size={20} className="text-fg" />
       {count === 1 ? '1 freeze' : `${count} freezes`}
       {saved ? ' saved' : ''}
     </span>

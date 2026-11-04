@@ -1,0 +1,93 @@
+{
+  "skill": "m5.probability",
+  "items": [
+    {
+      "id": "m5.probability.001",
+      "skill": "m5.probability",
+      "difficulty": 3,
+      "prompt": "A bag has 3 red, 5 blue and 2 green counters. Maya takes one counter without looking. What is the probability that it is blue?",
+      "hints": [
+        "Count all the counters in the bag.",
+        "There are 10 counters. How many are blue?",
+        "Write blue counters over all counters and simplify."
+      ],
+      "explanation": "There are 3 + 5 + 2 = 10 counters and 5 are blue. The probability is 5/10 = 1/2.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "1/2"
+        },
+        {
+          "text": "1/3",
+          "why": "There are three colours, but they are not equally likely because there are different numbers of each."
+        },
+        {
+          "text": "1/5",
+          "why": "There are 5 blue counters, but 10 counters altogether."
+        },
+        {
+          "text": "3/10",
+          "why": "This is the probability of red, not blue."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.probability.002",
+      "skill": "m5.probability",
+      "difficulty": 3,
+      "prompt": "Two coins are tossed together. The outcomes are HH, HT, TH and TT. In how many outcomes is there at least one head?",
+      "hints": [
+        "List all four outcomes.",
+        "Cross out the outcomes without a head.",
+        "Count what is left."
+      ],
+      "explanation": "Only TT has no head. The other three outcomes, HH, HT and TH, have at least one head.",
+      "type": "numeric",
+      "answer": 3
+    },
+    {
+      "id": "m5.probability.003",
+      "skill": "m5.probability",
+      "difficulty": 5,
+      "prompt": "A bag has 4 yellow and 8 green counters. Putri adds more yellow counters so that the chance of picking yellow is 1/2. How many yellow counters does she add?",
+      "hints": [
+        "For a probability of 1/2, yellow must equal all the other counters.",
+        "There are 8 green counters.",
+        "How many yellow counters are needed to make 8?"
+      ],
+      "explanation": "The 8 green counters stay the same, so for a probability of 1/2 there must be 8 yellow counters too. She adds 8 - 4 = 4 yellow counters.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 4
+    },
+    {
+      "id": "m5.probability.801",
+      "skill": "m5.probability",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: When you roll a fair six-sided dice there are 6 equally likely outcomes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List the faces.",
+        "Is any face more likely?",
+        "Six faces."
+      ],
+      "explanation": "The outcomes are 1, 2, 3, 4, 5 and 6, and each has the same chance.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

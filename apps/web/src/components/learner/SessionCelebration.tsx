@@ -94,7 +94,7 @@ export function SessionCelebration({
 
   const label = `${stars} of 3 stars`
   return (
-    <div className={cx('flex flex-wrap items-center gap-x-5 gap-y-3 rounded-control border border-divider bg-bg p-4', className)}>
+    <div className={cx('flex flex-wrap items-center gap-x-5 gap-y-3 rounded-control bg-lavender p-4', className)}>
       {confetti ? <Confetti onDone={() => setConfetti(false)} /> : null}
       {levelUp && bar ? <LevelUpOverlay track="belajar" level={bar.level} avatar={avatar} onDone={() => setLevelUp(false)} /> : null}
       <div className="flex-none">

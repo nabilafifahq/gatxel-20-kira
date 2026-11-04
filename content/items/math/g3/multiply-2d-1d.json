@@ -1,0 +1,57 @@
+{
+  "skill": "m3.multiply-2d-1d",
+  "items": [
+    {
+      "id": "m3.multiply-2d-1d.801",
+      "skill": "m3.multiply-2d-1d",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 23 × 4 = 92.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 23 into tens and ones.",
+        "20 × 4 = 80.",
+        "3 × 4 = 12."
+      ],
+      "explanation": "Split 23 into 20 and 3. 20 × 4 = 80 and 3 × 4 = 12. 80 + 12 = 92.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.multiply-2d-1d.802",
+      "skill": "m3.multiply-2d-1d",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: 34 × 3 = 112.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Split 34 into 30 and 4.",
+        "30 × 3 = 90.",
+        "4 × 3 = 12."
+      ],
+      "explanation": "Split 34 into 30 and 4. 30 × 3 = 90 and 4 × 3 = 12. 90 + 12 = 102, not 112.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

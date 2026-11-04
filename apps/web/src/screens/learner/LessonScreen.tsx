@@ -3,16 +3,20 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactElement } from 'react'
 import { checkAnswer } from '@kira/content/check'
 import type { ClientItem } from '@kira/content/present'
-import type { SolutionStep } from '@kira/content/schema'
+import type { LessonStep } from '@kira/content/schema'
 import { Figure } from '@kira/figures'
 import type { LessonActions, LessonDTO } from '@/lib/dto'
 import { Button, ButtonLink, IconButton, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { NO_LOOKUP_SKILLS } from '@kira/core/dictionary'
+import { TapWords } from '@/components/learner/TapWords'
 import { useReducedMotion } from '@/components/learner/hooks'
 import { useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { ToolPlay } from '@/components/manipulatives/ToolPlay'
+import { TapSound } from '@/components/learner/TapSound'
 import { isAnswerComplete } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
 import { Widget } from '@/components/widgets/Widget'
@@ -25,7 +29,7 @@ import { ActionError } from './common'
  * Selesai: completeLesson(skillId, benar, total) dipanggil sekali.
  */
 
-type Part = { kind: 'step'; step: SolutionStep; n: number } | { kind: 'check'; item: ClientItem; n: number }
+type Part = { kind: 'step'; step: LessonStep; n: number } | { kind: 'check'; item: ClientItem; n: number }
 type CheckState = { value: unknown | null; tries: number; status: 'open' | 'correct' | 'revealed'; firstTry: boolean | null }
 
 function firstSentence(text: string): string {
@@ -41,7 +45,7 @@ function passableAt(parts: Part[], checks: CheckState[], i: number): boolean {
   return checks[p.n]?.status !== 'open'
 }
 
-function dwellMs(step: SolutionStep): number {
+function dwellMs(step: LessonStep): number {
   return Math.max(3000, step.say.length * 70)
 }
 
@@ -97,13 +101,14 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
       return
     }
     // Pemutar berhenti di depan soal cek sampai soal itu dijawab.
-    if (parts[at + 1]?.kind === 'check') setPlaying(false)
+    const upNext = parts[at + 1]
+    if (upNext?.kind === 'check' || (upNext?.kind === 'step' && upNext.step.tool)) setPlaying(false)
     setAt(at + 1)
   }, [at, total, complete, checks, parts])
 
   // Putar: langkah maju sendiri hanya setelah Play ditekan, berhenti di cek.
   useEffect(() => {
-    if (!playing || reduced || finished || !part || part.kind === 'check') return
+    if (!playing || reduced || finished || !part || part.kind === 'check' || part.step.tool) return
     let cancelled = false
     let timer = 0
     const advance = () => {
@@ -186,8 +191,8 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
       <div className="flex min-h-0 flex-1 flex-col gap-6 px-4 pb-7 md:px-8 lg:flex-row">
         <section aria-label="Lesson player" className="flex min-w-0 flex-col gap-3 lg:flex-[1.7]">
           {finished ? (
-            <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-card border border-divider bg-surface px-6 py-10 text-center">
-              <span className={cx('flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg text-white', style.solid)}>
+            <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-card bg-surface shadow-soft px-6 py-10 text-center">
+              <span className={cx('flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg text-fg', style.solid)}>
                 <UiIcon name="check" size={52} />
               </span>
               <h2 className="m-0 font-display text-display font-semibold">Lesson done</h2>
@@ -213,6 +218,9 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                 <ButtonLink href={data.backHref} variant="secondary">
                   Back to the map
                 </ButtonLink>
+                <ButtonLink href={`/practice/review/${data.skillId}`} variant="secondary" prefetch={false}>
+                  Review this lesson
+                </ButtonLink>
                 <ButtonLink href={data.practiseHref} iconAfter="arrow-right">
                   Practise now
                 </ButtonLink>
@@ -232,16 +240,22 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               isLast={at >= total - 1}
             />
           ) : part ? (
-            <div className="paper-grid relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden rounded-card border border-divider bg-surface p-6 md:min-h-[380px]">
-              <div key={at} className="motion-fade flex w-full max-w-[520px] flex-col items-center gap-4 starting:opacity-0">
-                {part.step.figure ? (
+            <div className="paper-grid relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden rounded-card bg-surface shadow-soft p-6 md:min-h-[380px]">
+              <div key={at} className={cx('motion-fade flex w-full flex-col items-center gap-4 starting:opacity-0', part.step.tool ? 'max-w-[640px] pt-10' : 'max-w-[520px]')}>
+                {part.step.tool ? (
+                  <TapSound>
+                    <div className="w-full">
+                      <ToolPlay kind={part.step.tool.kind} config={part.step.tool} />
+                    </div>
+                  </TapSound>
+                ) : part.step.figure ? (
                   <div className="w-full">
                     <Figure spec={part.step.figure} />
                   </div>
                 ) : null}
               </div>
               {part.step.show ? (
-                <span className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-display text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
+                <span className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-numbers text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
                   {part.step.show}
                 </span>
               ) : null}
@@ -250,7 +264,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
 
           {!finished && part?.kind === 'step' && captions ? (
             <p aria-live="polite" className="m-0 min-h-16.5 rounded-control border border-divider bg-surface px-4 py-2.5 font-reading text-h3 md:text-h2 md:font-normal">
-              {part.step.say}
+              <TapWords text={part.step.say} enabled={!NO_LOOKUP_SKILLS.includes(data.skillId)} />
             </p>
           ) : null}
 
@@ -283,7 +297,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           ) : null}
         </section>
 
-        <aside aria-labelledby="lesson-parts" className="flex min-w-0 flex-col gap-3 rounded-card border border-divider bg-surface p-5.5 lg:flex-1">
+        <aside aria-labelledby="lesson-parts" className="flex min-w-0 flex-col gap-3 rounded-card bg-surface shadow-soft p-5.5 lg:flex-1">
           <h2 id="lesson-parts" className="m-0 text-h3 font-bold">
             In this lesson
           </h2>
@@ -311,7 +325,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                     <span
                       className={cx(
                         'inline-flex h-7.5 w-7.5 flex-none items-center justify-center rounded-pill border-2 text-body font-bold',
-                        done ? cx(style.solid, 'border-transparent text-white') : current ? 'border-fg bg-surface text-fg' : 'border-border bg-surface text-fg-muted',
+                        done ? cx('bg-fg', 'border-transparent text-white') : current ? 'border-fg bg-surface text-fg' : 'border-border bg-surface text-fg-muted',
                       )}
                     >
                       {done ? <UiIcon name="check" size={16} strokeWidth={3} /> : p.kind === 'check' ? <UiIcon name="question" size={16} /> : i + 1}
@@ -370,7 +384,7 @@ function CheckPart({
           Check {count > 1 ? `${n + 1} of ${count}` : ''}
         </span>
       </div>
-      <QuestionView item={item} number={n + 1} subject={subject} hideTools answer={{ value: state.value, onChange, disabled: !open, feedback }} />
+      <QuestionView item={item} number={n + 1} subject={subject} hideTools tapWords answer={{ value: state.value, onChange, disabled: !open, feedback }} />
       <Widget item={item} value={state.value} onChange={(v) => open && onChange(v)} disabled={!open} feedback={feedback} subject={subject} />
       <div className="mt-auto flex flex-wrap items-center gap-3">
         <p role="status" className={cx('m-0 min-w-0 flex-1 text-body-lg font-bold', state.status === 'correct' ? 'text-success' : line ? 'text-warn' : '')}>

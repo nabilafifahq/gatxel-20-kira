@@ -1,0 +1,154 @@
+{
+  "skill": "m4.shapes-2d",
+  "items": [
+    {
+      "id": "m4.shapes-2d.001",
+      "skill": "m4.shapes-2d",
+      "difficulty": 3,
+      "prompt": "Which shape has exactly one pair of parallel sides?",
+      "hints": [
+        "Parallel sides never meet.",
+        "Count the pairs of parallel sides in each shape.",
+        "Three of these shapes have two pairs."
+      ],
+      "explanation": "A trapezium has one pair of parallel sides. A square, rectangle and rhombus all have two pairs.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "square",
+          "why": "A square has two pairs of parallel sides."
+        },
+        {
+          "text": "rectangle",
+          "why": "A rectangle has two pairs of parallel sides."
+        },
+        {
+          "text": "rhombus",
+          "why": "A rhombus has two pairs of parallel sides."
+        },
+        {
+          "text": "trapezium"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m4.shapes-2d.002",
+      "skill": "m4.shapes-2d",
+      "difficulty": 4,
+      "prompt": "How many lines of symmetry does a regular pentagon have?",
+      "hints": [
+        "A regular pentagon has 5 equal sides.",
+        "Each line goes from a corner to the middle of the opposite side.",
+        "There is one line for each corner."
+      ],
+      "explanation": "A regular pentagon has a line of symmetry through each corner and the middle of the opposite side. That makes 5.",
+      "type": "numeric",
+      "answer": 5
+    },
+    {
+      "id": "m4.shapes-2d.801",
+      "skill": "m4.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A square has 4 lines of symmetry.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count horizontal, vertical and diagonal lines.",
+        "There are 2 diagonals.",
+        "1 vertical, 1 horizontal and 2 diagonal."
+      ],
+      "explanation": "It can be folded in half along 2 diagonals, and across 2 lines through the middles of opposite sides.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.shapes-2d.802",
+      "skill": "m4.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A rectangle that is not a square has 4 lines of symmetry.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try folding along a diagonal.",
+        "The two halves do not match.",
+        "Only 2 lines work."
+      ],
+      "explanation": "It has only 2: one vertical and one horizontal. The diagonals are not lines of symmetry.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.shapes-2d.803",
+      "skill": "m4.shapes-2d",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: An isosceles triangle has two equal sides.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the meaning of isosceles.",
+        "Equilateral has three equal sides.",
+        "Two equal sides."
+      ],
+      "explanation": "Isosceles means two sides have the same length.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.shapes-2d.804",
+      "skill": "m4.shapes-2d",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: All rhombuses have four right angles.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Picture a diamond shape.",
+        "Can you lean a square over?",
+        "A leaning shape keeps equal sides."
+      ],
+      "explanation": "A rhombus has four equal sides but its angles may not be 90 degrees. Only a square rhombus has right angles.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

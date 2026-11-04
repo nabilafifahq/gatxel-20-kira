@@ -1,4 +1,24 @@
 import { flattenGrid, gridRulesOk, gridValues, type GridPuzzle } from './grid'
+import {
+  analysePegs,
+  barModelOk,
+  blocksOk,
+  formatLength,
+  fractionBarOk,
+  geoOk,
+  parseBars,
+  parseBlocks,
+  parseModel,
+  parsePegs,
+  parsePlacements,
+  tangramScore,
+  type BarModelKey,
+  type BlocksKey,
+  type FractionBarKey,
+  type GeoRule,
+  type PieceType,
+  type Pt,
+} from './manip'
 import type { Item } from './schema'
 
 /**
@@ -27,6 +47,11 @@ export type AnswerKey =
   | { type: 'label'; labels: string[] }
   | { type: 'table'; blanks: string[][] }
   | { type: 'grid'; puzzle: GridPuzzle; size: number; given: number[]; solution: number[]; values: number[] }
+  | ({ type: 'blocks' } & BlocksKey)
+  | ({ type: 'fractionbar' } & FractionBarKey)
+  | ({ type: 'barmodel' } & BarModelKey)
+  | { type: 'tangram'; pieces: PieceType[]; slots: Pt[][] }
+  | { type: 'geoboard'; size: number; rule: GeoRule }
   | { type: 'write' | 'speak' | 'draw' | 'photo' }
 
 /** Kunci satu pertanyaan di soal cerita bertahap. */
@@ -48,6 +73,11 @@ export type Answer =
   | { parts: (Answer | null)[] }
   | { words: string[] }
   | { cells: number[] }
+  | { blocks: { h: number; t: number; o: number } }
+  | { bars: { den: number; shaded: number }[] }
+  | { model: { bars: { label: string; units: number }[]; unit?: number } }
+  | { placed: (readonly [number, number, 0 | 1] | null)[] }
+  | { pegs: (readonly [number, number])[]; closed: boolean }
 
 export type CheckStatus = 'correct' | 'wrong' | 'blank' | 'pending'
 
@@ -102,6 +132,16 @@ export function keyOf(item: Item): AnswerKey {
       const solution = flattenGrid(item.filled)
       return { type: 'grid', puzzle: item.puzzle, size: item.size, given: flattenGrid(item.given), solution, values: gridValues(item.puzzle, item.size, solution) }
     }
+    case 'blocks':
+      return { type: 'blocks', h: item.target.h, t: item.target.t, o: item.target.o, exact: item.exact }
+    case 'fractionbar':
+      return { type: 'fractionbar', rows: item.rows, splits: item.splits, targets: item.targets, exactSplit: item.exactSplit, ...(item.relation ? { relation: item.relation } : {}) }
+    case 'barmodel':
+      return { type: 'barmodel', kind: item.kind, bars: item.bars, ...(item.unitValue !== undefined ? { unit: item.unitValue } : {}) }
+    case 'tangram':
+      return { type: 'tangram', pieces: item.pieces, slots: item.slots }
+    case 'geoboard':
+      return { type: 'geoboard', size: item.size, rule: item.rule }
     case 'write':
     case 'speak':
     case 'draw':
@@ -154,6 +194,9 @@ export function normaliseText(s: string, caseSensitive: boolean): string {
   return caseSensitive ? t : t.toLowerCase()
 }
 
+/** Bentuk banding isian cloze. Tanda baca saja (".", "!", "?") tidak boleh habis dipangkas, karena itu jawabannya. */
+export const clozeForm = (s: string) => normaliseText(s, false) || s.normalize('NFKC').trim()
+
 const close = (a: number, b: number, tol: number) => Math.abs(a - b) <= tol + 1e-9
 
 /** Kalimat dari kartu: kata dipisah satu spasi, tanda kutip lurus. Huruf besar dan tanda baca tetap dihitung. */
@@ -194,6 +237,11 @@ function isBlank(answer: unknown): boolean {
   if ('choices' in a) return !Array.isArray(a.choices) || a.choices.length === 0
   if ('words' in a) return !Array.isArray(a.words) || a.words.length === 0
   if ('cells' in a) return !Array.isArray(a.cells) || a.cells.every((c) => c === 0 || typeof c !== 'number')
+  if ('blocks' in a) return parseBlocks(a.blocks) === null
+  if ('bars' in a) return !Array.isArray(a.bars) || a.bars.length === 0
+  if ('model' in a) return a.model === null || typeof a.model !== 'object'
+  if ('placed' in a) return !Array.isArray(a.placed) || a.placed.every((x) => x === null)
+  if ('pegs' in a) return !Array.isArray(a.pegs) || a.pegs.length < 3
   if ('parts' in a) return !Array.isArray(a.parts) || a.parts.every((x) => isBlank(x))
   if ('text' in a && !('mediaId' in a)) return typeof a.text !== 'string' || a.text.trim() === ''
   return false
@@ -280,7 +328,7 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
     }
     case 'cloze': {
       const texts = strings(a.texts)
-      const right = key.answers.filter((ans, i) => normaliseText(texts[i] ?? '', false) !== '' && normaliseText(texts[i] ?? '', false) === normaliseText(ans, false)).length
+      const right = key.answers.filter((ans, i) => clozeForm(texts[i] ?? '') !== '' && clozeForm(texts[i] ?? '') === clozeForm(ans)).length
       return verdict(right === key.answers.length, right / key.answers.length)
     }
     case 'hotspot': {
@@ -297,6 +345,20 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
       const texts = strings(a.texts)
       const right = key.blanks.filter((accepted, i) => accepted.some((acc) => cellMatches(texts[i] ?? '', acc))).length
       return verdict(right === key.blanks.length, right / key.blanks.length)
+    }
+    case 'blocks':
+      return verdict(blocksOk(key, parseBlocks(a.blocks)))
+    case 'fractionbar':
+      return verdict(fractionBarOk(key, parseBars(a.bars)))
+    case 'barmodel':
+      return verdict(barModelOk(key, parseModel(a.model)))
+    case 'tangram': {
+      const sc = tangramScore(key, parsePlacements(a.placed, key.slots.length, key.pieces.length))
+      return verdict(sc.all, sc.right / key.slots.length)
+    }
+    case 'geoboard': {
+      const pegs = a.closed === true ? parsePegs(a.pegs, key.size) : null
+      return verdict(pegs !== null && geoOk(key.rule, analysePegs(pegs)))
     }
     case 'grid': {
       const cells = Array.isArray(a.cells) ? (a.cells as unknown[]).map((c) => (typeof c === 'number' && Number.isInteger(c) ? c : 0)) : []
@@ -361,6 +423,21 @@ export function answerText(item: Item, lang: 'en-GB' | 'id' = 'en-GB'): string {
       return item.blanks.map((b) => b.answers[0]).join(', ')
     case 'grid':
       return item.filled.map((r) => r.join(' ')).join(' / ')
+    case 'blocks': {
+      const t = item.target
+      const parts = [t.h > 0 ? `${t.h} hundreds` : '', t.t > 0 || item.places === 'to' ? `${t.t} tens` : '', `${t.o} ones`].filter(Boolean)
+      return `${t.h * 100 + t.t * 10 + t.o}: ${parts.join(', ')}`
+    }
+    case 'fractionbar':
+      return item.targets.map((t, i) => (t ? `bar ${i + 1}: ${t.num}/${t.den}` : null)).filter(Boolean).join('; ') || (item.relation === 'lt' ? 'Bar 2 shows less than bar 1' : item.relation === 'gt' ? 'Bar 2 shows more than bar 1' : 'The bars show the same amount')
+    case 'barmodel':
+      return item.bars.map((b) => `${b.label}: ${b.units} unit${b.units === 1 ? '' : 's'}`).join('; ') + (item.unitValue !== undefined ? `; 1 unit = ${item.unitValue}` : '')
+    case 'tangram':
+      return `${item.slots.length} pieces placed`
+    case 'geoboard': {
+      const info = analysePegs(item.example)
+      return `For example ${item.example.map((p) => `(${p[0]},${p[1]})`).join(' ')}: ${info.sides} sides, area ${formatLength(info.area)}, perimeter ${formatLength(info.perimeter)}`
+    }
     case 'write':
     case 'speak':
     case 'draw':

@@ -52,6 +52,102 @@
           ]
         }
       ]
+    },
+    {
+      "id": "m1.skip-count.701",
+      "skill": "m1.skip-count",
+      "difficulty": 1,
+      "prompt": "Count in 2s: 2, 4, 6, __",
+      "hints": [
+        "Add 2 each time.",
+        "6 + 2.",
+        "Count on two more."
+      ],
+      "explanation": "Each number is 2 more than the one before, so 6 + 2 = 8.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 8
+    },
+    {
+      "id": "m1.skip-count.801",
+      "skill": "m1.skip-count",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Counting in 5s from 0 goes 0, 5, 10, 14, 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add 5 each time.",
+        "10 + 5 = ?",
+        "The number after 10 is 15."
+      ],
+      "explanation": "After 10 you add 5 to get 15, not 14. The list should be 0, 5, 10, 15, 20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.skip-count.802",
+      "skill": "m1.skip-count",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When you count in 2s starting from 0, you say 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count in 2s and listen for 9.",
+        "Do you say 8 and then 10?",
+        "9 is skipped."
+      ],
+      "explanation": "Counting in 2s gives 0, 2, 4, 6, 8, 10. You skip 9 because it is odd.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.skip-count.803",
+      "skill": "m1.skip-count",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Counting back in 10s from 50, the number you say after 40 is 30.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Take away 10 from 40.",
+        "The tens digit goes down by one.",
+        "4 tens take away 1 ten is 3 tens."
+      ],
+      "explanation": "Each time you take away 10: 50, 40, 30.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

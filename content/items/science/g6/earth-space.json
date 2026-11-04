@@ -350,6 +350,818 @@
         "iksc",
         "imso"
       ]
+    },
+    {
+      "id": "s6.earth-space.011",
+      "skill": "s6.earth-space",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the Sun, the Earth and the Moon in this diagram.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 50,
+            "cy": 125,
+            "r": 40,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 170,
+            "cy": 170,
+            "r": 16,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 250,
+            "cy": 80,
+            "r": 8,
+            "tone": "muted",
+            "fill": "solid"
+          }
+        ],
+        "alt": "Three round objects on a dark page. A very large yellow one is on the left. A medium blue one is in the lower middle. A very small grey one is at the upper right."
+      },
+      "labels": [
+        "Sun",
+        "Earth",
+        "Moon"
+      ],
+      "spots": [
+        {
+          "x": 15.6,
+          "y": 48.1
+        },
+        {
+          "x": 53.1,
+          "y": 65.4
+        },
+        {
+          "x": 78.1,
+          "y": 30.8
+        }
+      ],
+      "extraLabels": [
+        "Mars"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The Sun is by far the biggest object.",
+        "The Moon is the smallest and goes around the Earth."
+      ],
+      "explanation": "The Sun is a huge star. The Earth is a planet. The Moon is a small rocky body that orbits the Earth."
+    },
+    {
+      "id": "s6.earth-space.012",
+      "skill": "s6.earth-space",
+      "type": "hotspot",
+      "difficulty": 4,
+      "prompt": "The north end of the Earth's axis (N) always leans the same way. Tap the position where it is summer in the northern hemisphere.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 120,
+            "r": 100,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 120,
+            "r": 26,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 260,
+            "cy": 120,
+            "r": 14,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 249.8,
+            "y1": 96.1,
+            "x2": 270.2,
+            "y2": 143.9,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "text",
+            "x": 241.8,
+            "y": 92.1,
+            "text": "N",
+            "size": 12,
+            "tone": "ink"
+          },
+          {
+            "t": "circle",
+            "cx": 60,
+            "cy": 120,
+            "r": 14,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 49.8,
+            "y1": 96.1,
+            "x2": 70.2,
+            "y2": 143.9,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "text",
+            "x": 41.8,
+            "y": 92.1,
+            "text": "N",
+            "size": 12,
+            "tone": "ink"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 220,
+            "r": 14,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 149.8,
+            "y1": 196.1,
+            "x2": 170.2,
+            "y2": 243.9,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "text",
+            "x": 141.8,
+            "y": 192.1,
+            "text": "N",
+            "size": 12,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A bright Sun in the middle with a circle around it. Three small Earths sit on the circle, one on the right, one on the left and one at the bottom. Each Earth has a tilted axis line marked N at the top, and all lean to the left."
+      },
+      "regions": [
+        {
+          "label": "Earth on the right",
+          "x": 81.3,
+          "y": 46.2,
+          "w": 20,
+          "h": 24
+        },
+        {
+          "label": "Earth on the left",
+          "x": 18.8,
+          "y": 46.2,
+          "w": 20,
+          "h": 24
+        },
+        {
+          "label": "Earth at the bottom",
+          "x": 50,
+          "y": 84.6,
+          "w": 20,
+          "h": 20
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Summer happens in the hemisphere tilted towards the Sun.",
+        "Which way does each Earth lean compared with where the Sun is?",
+        "Find the Earth whose north end leans towards the Sun."
+      ],
+      "explanation": "On the right the north end of the axis leans towards the Sun, so the northern hemisphere gets more direct sunlight and has summer."
+    },
+    {
+      "id": "s6.earth-space.013",
+      "skill": "s6.earth-space",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many planets orbit the Sun in our Solar System?",
+      "answer": 8,
+      "hints": [
+        "Mercury is the closest to the Sun.",
+        "Neptune is the furthest planet.",
+        "Count: four rocky planets and four giant planets."
+      ],
+      "explanation": "There are eight planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune."
+    },
+    {
+      "id": "s6.earth-space.014",
+      "skill": "s6.earth-space",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The Earth spins once, a full turn of 360°, in 24 hours. Through how many degrees does it turn in 6 hours?",
+      "answer": 90,
+      "unit": "°",
+      "hints": [
+        "The Earth spins at a steady rate.",
+        "6 hours is a fraction of 24 hours.",
+        "6 is one quarter of 24, so find one quarter of 360."
+      ],
+      "explanation": "6 hours is one quarter of a day. One quarter of 360° is 90°."
+    },
+    {
+      "id": "s6.earth-space.015",
+      "skill": "s6.earth-space",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Jakarta clocks are 7 hours ahead of London. When it is 20:00 in Jakarta, what is the time in London in the 24-hour clock? Write only the hour, such as 5 for 05:00.",
+      "answer": 13,
+      "hints": [
+        "Places further east see the Sun earlier, so their clocks are ahead.",
+        "London is behind Jakarta, so go back 7 hours.",
+        "Take 7 hours away from 20:00."
+      ],
+      "explanation": "London is 7 hours behind, so 20:00 minus 7 hours is 13:00. The Earth spins, so places at different longitudes have different times."
+    },
+    {
+      "id": "s6.earth-space.016",
+      "skill": "s6.earth-space",
+      "type": "table",
+      "difficulty": 2,
+      "caption": "Daylight and season in the UK",
+      "prompt": "Complete the table with the correct season in the UK.",
+      "head": [
+        "Month",
+        "Daylight (hours)",
+        "Season"
+      ],
+      "rows": [
+        [
+          "March",
+          "12",
+          "spring"
+        ],
+        [
+          "June",
+          "17",
+          ""
+        ],
+        [
+          "September",
+          "12",
+          "autumn"
+        ],
+        [
+          "December",
+          "8",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "summer"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "answers": [
+            "winter"
+          ]
+        }
+      ],
+      "hints": [
+        "The longest days come in the warmest season.",
+        "The shortest days come in the coldest season.",
+        "Look at 17 hours of daylight and 8 hours of daylight."
+      ],
+      "explanation": "Long days with 17 hours of daylight mean summer. Short days with 8 hours of daylight mean winter."
+    },
+    {
+      "id": "s6.earth-space.017",
+      "skill": "s6.earth-space",
+      "type": "table",
+      "difficulty": 3,
+      "caption": "Seasons in two countries",
+      "prompt": "When it is summer in the north, it is winter in the south. Complete the Australia column.",
+      "head": [
+        "Month",
+        "UK season",
+        "Australia season"
+      ],
+      "rows": [
+        [
+          "December",
+          "winter",
+          ""
+        ],
+        [
+          "March",
+          "spring",
+          ""
+        ],
+        [
+          "June",
+          "summer",
+          "winter"
+        ],
+        [
+          "September",
+          "autumn",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 2,
+          "answers": [
+            "summer"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "autumn"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "answers": [
+            "spring"
+          ]
+        }
+      ],
+      "hints": [
+        "The hemispheres have opposite seasons.",
+        "Use the June row as an example.",
+        "If the UK has winter, Australia has the season that is opposite it."
+      ],
+      "explanation": "The northern and southern hemispheres lean towards the Sun at opposite times of the year, so their seasons are opposite."
+    },
+    {
+      "id": "s6.earth-space.018",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How long does the Earth take to make one complete orbit around the Sun?",
+      "options": [
+        {
+          "text": "One day",
+          "why": "One day is the time the Earth takes to spin once."
+        },
+        {
+          "text": "One month",
+          "why": "A month is about the time the Moon takes to orbit the Earth."
+        },
+        {
+          "text": "One year"
+        },
+        {
+          "text": "One week",
+          "why": "A week is a unit of time we invented, not a movement in space."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "An orbit is a path around the Sun.",
+        "Which unit of time is based on the Earth going around the Sun?",
+        "It is the same period as the seasons repeating."
+      ],
+      "explanation": "The Earth takes about 365 days, which is one year, to go once around the Sun."
+    },
+    {
+      "id": "s6.earth-space.019",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rangga says: \"It is summer because the Earth is closer to the Sun.\" Which fact shows he is wrong?",
+      "options": [
+        {
+          "text": "The Sun is hotter in summer.",
+          "why": "The Sun gives out the same heat all year."
+        },
+        {
+          "text": "When it is summer in the UK it is winter in Australia, but both are at the same distance from the Sun."
+        },
+        {
+          "text": "The Earth is always the same distance from the Sun.",
+          "why": "The distance changes only slightly, and that is not why we have seasons."
+        },
+        {
+          "text": "The Moon is closer in summer.",
+          "why": "The Moon does not cause seasons."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "If distance caused seasons, everyone would have summer together.",
+        "Think about two countries in different hemispheres.",
+        "What does Australia have when the UK has summer?"
+      ],
+      "explanation": "The two hemispheres have opposite seasons at the same time. Seasons are caused by the tilt of the Earth's axis, not by distance from the Sun."
+    },
+    {
+      "id": "s6.earth-space.020",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "We always see the same side of the Moon from Earth. Why?",
+      "options": [
+        {
+          "text": "The Moon does not spin at all.",
+          "why": "The Moon does spin, just slowly."
+        },
+        {
+          "text": "The Moon spins once in exactly the time it takes to orbit the Earth once."
+        },
+        {
+          "text": "The Earth blocks our view of the other side.",
+          "why": "The Earth does not hide it. The Moon's spin matches its orbit."
+        },
+        {
+          "text": "The Moon is lit only on one side.",
+          "why": "The Sun lights different parts as the Moon orbits."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Moon does spin on its axis.",
+        "Compare the time of one spin with the time of one orbit.",
+        "If both take the same time, which side faces Earth?"
+      ],
+      "explanation": "The Moon takes the same time to spin once as to orbit Earth once, so the same face always points towards us."
+    },
+    {
+      "id": "s6.earth-space.021",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A solar eclipse happens when the Moon's shadow falls on part of the Earth. Where must the Moon be?",
+      "options": [
+        {
+          "text": "On the opposite side of the Earth from the Sun.",
+          "why": "That arrangement makes the Earth's shadow fall on the Moon."
+        },
+        {
+          "text": "Between the Sun and the Earth."
+        },
+        {
+          "text": "Behind the Sun.",
+          "why": "The Moon's shadow could not reach Earth from there."
+        },
+        {
+          "text": "Far from the Earth and the Sun.",
+          "why": "To block the Sun it must line up between them."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An eclipse needs the Sun, Moon and Earth in a line.",
+        "The Moon blocks the Sun's light.",
+        "The Moon must be in the middle of the line."
+      ],
+      "explanation": "In a solar eclipse the Moon passes between the Sun and the Earth and blocks sunlight from reaching part of the Earth."
+    },
+    {
+      "id": "s6.earth-space.022",
+      "skill": "s6.earth-space",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these objects into stars, planets and moons.",
+      "groups": [
+        "Star",
+        "Planet",
+        "Moon"
+      ],
+      "items": [
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "Earth",
+          "group": 1
+        },
+        {
+          "text": "Venus",
+          "group": 1
+        },
+        {
+          "text": "Saturn",
+          "group": 1
+        },
+        {
+          "text": "our Moon",
+          "group": 2
+        },
+        {
+          "text": "Europa",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "A star makes its own light.",
+        "A planet orbits a star.",
+        "A moon orbits a planet."
+      ],
+      "explanation": "The Sun is a star. Earth, Venus and Saturn orbit it, so they are planets. Our Moon and Europa orbit planets, so they are moons."
+    },
+    {
+      "id": "s6.earth-space.023",
+      "skill": "s6.earth-space",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these in order of size, from the smallest to the largest.",
+      "items": [
+        "The Moon",
+        "The Earth",
+        "Jupiter",
+        "The Sun"
+      ],
+      "hints": [
+        "Planets are bigger than their moons.",
+        "The Sun is bigger than all the planets put together.",
+        "Jupiter is the largest planet."
+      ],
+      "explanation": "The Moon is smaller than Earth. Jupiter is a giant planet much larger than Earth. The Sun is the largest by far."
+    },
+    {
+      "id": "s6.earth-space.024",
+      "skill": "s6.earth-space",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each space word to its meaning.",
+      "pairs": [
+        [
+          "rotation",
+          "spinning on an axis, once a day"
+        ],
+        [
+          "orbit",
+          "the path around the Sun or a planet"
+        ],
+        [
+          "axis",
+          "the imaginary line through the poles"
+        ],
+        [
+          "year",
+          "one orbit of the Earth around the Sun"
+        ]
+      ],
+      "hints": [
+        "The Earth rotates while it orbits.",
+        "An axis is an imaginary line.",
+        "A year is about 365 days."
+      ],
+      "explanation": "The Earth rotates on its axis once a day and orbits the Sun once a year."
+    },
+    {
+      "id": "s6.earth-space.025",
+      "skill": "s6.earth-space",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the statements that are true.",
+      "options": [
+        {
+          "text": "The Sun is a star."
+        },
+        {
+          "text": "The Moon makes its own light."
+        },
+        {
+          "text": "The Earth is a planet that orbits the Sun."
+        },
+        {
+          "text": "Day and night are caused by the Earth spinning."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ],
+      "hints": [
+        "Check each statement one at a time.",
+        "The Moon shines by reflecting light.",
+        "Three statements are true."
+      ],
+      "explanation": "The Sun is a star and Earth is a planet that orbits it. Spinning gives day and night. The Moon only reflects sunlight."
+    },
+    {
+      "id": "s6.earth-space.026",
+      "skill": "s6.earth-space",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The Moon shines because it ___ light from the Sun.",
+      "blanks": [
+        {
+          "answers": [
+            "reflects",
+            "reflect",
+            "reflected",
+            "reflecting",
+            "bounces",
+            "bounces back",
+            "reflects back",
+            "bounce"
+          ]
+        }
+      ],
+      "hints": [
+        "The Moon is not a light source.",
+        "Light from the Sun hits it and then goes somewhere.",
+        "A mirror does the same thing to light."
+      ],
+      "explanation": "The Moon does not make light. It reflects sunlight towards the Earth."
+    },
+    {
+      "id": "s6.earth-space.027",
+      "skill": "s6.earth-space",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The Earth ___ on its axis once every 24 hours, which gives us day and night. It ___ the Sun once every year.",
+      "gaps": [
+        {
+          "options": [
+            "rotates",
+            "orbits",
+            "tilts"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "orbits",
+            "rotates",
+            "reflects"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "One word is for spinning and one is for going around.",
+        "Day and night come from the spin.",
+        "The path around the Sun is called an orbit."
+      ],
+      "explanation": "The Earth rotates once a day and orbits the Sun once a year."
+    },
+    {
+      "id": "s6.earth-space.028",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In northern Norway the Sun does not set for weeks in June. Which idea explains this best?",
+      "options": [
+        {
+          "text": "Norway is closer to the Sun than other countries.",
+          "why": "The distance to the Sun is almost the same for all places."
+        },
+        {
+          "text": "The Earth stops spinning in June.",
+          "why": "The Earth never stops spinning."
+        },
+        {
+          "text": "The Moon reflects extra light onto Norway.",
+          "why": "The Moon is too dim to do this."
+        },
+        {
+          "text": "In June the north is tilted towards the Sun, so places near the pole stay in sunlight as the Earth spins."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about the tilt of the Earth's axis.",
+        "If a place is always in sunlight while spinning, it never gets night.",
+        "In June the northern hemisphere leans towards the Sun."
+      ],
+      "explanation": "In June the north pole region is tilted towards the Sun. Places there stay in sunlight all through each spin, so the Sun does not set."
+    },
+    {
+      "id": "s6.earth-space.801",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The Earth takes one year to orbit the Sun.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How long is a year?",
+        "One trip around.",
+        "Once a year."
+      ],
+      "explanation": "One orbit is about 365 and a quarter days, which is why we have a leap year every four years.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.earth-space.802",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The seasons happen because the Earth is nearer to the Sun in summer.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is the Earth's tilt?",
+        "Is the distance the reason?",
+        "The tilt causes seasons."
+      ],
+      "explanation": "Seasons happen because the Earth is tilted on its axis. The hemisphere tilted towards the Sun gets more direct light and is warmer.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.earth-space.803",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The Moon seems to change shape because we see different amounts of its sunlit side.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which part is lit?",
+        "Moon orbits.",
+        "We view the lit part differently."
+      ],
+      "explanation": "As the Moon orbits the Earth, we see more or less of the lit half. These are phases.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.earth-space.804",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The Moon looks full when it is between the Earth and the Sun.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which side of the Moon faces us in a new Moon?",
+        "Where is the Earth for a full Moon?",
+        "Full Moon is the other side of Earth."
+      ],
+      "explanation": "When the Moon is between the Earth and the Sun, its lit side faces away from us and we see a new Moon. A full Moon happens when the Earth is between them and we see the whole lit side.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

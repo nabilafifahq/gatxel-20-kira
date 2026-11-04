@@ -95,7 +95,25 @@
           "say": "Dewi pays Rp5.000 and the book costs Rp3.500."
         },
         {
-          "say": "Her change is 5.000 - 3.500 = Rp1.500."
+          "say": "Her change is 5.000 - 3.500 = Rp1.500.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3500
+              },
+              {
+                "v": 1500,
+                "q": true
+              }
+            ],
+            "total": 5000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp5.000",
+            "Rp3.500"
+          ]
         }
       ],
       "tags": [
@@ -282,7 +300,24 @@
           "say": "With the ball she spends Rp8.500."
         },
         {
-          "say": "She has Rp10.000 - Rp8.500 = Rp1.500 left."
+          "say": "She has Rp10.000 - Rp8.500 = Rp1.500 left.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 8500
+              },
+              {
+                "v": 1500,
+                "q": true
+              }
+            ],
+            "total": 10000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp10.000"
+          ]
         }
       ],
       "tags": [
@@ -330,15 +365,36 @@
       "solution": [
         {
           "say": "Take away the extra Rp2.000.",
-          "show": "8.000 - 2.000 = 6.000"
+          "show": "8.000 - 2.000 = 6.000",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 2,
+            "r": 6
+          }
         },
         {
           "say": "Share the rest equally.",
-          "show": "6.000 / 2 = 3.000"
+          "show": "6.000 / 2 = 3.000",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "÷",
+            "b": 2,
+            "r": 3
+          }
         },
         {
           "say": "Adi has Rp3.000 and Tono has Rp5.000.",
-          "show": "3.000 + 5.000 = 8.000"
+          "show": "3.000 + 5.000 = 8.000",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 5,
+            "r": 8
+          }
         }
       ],
       "tags": [
@@ -552,10 +608,33 @@
       "explanation": "The juice and the bun cost Rp2.500 + Rp1.500 = Rp4.000. Ben has Rp5.000 - Rp4.000 = Rp1.000 left. That is exactly the price of the sweet, so he can buy it.",
       "solution": [
         {
-          "say": "The juice and the bun cost Rp2.500 + Rp1.500 = Rp4.000."
+          "say": "The juice and the bun cost Rp2.500 + Rp1.500 = Rp4.000.",
+          "anim": {
+            "k": "combine",
+            "a": 2500,
+            "op": "+",
+            "b": 1500,
+            "r": 4000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2.500",
+            "Rp1.500"
+          ]
         },
         {
-          "say": "Ben has Rp5.000 - Rp4.000 = Rp1.000 left."
+          "say": "Ben has Rp5.000 - Rp4.000 = Rp1.000 left.",
+          "anim": {
+            "k": "combine",
+            "a": 5000,
+            "op": "-",
+            "b": 4000,
+            "r": 1000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp5.000"
+          ]
         },
         {
           "say": "That is exactly the price of the sweet, so he can buy it."
@@ -596,7 +675,24 @@
           "say": "She has Rp5.500."
         },
         {
-          "say": "She needs Rp8.000 - Rp5.500 = Rp2.500 more."
+          "say": "She needs Rp8.000 - Rp5.500 = Rp2.500 more.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5500
+              },
+              {
+                "v": 2500,
+                "q": true
+              }
+            ],
+            "total": 8000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp8.000"
+          ]
         }
       ],
       "tags": [
@@ -624,10 +720,39 @@
       "explanation": "Dina spent Rp10.000 - Rp2.000 = Rp8.000 on 2 books. One book costs Rp8.000 / 2 = Rp4.000.",
       "solution": [
         {
-          "say": "Dina spent Rp10.000 - Rp2.000 = Rp8.000 on 2 books."
+          "say": "Dina spent Rp10.000 - Rp2.000 = Rp8.000 on 2 books.",
+          "anim": {
+            "k": "combine",
+            "a": 10000,
+            "op": "-",
+            "b": 2000,
+            "r": 8000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp10.000",
+            "Rp2.000"
+          ]
         },
         {
-          "say": "One book costs Rp8.000 / 2 = Rp4.000."
+          "say": "One book costs Rp8.000 / 2 = Rp4.000.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4000,
+                "q": true
+              },
+              {
+                "v": 4000
+              }
+            ],
+            "total": 8000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2"
+          ]
         }
       ],
       "tags": [
@@ -661,7 +786,14 @@
           "say": "Rp5.000 has 5 groups of Rp1.000."
         },
         {
-          "say": "So 5 x 2 = 10 coins."
+          "say": "So 5 x 2 = 10 coins.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 2,
+            "r": 10
+          }
         }
       ],
       "tags": [
@@ -688,10 +820,33 @@
       "explanation": "Mia has 4 x Rp500 = Rp2.000. Sam has 5 x Rp200 = Rp1.000. Mia has Rp1.000 more.",
       "solution": [
         {
-          "say": "Mia has 4 x Rp500 = Rp2.000."
+          "say": "Mia has 4 x Rp500 = Rp2.000.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 500,
+            "r": 2000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp500"
+          ]
         },
         {
-          "say": "Sam has 5 x Rp200 = Rp1.000."
+          "say": "Sam has 5 x Rp200 = Rp1.000.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 200,
+            "r": 1000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp5",
+            "Rp200"
+          ]
         },
         {
           "say": "Mia has Rp1.000 more."
@@ -730,7 +885,14 @@
           "say": "Each swap of a Rp200 coin for a Rp500 coin adds Rp300."
         },
         {
-          "say": "So Mia swapped 600 / 300 = 2 coins."
+          "say": "So Mia swapped 600 / 300 = 2 coins.",
+          "anim": {
+            "k": "combine",
+            "a": 600,
+            "op": "÷",
+            "b": 300,
+            "r": 2
+          }
         },
         {
           "say": "She has 2 coins of Rp500."
@@ -873,7 +1035,24 @@
           "say": "With the Rp5.000 note she has Rp9.000."
         },
         {
-          "say": "She needs Rp9.500 - Rp9.000 = Rp500 more."
+          "say": "She needs Rp9.500 - Rp9.000 = Rp500 more.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9000
+              },
+              {
+                "v": 500,
+                "q": true
+              }
+            ],
+            "total": 9500,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp9.500"
+          ]
         }
       ],
       "tags": [

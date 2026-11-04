@@ -47,7 +47,17 @@
         },
         {
           "say": "There are 4 corner posts counted twice.",
-          "show": "16 - 4 = 12"
+          "show": "16 - 4 = 12",
+          "anim": {
+            "k": "combine",
+            "a": 16,
+            "op": "-",
+            "b": 4,
+            "r": 12
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Or count 4 corners and 2 middle posts on each side.",
@@ -103,11 +113,25 @@
         },
         {
           "say": "Pages 10 to 15: 6 pages, two digits each.",
-          "show": "6 × 2 = 12"
+          "show": "6 × 2 = 12",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 2,
+            "r": 12
+          }
         },
         {
           "say": "Add them.",
-          "show": "9 + 12 = 21"
+          "show": "9 + 12 = 21",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "+",
+            "b": 12,
+            "r": 21
+          }
         }
       ],
       "tags": [
@@ -223,7 +247,14 @@
         },
         {
           "say": "33 was already counted with the 30s, so do not count it again.",
-          "show": "10 + 4 = 14"
+          "show": "10 + 4 = 14",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "+",
+            "b": 4,
+            "r": 14
+          }
         }
       ],
       "tags": [
@@ -277,15 +308,42 @@
       "solution": [
         {
           "say": "Bottom line of corners: each can be reached in 1 way.",
-          "show": "1, 1, 1, 1"
+          "show": "1, 1, 1, 1",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
         },
         {
           "say": "Middle line of corners: add the number on the left and the number below.",
-          "show": "1, 2, 3, 4"
+          "show": "1, 2, 3, 4",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          }
         },
         {
           "say": "Top line of corners: do the same.",
-          "show": "1, 3, 6, 10"
+          "show": "1, 3, 6, 10",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "3",
+              "6",
+              "10"
+            ]
+          }
         },
         {
           "say": "So there are 10 paths."
@@ -332,7 +390,17 @@
       "solution": [
         {
           "say": "List by tens digit.",
-          "show": "14, 23, 32, 41, 50"
+          "show": "14, 23, 32, 41, 50",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "14",
+              "23",
+              "32",
+              "41",
+              "50"
+            ]
+          }
         },
         {
           "say": "A tens digit of 0 is not allowed, so 05 does not count.",
@@ -436,7 +504,14 @@
         },
         {
           "say": "Add them. 22 is in both lists because it has two 2s.",
-          "show": "3 + 10 = 13"
+          "show": "3 + 10 = 13",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 10,
+            "r": 13
+          }
         }
       ],
       "tags": [
@@ -534,7 +609,19 @@
         },
         {
           "say": "Add them.",
-          "show": "2 + 4 = 6"
+          "show": "2 + 4 = 6",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 2
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 6
+          }
         }
       ],
       "tags": [
@@ -754,7 +841,17 @@
         },
         {
           "say": "Count them.",
-          "show": "3 + 3 = 6"
+          "show": "3 + 3 = 6",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 3,
+            "r": 6
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -796,15 +893,39 @@
       "solution": [
         {
           "say": "Start with 1.",
-          "show": "11, 12, 13"
+          "show": "11, 12, 13",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "11",
+              "12",
+              "13"
+            ]
+          }
         },
         {
           "say": "Start with 2.",
-          "show": "21, 22, 23"
+          "show": "21, 22, 23",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "21",
+              "22",
+              "23"
+            ]
+          }
         },
         {
           "say": "Start with 3.",
-          "show": "31, 32, 33"
+          "show": "31, 32, 33",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "31",
+              "32",
+              "33"
+            ]
+          }
         },
         {
           "say": "Count them.",
@@ -868,28 +989,37 @@
       "id": "m2.oly-counting.016",
       "skill": "m2.oly-counting",
       "type": "numeric",
-      "difficulty": 3,
-      "prompt": "Four friends meet. Each friend shakes hands once with each of the others. How many handshakes are there?",
-      "answer": 6,
+      "difficulty": 2,
+      "prompt": "Three friends meet. Each friend shakes hands once with each of the others. How many handshakes are there?",
+      "answer": 3,
       "tolerance": 0,
       "hints": [
-        "Call the friends A, B, C and D.",
-        "A shakes hands with 3 friends.",
+        "Call the friends A, B and C.",
+        "A shakes hands with 2 friends.",
         "B has already shaken hands with A. Count B's new handshakes."
       ],
-      "explanation": "A shakes hands with 3 friends. B shakes with 2 new friends. C shakes with 1 new friend. That makes 3 + 2 + 1 = 6 handshakes.",
+      "explanation": "A shakes hands with 2 friends. B shakes with 1 new friend, and C has met both already. That makes 2 + 1 = 3 handshakes.",
       "solution": [
         {
-          "say": "A shakes hands with 3 friends."
+          "say": "A shakes hands with 2 friends."
         },
         {
-          "say": "B shakes with 2 new friends."
+          "say": "B shakes with 1 new friend. C has met both already."
         },
         {
-          "say": "C shakes with 1 new friend."
-        },
-        {
-          "say": "That makes 3 + 2 + 1 = 6 handshakes."
+          "say": "That makes 2 + 1 = 3 handshakes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 2
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 3
+          }
         }
       ],
       "tags": [
@@ -995,7 +1125,19 @@
           "say": "When each pair plays once, there are 4 + 3 + 2 + 1 = 10 games."
         },
         {
-          "say": "Each pair plays twice, so 10 x 2 = 20 games."
+          "say": "Each pair plays twice, so 10 x 2 = 20 games.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 20
+          }
         }
       ],
       "tags": [
@@ -1061,7 +1203,23 @@
           "say": "Each of the 3 shirts goes with 2 pairs of shorts."
         },
         {
-          "say": "That makes 3 x 2 = 6 outfits."
+          "say": "That makes 3 x 2 = 6 outfits.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 6
+          },
+          "mark": [
+            "3",
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -1107,7 +1265,18 @@
           "say": "For each of the 2 cones there are 3 flavours."
         },
         {
-          "say": "So 2 x 3 = 6 different cones."
+          "say": "So 2 x 3 = 6 different cones.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 3,
+            "r": 6
+          },
+          "mark": [
+            "2",
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -1150,13 +1319,34 @@
       "explanation": "Shirt and shorts make 3 x 2 = 6 outfits. Each can have 2 hats. So 6 x 2 = 12 outfits.",
       "solution": [
         {
-          "say": "Shirt and shorts make 3 x 2 = 6 outfits."
+          "say": "Shirt and shorts make 3 x 2 = 6 outfits.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 2,
+            "r": 6
+          },
+          "mark": [
+            "3",
+            "2"
+          ]
         },
         {
           "say": "Each can have 2 hats."
         },
         {
-          "say": "So 6 x 2 = 12 outfits."
+          "say": "So 6 x 2 = 12 outfits.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 2,
+            "r": 12
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -1536,7 +1726,17 @@
           "say": "For 3 steps there are 3 ways."
         },
         {
-          "say": "For 4 steps the ways are 2 + 3 = 5."
+          "say": "For 4 steps the ways are 2 + 3 = 5.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 3,
+            "r": 5
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "They are 1+1+1+1, 1+1+2, 1+2+1, 2+1+1 and 2+2."
@@ -1567,13 +1767,36 @@
       "explanation": "There are 10 / 2 = 5 gaps. A post is needed at both ends of each gap. So there are 5 + 1 = 6 posts.",
       "solution": [
         {
-          "say": "There are 10 / 2 = 5 gaps."
+          "say": "There are 10 / 2 = 5 gaps.",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "÷",
+            "b": 2,
+            "r": 5
+          },
+          "mark": [
+            "10",
+            "2"
+          ]
         },
         {
           "say": "A post is needed at both ends of each gap."
         },
         {
-          "say": "So there are 5 + 1 = 6 posts."
+          "say": "So there are 5 + 1 = 6 posts.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 6
+          }
         }
       ],
       "tags": [
@@ -1616,7 +1839,18 @@
       "explanation": "There are 20 / 5 = 4 gaps. With a tree at both ends, there is 1 more tree than gaps. So there are 5 trees.",
       "solution": [
         {
-          "say": "There are 20 / 5 = 4 gaps."
+          "say": "There are 20 / 5 = 4 gaps.",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "÷",
+            "b": 5,
+            "r": 4
+          },
+          "mark": [
+            "20",
+            "5"
+          ]
         },
         {
           "say": "With a tree at both ends, there is 1 more tree than gaps."
@@ -1653,10 +1887,38 @@
           "say": "4 pieces need 3 cuts."
         },
         {
-          "say": "9 / 3 = 3 minutes for each cut."
+          "say": "9 / 3 = 3 minutes for each cut.",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "÷",
+            "b": 3,
+            "r": 3
+          },
+          "mark": [
+            "9"
+          ]
         },
         {
-          "say": "5 pieces need 4 cuts, so 4 x 3 = 12 minutes."
+          "say": "5 pieces need 4 cuts, so 4 x 3 = 12 minutes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 12
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [

@@ -1,0 +1,147 @@
+{
+  "skill": "m4.compare-order",
+  "items": [
+    {
+      "id": "m4.compare-order.001",
+      "skill": "m4.compare-order",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these numbers in order, from the smallest to the largest.",
+      "items": [
+        "4,078",
+        "4,087",
+        "4,780",
+        "4,807"
+      ],
+      "hints": [
+        "The thousands digits are all the same, so look at the hundreds.",
+        "Two numbers have 0 hundreds. Compare their tens.",
+        "4,078 and 4,087 come first. 4,780 and 4,807 come after them."
+      ],
+      "explanation": "4,078 and 4,087 have 0 hundreds, and 78 is less than 87. Then 4,780 has 7 hundreds and 4,807 has 8 hundreds."
+    },
+    {
+      "id": "m4.compare-order.002",
+      "skill": "m4.compare-order",
+      "difficulty": 2,
+      "prompt": "Which number lies between 6,450 and 6,500?",
+      "hints": [
+        "The number must be bigger than 6,450 and smaller than 6,500.",
+        "Both numbers start with 6,4 and 6,5. Look at the hundreds digit.",
+        "Test each choice against both ends."
+      ],
+      "explanation": "6,499 is bigger than 6,450 and smaller than 6,500, so it lies between them.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "6,449",
+          "why": "This is just below 6,450."
+        },
+        {
+          "text": "6,501",
+          "why": "This is just above 6,500."
+        },
+        {
+          "text": "6,499"
+        },
+        {
+          "text": "6,540",
+          "why": "This is bigger than 6,500."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m4.compare-order.003",
+      "skill": "m4.compare-order",
+      "difficulty": 3,
+      "prompt": "How many whole numbers are between 3,998 and 4,004? Do not count 3,998 or 4,004.",
+      "hints": [
+        "Write the numbers out one by one.",
+        "Start at 3,999.",
+        "The list is 3,999 to 4,003."
+      ],
+      "explanation": "The numbers are 3,999, 4,000, 4,001, 4,002 and 4,003. That makes 5.",
+      "type": "numeric",
+      "answer": 5
+    },
+    {
+      "id": "m4.compare-order.801",
+      "skill": "m4.compare-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The number 7,205 is greater than 7,052.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the thousands first.",
+        "If the thousands match, compare the hundreds.",
+        "2 hundreds beats 0 hundreds."
+      ],
+      "explanation": "Both have 7 thousands. Then 2 hundreds is more than 0 hundreds, so 7,205 is greater.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.compare-order.802",
+      "skill": "m4.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 3,490 is greater than 3,940.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the hundreds digits.",
+        "Which is more, 4 hundreds or 9 hundreds?",
+        "3,940 is the greater number."
+      ],
+      "explanation": "Both have 3 thousands, but 4 hundreds is less than 9 hundreds, so 3,490 is smaller.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.compare-order.803",
+      "skill": "m4.compare-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The numbers 5,120, 5,021 and 5,210 are in order from smallest to largest.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the hundreds digits of all three.",
+        "0 hundreds is the smallest.",
+        "5,021 should come first."
+      ],
+      "explanation": "The correct order is 5,021, 5,120, 5,210. The list starts with 5,120, which is not the smallest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

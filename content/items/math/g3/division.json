@@ -1,0 +1,83 @@
+{
+  "skill": "m3.division",
+  "items": [
+    {
+      "id": "m3.division.801",
+      "skill": "m3.division",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 27 ÷ 3 = 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which number times 3 makes 27?",
+        "Use the 3 times table.",
+        "3 × 9 = 27."
+      ],
+      "explanation": "3 × 9 = 27, so 27 ÷ 3 = 9.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.division.802",
+      "skill": "m3.division",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: 17 ÷ 5 gives 3 remainder 1.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find 5 × 3.",
+        "How much is left from 17?",
+        "17 - 15 = 2."
+      ],
+      "explanation": "5 × 3 = 15, and 17 - 15 = 2. So 17 ÷ 5 is 3 remainder 2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.division.803",
+      "skill": "m3.division",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: 23 ÷ 4 gives 5 remainder 3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the biggest 4 times fact below 23.",
+        "4 × 5 = 20.",
+        "23 - 20 = 3."
+      ],
+      "explanation": "4 × 5 = 20, and 23 - 20 = 3. So the answer is 5 remainder 3.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

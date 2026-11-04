@@ -559,7 +559,7 @@ function BatchReview({
         <section
           ref={viewerRef}
           aria-labelledby="pdf-heading"
-          className="flex min-w-0 flex-[1_1_360px] scroll-mt-20 flex-col gap-3.5 rounded-card border border-divider bg-surface p-5 max-sm:p-4 lg:sticky lg:top-6"
+          className="flex min-w-0 flex-[1_1_360px] scroll-mt-20 flex-col gap-3.5 rounded-card bg-surface shadow-soft p-5 max-sm:p-4 lg:sticky lg:top-6"
         >
           <div className="flex items-center gap-2">
             <h2 id="pdf-heading" className="m-0 text-body font-bold tabular" aria-live="polite">
@@ -927,7 +927,7 @@ function CheckArticle({
       ) : null}
 
       {!it.approved ? (
-        <div className="flex items-start gap-2.5 rounded-control border border-divider bg-bg px-4 py-3">
+        <div className="flex items-start gap-2.5 rounded-control bg-lavender px-4 py-3">
           <ConsoleIcon name="alert" size={22} strokeWidth={2.5} className="mt-0.5 text-warn" />
           <div className="flex min-w-0 flex-col gap-0.5">
             <strong className="text-body">{edited ? 'Soal sudah diedit.' : issue.title}</strong>

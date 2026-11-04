@@ -1,7 +1,10 @@
 import { findContentDir, loadContent, type ContentIndex } from '@kira/content/load'
 import { loadSpelling } from '@kira/content/spelling'
 import type { Item } from '@kira/content/schema'
+import { bookSpeechClips, loadBooks } from '@kira/content/books'
+import { loadDictionary } from '@kira/content/dictionary'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips, spellingSpeechClips } from '@kira/content/speech'
+import { dictionaryWordClips } from '@kira/core/dictionary'
 import { TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 
 /**
@@ -26,6 +29,20 @@ export function repoClips(index: ContentIndex): TtsClipRequest[] {
   return out
 }
 
+/** Kalimat buku Ruang Baca (content/books), suara utama, satu klip per kalimat. */
+export function bookClips(dir: string = findContentDir()): TtsClipRequest[] {
+  return loadBooks(dir).books.flatMap((b) => bookSpeechClips(b))
+}
+
+/** Klip satu kata untuk Kamus Ketuk (content/dictionary/en-id.json). Tanpa berkas kamus, tidak ada klip tambahan. */
+export function dictionaryClips(dir: string = findContentDir()): TtsClipRequest[] {
+  try {
+    return dictionaryWordClips(loadDictionary(dir))
+  } catch {
+    return []
+  }
+}
+
 /** Buang klip kembar (teks dan peran sama). Urutan pertama dipertahankan. */
 export function dedupe<T extends TtsClipRequest>(clips: T[]): T[] {
   const seen = new Set<string>()
@@ -42,8 +59,8 @@ export function dedupe<T extends TtsClipRequest>(clips: T[]): T[] {
 const globalKeysByVersion = new Map<string, Set<string>>()
 
 /**
- * Masukan kunci (ttsKeyInput) semua klip konten bersama: repo dan kata ejaan. Klip dengan kunci di sini publik;
- * teks lain dianggap milik org yang memintanya.
+ * Masukan kunci (ttsKeyInput) semua klip konten bersama: repo, kata ejaan, kamus, dan buku. Klip dengan kunci di sini
+ * publik; teks lain dianggap milik org yang memintanya.
  */
 export function globalClipKeys(version: string = TTS_VOICE_VERSION): Set<string> {
   let globalKeys = globalKeysByVersion.get(version)
@@ -51,7 +68,7 @@ export function globalClipKeys(version: string = TTS_VOICE_VERSION): Set<string>
     const { index } = loadContent()
     const spelling = loadSpelling(findContentDir())
     const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
-    globalKeys = new Set([...repoClips(index), ...spellingClips].map((c) => ttsKeyInput(c.text, c.style, version)))
+    globalKeys = new Set([...repoClips(index), ...spellingClips, ...dictionaryClips(), ...bookClips()].map((c) => ttsKeyInput(c.text, c.style, version)))
     globalKeysByVersion.set(version, globalKeys)
   }
   return globalKeys

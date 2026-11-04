@@ -73,6 +73,13 @@
     {
       "say": "3 rows of 4 squares make 12 squares.",
       "show": "3 × 4 = 12"
+    },
+    {
+      "say": "Your turn. Make a rectangle on the geoboard and watch the sides, perimeter and area change.",
+      "tool": {
+        "kind": "geoboard",
+        "size": 6
+      }
     }
   ],
   "check": [
@@ -235,6 +242,42 @@
         "showUnits": true,
         "alt": "A rectangle 6 squares long and 3 squares wide on a grid."
       }
+    },
+    {
+      "id": "m3.perimeter-area.903",
+      "skill": "m3.perimeter-area",
+      "type": "geoboard",
+      "difficulty": 2,
+      "prompt": "Make a rectangle with an area of 8 square units.",
+      "size": 6,
+      "rule": {
+        "shape": "rectangle",
+        "area": 8
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "hints": [
+        "Area is the number of unit squares inside.",
+        "Multiply the length by the width.",
+        "A rectangle 4 long and 2 wide has an area of 8."
+      ],
+      "explanation": "A rectangle 4 units long and 2 units wide has an area of 4 times 2, which is 8 square units."
     }
   ]
 }

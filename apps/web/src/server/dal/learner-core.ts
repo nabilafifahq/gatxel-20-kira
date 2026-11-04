@@ -38,7 +38,9 @@ import { notFound } from '../errors'
 import { awardArenaBadges } from './arena-badges'
 import { gradeOfSkill, subjectOfSkill } from './content'
 
-const { learnerProfile, skillState, reviewCard: reviewCardT, xpEvent, dayRecord, restDay, badgeAward, response, attempt, quest } = tables
+import { featureMapFor } from './learner-features'
+
+const { learnerProfile, skillState, reviewCard: reviewCardT, xpEvent, dayRecord, restDay, badgeAward, response, attempt, quest, placementRun } = tables
 
 export type LearnerRow = typeof learnerProfile.$inferSelect
 
@@ -78,6 +80,7 @@ export async function learnerShell(tx: Tx, learner: LearnerRow, today: IsoDate =
     jenjang: jenjangOf(learner.grade),
     showReview: learner.reviewEnabled,
     dueReviewCount: learner.reviewEnabled ? await dueReviewCount(tx, learner.userId, today) : 0,
+    features: await featureMapFor(tx, learner.userId),
   }
 }
 
@@ -108,7 +111,9 @@ export async function dayRecords(tx: Tx, learner: LearnerRow, since: IsoDate): P
 const DAY_LETTER: Record<string, string> = { Monday: 'Mon', Tuesday: 'Tue', Wednesday: 'Wed', Thursday: 'Thu', Friday: 'Fri', Saturday: 'Sat', Sunday: 'Sun' }
 
 export async function streakFor(tx: Tx, learner: LearnerRow, today: IsoDate) {
-  const since = learner.startedOn ?? today
+  const started = learner.startedOn ?? today
+  // Setelah atur ulang streak, hari sebelum streak_since tidak dihitung lagi.
+  const since = learner.streakSince && learner.streakSince > started ? learner.streakSince : started
   const days = await dayRecords(tx, learner, since)
   const result = computeStreak({ days, today, restWeekdays: learner.restWeekdays, since })
   return result
@@ -137,7 +142,8 @@ export async function addMinutes(tx: Tx, ctx: OrgContext, learnerId: string, dat
     .onConflictDoUpdate({
       target: [dayRecord.learnerId, dayRecord.date],
       set: {
-        minutes: sql`case when ${dayRecord.lastPingAt} is null or ${dayRecord.lastPingAt} < now() - interval '50 seconds' then ${dayRecord.minutes} + 1 else ${dayRecord.minutes} end`,
+        // Detak tiap 2 menit: selisih sampai 2,5 menit dihitung menurut lamanya (1 sampai 2 menit); selisih lebih lama dihitung 1.
+        minutes: sql`case when ${dayRecord.lastPingAt} is null or ${dayRecord.lastPingAt} < now() - interval '50 seconds' then ${dayRecord.minutes} + (case when ${dayRecord.lastPingAt} is not null and ${dayRecord.lastPingAt} >= now() - interval '150 seconds' then least(2, greatest(1, round(extract(epoch from now() - ${dayRecord.lastPingAt}) / 60)::int)) else 1 end) else ${dayRecord.minutes} end`,
         lastPingAt: sql`case when ${dayRecord.lastPingAt} is null or ${dayRecord.lastPingAt} < now() - interval '50 seconds' then now() else ${dayRecord.lastPingAt} end`,
       },
     })
@@ -190,6 +196,8 @@ export async function applyOutcome(
 ): Promise<number> {
   const { learner, item } = input
   if (input.attemptNo === 1 && !input.retry) {
+    // Jawaban paralel pada skill yang sama (dua tab, sinkron offline bersamaan) tidak boleh saling menimpa theta dan kartu koreksi.
+    await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`kira-skill:${learner.userId}:${item.skill}`}))`)
     const rows = await tx
       .select()
       .from(skillState)
@@ -233,11 +241,27 @@ export async function applyOutcome(
     }
   }
   const full = answerXp({ difficulty: item.difficulty, correct: input.correct, hintsUsed: input.hintsUsed, attemptNo: input.attemptNo })
-  const xp = input.retry ? retryXp(full) : full
+  let xp = input.retry ? retryXp(full) : full
+  if (xp > 0) xp = await capQuickReviewXp(tx, learner.userId, input.attemptId, input.date, xp)
   if (xp > 0) {
     await tx.insert(xpEvent).values({ orgId: ctx.orgId, learnerId: learner.userId, amount: xp, reason: 'answer', ref: input.attemptId, date: input.date })
   }
   return xp
+}
+
+/** Ulasan singkat (tiga soal cepat dari pelajaran) memberi XP paling banyak ini per hari, supaya tidak jadi jalan pintas XP. */
+export const QUICK_REVIEW_PREFIX = 'Quick review: '
+export const QUICK_REVIEW_DAILY_XP_CAP = 30
+
+async function capQuickReviewXp(tx: Tx, learnerId: string, attemptId: string, date: IsoDate, xp: number): Promise<number> {
+  const [a] = await tx.select({ title: attempt.title }).from(attempt).where(eq(attempt.id, attemptId)).limit(1)
+  if (!a?.title.startsWith(QUICK_REVIEW_PREFIX)) return xp
+  const [used] = await tx
+    .select({ n: sql<number>`coalesce(sum(${xpEvent.amount}), 0)::int` })
+    .from(xpEvent)
+    .innerJoin(attempt, sql`${attempt.id}::text = ${xpEvent.ref}`)
+    .where(and(eq(xpEvent.learnerId, learnerId), eq(xpEvent.date, date), eq(xpEvent.reason, 'answer'), sql`${attempt.title} like ${QUICK_REVIEW_PREFIX + '%'}`))
+  return Math.max(0, Math.min(xp, QUICK_REVIEW_DAILY_XP_CAP - (used?.n ?? 0)))
 }
 
 export async function grantXp(tx: Tx, ctx: OrgContext, learnerId: string, amount: number, reason: string, ref: string, date: IsoDate): Promise<void> {
@@ -327,7 +351,8 @@ export async function awardBadges(tx: Tx, ctx: OrgContext, learner: LearnerRow, 
   return [...fresh, ...arena].map((b) => ({ id: b.id, title: b.title, description: b.description }))
 }
 
-export async function recentSeen(tx: Tx, learnerId: string, days = 30): Promise<Map<string, number>> {
+/** Soal yang pernah dijawab learner dan berapa hari lalu. Seluruh riwayat dipakai supaya soal tidak berulang sebelum bank habis. */
+export async function recentSeen(tx: Tx, learnerId: string, days = 3650): Promise<Map<string, number>> {
   const since = new Date(Date.now() - days * 86400000)
   const rows = await tx
     .select({ ref: response.itemRef, at: sql<Date>`max(${response.answeredAt})` })
@@ -336,6 +361,15 @@ export async function recentSeen(tx: Tx, learnerId: string, days = 30): Promise<
     .groupBy(response.itemRef)
   const out = new Map<string, number>()
   for (const r of rows) out.set(r.ref, Math.floor((Date.now() - new Date(r.at).getTime()) / 86400000))
+  // Soal tes penempatan juga dihitung sudah dilihat, supaya tidak muncul lagi di sesi harian (migrasi 0020).
+  const runs = await tx
+    .select({ answers: placementRun.answers, finishedAt: placementRun.finishedAt, startedAt: placementRun.startedAt, createdAt: placementRun.createdAt })
+    .from(placementRun)
+    .where(and(eq(placementRun.learnerId, learnerId), gte(placementRun.createdAt, since)))
+  for (const run of runs) {
+    const days = Math.floor((Date.now() - (run.finishedAt ?? run.startedAt ?? run.createdAt).getTime()) / 86400000)
+    for (const a of (run.answers as { ref?: string }[]) ?? []) if (a.ref && !(out.get(a.ref) !== undefined && out.get(a.ref)! <= days)) out.set(a.ref, days)
+  }
   return out
 }
 
@@ -350,3 +384,13 @@ export async function badgesOf(tx: Tx, learnerId: string) {
 }
 
 export { BADGES }
+
+/**
+ * Siapa yang melihat jawaban tulis, bicara, gambar, dan foto. Keluarga tanpa tutor: orang dewasa di rumah,
+ * dengan kalimat yang ramah dan tidak pernah menunggu selamanya. Skor dan streak tidak menunggu penilaian itu.
+ */
+export async function markerFor(tx: Tx): Promise<'tutor' | 'grownup'> {
+  const r = await tx.execute(sql`select app_family_has_tutor() as t`)
+  const row = (r as unknown as { t: boolean }[])[0]
+  return row?.t === false ? 'grownup' : 'tutor'
+}

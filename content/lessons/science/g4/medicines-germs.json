@@ -1,0 +1,77 @@
+{
+  "skill": "s4.medicines-germs",
+  "title": "Medicines, germs and health",
+  "steps": [
+    {
+      "say": "Medicines can treat some illnesses. They must be used safely: only the right amount, only when needed, and only if an adult gives them to you."
+    },
+    {
+      "say": "Some diseases are caused by tiny living things called germs. Plants and animals can catch infectious diseases too."
+    },
+    {
+      "say": "A vaccine helps the body get ready to fight a germ before you meet it, so it can prevent some diseases."
+    },
+    {
+      "say": "All living things need energy. Animals get energy from food, and plants get energy from the Sun."
+    },
+    {
+      "say": "Moving around keeps muscles, bones and the heart strong, so exercise is important for health."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.medicines-germs.901",
+      "skill": "s4.medicines-germs",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Who should give a child medicine?",
+      "options": [
+        {
+          "text": "a friend",
+          "why": "A friend may give the wrong medicine or amount."
+        },
+        {
+          "text": "a trusted adult"
+        },
+        {
+          "text": "nobody, children should choose by themselves",
+          "why": "Medicine must be used safely."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Medicines can be dangerous if used wrongly.",
+        "Read the label together with an adult.",
+        "Choose the safest answer."
+      ],
+      "explanation": "Children should only take medicine from a trusted adult, in the right amount."
+    },
+    {
+      "id": "s4.medicines-germs.902",
+      "skill": "s4.medicines-germs",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Where do plants get the energy they need to grow?",
+      "options": [
+        {
+          "text": "from eating food",
+          "why": "Plants do not eat food like animals."
+        },
+        {
+          "text": "from the Sun"
+        },
+        {
+          "text": "from the soil only",
+          "why": "Soil gives water and minerals, not energy."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Plants make their own food.",
+        "They need light.",
+        "Animals get energy from food."
+      ],
+      "explanation": "Plants get their energy from the Sun."
+    }
+  ]
+}

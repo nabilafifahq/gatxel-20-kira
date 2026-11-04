@@ -1,0 +1,57 @@
+{
+  "skill": "m2.odd-even",
+  "items": [
+    {
+      "id": "m2.odd-even.801",
+      "skill": "m2.odd-even",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Every number that ends in 6 is even.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the last digit.",
+        "Even digits are 0, 2, 4, 6, 8.",
+        "6 is even."
+      ],
+      "explanation": "Numbers ending in 0, 2, 4, 6 or 8 are even. So 6, 16, 26 and so on are all even.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.odd-even.802",
+      "skill": "m2.odd-even",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: An odd number plus an odd number is always an odd number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try 3 + 5.",
+        "Try 7 + 1.",
+        "Both answers are even."
+      ],
+      "explanation": "3 + 5 = 8, and 8 is even. Two odd numbers make an even number.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

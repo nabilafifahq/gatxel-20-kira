@@ -1,0 +1,48 @@
+env:
+  contexts:
+  - excludePaths: []
+    name: baseline
+    urls:
+    - http://10.77.0.1:3136/today
+    - http://10.77.0.1:3136/
+  parameters:
+    failOnError: true
+    progressToStdout: false
+jobs:
+- parameters:
+    enableTags: false
+    maxAlertsPerRule: 10
+  type: passiveScan-config
+- parameters:
+    maxDuration: 2
+    url: http://10.77.0.1:3136/
+  type: spider
+- parameters:
+    maxDuration: 0
+  type: passiveScan-wait
+- parameters:
+    format: Long
+    summaryFile: /home/zap/zap_out.json
+  rules: []
+  type: outputSummary
+- parameters:
+    reportDescription: ''
+    reportDir: /zap/wrk/
+    reportFile: zap-baseline-anak.html
+    reportTitle: ZAP Scanning Report
+    template: traditional-html
+  type: report
+- parameters:
+    reportDescription: ''
+    reportDir: /zap/wrk/
+    reportFile: zap-baseline-anak.md
+    reportTitle: ZAP Scanning Report
+    template: traditional-md
+  type: report
+- parameters:
+    reportDescription: ''
+    reportDir: /zap/wrk/
+    reportFile: zap-baseline-anak.json
+    reportTitle: ZAP Scanning Report
+    template: traditional-json
+  type: report

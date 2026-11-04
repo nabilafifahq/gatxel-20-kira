@@ -68,15 +68,15 @@
       "skill": "s4.earth-sun-moon",
       "type": "numeric",
       "difficulty": 2,
-      "prompt": "How many hours does the Earth take to spin round once?",
-      "answer": 24,
-      "unit": "hours",
+      "prompt": "How many days does the Earth take to travel once round the Sun in a normal year?",
       "hints": [
-        "One spin gives one day and one night.",
-        "How long is one whole day?",
-        "Count the hours from midnight to the next midnight."
+        "This is the length of a normal year.",
+        "A leap year has one more day.",
+        "It is a little more than 360."
       ],
-      "explanation": "The Earth spins round once every 24 hours. That gives us one day and one night."
+      "explanation": "The Earth takes about 365 days to go once round the Sun. That is one year.",
+      "answer": 365,
+      "unit": "days"
     },
     {
       "id": "s4.earth-sun-moon.004",
@@ -367,6 +367,1094 @@
         "The side of the Earth facing the Sun is lit."
       ],
       "explanation": "The half of the Earth facing the Sun has day. The half facing away is in darkness, so it has night."
+    },
+    {
+      "id": "s4.earth-sun-moon.013",
+      "skill": "s4.earth-sun-moon",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The Earth spins on its ___ once every 24 hours.",
+      "blanks": [
+        {
+          "answers": [
+            "axis"
+          ]
+        }
+      ],
+      "hints": [
+        "It is an imaginary line.",
+        "It goes through the North and South Poles.",
+        "Think of a spinning top."
+      ],
+      "explanation": "The Earth spins around an imaginary line called its axis. One spin takes about 24 hours."
+    },
+    {
+      "id": "s4.earth-sun-moon.014",
+      "skill": "s4.earth-sun-moon",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the diagram of the Solar System.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "ellipse",
+            "cx": 160,
+            "cy": 100,
+            "rx": 130,
+            "ry": 70,
+            "rot": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 100,
+            "r": 26,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 290,
+            "cy": 100,
+            "r": 10,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A yellow Sun in the middle. A small blue Earth sits on an oval path around the Sun on the right. The oval path goes all the way round the Sun."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The Sun is at the centre.",
+        "The oval path is where a planet travels."
+      ],
+      "explanation": "The Sun is at the centre. The Earth travels round the Sun along its orbit.",
+      "labels": [
+        "Sun",
+        "Earth",
+        "Earth's orbit"
+      ],
+      "extraLabels": [
+        "Moon"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 90.6,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 15
+        }
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.015",
+      "skill": "s4.earth-sun-moon",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "The Sun lights the Earth from the left. Tap the side of the Earth that has night.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 40,
+            "cy": 100,
+            "r": 30,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 75,
+            "y1": 100,
+            "x2": 105,
+            "y2": 100,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 72,
+            "y1": 80,
+            "x2": 100,
+            "y2": 66,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 72,
+            "y1": 120,
+            "x2": 100,
+            "y2": 134,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "circle",
+            "cx": 220,
+            "cy": 100,
+            "r": 60,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                220,
+                40
+              ],
+              [
+                231.7,
+                41.2
+              ],
+              [
+                243,
+                44.6
+              ],
+              [
+                253.3,
+                50.1
+              ],
+              [
+                262.4,
+                57.6
+              ],
+              [
+                269.9,
+                66.7
+              ],
+              [
+                275.4,
+                77
+              ],
+              [
+                278.8,
+                88.3
+              ],
+              [
+                280,
+                100
+              ],
+              [
+                278.8,
+                111.7
+              ],
+              [
+                275.4,
+                123
+              ],
+              [
+                269.9,
+                133.3
+              ],
+              [
+                262.4,
+                142.4
+              ],
+              [
+                253.3,
+                149.9
+              ],
+              [
+                243,
+                155.4
+              ],
+              [
+                231.7,
+                158.8
+              ],
+              [
+                220,
+                160
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          }
+        ],
+        "alt": "The Sun is on the left with rays pointing at the Earth. The left half of the Earth is bright. The right half of the Earth is dark."
+      },
+      "hints": [
+        "The Sun lights only one half of the Earth.",
+        "Night is on the side facing away from the Sun.",
+        "Look at which half is dark."
+      ],
+      "explanation": "The side facing away from the Sun is dark, so it has night.",
+      "regions": [
+        {
+          "label": "Sun",
+          "x": 12.5,
+          "y": 50,
+          "w": 18.8,
+          "h": 30
+        },
+        {
+          "label": "bright side of Earth",
+          "x": 59.4,
+          "y": 50,
+          "w": 18.8,
+          "h": 50
+        },
+        {
+          "label": "dark side of Earth",
+          "x": 78.1,
+          "y": 50,
+          "w": 18.8,
+          "h": 50
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.016",
+      "skill": "s4.earth-sun-moon",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Dewi marks the shadow of a stick three times in the day. Tap the picture with the shadow made at midday.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 190,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 0,
+            "y1": 150,
+            "x2": 320,
+            "y2": 150,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 10,
+            "y": 15,
+            "size": 36
+          },
+          {
+            "t": "line",
+            "x1": 70,
+            "y1": 150,
+            "x2": 70,
+            "y2": 100,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 70,
+            "y1": 150,
+            "x2": 130,
+            "y2": 150,
+            "tone": "muted",
+            "width": 8
+          },
+          {
+            "t": "text",
+            "x": 100,
+            "y": 175,
+            "text": "A",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 145,
+            "y": 2,
+            "size": 36
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 150,
+            "x2": 160,
+            "y2": 100,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 150,
+            "x2": 172,
+            "y2": 150,
+            "tone": "muted",
+            "width": 8
+          },
+          {
+            "t": "text",
+            "x": 166,
+            "y": 175,
+            "text": "B",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 275,
+            "y": 15,
+            "size": 36
+          },
+          {
+            "t": "line",
+            "x1": 250,
+            "y1": 150,
+            "x2": 250,
+            "y2": 100,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 250,
+            "y1": 150,
+            "x2": 190,
+            "y2": 150,
+            "tone": "muted",
+            "width": 8
+          },
+          {
+            "t": "text",
+            "x": 220,
+            "y": 175,
+            "text": "C",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "Three sticks with shadows. In A the Sun is low on the left and the shadow is long, pointing right. In B the Sun is high and the shadow is very short. In C the Sun is low on the right and the shadow is long, pointing left."
+      },
+      "hints": [
+        "The Sun is highest at midday.",
+        "A higher Sun makes a shorter shadow.",
+        "Find the shortest shadow."
+      ],
+      "explanation": "At midday the Sun is highest in the sky, so the shadow is shortest. This is picture B.",
+      "regions": [
+        {
+          "label": "A",
+          "x": 31.3,
+          "y": 73.7,
+          "w": 18.8,
+          "h": 31.6
+        },
+        {
+          "label": "B",
+          "x": 51.9,
+          "y": 73.7,
+          "w": 12.5,
+          "h": 31.6
+        },
+        {
+          "label": "C",
+          "x": 68.8,
+          "y": 73.7,
+          "w": 18.8,
+          "h": 31.6
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.017",
+      "skill": "s4.earth-sun-moon",
+      "type": "table",
+      "difficulty": 4,
+      "prompt": "A stick casts a shadow that is measured through the day. The pattern is balanced around midday. Complete the table.",
+      "head": [
+        "Time",
+        "Shadow length (cm)"
+      ],
+      "rows": [
+        [
+          "8 a.m.",
+          "120"
+        ],
+        [
+          "10 a.m.",
+          "65"
+        ],
+        [
+          "12 noon",
+          "30"
+        ],
+        [
+          "2 p.m.",
+          ""
+        ],
+        [
+          "4 p.m.",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "65"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "120"
+          ]
+        }
+      ],
+      "hints": [
+        "Compare 10 a.m. with 12 noon.",
+        "The same time before and after midday gives the same height of Sun.",
+        "2 p.m. is 2 hours after midday, like 10 a.m. is 2 hours before."
+      ],
+      "explanation": "The Sun has the same height 2 hours before and 2 hours after midday. So 2 p.m. matches 10 a.m. and 4 p.m. matches 8 a.m."
+    },
+    {
+      "id": "s4.earth-sun-moon.018",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The Sun seems to rise in the east. Which way does the Earth spin to make this happen?",
+      "options": [
+        {
+          "text": "From east to west",
+          "why": "That would make the Sun rise in the west."
+        },
+        {
+          "text": "From west to east"
+        },
+        {
+          "text": "From north to south",
+          "why": "The Earth does not spin in that way."
+        },
+        {
+          "text": "It does not spin at all",
+          "why": "The Earth spins once every day."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Sun is not moving round the Earth.",
+        "Imagine standing on the spinning Earth.",
+        "You are carried towards the Sun in the east."
+      ],
+      "explanation": "The Earth spins from west to east. Places turn towards the Sun in the east, so the Sun seems to rise there."
+    },
+    {
+      "id": "s4.earth-sun-moon.019",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Putri sees the Moon in the blue sky in the afternoon. Why can we sometimes see the Moon by day?",
+      "options": [
+        {
+          "text": "The Moon makes its own light.",
+          "why": "The Moon only reflects sunlight."
+        },
+        {
+          "text": "The Moon sometimes comes out of the Sun.",
+          "why": "The Moon does not come from the Sun."
+        },
+        {
+          "text": "The Moon is above the horizon and lit by the Sun."
+        },
+        {
+          "text": "The Sun is switched off for a while.",
+          "why": "The Sun is always shining."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Where does moonlight come from?",
+        "The Sun lights the Moon all the time.",
+        "The Moon can be in the daytime sky too."
+      ],
+      "explanation": "The Moon is lit by the Sun. At some times of the month it is in the sky during the day, so we can see it."
+    },
+    {
+      "id": "s4.earth-sun-moon.020",
+      "skill": "s4.earth-sun-moon",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these Moon shapes in order as the Moon grows from new to full.",
+      "items": [
+        "New Moon (dark)",
+        "Thin crescent",
+        "Half Moon",
+        "Full Moon"
+      ],
+      "hints": [
+        "The lit part grows bigger.",
+        "Start with the Moon you cannot see.",
+        "End with a full circle."
+      ],
+      "explanation": "The lit part we see grows each night: new, crescent, half, then full."
+    },
+    {
+      "id": "s4.earth-sun-moon.021",
+      "skill": "s4.earth-sun-moon",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The Moon goes round the Earth once in about 28 days. How many times does it go round in 84 days?",
+      "answer": 3,
+      "hints": [
+        "Think of sharing days into groups of 28.",
+        "Divide 84 by 28.",
+        "28 + 28 + 28 is how many?"
+      ],
+      "explanation": "84 days make 3 groups of 28 days. So the Moon goes round the Earth 3 times."
+    },
+    {
+      "id": "s4.earth-sun-moon.022",
+      "skill": "s4.earth-sun-moon",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The Earth goes round the Sun once in 365 days. How many days is that for 3 times round?",
+      "answer": 1095,
+      "unit": "days",
+      "hints": [
+        "That is the same as 3 years.",
+        "Multiply 365 by 3.",
+        "300 × 3 is 900, then add 65 × 3."
+      ],
+      "explanation": "3 × 365 = 1095, so it takes 1095 days."
+    },
+    {
+      "id": "s4.earth-sun-moon.023",
+      "skill": "s4.earth-sun-moon",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each space object to its description.",
+      "pairs": [
+        [
+          "Sun",
+          "a star that gives us light and heat"
+        ],
+        [
+          "Earth",
+          "the planet we live on"
+        ],
+        [
+          "Moon",
+          "goes round the Earth"
+        ],
+        [
+          "Jupiter",
+          "the largest planet"
+        ]
+      ],
+      "hints": [
+        "Stars make their own light.",
+        "Planets go round the Sun.",
+        "The Moon is Earth’s companion."
+      ],
+      "explanation": "The Sun is a star. Earth and Jupiter are planets. The Moon orbits the Earth."
+    },
+    {
+      "id": "s4.earth-sun-moon.024",
+      "skill": "s4.earth-sun-moon",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Which objects make their own light and which only reflect it?",
+      "groups": [
+        "Makes its own light",
+        "Reflects sunlight"
+      ],
+      "items": [
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "a star such as Sirius",
+          "group": 0
+        },
+        {
+          "text": "the Moon",
+          "group": 1
+        },
+        {
+          "text": "Mars",
+          "group": 1
+        },
+        {
+          "text": "Earth",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Stars are like our Sun.",
+        "Planets and moons do not make light.",
+        "A reflected light can be seen at night too."
+      ],
+      "explanation": "Stars make their own light. The Moon and planets are seen only because they reflect light from the Sun."
+    },
+    {
+      "id": "s4.earth-sun-moon.025",
+      "skill": "s4.earth-sun-moon",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "The Earth travels round the ___ once every year. The ___ travels round the Earth.",
+      "gaps": [
+        {
+          "options": [
+            "Sun",
+            "Moon",
+            "Mars"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "Moon",
+            "Sun",
+            "star"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The centre of our Solar System is a star.",
+        "A natural satellite orbits a planet.",
+        "One year is one orbit."
+      ],
+      "explanation": "The Earth orbits the Sun in one year. The Moon orbits the Earth."
+    },
+    {
+      "id": "s4.earth-sun-moon.026",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Leo says night happens because the Earth moves away from the Sun, then back for daytime. Which fact shows he is wrong?",
+      "options": [
+        {
+          "text": "At the same moment it is day in one country and night in another."
+        },
+        {
+          "text": "The Moon is bright at night.",
+          "why": "This does not tell us about the Earth’s distance."
+        },
+        {
+          "text": "The Sun is a star.",
+          "why": "This does not explain day and night."
+        },
+        {
+          "text": "The Earth has an atmosphere.",
+          "why": "This does not explain day and night."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about two countries at the same moment.",
+        "If the whole Earth moved away, would some places still have day?",
+        "Compare Indonesia and Brazil."
+      ],
+      "explanation": "If night were caused by distance, the whole Earth would have night at once. In fact one half is lit while the other half is dark, as the Earth spins."
+    },
+    {
+      "id": "s4.earth-sun-moon.027",
+      "skill": "s4.earth-sun-moon",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "When it is 9 a.m. in Jakarta, Makassar is one hour ahead and Jayapura is two hours ahead. Complete the table. Write times like 9:00 a.m.",
+      "head": [
+        "City",
+        "Clock time"
+      ],
+      "rows": [
+        [
+          "Jakarta",
+          "9:00 a.m."
+        ],
+        [
+          "Makassar",
+          ""
+        ],
+        [
+          "Jayapura",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "10:00 a.m.",
+            "10:00",
+            "10 a.m.",
+            "10am"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "11:00 a.m.",
+            "11:00",
+            "11 a.m.",
+            "11am"
+          ]
+        }
+      ],
+      "hints": [
+        "Places in the east see the Sun first.",
+        "Add one hour for Makassar.",
+        "Add two hours for Jayapura."
+      ],
+      "explanation": "Makassar is 1 hour ahead, so it is 10:00 a.m. Jayapura is 2 hours ahead, so it is 11:00 a.m."
+    },
+    {
+      "id": "s4.earth-sun-moon.028",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rina uses a torch as the Sun and a ball as the Earth. How can she show one whole day and night?",
+      "options": [
+        {
+          "text": "Move the torch round the ball once",
+          "why": "The Sun stays still while the Earth turns."
+        },
+        {
+          "text": "Spin the ball once round its own axis"
+        },
+        {
+          "text": "Move the ball far away and back",
+          "why": "Distance does not cause day and night."
+        },
+        {
+          "text": "Cover the torch with her hand",
+          "why": "The Sun does not turn off."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A day and night are caused by the Earth spinning.",
+        "The torch stays still.",
+        "The ball turns once on its own."
+      ],
+      "explanation": "A day and night cycle takes one full spin of the Earth. So Rina spins the ball once while the torch stays still."
+    },
+    {
+      "id": "s4.earth-sun-moon.029",
+      "skill": "s4.earth-sun-moon",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Sunlight comes from the left. Tap the half of the Moon that is lit.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 30,
+            "cy": 100,
+            "r": 22,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 58,
+            "y1": 100,
+            "x2": 92,
+            "y2": 100,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 86,
+            "x2": 88,
+            "y2": 72,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 114,
+            "x2": 88,
+            "y2": 128,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "circle",
+            "cx": 230,
+            "cy": 100,
+            "r": 60,
+            "tone": "muted",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                230,
+                160
+              ],
+              [
+                218.3,
+                158.8
+              ],
+              [
+                207,
+                155.4
+              ],
+              [
+                196.7,
+                149.9
+              ],
+              [
+                187.6,
+                142.4
+              ],
+              [
+                180.1,
+                133.3
+              ],
+              [
+                174.6,
+                123
+              ],
+              [
+                171.2,
+                111.7
+              ],
+              [
+                170,
+                100
+              ],
+              [
+                171.2,
+                88.3
+              ],
+              [
+                174.6,
+                77
+              ],
+              [
+                180.1,
+                66.7
+              ],
+              [
+                187.6,
+                57.6
+              ],
+              [
+                196.7,
+                50.1
+              ],
+              [
+                207,
+                44.6
+              ],
+              [
+                218.3,
+                41.2
+              ],
+              [
+                230,
+                40
+              ]
+            ],
+            "closed": true,
+            "tone": "star",
+            "fill": "solid"
+          }
+        ],
+        "alt": "The Sun is on the left with rays pointing at a large grey Moon. The left half of the Moon is bright and the right half is in shadow."
+      },
+      "hints": [
+        "The lit half faces the Sun.",
+        "The Sun is on the left side.",
+        "Look for the bright part."
+      ],
+      "explanation": "The half of the Moon facing the Sun is lit. The other half is in shadow because the Moon makes no light of its own.",
+      "regions": [
+        {
+          "label": "lit half",
+          "x": 62.5,
+          "y": 50,
+          "w": 15.6,
+          "h": 50
+        },
+        {
+          "label": "dark half",
+          "x": 81.3,
+          "y": 50,
+          "w": 15.6,
+          "h": 50
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.030",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which statement about the Moon is correct?",
+      "options": [
+        {
+          "text": "The Moon makes its own light.",
+          "why": "The Moon only reflects light from the Sun."
+        },
+        {
+          "text": "The Moon is a star.",
+          "why": "The Moon is a natural satellite, not a star."
+        },
+        {
+          "text": "The Moon orbits the Earth."
+        },
+        {
+          "text": "The Moon is bigger than the Earth.",
+          "why": "The Moon is smaller than the Earth."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what a moon does.",
+        "Compare sizes.",
+        "The Moon goes round something."
+      ],
+      "explanation": "The Moon orbits the Earth. It is smaller than the Earth and shines only by reflecting sunlight."
+    },
+    {
+      "id": "s4.earth-sun-moon.801",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The Earth spins once on its axis every 24 hours.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How long is a day?",
+        "Which side faces the Sun?",
+        "One spin is one day."
+      ],
+      "explanation": "The spin makes day and night, because the side facing the Sun has day.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.earth-sun-moon.802",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The Sun moves around the Earth each day.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What really spins?",
+        "It looks like the Sun moves.",
+        "The Earth spins."
+      ],
+      "explanation": "The Earth turns, which makes the Sun seem to move across the sky. The Sun seems to rise and set because of the Earth's spin.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.earth-sun-moon.803",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The Moon takes about one month to orbit the Earth.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How long is a month?",
+        "Is it one day or one month?",
+        "About a month."
+      ],
+      "explanation": "The Moon goes around the Earth in about 27 to 29 days.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.earth-sun-moon.804",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The Moon makes its own light.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What lights the Moon?",
+        "Is it a star?",
+        "It reflects sunlight."
+      ],
+      "explanation": "The Moon only reflects light from the Sun.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

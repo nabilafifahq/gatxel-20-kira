@@ -47,11 +47,25 @@
         },
         {
           "say": "From all corners.",
-          "show": "8 × 5 = 40"
+          "show": "8 × 5 = 40",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "×",
+            "b": 5,
+            "r": 40
+          }
         },
         {
           "say": "Each diagonal counted twice.",
-          "show": "40 ÷ 2 = 20"
+          "show": "40 ÷ 2 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 40,
+            "op": "÷",
+            "b": 2,
+            "r": 20
+          }
         }
       ],
       "tags": [
@@ -99,11 +113,30 @@
       "solution": [
         {
           "say": "Start with 1.",
-          "show": "123, 124, 125, 134, 135, 145"
+          "show": "123, 124, 125, 134, 135, 145",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "123",
+              "124",
+              "125",
+              "134",
+              "135",
+              "145"
+            ]
+          }
         },
         {
           "say": "Start with 2.",
-          "show": "234, 235, 245"
+          "show": "234, 235, 245",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "234",
+              "235",
+              "245"
+            ]
+          }
         },
         {
           "say": "Start with 3.",
@@ -165,19 +198,55 @@
       "solution": [
         {
           "say": "Bottom line.",
-          "show": "1, 1, 1, 1"
+          "show": "1, 1, 1, 1",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
         },
         {
           "say": "Next line.",
-          "show": "1, 2, 3, 4"
+          "show": "1, 2, 3, 4",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          }
         },
         {
           "say": "Next line.",
-          "show": "1, 3, 6, 10"
+          "show": "1, 3, 6, 10",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "3",
+              "6",
+              "10"
+            ]
+          }
         },
         {
           "say": "Top line.",
-          "show": "1, 4, 10, 20"
+          "show": "1, 4, 10, 20",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "4",
+              "10",
+              "20"
+            ]
+          }
         }
       ],
       "tags": [
@@ -229,7 +298,14 @@
         },
         {
           "say": "Swap inside the block.",
-          "show": "24 × 2 = 48"
+          "show": "24 × 2 = 48",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "×",
+            "b": 2,
+            "r": 48
+          }
         }
       ],
       "tags": [
@@ -254,7 +330,18 @@
       "solution": [
         {
           "say": "Multiples of 2.",
-          "show": "100 ÷ 2 = 50"
+          "show": "100 ÷ 2 = 50",
+          "anim": {
+            "k": "combine",
+            "a": 100,
+            "op": "÷",
+            "b": 2,
+            "r": 50
+          },
+          "mark": [
+            "100",
+            "2"
+          ]
         },
         {
           "say": "Multiples of 3.",
@@ -312,11 +399,25 @@
         },
         {
           "say": "Two matches per pair.",
-          "show": "15 × 2 = 30"
+          "show": "15 × 2 = 30",
+          "anim": {
+            "k": "combine",
+            "a": 15,
+            "op": "×",
+            "b": 2,
+            "r": 30
+          }
         },
         {
           "say": "Check: 6 teams each host 5 matches.",
-          "show": "6 × 5 = 30"
+          "show": "6 × 5 = 30",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 5,
+            "r": 30
+          }
         }
       ],
       "tags": [
@@ -355,7 +456,14 @@
         },
         {
           "say": "Rectangles.",
-          "show": "6 × 10 = 60"
+          "show": "6 × 10 = 60",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 10,
+            "r": 60
+          }
         }
       ],
       "tags": [
@@ -384,7 +492,14 @@
         },
         {
           "say": "Each pair gives 2 factors.",
-          "show": "6 × 2 = 12"
+          "show": "6 × 2 = 12",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 2,
+            "r": 12
+          }
         },
         {
           "say": "Another way: 72 = 2 × 2 × 2 × 3 × 3, so (3 + 1) × (2 + 1) = 12."
@@ -454,6 +569,322 @@
         "timo"
       ],
       "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-counting.010",
+      "skill": "m5.oly-counting",
+      "difficulty": 3,
+      "prompt": "Putri has 5 shirts, 3 pairs of shorts and 2 hats. How many different outfits of one shirt, one pair of shorts and one hat can she make?",
+      "hints": [
+        "Pick a shirt first. How many ways to finish the outfit?",
+        "For each shirt there are 3 choices of shorts.",
+        "Then each of these has 2 hat choices."
+      ],
+      "explanation": "There are 5 × 3 × 2 = 30 different outfits.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "10",
+          "why": "You added 5 + 3 + 2. Each choice combines with the others, so multiply."
+        },
+        {
+          "text": "15",
+          "why": "You multiplied only two of the three numbers."
+        },
+        {
+          "text": "20",
+          "why": "Check the multiplication: 5 × 3 × 2."
+        },
+        {
+          "text": "30"
+        },
+        {
+          "text": "36",
+          "why": "Check which numbers you multiplied. There are 5 shirts, 3 shorts and 2 hats."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.oly-counting.011",
+      "skill": "m5.oly-counting",
+      "difficulty": 4,
+      "prompt": "How many even 3-digit numbers can be made using the digits 1, 2, 3 and 4, with no digit used twice in a number?",
+      "hints": [
+        "The last digit decides if a number is even.",
+        "The last digit can be 2 or 4.",
+        "For each choice, count the ways to fill the other two places."
+      ],
+      "explanation": "The last digit has 2 choices (2 or 4). Then the first digit has 3 choices left, and the middle digit has 2. So 2 × 3 × 2 = 12 numbers.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "6",
+          "why": "You counted the choices for one even digit only. There are two even digits."
+        },
+        {
+          "text": "8",
+          "why": "You let a digit repeat in some places. No digit can be used twice."
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "18",
+          "why": "The last digit has only 2 choices, not 3. The number must be even."
+        },
+        {
+          "text": "24",
+          "why": "That counts all 3-digit numbers, including odd ones."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-counting.012",
+      "skill": "m5.oly-counting",
+      "difficulty": 3,
+      "prompt": "Eight friends meet and each person shakes hands once with every other person. How many handshakes are there?",
+      "hints": [
+        "The first person shakes 7 hands.",
+        "The next person shakes 6 new hands.",
+        "Add 7 + 6 + 5 + ... + 1."
+      ],
+      "explanation": "Person 1 shakes 7 hands, person 2 shakes 6 new hands, and so on. 7 + 6 + 5 + 4 + 3 + 2 + 1 = 28.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "16",
+          "why": "You counted 8 + 8. Each person shakes hands with 7 others."
+        },
+        {
+          "text": "24",
+          "why": "Check the count: it is not 8 × 3."
+        },
+        {
+          "text": "28"
+        },
+        {
+          "text": "32",
+          "why": "Each handshake involves two people, so it was counted twice in 8 × 4."
+        },
+        {
+          "text": "56",
+          "why": "Each handshake was counted twice in 8 × 7. Divide by 2."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-counting.013",
+      "skill": "m5.oly-counting",
+      "difficulty": 5,
+      "prompt": "Sekar climbs 6 steps of a staircase. She goes up 1 step or 2 steps at a time. In how many different ways can she reach the top?",
+      "hints": [
+        "Start with small staircases: 1 step, 2 steps, 3 steps.",
+        "To reach step n, she came from step n - 1 or step n - 2.",
+        "The number of ways for each step is the sum of the two before it."
+      ],
+      "explanation": "The numbers of ways are 1, 2, 3, 5, 8, 13 for 1 to 6 steps. Each is the sum of the two before it, so there are 13 ways for 6 steps.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "8",
+          "why": "This is the number of ways for 5 steps. Count one more step."
+        },
+        {
+          "text": "11",
+          "why": "Check your list. Some ways were missed."
+        },
+        {
+          "text": "13"
+        },
+        {
+          "text": "15",
+          "why": "Some ways were counted twice. Check the order of the steps."
+        },
+        {
+          "text": "21",
+          "why": "This is the number of ways for 7 steps."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-counting.014",
+      "skill": "m5.oly-counting",
+      "difficulty": 3,
+      "prompt": "How many 2-digit numbers have digits that add up to 9?",
+      "hints": [
+        "List the numbers by their tens digit.",
+        "The tens digit can be 1, 2, 3, ... What is the ones digit then?",
+        "Do not forget 90."
+      ],
+      "explanation": "The numbers are 18, 27, 36, 45, 54, 63, 72, 81 and 90. That makes 9 numbers.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 9
+    },
+    {
+      "id": "m5.oly-counting.015",
+      "skill": "m5.oly-counting",
+      "difficulty": 4,
+      "prompt": "How many squares of any size can you find in a 5 by 5 grid of small squares?",
+      "hints": [
+        "Count the 1 by 1 squares first.",
+        "Then count the 2 by 2 squares, and so on.",
+        "The counts are 25, 16, 9, ..."
+      ],
+      "explanation": "There are 25 squares of size 1, 16 of size 2, 9 of size 3, 4 of size 4 and 1 of size 5. 25 + 16 + 9 + 4 + 1 = 55.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 55
+    },
+    {
+      "id": "m5.oly-counting.016",
+      "skill": "m5.oly-counting",
+      "difficulty": 5,
+      "prompt": "Three boys and two girls, all different, sit in a row of five chairs. The two girls must not sit next to each other. In how many ways can they sit?",
+      "hints": [
+        "Count all the ways to seat the five children first.",
+        "Count the ways when the two girls sit together as one block.",
+        "Take the second answer from the first."
+      ],
+      "explanation": "All arrangements: 5 × 4 × 3 × 2 × 1 = 120. With the girls as a block there are 4 units to arrange (24 ways) and 2 orders for the girls, so 48. 120 - 48 = 72.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 72,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "In how many ways can they sit?"
+          ]
+        },
+        {
+          "say": "All arrangements: 5 × 4 × 3 × 2 × 1 = 120."
+        },
+        {
+          "say": "With the girls as a block there are 4 units to arrange (24 ways) and 2 orders for the girls, so 48."
+        },
+        {
+          "say": "120 - 48 = 72.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 48
+              },
+              {
+                "v": 72,
+                "q": true
+              }
+            ],
+            "total": 120
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "72"
+        }
+      ]
+    },
+    {
+      "id": "m5.oly-counting.017",
+      "skill": "m5.oly-counting",
+      "difficulty": 5,
+      "prompt": "Rangga moves along grid lines from the bottom left corner to the top right corner of a 4 by 4 grid. He only moves right or up and must avoid the middle point of the grid. How many routes are there?",
+      "hints": [
+        "First count all routes without any rule.",
+        "Count the routes that go through the middle point.",
+        "Take the second answer from the first."
+      ],
+      "explanation": "All routes: there are 70 ways to arrange 4 rights and 4 ups. Routes through the middle: 6 ways to get there and 6 ways to go on, so 36. 70 - 36 = 34.",
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 34,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many routes are there?"
+          ]
+        },
+        {
+          "say": "All routes: there are 70 ways to arrange 4 rights and 4 ups."
+        },
+        {
+          "say": "Routes through the middle: 6 ways to get there and 6 ways to go on, so 36."
+        },
+        {
+          "say": "70 - 36 = 34.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 36
+              },
+              {
+                "v": 34,
+                "q": true
+              }
+            ],
+            "total": 70
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "34"
+        }
+      ]
     }
   ]
 }

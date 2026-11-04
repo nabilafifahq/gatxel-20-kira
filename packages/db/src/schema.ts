@@ -61,12 +61,53 @@ export const userAccount = auth.table(
     lastLoginAt: ts('last_login_at'),
     createdAt: createdAt(),
     disabledAt: ts('disabled_at'),
+    /** Email ternormalisasi (Gmail tanpa titik dan +tag). Akun lama bernilai null. */
+    emailNorm: text('email_norm'),
   },
   (t) => [
     uniqueIndex('user_account_email_uq').on(sql`lower(${t.email})`).where(sql`${t.email} is not null`),
     index('user_account_org_idx').on(t.orgId),
   ],
 )
+
+/** Pendaftar yang belum memverifikasi email. Bukan akun: tidak bisa masuk. Kedaluwarsa 24 jam. */
+export const signup = auth.table('signup', {
+  id: id(),
+  email: text('email').notNull(),
+  emailNorm: text('email_norm').notNull().unique(),
+  name: text('name').notNull(),
+  passwordHash: text('password_hash').notNull(),
+  tokenHash: text('token_hash').notNull().unique(),
+  expiresAt: ts('expires_at').notNull(),
+  termsVersion: text('terms_version').notNull(),
+  noticeVersion: text('notice_version').notNull(),
+  ipHash: text('ip_hash'),
+  sentCount: integer('sent_count').notNull().default(1),
+  lastSentAt: ts('last_sent_at').notNull().defaultNow(),
+  createdAt: createdAt(),
+})
+
+export const betaSeat = auth.table('beta_seat', {
+  orgId: uuid('org_id').primaryKey(),
+  userId: uuid('user_id').notNull(),
+  emailNorm: text('email_norm').notNull().unique(),
+  takenAt: ts('taken_at').notNull().defaultNow(),
+})
+
+export const waitlist = auth.table('waitlist', {
+  id: id(),
+  email: text('email').notNull(),
+  emailNorm: text('email_norm').notNull().unique(),
+  token: text('token').notNull().unique(),
+  source: text('source', { enum: ['form', 'signup'] }).notNull().default('form'),
+  consentText: text('consent_text').notNull(),
+  consentedAt: ts('consented_at').notNull().defaultNow(),
+  confirmedAt: ts('confirmed_at'),
+  unsubscribedAt: ts('unsubscribed_at'),
+  invitedAt: ts('invited_at'),
+  convertedAt: ts('converted_at'),
+  createdAt: createdAt(),
+})
 
 export const learnerSecret = auth.table('learner_secret', {
   userId: uuid('user_id').primaryKey().references(() => userAccount.id, { onDelete: 'cascade' }),
@@ -226,6 +267,8 @@ export const learnerProfile = pgTable(
     active: boolean('active').notNull().default(false),
     xp: integer('xp').notNull().default(0),
     startedOn: date('started_on'),
+    /** Streak dihitung mulai tanggal ini (diisi saat tutor mengatur ulang streak, migrasi 0013). Kosong berarti sejak started_on. */
+    streakSince: date('streak_since'),
     createdAt: createdAt(),
     updatedAt: ts('updated_at').notNull().defaultNow(),
     deletedAt: ts('deleted_at'),
@@ -297,6 +340,28 @@ export const skillState = pgTable(
   (t) => [primaryKey({ columns: [t.learnerId, t.skillId] })],
 )
 
+/** Tes penempatan per mapel (migrasi 0020): satu baris per percobaan. */
+export const placementRun = pgTable(
+  'placement_run',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
+    status: text('status', { enum: ['ready', 'in_progress', 'done', 'skipped'] }).notNull().default('ready'),
+    origin: text('origin', { enum: ['auto', 'parent', 'tutor'] }).notNull().default('auto'),
+    startGrade: smallint('start_grade').notNull(),
+    theta: real('theta').notNull().default(0),
+    answers: jsonb('answers').notNull().default(sql`'[]'::jsonb`),
+    current: jsonb('current'),
+    result: jsonb('result'),
+    createdAt: createdAt(),
+    startedAt: ts('started_at'),
+    finishedAt: ts('finished_at'),
+  },
+  (t) => [index('placement_run_learner_idx').on(t.learnerId, t.subject, t.finishedAt)],
+)
+
 export const planWeek = pgTable(
   'plan_week',
   {
@@ -337,9 +402,51 @@ export const planSlot = pgTable(
     paperId: uuid('paper_id'),
     mode: text('mode', { enum: ['belajar', 'latihan', 'tes', 'kertas'] }).notNull().default('latihan'),
     questionCount: integer('question_count').notNull().default(10),
+    /** Slot menggantikan sesi dasar (aturan hari dan template) yang mapel dan jenisnya sama, Wajib atau Opsional (migrasi 0013). */
+    base: boolean('base').notNull().default(false),
+    /** Sesi dasar yang sama dimatikan untuk hari itu (migrasi 0013). */
+    off: boolean('off').notNull().default(false),
     createdAt: createdAt(),
   },
   (t) => [index('plan_slot_learner_date_idx').on(t.learnerId, t.date)],
+)
+
+/** Aturan hari bawaan per learner (migrasi 0013): preset dan, untuk Kustom, tingkat per hari, mapel, dan sesi. */
+export const dayRules = pgTable('day_rules', {
+  learnerId: uuid('learner_id').primaryKey(),
+  orgId: orgId(),
+  preset: text('preset', { enum: ['penuh', 'seimbang', 'ringan', 'kustom'] }).notNull().default('seimbang'),
+  rules: jsonb('rules'),
+  updatedAt: ts('updated_at').notNull().defaultNow(),
+})
+
+/** Lembar kerja yang dibuat orang tua (migrasi 0022): batas harian per keluarga dan seed untuk membuka ulang lembar yang sama. */
+export const worksheet = pgTable(
+  'worksheet',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    createdBy: uuid('created_by'),
+    subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
+    skillId: text('skill_id').notNull(),
+    itemCount: smallint('item_count').notNull(),
+    day: date('day').notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [index('worksheet_org_day_idx').on(t.orgId, t.day)],
+)
+
+/** Kata yang disimpan anak dari Kamus Ketuk (migrasi 0019): bentuk dasar huruf kecil, satu baris per kata per learner. */
+export const savedWord = pgTable(
+  'saved_word',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    word: text('word').notNull(),
+    savedAt: ts('saved_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.word] })],
 )
 
 export const restDay = pgTable(
@@ -786,6 +893,23 @@ export const outboxEmail = pgTable('outbox_email', {
   sentAt: ts('sent_at'),
 })
 
+/** Kotak keluar email yang belum punya org (verifikasi, kabar, undangan kursi). Web menulis, worker mengirim. */
+export const publicMail = pgTable('public_mail', {
+  id: id(),
+  toAddr: text('to_addr').notNull(),
+  subject: text('subject').notNull(),
+  html: text('html').notNull(),
+  text: text('text').notNull(),
+  kind: text('kind').notNull(),
+  listUnsubscribe: text('list_unsubscribe'),
+  sendAfter: ts('send_after').notNull().defaultNow(),
+  status: text('status', { enum: ['queued', 'sent', 'failed', 'no-smtp'] }).notNull().default('queued'),
+  attempts: integer('attempts').notNull().default(0),
+  lastError: text('last_error'),
+  createdAt: createdAt(),
+  sentAt: ts('sent_at'),
+})
+
 export const weekReport = pgTable(
   'week_report',
   {
@@ -942,6 +1066,68 @@ export const sourceState = pgTable(
   (t) => [primaryKey({ columns: [t.orgId, t.sourceId] })],
 )
 
+// ---------------------------------------------------------------------------
+// Kira World (migrasi 0021)
+
+export const starLedger = pgTable(
+  'star_ledger',
+  {
+    id: bigserial('id', { mode: 'number' }).primaryKey(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    amount: integer('amount').notNull(),
+    reason: text('reason').notNull(),
+    source: text('source').notNull(),
+    date: date('date').notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [uniqueIndex('star_ledger_source_uq').on(t.learnerId, t.source), index('star_ledger_day_idx').on(t.learnerId, t.date)],
+)
+
+export const worldState = pgTable('world_state', {
+  learnerId: uuid('learner_id').primaryKey(),
+  orgId: orgId(),
+  pet: jsonb('pet'),
+  equipped: jsonb('equipped').notNull().default(sql`'{}'::jsonb`),
+  progress: jsonb('progress').notNull().default(sql`'{}'::jsonb`),
+  updatedAt: ts('updated_at').notNull().defaultNow(),
+})
+
+export const worldItem = pgTable(
+  'world_item',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    itemId: text('item_id').notNull(),
+    source: text('source').notNull(),
+    acquiredAt: ts('acquired_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.itemId] })],
+)
+
+export const worldCard = pgTable(
+  'world_card',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    cardId: text('card_id').notNull(),
+    source: text('source').notNull(),
+    acquiredAt: ts('acquired_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.cardId] })],
+)
+
+export const contestMedal = pgTable('contest_medal', {
+  id: id(),
+  orgId: orgId(),
+  learnerId: uuid('learner_id').notNull(),
+  title: text('title').notNull(),
+  medal: text('medal', { enum: ['gold', 'silver', 'bronze', 'honour', 'participant'] }).notNull(),
+  earnedOn: date('earned_on').notNull(),
+  createdAt: createdAt(),
+  removedAt: ts('removed_at'),
+})
+
 /** Tabel tenant yang wajib RLS. Dipakai migrasi RLS dan tes. */
 export const TENANT_TABLES = [
   'org', 'member_profile', 'learner_profile', 'guardian_link', 'consent_event', 'deletion_request', 'skill_state',
@@ -949,13 +1135,110 @@ export const TENANT_TABLES = [
   'day_record', 'badge_award', 'media', 'note', 'problem_report', 'competition_event', 'org_item', 'ai_job',
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
   'arena_session', 'arena_state', 'daily_chest',
-  'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state',
+  'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state', 'placement_run', 'worksheet',
+  'saved_word',
+  'star_ledger', 'world_state', 'world_item', 'world_card', 'contest_medal',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */
 export const LEARNER_SCOPED_TABLES = [
   'skill_state', 'plan_week', 'plan_slot', 'rest_day', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
-  'day_record', 'badge_award', 'note', 'week_report',
+  'day_record', 'badge_award', 'note', 'week_report', 'placement_run',
   'arena_session', 'arena_state', 'daily_chest',
-  'paper_pick',
+  'paper_pick', 'worksheet', 'saved_word',
+  'star_ledger', 'world_state', 'world_item', 'world_card', 'contest_medal',
 ] as const
+
+/** Saklar fitur per learner (migrasi 0017). Tanpa baris berarti menyala. */
+export const learnerFeature = pgTable(
+  'learner_feature',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    key: text('key').notNull(),
+    enabled: boolean('enabled').notNull(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.key] })],
+)
+
+/** Keadaan FSRS satu kartu belajar per anak (migrasi 0017). Isi dek ada di content/flashcards. */
+export const flashcardState = pgTable(
+  'flashcard_state',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    deckId: text('deck_id').notNull(),
+    cardId: text('card_id').notNull(),
+    card: jsonb('card').notNull(),
+    dueAt: ts('due_at').notNull(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.deckId, t.cardId] }), index('flashcard_state_due_idx').on(t.learnerId, t.dueAt)],
+)
+
+// ---------------------------------------------------------------------------
+// Ruang Baca (migrasi 0018)
+
+/** Kemajuan per buku: bab dan kalimat terakhir (untuk melanjutkan), selesai bila finished_at terisi. */
+export const bookProgress = pgTable(
+  'book_progress',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    bookId: text('book_id').notNull(),
+    orgId: orgId(),
+    chapterId: text('chapter_id').notNull(),
+    sentenceIdx: integer('sentence_idx').notNull().default(0),
+    startedAt: ts('started_at').notNull().defaultNow(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+    finishedAt: ts('finished_at'),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.bookId] })],
+)
+
+/** Bab yang selesai dibaca dan kuisnya dikerjakan. XP hanya sekali per bab. */
+export const bookChapter = pgTable(
+  'book_chapter',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    bookId: text('book_id').notNull(),
+    chapterId: text('chapter_id').notNull(),
+    orgId: orgId(),
+    quizCount: integer('quiz_count').notNull().default(0),
+    bestCorrect: integer('best_correct').notNull().default(0),
+    bestTotal: integer('best_total').notNull().default(0),
+    xp: integer('xp').notNull().default(0),
+    doneAt: ts('done_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.bookId, t.chapterId] })],
+)
+
+/** Kuis bab: soal dipilih server (tanpa soal kembar antar kuis), dinilai server saat dikumpulkan. */
+export const bookQuiz = pgTable(
+  'book_quiz',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    learnerId: uuid('learner_id').notNull(),
+    bookId: text('book_id').notNull(),
+    chapterId: text('chapter_id').notNull(),
+    orgId: orgId(),
+    questionIds: text('question_ids').array().notNull(),
+    createdAt: createdAt(),
+    submittedAt: ts('submitted_at'),
+    correct: integer('correct'),
+  },
+  (t) => [index('book_quiz_learner_idx').on(t.learnerId, t.bookId, t.chapterId, t.createdAt)],
+)
+
+/** Detik membaca per hari (Asia/Jakarta). */
+export const readingDay = pgTable(
+  'reading_day',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    date: date('date').notNull(),
+    orgId: orgId(),
+    seconds: integer('seconds').notNull().default(0),
+    lastAt: ts('last_at'),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.date] })],
+)

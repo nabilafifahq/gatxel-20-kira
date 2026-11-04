@@ -1,0 +1,126 @@
+{
+  "skill": "m6.multiply-divide-powers-of-ten",
+  "items": [
+    {
+      "id": "m6.multiply-divide-powers-of-ten.001",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "difficulty": 3,
+      "prompt": "A bottle holds 0.75 litres. How many millilitres of water are in 12 bottles?",
+      "hints": [
+        "1 litre is 1,000 millilitres.",
+        "First change 0.75 litres to millilitres.",
+        "0.75 × 1,000 = 750. Now find 12 bottles."
+      ],
+      "explanation": "One bottle holds 0.75 × 1,000 = 750 ml. For 12 bottles, 750 × 12 = 9,000 ml.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 9000
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.002",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "difficulty": 4,
+      "prompt": "Rangga works out 7.6 ÷ 100 and writes 0.76. Which answer is correct?",
+      "hints": [
+        "Dividing by 100 moves every digit two places to the right.",
+        "Write 7.6 as 07.6 so there is room to move.",
+        "The 7 moves from the ones place to the hundredths place."
+      ],
+      "explanation": "Dividing by 100 moves each digit two places right. 7.6 becomes 0.076.",
+      "tags": [
+        "error-analysis"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0.076"
+        },
+        {
+          "text": "0.76",
+          "why": "He divided by 10. Dividing by 100 moves the digits two places."
+        },
+        {
+          "text": "760",
+          "why": "This is 7.6 multiplied by 100, not divided."
+        },
+        {
+          "text": "0.0076",
+          "why": "This moves the digits three places, which is dividing by 1,000."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.003",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "difficulty": 5,
+      "prompt": "A robot moves 0.35 m every second. How many kilometres does it move in 10,000 seconds?",
+      "hints": [
+        "Find the distance in metres first.",
+        "0.35 × 10,000 = 3,500 m.",
+        "Change metres to kilometres by dividing by 1,000."
+      ],
+      "explanation": "In 10,000 seconds it moves 0.35 × 10,000 = 3,500 m. Dividing by 1,000 gives 3.5 km.",
+      "tags": [
+        "word-problem"
+      ],
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 3.5
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.801",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 0.045 × 1,000 = 45.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Move the digits three places to the left.",
+        "The point moves to the right.",
+        "0.045 is 45 thousandths."
+      ],
+      "explanation": "Each digit moves three places left: 0.045 × 1,000 = 45.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.802",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A length of 2.5 m is the same as 25 cm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many cm in 1 m?",
+        "Multiply by 100.",
+        "2 m is 200 cm."
+      ],
+      "explanation": "1 m = 100 cm, so 2.5 m = 2.5 × 100 = 250 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

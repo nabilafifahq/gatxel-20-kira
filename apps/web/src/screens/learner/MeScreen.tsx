@@ -109,7 +109,7 @@ function AvatarDialog({
   )
 }
 
-function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactElement {
+function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; myWords: boolean }): ReactElement {
   const toast = useToast()
   const [avatar, setAvatar] = useState<AvatarName>(data.shell.avatar)
   const [accessory, setAccessory] = useState<string | null>(data.shell.accessory ?? null)
@@ -164,10 +164,10 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
             <MusicToggle />
           </div>
         </div>
-        <div className="flex w-full items-center gap-5 rounded-card border border-divider bg-surface px-6 py-3.5 lg:ml-auto lg:w-auto">
+        <div className="flex w-full items-center gap-5 rounded-card bg-surface shadow-soft px-6 py-3.5 lg:ml-auto lg:w-auto">
           <div className="flex flex-col">
             <span className="text-body font-semibold text-fg-muted">Level</span>
-            <span className="font-display text-display leading-none font-semibold tabular-nums">{data.level}</span>
+            <span className="font-numbers text-display leading-none font-semibold tabular-nums">{data.level}</span>
           </div>
           <div className="flex min-w-0 flex-1 flex-col gap-2 lg:w-65 lg:flex-none">
             <span role="img" aria-label={xpLine} className="flex h-3 overflow-hidden rounded-control bg-divider">
@@ -179,7 +179,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
       </header>
 
       {data.tracks ? (
-        <section aria-labelledby="me-tracks" className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7">
+        <section aria-labelledby="me-tracks" className="flex flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7">
           <h2 id="me-tracks" className="m-0 text-h2 font-bold">
             XP and levels
           </h2>
@@ -195,8 +195,19 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
         </section>
       ) : null}
 
+      {myWords ? (
+        <section aria-labelledby="me-words" className="flex flex-wrap items-center gap-3 rounded-card border border-divider bg-surface p-5 md:p-7">
+          <h2 id="me-words" className="m-0 min-w-0 flex-1 text-h2 font-bold">
+            My words
+          </h2>
+          <ButtonLink href={LEARNER_ROUTES.myWords} variant="secondary" size="M" icon="book">
+            Open my words
+          </ButtonLink>
+        </section>
+      ) : null}
+
       {data.accessories && actions.changeAccessory ? (
-        <section aria-labelledby="me-accessories" className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-5 md:p-7">
+        <section aria-labelledby="me-accessories" className="flex flex-col gap-3 rounded-card bg-surface shadow-soft p-5 md:p-7">
           <h2 id="me-accessories" className="m-0 text-h2 font-bold">
             Accessories
           </h2>
@@ -239,10 +250,19 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
         </section>
       ) : null}
 
+      <section aria-label="Kira World" className="flex flex-wrap items-center gap-3.5 rounded-card border-2 border-fg bg-surface p-4">
+        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+          <h2 className="m-0 text-h3 font-bold">Kira World</h2>
+          <p className="m-0 text-body text-fg-muted">Your friend, Star Shop, card album, story, Puzzle Robot and trophies.</p>
+        </div>
+        <ButtonLink href={LEARNER_ROUTES.world} prefetch={false} iconAfter="arrow-right">
+          Open Kira World
+        </ButtonLink>
+      </section>
       {data.collection ? <ChestCollection collection={data.collection} avatar={avatar} accessory={accessory} background={data.shell.background ?? null} equip={actions.equipChest} /> : null}
 
       <div className="flex flex-1 flex-col gap-6 lg:flex-row">
-        <section aria-labelledby="me-badges" className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7 lg:flex-[1.15]">
+        <section aria-labelledby="me-badges" className="flex min-w-0 flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7 lg:flex-[1.15]">
           <div className="flex items-center gap-3">
             <h2 id="me-badges" className="m-0 text-h2 font-bold">
               Badges
@@ -273,7 +293,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
           )}
         </section>
 
-        <section aria-labelledby="me-calendar" className="flex min-w-0 flex-col gap-3 rounded-card border border-divider bg-surface p-5 md:p-7 lg:flex-1">
+        <section aria-labelledby="me-calendar" className="flex min-w-0 flex-col gap-3 rounded-card bg-surface shadow-soft p-5 md:p-7 lg:flex-1">
           <div className="flex flex-wrap items-baseline gap-3">
             <h2 id="me-calendar" className="m-0 text-h2 font-bold">
               {data.monthLabel}
@@ -354,10 +374,10 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
   )
 }
 
-export function MeScreen({ data, actions }: { data: MeDTO; actions: MeActions }): ReactElement {
+export function MeScreen({ data, actions, myWords = false }: { data: MeDTO; actions: MeActions; myWords?: boolean }): ReactElement {
   return (
     <ToastProvider area="learner">
-      <MeBody data={data} actions={actions} />
+      <MeBody data={data} actions={actions} myWords={myWords} />
     </ToastProvider>
   )
 }

@@ -1,0 +1,217 @@
+{
+  "skill": "m4.convert-units",
+  "items": [
+    {
+      "id": "m4.convert-units.001",
+      "skill": "m4.convert-units",
+      "difficulty": 3,
+      "prompt": "A rope is 3 m 45 cm long. A scout cuts off 1 m 80 cm. How many centimetres of rope are left?",
+      "hints": [
+        "Change the lengths to centimetres.",
+        "3 m 45 cm is 345 cm.",
+        "Subtract 180 cm."
+      ],
+      "explanation": "3 m 45 cm = 345 cm and 1 m 80 cm = 180 cm. 345 - 180 = 165 cm.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 165
+    },
+    {
+      "id": "m4.convert-units.002",
+      "skill": "m4.convert-units",
+      "difficulty": 3,
+      "prompt": "A jug holds 1.5 litres. Bayu fills glasses that each hold 250 ml. How many glasses can he fill from a full jug?",
+      "hints": [
+        "Change the litres into millilitres.",
+        "1.5 l = 1,500 ml.",
+        "How many 250 ml fit into 1,500 ml?"
+      ],
+      "explanation": "1.5 l = 1,500 ml. 1,500 ÷ 250 = 6 glasses.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 6
+    },
+    {
+      "id": "m4.convert-units.003",
+      "skill": "m4.convert-units",
+      "difficulty": 3,
+      "prompt": "A parcel has a mass of 2 kg 300 g. A card of 850 g is added. What is the total mass in grams?",
+      "hints": [
+        "Write 2 kg 300 g in grams.",
+        "2 kg 300 g = 2,300 g.",
+        "Add 850 g."
+      ],
+      "explanation": "2 kg 300 g = 2,300 g. Then 2,300 + 850 = 3,150 g.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "g",
+      "type": "numeric",
+      "answer": 3150
+    },
+    {
+      "id": "m4.convert-units.801",
+      "skill": "m4.convert-units",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: 1 km is the same as 1,000 m.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does kilo mean?",
+        "Think of kilo as 1,000.",
+        "It is the same for kilograms."
+      ],
+      "explanation": "Kilo means thousand, so 1 kilometre is 1,000 metres.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.convert-units.802",
+      "skill": "m4.convert-units",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 1 kg is the same as 100 g.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does kilo mean?",
+        "Kilo means 1,000.",
+        "A bag of 1 kg is heavier than 100 g."
+      ],
+      "explanation": "1 kilogram is 1,000 grams, not 100.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.convert-units.803",
+      "skill": "m4.convert-units",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 2.5 l is the same as 2,500 ml.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "1 l is 1,000 ml.",
+        "Multiply by 1,000.",
+        "2 l is 2,000 ml and half a litre is 500 ml."
+      ],
+      "explanation": "1 l = 1,000 ml, so 2.5 l = 2.5 × 1,000 = 2,500 ml.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.convert-units.804",
+      "skill": "m4.convert-units",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 350 cm is the same as 3.5 km.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many cm in 1 m?",
+        "Divide by 100.",
+        "The answer is in metres."
+      ],
+      "explanation": "100 cm = 1 m, so 350 cm = 3.5 m, not 3.5 km.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.convert-units.701",
+      "skill": "m4.convert-units",
+      "difficulty": 2,
+      "prompt": "3 km = ? m",
+      "hints": [
+        "1 km is 1,000 m.",
+        "Multiply by 1,000.",
+        "3 × 1,000."
+      ],
+      "explanation": "1 km = 1,000 m, so 3 km = 3,000 m.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 3000
+    },
+    {
+      "id": "m4.convert-units.702",
+      "skill": "m4.convert-units",
+      "difficulty": 3,
+      "prompt": "Ibu is making cakes for the school fair. The recipe needs 1 kg 250 g of flour. She buys a 2 kg bag of flour at the market.",
+      "hints": [
+        "1 kg = 1,000 g.",
+        "2 kg is 2 × 1,000 g.",
+        "Take the first answer from the second."
+      ],
+      "explanation": "1 kg 250 g = 1,250 g. 2 kg = 2,000 g. Left over: 2,000 - 1,250 = 750 g.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many grams of flour does the recipe need?",
+          "answer": 1250,
+          "unit": "g"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many grams are in the 2 kg bag?",
+          "answer": 2000,
+          "unit": "g"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many grams of flour are left after making the cakes?",
+          "answer": 750,
+          "unit": "g"
+        }
+      ]
+    }
+  ]
+}

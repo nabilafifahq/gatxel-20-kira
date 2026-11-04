@@ -42,7 +42,7 @@ export async function familyHomeDTO(actor: Actor, learnerParam: string | null, w
     const { shell, learner, learners } = await shellIn(tx, actor, learnerParam)
     if (!learner) return { shell, home: null }
     const row = await loadLearner(tx, learner.id)
-    const nav = familyWeekNav({ param: weekParam, today, startedOn: row.startedOn, learnerId: learner.id })
+    const nav = familyWeekNav({ param: weekParam, today, startedOn: row.startedOn, learnerId: learner.id, basePath: '/keluarga/minggu' })
     const summary = await weekSummaryDTO(tx, learner.id, nav.monday, { today })
     return {
       shell,

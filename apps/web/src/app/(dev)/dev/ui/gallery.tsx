@@ -34,6 +34,17 @@ import type { WidgetFeedback } from '@/components/widgets/types'
 
 const SUBJECTS: Subject[] = ['math', 'english', 'science']
 
+const MOVING_PROMPT = 'Aisha has 345 stickers and gets 278 more. How many stickers does she have now?'
+const MOVING_STEPS: SolutionStep[] = [
+  { say: 'Find the numbers in the question.', mark: ['345', '278', 'How many stickers does she have now?'] },
+  { say: 'Add the two amounts. They make the total.', anim: { k: 'bar', parts: [{ v: 345 }, { v: 278 }], total: 623 } },
+  { say: 'Add in columns, starting with the ones.', anim: { k: 'column', op: '+', a: 345, b: 278, r: 623 } },
+  { say: 'Jump on the number line from 8.', anim: { k: 'line', min: 0, max: 20, start: 8, jumps: [5] } },
+  { say: 'Count in threes.', anim: { k: 'seq', items: ['3', '6', '9', '12', '15'] } },
+  { say: 'Check each line.', anim: { k: 'lines', lines: ['345 + 278 = 623', '623 - 278 = 345', 'Both lines agree.'] } },
+  { say: 'The two numbers slide together.', anim: { k: 'combine', a: 345, op: '+', b: 278, r: 623 } },
+]
+
 function Section({ id, title, children }: { id: string; title: string; children: ReactNode }): ReactElement {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="flex flex-col gap-4 border-t border-divider pt-8">
@@ -105,7 +116,7 @@ function WidgetCard({ item, n }: { item: RunnerItem; n: number }): ReactElement 
   const [feedback, setFeedback] = useState<WidgetFeedback>(null)
   const subject: Subject = item.skill.startsWith('e') ? 'english' : item.skill.startsWith('s') ? 'science' : 'math'
   return (
-    <article className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-5" aria-label={`Widget ${item.type}`}>
+    <article className="flex flex-col gap-4 rounded-card bg-surface shadow-soft p-5" aria-label={`Widget ${item.type}`}>
       <div className="flex flex-wrap items-center gap-2">
         <span className="inline-flex h-8 items-center rounded-pill bg-fg px-3 text-body font-bold text-white">{item.type}</span>
         <span className="text-body text-fg-muted">{item.ref}</span>
@@ -412,6 +423,10 @@ export function Gallery({
               ) : (
                 <SolutionPlayer steps={[]} subject="math" />
               )}
+            </div>
+            <div className="max-w-[420px]" data-testid="moving-player">
+              <span className="text-body font-semibold text-fg-muted">Moving steps</span>
+              <SolutionPlayer steps={MOVING_STEPS} subject="math" prompt={MOVING_PROMPT} />
             </div>
             <div className="max-w-[420px]">
               <span className="text-body font-semibold text-fg-muted">Reduced motion</span>

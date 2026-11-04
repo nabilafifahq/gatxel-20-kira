@@ -42,6 +42,7 @@ const LEARNER_PAGES = [
   /^\/results\/[0-9a-f-]{36}(\/review)?$/,
   /^\/map$/,
   /^\/me$/,
+  /^\/my-words$/,
   /^\/review$/,
   /^\/lesson\/[mes][1-6]\.[a-z0-9-]+$/,
   /^\/esmo$/,
@@ -57,6 +58,8 @@ function isStatic(pathname) {
     pathname.startsWith('/_next/static/') ||
     pathname.startsWith('/icons/') ||
     pathname.startsWith('/sounds/') ||
+    pathname.startsWith('/fonts/') ||
+    pathname.startsWith('/dict/') ||
     pathname === '/favicon.ico' ||
     pathname === '/manifest.webmanifest' ||
     pathname === OFFLINE_URL

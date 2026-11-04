@@ -362,6 +362,1326 @@
         "checkpoint"
       ],
       "expectedSeconds": 75
+    },
+    {
+      "id": "e6.retrieval-inference.011",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What was wrong with Leo’s old gloves?",
+      "passage": "e6.p.borrowed-gloves",
+      "options": [
+        {
+          "text": "They had split along the thumb."
+        },
+        {
+          "text": "They were too big for him.",
+          "why": "The too-big gloves belonged to Rangga’s brother."
+        },
+        {
+          "text": "They were bright orange.",
+          "why": "The orange gloves were Rangga’s."
+        },
+        {
+          "text": "He had lost one of them.",
+          "why": "Leo still had both gloves, but they were damaged."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The answer is in the first sentence.",
+        "Look for the word split.",
+        "Find the words along the thumb."
+      ],
+      "explanation": "The first sentence says his gloves had split along the thumb.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.012",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did Rangga lend Leo his brother’s gloves, even though they were opponents?",
+      "passage": "e6.p.borrowed-gloves",
+      "options": [
+        {
+          "text": "He wanted Leo’s team to lose.",
+          "why": "Rangga says he will have to be better, so he is not trying to make Leo lose."
+        },
+        {
+          "text": "His brother had told him to do it.",
+          "why": "The text does not say that. Rangga decides for himself."
+        },
+        {
+          "text": "He thought a fair match was more fun than an easy win."
+        },
+        {
+          "text": "He was afraid of Leo’s saves.",
+          "why": "Nothing shows fear. He praises Leo and looks forward to a rematch."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what Rangga says after Leo asks about playing against each other.",
+        "Find Rangga’s reply that begins Then I’ll just have to be better.",
+        "Ask: what does he say is no fun?"
+      ],
+      "explanation": "Rangga says there is no fun in beating a goalkeeper with broken gloves. We can infer that he wants a fair, exciting match.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.013",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "For about how long do sea turtle eggs stay buried in the sand? Answer with a number and a unit.",
+      "passage": "e6.p.sea-turtle-journeys",
+      "blanks": [
+        {
+          "answers": [
+            "two months",
+            "2 months",
+            "about two months",
+            "about 2 months"
+          ]
+        }
+      ],
+      "hints": [
+        "The answer is in the third paragraph.",
+        "Look for the words stay buried.",
+        "Find the time given after about."
+      ],
+      "explanation": "The text says the eggs stay buried for about two months.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.014",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A new hotel puts bright floodlights along a nesting beach. According to the text, what is the most likely result?",
+      "passage": "e6.p.sea-turtle-journeys",
+      "options": [
+        {
+          "text": "More female hatchlings will be born.",
+          "why": "That depends on the temperature of the sand, not on lights."
+        },
+        {
+          "text": "Some hatchlings may crawl towards the lights and road instead of the sea."
+        },
+        {
+          "text": "The eggs will take longer to hatch.",
+          "why": "The text says nothing about lights changing how long eggs take."
+        },
+        {
+          "text": "Adult turtles will lay more eggs.",
+          "why": "The text does not link lights to the number of eggs laid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the paragraph about bright lights.",
+        "Hatchlings head for the brightest horizon.",
+        "Ask: what do floodlights do to a hatchling that is looking for the brightest place?"
+      ],
+      "explanation": "The text says bright lights can fool hatchlings, so some crawl towards the road instead of the waves.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.015",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "In the letter, what does the name Yuki mean? Answer with one word.",
+      "passage": "e6.p.first-snow-letter",
+      "blanks": [
+        {
+          "answers": [
+            "snow"
+          ]
+        }
+      ],
+      "hints": [
+        "The answer is in the fourth paragraph.",
+        "Look for the words actually means.",
+        "Find the sentence that begins Funnily enough."
+      ],
+      "explanation": "Yuki says her name means snow.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.016",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did Yuki’s classmates look jealous when she told them the Bogor rain is warm?",
+      "passage": "e6.p.first-snow-letter",
+      "options": [
+        {
+          "text": "They do not like rain.",
+          "why": "They were jealous, which shows they wished they had it, not that they disliked it."
+        },
+        {
+          "text": "They had never heard of Bogor.",
+          "why": "The class wanted to know about the rain, so they knew about the place."
+        },
+        {
+          "text": "They thought Citra was telling a lie.",
+          "why": "Jealous people want something. They did not doubt Citra."
+        },
+        {
+          "text": "In Sapporo, wet weather in November is cold, so they wished for warm rain."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about the weather in Sapporo in November.",
+        "Jealous means wishing you had what someone else has.",
+        "Ask: what kind of wet weather does Yuki describe in her town?"
+      ],
+      "explanation": "Yuki’s town is already getting snow, so the children envy warm rain. We have to infer this from the clues.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.017",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the job of the wax in batik?",
+      "passage": "e6.p.batik-diary",
+      "options": [
+        {
+          "text": "It stops the dye from colouring the cloth underneath."
+        },
+        {
+          "text": "It makes the cloth softer.",
+          "why": "Nothing in the diary says this."
+        },
+        {
+          "text": "It fixes the dye so it never fades.",
+          "why": "The wax is used to block dye, not to fix it."
+        },
+        {
+          "text": "It turns the whole cloth white.",
+          "why": "Only the waxed areas stay white."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The diary explains this in the third paragraph.",
+        "Look for the words blocks the dye.",
+        "Find the sentence that says what happens where the wax has been drawn."
+      ],
+      "explanation": "The wax blocks the dye, so the waxed parts stay white when the cloth is dipped into colour.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.018",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "What is done to the finished cloth to melt away the wax? Answer with one word.",
+      "passage": "e6.p.batik-diary",
+      "blanks": [
+        {
+          "answers": [
+            "boiled",
+            "boiling",
+            "boil"
+          ]
+        }
+      ],
+      "hints": [
+        "The answer is near the end of the diary.",
+        "Look for the last step.",
+        "Find the words hot water."
+      ],
+      "explanation": "The finished cloth is boiled in hot water, and the wax melts away.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.019",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Sekar writes that she will never look at a batik shirt in the same way again. What does this show?",
+      "passage": "e6.p.batik-diary",
+      "options": [
+        {
+          "text": "She no longer likes batik.",
+          "why": "She calls the sarong beautiful. Nothing shows she dislikes batik."
+        },
+        {
+          "text": "She wants to become a batik guide.",
+          "why": "The diary does not say this."
+        },
+        {
+          "text": "She thinks batik shirts cost too much.",
+          "why": "Money is never mentioned."
+        },
+        {
+          "text": "She now understands how much time and skill goes into making batik."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the whole sentence, including the because part.",
+        "The writer gives a reason in the second half.",
+        "Ask: what does hours of patience tell you?"
+      ],
+      "explanation": "The reason she gives is that she now knows how many hours of patience are woven into each piece.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.020",
+      "skill": "e6.retrieval-inference",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many mangrove seedlings were planted?",
+      "passage": "e6.p.mangrove-planting-report",
+      "answer": 500,
+      "hints": [
+        "The number is in the first paragraph.",
+        "Look for the word seedlings.",
+        "Find the number just before mangrove seedlings."
+      ],
+      "explanation": "The report says ninety pupils planted five hundred seedlings.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.021",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did the organisers ask the fishermen to show the pupils where to plant?",
+      "passage": "e6.p.mangrove-planting-report",
+      "options": [
+        {
+          "text": "Fishermen know the water and tide, and an earlier project failed because seedlings were too low."
+        },
+        {
+          "text": "The fishermen wanted to plant the trees themselves.",
+          "why": "The pupils did the planting. The fishermen only guided them."
+        },
+        {
+          "text": "The school had no teachers who could help.",
+          "why": "The text does not say this."
+        },
+        {
+          "text": "Fishermen sell mangrove wood.",
+          "why": "Nothing in the report says this."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the paragraphs about the fishermen and about the failed project.",
+        "The text says the young trees must not be washed away at high tide.",
+        "Ask: who knows the tide and the water best?"
+      ],
+      "explanation": "Fishermen know where the water reaches. The earlier seedlings died partly because they were planted too low, so their advice helps avoid the same mistake.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.022",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In “Pasar Pagi”, why does nobody dawdle?",
+      "passage": "e6.p.market-poems",
+      "options": [
+        {
+          "text": "There are meals to cook and breakfasts waiting at home."
+        },
+        {
+          "text": "The sellers are angry with each other.",
+          "why": "Nobody is described as angry. The reason is given in the poem."
+        },
+        {
+          "text": "The market closes at noon.",
+          "why": "The poem says the day has begun, not that it ends at noon."
+        },
+        {
+          "text": "It is raining hard.",
+          "why": "There is no rain in the poem."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the line that says Nobody dawdles.",
+        "The reason follows in the next lines.",
+        "Read the two lines that begin There are."
+      ],
+      "explanation": "The poem says there are meals to cook and breakfasts waiting at home, so people work quickly.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.023",
+      "skill": "e6.retrieval-inference",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many steps did Mr Okafor climb each evening to light the oil lamp?",
+      "passage": "e6.p.lighthouse-interview",
+      "answer": 93,
+      "hints": [
+        "The number is in his answer about the oil lamp.",
+        "Look for the word steps.",
+        "Find the number just before steps."
+      ],
+      "explanation": "Mr Okafor says he climbed ninety-three steps each evening.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.024",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why does Mr Okafor still look at the clock every evening?",
+      "passage": "e6.p.lighthouse-interview",
+      "options": [
+        {
+          "text": "He is still working at night.",
+          "why": "He says machines took over, so he no longer works there."
+        },
+        {
+          "text": "He is waiting for the coastguard to call.",
+          "why": "The coastguard story happened once, long ago."
+        },
+        {
+          "text": "Lighting the lamp at sunset was part of his routine for years, so the habit stays."
+        },
+        {
+          "text": "He is afraid the light has failed.",
+          "why": "The light now switches on by itself and a technician visits."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read his last answer carefully.",
+        "He says old habits stay with you.",
+        "Ask: what did he do every evening when he worked?"
+      ],
+      "explanation": "For 26 years he lit the lamp at sunset, so he still checks the clock at that time. The habit stays.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.025",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "What are the underground stems of bamboo called? Answer with one word.",
+      "passage": "e6.p.bamboo-wonder-grass",
+      "blanks": [
+        {
+          "answers": [
+            "rhizomes",
+            "rhizome"
+          ]
+        }
+      ],
+      "hints": [
+        "The answer is in the second paragraph.",
+        "Look for the word underground.",
+        "Find the word after called."
+      ],
+      "explanation": "The text says the stems shoot up from underground stems called rhizomes.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.026",
+      "skill": "e6.retrieval-inference",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its meaning in the text.",
+      "passage": "e6.p.bamboo-wonder-grass",
+      "pairs": [
+        [
+          "culm",
+          "a bamboo stem"
+        ],
+        [
+          "rhizome",
+          "an underground stem"
+        ],
+        [
+          "node",
+          "a solid joint along the stem"
+        ],
+        [
+          "angklung",
+          "an instrument from West Java"
+        ],
+        [
+          "rebung",
+          "a young shoot used in cooking"
+        ]
+      ],
+      "hints": [
+        "The text explains each word near where it first appears.",
+        "Scan the text for each word in turn.",
+        "Start with the easiest one, rebung."
+      ],
+      "explanation": "Each word is explained in the text: culms are stems, rhizomes are underground stems, nodes are solid joints, the angklung is an instrument and rebung are young shoots.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.027",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read the notice. LIBRARY NOTICE: The library closes at 4.00 p.m. on Fridays. After closing time, please put returned books in the blue box by the gate. Do not use the red box, which is for magazines. Where should books be returned after closing time?",
+      "options": [
+        {
+          "text": "in the red box",
+          "why": "The red box is for magazines."
+        },
+        {
+          "text": "on the library desk",
+          "why": "The library is closed, so nobody is at the desk."
+        },
+        {
+          "text": "in the blue box by the gate"
+        },
+        {
+          "text": "through the window",
+          "why": "The notice does not mention this."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for the words returned books.",
+        "Pay attention to the colours in the notice.",
+        "Find the sentence that begins After closing time."
+      ],
+      "explanation": "The notice says to put returned books in the blue box by the gate.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.028",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: Tuti pulled her scarf up to her nose, stamped her feet on the platform and watched her breath float away like smoke. What can you infer about the weather?",
+      "options": [
+        {
+          "text": "It was very cold."
+        },
+        {
+          "text": "It was hot and sunny.",
+          "why": "Hot weather would not need a scarf or show breath."
+        },
+        {
+          "text": "She was ill.",
+          "why": "Nothing in the sentence says she was ill."
+        },
+        {
+          "text": "A fire was burning nearby.",
+          "why": "The smoke she sees is her own breath."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at what Tuti does and wears.",
+        "Breath is only visible in cold air.",
+        "Ask: why would someone stamp their feet and pull up a scarf?"
+      ],
+      "explanation": "A scarf, stamping feet and visible breath are all clues that the air is very cold.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.029",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Read: The Komodo dragon lives on a few Indonesian islands, including Komodo and Rinca. It is the heaviest lizard in the world. Name one island named in the text where it lives.",
+      "blanks": [
+        {
+          "answers": [
+            "Komodo",
+            "Rinca",
+            "Komodo Island",
+            "Rinca Island",
+            "Pulau Komodo",
+            "Pulau Rinca"
+          ]
+        }
+      ],
+      "hints": [
+        "The islands are named in the first sentence.",
+        "Look for the word including.",
+        "Find the two names after including."
+      ],
+      "explanation": "The text names Komodo and Rinca. Either answer is correct.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.030",
+      "skill": "e6.retrieval-inference",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read: Pak Joko wiped his forehead for the third time and fanned himself with his old straw hat. Then he dragged his chair into the shade of the mango tree. Choose all the details that show he was hot.",
+      "options": [
+        {
+          "text": "He had an old straw hat.",
+          "why": "The hat is only a detail. It becomes a clue when he fans himself with it."
+        },
+        {
+          "text": "He wiped his forehead for the third time."
+        },
+        {
+          "text": "The tree was a mango tree.",
+          "why": "The kind of tree does not show how he feels."
+        },
+        {
+          "text": "He fanned himself with his hat."
+        },
+        {
+          "text": "He dragged his chair into the shade."
+        }
+      ],
+      "answers": [
+        1,
+        3,
+        4
+      ],
+      "hints": [
+        "Look for actions people take when they are hot.",
+        "Ask of each detail: does it show he is too warm?",
+        "Wiping and fanning are things people do to cool down."
+      ],
+      "explanation": "Wiping sweat, fanning himself and moving into the shade are all signs of heat. His hat and the kind of tree are only details.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.031",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read: Dewi read the message twice, put her phone face down on the table and began to rearrange the cushions, which were already neat. What is Dewi most likely feeling?",
+      "options": [
+        {
+          "text": "excited and proud",
+          "why": "An excited person would probably smile or tell someone."
+        },
+        {
+          "text": "worried about the message"
+        },
+        {
+          "text": "bored",
+          "why": "Reading it twice shows she cares about it."
+        },
+        {
+          "text": "angry and shouting",
+          "why": "Nothing in the sentence shows shouting."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at what she does after reading.",
+        "She busies herself with something that does not need doing.",
+        "Ask: why would someone tidy neat cushions?"
+      ],
+      "explanation": "Reading twice, hiding the phone and fiddling with neat cushions are signs that she is anxious about the message.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.032",
+      "skill": "e6.retrieval-inference",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Read: The shop’s lights were off, the chairs were stacked on the tables and a sign on the door said Back tomorrow. We can infer that the shop was ___.",
+      "gaps": [
+        {
+          "options": [
+            "about to open",
+            "closed for the day",
+            "having a sale"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Put the clues together.",
+        "Lights off and chairs stacked are clues.",
+        "Read the sign on the door again."
+      ],
+      "explanation": "The lights, the chairs and the sign all show that the shop had closed for the day.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.033",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Read: Maya opened the box and sighed. “Oh. Another puzzle,” she said flatly. Copy one word from the text that shows Maya was not happy with her present.",
+      "blanks": [
+        {
+          "answers": [
+            "sighed",
+            "flatly"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the words that describe how Maya speaks and acts.",
+        "Think about a word for a sad breath out.",
+        "Check the verb right after opened the box."
+      ],
+      "explanation": "Sighed and flatly both show that Maya was disappointed.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.034",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Amara, Kofi and Yuki each have one pet: a cat, a rabbit or a parrot. Kofi is allergic to fur, so his pet has feathers. Yuki’s pet is not a rabbit. Who has the rabbit?",
+      "options": [
+        {
+          "text": "Kofi",
+          "why": "Kofi’s pet has feathers, so it is the parrot."
+        },
+        {
+          "text": "Yuki",
+          "why": "The text says Yuki’s pet is not a rabbit."
+        },
+        {
+          "text": "It cannot be worked out.",
+          "why": "It can. Kofi has the parrot, and Yuki is not the rabbit owner, so only one person is left."
+        },
+        {
+          "text": "Amara"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Use the clues one at a time.",
+        "Work out Kofi’s pet first.",
+        "Then see which animal Yuki cannot have."
+      ],
+      "explanation": "Kofi has the parrot. Yuki has the cat, not the rabbit, so Amara has the rabbit.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.035",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read: The window of Mr Hadi’s bookshop was freshly painted, but for weeks nobody had pushed open the door. Each morning he polished the same shelf and checked the till, which was still empty. What can you infer?",
+      "options": [
+        {
+          "text": "He is worried that no customers are coming and keeps busy."
+        },
+        {
+          "text": "He has just opened and has many customers.",
+          "why": "Nobody has come in for weeks."
+        },
+        {
+          "text": "He is lazy and does not like books.",
+          "why": "He works hard each day, so this does not fit."
+        },
+        {
+          "text": "He has forgotten to paint the door.",
+          "why": "The window is freshly painted, and the door is not the problem."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for what is missing from the shop.",
+        "Think about why someone would polish the same shelf each day.",
+        "Ask: what does an empty till tell you about customers?"
+      ],
+      "explanation": "No customers, an empty till and repeated polishing suggest he is worried and trying to stay busy.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.036",
+      "skill": "e6.retrieval-inference",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Read: The ferry was late again. Wulan checked her watch and tapped her foot. By the time it docked, the market stalls had packed up. Sort each statement into the right group.",
+      "groups": [
+        "Stated in the text",
+        "Inferred from clues"
+      ],
+      "items": [
+        {
+          "text": "The ferry was late",
+          "group": 0
+        },
+        {
+          "text": "Wulan checked her watch",
+          "group": 0
+        },
+        {
+          "text": "The stalls had packed up",
+          "group": 0
+        },
+        {
+          "text": "Wulan felt impatient",
+          "group": 1
+        },
+        {
+          "text": "Wulan missed the market",
+          "group": 1
+        },
+        {
+          "text": "The ferry is often late",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Stated means the text says it directly.",
+        "Inferred means you worked it out from clues.",
+        "Check each statement against the text word for word."
+      ],
+      "explanation": "The first three statements are in the text. Feeling impatient, missing the market and the ferry often being late are worked out from clues such as tapping a foot and the word again.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.037",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: The ferry to Pulau Seribu leaves at 07.30, 10.00 and 14.30 every day. On Sundays there is an extra ferry at 16.00. The journey takes 90 minutes. Rangga must arrive before 11.00 on a Monday. Which ferry should he take?",
+      "options": [
+        {
+          "text": "the 10.00 ferry",
+          "why": "It arrives at 11.30, which is after 11.00."
+        },
+        {
+          "text": "the 07.30 ferry"
+        },
+        {
+          "text": "the 14.30 ferry",
+          "why": "It leaves after 11.00 has passed."
+        },
+        {
+          "text": "the 16.00 ferry",
+          "why": "It runs only on Sundays and leaves much too late."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the journey time to each leaving time.",
+        "90 minutes is one and a half hours.",
+        "Check the 07.30 ferry first."
+      ],
+      "explanation": "The 07.30 ferry arrives at 09.00. The 10.00 ferry arrives at 11.30, which is too late.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.038",
+      "skill": "e6.retrieval-inference",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read: Putri’s brother came in covered in mud, holding a muddy ball. He left footprints all along the clean kitchen floor, and Mum sighed. Choose the two sentences that can be inferred.",
+      "options": [
+        {
+          "text": "He had been playing outside."
+        },
+        {
+          "text": "He had been swimming.",
+          "why": "Mud and a ball suggest playing, not swimming."
+        },
+        {
+          "text": "Mum was not pleased about the mess."
+        },
+        {
+          "text": "Mum was happy about the footprints.",
+          "why": "A sigh over a clean floor does not suggest happiness."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Look for clues, not for facts stated outright.",
+        "Mud and a ball tell you where he has been.",
+        "Think about why Mum sighed."
+      ],
+      "explanation": "The mud and ball show he was playing outside. Mum’s sigh at the dirty floor shows she is not pleased.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.039",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Read: After the storm the mountain path was treacherous, with loose stones and deep mud. The guide told us to walk slowly. What does treacherous mean here? Answer with one word.",
+      "blanks": [
+        {
+          "answers": [
+            "dangerous",
+            "hazardous",
+            "unsafe",
+            "risky"
+          ]
+        }
+      ],
+      "hints": [
+        "Use the clues around the word.",
+        "Loose stones, deep mud and walk slowly are clues.",
+        "Think of a word that means not safe."
+      ],
+      "explanation": "Loose stones, mud and the guide’s warning show that the path was dangerous.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.040",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The cake in the kitchen was eaten sometime between 3.00 and 4.00. Maya saw it whole at 3.30. Leo found it eaten at 3.45. Tom was at football practice, a long bus ride away, from 3.15 until 5.00. What can we conclude?",
+      "options": [
+        {
+          "text": "Tom ate it before football.",
+          "why": "Maya saw the cake whole at 3.30, after Tom had left."
+        },
+        {
+          "text": "The cake was eaten before 3.30.",
+          "why": "Maya saw it whole at 3.30."
+        },
+        {
+          "text": "It cannot be worked out when it was eaten.",
+          "why": "It can be narrowed to a short time."
+        },
+        {
+          "text": "It was eaten between 3.30 and 3.45, so Tom could not have eaten it."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Put the times on a line.",
+        "Use Maya’s time and Leo’s time to find a window.",
+        "Compare that window with when Tom was away."
+      ],
+      "explanation": "The cake was whole at 3.30 and eaten by 3.45. Tom was away from 3.15, so he cannot have eaten it.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.041",
+      "skill": "e6.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Read: The pasar apung, or floating market, in Banjarmasin begins before sunrise. Traders sell fruit, vegetables and cakes from small wooden boats called jukung. What are the small wooden boats called?",
+      "blanks": [
+        {
+          "answers": [
+            "jukung",
+            "jukungs"
+          ]
+        }
+      ],
+      "hints": [
+        "The answer is in the second sentence.",
+        "Look for the words called.",
+        "Find the word after called."
+      ],
+      "explanation": "The text calls the small wooden boats jukung.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.retrieval-inference.901",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What did Arif's grandfather give him?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "a brass compass"
+        },
+        {
+          "text": "a map of the highlands"
+        },
+        {
+          "text": "a notebook"
+        },
+        {
+          "text": "a torch"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the first lines.",
+        "It helps to find directions.",
+        "It has a needle."
+      ],
+      "explanation": "The first paragraph says his grandfather gave him an old brass compass.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.902",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What was Arif doing as he walked behind the group?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "sleeping"
+        },
+        {
+          "text": "drawing a map in his notebook"
+        },
+        {
+          "text": "taking photographs"
+        },
+        {
+          "text": "playing a game"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Read the second paragraph.",
+        "The word map appears twice.",
+        "He was using a notebook."
+      ],
+      "explanation": "He lagged behind, drawing a map of the stream, the fallen tree and the hill.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.903",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does the phrase \"swallowed by the fog\" suggest about Arif's voice?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "It could not be heard."
+        },
+        {
+          "text": "It was singing."
+        },
+        {
+          "text": "It was funny."
+        },
+        {
+          "text": "It was very loud."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does swallow do to food?",
+        "Fog makes everything quiet.",
+        "His call was lost."
+      ],
+      "explanation": "The fog hid and muffled his voice as if it had been eaten, so nobody could hear it.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.904",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did Arif sit on a rock and breathe deeply?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "He wanted to calm himself and think."
+        },
+        {
+          "text": "He was cold."
+        },
+        {
+          "text": "He was tired of walking."
+        },
+        {
+          "text": "He was bored."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What did Panic tell him to do?",
+        "He did the opposite.",
+        "Look at the word Think."
+      ],
+      "explanation": "He told himself to think. The deep breaths helped him stay calm instead of running in panic.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.905",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How does the writer show that Arif felt panic?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "By personifying panic as a voice that whispers in his ear."
+        },
+        {
+          "text": "By listing his lunch."
+        },
+        {
+          "text": "By using a simile about trees."
+        },
+        {
+          "text": "By describing the weather."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which feeling is given a voice?",
+        "Giving human actions to feelings is personification.",
+        "Find the word whispered."
+      ],
+      "explanation": "Panic is given a whispering voice, which makes the feeling seem alive and urgent.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.906",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why did Arif say \"My map found me\"?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "The map was a living thing."
+        },
+        {
+          "text": "He was joking about being lost."
+        },
+        {
+          "text": "His map helped him find the way back, so the rescue came through it."
+        },
+        {
+          "text": "Mr Hartono had the map."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Who found whom, in a literal sense?",
+        "He retraced his path.",
+        "The notebook proved him right."
+      ],
+      "explanation": "By following the landmarks he drew, he retraced his steps and was found. The sentence is a playful way to say the map saved him.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.951",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do honeyguides like to eat?",
+      "passage": "e6.p.the-honey-guides",
+      "options": [
+        {
+          "text": "fruit"
+        },
+        {
+          "text": "fish"
+        },
+        {
+          "text": "beeswax and the grubs of bees"
+        },
+        {
+          "text": "seeds only"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look under A sweet reward.",
+        "The food comes from a bees' nest.",
+        "It is not fruit or seeds."
+      ],
+      "explanation": "The text says they love beeswax and the grubs of bees.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.952",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why can the honeyguide not get the honey by itself?",
+      "passage": "e6.p.the-honey-guides",
+      "options": [
+        {
+          "text": "Honey is poisonous to it."
+        },
+        {
+          "text": "It cannot fly."
+        },
+        {
+          "text": "It cannot break open the nest, and bees guard it."
+        },
+        {
+          "text": "It is afraid of humans."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read the A sweet reward section.",
+        "The nest is hidden and guarded.",
+        "What do people use?"
+      ],
+      "explanation": "The nest is guarded by thousands of angry insects and the bird cannot break it open.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.953",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "According to the text, what did the 2016 study find?",
+      "passage": "e6.p.the-honey-guides",
+      "options": [
+        {
+          "text": "Hunters have no special call."
+        },
+        {
+          "text": "Honeyguides sing the best song."
+        },
+        {
+          "text": "Honeyguides never respond to humans."
+        },
+        {
+          "text": "Honeyguides were about twice as likely to lead hunters who used the traditional call."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the paragraph beginning Scientists first suspected.",
+        "Look for the word twice.",
+        "It compares the traditional call with other sounds."
+      ],
+      "explanation": "Researchers found the birds appeared about twice as often when the traditional call was played.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.retrieval-inference.954",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is the purpose of the 2016 study?",
+      "passage": "e6.p.the-honey-guides",
+      "options": [
+        {
+          "text": "To teach children birdsong."
+        },
+        {
+          "text": "To test whether the birds really understand the call or if it was only a coincidence."
+        },
+        {
+          "text": "To make honey."
+        },
+        {
+          "text": "To count honeyguides."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What did scientists first suspect?",
+        "Why test the idea?",
+        "The word coincidence is a clue."
+      ],
+      "explanation": "The text says scientists first suspected a coincidence, so researchers tested the idea with three types of sound.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
     }
   ]
 }

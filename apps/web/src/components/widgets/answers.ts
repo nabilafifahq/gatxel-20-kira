@@ -1,3 +1,4 @@
+import { analysePegs, parseBars, parseBlocks, parsePegs, parsePlacements, type BarModelState, type BarState, type Blocks, type Peg, type TangramState } from '@kira/content/manip'
 import type { ClientItem, ClientPart } from '@kira/content/present'
 
 /**
@@ -67,6 +68,39 @@ export function asClock(v: unknown): { h: number; m: number } | null {
 export function asShaded(v: unknown): number | null {
   const r = rec(v)
   return r && isNum(r.shaded) ? r.shaded : null
+}
+
+/** Alat peraga: bentuk jawaban terstruktur, null bila belum disentuh. */
+export function asBlocks(v: unknown): Blocks | null {
+  const r = rec(v)
+  return r ? parseBlocks(r.blocks) : null
+}
+
+export function asBars(v: unknown): BarState[] | null {
+  const r = rec(v)
+  return r ? parseBars(r.bars) : null
+}
+
+export function asModel(v: unknown): BarModelState | null {
+  const r = rec(v)
+  const m = r ? rec(r.model) : null
+  if (!m || !Array.isArray(m.bars)) return null
+  const bars = m.bars.flatMap((b) => {
+    const x = rec(b)
+    return x && typeof x.label === 'string' && isNum(x.units) ? [{ label: x.label, units: x.units }] : []
+  })
+  return { bars, ...(isNum(m.unit) ? { unit: m.unit } : {}) }
+}
+
+export function asPlaced(v: unknown, slots: number, pool: number): TangramState | null {
+  const r = rec(v)
+  return r ? parsePlacements(r.placed, slots, pool) : null
+}
+
+export function asPegs(v: unknown): { pegs: Peg[]; closed: boolean } {
+  const r = rec(v)
+  const pegs = r && Array.isArray(r.pegs) ? r.pegs.flatMap((p): Peg[] => (Array.isArray(p) && isNum(p[0]) && isNum(p[1]) ? [[p[0], p[1]]] : [])) : []
+  return { pegs, closed: !!r && r.closed === true }
 }
 
 export function asText(v: unknown): string {
@@ -180,6 +214,23 @@ export function isAnswerComplete(item: ClientItem, v: unknown): boolean {
       return asTexts(v, item.labelDiagram?.spots.length ?? 0).every((t) => t !== '')
     case 'table':
       return asTexts(v, item.table?.blanks.length ?? 0).every((t) => t.trim() !== '')
+    case 'blocks':
+      return asBlocks(v) !== null
+    case 'fractionbar':
+      return asBars(v) !== null
+    case 'barmodel': {
+      const m = asModel(v)
+      return !!m && m.bars.length > 0 && m.bars.every((b) => b.label !== '')
+    }
+    case 'tangram': {
+      const n = item.tangram?.slots.length ?? 0
+      const placed = asPlaced(v, n, item.tangram?.pieces.length ?? 0)
+      return n > 0 && !!placed && placed.every((p) => p !== null)
+    }
+    case 'geoboard': {
+      const g = asPegs(v)
+      return g.closed && parsePegs(g.pegs, item.geoboard?.size ?? 0) !== null && analysePegs(g.pegs).ok
+    }
     case 'grid': {
       const n = (item.grid?.size ?? 0) ** 2
       const cells = asCells(v, n)

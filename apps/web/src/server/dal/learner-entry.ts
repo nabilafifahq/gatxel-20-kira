@@ -81,13 +81,19 @@ export async function learnerOrgFor(device: DeviceInfo, learnerId: string): Prom
 }
 
 /** Isi started_on saat learner pertama kali membuka Today (profil hanya boleh diubah server). */
+// Learner yang sudah punya started_on tidak perlu transaksi lagi (started_on tidak pernah dikosongkan).
+const startedKnown = new Set<string>()
+
 export async function ensureStarted(orgId: string, learnerId: string): Promise<void> {
+  if (startedKnown.has(learnerId)) return
   await inOrg(systemCtx(orgId), (tx) =>
     tx
       .update(learnerProfile)
       .set({ startedOn: jakartaDate() })
       .where(and(eq(learnerProfile.userId, learnerId), isNull(learnerProfile.startedOn))),
   )
+  if (startedKnown.size > 5000) startedKnown.clear()
+  startedKnown.add(learnerId)
 }
 
 export async function setLearnerAvatar(orgId: string, learnerId: string, avatar: AvatarName): Promise<void> {

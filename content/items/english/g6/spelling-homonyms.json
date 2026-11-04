@@ -334,6 +334,743 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e6.spelling-homonyms.011",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 1,
+      "prompt": "Which word completes the sentence? I would like a ___ of cake.",
+      "hints": [
+        "Think about what you cut from a cake.",
+        "Piece begins like pie.",
+        "A piece of pie."
+      ],
+      "explanation": "Piece means a part of something. Peace means calm.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "peace",
+          "why": "Peace means calm and quiet. It sounds the same but has a different meaning."
+        },
+        {
+          "text": "pece",
+          "why": "Piece has an i and an e. Something is missing."
+        },
+        {
+          "text": "peice",
+          "why": "In piece the i comes before the e."
+        },
+        {
+          "text": "piece"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.spelling-homonyms.012",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 1,
+      "prompt": "Which word completes the sentence? The ___ is sunny today.",
+      "hints": [
+        "Think about rain, wind and sun.",
+        "The word begins with the letters w, e, a.",
+        "We, ather."
+      ],
+      "explanation": "Weather is the state of the air and sky. Whether means if.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "weather"
+        },
+        {
+          "text": "whether",
+          "why": "Whether means if. It sounds the same but does not fit."
+        },
+        {
+          "text": "wethear",
+          "why": "The letters are in the wrong order. Weather ends in -ther."
+        },
+        {
+          "text": "wheather",
+          "why": "This word is misspelt. There is no h after the first e."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e6.spelling-homonyms.013",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 2,
+      "prompt": "___ going to the market, and ___ bags are over ___.",
+      "hints": [
+        "They’re is a short form of two words.",
+        "Their shows that something belongs to them. There shows a place.",
+        "Say the first gap as they are."
+      ],
+      "explanation": "They’re means they are, their shows ownership and there points to a place.",
+      "type": "cloze",
+      "gaps": [
+        {
+          "options": [
+            "They’re",
+            "Their",
+            "There"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "their",
+            "there",
+            "they’re"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "their",
+            "there",
+            "they’re"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "e6.spelling-homonyms.014",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 2,
+      "prompt": "Listen and spell the word.",
+      "hints": [
+        "It has one collar and two sleeves.",
+        "Remember: one c and two s.",
+        "Neces, sary."
+      ],
+      "explanation": "Necessary has one c and two s: one collar, two sleeves.",
+      "type": "spell",
+      "word": "necessary",
+      "sentence": "It is necessary to wear a helmet when you ride a bike."
+    },
+    {
+      "id": "e6.spelling-homonyms.015",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 2,
+      "prompt": "Match each word to its meaning.",
+      "hints": [
+        "Look at the last few letters for a clue.",
+        "Stationery with an e is the paper you write on.",
+        "Current and currant sound the same, but one is food."
+      ],
+      "explanation": "Stationary with an a means still. Stationery with an e is paper goods. Currant is a fruit and current is a flow.",
+      "type": "match",
+      "pairs": [
+        [
+          "stationary",
+          "not moving"
+        ],
+        [
+          "stationery",
+          "pens, paper and envelopes"
+        ],
+        [
+          "currant",
+          "a small dried fruit"
+        ],
+        [
+          "current",
+          "water or electricity that flows"
+        ]
+      ]
+    },
+    {
+      "id": "e6.spelling-homonyms.016",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "Listen and spell the word.",
+      "hints": [
+        "Many people wrongly write per in the middle.",
+        "The middle of the word is par.",
+        "Sep, a, rate."
+      ],
+      "explanation": "Separate has par in the middle: sep-a-rate. A common mistake is to write per.",
+      "type": "spell",
+      "word": "separate",
+      "sentence": "Please keep the red pens separate from the blue ones."
+    },
+    {
+      "id": "e6.spelling-homonyms.017",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "Write the correct word. The school ___ welcomed the new pupils to the hall. (principal or principle)",
+      "hints": [
+        "One of these words means the head of a school.",
+        "Principle means a rule or belief.",
+        "The principal is your pal."
+      ],
+      "explanation": "The principal is the head of a school. A principle is a rule.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "principal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.spelling-homonyms.018",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "Which word completes the sentence? The heavy rain had a bad ___ on the match.",
+      "hints": [
+        "After a bad, the sentence needs a naming word.",
+        "Effect with an e is a noun. Affect with an a is usually a verb.",
+        "Remember: a for action, e for the end result."
+      ],
+      "explanation": "Effect is the noun for a result. Affect is usually the verb, as in The rain affected the match.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "affect",
+          "why": "Affect is usually a verb. Here we need a noun after the word bad."
+        },
+        {
+          "text": "effect"
+        },
+        {
+          "text": "affected",
+          "why": "Affected is a verb form, so it cannot follow had a bad."
+        },
+        {
+          "text": "affects",
+          "why": "Affects is a verb form, so it cannot follow had a bad."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e6.spelling-homonyms.019",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "Everyone ___ Rangga was happy to ___ the invitation.",
+      "hints": [
+        "Except means apart from.",
+        "Accept means to say yes to.",
+        "Try the sentence with apart from in the first gap."
+      ],
+      "explanation": "Everyone except Rangga means everyone apart from Rangga. To accept an invitation is to say yes.",
+      "type": "cloze",
+      "gaps": [
+        {
+          "options": [
+            "except",
+            "accept"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "except",
+            "accept"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "e6.spelling-homonyms.020",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "Sort the words by their ending.",
+      "hints": [
+        "Look at the last four letters of each word.",
+        "Say the word, then picture its spelling.",
+        "Start with visible and possible."
+      ],
+      "explanation": "These words have to be learned. Comfortable, adorable and valuable end in -able. Possible, terrible and visible end in -ible.",
+      "type": "sort",
+      "groups": [
+        "-able",
+        "-ible"
+      ],
+      "items": [
+        {
+          "text": "comfortable",
+          "group": 0
+        },
+        {
+          "text": "adorable",
+          "group": 0
+        },
+        {
+          "text": "valuable",
+          "group": 0
+        },
+        {
+          "text": "possible",
+          "group": 1
+        },
+        {
+          "text": "terrible",
+          "group": 1
+        },
+        {
+          "text": "visible",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e6.spelling-homonyms.021",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "Which sentence has every word spelt correctly?",
+      "hints": [
+        "Check each long word one at a time.",
+        "Receive follows the rule i before e except after c.",
+        "Look for the word finite inside definitely."
+      ],
+      "explanation": "The correct spellings are definitely, received and pleasant.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "I definately received a pleasant surprise.",
+          "why": "Definitely has the word finite in the middle. It is not definate."
+        },
+        {
+          "text": "I definitely recieved a pleasant surprise.",
+          "why": "Remember: i before e except after c. Receive has c before ei."
+        },
+        {
+          "text": "I definitely received a pleasant surprise."
+        },
+        {
+          "text": "I definitely received a plesant surprise.",
+          "why": "Pleasant has an a after the s: pleas-ant."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.spelling-homonyms.022",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "One word is misspelt. Write it correctly. The new pupil felt embarassed on her first day.",
+      "hints": [
+        "The wrong word is the long one.",
+        "It needs two of the same letter twice.",
+        "Embarrassed: two r and two s."
+      ],
+      "explanation": "Embarrassed has double r and double s.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "embarrassed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.spelling-homonyms.023",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 4,
+      "prompt": "Listen and spell the word.",
+      "hints": [
+        "It has no usual vowels a, e, i, o or u.",
+        "A memory trick: Rhythm Helps Your Two Hips Move.",
+        "R-h-y-t-h-m."
+      ],
+      "explanation": "Rhythm has no usual vowels. The letter y does the work.",
+      "type": "spell",
+      "word": "rhythm",
+      "sentence": "The drummer kept a steady rhythm all through the song."
+    },
+    {
+      "id": "e6.spelling-homonyms.024",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 4,
+      "prompt": "In which sentence does bear mean to put up with?",
+      "hints": [
+        "Bear is a word with several meanings.",
+        "Replace bear with put up with and read it.",
+        "Which sentence is about a noise you do not like?"
+      ],
+      "explanation": "Bear can be an animal, to produce, or to put up with. Only the noise sentence means to put up with.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "A bear woke up in the cave.",
+          "why": "Here bear is an animal."
+        },
+        {
+          "text": "We saw a polar bear at the zoo.",
+          "why": "Here bear is an animal."
+        },
+        {
+          "text": "The apple tree will bear fruit next year.",
+          "why": "Here bear means to produce, not to put up with."
+        },
+        {
+          "text": "I cannot bear the noise of the drill."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.spelling-homonyms.025",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 4,
+      "prompt": "Choose all the words that are spelt correctly.",
+      "hints": [
+        "Check each word for double letters.",
+        "Accommodation has two c and two m.",
+        "Look at the word occasion."
+      ],
+      "explanation": "Accommodation, embarrass and necessary are correct. The others have a letter wrong.",
+      "type": "multi",
+      "options": [
+        {
+          "text": "accommodation"
+        },
+        {
+          "text": "embarrass"
+        },
+        {
+          "text": "necessary"
+        },
+        {
+          "text": "occassion",
+          "why": "Occasion has only one s in the middle."
+        },
+        {
+          "text": "neccessary",
+          "why": "Necessary has only one c."
+        },
+        {
+          "text": "seperate",
+          "why": "Separate has the word par in the middle."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "e6.spelling-homonyms.026",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 3,
+      "prompt": "Put the cards in order to make a correct sentence.",
+      "hints": [
+        "The first word is a short form of two words.",
+        "Who’s means who is. Whose shows ownership.",
+        "Start with the capital letter."
+      ],
+      "explanation": "Who’s means who is. Whose asks who something belongs to.",
+      "type": "tiles",
+      "answer": "Who’s the girl whose bag is red?",
+      "distractors": [
+        "Whos",
+        "theirs"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "e6.spelling-homonyms.027",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 4,
+      "prompt": "Which sentence uses practise and practice correctly in British English?",
+      "hints": [
+        "One gap is an action. One is a thing.",
+        "Verbs use s, as with advise. Nouns use c, as with advice.",
+        "The first gap follows must."
+      ],
+      "explanation": "Practise with an s is the verb and practice with a c is the noun in British English.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "I must practice the piano before my practise starts.",
+          "why": "In British English the verb is practise and the noun is practice."
+        },
+        {
+          "text": "I must practise the piano before my practise starts.",
+          "why": "The thing that starts is a noun, so it needs the c spelling."
+        },
+        {
+          "text": "I must practise the piano before my practice starts."
+        },
+        {
+          "text": "I must practice the piano before my practice starts.",
+          "why": "The first one is a verb, so it needs the s spelling."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.spelling-homonyms.028",
+      "skill": "e6.spelling-homonyms",
+      "difficulty": 5,
+      "prompt": "Which sentence has every word spelt and chosen correctly?",
+      "hints": [
+        "Every sentence looks nearly the same, so read slowly.",
+        "Check each pair: advice and advise, accept and except.",
+        "The first gap comes after the council’s."
+      ],
+      "explanation": "Advice is a noun, accept means to agree to, and except means apart from.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The council’s advise was to accept the plan, except for the bridge.",
+          "why": "Advise is the verb. The noun here is advice."
+        },
+        {
+          "text": "The council’s advice was to except the plan, except for the bridge.",
+          "why": "Except means apart from. The council would accept, or agree to, the plan."
+        },
+        {
+          "text": "The council’s advice was to accept the plan, expect for the bridge.",
+          "why": "Expect means to think something will happen. The word needed is except."
+        },
+        {
+          "text": "The council’s advice was to accept the plan, except for the bridge."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.spelling-homonyms.801",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word bank in \"river bank\" and the word bank in \"bank account\" are homonyms.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the spelling and sound of the two words.",
+        "Compare their meanings.",
+        "Same spelling, same sound, different meaning."
+      ],
+      "explanation": "Homonyms are words with the same spelling and sound but different meanings.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.spelling-homonyms.802",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In British English, practice is the correct spelling of the verb.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is the word in the sentence an action or a thing?",
+        "Think of licence and license.",
+        "The verb is spelt with an s."
+      ],
+      "explanation": "In British English, practice is the noun and practise is the verb. We practise the piano.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.spelling-homonyms.803",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In British English, the verb practise is spelt with an s.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Decide whether you need a noun or a verb.",
+        "Verbs are action words.",
+        "The action word has an s."
+      ],
+      "explanation": "The verb is practise and the noun is practice, as in I practise every day at football practice.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.spelling-homonyms.804",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The words principal and principle mean the same.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "One of them can be a person.",
+        "Think of the principal of a school.",
+        "The other is a rule you live by."
+      ],
+      "explanation": "A principal is the head of a school. A principle is a rule or belief.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.spelling-homonyms.805",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word affect is usually a verb and the word effect is usually a noun.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which spelling starts the action?",
+        "Affect is the action, effect is the result.",
+        "A is for action."
+      ],
+      "explanation": "Rain can affect our plans, and the effect of the rain is wet clothes.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.spelling-homonyms.806",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The words complement and compliment mean the same.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "One word has an e for enough, as in completing something.",
+        "A compliment is a kind thing to say.",
+        "Their meanings are different."
+      ],
+      "explanation": "Complement means to go well with something. Compliment means a kind remark.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.spelling-homonyms.807",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word stationary means not moving.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a parked car that is not moving.",
+        "Stationery with an e is for envelopes.",
+        "Stationary with an a means still."
+      ],
+      "explanation": "Stationary with an a means still. Stationery with an e means paper and pens.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.spelling-homonyms.701",
+      "skill": "e6.spelling-homonyms",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Please ___ me what to do. (give advice)",
+      "blanks": [
+        {
+          "answers": [
+            "advise"
+          ]
+        }
+      ],
+      "hints": [
+        "The verb ends in se.",
+        "The noun is advice.",
+        "a, d, v, i, s, e."
+      ],
+      "explanation": "Advise is the verb. Advice is the noun.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
+    },
+    {
+      "id": "e6.spelling-homonyms.702",
+      "skill": "e6.spelling-homonyms",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Words spelt the same with different meanings are ___.",
+      "blanks": [
+        {
+          "answers": [
+            "homonyms",
+            "homonym",
+            "homographs",
+            "homograph"
+          ]
+        }
+      ],
+      "hints": [
+        "A bat is an animal or a sports item.",
+        "They are not homophones.",
+        "It starts with homo."
+      ],
+      "explanation": "Homonyms are words that look the same but have different meanings.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

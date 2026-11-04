@@ -1,0 +1,119 @@
+{
+  "skill": "m5.sequences",
+  "items": [
+    {
+      "id": "m5.sequences.001",
+      "skill": "m5.sequences",
+      "difficulty": 4,
+      "prompt": "Look at the sequence 5, 8, 11, 14, ... Which position in the sequence is the number 50?",
+      "hints": [
+        "Find the rule from term to term.",
+        "The numbers go up by 3.",
+        "Each term is 3 times the position, plus 2."
+      ],
+      "explanation": "Each term is 3 × position + 2. For 50: 50 - 2 = 48, and 48 ÷ 3 = 16. So 50 is the 16th term.",
+      "type": "numeric",
+      "answer": 16
+    },
+    {
+      "id": "m5.sequences.002",
+      "skill": "m5.sequences",
+      "difficulty": 4,
+      "prompt": "A sequence starts 100, 92, 84, 76, ... and keeps going down by 8. What is the first negative number in the sequence?",
+      "hints": [
+        "Keep subtracting 8 until you pass zero.",
+        "100, 92, 84, 76, 68, 60, ...",
+        "The term after 4 is the first negative."
+      ],
+      "explanation": "Counting down by 8 gives 12, then 4, then 4 - 8 = -4. So -4 is the first negative number.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "4",
+          "why": "This is the last positive number. The next term goes below zero."
+        },
+        {
+          "text": "-4"
+        },
+        {
+          "text": "0",
+          "why": "The sequence does not land on 0. 100 is not a multiple of 8."
+        },
+        {
+          "text": "-8",
+          "why": "The sequence goes 12, 4, -4. The number -8 is not in the sequence."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.sequences.003",
+      "skill": "m5.sequences",
+      "difficulty": 3,
+      "prompt": "In week 1, Wulan puts Rp5.000 in a savings jar. Each week after that she adds Rp2.500. How much is in the jar after she adds money in week 9?",
+      "hints": [
+        "The first amount is for week 1.",
+        "How many times has she added Rp2.500 by week 9?",
+        "She adds 8 times after the start."
+      ],
+      "explanation": "Week 1 is Rp5.000. There are 8 more weeks to week 9, so Rp5.000 + 8 × Rp2.500 = Rp25.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 25000
+    },
+    {
+      "id": "m5.sequences.801",
+      "skill": "m5.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The next term in the sequence 2, 6, 18, 54 is 162.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find what the first number is multiplied by.",
+        "6 ÷ 2 = 3.",
+        "54 × 3."
+      ],
+      "explanation": "The rule is multiply by 3. 54 × 3 = 162.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.sequences.802",
+      "skill": "m5.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sequence 100, 93, 86, 79 follows the rule subtract 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work out the gap between terms.",
+        "100 - 93.",
+        "The gap is 7."
+      ],
+      "explanation": "Each term is 7 less than the one before, so the rule is subtract 7.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

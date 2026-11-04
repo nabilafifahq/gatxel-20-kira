@@ -1,0 +1,155 @@
+{
+  "skill": "m4.angles",
+  "items": [
+    {
+      "id": "m4.angles.001",
+      "skill": "m4.angles",
+      "difficulty": 3,
+      "prompt": "At 4 o'clock the hour hand points to 4 and the minute hand points to 12. What kind of angle do the hands make?",
+      "hints": [
+        "Think about 3 o'clock first. What angle is that?",
+        "4 o'clock is one hour after 3 o'clock.",
+        "Is the angle bigger or smaller than a right angle?"
+      ],
+      "explanation": "At 3 o'clock the angle is 90°. At 4 o'clock it is 120°, which is bigger than a right angle and less than a straight line, so it is obtuse.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "acute",
+          "why": "An acute angle is smaller than a right angle. At 4 o'clock the angle is bigger than that."
+        },
+        {
+          "text": "right",
+          "why": "The hands make a right angle at 3 o'clock, not 4 o'clock."
+        },
+        {
+          "text": "obtuse"
+        },
+        {
+          "text": "straight",
+          "why": "The hands make a straight line at 6 o'clock."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m4.angles.002",
+      "skill": "m4.angles",
+      "difficulty": 3,
+      "prompt": "Two angles sit on a straight line. One angle is 65°. What is the size of the other angle in degrees?",
+      "hints": [
+        "A straight line is 180°.",
+        "The two angles add up to 180°.",
+        "180 - 65."
+      ],
+      "explanation": "Angles on a straight line add up to 180°. 180 - 65 = 115°.",
+      "unit": "°",
+      "type": "numeric",
+      "answer": 115
+    },
+    {
+      "id": "m4.angles.801",
+      "skill": "m4.angles",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A right angle measures 90 degrees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "It is the corner of a square.",
+        "A quarter of a full turn.",
+        "Quarter of 360."
+      ],
+      "explanation": "A right angle is a quarter turn, which is 90 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.angles.802",
+      "skill": "m4.angles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: An angle of 120 degrees is an acute angle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare 120 with 90.",
+        "Acute means smaller than a right angle.",
+        "It is bigger than a right angle."
+      ],
+      "explanation": "Acute angles are less than 90 degrees. 120 degrees is more than 90, so it is obtuse.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.angles.803",
+      "skill": "m4.angles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: At 3 o'clock the hands of a clock make a right angle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many numbers apart are 12 and 3?",
+        "A quarter turn.",
+        "It is like the corner of a square."
+      ],
+      "explanation": "The minute hand points to 12 and the hour hand to 3, a quarter of the clock face apart: 90 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.angles.804",
+      "skill": "m4.angles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: An obtuse angle is smaller than a right angle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare with 90 degrees.",
+        "Acute angles are the small ones.",
+        "Obtuse means wide."
+      ],
+      "explanation": "An obtuse angle is bigger than 90 degrees and less than 180 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

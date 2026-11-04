@@ -8,13 +8,15 @@ test.afterAll(closeDb)
  * untuk sisanya (ketuk saja, target minimal 44 px).
  */
 
-const RAIL = ['Today', 'Map', 'Review', 'Competitions', 'English Skills', 'Quick Maths', 'Quiz Arena', 'Me']
+const RAIL = ['Today', 'Map', 'Review', 'Competitions', 'English Skills', 'Quick Maths', 'Quiz Arena', 'Maths Tools', 'Me']
 
-test('tablet: rel kiri memuat delapan tujuan utama', async ({ page }) => {
+test('tablet: rel kiri memuat semua tujuan utama termasuk Maths Tools', async ({ page }) => {
   const errors = watchErrors(page)
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')
   const nav = page.getByRole('navigation', { name: 'Main' }).first()
+  // loading.tsx menampilkan kerangka sebentar; tunggu rel terisi sebelum membaca tautannya.
+  await expect(nav.getByRole('link').first()).toBeVisible()
   const names = await nav.getByRole('link').allInnerTexts()
   // Review tampil bila learner memakainya; semua tujuan lain selalu ada, dalam urutan ini.
   expect(names.map((n) => n.split('\n')[0]!.trim()).filter((n) => RAIL.includes(n))).toEqual(RAIL.filter((n) => n === 'Review' ? names.some((x) => x.startsWith('Review')) : true))

@@ -7,16 +7,43 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort these into light sources and things that are not light sources.",
-      "groups": ["Light source", "Not a light source"],
+      "groups": [
+        "Light source",
+        "Not a light source"
+      ],
       "items": [
-        { "text": "the Sun", "group": 0 },
-        { "text": "a candle flame", "group": 0 },
-        { "text": "a torch that is switched on", "group": 0 },
-        { "text": "a firefly", "group": 0 },
-        { "text": "the Moon", "group": 1 },
-        { "text": "a mirror", "group": 1 },
-        { "text": "a shiny spoon", "group": 1 },
-        { "text": "a white sheet of paper", "group": 1 }
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "a candle flame",
+          "group": 0
+        },
+        {
+          "text": "a torch that is switched on",
+          "group": 0
+        },
+        {
+          "text": "a firefly",
+          "group": 0
+        },
+        {
+          "text": "the Moon",
+          "group": 1
+        },
+        {
+          "text": "a mirror",
+          "group": 1
+        },
+        {
+          "text": "a shiny spoon",
+          "group": 1
+        },
+        {
+          "text": "a white sheet of paper",
+          "group": 1
+        }
       ],
       "hints": [
         "A light source makes its own light.",
@@ -24,7 +51,9 @@
         "Ask of each one whether it would still shine in a completely dark room."
       ],
       "explanation": "The Sun, a candle flame, a lit torch and a firefly all make their own light. The Moon, a mirror, a spoon and paper only reflect light from a source.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.light-shadows.002",
@@ -33,10 +62,21 @@
       "difficulty": 1,
       "prompt": "Which material would make the darkest shadow?",
       "options": [
-        { "text": "clear glass", "why": "Clear glass is transparent, so almost all light passes through it." },
-        { "text": "tracing paper", "why": "Tracing paper is translucent. Some light passes through, so the shadow is pale." },
-        { "text": "a wooden board" },
-        { "text": "frosted glass", "why": "Frosted glass is translucent, so it lets some light through." }
+        {
+          "text": "clear glass",
+          "why": "Clear glass is transparent, so almost all light passes through it."
+        },
+        {
+          "text": "tracing paper",
+          "why": "Tracing paper is translucent. Some light passes through, so the shadow is pale."
+        },
+        {
+          "text": "a wooden board"
+        },
+        {
+          "text": "frosted glass",
+          "why": "Frosted glass is translucent, so it lets some light through."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -53,10 +93,21 @@
       "difficulty": 2,
       "prompt": "Why does a shadow have the same outline shape as the object that makes it?",
       "options": [
-        { "text": "Light travels in straight lines, so it cannot bend around the object." },
-        { "text": "The object gives out dark light.", "why": "There is no such thing as dark light. A shadow is where light cannot reach." },
-        { "text": "The shadow is a reflection of the object.", "why": "A reflection is light bouncing back. A shadow is where light is blocked." },
-        { "text": "Light curves around the edges of the object.", "why": "If light curved around objects, shadows would be fuzzy blobs." }
+        {
+          "text": "Light travels in straight lines, so it cannot bend around the object."
+        },
+        {
+          "text": "The object gives out dark light.",
+          "why": "There is no such thing as dark light. A shadow is where light cannot reach."
+        },
+        {
+          "text": "The shadow is a reflection of the object.",
+          "why": "A reflection is light bouncing back. A shadow is where light is blocked."
+        },
+        {
+          "text": "Light curves around the edges of the object.",
+          "why": "If light curved around objects, shadows would be fuzzy blobs."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -73,10 +124,21 @@
       "difficulty": 2,
       "prompt": "At what time of day is your shadow shortest on a sunny day?",
       "options": [
-        { "text": "early in the morning", "why": "The Sun is low in the sky in the morning, so shadows are long." },
-        { "text": "late in the afternoon", "why": "The Sun is low again in the late afternoon, so shadows are long." },
-        { "text": "just before sunset", "why": "At sunset the Sun is very low, which makes very long shadows." },
-        { "text": "around midday" }
+        {
+          "text": "early in the morning",
+          "why": "The Sun is low in the sky in the morning, so shadows are long."
+        },
+        {
+          "text": "late in the afternoon",
+          "why": "The Sun is low again in the late afternoon, so shadows are long."
+        },
+        {
+          "text": "just before sunset",
+          "why": "At sunset the Sun is very low, which makes very long shadows."
+        },
+        {
+          "text": "around midday"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -95,20 +157,46 @@
       "figure": {
         "kind": "table",
         "caption": "Height of the puppet's shadow",
-        "head": ["Distance from torch (cm)", "Shadow height (cm)"],
+        "head": [
+          "Distance from torch (cm)",
+          "Shadow height (cm)"
+        ],
         "rows": [
-          ["10", "48"],
-          ["20", "24"],
-          ["30", "16"],
-          ["40", "12"]
+          [
+            "10",
+            "48"
+          ],
+          [
+            "20",
+            "24"
+          ],
+          [
+            "30",
+            "16"
+          ],
+          [
+            "40",
+            "12"
+          ]
         ],
         "alt": "Table: at 10 cm from the torch the shadow is 48 cm tall, at 20 cm it is 24 cm, at 30 cm it is 16 cm and at 40 cm it is 12 cm."
       },
       "options": [
-        { "text": "The shadow gets bigger.", "why": "The heights fall from 48 cm to 12 cm, so the shadow shrinks." },
-        { "text": "The shadow gets smaller." },
-        { "text": "The shadow stays the same size.", "why": "The heights change a lot as the puppet moves." },
-        { "text": "The shadow disappears.", "why": "There is still a 12 cm shadow at 40 cm." }
+        {
+          "text": "The shadow gets bigger.",
+          "why": "The heights fall from 48 cm to 12 cm, so the shadow shrinks."
+        },
+        {
+          "text": "The shadow gets smaller."
+        },
+        {
+          "text": "The shadow stays the same size.",
+          "why": "The heights change a lot as the puppet moves."
+        },
+        {
+          "text": "The shadow disappears.",
+          "why": "There is still a 12 cm shadow at 40 cm."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -117,7 +205,9 @@
         "Look at the first and last rows of the table."
       ],
       "explanation": "As the puppet moves away from the torch, the shadow shrinks from 48 cm to 12 cm. Close to the light, the puppet blocks a wide spread of light, so it makes a big shadow.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.light-shadows.006",
@@ -125,14 +215,26 @@
       "type": "text",
       "difficulty": 3,
       "prompt": "In the morning, the Sun is in the east. In which direction does the shadow of a flagpole point?",
-      "blanks": [{ "answers": ["west", "to the west", "towards the west", "the west", "w"] }],
+      "blanks": [
+        {
+          "answers": [
+            "west",
+            "to the west",
+            "towards the west",
+            "the west",
+            "w"
+          ]
+        }
+      ],
       "hints": [
         "A shadow forms on the opposite side of an object from the light source.",
         "In the morning, the light comes from the east.",
         "Point to where the Sun is, then turn to face the other way."
       ],
       "explanation": "Light from the morning Sun comes from the east. The flagpole blocks it, so the shadow falls on the opposite side and points west.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.light-shadows.007",
@@ -140,14 +242,25 @@
       "type": "text",
       "difficulty": 2,
       "prompt": "The Moon is not a light source. We can see it because it ___ light from the Sun.",
-      "blanks": [{ "answers": ["reflects", "reflect", "bounces back", "bounces"] }],
+      "blanks": [
+        {
+          "answers": [
+            "reflects",
+            "reflect",
+            "bounces off",
+            "bounces back"
+          ]
+        }
+      ],
       "hints": [
         "The Moon is a ball of rock that does not make its own light.",
         "A mirror does the same thing to light as the Moon does.",
         "Think of the word for light bouncing off a surface. It starts with the letter r."
       ],
       "explanation": "Sunlight hits the Moon and reflects off its rocky surface. Some of the reflected light reaches our eyes, so we can see the Moon.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.light-shadows.008",
@@ -156,10 +269,21 @@
       "difficulty": 4,
       "prompt": "Two torches shine on a ball from different directions. Both torches are switched on. How many shadows does the ball make?",
       "options": [
-        { "text": "one shadow that is twice as dark", "why": "Each torch makes its own shadow on the side away from it, so the shadows are in two places." },
-        { "text": "two shadows, one for each torch" },
-        { "text": "no shadow, because the two lights cancel out", "why": "Light does not cancel light. The ball still blocks each torch." },
-        { "text": "one shadow that is twice as big", "why": "The two shadows form in different places, one for each torch." }
+        {
+          "text": "one shadow that is twice as dark",
+          "why": "Each torch makes its own shadow on the side away from it, so the shadows are in two places."
+        },
+        {
+          "text": "two shadows, one for each torch"
+        },
+        {
+          "text": "no shadow, because the two lights cancel out",
+          "why": "Light does not cancel light. The ball still blocks each torch."
+        },
+        {
+          "text": "one shadow that is twice as big",
+          "why": "The two shadows form in different places, one for each torch."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -168,7 +292,10 @@
         "Picture one torch switched off and count the shadows. Then switch it back on."
       ],
       "explanation": "The ball blocks light from each torch, so each torch makes its own shadow on the opposite side of the ball. Two light sources from different directions make two shadows.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
     },
     {
       "id": "s5.light-shadows.009",
@@ -178,10 +305,22 @@
       "prompt": "Draw a torch, a ball and a screen. Draw the light rays, and show where the shadow forms.",
       "rubric": {
         "criteria": [
-          { "label": "Draws straight light rays from the torch", "points": 2 },
-          { "label": "Shows rays blocked by the ball", "points": 1 },
-          { "label": "Shows the shadow on the screen behind the ball", "points": 2 },
-          { "label": "Labels the torch, ball, screen and shadow", "points": 1 }
+          {
+            "label": "Draws straight light rays from the torch",
+            "points": 2
+          },
+          {
+            "label": "Shows rays blocked by the ball",
+            "points": 1
+          },
+          {
+            "label": "Shows the shadow on the screen behind the ball",
+            "points": 2
+          },
+          {
+            "label": "Labels the torch, ball, screen and shadow",
+            "points": 1
+          }
         ]
       },
       "background": "blank",
@@ -198,10 +337,21 @@
       "difficulty": 5,
       "prompt": "On a few days each year, an upright pole in Indonesia has almost no shadow at midday. Why?",
       "options": [
-        { "text": "The Sun is closest to the Earth on those days.", "why": "The Sun's distance hardly changes. It is the angle of the sunlight that matters." },
-        { "text": "Clouds block the Sun on those days.", "why": "It happens on clear days too, so clouds are not the reason." },
-        { "text": "The Sun is directly overhead, so its light shines straight down." },
-        { "text": "The pole becomes transparent at midday.", "why": "The pole is still opaque. The light simply comes from straight above it." }
+        {
+          "text": "The Sun is closest to the Earth on those days.",
+          "why": "The Sun's distance hardly changes. It is the angle of the sunlight that matters."
+        },
+        {
+          "text": "Clouds block the Sun on those days.",
+          "why": "It happens on clear days too, so clouds are not the reason."
+        },
+        {
+          "text": "The Sun is directly overhead, so its light shines straight down."
+        },
+        {
+          "text": "The pole becomes transparent at midday.",
+          "why": "The pole is still opaque. The light simply comes from straight above it."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -210,7 +360,1071 @@
         "Imagine light coming from exactly above the pole. Decide where its shadow could fall."
       ],
       "explanation": "Near the equator, the Sun passes directly overhead on a few days each year. At midday its light comes straight down, so the pole's shadow is hidden right underneath it.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s5.light-shadows.011",
+      "skill": "s5.light-shadows",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of this shadow experiment.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "torch",
+            "x": 10,
+            "y": 80,
+            "size": 50
+          },
+          {
+            "t": "circle",
+            "cx": 140,
+            "cy": 105,
+            "r": 22,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 270,
+            "y": 20,
+            "w": 14,
+            "h": 180,
+            "r": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 264,
+            "cy": 105,
+            "rx": 7,
+            "ry": 55,
+            "rot": 0,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 95,
+            "x2": 266,
+            "y2": 50,
+            "tone": "star",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 115,
+            "x2": 266,
+            "y2": 160,
+            "tone": "star",
+            "width": 2
+          }
+        ],
+        "alt": "A torch on the left shines light towards a ball in the middle. Two light rays pass above and below the ball. On the right a tall screen has a dark oval shadow on its left face."
+      },
+      "labels": [
+        "light source",
+        "object",
+        "shadow",
+        "screen"
+      ],
+      "spots": [
+        {
+          "x": 10.9,
+          "y": 47.7
+        },
+        {
+          "x": 43.8,
+          "y": 47.7
+        },
+        {
+          "x": 82.5,
+          "y": 47.7
+        },
+        {
+          "x": 86.6,
+          "y": 13.6
+        }
+      ],
+      "extraLabels": [
+        "mirror"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The shadow is the dark area where light is blocked.",
+        "The object is the thing that blocks the light."
+      ],
+      "explanation": "The torch is the light source. The ball blocks the light, so a shadow forms on the screen."
+    },
+    {
+      "id": "s5.light-shadows.012",
+      "skill": "s5.light-shadows",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the parts of the diagram that shows light bouncing off a mirror.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "torch",
+            "x": 30,
+            "y": 15,
+            "size": 44
+          },
+          {
+            "t": "line",
+            "x1": 70,
+            "y1": 50,
+            "x2": 160,
+            "y2": 170,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 170,
+            "x2": 250,
+            "y2": 50,
+            "tone": "star",
+            "width": 3
+          },
+          {
+            "t": "rect",
+            "x": 80,
+            "y": 170,
+            "w": 160,
+            "h": 12,
+            "r": 0,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "eye",
+            "x": 240,
+            "y": 10,
+            "size": 40
+          }
+        ],
+        "alt": "A torch at the top left sends a light ray down to a flat mirror at the bottom. The ray bounces off the mirror and travels up to an eye at the top right."
+      },
+      "labels": [
+        "torch",
+        "ray towards the mirror",
+        "mirror",
+        "reflected ray"
+      ],
+      "spots": [
+        {
+          "x": 16.3,
+          "y": 16.8
+        },
+        {
+          "x": 35.9,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 80
+        },
+        {
+          "x": 64.1,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "shadow"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The ray that has bounced is the one travelling away from the mirror.",
+        "Light starts at the torch and travels to the mirror first."
+      ],
+      "explanation": "Light from the torch hits the mirror and bounces off. The bounced ray is the reflected ray and it travels to the eye."
+    },
+    {
+      "id": "s5.light-shadows.013",
+      "skill": "s5.light-shadows",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the object made of a transparent material.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "brick",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "stone",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "Four pictures: a drinking glass, a brick, a stone and a wooden spoon."
+      },
+      "regions": [
+        {
+          "label": "glass",
+          "x": 25,
+          "y": 25,
+          "w": 35,
+          "h": 35
+        },
+        {
+          "label": "brick",
+          "x": 75,
+          "y": 25,
+          "w": 35,
+          "h": 35
+        },
+        {
+          "label": "stone",
+          "x": 25,
+          "y": 75,
+          "w": 35,
+          "h": 35
+        },
+        {
+          "label": "wooden spoon",
+          "x": 75,
+          "y": 75,
+          "w": 35,
+          "h": 35
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Transparent means you can see clearly through it.",
+        "Which object is a window made from?",
+        "Bricks and stones are not see-through."
+      ],
+      "explanation": "Clear glass is transparent. Light passes through it, so we can see clearly through it."
+    },
+    {
+      "id": "s5.light-shadows.014",
+      "skill": "s5.light-shadows",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the picture that shows the pole at midday, when the Sun is at its highest.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 5,
+            "w": 100,
+            "h": 190,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 5,
+            "y1": 160,
+            "x2": 105,
+            "y2": 160,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "rect",
+            "x": 110,
+            "y": 5,
+            "w": 100,
+            "h": 190,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 160,
+            "x2": 210,
+            "y2": 160,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "rect",
+            "x": 215,
+            "y": 5,
+            "w": 100,
+            "h": 190,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 215,
+            "y1": 160,
+            "x2": 315,
+            "y2": 160,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 35,
+            "y1": 160,
+            "x2": 35,
+            "y2": 90,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 35,
+            "y1": 160,
+            "x2": 105,
+            "y2": 160,
+            "tone": "ink",
+            "width": 6
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 8,
+            "y": 60,
+            "size": 30
+          },
+          {
+            "t": "line",
+            "x1": 140,
+            "y1": 160,
+            "x2": 140,
+            "y2": 90,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 140,
+            "y1": 160,
+            "x2": 152,
+            "y2": 160,
+            "tone": "ink",
+            "width": 6
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 150,
+            "y": 12,
+            "size": 34
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 160,
+            "x2": 260,
+            "y2": 90,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 205,
+            "y1": 160,
+            "x2": 260,
+            "y2": 160,
+            "tone": "ink",
+            "width": 6
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 275,
+            "y": 60,
+            "size": 30
+          }
+        ],
+        "alt": "Three pictures of the same pole. Left: the Sun is low on the left and the shadow is long. Middle: the Sun is high in the sky and the shadow is very short. Right: the Sun is low on the right and the shadow is long."
+      },
+      "regions": [
+        {
+          "label": "low sun on the left",
+          "x": 17.2,
+          "y": 50,
+          "w": 28.1,
+          "h": 85
+        },
+        {
+          "label": "high sun",
+          "x": 50,
+          "y": 50,
+          "w": 28.1,
+          "h": 85
+        },
+        {
+          "label": "low sun on the right",
+          "x": 82.8,
+          "y": 50,
+          "w": 28.1,
+          "h": 85
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "At midday the Sun is high in the sky.",
+        "A high Sun makes a short shadow.",
+        "Compare the length of the three shadows."
+      ],
+      "explanation": "When the Sun is high, the shadow is short. At midday the shadow of a pole is the shortest of the day."
+    },
+    {
+      "id": "s5.light-shadows.015",
+      "skill": "s5.light-shadows",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Sari measures the shadow of a stick during the day. Work out how much longer each shadow is than the noon shadow.",
+      "head": [
+        "Time",
+        "Shadow (cm)",
+        "Longer than noon (cm)"
+      ],
+      "rows": [
+        [
+          "8 am",
+          "45",
+          "40"
+        ],
+        [
+          "10 am",
+          "20",
+          ""
+        ],
+        [
+          "12 noon",
+          "5",
+          "0"
+        ],
+        [
+          "2 pm",
+          "18",
+          ""
+        ],
+        [
+          "4 pm",
+          "40",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "15"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "answers": [
+            "13"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "answers": [
+            "35"
+          ]
+        }
+      ],
+      "hints": [
+        "The noon shadow is the shortest, 5 cm.",
+        "Subtract 5 from each shadow length.",
+        "10 am: 20 take away 5."
+      ],
+      "explanation": "20 - 5 = 15, 18 - 5 = 13 and 40 - 5 = 35. The shadows are shortest when the Sun is highest."
+    },
+    {
+      "id": "s5.light-shadows.016",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Putri places each material between a lamp and a light sensor. Which statement fits the bar chart?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Clear plastic",
+          "Tissue",
+          "Tracing paper",
+          "Card"
+        ],
+        "values": [
+          90,
+          55,
+          40,
+          0
+        ],
+        "axisMax": 100,
+        "step": 20,
+        "yLabel": "Light reaching sensor",
+        "tone": "science",
+        "alt": "Bar chart of the light measured behind four materials: clear plastic 90, tissue 55, tracing paper 40, card 0."
+      },
+      "options": [
+        {
+          "text": "Card is transparent because no light reaches the sensor.",
+          "why": "Transparent materials let most light through. Card let none through."
+        },
+        {
+          "text": "Tracing paper is opaque because it gave a low reading.",
+          "why": "Opaque materials let no light through. Tracing paper let some light through."
+        },
+        {
+          "text": "Clear plastic is translucent because it gave the highest reading.",
+          "why": "The highest reading means the material let most light through."
+        },
+        {
+          "text": "Card is opaque and tracing paper is translucent."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Opaque: no light. Translucent: some light. Transparent: nearly all light.",
+        "Look for the bar with 0.",
+        "Tracing paper let some light through, but not clearly."
+      ],
+      "explanation": "Card gives a reading of 0, so it blocks all light and is opaque. Tracing paper lets some light through, so it is translucent."
+    },
+    {
+      "id": "s5.light-shadows.017",
+      "skill": "s5.light-shadows",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Use the bar chart. How many units more light passed through the clear plastic than through the tissue?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Clear plastic",
+          "Tissue",
+          "Tracing paper",
+          "Card"
+        ],
+        "values": [
+          90,
+          55,
+          40,
+          0
+        ],
+        "axisMax": 100,
+        "step": 20,
+        "yLabel": "Light reaching sensor",
+        "tone": "science",
+        "alt": "Bar chart of the light measured behind four materials: clear plastic 90, tissue 55, tracing paper 40, card 0."
+      },
+      "answer": 35,
+      "hints": [
+        "Read the clear plastic and tissue bars.",
+        "Subtract the smaller reading from the larger one.",
+        "The clear plastic bar is 90."
+      ],
+      "explanation": "90 - 55 = 35 units more."
+    },
+    {
+      "id": "s5.light-shadows.018",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How do we see a book that is not a light source?",
+      "options": [
+        {
+          "text": "Light leaves our eyes and lights up the book.",
+          "why": "Our eyes only receive light. They do not send it out."
+        },
+        {
+          "text": "The book makes its own light.",
+          "why": "A book is not a light source."
+        },
+        {
+          "text": "Light from a lamp bounces off the book and enters our eyes."
+        },
+        {
+          "text": "Darkness travels from the book to our eyes.",
+          "why": "Darkness is the absence of light. It does not travel."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "We see when light enters our eyes.",
+        "The book does not give out its own light.",
+        "Think about light bouncing."
+      ],
+      "explanation": "We see non-luminous objects because light from a source reflects off them and enters our eyes."
+    },
+    {
+      "id": "s5.light-shadows.019",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Lila shines a torch through holes in three cards. The light reaches the wall only when the three holes are in a straight line. What does this show?",
+      "options": [
+        {
+          "text": "Light bends around the corners of the cards.",
+          "why": "If light bent around corners, it would reach the wall even when the holes did not line up."
+        },
+        {
+          "text": "Light travels in straight lines."
+        },
+        {
+          "text": "Light can pass through cardboard.",
+          "why": "Cardboard is opaque. The light passed through the holes."
+        },
+        {
+          "text": "Light stops when it meets a wall.",
+          "why": "This is true, but the lined-up holes do not show it."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What happens when the holes are not in a line?",
+        "Think about the path of the light between the cards.",
+        "The light only gets through when the path is straight."
+      ],
+      "explanation": "Light only gets through when the holes are in a straight line, so light travels in straight lines."
+    },
+    {
+      "id": "s5.light-shadows.020",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A periscope lets a pupil see over a wall using two mirrors. Why does it work?",
+      "options": [
+        {
+          "text": "Light travels in straight lines, and each mirror makes the light change direction."
+        },
+        {
+          "text": "Light bends round the wall by itself.",
+          "why": "Light does not bend round walls. The mirrors change its direction."
+        },
+        {
+          "text": "The mirrors make new light inside the tube.",
+          "why": "Mirrors reflect light. They do not make light."
+        },
+        {
+          "text": "The tube is a light source.",
+          "why": "A tube is not a light source."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Light cannot bend round a wall.",
+        "Think about what a mirror does to a ray of light.",
+        "Follow the light from the top mirror to the bottom mirror."
+      ],
+      "explanation": "Light from the object hits the top mirror and is reflected down to the second mirror. That mirror reflects it into the eye."
+    },
+    {
+      "id": "s5.light-shadows.021",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Wulan can see her face in a mirror, but not in a sheet of white paper. Both reflect light. Why can she see her face only in the mirror?",
+      "options": [
+        {
+          "text": "Paper does not reflect any light.",
+          "why": "We can see paper because it reflects light."
+        },
+        {
+          "text": "A mirror makes new light for her face.",
+          "why": "A mirror does not make light."
+        },
+        {
+          "text": "A mirror is a light source.",
+          "why": "A mirror only reflects light from other sources."
+        },
+        {
+          "text": "The mirror's smooth surface reflects the light in an organised way, while paper scatters it in all directions."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Both objects bounce light back to our eyes.",
+        "Look at the difference between a smooth and a rough surface.",
+        "Rough surfaces send light in many directions."
+      ],
+      "explanation": "A smooth mirror reflects light so the rays stay organised and form an image. Paper is rough, so it scatters the light."
+    },
+    {
+      "id": "s5.light-shadows.022",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "On a cloudy day, shadows are faint or missing. Why?",
+      "options": [
+        {
+          "text": "Clouds are light sources that cancel the Sun.",
+          "why": "Clouds are not light sources."
+        },
+        {
+          "text": "The Sun is switched off by the clouds.",
+          "why": "The Sun still shines. Clouds only spread its light."
+        },
+        {
+          "text": "Clouds spread the sunlight so it reaches objects from many directions."
+        },
+        {
+          "text": "Shadows only form on dry days.",
+          "why": "Shadows do not need dry weather."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A clear shadow needs light from a single direction.",
+        "What do clouds do to sunlight?",
+        "If light comes from all over, where is the shadow?"
+      ],
+      "explanation": "Clouds scatter sunlight so it arrives from all directions. Light reaches behind objects, so shadows are faint."
+    },
+    {
+      "id": "s5.light-shadows.023",
+      "skill": "s5.light-shadows",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each material to the word that describes it.",
+      "pairs": [
+        [
+          "Clear window glass",
+          "transparent"
+        ],
+        [
+          "Baking paper",
+          "translucent"
+        ],
+        [
+          "Brick wall",
+          "opaque"
+        ]
+      ],
+      "hints": [
+        "Transparent: you can see clearly. Opaque: no light. Translucent: some light.",
+        "Think about what you can see through each one.",
+        "A brick wall blocks all the light."
+      ],
+      "explanation": "Glass is transparent, baking paper is translucent and a brick wall is opaque."
+    },
+    {
+      "id": "s5.light-shadows.024",
+      "skill": "s5.light-shadows",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each change by what happens to the size of the shadow on the screen.",
+      "groups": [
+        "Shadow gets bigger",
+        "Shadow gets smaller"
+      ],
+      "items": [
+        {
+          "text": "Move the object closer to the torch",
+          "group": 0
+        },
+        {
+          "text": "Move the object closer to the screen",
+          "group": 1
+        },
+        {
+          "text": "Move the screen further from the object",
+          "group": 0
+        },
+        {
+          "text": "Move the torch further from the object",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "The shadow is biggest when the object catches the most of the light rays.",
+        "Move the torch or object nearer, and the rays spread out more.",
+        "Imagine the shadow of your hand on a wall."
+      ],
+      "explanation": "A shadow grows when the object is nearer the light or the screen is further away. It shrinks in the opposite cases."
+    },
+    {
+      "id": "s5.light-shadows.025",
+      "skill": "s5.light-shadows",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Light travels in ___ lines.",
+      "blanks": [
+        {
+          "answers": [
+            "straight"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about the path of a torch beam.",
+        "It does not bend or curl.",
+        "It is the opposite of curved."
+      ],
+      "explanation": "Light travels in straight lines, which is why shadows have clear edges."
+    },
+    {
+      "id": "s5.light-shadows.026",
+      "skill": "s5.light-shadows",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets no light pass through is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "opaque"
+          ]
+        }
+      ],
+      "hints": [
+        "Shadows are made by this type of material.",
+        "Walls and wood are this type.",
+        "It starts with the letter o."
+      ],
+      "explanation": "Opaque materials block all the light, so they make dark shadows."
+    },
+    {
+      "id": "s5.light-shadows.027",
+      "skill": "s5.light-shadows",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the steps in order to show how you see a book on your desk.",
+      "items": [
+        "Light leaves the lamp.",
+        "Light travels in straight lines to the book.",
+        "Light bounces off the book.",
+        "Light enters your eye."
+      ],
+      "hints": [
+        "Start with the light source.",
+        "The light has to reach the book before it bounces.",
+        "Your eye is the last step."
+      ],
+      "explanation": "Light from the lamp reaches the book, bounces off it and enters the eye, so we see the book."
+    },
+    {
+      "id": "s5.light-shadows.028",
+      "skill": "s5.light-shadows",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the things that help to make a clear, dark shadow.",
+      "options": [
+        {
+          "text": "An opaque object"
+        },
+        {
+          "text": "A dim room"
+        },
+        {
+          "text": "A bright torch"
+        },
+        {
+          "text": "A sheet of tracing paper as the object",
+          "why": "Tracing paper is translucent. Light passes through, so the shadow is faint."
+        },
+        {
+          "text": "A clear plastic bag as the object",
+          "why": "Clear plastic is transparent, so it makes almost no shadow."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "A dark shadow needs light to be blocked.",
+        "Which materials block light completely?",
+        "A brighter light and a darker room make a stronger shadow."
+      ],
+      "explanation": "An opaque object blocks the light completely. A bright torch and a dim room make the shadow stand out."
+    },
+    {
+      "id": "s5.light-shadows.029",
+      "skill": "s5.light-shadows",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "At the same time of day, a 1 m stick has a shadow of 1.5 m. A tree next to it has a shadow of 6 m. How tall is the tree?",
+      "answer": 4,
+      "unit": "m",
+      "hints": [
+        "The shadows of objects at the same time are in the same ratio to their heights.",
+        "Work out how many times longer the tree shadow is than the stick shadow.",
+        "6 m is how many times 1.5 m?"
+      ],
+      "explanation": "6 / 1.5 = 4, so the tree is 4 times as tall as the stick, 4 m."
+    },
+    {
+      "id": "s5.light-shadows.801",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Light travels in straight lines.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you see round a wall?",
+        "Shadows have sharp edges.",
+        "Light goes straight."
+      ],
+      "explanation": "That is why you cannot see round corners and why shadows have clear edges.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.802",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A shadow is made when light bends around an object.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does light travel in curves?",
+        "What does the object block?",
+        "Light is blocked."
+      ],
+      "explanation": "A shadow is made when an opaque object blocks the straight light rays, leaving a dark area.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.803",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A shadow gets bigger when the object moves closer to the light source.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try a hand near a torch.",
+        "Closer to light.",
+        "Closer makes it bigger."
+      ],
+      "explanation": "The object blocks more rays, so the shadow spreads over a larger area.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.804",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Your shadow is longest at midday.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where is the Sun at noon?",
+        "When is it low?",
+        "Short at midday."
+      ],
+      "explanation": "At midday the Sun is high, so shadows are short. They are longest when the Sun is low in the morning and evening.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.701",
+      "skill": "s5.light-shadows",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "A shadow is longest when the Sun is ___ in the sky.",
+      "blanks": [
+        {
+          "answers": [
+            "low"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of a shadow at sunrise.",
+        "The opposite is high.",
+        "It has three letters."
+      ],
+      "explanation": "When the Sun is low, shadows are long. When it is high, they are short.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

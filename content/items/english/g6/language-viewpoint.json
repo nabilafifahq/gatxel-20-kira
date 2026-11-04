@@ -117,7 +117,7 @@
       "skill": "e6.language-viewpoint",
       "type": "text",
       "difficulty": 3,
-      "prompt": "Find and copy the two-word phrase that starts a paragraph. It shows the writer is about to weigh up both sides.",
+      "prompt": "Find and copy the two-word phrase that starts a paragraph. It shows the writer has weighed up both sides and is about to give a view.",
       "passage": "e6.p.car-free-sundays",
       "blanks": [
         {
@@ -371,6 +371,1148 @@
       "tags": [
         "reading",
         "checkpoint"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.language-viewpoint.011",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: Sticky tape had lasted ten minutes of practice before peeling away like a banana skin. What does this simile suggest about the tape?",
+      "passage": "e6.p.borrowed-gloves",
+      "options": [
+        {
+          "text": "It was the same yellow colour as a banana.",
+          "why": "The simile is about how the tape came away, not its colour."
+        },
+        {
+          "text": "It came off easily and could not hold the glove together."
+        },
+        {
+          "text": "It was stuck on much too tightly.",
+          "why": "Peeling away means it came off, not that it stuck."
+        },
+        {
+          "text": "It smelt of fruit.",
+          "why": "The comparison is about the action of peeling."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A simile compares two things using like or as.",
+        "Think about how easily a banana skin peels away.",
+        "Ask: did the tape stay on or come off?"
+      ],
+      "explanation": "A banana skin peels off easily. The simile shows that the tape quickly came away and could not mend the glove.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.012",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The writer says the turtle’s magnetic signature is “rather like an invisible address”. Why does the writer use this comparison?",
+      "passage": "e6.p.sea-turtle-journeys",
+      "options": [
+        {
+          "text": "To explain an unfamiliar idea using something the reader knows."
+        },
+        {
+          "text": "To say that turtles can read house numbers.",
+          "why": "The comparison is only to explain an idea, not a real address."
+        },
+        {
+          "text": "To suggest the writer is not sure the idea is true.",
+          "why": "The phrase One idea is that already shows the uncertainty. The comparison is for clarity."
+        },
+        {
+          "text": "To make the text funny.",
+          "why": "The tone is informative, not comic."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what an address does for a person.",
+        "The writer compares a hard idea with an easy one.",
+        "Ask: does a comparison like this make the idea easier to picture?"
+      ],
+      "explanation": "An address tells you where a place is. Comparing the magnetic signature to an invisible address helps the reader understand an unfamiliar scientific idea.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.013",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence from the letter best shows Yuki’s playful, joking tone?",
+      "passage": "e6.p.first-snow-letter",
+      "options": [
+        {
+          "text": "The snowploughs rumble through the streets before dawn.",
+          "why": "This describes something factual. It is not a joke."
+        },
+        {
+          "text": "Mum lays a mat inside the front door for our wet shoes.",
+          "why": "This is a practical detail with no joking."
+        },
+        {
+          "text": "They say I am responsible for it."
+        },
+        {
+          "text": "In February our city holds a huge snow festival.",
+          "why": "This is a plain fact."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for a sentence where Yuki is teasing or laughing.",
+        "A playful tone often comes with a joke about someone.",
+        "Find the paragraph about her name."
+      ],
+      "explanation": "Yuki jokes that her friends blame her for the snow because her name means snow. This is playful.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.014",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sekar says her first line “wobbled like a worm”. What effect does this simile have?",
+      "passage": "e6.p.batik-diary",
+      "options": [
+        {
+          "text": "It tells us there were worms in the workshop.",
+          "why": "A simile is a comparison, not a real worm."
+        },
+        {
+          "text": "It shows she was angry with herself.",
+          "why": "She says she stopped feeling embarrassed, so she was not angry."
+        },
+        {
+          "text": "It makes the diary honest and funny and shows how shaky the line was."
+        },
+        {
+          "text": "It shows she was good at drawing.",
+          "why": "A wobbling line shows the opposite."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the shape of a worm.",
+        "A simile uses like or as to compare.",
+        "Ask: what does a wobbly worm tell you about her line?"
+      ],
+      "explanation": "The simile paints a picture of a shaky, curling line and gives the diary a light, honest tone.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.015",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The report mentions that half the seedlings from an earlier project died. What does this show about the way the report is written?",
+      "passage": "e6.p.mangrove-planting-report",
+      "options": [
+        {
+          "text": "The reporter wants the project to stop.",
+          "why": "The report also describes the care taken this time, so it does not oppose the project."
+        },
+        {
+          "text": "The reporter is giving a balanced view, not only praise."
+        },
+        {
+          "text": "The reporter wrote the report before the planting.",
+          "why": "The report describes what happened, so it was written afterwards."
+        },
+        {
+          "text": "The reporter thinks the school is lying.",
+          "why": "Nothing suggests this. The report says what the organisers did differently."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about whether the report only says good things.",
+        "Balanced means showing more than one side.",
+        "Find the paragraph that begins Not everyone was sure."
+      ],
+      "explanation": "By including villagers’ doubts and the earlier failure, the reporter shows both sides, which makes the report balanced and fair.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.016",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In “Pasar Malam” the poet writes “the night is wide awake”. What does this personification suggest?",
+      "passage": "e6.p.market-poems",
+      "options": [
+        {
+          "text": "Nobody at the market can sleep.",
+          "why": "The poem is cheerful. It does not complain about the noise."
+        },
+        {
+          "text": "The night is a tired person.",
+          "why": "Wide awake is the opposite of tired."
+        },
+        {
+          "text": "The market stays open all day.",
+          "why": "The poem is about the night only."
+        },
+        {
+          "text": "The market at night feels full of life and energy."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Personification gives human qualities to something that is not human.",
+        "Think about what a person who is wide awake is like.",
+        "Look at the other lines nearby: glows, moves, hum."
+      ],
+      "explanation": "Giving the night the quality of being wide awake makes the market sound lively and full of energy.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.017",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How does the poet make the mood of “Pasar Pagi” different from “Pasar Malam”?",
+      "passage": "e6.p.market-poems",
+      "options": [
+        {
+          "text": "Pasar Pagi is frightening and Pasar Malam is calm.",
+          "why": "Neither poem is frightening. Pasar Malam is lively, not calm."
+        },
+        {
+          "text": "Both poems show exactly the same mood.",
+          "why": "The images and the pace differ."
+        },
+        {
+          "text": "Pasar Pagi shows purposeful work, while Pasar Malam shows play, light and fun."
+        },
+        {
+          "text": "Pasar Pagi is empty and Pasar Malam is crowded.",
+          "why": "Pasar Pagi has trucks, aunties and sellers, so it is not empty."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Compare the key images in each poem.",
+        "Lanterns and candy floss feel different from crates and tomatoes.",
+        "Ask: is each poem about playing or about working?"
+      ],
+      "explanation": "Pasar Malam uses glowing, playful images, while Pasar Pagi uses images of work such as crates, trucks and bargaining.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.018",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Mr Okafor says, “Every evening, when the sun goes down, I still look at the clock.” What does this suggest about how he feels now?",
+      "passage": "e6.p.lighthouse-interview",
+      "options": [
+        {
+          "text": "He is glad the job is over.",
+          "why": "His tone is wistful, not relieved."
+        },
+        {
+          "text": "He is angry with the machines.",
+          "why": "He states the change calmly and does not blame anyone."
+        },
+        {
+          "text": "He has forgotten about the lighthouse.",
+          "why": "He still checks the clock at the same time."
+        },
+        {
+          "text": "He misses his work but says so quietly, without stating it directly."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about what he does, not only what he says.",
+        "Old habits stay with you suggests a connection to the past.",
+        "Ask: would someone who had forgotten the job still watch the clock?"
+      ],
+      "explanation": "He never says I miss it, but his small habit shows that the work still matters to him. The writer lets the action show the feeling.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.019",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In the third paragraph, what does “astonishingly” mean in “astonishingly strong”?",
+      "passage": "e6.p.bamboo-wonder-grass",
+      "options": [
+        {
+          "text": "in an amazing, surprising way"
+        },
+        {
+          "text": "dangerously",
+          "why": "Nothing suggests danger here."
+        },
+        {
+          "text": "slowly",
+          "why": "Slowly does not describe how strong something is."
+        },
+        {
+          "text": "slightly",
+          "why": "Slightly would make the sentence weaker. The writer is impressed."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the other words near it, such as light and strong.",
+        "The writer is trying to impress the reader.",
+        "Replace the word with each choice and see which makes sense."
+      ],
+      "explanation": "Astonishingly means in a way that amazes you. It shows how impressed the writer is.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.020",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which statement best describes the writer’s viewpoint about bamboo?",
+      "passage": "e6.p.bamboo-wonder-grass",
+      "options": [
+        {
+          "text": "Bamboo should replace every other material.",
+          "why": "The last paragraph says it is not a magic answer."
+        },
+        {
+          "text": "Bamboo is useful and impressive, but should be used with care."
+        },
+        {
+          "text": "Bamboo is overrated and not worth using.",
+          "why": "The writer praises bamboo throughout."
+        },
+        {
+          "text": "Bamboo is dangerous to grow near homes.",
+          "why": "The text never says this."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the writer’s words in the opening and the final paragraph.",
+        "Look for the word Yet in the last paragraph.",
+        "Ask: does the writer only praise bamboo, or also give a warning?"
+      ],
+      "explanation": "The writer admires bamboo but ends with a careful, fair view that it must be used wisely.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.021",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: The old bus coughed and wheezed up the hill like a tired grandfather. What does this simile make you picture?",
+      "options": [
+        {
+          "text": "a slow, noisy bus struggling to climb"
+        },
+        {
+          "text": "a bus carrying grandfathers",
+          "why": "The simile is a comparison. There are no grandfathers."
+        },
+        {
+          "text": "a very fast new bus",
+          "why": "Coughing and wheezing suggest an old, slow bus."
+        },
+        {
+          "text": "a bus parked at the bottom of the hill",
+          "why": "The bus is moving up the hill."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of how a tired old person climbs a hill.",
+        "Coughed and wheezed are sound words.",
+        "Ask: would a fast new bus cough and wheeze?"
+      ],
+      "explanation": "The simile makes the bus seem old, slow and noisy, as if it were out of breath.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.022",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Kofi was angry when he left the room. Which verb best fits the gap? Kofi ___ out of the room.",
+      "options": [
+        {
+          "text": "drifted",
+          "why": "Drifting is gentle, not angry."
+        },
+        {
+          "text": "wandered",
+          "why": "Wandering is slow and aimless."
+        },
+        {
+          "text": "stomped"
+        },
+        {
+          "text": "tiptoed",
+          "why": "Tiptoeing is quiet and careful, not angry."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about how angry people move.",
+        "The verb shows the feeling without saying it.",
+        "Which verb would make a loud noise?"
+      ],
+      "explanation": "Stomped suggests heavy, loud steps and shows anger better than the other verbs.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.023",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: I am writing to complain, for the third time, that the bus to our village still does not run on time. This is simply not good enough. What is the tone?",
+      "options": [
+        {
+          "text": "playful",
+          "why": "There is nothing playful or joking here."
+        },
+        {
+          "text": "puzzled",
+          "why": "The writer is not confused. They are sure of the problem."
+        },
+        {
+          "text": "shy",
+          "why": "The writer speaks firmly."
+        },
+        {
+          "text": "firm and annoyed"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the words complain and not good enough.",
+        "The phrase for the third time shows patience running out.",
+        "Imagine how a person would sound reading this aloud."
+      ],
+      "explanation": "The writer has complained before and says it is not good enough, so the tone is firm and annoyed.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.024",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: Juicy Gold is the only drink champions choose. Every smart family already buys it. Which phrase puts pressure on the reader to agree?",
+      "options": [
+        {
+          "text": "Every smart family already buys it."
+        },
+        {
+          "text": "It comes in a bottle.",
+          "why": "This is a neutral fact."
+        },
+        {
+          "text": "It is sold in shops.",
+          "why": "This is a neutral fact."
+        },
+        {
+          "text": "Juicy Gold is a drink.",
+          "why": "This is a plain statement that does not persuade."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Persuasive texts often make you feel left out.",
+        "Look for a phrase that suggests clever people already agree.",
+        "Which choice is not just a plain fact?"
+      ],
+      "explanation": "Every smart family implies that anyone who does not buy it is not smart. This is a persuasive technique.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.025",
+      "skill": "e6.language-viewpoint",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read: The so-called festival was a noisy, muddy mess. The pathetic stage was tiny, and only a handful of bored people turned up. Choose all the words or phrases that show the writer’s negative opinion.",
+      "options": [
+        {
+          "text": "so-called"
+        },
+        {
+          "text": "pathetic"
+        },
+        {
+          "text": "festival",
+          "why": "This is just a name for the event."
+        },
+        {
+          "text": "stage",
+          "why": "This is a plain noun."
+        },
+        {
+          "text": "bored"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "Opinion words show how the writer feels.",
+        "Plain nouns such as stage do not show opinion.",
+        "Look at the adjectives and the word so-called."
+      ],
+      "explanation": "So-called, pathetic and bored all show the writer’s negative opinion. The nouns are neutral.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.026",
+      "skill": "e6.language-viewpoint",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each sentence into Fact or Opinion.",
+      "groups": [
+        "Fact",
+        "Opinion"
+      ],
+      "items": [
+        {
+          "text": "A week has seven days.",
+          "group": 0
+        },
+        {
+          "text": "Mount Merapi is in Java.",
+          "group": 0
+        },
+        {
+          "text": "Jakarta is the capital of Indonesia.",
+          "group": 0
+        },
+        {
+          "text": "Durian is the tastiest fruit.",
+          "group": 1
+        },
+        {
+          "text": "Homework is boring.",
+          "group": 1
+        },
+        {
+          "text": "Football is better than badminton.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A fact can be checked and proved.",
+        "An opinion shows what someone thinks or feels.",
+        "Look for words such as tastiest, boring and better."
+      ],
+      "explanation": "Facts can be checked. Words such as tastiest, boring and better show feelings, so they are opinions.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.027",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: Silent snow settled softly on the sleeping street. Which sound is repeated, and what effect does it create?",
+      "options": [
+        {
+          "text": "the p sound, creating a popping noise",
+          "why": "There is no repeated p sound."
+        },
+        {
+          "text": "the g sound, creating a growling effect",
+          "why": "There is no g sound in the line."
+        },
+        {
+          "text": "the s sound, creating a soft, hushing feel"
+        },
+        {
+          "text": "the t sound, creating a sharp click",
+          "why": "Only the s sound is repeated across the line."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Say the sentence aloud and listen.",
+        "Alliteration repeats a sound.",
+        "Look at the first letters of silent, snow, settled, softly, sleeping and street."
+      ],
+      "explanation": "The repeated s sound is soft and hushing, like falling snow.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.028",
+      "skill": "e6.language-viewpoint",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Read: The wind whispered through the bamboo. What do we call it when a writer gives a human action to something that is not human? Answer with one word.",
+      "blanks": [
+        {
+          "answers": [
+            "personification"
+          ]
+        }
+      ],
+      "hints": [
+        "The wind cannot really whisper.",
+        "The word begins with person.",
+        "Think of the device you used for the night being wide awake."
+      ],
+      "explanation": "This device is personification. The wind is given the human action of whispering.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.029",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Text A: The new mall brings jobs, brighter streets and a cinema for local families. Text B: The new mall has swallowed the old market, and small traders are being pushed out. How do the texts differ?",
+      "options": [
+        {
+          "text": "They give different facts but both like the mall.",
+          "why": "Text B is clearly critical of the mall."
+        },
+        {
+          "text": "Text A focuses on benefits and Text B on harm, so they present the mall differently."
+        },
+        {
+          "text": "Both say the mall is bad.",
+          "why": "Text A is positive."
+        },
+        {
+          "text": "They are about two different places.",
+          "why": "Both texts are about the new mall."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare what each writer chooses to mention.",
+        "Look at verbs such as brings and swallowed.",
+        "Ask: is each text positive or negative about the mall?"
+      ],
+      "explanation": "Text A picks positive points and Text B uses strong negative words such as swallowed and pushed out.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.030",
+      "skill": "e6.language-viewpoint",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Read: Bayu gobbled his noodles and wiped the bowl clean. The writer chose the verb gobbled to show that Bayu ate ___.",
+      "gaps": [
+        {
+          "options": [
+            "slowly and politely",
+            "quickly and greedily",
+            "carefully and quietly"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Compare gobbled with ate.",
+        "Think about the sound of the word.",
+        "Wiping the bowl clean is another clue."
+      ],
+      "explanation": "Gobbled suggests eating fast and hungrily.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.031",
+      "skill": "e6.language-viewpoint",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each language device to an example.",
+      "pairs": [
+        [
+          "Onomatopoeia",
+          "The door slammed with a bang."
+        ],
+        [
+          "Hyperbole",
+          "I have told you a million times."
+        ],
+        [
+          "Rhetorical question",
+          "Who wouldn’t want a holiday?"
+        ],
+        [
+          "Metaphor",
+          "The classroom was a zoo."
+        ],
+        [
+          "Repetition",
+          "Never, never, never give up."
+        ]
+      ],
+      "hints": [
+        "Think about what each device does.",
+        "A metaphor says something is something else.",
+        "Start with the sound word, bang."
+      ],
+      "explanation": "Bang is a sound word, a million times is exaggeration, a question that needs no answer is rhetorical, calling a classroom a zoo is a metaphor, and repeating never is repetition.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.032",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read: Of course the council asked the children for their ideas, then built a car park instead. Very helpful. What is the writer’s attitude?",
+      "options": [
+        {
+          "text": "sarcastic: the writer does not think the council was helpful"
+        },
+        {
+          "text": "excited",
+          "why": "There is no excitement. The writer is annoyed."
+        },
+        {
+          "text": "neutral reporting",
+          "why": "The words Of course and Very helpful are not neutral."
+        },
+        {
+          "text": "grateful",
+          "why": "Grateful people would not describe the council this way."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Sarcasm says the opposite of what is meant.",
+        "Compare Very helpful with what the council really did.",
+        "Ask: did the council listen to the children?"
+      ],
+      "explanation": "The writer says very helpful, but the council ignored the children, so this is sarcasm.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.033",
+      "skill": "e6.language-viewpoint",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Read: The wind howled like an angry wolf. Build a sentence that explains the effect of the simile.",
+      "answer": "The simile makes the wind seem fierce.",
+      "distractors": [
+        "gentle",
+        "funny"
+      ],
+      "hints": [
+        "Think about the animal and its feeling.",
+        "Howled and angry give the mood.",
+        "Start with the subject, The simile."
+      ],
+      "explanation": "Comparing the wind to an angry wolf makes it sound fierce and wild.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.034",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Poem A: The sea lay down like a sleeping cat, purring against the sand. Poem B: The sea rose up like a snarling beast, clawing at the rocks. How do the poems create different moods?",
+      "options": [
+        {
+          "text": "Poem A is about a cat and Poem B is about a beast.",
+          "why": "Both poems are about the sea."
+        },
+        {
+          "text": "Only Poem A uses a simile.",
+          "why": "Both poems use a simile with like."
+        },
+        {
+          "text": "Both poems make the sea sound equally calm.",
+          "why": "Snarling and clawing are not calm."
+        },
+        {
+          "text": "Both compare the sea to an animal, but A uses gentle words and B uses harsh ones."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the comparing words in each poem.",
+        "Look at sleeping and purring against snarling and clawing.",
+        "Ask: which poem feels safe and which feels threatening?"
+      ],
+      "explanation": "Both use similes about animals, but the gentle verbs in A and the harsh verbs in B create very different moods.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.035",
+      "skill": "e6.language-viewpoint",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read: The corridor was dark and silent. Something scraped behind the door, and a cold draught made the candle flicker. Choose all the phrases that create a tense mood.",
+      "options": [
+        {
+          "text": "The corridor",
+          "why": "This names the place and creates no feeling on its own."
+        },
+        {
+          "text": "dark and silent"
+        },
+        {
+          "text": "Something scraped behind the door"
+        },
+        {
+          "text": "a cold draught made the candle flicker"
+        }
+      ],
+      "answers": [
+        1,
+        2,
+        3
+      ],
+      "hints": [
+        "Tense words make you feel something might happen.",
+        "Mystery and darkness build tension.",
+        "Check which phrases are just a name of a place."
+      ],
+      "explanation": "Darkness, a mysterious scrape and a flickering candle create a tense, spooky mood.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.036",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: “Isn’t it time we all did something about litter?” Why does the writer use a question?",
+      "options": [
+        {
+          "text": "To ask the reader to reply in writing",
+          "why": "Writers do not expect a reply here."
+        },
+        {
+          "text": "Because the writer does not know the answer",
+          "why": "The writer already has a view."
+        },
+        {
+          "text": "To give the reader instructions",
+          "why": "A question does not tell you what to do."
+        },
+        {
+          "text": "To make the reader think and agree"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The writer does not need an answer.",
+        "It is called a rhetorical question.",
+        "Ask: what answer does the writer want you to give?"
+      ],
+      "explanation": "A rhetorical question makes the reader think and suggests the answer the writer wants.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.037",
+      "skill": "e6.language-viewpoint",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Read: The council merely listened, then did nothing at all. Copy one word that shows the writer’s negative attitude to the council.",
+      "blanks": [
+        {
+          "answers": [
+            "merely",
+            "nothing"
+          ]
+        }
+      ],
+      "hints": [
+        "Look for a word that makes listening sound not enough.",
+        "Look also at the end of the sentence.",
+        "Check the word after council."
+      ],
+      "explanation": "Merely suggests that listening was not enough, and nothing at all is strongly negative.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.038",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A leaflet says: Our zoo has over 200 animals, a splash park and free parking. It does not mention the ticket price of Rp150.000. What might the reader suspect?",
+      "options": [
+        {
+          "text": "The leaflet shows only good points and leaves out something that might put people off."
+        },
+        {
+          "text": "The zoo is free.",
+          "why": "If the zoo were free, the leaflet would likely say so."
+        },
+        {
+          "text": "The writer forgot to mention parking.",
+          "why": "Parking is mentioned."
+        },
+        {
+          "text": "The price must be cheap.",
+          "why": "The leaflet does not say this."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what the leaflet is trying to do.",
+        "Leaving things out can be a form of bias.",
+        "Ask: why would a leaflet skip the price?"
+      ],
+      "explanation": "A leaflet that lists only attractions and skips the price may be hiding information that would put readers off.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.language-viewpoint.901",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does the simile \"like a sleeping giant\" tell us about the fallen tree?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "It was a person."
+        },
+        {
+          "text": "It was huge and lay still."
+        },
+        {
+          "text": "It was moving."
+        },
+        {
+          "text": "It was frightening because it snored."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do giants look like?",
+        "What is the tree doing?",
+        "Sleeping means not moving."
+      ],
+      "explanation": "The comparison with a sleeping giant shows the tree was very large and lay still across the path.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.language-viewpoint.902",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word best describes the mood of the third paragraph?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "sleepy"
+        },
+        {
+          "text": "silly"
+        },
+        {
+          "text": "tense"
+        },
+        {
+          "text": "cheerful"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "What is happening to Arif?",
+        "Look at words such as swallowed and panic.",
+        "He is alone in the mist."
+      ],
+      "explanation": "Words such as fog, panic, cold and called create a worried and tense mood.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.language-viewpoint.903",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The narrator says \"He understood now.\" What does this show?",
+      "passage": "e6.p.the-map-maker",
+      "options": [
+        {
+          "text": "The compass broke."
+        },
+        {
+          "text": "Arif forgot the advice."
+        },
+        {
+          "text": "Arif's grandfather's advice finally made sense to him."
+        },
+        {
+          "text": "The map was wrong."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "What did the grandfather say earlier?",
+        "Now contrasts with then.",
+        "Look at the first paragraph."
+      ],
+      "explanation": "The story ends with Arif understanding that writing down every step keeps a map-maker from getting lost.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.language-viewpoint.951",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word in the first paragraph shows the writer admires the bird?",
+      "passage": "e6.p.the-honey-guides",
+      "options": [
+        {
+          "text": "extraordinary"
+        },
+        {
+          "text": "small"
+        },
+        {
+          "text": "lives"
+        },
+        {
+          "text": "plain-looking"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which word is a strong positive description?",
+        "Compare with plain-looking.",
+        "The writer says it has a talent."
+      ],
+      "explanation": "Extraordinary means very unusual and impressive, so the writer praises the bird.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.language-viewpoint.952",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What does the final line, \"nature has been talking to us all along\", suggest?",
+      "passage": "e6.p.the-honey-guides",
+      "options": [
+        {
+          "text": "Humans can learn from listening carefully to the natural world."
+        },
+        {
+          "text": "Honey is sweet."
+        },
+        {
+          "text": "Birds can speak English."
+        },
+        {
+          "text": "Nature is noisy."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is nature literally speaking?",
+        "The previous paragraphs show cooperation.",
+        "It is a message to readers."
+      ],
+      "explanation": "The writer uses talking as a metaphor for signals from animals and suggests that we should listen to nature.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e6.language-viewpoint.953",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The writer states as a proven fact that honeyguides understand every human word.",
+      "passage": "e6.p.the-honey-guides",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the word suggests.",
+        "Is the claim about every word?",
+        "Researchers were careful in their wording."
+      ],
+      "explanation": "The text says only that the evidence suggests the birds understand the traditional call. It does not claim they understand every word.",
+      "tags": [
+        "reading",
+        "long-passage"
       ],
       "expectedSeconds": 90
     }

@@ -1,0 +1,57 @@
+{
+  "skill": "m3.time-intervals",
+  "items": [
+    {
+      "id": "m3.time-intervals.801",
+      "skill": "m3.time-intervals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: From 9:15 to 10:00 is 45 minutes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count up to the next hour.",
+        "9:15 to 10:00 is the rest of the hour.",
+        "60 - 15 = 45."
+      ],
+      "explanation": "From 9:15 to 10:00: 15 minutes to 9:30, then 15 to 9:45, then 15 to 10:00. That is 45 minutes.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.time-intervals.802",
+      "skill": "m3.time-intervals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: April has 31 days.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Use the knuckle rule or the rhyme.",
+        "April is one of the shorter months.",
+        "April has 30 days."
+      ],
+      "explanation": "April has 30 days. The rhyme says thirty days has September, April, June and November.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

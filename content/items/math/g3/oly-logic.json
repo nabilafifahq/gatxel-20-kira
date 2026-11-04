@@ -101,7 +101,14 @@
         },
         {
           "say": "The next ball matches one colour for the third time.",
-          "show": "6 + 1 = 7"
+          "show": "6 + 1 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 1,
+            "r": 7
+          }
         },
         {
           "say": "So 7 balls are always enough."
@@ -263,15 +270,50 @@
       "solution": [
         {
           "say": "Pupils with at least one pet.",
-          "show": "30 - 5 = 25"
+          "show": "30 - 5 = 25",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 5,
+            "r": 25
+          },
+          "mark": [
+            "30",
+            "5"
+          ]
         },
         {
           "say": "Add the two groups.",
-          "show": "18 + 15 = 33"
+          "show": "18 + 15 = 33",
+          "anim": {
+            "k": "combine",
+            "a": 18,
+            "op": "+",
+            "b": 15,
+            "r": 33
+          },
+          "mark": [
+            "18",
+            "15"
+          ]
         },
         {
           "say": "The extra is the pupils counted twice.",
-          "show": "33 - 25 = 8"
+          "show": "33 - 25 = 8",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 25
+              },
+              {
+                "v": 8,
+                "q": true
+              }
+            ],
+            "total": 33
+          }
         },
         {
           "say": "Check: 10 cat only, 8 both, 7 dog only, 5 neither.",
@@ -354,19 +396,68 @@
       "solution": [
         {
           "say": "Undo halve.",
-          "show": "10 × 2 = 20"
+          "show": "10 × 2 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "×",
+            "b": 2,
+            "r": 20
+          },
+          "mark": [
+            "10"
+          ]
         },
         {
           "say": "Undo take away 7.",
-          "show": "20 + 7 = 27"
+          "show": "20 + 7 = 27",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "+",
+            "b": 7,
+            "r": 27
+          },
+          "mark": [
+            "7"
+          ]
         },
         {
           "say": "Undo multiply by 3.",
-          "show": "27 ÷ 3 = 9"
+          "show": "27 ÷ 3 = 9",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 27
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "Check.",
-          "show": "9 × 3 = 27, 27 - 7 = 20, 20 ÷ 2 = 10"
+          "show": "9 × 3 = 27, 27 - 7 = 20, 20 ÷ 2 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 3,
+            "r": 27
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -380,7 +471,7 @@
       "skill": "m3.oly-logic",
       "type": "numeric",
       "difficulty": 5,
-      "prompt": "There are 9 coins that look the same. One coin is fake and lighter than the others. What is the smallest number of weighings on a balance that always finds the fake?",
+      "prompt": "There are 9 coins that look the same. One coin is lighter than the others. What is the smallest number of weighings on a balance that always finds the lighter coin?",
       "figure": {
         "kind": "balance",
         "left": [
@@ -398,14 +489,14 @@
         "Split the 9 coins into 3 groups of 3.",
         "Weigh one group of 3 against another. What does each result tell you?"
       ],
-      "explanation": "Weigh 3 coins against 3: the lighter side holds the fake, or if they balance it is among the 3 left over. Then weigh 1 coin against 1 from that group in the same way. So 2 weighings always find it.",
+      "explanation": "Weigh 3 coins against 3: the lighter side holds the lighter coin, or if they balance it is among the 3 left over. Then weigh 1 coin against 1 from that group in the same way. So 2 weighings always find it.",
       "solution": [
         {
           "say": "Split into 3 groups of 3. Weigh two groups.",
           "show": "3 against 3"
         },
         {
-          "say": "The lighter side holds the fake. If level, the group left out holds it.",
+          "say": "The lighter side holds the lighter coin. If level, the group left out holds it.",
           "show": "3 coins left"
         },
         {
@@ -413,7 +504,7 @@
           "show": "1 against 1"
         },
         {
-          "say": "The lighter coin is fake. If level, the coin left out is fake.",
+          "say": "The lighter one is the coin we want. If level, the coin left out is the one.",
           "show": "2 weighings"
         }
       ],
@@ -462,11 +553,38 @@
       "solution": [
         {
           "say": "Rabbit.",
-          "show": "10 - 8 = 2 kg"
+          "show": "10 - 8 = 2 kg",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "-",
+            "b": 8,
+            "r": 2
+          },
+          "mark": [
+            "10",
+            "8"
+          ]
         },
         {
           "say": "Dog.",
-          "show": "5 - 2 = 3 kg"
+          "show": "5 - 2 = 3 kg",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 2
+              },
+              {
+                "v": 3,
+                "q": true
+              }
+            ],
+            "total": 5
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "Check: the cat is 10 - 5 = 5 kg.",
@@ -1589,7 +1707,18 @@
       "explanation": "18 + 15 = 33, but there are only 30 children. The 3 extra are counted twice, so 3 children play both games.",
       "solution": [
         {
-          "say": "18 + 15 = 33, but there are only 30 children."
+          "say": "18 + 15 = 33, but there are only 30 children.",
+          "anim": {
+            "k": "combine",
+            "a": 18,
+            "op": "+",
+            "b": 15,
+            "r": 33
+          },
+          "mark": [
+            "18",
+            "15"
+          ]
         },
         {
           "say": "The 3 extra are counted twice, so 3 children play both games."
@@ -1619,10 +1748,37 @@
       "explanation": "The two sentences together have 3 stars and 3 circles, which make 17 + 16 = 33. One star and one circle make 33 / 3 = 11.",
       "solution": [
         {
-          "say": "The two sentences together have 3 stars and 3 circles, which make 17 + 16 = 33."
+          "say": "The two sentences together have 3 stars and 3 circles, which make 17 + 16 = 33.",
+          "anim": {
+            "k": "combine",
+            "a": 17,
+            "op": "+",
+            "b": 16,
+            "r": 33
+          },
+          "mark": [
+            "17",
+            "16"
+          ]
         },
         {
-          "say": "One star and one circle make 33 / 3 = 11."
+          "say": "One star and one circle make 33 / 3 = 11.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 11,
+                "q": true
+              },
+              {
+                "v": 11
+              },
+              {
+                "v": 11
+              }
+            ],
+            "total": 33
+          }
         }
       ],
       "tags": [

@@ -569,33 +569,6 @@
       ]
     },
     {
-      "id": "e1.rhyme-poems.018",
-      "skill": "e1.rhyme-poems",
-      "type": "mcq",
-      "difficulty": 1,
-      "prompt": "Which word rhymes with cat?",
-      "hints": [
-        "Rhyming words end with the same sound.",
-        "Say cat, then say each choice.",
-        "You wear it on your head."
-      ],
-      "explanation": "Cat and hat rhyme.",
-      "options": [
-        {
-          "text": "hat"
-        },
-        {
-          "text": "dog",
-          "why": "Dog does not end in at."
-        },
-        {
-          "text": "sun",
-          "why": "Sun does not end in at."
-        }
-      ],
-      "answer": 0
-    },
-    {
       "id": "e1.rhyme-poems.019",
       "skill": "e1.rhyme-poems",
       "type": "mcq",
@@ -1065,6 +1038,136 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e1.rhyme-poems.801",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The words cat and hat rhyme.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say cat and hat.",
+        "Listen to the endings.",
+        "Both end with at."
+      ],
+      "explanation": "Rhyming words have the same ending sound. Cat and hat both end with at.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.rhyme-poems.802",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The words sun and moon rhyme.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say both words and listen to the end.",
+        "Sun rhymes with fun.",
+        "The endings are different."
+      ],
+      "explanation": "Sun ends with un and moon ends with oon, so they do not rhyme.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.rhyme-poems.803",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Bee and tree rhyme.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say bee and tree.",
+        "Listen to the ends.",
+        "They end the same."
+      ],
+      "explanation": "Both end with the ee sound.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.rhyme-poems.804",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The words star and stop rhyme.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Rhymes match at the end.",
+        "Listen to the end of each word.",
+        "Star and car rhyme."
+      ],
+      "explanation": "They start the same but end differently, so they do not rhyme. Rhyme is about the end of a word.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.rhyme-poems.805",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A poem can have rhyming words at the ends of its lines.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a nursery rhyme.",
+        "Rhymes are words that sound alike.",
+        "Poems often rhyme."
+      ],
+      "explanation": "Many poems use rhyme, such as Twinkle, twinkle little star.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

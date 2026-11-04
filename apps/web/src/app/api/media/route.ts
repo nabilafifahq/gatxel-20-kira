@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { getActor } from '@/server/auth/actor'
-import { insertMedia, learnerConsent, openAttemptOfLearner } from '@/server/dal/media-rows'
+import { insertMedia, learnerConsent, mediaUsageLastDay, openAttemptOfLearner } from '@/server/dal/media-rows'
 import { newReference } from '@/server/errors'
 import { log } from '@/server/log'
-import { allowedFor, limitFor, sniff, storeFile, type MediaKind } from '@/server/media'
+import { cleanImage } from '@/lib/image-clean'
+import { throttleResponse } from '@/server/auth/ratelimit'
+import { allowedFor, dailyQuota, limitFor, sniff, storeFile, type MediaKind } from '@/server/media'
 import { sameOrigin } from '@/server/http'
 
 export const dynamic = 'force-dynamic'
@@ -15,13 +17,23 @@ const fields = z.object({
   position: z.coerce.number().int().min(1).max(200).optional(),
 })
 
+/** HEIC/HEIF: kotak ftyp dengan merek heic, heix, mif1, msf1, hevc, atau heif. */
+function isHeic(b: Buffer): boolean {
+  return b.length > 12 && b.toString('latin1', 4, 8) === 'ftyp' && /^(heic|heix|hevc|heim|heis|mif1|msf1|heif)$/.test(b.toString('latin1', 8, 12))
+}
+
 /** Unggah rekaman, gambar, atau PDF. Learner hanya untuk attempt miliknya; PDF hanya tutor. */
 export async function POST(req: Request) {
   const actor = await getActor()
   if (!actor) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
   if (!sameOrigin(req)) return NextResponse.json({ error: 'origin' }, { status: 403 })
-  const len = Number(req.headers.get('content-length') ?? '0')
-  if (len > 62 * 1024 * 1024) return NextResponse.json({ error: 'too-large' }, { status: 413 })
+  const limited = await throttleResponse('media', actor.role === 'learner' ? 30 : 60, actor.userId)
+  if (limited) return limited
+  // Content-Length wajib dan dibatasi per peran sebelum body dibaca (FormData dibaca utuh ke memori).
+  const rawLen = req.headers.get('content-length')
+  if (rawLen === null || !/^\d+$/.test(rawLen)) return NextResponse.json({ error: 'length-required' }, { status: 411 })
+  const len = Number(rawLen)
+  if (len > (actor.role === 'learner' ? 12 * 1024 * 1024 : 62 * 1024 * 1024)) return NextResponse.json({ error: 'too-large' }, { status: 413 })
   let form: FormData
   try {
     form = await req.formData()
@@ -34,10 +46,25 @@ export async function POST(req: Request) {
   const kind = f.data.kind as MediaKind
   if (actor.role === 'learner' && !['audio', 'drawing', 'image'].includes(kind)) return NextResponse.json({ error: 'forbidden' }, { status: 403 })
   if (actor.role === 'guardian') return NextResponse.json({ error: 'forbidden' }, { status: 403 })
-  if (file.size > limitFor(kind)) return NextResponse.json({ error: 'too-large', message: 'Berkas terlalu besar.' }, { status: 413 })
-  const buf = Buffer.from(await file.arrayBuffer())
+  if (file.size > limitFor(kind, actor.role)) return NextResponse.json({ error: 'too-large', message: 'Berkas terlalu besar.' }, { status: 413 })
+  let buf: Buffer = Buffer.from(await file.arrayBuffer())
   const type = sniff(buf)
-  if (!type || !allowedFor(kind, type.mime)) return NextResponse.json({ error: 'type', message: 'Jenis berkas tidak didukung.' }, { status: 415 })
+  if (!type && kind === 'image' && isHeic(buf)) {
+    return NextResponse.json(
+      { error: 'type', message: 'Foto dari iPhone atau iPad berformat HEIC belum bisa dipakai. Ubah Pengaturan, Kamera, Format ke Paling Kompatibel, atau ambil foto langsung dari Kira, lalu coba lagi.' },
+      { status: 415 },
+    )
+  }
+  if (!type || !allowedFor(kind, type.mime)) return NextResponse.json({ error: 'type', message: 'Jenis berkas ini belum didukung. Pakai foto JPEG atau PNG.' }, { status: 415 })
+  if (type.mime.startsWith('image/')) {
+    // Buang EXIF/XMP (lokasi, perangkat) dan tolak gambar yang strukturnya rusak.
+    const cleaned = cleanImage(type.mime, buf)
+    if (!cleaned) return NextResponse.json({ error: 'type', message: 'Gambar tidak bisa dibaca.' }, { status: 415 })
+    buf = cleaned
+  }
+  const quota = dailyQuota(actor.role)
+  const used = await mediaUsageLastDay(actor)
+  if (used.files >= quota.files || used.bytes + buf.length > quota.bytes) return NextResponse.json({ error: 'quota', message: 'Batas unggah hari ini sudah tercapai.' }, { status: 429, headers: { 'Retry-After': '3600' } })
   if (actor.role === 'learner') {
     if (!f.data.attemptId) return NextResponse.json({ error: 'invalid' }, { status: 400 })
     if (!(await openAttemptOfLearner(actor, f.data.attemptId))) return NextResponse.json({ error: 'forbidden' }, { status: 403 })

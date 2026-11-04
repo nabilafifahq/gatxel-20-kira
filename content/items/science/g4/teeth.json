@@ -294,7 +294,7 @@
           "group": 1
         },
         {
-          "text": "elephant",
+          "text": "sheep",
           "group": 1
         }
       ],
@@ -303,7 +303,7 @@
         "Meat eaters need teeth for gripping and tearing.",
         "Plant eaters need teeth for grinding."
       ],
-      "explanation": "Lions, sharks and cats eat meat, so they have sharp, pointed teeth. Cows, horses and elephants eat plants, so they have flat, grinding teeth."
+      "explanation": "Lions, sharks and cats eat meat, so they have sharp, pointed teeth. Cows, horses and sheep eat plants, so they have flat, grinding teeth."
     },
     {
       "id": "s4.teeth.011",
@@ -373,6 +373,822 @@
         "iksc",
         "olympiad"
       ]
+    },
+    {
+      "id": "s4.teeth.013",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which teeth are at the front of the mouth and are used for cutting?",
+      "options": [
+        {
+          "text": "incisors"
+        },
+        {
+          "text": "molars",
+          "why": "Molars are at the back and are used for grinding."
+        },
+        {
+          "text": "premolars",
+          "why": "Premolars are behind the canines and crush and grind food."
+        },
+        {
+          "text": "canines",
+          "why": "Canines are pointed and used to tear food."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "These teeth are the first ones you see when you smile.",
+        "They have a thin, flat edge, like scissors.",
+        "Think about biting into an apple at the front."
+      ],
+      "explanation": "Incisors are at the front. They have a thin edge for cutting food."
+    },
+    {
+      "id": "s4.teeth.014",
+      "skill": "s4.teeth",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the tooth.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 20,
+            "y": 150,
+            "w": 360,
+            "h": 150,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                130,
+                165
+              ],
+              [
+                195,
+                165
+              ],
+              [
+                160,
+                275
+              ]
+            ],
+            "closed": true,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                205,
+                165
+              ],
+              [
+                270,
+                165
+              ],
+              [
+                240,
+                275
+              ]
+            ],
+            "closed": true,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 120,
+            "y": 30,
+            "w": 160,
+            "h": 150,
+            "r": 40,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 200,
+            "cy": 100,
+            "rx": 30,
+            "ry": 45,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "Cross-section of a tooth in the jaw. A hard shell covers the top part. Inside is a soft middle in a darker colour. Two roots go down into a pink area around the tooth."
+      },
+      "labels": [
+        "enamel",
+        "pulp",
+        "root",
+        "gum"
+      ],
+      "spots": [
+        {
+          "x": 37.5,
+          "y": 15
+        },
+        {
+          "x": 50,
+          "y": 33.3
+        },
+        {
+          "x": 40,
+          "y": 78.3
+        },
+        {
+          "x": 15,
+          "y": 76.7
+        }
+      ],
+      "extraLabels": [
+        "tongue"
+      ],
+      "hints": [
+        "The hard outer layer protects the tooth.",
+        "The soft middle of the tooth has nerves.",
+        "The tooth is held in the pink part of the mouth."
+      ],
+      "explanation": "Enamel is the hard outer shell. The pulp is the soft middle with nerves. The roots hold the tooth in the gum."
+    },
+    {
+      "id": "s4.teeth.015",
+      "skill": "s4.teeth",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the tooth that a lion uses to tear meat.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 10,
+            "y": 120,
+            "w": 380,
+            "h": 70,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 50,
+            "y": 50,
+            "w": 40,
+            "h": 75,
+            "r": 6,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                130,
+                125
+              ],
+              [
+                150,
+                45
+              ],
+              [
+                170,
+                125
+              ]
+            ],
+            "closed": true,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                200,
+                125
+              ],
+              [
+                200,
+                80
+              ],
+              [
+                218,
+                68
+              ],
+              [
+                230,
+                82
+              ],
+              [
+                242,
+                68
+              ],
+              [
+                260,
+                80
+              ],
+              [
+                260,
+                125
+              ]
+            ],
+            "closed": true,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                290,
+                125
+              ],
+              [
+                290,
+                85
+              ],
+              [
+                312,
+                68
+              ],
+              [
+                330,
+                84
+              ],
+              [
+                348,
+                68
+              ],
+              [
+                370,
+                85
+              ],
+              [
+                370,
+                125
+              ]
+            ],
+            "closed": true,
+            "tone": "muted",
+            "fill": "light"
+          }
+        ],
+        "alt": "Four teeth in a row on a pink gum. From the left: a narrow flat tooth, a tall pointed tooth, a wider tooth with two bumps, and the widest tooth with four bumps."
+      },
+      "regions": [
+        {
+          "label": "incisor",
+          "x": 17.5,
+          "y": 43.5,
+          "w": 12,
+          "h": 40
+        },
+        {
+          "label": "canine",
+          "x": 37.5,
+          "y": 45,
+          "w": 12,
+          "h": 40
+        },
+        {
+          "label": "premolar",
+          "x": 57.5,
+          "y": 50,
+          "w": 14,
+          "h": 30
+        },
+        {
+          "label": "molar",
+          "x": 82.5,
+          "y": 50,
+          "w": 18,
+          "h": 30
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "A lion needs a sharp point to grip and tear.",
+        "Look for the tooth with a single pointed tip.",
+        "This tooth is called a canine."
+      ],
+      "explanation": "Canines are tall and pointed, so they grip and tear meat."
+    },
+    {
+      "id": "s4.teeth.016",
+      "skill": "s4.teeth",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each animal to its teeth.",
+      "pairs": [
+        [
+          "lion",
+          "sharp canines for tearing meat"
+        ],
+        [
+          "cow",
+          "wide flat molars for grinding grass"
+        ],
+        [
+          "rabbit",
+          "strong front teeth for gnawing"
+        ],
+        [
+          "human",
+          "different teeth for different jobs"
+        ]
+      ],
+      "hints": [
+        "A meat eater needs teeth to tear.",
+        "A grass eater needs teeth to grind.",
+        "A rabbit gnaws on hard food."
+      ],
+      "explanation": "Teeth are shaped for the food an animal eats."
+    },
+    {
+      "id": "s4.teeth.017",
+      "skill": "s4.teeth",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "30 children say how often they brush each day. Fill in the missing number.",
+      "caption": "Brushing in a day",
+      "head": [
+        "Times brushed",
+        "Children"
+      ],
+      "rows": [
+        [
+          "0",
+          "2"
+        ],
+        [
+          "1",
+          "9"
+        ],
+        [
+          "2",
+          ""
+        ],
+        [
+          "3",
+          "2"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "17"
+          ]
+        }
+      ],
+      "hints": [
+        "The numbers in the table add up to 30.",
+        "Add the numbers you can see first.",
+        "Take that total away from 30."
+      ],
+      "explanation": "2 + 9 + 2 = 13, and 30 - 13 = 17. So 17 children brush twice a day."
+    },
+    {
+      "id": "s4.teeth.018",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sekar leaves eggshells in four drinks for two days. The chart shows how soft each shell became. What does it show?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Water",
+          "Milk",
+          "Orange juice",
+          "Fizzy drink"
+        ],
+        "values": [
+          1,
+          1,
+          4,
+          5
+        ],
+        "step": 1,
+        "yLabel": "Softness score",
+        "alt": "Bar chart of eggshell softness after two days. Water 1, milk 1, orange juice 4, fizzy drink 5."
+      },
+      "options": [
+        {
+          "text": "The fizzy drink softened the shell most"
+        },
+        {
+          "text": "The milk softened the shell most",
+          "why": "Milk has the smallest bar, so it did the least harm."
+        },
+        {
+          "text": "The water softened the shell most",
+          "why": "Water has a small bar. It did very little harm."
+        },
+        {
+          "text": "All the drinks softened the shell equally",
+          "why": "The bars are different heights, so the drinks did different amounts of harm."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The tallest bar shows the most softening.",
+        "Compare all four bars.",
+        "Find the drink with the tallest bar."
+      ],
+      "explanation": "The fizzy drink has the tallest bar. Eggshell is a model for tooth enamel, so sugary and acid drinks can harm teeth."
+    },
+    {
+      "id": "s4.teeth.019",
+      "skill": "s4.teeth",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sekar tests drinks on eggshells. Sort each item.",
+      "groups": [
+        "Change",
+        "Measure",
+        "Keep the same"
+      ],
+      "items": [
+        {
+          "text": "type of drink",
+          "group": 0
+        },
+        {
+          "text": "how soft the shell gets",
+          "group": 1
+        },
+        {
+          "text": "time in the drink",
+          "group": 2
+        },
+        {
+          "text": "size of the eggshell",
+          "group": 2
+        },
+        {
+          "text": "amount of drink",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Change is the thing you alter on purpose.",
+        "Measure is what you record to compare results.",
+        "Everything else stays the same."
+      ],
+      "explanation": "She changes the drink and measures how soft the shell gets. The time, shell size and amount of drink stay the same."
+    },
+    {
+      "id": "s4.teeth.020",
+      "skill": "s4.teeth",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "An adult has 32 teeth. There are 8 incisors, 4 canines and 8 premolars. The rest are molars. How many molars?",
+      "answer": 12,
+      "hints": [
+        "Add the three types you know.",
+        "Take that total away from 32.",
+        "8 + 4 + 8 = 20."
+      ],
+      "explanation": "8 + 4 + 8 = 20, and 32 - 20 = 12 molars."
+    },
+    {
+      "id": "s4.teeth.021",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Kofi says, \"Teeth are bones.\" Which fact shows he is wrong?",
+      "options": [
+        {
+          "text": "Teeth are white and bones are not",
+          "why": "Colour alone does not decide what something is made of."
+        },
+        {
+          "text": "Teeth are in the head and bones are not",
+          "why": "The skull is a bone and it is in the head."
+        },
+        {
+          "text": "Teeth can bend and bones cannot",
+          "why": "Neither teeth nor bones bend easily."
+        },
+        {
+          "text": "A broken bone can mend itself but a broken tooth cannot"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about what living bones can do after an injury.",
+        "Compare how bone and tooth enamel repair.",
+        "Enamel cannot grow back once it is lost."
+      ],
+      "explanation": "Bone is living and can repair itself. The hard enamel on a tooth cannot grow back, so teeth are not bones."
+    },
+    {
+      "id": "s4.teeth.022",
+      "skill": "s4.teeth",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Pointed teeth that tear food are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "canines",
+            "canine",
+            "canine teeth",
+            "canines teeth",
+            "fangs",
+            "fang"
+          ]
+        }
+      ],
+      "hints": [
+        "They are the pointed teeth in a dog or lion.",
+        "They sit next to the incisors.",
+        "The word starts with the letter c."
+      ],
+      "explanation": "Canines are pointed and tear food."
+    },
+    {
+      "id": "s4.teeth.023",
+      "skill": "s4.teeth",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 snacks that are better for teeth.",
+      "options": [
+        {
+          "text": "cheese"
+        },
+        {
+          "text": "sticky toffee",
+          "why": "Sticky sugar stays on teeth and feeds the germs that make holes."
+        },
+        {
+          "text": "fizzy drink",
+          "why": "It has sugar and acid, which harm tooth enamel."
+        },
+        {
+          "text": "carrot sticks"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Sugar and acid harm teeth.",
+        "Look for snacks with no added sugar.",
+        "Choose the two snacks that are not sweet or fizzy."
+      ],
+      "explanation": "Cheese and carrot sticks have no added sugar, so they are kinder to teeth."
+    },
+    {
+      "id": "s4.teeth.024",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Tom's rabbit has front teeth that never stop growing. What keeps them the right length?",
+      "options": [
+        {
+          "text": "Brushing them each day",
+          "why": "Rabbits do not need a brush. They wear their teeth down by chewing."
+        },
+        {
+          "text": "They stop growing in adult rabbits",
+          "why": "A rabbit's front teeth keep growing all its life."
+        },
+        {
+          "text": "Gnawing hard food wears them down"
+        },
+        {
+          "text": "Drinking more water",
+          "why": "Water does not shorten teeth."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what a rabbit does with its front teeth.",
+        "Hard food rubs the teeth like sandpaper.",
+        "Which choice wears something away?"
+      ],
+      "explanation": "Rabbit front teeth keep growing. Chewing and gnawing hard food wears them down so they stay the right length."
+    },
+    {
+      "id": "s4.teeth.025",
+      "skill": "s4.teeth",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Incisors ___ food and molars ___ it.",
+      "gaps": [
+        {
+          "options": [
+            "cut",
+            "grind",
+            "tear"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "cut",
+            "grind",
+            "tear"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Think about the shape of each tooth.",
+        "Incisors have a thin cutting edge.",
+        "Molars are wide and flat."
+      ],
+      "explanation": "Incisors cut food and molars grind it."
+    },
+    {
+      "id": "s4.teeth.026",
+      "skill": "s4.teeth",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the layers of a tooth in order, from the outside to the middle.",
+      "items": [
+        "enamel",
+        "dentine",
+        "pulp"
+      ],
+      "hints": [
+        "The outside is the hardest layer.",
+        "The middle is soft and has nerves.",
+        "The layer under the enamel is dentine."
+      ],
+      "explanation": "Hard enamel is on the outside, dentine is under it, and soft pulp is in the middle."
+    },
+    {
+      "id": "s4.teeth.027",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A scientist finds three skulls. Which animal ate both plants and meat?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Skull",
+          "Teeth found"
+        ],
+        "rows": [
+          [
+            "A",
+            "cutting incisors and flat molars"
+          ],
+          [
+            "B",
+            "pointed canines and sharp back teeth"
+          ],
+          [
+            "C",
+            "pointed canines and flat molars"
+          ]
+        ],
+        "alt": "Table of three skulls. A has cutting incisors and flat molars. B has pointed canines and sharp back teeth. C has pointed canines and flat molars."
+      },
+      "options": [
+        {
+          "text": "Skull A",
+          "why": "Flat molars and no pointed teeth mean it ate only plants."
+        },
+        {
+          "text": "Skull C"
+        },
+        {
+          "text": "Skull B",
+          "why": "Pointed canines and sharp back teeth mean it ate only meat."
+        },
+        {
+          "text": "None of them",
+          "why": "One skull has teeth for both jobs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Meat eaters have pointed teeth.",
+        "Plant eaters have flat grinding teeth.",
+        "An animal that eats both needs both kinds."
+      ],
+      "explanation": "Skull C has pointed canines for meat and flat molars for plants, so that animal ate both."
+    },
+    {
+      "id": "s4.teeth.801",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Incisors are the sharp, flat teeth at the front that cut food.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which teeth are at the very front?",
+        "They cut and slice.",
+        "Incisors cut."
+      ],
+      "explanation": "Incisors work like scissors to bite off pieces of food, such as an apple.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.teeth.802",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Molars are the pointed teeth used for tearing meat.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which teeth are flat and wide?",
+        "Canines are the pointy ones.",
+        "Molars grind."
+      ],
+      "explanation": "Canines are the pointed teeth for tearing. Molars are wide and flat at the back and are used for grinding food.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.teeth.803",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Brushing your teeth twice a day helps to stop tooth decay.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What stays on teeth after meals?",
+        "Acid damages the enamel.",
+        "Brushing removes plaque."
+      ],
+      "explanation": "Brushing removes plaque and sugar left on teeth. Plaque bacteria make acid that makes holes, called decay.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.teeth.701",
+      "skill": "s4.teeth",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The sharp front teeth for biting food are ___.",
+      "blanks": [
+        {
+          "answers": [
+            "incisors",
+            "incisor"
+          ]
+        }
+      ],
+      "hints": [
+        "They are at the front of the mouth.",
+        "They cut and bite.",
+        "It starts with in."
+      ],
+      "explanation": "Incisors are the sharp front teeth that cut food.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

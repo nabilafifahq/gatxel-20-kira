@@ -1,0 +1,188 @@
+{
+  "skill": "m4.equivalent-fractions",
+  "items": [
+    {
+      "id": "m4.equivalent-fractions.001",
+      "skill": "m4.equivalent-fractions",
+      "difficulty": 2,
+      "prompt": "3/5 = ?/20. What number goes in place of the question mark?",
+      "hints": [
+        "How do you get from 5 to 20?",
+        "5 × 4 = 20.",
+        "Do the same to the top number."
+      ],
+      "explanation": "The bottom number is multiplied by 4, so the top must be too. 3 × 4 = 12, so 3/5 = 12/20.",
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m4.equivalent-fractions.002",
+      "skill": "m4.equivalent-fractions",
+      "difficulty": 2,
+      "prompt": "Which fraction is equal to 2/3?",
+      "hints": [
+        "An equal fraction is multiplied the same way on the top and bottom.",
+        "Try × 2.",
+        "2 × 2 and 3 × 2."
+      ],
+      "explanation": "2/3 = (2 × 2)/(3 × 2) = 4/6. Both numbers are multiplied by 2.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "3/4",
+          "why": "Adding 1 to the top and bottom does not keep the fraction equal."
+        },
+        {
+          "text": "2/6",
+          "why": "Only the bottom was multiplied. The top must be multiplied too."
+        },
+        {
+          "text": "4/6"
+        },
+        {
+          "text": "4/9",
+          "why": "Multiplying the top by 2 and the bottom by 3 does not keep it equal."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m4.equivalent-fractions.003",
+      "skill": "m4.equivalent-fractions",
+      "difficulty": 4,
+      "prompt": "Maya eats 3/8 of a pizza. Leo eats 1/2 of an identical pizza. Who eats more?",
+      "hints": [
+        "Make the bottom numbers the same.",
+        "What is 1/2 in eighths?",
+        "Compare 3/8 and 4/8."
+      ],
+      "explanation": "1/2 = 4/8. Since 4/8 is more than 3/8, Leo eats more.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Maya",
+          "why": "3/8 is smaller than 4/8, which is the same as 1/2."
+        },
+        {
+          "text": "They eat the same amount",
+          "why": "3/8 and 1/2 are different. 1/2 is 4/8."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "We can compare them by writing both with 8 as the bottom number."
+        },
+        {
+          "text": "Leo"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m4.equivalent-fractions.801",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The fractions 1/2 and 4/8 are equivalent.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply top and bottom by the same number.",
+        "1 × 4 and 2 × 4.",
+        "Both fractions are half of a whole."
+      ],
+      "explanation": "Multiply the top and bottom of 1/2 by 4 to get 4/8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.equivalent-fractions.802",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fractions 2/3 and 4/9 are equivalent.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What did the top 2 get multiplied by?",
+        "The bottom 3 must be multiplied by the same number.",
+        "2/3 = 4/6."
+      ],
+      "explanation": "Doubling the top and bottom of 2/3 gives 4/6, not 4/9. The bottoms were not multiplied by the same number.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.equivalent-fractions.803",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 3/4 is greater than 2/3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find a common denominator.",
+        "Use twelfths.",
+        "9 is more than 8."
+      ],
+      "explanation": "With denominator 12, 3/4 = 9/12 and 2/3 = 8/12. 9/12 is more than 8/12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.equivalent-fractions.804",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 1/8 is bigger than 1/5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about sharing a pizza.",
+        "Which is bigger, a slice from 8 or from 5?",
+        "1/5 is bigger."
+      ],
+      "explanation": "The more parts a whole is cut into, the smaller each part. Eighths are smaller than fifths.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

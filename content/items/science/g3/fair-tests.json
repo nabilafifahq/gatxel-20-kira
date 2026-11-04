@@ -469,18 +469,18 @@
       "skill": "s3.fair-tests",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "In a fair test, what is the result we measure called?",
+      "prompt": "Tom tests which ball bounces highest. He writes down how high each ball bounces. What is the height of the bounce?",
       "options": [
         {
           "text": "the thing we change",
-          "why": "That is the thing we change."
+          "why": "Tom changes the type of ball, not the height of the bounce."
         },
         {
           "text": "the thing we measure"
         },
         {
           "text": "the thing we keep the same",
-          "why": "That is kept the same."
+          "why": "Tom keeps things like the drop height the same."
         },
         {
           "text": "the prediction",
@@ -490,10 +490,10 @@
       "answer": 1,
       "hints": [
         "It is what you record.",
-        "It is the outcome.",
-        "It comes after the test."
+        "It is the outcome of the test.",
+        "Tom does not choose it. He finds it out after the test."
       ],
-      "explanation": "We change one thing, keep others the same and measure the result."
+      "explanation": "We change one thing, keep the others the same and measure the result. The height of the bounce is what Tom measures."
     },
     {
       "id": "s3.fair-tests.017",
@@ -510,19 +510,19 @@
           "text": "the amount of water"
         },
         {
-          "text": "the colour of the cup",
-          "why": "It does not matter."
+          "text": "how long the sugar takes to dissolve",
+          "why": "This is what she measures."
         },
         {
-          "text": "the time of day",
-          "why": "It does not matter."
+          "text": "her prediction",
+          "why": "A prediction is what she thinks will happen. It is not part of the set up."
         }
       ],
       "answer": 1,
       "hints": [
         "What does she change?",
-        "Keep everything else equal.",
-        "Water is part of the test."
+        "What does she measure?",
+        "Look for something that must be the same in every cup."
       ],
       "explanation": "She changes only the sugar. The amount of water stays the same so the test is fair."
     },
@@ -766,10 +766,10 @@
       "skill": "s3.fair-tests",
       "type": "multi",
       "difficulty": 3,
-      "prompt": "Choose all the things to keep the same when testing paper towels.",
+      "prompt": "Pita tests which paper towel soaks up the most water. Choose all the things to keep the same.",
       "options": [
         {
-          "text": "the name of the child"
+          "text": "how much water the towel soaks up"
         },
         {
           "text": "the type of towel"
@@ -791,10 +791,10 @@
       ],
       "hints": [
         "Only one thing changes.",
-        "The type is what we test.",
-        "Names do not matter."
+        "The type of towel is what we test.",
+        "How much water is soaked up is what we measure."
       ],
-      "explanation": "We keep the water, the towel size and the time the same. We change the type of towel."
+      "explanation": "We keep the water, the towel size and the time the same. We change the type of towel and measure how much water it soaks up."
     },
     {
       "id": "s3.fair-tests.026",
@@ -1094,18 +1094,19 @@
         "A thermometer shows heat.",
         "It has hands."
       ],
-      "explanation": "A clock tells the time. A stopwatch measures how long something takes."
+      "explanation": "A clock tells the time. A thermometer measures temperature."
     },
     {
       "id": "s3.fair-tests.034",
       "skill": "s3.fair-tests",
       "type": "text",
       "difficulty": 2,
-      "prompt": "A guess about what will happen is a ___.",
+      "prompt": "What we think will happen before a test is a ___.",
       "blanks": [
         {
           "answers": [
             "prediction",
+            "hypothesis",
             "guess"
           ]
         }
@@ -1116,29 +1117,6 @@
         "It looks ahead."
       ],
       "explanation": "A prediction is what we think will happen before a test."
-    },
-    {
-      "id": "s3.fair-tests.035",
-      "skill": "s3.fair-tests",
-      "type": "numeric",
-      "difficulty": 2,
-      "prompt": "The jug holds water to the 450 ml line. How many ml of water?",
-      "figure": {
-        "kind": "jug",
-        "capacity": 500,
-        "value": 450,
-        "step": 50,
-        "unit": "ml",
-        "alt": "A jug with 450 millilitres of water."
-      },
-      "answer": 450,
-      "unit": "ml",
-      "hints": [
-        "Find the top of the water.",
-        "Read the line it touches.",
-        "Check the numbers on the side."
-      ],
-      "explanation": "The water level is at 450 ml."
     },
     {
       "id": "s3.fair-tests.036",
@@ -1292,6 +1270,110 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.fair-tests.801",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A ruler is used to measure the length of a pencil.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which tool has numbers along an edge?",
+        "You measure length with it.",
+        "It is marked in centimetres."
+      ],
+      "explanation": "A ruler has a scale in centimetres that shows how long something is.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.fair-tests.802",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A measuring jug is the best tool for finding how long a table is.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does a jug hold?",
+        "Which tool measures length?",
+        "Jugs measure volume."
+      ],
+      "explanation": "A measuring jug measures how much liquid there is. A ruler or tape measure is used for length.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.fair-tests.803",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a fair test, you change only one thing and keep the rest the same.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Why do you keep the other things the same?",
+        "What if two things changed at once?",
+        "Only one change at a time."
+      ],
+      "explanation": "If you change two things you cannot tell which one caused the result. Keeping everything else the same makes the test fair.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.fair-tests.804",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The unit for measuring the time a ball takes to roll is the metre.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is time the same as length?",
+        "Which unit goes with a stopwatch?",
+        "Seconds measure time."
+      ],
+      "explanation": "Time is measured in seconds, minutes or hours. A metre is a unit of length.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

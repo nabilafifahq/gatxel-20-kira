@@ -388,6 +388,1014 @@
         "reading"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.011",
+      "skill": "e5.summarising-structure",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these events from the story in order.",
+      "passage": "e5.p.the-gamelan-lesson",
+      "items": [
+        "Bayu practised the same short tune for three weeks.",
+        "Pak Hadi invited Bayu to sit with the full group.",
+        "Bayu’s mallet slipped and hit the wrong bar.",
+        "The drummer nodded to tell Bayu to carry on.",
+        "Pak Hadi told Bayu that a mistake is how a musician begins."
+      ],
+      "hints": [
+        "Think about the beginning, middle and end of the story.",
+        "Look for time words such as For three weeks and On the fourth Saturday.",
+        "Start with the practising."
+      ],
+      "explanation": "The story moves from weeks of practice to the first group lesson, then the mistake, the kind nod and Pak Hadi’s closing words.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.012",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which heading best suits the fourth paragraph, about germs and venom?",
+      "passage": "e5.p.komodo-dragons",
+      "options": [
+        {
+          "text": "How a dragon finds its food",
+          "why": "That heading fits the third paragraph, about smell and the tongue."
+        },
+        {
+          "text": "What makes a dragon’s bite so dangerous"
+        },
+        {
+          "text": "Protecting the dragons",
+          "why": "That heading fits the fifth paragraph, about the national park."
+        },
+        {
+          "text": "Where dragons live",
+          "why": "That heading fits the first paragraph."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A heading sums up the whole paragraph in a few words.",
+        "Find the paragraph that mentions venom glands.",
+        "Ask what the paragraph mostly explains."
+      ],
+      "explanation": "The fourth paragraph explains the germs and the venom, which together make the bite dangerous.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.013",
+      "skill": "e5.summarising-structure",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Sort each detail under the right heading.",
+      "passage": "e5.p.komodo-dragons",
+      "groups": [
+        "How dragons hunt",
+        "How people protect dragons"
+      ],
+      "items": [
+        {
+          "text": "They wait beside trails used by deer.",
+          "group": 0
+        },
+        {
+          "text": "They flick the tongue to collect scent.",
+          "group": 0
+        },
+        {
+          "text": "Rangers count the animals regularly.",
+          "group": 1
+        },
+        {
+          "text": "Visitors must walk with a ranger.",
+          "group": 1
+        },
+        {
+          "text": "Venom makes a bitten animal grow weak.",
+          "group": 0
+        },
+        {
+          "text": "A national park was created in 1980.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Ask of each detail: is it about catching food or about keeping dragons safe?",
+        "Details about rangers, rules and parks are about protection.",
+        "Details about smell, waiting and venom are about hunting."
+      ],
+      "explanation": "Waiting, smelling and using venom help a dragon catch prey. A park, rangers and rules are ways that people protect dragons.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.014",
+      "skill": "e5.summarising-structure",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match the start of each paragraph to its purpose.",
+      "passage": "e5.p.a-letter-from-nairobi",
+      "pairs": [
+        [
+          "Thank you for your letter",
+          "Thanks Dewi and comments on her photograph"
+        ],
+        [
+          "You asked what the rainy season",
+          "Answers a question about the weather"
+        ],
+        [
+          "Last week, the rain",
+          "Tells a story about a flooded road"
+        ],
+        [
+          "Please write soon",
+          "Asks for a reply and for more news"
+        ]
+      ],
+      "hints": [
+        "Each paragraph in a letter does one job.",
+        "Read the first sentence of each paragraph again.",
+        "Start with the paragraph that answers Dewi’s question."
+      ],
+      "explanation": "The letter thanks Dewi, answers her question, tells one story from school and ends by asking for a reply.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.015",
+      "skill": "e5.summarising-structure",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the features that show this text is a diary.",
+      "passage": "e5.p.snow-festival-diary",
+      "options": [
+        {
+          "text": "dates at the start of each entry"
+        },
+        {
+          "text": "the writer says I and my"
+        },
+        {
+          "text": "a headline in large letters",
+          "why": "Headlines belong to news reports."
+        },
+        {
+          "text": "the writer’s own feelings"
+        },
+        {
+          "text": "numbered steps to follow",
+          "why": "Steps are found in instructions."
+        },
+        {
+          "text": "a greeting such as Dear Sir",
+          "why": "Greetings like this belong to formal letters."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "Think about what a person writes in a private notebook.",
+        "Look at the top of each entry and at the pronouns.",
+        "Diaries record what happened and how the writer felt."
+      ],
+      "explanation": "A diary has dated entries, is written in the first person and tells the writer’s own feelings.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "e5.summarising-structure.016",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is the purpose of the section called \"What we found out\"?",
+      "passage": "e5.p.floating-market-visit",
+      "options": [
+        {
+          "text": "to describe the journey to the river",
+          "why": "The journey is in the introduction."
+        },
+        {
+          "text": "to give the writers’ advice to visitors",
+          "why": "The advice comes in the conclusion."
+        },
+        {
+          "text": "to give information that a trader told the class"
+        },
+        {
+          "text": "to list the goods on the boats",
+          "why": "The goods are described in the section called What we saw."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Each section of a report has its own job.",
+        "Read the section and find who is speaking.",
+        "Ibu Rahmah explained something to the class."
+      ],
+      "explanation": "This section gives facts from an interview with Ibu Rahmah about the history of the market.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.017",
+      "skill": "e5.summarising-structure",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Put the sections of the report in the order they appear.",
+      "passage": "e5.p.floating-market-visit",
+      "items": [
+        "Introduction",
+        "What we saw",
+        "What we found out",
+        "Conclusion"
+      ],
+      "hints": [
+        "A report usually starts with why you went.",
+        "The conclusion comes last.",
+        "What we saw comes before What we found out."
+      ],
+      "explanation": "Reports start with an introduction and end with a conclusion. This report describes what was seen before what was learned.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 50
+    },
+    {
+      "id": "e5.summarising-structure.018",
+      "skill": "e5.summarising-structure",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each feature under the poem it describes.",
+      "passage": "e5.p.two-rain-poems",
+      "groups": [
+        "Poem A",
+        "Poem B"
+      ],
+      "items": [
+        {
+          "text": "Lines rhyme in pairs.",
+          "group": 0
+        },
+        {
+          "text": "It has no rhyme pattern.",
+          "group": 1
+        },
+        {
+          "text": "It describes a long dry spell.",
+          "group": 1
+        },
+        {
+          "text": "It ends with a rainbow.",
+          "group": 0
+        },
+        {
+          "text": "It has a cat.",
+          "group": 0
+        },
+        {
+          "text": "Some lines are very short.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think about the shape of each poem.",
+        "Poem A has stanzas of four lines that rhyme.",
+        "Poem B has uneven lines and no rhymes."
+      ],
+      "explanation": "Poem A has rhyming couplets, a cat and a rainbow. Poem B is free verse about a dry spell, with some very short lines.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.019",
+      "skill": "e5.summarising-structure",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the reasons Kofi gives for choosing fish.",
+      "passage": "e5.p.the-class-pet-debate",
+      "options": [
+        {
+          "text": "The classroom is small."
+        },
+        {
+          "text": "Fish stay quiet."
+        },
+        {
+          "text": "Fish can be left for a weekend."
+        },
+        {
+          "text": "Fish are cheaper than rabbits.",
+          "why": "Kofi never talks about cost."
+        },
+        {
+          "text": "Fish are good to cuddle.",
+          "why": "Wulan says you cannot cuddle a fish, and Kofi does not disagree."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Read only Kofi’s speeches.",
+        "Look for reasons that he gives, not ones that Wulan gives.",
+        "Cross out any reason that you cannot find in his words."
+      ],
+      "explanation": "Kofi says the classroom is small, the fish are quiet and they can be left with a feeder. He never mentions cost or cuddling.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 80
+    },
+    {
+      "id": "e5.summarising-structure.020",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is the best summary of the dialogue?",
+      "passage": "e5.p.the-class-pet-debate",
+      "options": [
+        {
+          "text": "Two pupils give reasons for different pets, then agree to choose the pet with the best plan."
+        },
+        {
+          "text": "Wulan wins the argument because rabbits are soft.",
+          "why": "Nobody wins at the end. They will vote later."
+        },
+        {
+          "text": "Kofi wants a rabbit but Wulan wants fish.",
+          "why": "This swaps the pets. Wulan wants a rabbit."
+        },
+        {
+          "text": "Ms Lestari decides to buy a hamster.",
+          "why": "No hamster is mentioned in the dialogue."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A summary covers the whole text in one sentence.",
+        "Think about the beginning, the argument and the ending.",
+        "What do Wulan and Kofi agree to do at the end?"
+      ],
+      "explanation": "The pupils argue for different pets, and then agree to vote for whichever pet has the best plan for looking after it.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 85
+    },
+    {
+      "id": "e5.summarising-structure.021",
+      "skill": "e5.summarising-structure",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these steps of paper-making in order.",
+      "passage": "e5.p.from-tree-to-notebook",
+      "items": [
+        "Logs are cut and the bark is peeled off.",
+        "Logs are chopped into chips.",
+        "The chips are cooked into pulp.",
+        "The pulp is sprayed onto a moving screen.",
+        "Rollers and hot cylinders dry the sheet.",
+        "The paper is cut into sheets."
+      ],
+      "hints": [
+        "The text uses words such as First, Next and Finally.",
+        "Pulp is made before it can be sprayed.",
+        "Drying happens before the paper is cut."
+      ],
+      "explanation": "Paper begins as logs, becomes chips, then pulp, then a wet sheet. The sheet is dried and finally cut.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.022",
+      "skill": "e5.summarising-structure",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the words that help the reader follow the order of the steps.",
+      "passage": "e5.p.from-tree-to-notebook",
+      "options": [
+        {
+          "text": "First"
+        },
+        {
+          "text": "Next"
+        },
+        {
+          "text": "Finally"
+        },
+        {
+          "text": "Because",
+          "why": "Because gives a reason, not a place in the order."
+        },
+        {
+          "text": "Also",
+          "why": "Also adds another point and does not show order."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Look for words that show what comes first, next and last.",
+        "Ask of each word: does it tell me when?",
+        "Cause words and adding words do not show order."
+      ],
+      "explanation": "First, Next and Finally mark the order of the steps. Because shows a reason, and Also adds a point.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.summarising-structure.023",
+      "skill": "e5.summarising-structure",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these events in the order they happened.",
+      "items": [
+        "Dewi found a seed on the path.",
+        "She planted it in a small pot.",
+        "She watered it every morning.",
+        "A tiny green shoot appeared.",
+        "Months later, a yellow flower opened."
+      ],
+      "hints": [
+        "Think about how a plant grows.",
+        "A seed must be planted before it can be watered.",
+        "The flower is the last stage."
+      ],
+      "explanation": "A seed is found, planted and watered. Then a shoot grows, and much later it flowers.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.024",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Orangutans spend most of their lives in trees. They build a new nest of branches every night. Their long arms help them swing from branch to branch, and they eat mainly fruit.\n\nWhich sentence is the best summary?",
+      "options": [
+        {
+          "text": "Orangutans build a new nest every night.",
+          "why": "This is one detail, not the whole text."
+        },
+        {
+          "text": "Orangutans eat fruit.",
+          "why": "This is one small detail."
+        },
+        {
+          "text": "Orangutans are well suited to life high in the trees."
+        },
+        {
+          "text": "Orangutans swing between branches faster than any other animal.",
+          "why": "The text does not say this."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A summary covers all the main points.",
+        "Cross out any option that gives only one detail.",
+        "What do nests, arms and fruit have in common?"
+      ],
+      "explanation": "Every detail shows how orangutans live in trees. The best summary covers all of them in one sentence.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.025",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read the paragraph.\n\nHoneybees dance to tell other bees where flowers are. The direction of the dance shows which way to fly, and the length of the dance shows how far.\n\nWhich heading suits the paragraph best?",
+      "options": [
+        {
+          "text": "How bees make honey",
+          "why": "The paragraph does not talk about honey."
+        },
+        {
+          "text": "How bees share directions"
+        },
+        {
+          "text": "Why bees sting",
+          "why": "Stinging is not mentioned."
+        },
+        {
+          "text": "Where bees live",
+          "why": "Hives are not mentioned."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A heading tells the main idea in a few words.",
+        "What are the bees telling each other?",
+        "Look at the first sentence."
+      ],
+      "explanation": "The paragraph is about how bees use dancing to show where flowers are.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.026",
+      "skill": "e5.summarising-structure",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Read.\n\nSloths are slow on purpose. Leaves give them little energy, so moving slowly saves it. Green algae grows in their fur and helps them hide. They climb down from the trees only about once a week.\n\nSort each sentence.",
+      "groups": [
+        "Main idea",
+        "Supporting detail"
+      ],
+      "items": [
+        {
+          "text": "Sloths are slow on purpose.",
+          "group": 0
+        },
+        {
+          "text": "Moving slowly saves energy.",
+          "group": 1
+        },
+        {
+          "text": "Algae in the fur helps them hide.",
+          "group": 1
+        },
+        {
+          "text": "They climb down about once a week.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "The main idea is the point the whole paragraph makes.",
+        "Details give extra facts or reasons.",
+        "The first sentence is often the main idea."
+      ],
+      "explanation": "Sloths being slow on purpose is the main idea. The other sentences give reasons or extra facts.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.027",
+      "skill": "e5.summarising-structure",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each kind of text to its main purpose.",
+      "pairs": [
+        [
+          "recipe",
+          "to explain how to make something"
+        ],
+        [
+          "news report",
+          "to tell about a recent event"
+        ],
+        [
+          "advertisement",
+          "to persuade people to buy something"
+        ],
+        [
+          "diary",
+          "to record personal thoughts"
+        ]
+      ],
+      "hints": [
+        "Think about who writes each text and why.",
+        "An advertisement wants you to do something.",
+        "Start with the one you know best."
+      ],
+      "explanation": "Each text type has its own purpose. Recipes explain, news reports inform, advertisements persuade and diaries record feelings.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.028",
+      "skill": "e5.summarising-structure",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these instructions for growing a bean in order.",
+      "items": [
+        "Soak the beans in water overnight.",
+        "Fill a pot with damp soil.",
+        "Push a bean 2 centimetres into the soil.",
+        "Water the soil gently.",
+        "After a week, a green shoot appears."
+      ],
+      "hints": [
+        "Think about what must be ready before planting.",
+        "The bean goes into the soil before you water it.",
+        "The shoot appears last, after the care."
+      ],
+      "explanation": "Instructions follow a logical order: prepare the bean and soil, plant, then care for it.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.029",
+      "skill": "e5.summarising-structure",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the words that show a contrast between two ideas.",
+      "options": [
+        {
+          "text": "however"
+        },
+        {
+          "text": "but"
+        },
+        {
+          "text": "although"
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "then",
+          "why": "Then shows time."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "A contrast shows how two things are different.",
+        "Think about the word you use to say the opposite.",
+        "Cross out words that give a reason or show time."
+      ],
+      "explanation": "However, but and although all join ideas that go against each other. Because gives a reason and then shows time.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 80
+    },
+    {
+      "id": "e5.summarising-structure.030",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A text has three parts. Part one describes what a coral reef is. Part two explains why many reefs are dying. Part three tells how people can help.\n\nHow is the text organised?",
+      "options": [
+        {
+          "text": "It describes a subject, then states a problem and a solution."
+        },
+        {
+          "text": "It tells a story in time order.",
+          "why": "The parts are about topics, not events in order."
+        },
+        {
+          "text": "It compares two different reefs.",
+          "why": "Only one kind of subject is described."
+        },
+        {
+          "text": "It lists instructions to follow.",
+          "why": "Part three gives ideas, not numbered steps."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at what each part is about.",
+        "Part two names a danger.",
+        "Part three gives a way to deal with it."
+      ],
+      "explanation": "The text first describes a reef, then names a problem and ends with ways to solve it.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.031",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ibu Sari opens her warung at six every morning. By seven, workers queue for nasi uduk. At ten she closes and begins cooking for the next day.\n\nWhich title suits the text best?",
+      "options": [
+        {
+          "text": "How to cook nasi uduk",
+          "why": "The text does not give a recipe."
+        },
+        {
+          "text": "The history of warung",
+          "why": "No history is given."
+        },
+        {
+          "text": "Why workers eat early",
+          "why": "The text does not explain why."
+        },
+        {
+          "text": "A day in the life of a warung owner"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A title tells you what the whole text is about.",
+        "Think about who the text follows.",
+        "Which words describe a whole day?"
+      ],
+      "explanation": "The text follows Ibu Sari through her working day, so the best title is about a day in her life.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.032",
+      "skill": "e5.summarising-structure",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The match was cancelled because of the thunderstorm.\n\nWhich word shows the cause? Write the word.",
+      "blanks": [
+        {
+          "answers": [
+            "because"
+          ]
+        }
+      ],
+      "hints": [
+        "A cause is the reason something happens.",
+        "Look for the linking word in the middle of the sentence.",
+        "The word comes just before of the thunderstorm."
+      ],
+      "explanation": "Because links the effect (the match was cancelled) with its cause (the thunderstorm).",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.summarising-structure.033",
+      "skill": "e5.summarising-structure",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Build one sentence that sums up the paragraph about bees.",
+      "answer": "Honeybees use dancing to share directions.",
+      "distractors": [
+        "sing"
+      ],
+      "hints": [
+        "A summary gives the main idea.",
+        "What do bees do to tell others about flowers?",
+        "Start with Honeybees."
+      ],
+      "explanation": "The main idea is that bees dance to tell other bees where flowers are.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.034",
+      "skill": "e5.summarising-structure",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "___, mix the flour and eggs. ___, pour the batter into the pan. ___, serve the pancake with fruit.",
+      "gaps": [
+        {
+          "options": [
+            "First",
+            "Finally",
+            "Meanwhile"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "Next",
+            "First",
+            "Finally"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "Finally",
+            "Next",
+            "First"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "These are time words for a recipe.",
+        "One word goes at the start, one in the middle and one at the end.",
+        "Serving is the last step."
+      ],
+      "explanation": "First starts the sequence, Next comes in the middle and Finally ends it.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.summarising-structure.035",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Pupils at SD Harapan collected 400 plastic bottles in a month. They filled them with sand and built a low wall around the school garden. The wall keeps chickens out. Other schools have asked how to copy the idea.\n\nWhich is the best summary?",
+      "options": [
+        {
+          "text": "Pupils collected 400 plastic bottles in a month.",
+          "why": "This is one detail and leaves out the wall."
+        },
+        {
+          "text": "Pupils reused plastic bottles to build a garden wall, and other schools want to copy the idea."
+        },
+        {
+          "text": "Chickens are a problem in school gardens.",
+          "why": "This is a small detail from the middle of the text."
+        },
+        {
+          "text": "The wall is the best idea any school has ever had.",
+          "why": "This is an opinion and is not in the text."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A summary covers what was done and what happened next.",
+        "Leave out numbers and small details.",
+        "Avoid opinions that the text does not give."
+      ],
+      "explanation": "A good summary includes the main action and the result, without numbers or opinions.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.036",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Cats groom themselves and sleep for most of the day. In contrast, dogs need daily walks and enjoy company.\n\nHow does the writer organise these two sentences?",
+      "options": [
+        {
+          "text": "by telling events in order",
+          "why": "No events happen one after another here."
+        },
+        {
+          "text": "by giving a cause and its effect",
+          "why": "Neither sentence causes the other."
+        },
+        {
+          "text": "by comparing two animals"
+        },
+        {
+          "text": "by listing steps",
+          "why": "There are no steps to follow."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the words In contrast.",
+        "Each sentence describes a different animal.",
+        "Ask what the writer is setting side by side."
+      ],
+      "explanation": "In contrast signals that the writer is comparing cats with dogs.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.901",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence best summarises the story?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "A river floods and a village moves away."
+        },
+        {
+          "text": "Two children win a prize."
+        },
+        {
+          "text": "A boy takes a risky journey, learns that safety matters more than a test, and the village rebuilds the bridge."
+        },
+        {
+          "text": "A teacher builds a bridge."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A summary includes the main events only.",
+        "Which option has the beginning, the problem and the end?",
+        "Check that every part is true."
+      ],
+      "explanation": "It covers the key events: the risk, the danger, the lesson and the rebuilding.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.902",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is the purpose of the first paragraph?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "To give instructions."
+        },
+        {
+          "text": "To introduce the teacher."
+        },
+        {
+          "text": "To set the scene and introduce the danger of the flooded river."
+        },
+        {
+          "text": "To describe Wayan's bedroom."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "What is described in this paragraph?",
+        "The setting comes first.",
+        "Look at the strong word monster."
+      ],
+      "explanation": "It describes the flooded river with words such as roaring monster, so the reader understands the danger.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.903",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The story ends with Wayan having \"learned something no test could measure\". What does this suggest?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "Tests are bad."
+        },
+        {
+          "text": "He gained wisdom that cannot be given a score."
+        },
+        {
+          "text": "He did not like school."
+        },
+        {
+          "text": "He failed the test."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What had he learned?",
+        "Think about the bridge and the teacher.",
+        "Some learning is not marked."
+      ],
+      "explanation": "The phrase suggests a lesson about safety and good sense, which is not graded in a test.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
     }
   ]
 }

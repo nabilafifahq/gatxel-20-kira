@@ -4,10 +4,11 @@ import { startAuthentication, browserSupportsWebAuthn } from '@simplewebauthn/br
 import { useEffect, useState } from 'react'
 import { LoginScreen } from '@/screens/public/LoginScreen'
 import type { ActionResult, LoginScreenProps } from '@/lib/dto'
+import { resendVerificationAction } from '@/server/actions/signup'
 import { passkeyOptionsAction, passkeyVerifyAction, passwordLoginAction, requestResetAction } from '@/server/actions/auth'
 
 /** Upacara WebAuthn dijalankan di browser; server hanya membuat dan memeriksa tantangan. */
-export function LoginClient({ next, notice }: { next: string | null; notice: LoginScreenProps['notice'] }) {
+export function LoginClient({ next, notice, turnstileSiteKey }: { next: string | null; notice: LoginScreenProps['notice']; turnstileSiteKey?: string | null }) {
   const [supported, setSupported] = useState(false)
   useEffect(() => {
     setSupported(browserSupportsWebAuthn())
@@ -32,6 +33,8 @@ export function LoginClient({ next, notice }: { next: string | null; notice: Log
       passkeyLogin={passkeyLogin}
       passkeySupported={supported}
       requestReset={requestResetAction}
+      turnstileSiteKey={turnstileSiteKey ?? null}
+      resendVerification={resendVerificationAction}
     />
   )
 }

@@ -1,0 +1,5402 @@
+{
+ "schema": 1,
+ "note": "Pemetaan tingkat skill berdasarkan judul dan pernyataan I can setiap skill terhadap kode kerangka. Hanya memuat kode dan catatan pendek buatan sendiri. Bukan penilaian resmi Cambridge.",
+ "frameworks": {
+  "math": {
+   "code": "0096",
+   "title": "Cambridge Primary Mathematics Curriculum Framework",
+   "version": "1.1",
+   "published": "2020-09",
+   "obtained": "2026-11-04 (salinan PDF pihak ketiga, tidak ada unduhan publik di cambridgeinternational.org)"
+  },
+  "english": {
+   "code": "0058",
+   "title": "Cambridge Primary English Curriculum Framework",
+   "version": "2.1",
+   "published": "2020-09",
+   "obtained": "2026-11-04 (salinan PDF pihak ketiga, tidak ada unduhan publik di cambridgeinternational.org)"
+  },
+  "science": {
+   "code": "0097",
+   "title": "Cambridge Primary Science Curriculum Framework",
+   "version": "1",
+   "published": "2020-09",
+   "obtained": "2026-11-04 (salinan PDF pihak ketiga, tidak ada unduhan publik di cambridgeinternational.org)"
+  }
+ },
+ "objectives": {
+  "math": {
+   "1": [
+    "1Gg.01",
+    "1Gg.02",
+    "1Gg.03",
+    "1Gg.04",
+    "1Gg.05",
+    "1Gg.06",
+    "1Gg.07",
+    "1Gg.08",
+    "1Gp.01",
+    "1Gt.01",
+    "1Gt.02",
+    "1Gt.03",
+    "1Nc.01",
+    "1Nc.02",
+    "1Nc.03",
+    "1Nc.04",
+    "1Nc.05",
+    "1Nc.06",
+    "1Nf.01",
+    "1Nf.02",
+    "1Nf.03",
+    "1Nf.04",
+    "1Ni.01",
+    "1Ni.02",
+    "1Ni.03",
+    "1Ni.04",
+    "1Ni.05",
+    "1Ni.06",
+    "1Nm.01",
+    "1Np.01",
+    "1Np.02",
+    "1Np.03",
+    "1Np.04",
+    "1Ss.01",
+    "1Ss.02",
+    "1Ss.03"
+   ],
+   "2": [
+    "2Gg.01",
+    "2Gg.02",
+    "2Gg.03",
+    "2Gg.04",
+    "2Gg.05",
+    "2Gg.06",
+    "2Gg.07",
+    "2Gg.08",
+    "2Gg.09",
+    "2Gg.10",
+    "2Gg.11",
+    "2Gg.12",
+    "2Gp.01",
+    "2Gp.02",
+    "2Gt.01",
+    "2Gt.02",
+    "2Gt.03",
+    "2Nc.01",
+    "2Nc.02",
+    "2Nc.03",
+    "2Nc.04",
+    "2Nc.05",
+    "2Nc.06",
+    "2Nf.01",
+    "2Nf.02",
+    "2Nf.03",
+    "2Nf.04",
+    "2Nf.05",
+    "2Nf.06",
+    "2Ni.01",
+    "2Ni.02",
+    "2Ni.03",
+    "2Ni.04",
+    "2Ni.05",
+    "2Ni.06",
+    "2Ni.07",
+    "2Nm.01",
+    "2Nm.02",
+    "2Np.01",
+    "2Np.02",
+    "2Np.03",
+    "2Np.04",
+    "2Np.05",
+    "2Sp.01",
+    "2Sp.02",
+    "2Ss.01",
+    "2Ss.02",
+    "2Ss.03"
+   ],
+   "3": [
+    "3Gg.01",
+    "3Gg.02",
+    "3Gg.03",
+    "3Gg.04",
+    "3Gg.05",
+    "3Gg.06",
+    "3Gg.07",
+    "3Gg.08",
+    "3Gg.09",
+    "3Gg.10",
+    "3Gg.11",
+    "3Gp.01",
+    "3Gp.02",
+    "3Gt.01",
+    "3Gt.02",
+    "3Gt.03",
+    "3Gt.04",
+    "3Nc.01",
+    "3Nc.02",
+    "3Nc.03",
+    "3Nc.04",
+    "3Nc.05",
+    "3Nc.06",
+    "3Nf.01",
+    "3Nf.02",
+    "3Nf.03",
+    "3Nf.04",
+    "3Nf.05",
+    "3Nf.06",
+    "3Nf.07",
+    "3Nf.08",
+    "3Ni.01",
+    "3Ni.02",
+    "3Ni.03",
+    "3Ni.04",
+    "3Ni.05",
+    "3Ni.06",
+    "3Ni.07",
+    "3Ni.08",
+    "3Ni.09",
+    "3Ni.10",
+    "3Nm.01",
+    "3Nm.02",
+    "3Np.01",
+    "3Np.02",
+    "3Np.03",
+    "3Np.04",
+    "3Np.05",
+    "3Sp.01",
+    "3Sp.02",
+    "3Ss.01",
+    "3Ss.02",
+    "3Ss.03"
+   ],
+   "4": [
+    "4Gg.01",
+    "4Gg.02",
+    "4Gg.03",
+    "4Gg.04",
+    "4Gg.05",
+    "4Gg.06",
+    "4Gg.07",
+    "4Gg.08",
+    "4Gg.09",
+    "4Gp.01",
+    "4Gp.02",
+    "4Gp.03",
+    "4Gt.01",
+    "4Gt.02",
+    "4Gt.03",
+    "4Gt.04",
+    "4Nc.01",
+    "4Nc.02",
+    "4Nc.03",
+    "4Nc.04",
+    "4Nc.05",
+    "4Nf.01",
+    "4Nf.02",
+    "4Nf.03",
+    "4Nf.04",
+    "4Nf.05",
+    "4Nf.06",
+    "4Nf.07",
+    "4Ni.01",
+    "4Ni.02",
+    "4Ni.03",
+    "4Ni.04",
+    "4Ni.05",
+    "4Ni.06",
+    "4Ni.07",
+    "4Ni.08",
+    "4Np.01",
+    "4Np.02",
+    "4Np.03",
+    "4Np.04",
+    "4Np.05",
+    "4Sp.01",
+    "4Sp.02",
+    "4Ss.01",
+    "4Ss.02",
+    "4Ss.03"
+   ],
+   "5": [
+    "5Gg.01",
+    "5Gg.02",
+    "5Gg.03",
+    "5Gg.04",
+    "5Gg.05",
+    "5Gg.06",
+    "5Gg.07",
+    "5Gg.08",
+    "5Gp.01",
+    "5Gp.02",
+    "5Gp.03",
+    "5Gp.04",
+    "5Gt.01",
+    "5Gt.02",
+    "5Gt.03",
+    "5Gt.04",
+    "5Nc.01",
+    "5Nc.02",
+    "5Nc.03",
+    "5Nc.04",
+    "5Nf.01",
+    "5Nf.02",
+    "5Nf.03",
+    "5Nf.04",
+    "5Nf.05",
+    "5Nf.06",
+    "5Nf.07",
+    "5Nf.08",
+    "5Nf.09",
+    "5Nf.10",
+    "5Nf.11",
+    "5Ni.01",
+    "5Ni.02",
+    "5Ni.03",
+    "5Ni.04",
+    "5Ni.05",
+    "5Ni.06",
+    "5Ni.07",
+    "5Ni.08",
+    "5Np.01",
+    "5Np.02",
+    "5Np.03",
+    "5Np.04",
+    "5Np.05",
+    "5Sp.01",
+    "5Sp.02",
+    "5Sp.03",
+    "5Ss.01",
+    "5Ss.02",
+    "5Ss.03",
+    "5Ss.04"
+   ],
+   "6": [
+    "6Gg.01",
+    "6Gg.02",
+    "6Gg.03",
+    "6Gg.04",
+    "6Gg.05",
+    "6Gg.06",
+    "6Gg.07",
+    "6Gg.08",
+    "6Gg.09",
+    "6Gg.10",
+    "6Gg.11",
+    "6Gp.01",
+    "6Gp.02",
+    "6Gp.03",
+    "6Gp.04",
+    "6Gp.05",
+    "6Gt.01",
+    "6Nc.01",
+    "6Nc.02",
+    "6Nc.03",
+    "6Nc.04",
+    "6Nf.01",
+    "6Nf.02",
+    "6Nf.03",
+    "6Nf.04",
+    "6Nf.05",
+    "6Nf.06",
+    "6Nf.07",
+    "6Nf.08",
+    "6Nf.09",
+    "6Nf.10",
+    "6Nf.11",
+    "6Nf.12",
+    "6Nf.13",
+    "6Ni.01",
+    "6Ni.02",
+    "6Ni.03",
+    "6Ni.04",
+    "6Ni.05",
+    "6Ni.06",
+    "6Ni.07",
+    "6Ni.08",
+    "6Np.01",
+    "6Np.02",
+    "6Np.03",
+    "6Np.04",
+    "6Sp.01",
+    "6Sp.02",
+    "6Sp.03",
+    "6Sp.04",
+    "6Ss.01",
+    "6Ss.02",
+    "6Ss.03",
+    "6Ss.04"
+   ]
+  },
+  "english": {
+   "1": [
+    "1Ra.01",
+    "1Ra.02",
+    "1Ra.03",
+    "1Ra.04",
+    "1Ra.05",
+    "1Ra.06",
+    "1Rg.01",
+    "1Rg.02",
+    "1Rg.03",
+    "1Rg.04",
+    "1Rg.05",
+    "1Rg.06",
+    "1Rg.07",
+    "1Ri.01",
+    "1Ri.02",
+    "1Ri.03",
+    "1Ri.04",
+    "1Ri.05",
+    "1Ri.06",
+    "1Ri.07",
+    "1Ri.08",
+    "1Ri.09",
+    "1Ri.10",
+    "1Ri.11",
+    "1Ri.12",
+    "1Ri.13",
+    "1Ri.14",
+    "1Rs.01",
+    "1Rs.02",
+    "1Rs.03",
+    "1Rs.04",
+    "1Rv.01",
+    "1Rv.02",
+    "1Rv.03",
+    "1Rv.04",
+    "1Rv.05",
+    "1Rw.01",
+    "1Rw.02",
+    "1Rw.03",
+    "1Rw.04",
+    "1Rw.05",
+    "1Rw.06",
+    "1Rw.07",
+    "1SLg.01",
+    "1SLg.02",
+    "1SLg.03",
+    "1SLg.04",
+    "1SLm.01",
+    "1SLm.02",
+    "1SLm.03",
+    "1SLm.04",
+    "1SLm.05",
+    "1SLp.01",
+    "1SLp.02",
+    "1SLp.03",
+    "1SLp.04",
+    "1SLp.05",
+    "1SLr.01",
+    "1SLr.02",
+    "1SLs.01",
+    "1SLs.02",
+    "1Wc.01",
+    "1Wc.02",
+    "1Wc.03",
+    "1Wc.04",
+    "1Wc.05",
+    "1Wg.01",
+    "1Wg.02",
+    "1Wg.03",
+    "1Wg.04",
+    "1Wg.05",
+    "1Wg.06",
+    "1Wp.01",
+    "1Wp.02",
+    "1Wp.03",
+    "1Wp.04",
+    "1Wp.05",
+    "1Wp.06",
+    "1Ws.01",
+    "1Ws.02",
+    "1Wv.01",
+    "1Wv.02",
+    "1Wv.03",
+    "1Ww.01",
+    "1Ww.02",
+    "1Ww.03",
+    "1Ww.04",
+    "1Ww.05",
+    "1Ww.06",
+    "1Ww.07"
+   ],
+   "2": [
+    "2Ra.01",
+    "2Ra.02",
+    "2Ra.03",
+    "2Ra.04",
+    "2Ra.05",
+    "2Rg.01",
+    "2Rg.02",
+    "2Rg.03",
+    "2Rg.04",
+    "2Rg.05",
+    "2Rg.06",
+    "2Ri.01",
+    "2Ri.02",
+    "2Ri.03",
+    "2Ri.04",
+    "2Ri.05",
+    "2Ri.06",
+    "2Ri.07",
+    "2Ri.08",
+    "2Ri.09",
+    "2Ri.10",
+    "2Ri.11",
+    "2Ri.12",
+    "2Ri.13",
+    "2Ri.14",
+    "2Ri.15",
+    "2Ri.16",
+    "2Rs.01",
+    "2Rs.02",
+    "2Rs.03",
+    "2Rv.01",
+    "2Rv.02",
+    "2Rv.03",
+    "2Rv.04",
+    "2Rv.05",
+    "2Rw.01",
+    "2Rw.02",
+    "2Rw.03",
+    "2Rw.04",
+    "2Rw.05",
+    "2Rw.06",
+    "2Rw.07",
+    "2SLg.01",
+    "2SLg.02",
+    "2SLg.03",
+    "2SLg.04",
+    "2SLm.01",
+    "2SLm.02",
+    "2SLm.03",
+    "2SLm.04",
+    "2SLm.05",
+    "2SLp.01",
+    "2SLp.02",
+    "2SLp.03",
+    "2SLp.04",
+    "2SLr.01",
+    "2SLr.02",
+    "2SLr.03",
+    "2SLs.01",
+    "2SLs.02",
+    "2Wc.01",
+    "2Wc.02",
+    "2Wc.03",
+    "2Wc.04",
+    "2Wc.05",
+    "2Wg.01",
+    "2Wg.02",
+    "2Wg.03",
+    "2Wg.04",
+    "2Wg.05",
+    "2Wg.06",
+    "2Wg.07",
+    "2Wg.08",
+    "2Wg.09",
+    "2Wg.10",
+    "2Wp.01",
+    "2Wp.02",
+    "2Wp.03",
+    "2Wp.04",
+    "2Wp.05",
+    "2Wp.06",
+    "2Ws.01",
+    "2Ws.02",
+    "2Ws.03",
+    "2Wv.01",
+    "2Wv.02",
+    "2Wv.03",
+    "2Wv.04",
+    "2Wv.05",
+    "2Ww.01",
+    "2Ww.02",
+    "2Ww.03",
+    "2Ww.04",
+    "2Ww.05",
+    "2Ww.06",
+    "2Ww.07",
+    "2Ww.08",
+    "2Ww.09",
+    "2Ww.10"
+   ],
+   "3": [
+    "3Ra.01",
+    "3Ra.02",
+    "3Ra.03",
+    "3Ra.04",
+    "3Ra.05",
+    "3Rg.01",
+    "3Rg.02",
+    "3Rg.03",
+    "3Rg.04",
+    "3Rg.05",
+    "3Rg.06",
+    "3Rg.07",
+    "3Rg.08",
+    "3Rg.09",
+    "3Rg.10",
+    "3Rg.11",
+    "3Ri.01",
+    "3Ri.02",
+    "3Ri.03",
+    "3Ri.04",
+    "3Ri.05",
+    "3Ri.06",
+    "3Ri.07",
+    "3Ri.08",
+    "3Ri.09",
+    "3Ri.10",
+    "3Ri.11",
+    "3Ri.12",
+    "3Ri.13",
+    "3Ri.14",
+    "3Ri.15",
+    "3Ri.16",
+    "3Ri.17",
+    "3Rs.01",
+    "3Rs.02",
+    "3Rs.03",
+    "3Rs.04",
+    "3Rv.01",
+    "3Rv.02",
+    "3Rv.03",
+    "3Rv.04",
+    "3Rv.05",
+    "3Rv.06",
+    "3Rv.07",
+    "3Rw.01",
+    "3Rw.02",
+    "3Rw.03",
+    "3Rw.04",
+    "3SLg.01",
+    "3SLg.02",
+    "3SLg.03",
+    "3SLg.04",
+    "3SLm.01",
+    "3SLm.02",
+    "3SLm.03",
+    "3SLm.04",
+    "3SLm.05",
+    "3SLp.01",
+    "3SLp.02",
+    "3SLp.03",
+    "3SLp.04",
+    "3SLp.05",
+    "3SLr.01",
+    "3SLr.02",
+    "3SLs.01",
+    "3SLs.02",
+    "3Wc.01",
+    "3Wc.02",
+    "3Wc.03",
+    "3Wc.04",
+    "3Wc.05",
+    "3Wc.06",
+    "3Wg.01",
+    "3Wg.02",
+    "3Wg.03",
+    "3Wg.04",
+    "3Wg.05",
+    "3Wg.06",
+    "3Wg.07",
+    "3Wg.08",
+    "3Wp.01",
+    "3Wp.02",
+    "3Wp.03",
+    "3Wp.04",
+    "3Wp.05",
+    "3Ws.01",
+    "3Ws.02",
+    "3Ws.03",
+    "3Ws.04",
+    "3Wv.01",
+    "3Wv.02",
+    "3Wv.03",
+    "3Wv.04",
+    "3Wv.05",
+    "3Wv.06",
+    "3Wv.07",
+    "3Ww.01",
+    "3Ww.02",
+    "3Ww.03",
+    "3Ww.04",
+    "3Ww.05",
+    "3Ww.06"
+   ],
+   "4": [
+    "4Ra.01",
+    "4Ra.02",
+    "4Ra.03",
+    "4Ra.04",
+    "4Rg.01",
+    "4Rg.02",
+    "4Rg.03",
+    "4Rg.04",
+    "4Rg.05",
+    "4Rg.06",
+    "4Rg.07",
+    "4Rg.08",
+    "4Rg.09",
+    "4Rg.10",
+    "4Ri.01",
+    "4Ri.02",
+    "4Ri.03",
+    "4Ri.04",
+    "4Ri.05",
+    "4Ri.06",
+    "4Ri.07",
+    "4Ri.08",
+    "4Ri.09",
+    "4Ri.10",
+    "4Ri.11",
+    "4Ri.12",
+    "4Ri.13",
+    "4Ri.14",
+    "4Ri.15",
+    "4Ri.16",
+    "4Ri.17",
+    "4Rs.01",
+    "4Rs.02",
+    "4Rs.03",
+    "4Rs.04",
+    "4Rv.01",
+    "4Rv.02",
+    "4Rv.03",
+    "4Rv.04",
+    "4Rv.05",
+    "4Rv.06",
+    "4Rv.07",
+    "4Rv.08",
+    "4Rw.01",
+    "4Rw.02",
+    "4Rw.03",
+    "4SLg.01",
+    "4SLg.02",
+    "4SLg.03",
+    "4SLg.04",
+    "4SLm.01",
+    "4SLm.02",
+    "4SLm.03",
+    "4SLm.04",
+    "4SLm.05",
+    "4SLp.01",
+    "4SLp.02",
+    "4SLp.03",
+    "4SLp.04",
+    "4SLr.01",
+    "4SLr.02",
+    "4SLs.01",
+    "4Wc.01",
+    "4Wc.02",
+    "4Wc.03",
+    "4Wc.04",
+    "4Wc.05",
+    "4Wc.06",
+    "4Wc.07",
+    "4Wc.09",
+    "4Wc.10",
+    "4Wg.01",
+    "4Wg.02",
+    "4Wg.03",
+    "4Wg.04",
+    "4Wg.05",
+    "4Wg.06",
+    "4Wg.07",
+    "4Wg.08",
+    "4Wg.09",
+    "4Wg.10",
+    "4Wp.01",
+    "4Wp.02",
+    "4Wp.03",
+    "4Wp.05",
+    "4Ws.01",
+    "4Ws.02",
+    "4Ws.03",
+    "4Ws.04",
+    "4Wv.01",
+    "4Wv.02",
+    "4Wv.03",
+    "4Wv.04",
+    "4Wv.05",
+    "4Wv.06",
+    "4Ww.01",
+    "4Ww.02",
+    "4Ww.03",
+    "4Ww.04",
+    "4Ww.05",
+    "4Ww.06",
+    "4Ww.07",
+    "4Ww.08",
+    "4Ww.09"
+   ],
+   "5": [
+    "5Ra.01",
+    "5Ra.02",
+    "5Ra.03",
+    "5Ra.04",
+    "5Rg.01",
+    "5Rg.02",
+    "5Rg.03",
+    "5Rg.04",
+    "5Rg.05",
+    "5Rg.06",
+    "5Ri.01",
+    "5Ri.02",
+    "5Ri.03",
+    "5Ri.04",
+    "5Ri.05",
+    "5Ri.06",
+    "5Ri.07",
+    "5Ri.08",
+    "5Ri.09",
+    "5Ri.10",
+    "5Ri.11",
+    "5Ri.12",
+    "5Ri.13",
+    "5Ri.14",
+    "5Ri.15",
+    "5Ri.16",
+    "5Ri.17",
+    "5Rs.01",
+    "5Rs.02",
+    "5Rs.03",
+    "5Rv.01",
+    "5Rv.02",
+    "5Rv.03",
+    "5Rv.04",
+    "5Rv.05",
+    "5Rv.06",
+    "5Rv.07",
+    "5Rw.01",
+    "5SLg.01",
+    "5SLg.02",
+    "5SLg.03",
+    "5SLg.04",
+    "5SLm.01",
+    "5SLm.02",
+    "5SLm.03",
+    "5SLm.04",
+    "5SLm.05",
+    "5SLp.01",
+    "5SLp.02",
+    "5SLp.03",
+    "5SLp.04",
+    "5SLr.01",
+    "5SLr.02",
+    "5SLs.01",
+    "5Wc.01",
+    "5Wc.02",
+    "5Wc.03",
+    "5Wc.04",
+    "5Wc.05",
+    "5Wc.06",
+    "5Wc.07",
+    "5Wc.08",
+    "5Wg.01",
+    "5Wg.02",
+    "5Wg.03",
+    "5Wg.04",
+    "5Wg.05",
+    "5Wg.06",
+    "5Wg.07",
+    "5Wg.08",
+    "5Wp.01",
+    "5Wp.02",
+    "5Wp.03",
+    "5Wp.04",
+    "5Wp.05",
+    "5Ws.01",
+    "5Ws.02",
+    "5Ws.03",
+    "5Wv.01",
+    "5Wv.02",
+    "5Wv.03",
+    "5Wv.04",
+    "5Wv.05",
+    "5Ww.01",
+    "5Ww.02",
+    "5Ww.03",
+    "5Ww.04",
+    "5Ww.05",
+    "5Ww.06",
+    "5Ww.07",
+    "5Ww.08",
+    "5Ww.09",
+    "5Ww.10"
+   ],
+   "6": [
+    "6Ra.01",
+    "6Ra.02",
+    "6Ra.03",
+    "6Ra.04",
+    "6Rg.01",
+    "6Rg.02",
+    "6Rg.03",
+    "6Rg.04",
+    "6Rg.05",
+    "6Rg.06",
+    "6Rg.07",
+    "6Rg.08",
+    "6Ri.01",
+    "6Ri.02",
+    "6Ri.03",
+    "6Ri.04",
+    "6Ri.05",
+    "6Ri.06",
+    "6Ri.07",
+    "6Ri.08",
+    "6Ri.09",
+    "6Ri.10",
+    "6Ri.11",
+    "6Ri.12",
+    "6Ri.13",
+    "6Ri.14",
+    "6Ri.15",
+    "6Ri.16",
+    "6Ri.17",
+    "6Rs.01",
+    "6Rs.02",
+    "6Rs.03",
+    "6Rv.01",
+    "6Rv.02",
+    "6Rv.03",
+    "6Rv.04",
+    "6Rv.05",
+    "6Rv.06",
+    "6SLg.01",
+    "6SLg.02",
+    "6SLg.03",
+    "6SLg.04",
+    "6SLm.01",
+    "6SLm.02",
+    "6SLm.03",
+    "6SLm.04",
+    "6SLm.05",
+    "6SLp.01",
+    "6SLp.02",
+    "6SLp.03",
+    "6SLp.04",
+    "6SLr.01",
+    "6SLr.02",
+    "6SLs.01",
+    "6Wc.01",
+    "6Wc.02",
+    "6Wc.03",
+    "6Wc.04",
+    "6Wc.05",
+    "6Wc.06",
+    "6Wc.07",
+    "6Wc.08",
+    "6Wg.01",
+    "6Wg.02",
+    "6Wg.03",
+    "6Wg.04",
+    "6Wg.05",
+    "6Wg.06",
+    "6Wg.07",
+    "6Wg.08",
+    "6Wp.01",
+    "6Wp.02",
+    "6Wp.03",
+    "6Wp.04",
+    "6Wp.05",
+    "6Ws.01",
+    "6Ws.02",
+    "6Ws.03",
+    "6Ws.04",
+    "6Wv.01",
+    "6Wv.02",
+    "6Wv.03",
+    "6Wv.04",
+    "6Wv.05",
+    "6Wv.06",
+    "6Ww.01",
+    "6Ww.02",
+    "6Ww.03",
+    "6Ww.04",
+    "6Ww.05",
+    "6Ww.06",
+    "6Ww.07"
+   ]
+  },
+  "science": {
+   "1": [
+    "1Bp.01",
+    "1Bp.02",
+    "1Bp.03",
+    "1Bp.04",
+    "1Bs.01",
+    "1Bs.02",
+    "1Bs.03",
+    "1Cc.01",
+    "1Cm.01",
+    "1Cm.02",
+    "1Cp.01",
+    "1Cp.02",
+    "1ESp.01",
+    "1ESp.02",
+    "1ESs.01",
+    "1ESs.02",
+    "1Pe.01",
+    "1Pe.02",
+    "1Pf.01",
+    "1Pf.02",
+    "1Pf.03",
+    "1Ps.01",
+    "1Ps.02",
+    "1SIC.01",
+    "1SIC.02",
+    "1SIC.03",
+    "1SIC.04",
+    "1TWSa.01",
+    "1TWSc.01",
+    "1TWSc.02",
+    "1TWSc.03",
+    "1TWSc.04",
+    "1TWSc.05",
+    "1TWSp.01",
+    "1TWSp.02"
+   ],
+   "2": [
+    "2Be.01",
+    "2Be.02",
+    "2Be.03",
+    "2Bp.01",
+    "2Bp.02",
+    "2Bp.03",
+    "2Bp.04",
+    "2Bs.01",
+    "2Bs.02",
+    "2Cc.01",
+    "2Cm.01",
+    "2Cp.01",
+    "2Cp.02",
+    "2Cp.03",
+    "2ESp.01",
+    "2ESp.02",
+    "2ESp.03",
+    "2ESs.01",
+    "2Pe.01",
+    "2Pe.02",
+    "2Pe.03",
+    "2Pf.01",
+    "2Pf.02",
+    "2Pf.03",
+    "2Ps.01",
+    "2Ps.02",
+    "2SIC.01",
+    "2SIC.02",
+    "2SIC.03",
+    "2SIC.04",
+    "2TWSa.01",
+    "2TWSa.02",
+    "2TWSa.03",
+    "2TWSc.01",
+    "2TWSc.02",
+    "2TWSc.03",
+    "2TWSc.04",
+    "2TWSc.05",
+    "2TWSc.06",
+    "2TWSm.01",
+    "2TWSm.02",
+    "2TWSm.03",
+    "2TWSp.01",
+    "2TWSp.02"
+   ],
+   "3": [
+    "3Be.01",
+    "3Bp.01",
+    "3Bp.02",
+    "3Bp.03",
+    "3Bp.04",
+    "3Bs.01",
+    "3Bs.02",
+    "3Bs.03",
+    "3Cc.01",
+    "3Cm.01",
+    "3Cm.02",
+    "3Cp.01",
+    "3Cp.02",
+    "3Cp.03",
+    "3Cp.04",
+    "3ESp.01",
+    "3ESp.02",
+    "3ESs.01",
+    "3ESs.02",
+    "3ESs.03",
+    "3Pe.01",
+    "3Pe.02",
+    "3Pe.03",
+    "3Pf.01",
+    "3Pf.02",
+    "3Pf.03",
+    "3Pf.04",
+    "3Ps.01",
+    "3Ps.02",
+    "3Ps.03",
+    "3SIC.01",
+    "3SIC.02",
+    "3SIC.03",
+    "3SIC.04",
+    "3TWSa.01",
+    "3TWSa.02",
+    "3TWSa.03",
+    "3TWSa.04",
+    "3TWSc.01",
+    "3TWSc.02",
+    "3TWSc.03",
+    "3TWSc.04",
+    "3TWSc.05",
+    "3TWSc.06",
+    "3TWSm.01",
+    "3TWSm.02",
+    "3TWSm.03",
+    "3TWSp.01",
+    "3TWSp.02",
+    "3TWSp.03",
+    "3TWSp.04"
+   ],
+   "4": [
+    "4Be.01",
+    "4Be.02",
+    "4Be.03",
+    "4Bp.01",
+    "4Bp.02",
+    "4Bp.03",
+    "4Bp.04",
+    "4Bs.01",
+    "4Bs.02",
+    "4Bs.03",
+    "4Bs.04",
+    "4Bs.05",
+    "4Cc.01",
+    "4Cc.02",
+    "4Cc.03",
+    "4Cm.01",
+    "4Cm.02",
+    "4Cm.03",
+    "4Cp.01",
+    "4Cp.02",
+    "4ESp.01",
+    "4ESp.02",
+    "4ESp.03",
+    "4ESs.01",
+    "4ESs.02",
+    "4ESs.03",
+    "4ESs.04",
+    "4Pe.01",
+    "4Pe.02",
+    "4Pe.03",
+    "4Pe.04",
+    "4Pf.01",
+    "4Pf.02",
+    "4Pf.03",
+    "4Pf.04",
+    "4Ps.01",
+    "4Ps.02",
+    "4Ps.03",
+    "4SIC.01",
+    "4SIC.02",
+    "4SIC.03",
+    "4SIC.04",
+    "4SIC.05",
+    "4TWSa.01",
+    "4TWSa.02",
+    "4TWSa.03",
+    "4TWSa.04",
+    "4TWSc.01",
+    "4TWSc.02",
+    "4TWSc.03",
+    "4TWSc.04",
+    "4TWSc.05",
+    "4TWSc.06",
+    "4TWSc.07",
+    "4TWSc.08",
+    "4TWSm.01",
+    "4TWSm.02",
+    "4TWSm.03",
+    "4TWSp.01",
+    "4TWSp.02",
+    "4TWSp.03",
+    "4TWSp.04",
+    "4TWSp.05"
+   ],
+   "5": [
+    "5Be.01",
+    "5Be.02",
+    "5Be.03",
+    "5Bp.01",
+    "5Bp.02",
+    "5Bp.03",
+    "5Bp.04",
+    "5Bs.01",
+    "5Bs.02",
+    "5Bs.03",
+    "5Bs.04",
+    "5Cc.01",
+    "5Cc.02",
+    "5Cc.03",
+    "5Cm.01",
+    "5Cm.02",
+    "5Cp.01",
+    "5Cp.02",
+    "5ESc.01",
+    "5ESp.01",
+    "5ESp.02",
+    "5ESp.03",
+    "5ESs.01",
+    "5ESs.02",
+    "5ESs.03",
+    "5Pe.01",
+    "5Pe.02",
+    "5Pe.03",
+    "5Pf.01",
+    "5Pf.02",
+    "5Pf.03",
+    "5Ps.01",
+    "5Ps.02",
+    "5Ps.03",
+    "5SIC.01",
+    "5SIC.02",
+    "5SIC.03",
+    "5SIC.04",
+    "5SIC.05",
+    "5TWSa.01",
+    "5TWSa.02",
+    "5TWSa.03",
+    "5TWSa.04",
+    "5TWSa.05",
+    "5TWSc.01",
+    "5TWSc.02",
+    "5TWSc.03",
+    "5TWSc.04",
+    "5TWSc.05",
+    "5TWSc.06",
+    "5TWSc.07",
+    "5TWSc.08",
+    "5TWSm.01",
+    "5TWSm.02",
+    "5TWSp.01",
+    "5TWSp.02",
+    "5TWSp.03",
+    "5TWSp.04",
+    "5TWSp.05"
+   ],
+   "6": [
+    "6Be.01",
+    "6Be.02",
+    "6Be.03",
+    "6Bp.01",
+    "6Bp.02",
+    "6Bp.03",
+    "6Bp.04",
+    "6Bs.01",
+    "6Bs.02",
+    "6Bs.03",
+    "6Cc.01",
+    "6Cc.02",
+    "6Cc.03",
+    "6Cc.04",
+    "6Cc.05",
+    "6Cp.01",
+    "6Cp.02",
+    "6Cp.03",
+    "6ESc.01",
+    "6ESp.01",
+    "6ESp.02",
+    "6ESp.03",
+    "6ESp.04",
+    "6ESs.01",
+    "6ESs.02",
+    "6Pe.01",
+    "6Pe.02",
+    "6Pf.01",
+    "6Pf.02",
+    "6Pf.03",
+    "6Pf.04",
+    "6Pf.05",
+    "6Ps.01",
+    "6Ps.02",
+    "6SIC.01",
+    "6SIC.02",
+    "6SIC.03",
+    "6SIC.04",
+    "6SIC.05",
+    "6TWSa.01",
+    "6TWSa.02",
+    "6TWSa.03",
+    "6TWSa.04",
+    "6TWSa.05",
+    "6TWSc.01",
+    "6TWSc.02",
+    "6TWSc.03",
+    "6TWSc.04",
+    "6TWSc.05",
+    "6TWSc.06",
+    "6TWSc.07",
+    "6TWSc.08",
+    "6TWSm.01",
+    "6TWSm.02",
+    "6TWSp.01",
+    "6TWSp.02",
+    "6TWSp.03",
+    "6TWSp.04",
+    "6TWSp.05"
+   ]
+  }
+ },
+ "skills": {
+  "e1.starters-listening": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e1.starters-speaking": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e1.starters-writing": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e1.letter-sounds": {
+   "match": "direct",
+   "direct": [
+    "1Rw.02",
+    "1Rw.03",
+    "1Rw.05"
+   ],
+   "partial": [
+    "1Rw.01",
+    "1Rw.06",
+    "1Ww.05"
+   ]
+  },
+  "e1.digraphs": {
+   "match": "direct",
+   "direct": [
+    "1Rw.02",
+    "1Rw.05",
+    "1Ww.01"
+   ],
+   "partial": [
+    "1Ww.02"
+   ]
+  },
+  "e1.vowel-teams": {
+   "match": "direct",
+   "direct": [
+    "1Rw.02",
+    "1Rw.05",
+    "1Ww.01"
+   ],
+   "partial": [
+    "2Rw.01",
+    "2Ww.01"
+   ]
+  },
+  "e1.tricky-words": {
+   "match": "direct",
+   "direct": [
+    "1Rw.07",
+    "1Ww.06"
+   ],
+   "partial": []
+  },
+  "e1.word-meanings": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "1Rv.01",
+    "1Rv.05",
+    "1Wv.01"
+   ]
+  },
+  "e1.capitals-full-stops": {
+   "match": "direct",
+   "direct": [
+    "1Wg.01",
+    "1Wg.03",
+    "1Rg.01",
+    "1Rg.02"
+   ],
+   "partial": []
+  },
+  "e1.question-marks": {
+   "match": "direct",
+   "direct": [
+    "2Wg.01"
+   ],
+   "partial": [
+    "3Wg.01",
+    "1Rg.05"
+   ]
+  },
+  "e1.naming-doing-words": {
+   "match": "direct",
+   "direct": [
+    "1Rg.06"
+   ],
+   "partial": [
+    "3Rg.08"
+   ]
+  },
+  "e1.word-endings": {
+   "match": "direct",
+   "direct": [
+    "1Ww.04",
+    "1Rw.04"
+   ],
+   "partial": []
+  },
+  "e1.reading-details": {
+   "match": "direct",
+   "direct": [
+    "1Ri.05",
+    "1Ri.12"
+   ],
+   "partial": [
+    "1Ri.08",
+    "1Ri.13",
+    "1Ri.07",
+    "1Ri.11"
+   ]
+  },
+  "e1.story-order": {
+   "match": "direct",
+   "direct": [
+    "1Rs.01",
+    "1Ri.10"
+   ],
+   "partial": [
+    "1Ws.01",
+    "1Ri.06"
+   ]
+  },
+  "e1.rhyme-poems": {
+   "match": "direct",
+   "direct": [
+    "1Rv.05",
+    "1Ri.14"
+   ],
+   "partial": [
+    "1Ra.01",
+    "1Ww.03"
+   ]
+  },
+  "e1.write-sentences": {
+   "match": "direct",
+   "direct": [
+    "1Wg.01",
+    "1Wg.04"
+   ],
+   "partial": [
+    "1Wp.02"
+   ]
+  },
+  "e1.speaking": {
+   "match": "direct",
+   "direct": [
+    "1SLp.01"
+   ],
+   "partial": [
+    "1SLm.03",
+    "1SLr.01",
+    "1Ra.03"
+   ]
+  },
+  "e2.starters-listening": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e2.starters-speaking": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e2.starters-writing": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e2.vowel-spellings": {
+   "match": "direct",
+   "direct": [
+    "2Rw.01",
+    "2Ww.01"
+   ],
+   "partial": [
+    "2Ww.08",
+    "2Ww.03"
+   ]
+  },
+  "e2.magic-e": {
+   "match": "direct",
+   "direct": [
+    "2Rw.02",
+    "2Ww.02"
+   ],
+   "partial": []
+  },
+  "e2.tricky-words": {
+   "match": "direct",
+   "direct": [
+    "2Ww.09",
+    "2Rw.07"
+   ],
+   "partial": []
+  },
+  "e2.synonyms-opposites": {
+   "match": "direct",
+   "direct": [
+    "3Wv.02"
+   ],
+   "partial": [
+    "2Rv.01"
+   ]
+  },
+  "e2.adjectives": {
+   "match": "direct",
+   "direct": [
+    "2Wv.02",
+    "2Wg.10"
+   ],
+   "partial": [
+    "2Rg.05",
+    "5Wg.07"
+   ]
+  },
+  "e2.nouns-plurals": {
+   "match": "direct",
+   "direct": [
+    "1Wg.03",
+    "2Ww.04"
+   ],
+   "partial": [
+    "1Ww.04",
+    "2Rg.05"
+   ]
+  },
+  "e2.pronouns": {
+   "match": "direct",
+   "direct": [
+    "2Wg.09",
+    "2Rg.06"
+   ],
+   "partial": []
+  },
+  "e2.past-tense-ed": {
+   "match": "direct",
+   "direct": [
+    "2Ww.05",
+    "2Wg.07"
+   ],
+   "partial": [
+    "3Wg.06"
+   ]
+  },
+  "e2.irregular-past": {
+   "match": "direct",
+   "direct": [
+    "3Wg.07",
+    "3Rg.11"
+   ],
+   "partial": [],
+   "stage": "ahead"
+  },
+  "e2.joining-words": {
+   "match": "direct",
+   "direct": [
+    "2Rg.03",
+    "2Wg.06"
+   ],
+   "partial": [
+    "2Wg.05"
+   ]
+  },
+  "e2.sentence-punctuation": {
+   "match": "direct",
+   "direct": [
+    "2Wg.01"
+   ],
+   "partial": [
+    "2Rg.01",
+    "3Wg.01",
+    "2Rg.02"
+   ]
+  },
+  "e2.commas-apostrophes": {
+   "match": "direct",
+   "direct": [
+    "2Wg.02",
+    "3Wg.02"
+   ],
+   "partial": [
+    "3Rw.02"
+   ]
+  },
+  "e2.reading-information": {
+   "match": "direct",
+   "direct": [
+    "2Ri.13",
+    "2Ri.14",
+    "2Ri.12",
+    "2Ri.06"
+   ],
+   "partial": [
+    "2Ri.09"
+   ]
+  },
+  "e2.text-structure": {
+   "match": "direct",
+   "direct": [
+    "2Rs.01",
+    "2Rs.02",
+    "2Rs.03"
+   ],
+   "partial": [
+    "2Ri.03",
+    "2Ri.04"
+   ]
+  },
+  "e2.poems": {
+   "match": "direct",
+   "direct": [
+    "2Rv.04",
+    "2Ri.16"
+   ],
+   "partial": [
+    "2Ra.03"
+   ]
+  },
+  "e2.writing": {
+   "match": "direct",
+   "direct": [
+    "2Ws.01",
+    "2Wg.04"
+   ],
+   "partial": [
+    "2Wc.04",
+    "2Wc.05"
+   ]
+  },
+  "e2.speaking": {
+   "match": "direct",
+   "direct": [
+    "2SLp.01",
+    "2SLm.02",
+    "2SLp.04"
+   ],
+   "partial": [
+    "2Ri.07"
+   ]
+  },
+  "e3.movers-listening": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e3.movers-speaking": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e3.movers-writing": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e3.prefixes": {
+   "match": "direct",
+   "direct": [
+    "3Ww.03"
+   ],
+   "partial": [
+    "2Rw.03",
+    "4Ww.03"
+   ]
+  },
+  "e3.suffixes": {
+   "match": "direct",
+   "direct": [
+    "3Ww.03"
+   ],
+   "partial": [
+    "2Rw.03"
+   ]
+  },
+  "e3.er-est": {
+   "match": "direct",
+   "direct": [
+    "5Wg.07"
+   ],
+   "partial": [
+    "3Ww.03"
+   ]
+  },
+  "e3.plurals": {
+   "match": "direct",
+   "direct": [
+    "4Ww.02"
+   ],
+   "partial": [
+    "2Ww.04"
+   ]
+  },
+  "e3.dictionary-order": {
+   "match": "direct",
+   "direct": [
+    "3Rv.03"
+   ],
+   "partial": []
+  },
+  "e3.tenses": {
+   "match": "direct",
+   "direct": [
+    "3Wg.06",
+    "3Rg.10"
+   ],
+   "partial": [
+    "3Wg.07"
+   ]
+  },
+  "e3.homophones": {
+   "match": "direct",
+   "direct": [
+    "3Ww.04"
+   ],
+   "partial": [
+    "2Ww.07"
+   ]
+  },
+  "e3.synonyms-antonyms": {
+   "match": "direct",
+   "direct": [
+    "3Wv.02"
+   ],
+   "partial": []
+  },
+  "e3.conjunctions": {
+   "match": "direct",
+   "direct": [
+    "3Wg.05"
+   ],
+   "partial": [
+    "3Rg.06",
+    "4Wg.05"
+   ]
+  },
+  "e3.speech-marks": {
+   "match": "direct",
+   "direct": [
+    "3Wg.03"
+   ],
+   "partial": [
+    "2Wg.03"
+   ]
+  },
+  "e3.main-idea": {
+   "match": "direct",
+   "direct": [
+    "3Ri.07"
+   ],
+   "partial": []
+  },
+  "e3.inference": {
+   "match": "direct",
+   "direct": [
+    "3Ri.12",
+    "3Ri.10"
+   ],
+   "partial": [
+    "3Rv.01"
+   ]
+  },
+  "e3.text-features": {
+   "match": "direct",
+   "direct": [
+    "3Rs.02",
+    "3Ri.05"
+   ],
+   "partial": [
+    "3Ri.03",
+    "3Rs.03"
+   ]
+  },
+  "e3.story-writing": {
+   "match": "direct",
+   "direct": [
+    "3Wc.01",
+    "3Wc.03"
+   ],
+   "partial": [
+    "3Ws.01",
+    "3Wc.02"
+   ]
+  },
+  "e3.speaking": {
+   "match": "direct",
+   "direct": [
+    "3SLm.01",
+    "3SLm.02",
+    "3SLp.05"
+   ],
+   "partial": [
+    "3SLs.02"
+   ]
+  },
+  "e4.movers-listening": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e4.movers-speaking": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e4.movers-writing": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e4.prefixes": {
+   "match": "direct",
+   "direct": [
+    "4Ww.03"
+   ],
+   "partial": [
+    "4Ww.04",
+    "6Wv.03"
+   ]
+  },
+  "e4.suffixes": {
+   "match": "direct",
+   "direct": [
+    "4Ww.03"
+   ],
+   "partial": []
+  },
+  "e4.plurals": {
+   "match": "direct",
+   "direct": [
+    "4Ww.02"
+   ],
+   "partial": []
+  },
+  "e4.word-families": {
+   "match": "direct",
+   "direct": [
+    "4Ww.04",
+    "4Rv.02"
+   ],
+   "partial": []
+  },
+  "e4.verb-tenses": {
+   "match": "direct",
+   "direct": [
+    "4Wg.06",
+    "4Wg.07",
+    "4Rg.09"
+   ],
+   "partial": []
+  },
+  "e4.subject-verb": {
+   "match": "direct",
+   "direct": [
+    "4Rg.10"
+   ],
+   "partial": [
+    "4Wg.06"
+   ]
+  },
+  "e4.similes": {
+   "match": "direct",
+   "direct": [
+    "4Wv.05",
+    "4Rv.07"
+   ],
+   "partial": [
+    "4Rv.08"
+   ]
+  },
+  "e4.adverbials": {
+   "match": "direct",
+   "direct": [
+    "4Wg.10",
+    "4Rg.07"
+   ],
+   "partial": [
+    "4Wg.02"
+   ]
+  },
+  "e4.complex-sentences": {
+   "match": "direct",
+   "direct": [
+    "4Wg.05",
+    "4Rg.04"
+   ],
+   "partial": []
+  },
+  "e4.apostrophes": {
+   "match": "direct",
+   "direct": [
+    "4Wg.03"
+   ],
+   "partial": []
+  },
+  "e4.fact-opinion": {
+   "match": "direct",
+   "direct": [
+    "4Ri.12"
+   ],
+   "partial": []
+  },
+  "e4.inference": {
+   "match": "direct",
+   "direct": [
+    "4Ri.11",
+    "4Ri.09",
+    "4Ri.15"
+   ],
+   "partial": []
+  },
+  "e4.text-structure": {
+   "match": "direct",
+   "direct": [
+    "4Rs.01",
+    "4Rs.02",
+    "4Ws.02",
+    "4Rs.03"
+   ],
+   "partial": []
+  },
+  "e4.persuasive-writing": {
+   "match": "direct",
+   "direct": [
+    "4Wc.10",
+    "4Wc.09"
+   ],
+   "partial": []
+  },
+  "e4.discussing": {
+   "match": "direct",
+   "direct": [
+    "4SLg.02",
+    "4SLg.03"
+   ],
+   "partial": [
+    "4SLm.01",
+    "4SLr.01"
+   ]
+  },
+  "e5.flyers-listening": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e5.flyers-speaking": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e5.flyers-writing": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e5.prefixes-suffixes": {
+   "match": "direct",
+   "direct": [
+    "5Ww.04",
+    "5Ww.05"
+   ],
+   "partial": []
+  },
+  "e5.silent-letters-homophones": {
+   "match": "direct",
+   "direct": [
+    "5Ww.02",
+    "5Ww.06"
+   ],
+   "partial": []
+  },
+  "e5.complex-sentences": {
+   "match": "direct",
+   "direct": [
+    "5Wg.04",
+    "5Wg.01",
+    "5Rg.02"
+   ],
+   "partial": []
+  },
+  "e5.retrieval-inference": {
+   "match": "direct",
+   "direct": [
+    "5Ri.14",
+    "5Ri.11",
+    "5Ri.15"
+   ],
+   "partial": [
+    "5Ri.09"
+   ]
+  },
+  "e5.speaking-presenting": {
+   "match": "direct",
+   "direct": [
+    "5SLm.05",
+    "5SLp.03",
+    "5SLm.04"
+   ],
+   "partial": []
+  },
+  "e5.figurative-language": {
+   "match": "direct",
+   "direct": [
+    "5Rv.06",
+    "5Rv.07"
+   ],
+   "partial": [
+    "5Wv.04"
+   ]
+  },
+  "e5.precise-verbs": {
+   "match": "direct",
+   "direct": [
+    "5Wv.02",
+    "5Wv.03"
+   ],
+   "partial": [
+    "4Wv.04"
+   ]
+  },
+  "e5.relative-clauses": {
+   "match": "direct",
+   "direct": [
+    "6Wg.07",
+    "6Rg.04"
+   ],
+   "partial": [],
+   "stage": "ahead"
+  },
+  "e5.direct-reported-speech": {
+   "match": "direct",
+   "direct": [
+    "5Wg.03",
+    "6Wg.02"
+   ],
+   "partial": []
+  },
+  "e5.summarising-structure": {
+   "match": "direct",
+   "direct": [
+    "5Ri.07",
+    "5Rs.01",
+    "5Rs.02"
+   ],
+   "partial": []
+  },
+  "e5.modal-verbs": {
+   "match": "direct",
+   "direct": [
+    "5Rg.05"
+   ],
+   "partial": []
+  },
+  "e5.commas-brackets": {
+   "match": "direct",
+   "direct": [
+    "6Wg.01"
+   ],
+   "partial": [
+    "5Wg.01"
+   ]
+  },
+  "e5.language-viewpoint": {
+   "match": "direct",
+   "direct": [
+    "5Ri.17",
+    "5Rv.05"
+   ],
+   "partial": [
+    "5Ri.15"
+   ]
+  },
+  "e5.writing-texts": {
+   "match": "direct",
+   "direct": [
+    "5Wc.06",
+    "5Wc.07"
+   ],
+   "partial": [
+    "5Wc.02",
+    "5Wc.08"
+   ]
+  },
+  "e5.editing-proofreading": {
+   "match": "direct",
+   "direct": [
+    "5Wp.05",
+    "5Wp.04"
+   ],
+   "partial": []
+  },
+  "e6.flyers-listening": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e6.flyers-speaking": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e6.flyers-writing": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "e6.word-origins": {
+   "match": "direct",
+   "direct": [
+    "6Rv.02"
+   ],
+   "partial": []
+  },
+  "e6.spelling-homonyms": {
+   "match": "direct",
+   "direct": [
+    "6Ww.04"
+   ],
+   "partial": [
+    "6Ww.02"
+   ]
+  },
+  "e6.active-passive": {
+   "match": "direct",
+   "direct": [
+    "6Wg.05",
+    "6Rg.06"
+   ],
+   "partial": []
+  },
+  "e6.retrieval-inference": {
+   "match": "direct",
+   "direct": [
+    "6Ri.14",
+    "6Ri.10",
+    "6Ri.09"
+   ],
+   "partial": []
+  },
+  "e6.speaking-debating": {
+   "match": "direct",
+   "direct": [
+    "6SLg.02",
+    "6SLg.03",
+    "6SLm.01",
+    "6SLm.05",
+    "6SLp.03"
+   ],
+   "partial": []
+  },
+  "e6.idioms-metaphors": {
+   "match": "direct",
+   "direct": [
+    "6Rv.05",
+    "6Rv.06",
+    "5Rv.02"
+   ],
+   "partial": []
+  },
+  "e6.formal-informal": {
+   "match": "direct",
+   "direct": [
+    "6Wg.08",
+    "6Rg.07"
+   ],
+   "partial": [
+    "6Wv.02"
+   ]
+  },
+  "e6.conditionals": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "6Wg.04",
+    "6Rg.08"
+   ]
+  },
+  "e6.colons-semicolons": {
+   "match": "direct",
+   "direct": [
+    "6Rg.01",
+    "6Wg.03"
+   ],
+   "partial": []
+  },
+  "e6.summarising-structure": {
+   "match": "direct",
+   "direct": [
+    "6Ri.07",
+    "6Rs.01",
+    "6Rs.03"
+   ],
+   "partial": []
+  },
+  "e6.brackets-hyphens-commas": {
+   "match": "direct",
+   "direct": [
+    "6Wg.01"
+   ],
+   "partial": [
+    "6Wg.03"
+   ]
+  },
+  "e6.paragraph-cohesion": {
+   "match": "direct",
+   "direct": [
+    "6Ws.02",
+    "6Ws.03"
+   ],
+   "partial": [
+    "6Ws.01"
+   ]
+  },
+  "e6.language-viewpoint": {
+   "match": "direct",
+   "direct": [
+    "6Ri.11",
+    "6Ri.16",
+    "6Rv.04"
+   ],
+   "partial": [
+    "6Ra.04"
+   ]
+  },
+  "e6.writing-texts": {
+   "match": "direct",
+   "direct": [
+    "6Wc.06",
+    "6Wc.07",
+    "6Wc.08"
+   ],
+   "partial": [
+    "6Wc.02"
+   ]
+  },
+  "e6.editing-proofreading": {
+   "match": "direct",
+   "direct": [
+    "6Wp.05",
+    "6Wp.04"
+   ],
+   "partial": []
+  },
+  "m1.oly-patterns": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.oly-logic": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.oly-shapes": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.oly-word-puzzles": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.oly-esmo": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.oly-number-sense": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.oly-coding": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.oly-money": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m1.count-objects": {
+   "match": "direct",
+   "direct": [
+    "1Nc.01"
+   ],
+   "partial": []
+  },
+  "m1.number-names": {
+   "match": "direct",
+   "direct": [
+    "1Ni.01"
+   ],
+   "partial": []
+  },
+  "m1.count-on-back": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "1Nc.04"
+   ]
+  },
+  "m1.skip-count": {
+   "match": "direct",
+   "direct": [
+    "1Nc.04"
+   ],
+   "partial": []
+  },
+  "m1.odd-even": {
+   "match": "direct",
+   "direct": [
+    "1Nc.05"
+   ],
+   "partial": []
+  },
+  "m1.place-value-20": {
+   "match": "direct",
+   "direct": [
+    "1Np.02"
+   ],
+   "partial": []
+  },
+  "m1.compare-order": {
+   "match": "direct",
+   "direct": [
+    "1Np.03"
+   ],
+   "partial": []
+  },
+  "m1.ordinal": {
+   "match": "direct",
+   "direct": [
+    "1Np.04"
+   ],
+   "partial": []
+  },
+  "m1.number-bonds-10": {
+   "match": "direct",
+   "direct": [
+    "1Ni.04"
+   ],
+   "partial": []
+  },
+  "m1.add-within-20": {
+   "match": "direct",
+   "direct": [
+    "1Ni.02"
+   ],
+   "partial": [
+    "1Ni.05"
+   ]
+  },
+  "m1.subtract-within-20": {
+   "match": "direct",
+   "direct": [
+    "1Ni.03"
+   ],
+   "partial": [
+    "1Ni.05"
+   ]
+  },
+  "m1.doubles": {
+   "match": "direct",
+   "direct": [
+    "1Ni.06"
+   ],
+   "partial": []
+  },
+  "m1.money": {
+   "match": "direct",
+   "direct": [
+    "1Nm.01"
+   ],
+   "partial": []
+  },
+  "m1.halves": {
+   "match": "direct",
+   "direct": [
+    "1Nf.02",
+    "1Nf.03"
+   ],
+   "partial": [
+    "1Nf.01",
+    "1Nf.04"
+   ]
+  },
+  "m1.quarters": {
+   "match": "direct",
+   "direct": [
+    "2Nf.01",
+    "2Nf.02"
+   ],
+   "partial": [],
+   "stage": "ahead"
+  },
+  "m1.days-months": {
+   "match": "direct",
+   "direct": [
+    "1Gt.02"
+   ],
+   "partial": []
+  },
+  "m1.oclock-half-past": {
+   "match": "direct",
+   "direct": [
+    "1Gt.03"
+   ],
+   "partial": []
+  },
+  "m1.shapes-2d": {
+   "match": "direct",
+   "direct": [
+    "1Gg.01"
+   ],
+   "partial": []
+  },
+  "m1.shapes-3d": {
+   "match": "direct",
+   "direct": [
+    "1Gg.03"
+   ],
+   "partial": [
+    "1Gg.06"
+   ]
+  },
+  "m1.measure-compare": {
+   "match": "direct",
+   "direct": [
+    "1Gg.02",
+    "1Gg.04",
+    "1Gg.05"
+   ],
+   "partial": [
+    "2Gg.03"
+   ]
+  },
+  "m1.position-direction": {
+   "match": "direct",
+   "direct": [
+    "1Gp.01"
+   ],
+   "partial": []
+  },
+  "m1.pictograms-graphs": {
+   "match": "direct",
+   "direct": [
+    "1Ss.02",
+    "1Ss.03"
+   ],
+   "partial": [
+    "2Ss.02"
+   ]
+  },
+  "m2.oly-patterns": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-logic": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-counting": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-shapes": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-number-puzzles": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-esmo": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-number-sense": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-coding": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-money": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-time-measure": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.oly-word-problems": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m2.numbers-to-100": {
+   "match": "direct",
+   "direct": [
+    "2Ni.01",
+    "2Nc.01"
+   ],
+   "partial": []
+  },
+  "m2.sequences": {
+   "match": "direct",
+   "direct": [
+    "2Nc.04",
+    "2Nc.06"
+   ],
+   "partial": []
+  },
+  "m2.arrays": {
+   "match": "direct",
+   "direct": [
+    "2Ni.05"
+   ],
+   "partial": [
+    "2Nc.04"
+   ]
+  },
+  "m2.odd-even": {
+   "match": "direct",
+   "direct": [
+    "2Nc.05"
+   ],
+   "partial": []
+  },
+  "m2.place-value": {
+   "match": "direct",
+   "direct": [
+    "2Np.01",
+    "2Np.02"
+   ],
+   "partial": []
+  },
+  "m2.compare-order": {
+   "match": "direct",
+   "direct": [
+    "2Np.03"
+   ],
+   "partial": []
+  },
+  "m2.number-bonds": {
+   "match": "direct",
+   "direct": [
+    "2Ni.03"
+   ],
+   "partial": []
+  },
+  "m2.addition": {
+   "match": "direct",
+   "direct": [
+    "2Ni.04"
+   ],
+   "partial": [
+    "2Ni.02"
+   ]
+  },
+  "m2.subtraction": {
+   "match": "direct",
+   "direct": [
+    "2Ni.04"
+   ],
+   "partial": [
+    "2Ni.02"
+   ]
+  },
+  "m2.doubles-halves": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "2Nf.04",
+    "1Ni.06"
+   ]
+  },
+  "m2.times-tables": {
+   "match": "direct",
+   "direct": [
+    "2Ni.07"
+   ],
+   "partial": [
+    "2Ni.05"
+   ]
+  },
+  "m2.division": {
+   "match": "direct",
+   "direct": [
+    "2Ni.06"
+   ],
+   "partial": []
+  },
+  "m2.money": {
+   "match": "direct",
+   "direct": [
+    "2Nm.01",
+    "2Nm.02"
+   ],
+   "partial": [
+    "3Nm.02"
+   ]
+  },
+  "m2.fractions-shapes": {
+   "match": "direct",
+   "direct": [
+    "2Nf.01",
+    "2Nf.02"
+   ],
+   "partial": [
+    "2Nf.06"
+   ]
+  },
+  "m2.fractions-amounts": {
+   "match": "direct",
+   "direct": [
+    "2Nf.04"
+   ],
+   "partial": []
+  },
+  "m2.telling-time": {
+   "match": "direct",
+   "direct": [
+    "2Gt.02"
+   ],
+   "partial": []
+  },
+  "m2.time-durations": {
+   "match": "direct",
+   "direct": [
+    "2Gt.01",
+    "2Gt.03"
+   ],
+   "partial": []
+  },
+  "m2.shapes-2d": {
+   "match": "direct",
+   "direct": [
+    "2Gg.01"
+   ],
+   "partial": []
+  },
+  "m2.shapes-3d": {
+   "match": "direct",
+   "direct": [
+    "2Gg.05"
+   ],
+   "partial": []
+  },
+  "m2.symmetry": {
+   "match": "direct",
+   "direct": [
+    "2Gg.09"
+   ],
+   "partial": []
+  },
+  "m2.length": {
+   "match": "direct",
+   "direct": [
+    "2Gg.03"
+   ],
+   "partial": [
+    "2Gg.04"
+   ]
+  },
+  "m2.mass-capacity": {
+   "match": "direct",
+   "direct": [
+    "2Gg.06",
+    "2Gg.07"
+   ],
+   "partial": [
+    "2Gg.12"
+   ]
+  },
+  "m2.position-turns": {
+   "match": "direct",
+   "direct": [
+    "2Gp.01"
+   ],
+   "partial": [
+    "2Gg.11"
+   ]
+  },
+  "m2.charts": {
+   "match": "direct",
+   "direct": [
+    "2Ss.02"
+   ],
+   "partial": [
+    "2Ss.01",
+    "2Ss.03"
+   ]
+  },
+  "m2.carroll-venn": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Ss.02"
+   ],
+   "stage": "ahead"
+  },
+  "m2.chance": {
+   "match": "direct",
+   "direct": [
+    "3Sp.01"
+   ],
+   "partial": [],
+   "stage": "ahead"
+  },
+  "m3.oly-patterns": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-logic": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-counting": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-geometry": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-number-puzzles": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-number-sense": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-coding": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-money": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-time-measure": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.oly-word-problems": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m3.place-value": {
+   "match": "direct",
+   "direct": [
+    "3Np.01",
+    "3Np.03"
+   ],
+   "partial": []
+  },
+  "m3.compare-order": {
+   "match": "direct",
+   "direct": [
+    "3Np.04"
+   ],
+   "partial": []
+  },
+  "m3.round-10-100": {
+   "match": "direct",
+   "direct": [
+    "3Np.05"
+   ],
+   "partial": []
+  },
+  "m3.sequences": {
+   "match": "direct",
+   "direct": [
+    "3Nc.02",
+    "3Nc.03"
+   ],
+   "partial": []
+  },
+  "m3.add-sub-mental": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Ni.04",
+    "3Ni.02"
+   ]
+  },
+  "m3.add-sub-columns": {
+   "match": "direct",
+   "direct": [
+    "3Ni.04"
+   ],
+   "partial": []
+  },
+  "m3.times-tables": {
+   "match": "direct",
+   "direct": [
+    "3Ni.07"
+   ],
+   "partial": []
+  },
+  "m3.division": {
+   "match": "direct",
+   "direct": [
+    "3Ni.05",
+    "3Ni.09"
+   ],
+   "partial": []
+  },
+  "m3.multiply-2d-1d": {
+   "match": "direct",
+   "direct": [
+    "3Ni.08"
+   ],
+   "partial": [
+    "3Ni.06"
+   ]
+  },
+  "m3.fractions": {
+   "match": "direct",
+   "direct": [
+    "3Nf.01",
+    "3Nf.03"
+   ],
+   "partial": []
+  },
+  "m3.fractions-of-amounts": {
+   "match": "direct",
+   "direct": [
+    "3Nf.05"
+   ],
+   "partial": []
+  },
+  "m3.equivalent-fractions": {
+   "match": "direct",
+   "direct": [
+    "3Nf.06",
+    "3Nf.08"
+   ],
+   "partial": []
+  },
+  "m3.money-rupiah": {
+   "match": "direct",
+   "direct": [
+    "3Nm.02"
+   ],
+   "partial": [
+    "3Nm.01"
+   ]
+  },
+  "m3.time-clock": {
+   "match": "direct",
+   "direct": [
+    "3Gt.02"
+   ],
+   "partial": []
+  },
+  "m3.time-intervals": {
+   "match": "direct",
+   "direct": [
+    "3Gt.04"
+   ],
+   "partial": [
+    "3Gt.03"
+   ]
+  },
+  "m3.length": {
+   "match": "direct",
+   "direct": [
+    "3Gg.02"
+   ],
+   "partial": []
+  },
+  "m3.mass-capacity": {
+   "match": "direct",
+   "direct": [
+    "3Gg.06",
+    "3Gg.07"
+   ],
+   "partial": []
+  },
+  "m3.temperature": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Gg.11"
+   ]
+  },
+  "m3.perimeter-area": {
+   "match": "direct",
+   "direct": [
+    "3Gg.03",
+    "3Gg.04"
+   ],
+   "partial": [
+    "4Gg.02"
+   ]
+  },
+  "m3.shapes-2d": {
+   "match": "direct",
+   "direct": [
+    "3Gg.01"
+   ],
+   "partial": []
+  },
+  "m3.shapes-3d": {
+   "match": "direct",
+   "direct": [
+    "3Gg.05"
+   ],
+   "partial": []
+  },
+  "m3.symmetry": {
+   "match": "direct",
+   "direct": [
+    "3Gg.09"
+   ],
+   "partial": []
+  },
+  "m3.angles-turns": {
+   "match": "direct",
+   "direct": [
+    "3Gg.10"
+   ],
+   "partial": []
+  },
+  "m3.position-direction": {
+   "match": "direct",
+   "direct": [
+    "3Gp.01"
+   ],
+   "partial": []
+  },
+  "m3.tally-tables": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Ss.01",
+    "3Ss.02"
+   ]
+  },
+  "m3.pictograms-bars": {
+   "match": "direct",
+   "direct": [
+    "3Ss.02",
+    "3Ss.03"
+   ],
+   "partial": []
+  },
+  "m3.venn-carroll": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Ss.02"
+   ]
+  },
+  "m3.chance": {
+   "match": "direct",
+   "direct": [
+    "3Sp.01"
+   ],
+   "partial": []
+  },
+  "m4.oly-patterns": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m4.oly-logic": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m4.oly-counting": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m4.oly-geometry": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m4.oly-number-puzzles": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m4.place-value": {
+   "match": "direct",
+   "direct": [
+    "4Np.01",
+    "4Np.02"
+   ],
+   "partial": [
+    "4Np.03"
+   ]
+  },
+  "m4.compare-order": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "4Np.04"
+   ]
+  },
+  "m4.rounding": {
+   "match": "direct",
+   "direct": [
+    "4Np.05"
+   ],
+   "partial": [
+    "4Ni.02"
+   ]
+  },
+  "m4.negative-numbers": {
+   "match": "direct",
+   "direct": [
+    "4Np.04"
+   ],
+   "partial": [
+    "4Nc.01"
+   ]
+  },
+  "m4.sequences": {
+   "match": "direct",
+   "direct": [
+    "4Nc.04"
+   ],
+   "partial": [
+    "4Nc.01"
+   ]
+  },
+  "m4.add-sub-mental": {
+   "match": "direct",
+   "direct": [
+    "4Ni.02"
+   ],
+   "partial": [
+    "4Nc.02"
+   ]
+  },
+  "m4.add-sub-written": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "4Ni.02"
+   ]
+  },
+  "m4.times-tables": {
+   "match": "direct",
+   "direct": [
+    "4Ni.04"
+   ],
+   "partial": []
+  },
+  "m4.factors-multiples": {
+   "match": "direct",
+   "direct": [
+    "4Ni.07"
+   ],
+   "partial": [
+    "4Ni.08"
+   ]
+  },
+  "m4.multiply-written": {
+   "match": "direct",
+   "direct": [
+    "4Ni.05"
+   ],
+   "partial": [
+    "4Ni.03"
+   ]
+  },
+  "m4.divide-written": {
+   "match": "direct",
+   "direct": [
+    "4Ni.06"
+   ],
+   "partial": []
+  },
+  "m4.decimals": {
+   "match": "direct",
+   "direct": [
+    "5Np.01"
+   ],
+   "partial": [
+    "5Nf.08"
+   ],
+   "stage": "ahead"
+  },
+  "m4.equivalent-fractions": {
+   "match": "direct",
+   "direct": [
+    "4Nf.04",
+    "4Nf.07"
+   ],
+   "partial": []
+  },
+  "m4.fractions-add-sub": {
+   "match": "direct",
+   "direct": [
+    "4Nf.05"
+   ],
+   "partial": []
+  },
+  "m4.fractions-of-amounts": {
+   "match": "direct",
+   "direct": [
+    "4Nf.03"
+   ],
+   "partial": []
+  },
+  "m4.money-rupiah": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Nm.02",
+    "4Ni.02"
+   ]
+  },
+  "m4.money-decimals": {
+   "match": "direct",
+   "direct": [
+    "3Nm.01"
+   ],
+   "partial": [
+    "3Nm.02"
+   ],
+   "stage": "behind"
+  },
+  "m4.time-24-hour": {
+   "match": "direct",
+   "direct": [
+    "4Gt.02"
+   ],
+   "partial": []
+  },
+  "m4.timetables": {
+   "match": "direct",
+   "direct": [
+    "4Gt.03",
+    "4Gt.04"
+   ],
+   "partial": []
+  },
+  "m4.convert-units": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Gg.02",
+    "3Gg.06",
+    "3Gg.07",
+    "4Gg.09"
+   ]
+  },
+  "m4.perimeter-area": {
+   "match": "direct",
+   "direct": [
+    "4Gg.02",
+    "4Gg.03"
+   ],
+   "partial": []
+  },
+  "m4.angles": {
+   "match": "direct",
+   "direct": [
+    "4Gg.08"
+   ],
+   "partial": []
+  },
+  "m4.shapes-2d": {
+   "match": "direct",
+   "direct": [
+    "4Gg.07"
+   ],
+   "partial": [
+    "4Gg.01"
+   ]
+  },
+  "m4.shapes-3d": {
+   "match": "direct",
+   "direct": [
+    "4Gg.05",
+    "4Gg.06"
+   ],
+   "partial": []
+  },
+  "m4.coordinates": {
+   "match": "direct",
+   "direct": [
+    "4Gp.02"
+   ],
+   "partial": [
+    "4Gp.01"
+   ]
+  },
+  "m4.data-charts": {
+   "match": "direct",
+   "direct": [
+    "4Ss.02",
+    "4Ss.03"
+   ],
+   "partial": []
+  },
+  "m4.venn-carroll": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "4Ss.02"
+   ]
+  },
+  "m4.chance": {
+   "match": "direct",
+   "direct": [
+    "4Sp.01"
+   ],
+   "partial": [
+    "4Sp.02"
+   ]
+  },
+  "m5.oly-patterns": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m5.oly-logic": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m5.oly-counting": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m5.oly-geometry": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m5.oly-number-puzzles": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m5.place-value-millions": {
+   "match": "direct",
+   "direct": [
+    "4Ni.01"
+   ],
+   "partial": [
+    "4Np.01",
+    "4Np.03"
+   ],
+   "stage": "behind"
+  },
+  "m5.round-whole-numbers": {
+   "match": "direct",
+   "direct": [
+    "4Np.05"
+   ],
+   "partial": [],
+   "stage": "behind"
+  },
+  "m5.decimal-place-value": {
+   "match": "direct",
+   "direct": [
+    "5Np.01"
+   ],
+   "partial": []
+  },
+  "m5.compare-decimals": {
+   "match": "direct",
+   "direct": [
+    "5Nf.08"
+   ],
+   "partial": []
+  },
+  "m5.round-decimals": {
+   "match": "direct",
+   "direct": [
+    "5Np.05"
+   ],
+   "partial": []
+  },
+  "m5.multiply-divide-10-100-1000": {
+   "match": "direct",
+   "direct": [
+    "5Np.02",
+    "5Np.03"
+   ],
+   "partial": []
+  },
+  "m5.negative-numbers": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "5Ni.01",
+    "4Np.04"
+   ]
+  },
+  "m5.sequences": {
+   "match": "direct",
+   "direct": [
+    "5Nc.01"
+   ],
+   "partial": [
+    "4Nc.04"
+   ]
+  },
+  "m5.mental-add-subtract": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "5Ni.01",
+    "5Ni.02"
+   ]
+  },
+  "m5.written-add-subtract": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "5Ni.01"
+   ]
+  },
+  "m5.multiples-factors": {
+   "match": "direct",
+   "direct": [
+    "6Ni.06"
+   ],
+   "partial": [
+    "4Ni.07"
+   ]
+  },
+  "m5.primes-squares": {
+   "match": "direct",
+   "direct": [
+    "5Ni.06",
+    "5Ni.08"
+   ],
+   "partial": []
+  },
+  "m5.multiply-written": {
+   "match": "direct",
+   "direct": [
+    "5Ni.04"
+   ],
+   "partial": []
+  },
+  "m5.divide-written": {
+   "match": "direct",
+   "direct": [
+    "5Ni.05"
+   ],
+   "partial": []
+  },
+  "m5.equivalent-fractions": {
+   "match": "direct",
+   "direct": [
+    "4Nf.04",
+    "6Nf.03"
+   ],
+   "partial": []
+  },
+  "m5.compare-fractions": {
+   "match": "direct",
+   "direct": [
+    "5Nf.03"
+   ],
+   "partial": [
+    "4Nf.07"
+   ]
+  },
+  "m5.add-subtract-fractions": {
+   "match": "direct",
+   "direct": [
+    "5Nf.05"
+   ],
+   "partial": []
+  },
+  "m5.fractions-of-amounts": {
+   "match": "direct",
+   "direct": [
+    "5Nf.02"
+   ],
+   "partial": []
+  },
+  "m5.add-subtract-decimals": {
+   "match": "direct",
+   "direct": [
+    "5Nf.09"
+   ],
+   "partial": []
+  },
+  "m5.multiply-decimals": {
+   "match": "direct",
+   "direct": [
+    "5Nf.10"
+   ],
+   "partial": []
+  },
+  "m5.fractions-decimals-percentages": {
+   "match": "direct",
+   "direct": [
+    "5Nf.04"
+   ],
+   "partial": [
+    "5Nf.07"
+   ]
+  },
+  "m5.percentages-of-amounts": {
+   "match": "direct",
+   "direct": [
+    "6Nf.07"
+   ],
+   "partial": [
+    "5Nf.07"
+   ]
+  },
+  "m5.ratio-proportion": {
+   "match": "direct",
+   "direct": [
+    "5Nf.11"
+   ],
+   "partial": [
+    "6Nf.12",
+    "6Nf.13"
+   ]
+  },
+  "m5.time-24-hour": {
+   "match": "direct",
+   "direct": [
+    "4Gt.02",
+    "4Gt.03"
+   ],
+   "partial": [
+    "5Gt.03"
+   ]
+  },
+  "m5.perimeter-area": {
+   "match": "direct",
+   "direct": [
+    "5Gg.02",
+    "5Gg.03"
+   ],
+   "partial": []
+  },
+  "m5.angles": {
+   "match": "direct",
+   "direct": [
+    "5Gg.07",
+    "5Gg.08"
+   ],
+   "partial": []
+  },
+  "m5.shapes-2d-3d": {
+   "match": "direct",
+   "direct": [
+    "5Gg.04",
+    "5Gg.05"
+   ],
+   "partial": [
+    "5Gg.01"
+   ]
+  },
+  "m5.coordinates-transformations": {
+   "match": "direct",
+   "direct": [
+    "5Gp.01",
+    "5Gp.02",
+    "5Gp.03"
+   ],
+   "partial": [
+    "5Gp.04"
+   ]
+  },
+  "m5.statistics": {
+   "match": "direct",
+   "direct": [
+    "5Ss.03"
+   ],
+   "partial": [
+    "5Ss.02"
+   ]
+  },
+  "m5.probability": {
+   "match": "direct",
+   "direct": [
+    "5Sp.01",
+    "5Sp.02"
+   ],
+   "partial": []
+  },
+  "m6.oly-patterns": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m6.oly-logic": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m6.oly-counting": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m6.oly-geometry": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m6.oly-number-puzzles": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "m6.place-value": {
+   "match": "direct",
+   "direct": [
+    "6Np.01",
+    "6Np.03"
+   ],
+   "partial": []
+  },
+  "m6.rounding": {
+   "match": "direct",
+   "direct": [
+    "6Np.04"
+   ],
+   "partial": [
+    "5Np.05"
+   ]
+  },
+  "m6.multiply-divide-powers-of-ten": {
+   "match": "direct",
+   "direct": [
+    "6Np.02"
+   ],
+   "partial": []
+  },
+  "m6.sequences": {
+   "match": "direct",
+   "direct": [
+    "6Nc.01",
+    "6Nc.04"
+   ],
+   "partial": []
+  },
+  "m6.function-machines": {
+   "match": "direct",
+   "direct": [
+    "6Nc.02"
+   ],
+   "partial": [
+    "6Nc.03"
+   ]
+  },
+  "m6.negative-numbers": {
+   "match": "direct",
+   "direct": [
+    "6Ni.01"
+   ],
+   "partial": []
+  },
+  "m6.order-of-operations": {
+   "match": "direct",
+   "direct": [
+    "6Ni.02",
+    "6Ni.03"
+   ],
+   "partial": []
+  },
+  "m6.factors-multiples-primes": {
+   "match": "direct",
+   "direct": [
+    "6Ni.06",
+    "5Ni.06"
+   ],
+   "partial": [
+    "6Ni.07"
+   ]
+  },
+  "m6.squares-cubes": {
+   "match": "direct",
+   "direct": [
+    "6Ni.08",
+    "5Ni.08"
+   ],
+   "partial": []
+  },
+  "m6.add-subtract": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "6Nf.09"
+   ]
+  },
+  "m6.multiply-written": {
+   "match": "direct",
+   "direct": [
+    "6Ni.04"
+   ],
+   "partial": []
+  },
+  "m6.divide-written": {
+   "match": "direct",
+   "direct": [
+    "6Ni.05"
+   ],
+   "partial": []
+  },
+  "m6.compare-fractions": {
+   "match": "direct",
+   "direct": [
+    "6Nf.03"
+   ],
+   "partial": [
+    "5Nf.03"
+   ]
+  },
+  "m6.add-subtract-fractions": {
+   "match": "direct",
+   "direct": [
+    "6Nf.05"
+   ],
+   "partial": []
+  },
+  "m6.multiply-divide-fractions": {
+   "match": "direct",
+   "direct": [
+    "6Nf.06"
+   ],
+   "partial": [
+    "6Nf.02"
+   ]
+  },
+  "m6.decimals-multiply-divide": {
+   "match": "direct",
+   "direct": [
+    "6Nf.10",
+    "6Nf.11"
+   ],
+   "partial": []
+  },
+  "m6.fdp-equivalence": {
+   "match": "direct",
+   "direct": [
+    "6Nf.04",
+    "6Nf.08"
+   ],
+   "partial": []
+  },
+  "m6.percentages": {
+   "match": "direct",
+   "direct": [
+    "6Nf.07"
+   ],
+   "partial": []
+  },
+  "m6.ratio-proportion": {
+   "match": "direct",
+   "direct": [
+    "6Nf.12",
+    "6Nf.13"
+   ],
+   "partial": []
+  },
+  "m6.time-timetables": {
+   "match": "direct",
+   "direct": [
+    "5Gt.02",
+    "5Gt.03"
+   ],
+   "partial": [
+    "6Gt.01"
+   ]
+  },
+  "m6.area-perimeter": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "5Gg.03",
+    "6Gg.03"
+   ]
+  },
+  "m6.area-triangles": {
+   "match": "direct",
+   "direct": [
+    "6Gg.03"
+   ],
+   "partial": []
+  },
+  "m6.volume-cuboids": {
+   "match": "direct",
+   "direct": [
+    "6Gg.05"
+   ],
+   "partial": [
+    "6Gg.07"
+   ]
+  },
+  "m6.angles": {
+   "match": "direct",
+   "direct": [
+    "6Gg.09",
+    "6Gg.10"
+   ],
+   "partial": []
+  },
+  "m6.shapes-properties": {
+   "match": "direct",
+   "direct": [
+    "6Gg.01",
+    "6Gg.02",
+    "6Gg.06"
+   ],
+   "partial": [
+    "6Gg.04"
+   ]
+  },
+  "m6.coordinates": {
+   "match": "direct",
+   "direct": [
+    "6Gp.01"
+   ],
+   "partial": [
+    "6Gp.02"
+   ]
+  },
+  "m6.transformations": {
+   "match": "direct",
+   "direct": [
+    "6Gp.03",
+    "6Gp.04",
+    "6Gp.05"
+   ],
+   "partial": []
+  },
+  "m6.averages": {
+   "match": "direct",
+   "direct": [
+    "6Ss.03"
+   ],
+   "partial": []
+  },
+  "m6.graphs-charts": {
+   "match": "direct",
+   "direct": [
+    "6Ss.02",
+    "6Ss.04"
+   ],
+   "partial": []
+  },
+  "m6.probability": {
+   "match": "direct",
+   "direct": [
+    "6Sp.01"
+   ],
+   "partial": [
+    "6Sp.03"
+   ]
+  },
+  "s1.living-things": {
+   "match": "direct",
+   "direct": [
+    "1Bp.01"
+   ],
+   "partial": []
+  },
+  "s1.plant-parts": {
+   "match": "direct",
+   "direct": [
+    "1Bs.01"
+   ],
+   "partial": []
+  },
+  "s1.body-parts": {
+   "match": "direct",
+   "direct": [
+    "1Bs.03"
+   ],
+   "partial": []
+  },
+  "s1.senses": {
+   "match": "direct",
+   "direct": [
+    "1Bs.02"
+   ],
+   "partial": []
+  },
+  "s1.animal-groups": {
+   "match": "direct",
+   "direct": [
+    "2Bs.01"
+   ],
+   "partial": [
+    "3Bs.02"
+   ],
+   "stage": "ahead"
+  },
+  "s1.growing-up": {
+   "match": "direct",
+   "direct": [
+    "2Bp.03"
+   ],
+   "partial": [
+    "1Bp.04"
+   ]
+  },
+  "s1.materials": {
+   "match": "direct",
+   "direct": [
+    "1Cm.01"
+   ],
+   "partial": [
+    "1Cm.02"
+   ]
+  },
+  "s1.material-properties": {
+   "match": "direct",
+   "direct": [
+    "1Cp.01",
+    "1Cp.02"
+   ],
+   "partial": []
+  },
+  "s1.push-pull": {
+   "match": "direct",
+   "direct": [
+    "1Pf.02"
+   ],
+   "partial": [
+    "1Pf.01"
+   ]
+  },
+  "s1.sounds": {
+   "match": "direct",
+   "direct": [
+    "1Ps.01",
+    "1Ps.02"
+   ],
+   "partial": []
+  },
+  "s1.earth-and-sun": {
+   "match": "direct",
+   "direct": [
+    "1ESs.01",
+    "1ESs.02"
+   ],
+   "partial": []
+  },
+  "s1.observe-sort": {
+   "match": "direct",
+   "direct": [
+    "1TWSc.01"
+   ],
+   "partial": [
+    "1TWSc.05"
+   ]
+  },
+  "s2.living-things": {
+   "match": "direct",
+   "direct": [
+    "1Bp.01",
+    "3Bp.01"
+   ],
+   "partial": []
+  },
+  "s2.plants-grow": {
+   "match": "direct",
+   "direct": [
+    "1Bp.03"
+   ],
+   "partial": [
+    "3Bp.03"
+   ]
+  },
+  "s2.life-cycles": {
+   "match": "direct",
+   "direct": [
+    "2Bp.03"
+   ],
+   "partial": [
+    "3Bp.04"
+   ]
+  },
+  "s2.healthy-living": {
+   "match": "direct",
+   "direct": [
+    "2Bp.01"
+   ],
+   "partial": [
+    "2Bp.02"
+   ]
+  },
+  "s2.habitats": {
+   "match": "direct",
+   "direct": [
+    "2Be.01",
+    "2Be.02"
+   ],
+   "partial": []
+  },
+  "s2.materials": {
+   "match": "direct",
+   "direct": [
+    "2Cm.01",
+    "2Cp.02"
+   ],
+   "partial": []
+  },
+  "s2.changing-materials": {
+   "match": "direct",
+   "direct": [
+    "1Cc.01",
+    "2Cc.01"
+   ],
+   "partial": []
+  },
+  "s2.forces-motion": {
+   "match": "direct",
+   "direct": [
+    "2Pf.01",
+    "2Pf.02",
+    "2Pf.03"
+   ],
+   "partial": []
+  },
+  "s2.light-dark": {
+   "match": "direct",
+   "direct": [
+    "2Ps.01",
+    "2Ps.02"
+   ],
+   "partial": []
+  },
+  "s2.electricity": {
+   "match": "direct",
+   "direct": [
+    "2Pe.01"
+   ],
+   "partial": []
+  },
+  "s2.rocks-soil": {
+   "match": "direct",
+   "direct": [
+    "2ESp.01"
+   ],
+   "partial": [
+    "1ESp.02",
+    "2ESp.02"
+   ]
+  },
+  "s2.weather-seasons": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "s2.day-night": {
+   "match": "direct",
+   "direct": [
+    "4ESs.01"
+   ],
+   "partial": [
+    "2ESs.01"
+   ]
+  },
+  "s2.fair-test": {
+   "match": "direct",
+   "direct": [
+    "2TWSc.06"
+   ],
+   "partial": [
+    "2TWSp.02",
+    "2TWSc.03",
+    "2TWSa.03"
+   ]
+  },
+  "s3.plant-parts": {
+   "match": "direct",
+   "direct": [
+    "3Bs.01"
+   ],
+   "partial": []
+  },
+  "s3.water-in-plants": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Bs.01"
+   ]
+  },
+  "s3.seeds-and-growth": {
+   "match": "direct",
+   "direct": [
+    "3Bp.03",
+    "5Bp.04"
+   ],
+   "partial": []
+  },
+  "s3.fair-tests": {
+   "match": "direct",
+   "direct": [
+    "3TWSc.02",
+    "3TWSc.03"
+   ],
+   "partial": [
+    "3TWSp.02",
+    "3TWSc.06"
+   ]
+  },
+  "s3.skeletons": {
+   "match": "direct",
+   "direct": [
+    "4Bs.03"
+   ],
+   "partial": [
+    "4Bs.01"
+   ],
+   "stage": "ahead"
+  },
+  "s3.food-groups": {
+   "match": "direct",
+   "direct": [
+    "5Bp.01"
+   ],
+   "partial": [
+    "2Bp.01"
+   ]
+  },
+  "s3.healthy-living": {
+   "match": "direct",
+   "direct": [
+    "2Bp.01"
+   ],
+   "partial": [],
+   "stage": "behind"
+  },
+  "s3.materials-properties": {
+   "match": "direct",
+   "direct": [
+    "2Cp.01",
+    "2Cp.02"
+   ],
+   "partial": [
+    "3Cp.01"
+   ]
+  },
+  "s3.magnets": {
+   "match": "direct",
+   "direct": [
+    "3Pe.01",
+    "3Pe.02",
+    "3Pe.03"
+   ],
+   "partial": []
+  },
+  "s3.forces-friction": {
+   "match": "direct",
+   "direct": [
+    "3Pf.03",
+    "3Pf.04"
+   ],
+   "partial": [
+    "2Pf.01"
+   ]
+  },
+  "s3.tables-and-charts": {
+   "match": "direct",
+   "direct": [
+    "3TWSc.06",
+    "3TWSa.04"
+   ],
+   "partial": []
+  },
+  "s3.light-shadows": {
+   "match": "direct",
+   "direct": [
+    "3Ps.01",
+    "3Ps.02",
+    "3Ps.03"
+   ],
+   "partial": []
+  },
+  "s3.rocks-and-soils": {
+   "match": "direct",
+   "direct": [
+    "3ESp.02"
+   ],
+   "partial": [
+    "2ESp.01",
+    "6ESp.03"
+   ]
+  },
+  "s4.muscles-joints": {
+   "match": "direct",
+   "direct": [
+    "4Bs.02"
+   ],
+   "partial": []
+  },
+  "s4.teeth": {
+   "match": "direct",
+   "direct": [
+    "2Bs.02"
+   ],
+   "partial": [],
+   "stage": "behind"
+  },
+  "s4.habitats": {
+   "match": "direct",
+   "direct": [
+    "4Be.01"
+   ],
+   "partial": [
+    "4Be.02"
+   ]
+  },
+  "s4.classification-keys": {
+   "match": "direct",
+   "direct": [
+    "4TWSc.02"
+   ],
+   "partial": [
+    "4TWSc.01",
+    "3Bs.02"
+   ]
+  },
+  "s4.food-chains": {
+   "match": "direct",
+   "direct": [
+    "4Be.03",
+    "3Be.01"
+   ],
+   "partial": []
+  },
+  "s4.solids-liquids-gases": {
+   "match": "direct",
+   "direct": [
+    "3Cm.01"
+   ],
+   "partial": [
+    "4Cm.01"
+   ]
+  },
+  "s4.changing-state": {
+   "match": "direct",
+   "direct": [
+    "4Cc.01",
+    "4Cc.02"
+   ],
+   "partial": [
+    "5Cc.01"
+   ]
+  },
+  "s4.circuits": {
+   "match": "direct",
+   "direct": [
+    "4Pe.01",
+    "4Pe.02"
+   ],
+   "partial": [
+    "2Pe.02",
+    "2Pe.03"
+   ]
+  },
+  "s4.conductors-insulators": {
+   "match": "direct",
+   "direct": [
+    "4Pe.04"
+   ],
+   "partial": [
+    "6Cp.03"
+   ]
+  },
+  "s4.sound-vibrations": {
+   "match": "direct",
+   "direct": [
+    "5Ps.01"
+   ],
+   "partial": [],
+   "stage": "ahead"
+  },
+  "s4.pitch-and-volume": {
+   "match": "direct",
+   "direct": [
+    "5Ps.02",
+    "5Ps.03"
+   ],
+   "partial": [],
+   "stage": "ahead"
+  },
+  "s4.earth-sun-moon": {
+   "match": "direct",
+   "direct": [
+    "4ESs.01",
+    "3ESs.02"
+   ],
+   "partial": [
+    "3ESs.01"
+   ]
+  },
+  "s4.variables-and-graphs": {
+   "match": "direct",
+   "direct": [
+    "4TWSp.04",
+    "4TWSa.03"
+   ],
+   "partial": [
+    "4TWSa.04"
+   ]
+  },
+  "s5.heart-lungs": {
+   "match": "direct",
+   "direct": [
+    "6Bs.01",
+    "6Bs.02"
+   ],
+   "partial": [],
+   "stage": "ahead"
+  },
+  "s5.keeping-healthy": {
+   "match": "direct",
+   "direct": [
+    "5Bp.01"
+   ],
+   "partial": [
+    "2Bp.01"
+   ]
+  },
+  "s5.plant-life-cycle": {
+   "match": "direct",
+   "direct": [
+    "5Bp.02",
+    "5Bp.03"
+   ],
+   "partial": [
+    "5Bp.04"
+   ]
+  },
+  "s5.vertebrates-invertebrates": {
+   "match": "direct",
+   "direct": [
+    "4Bs.05"
+   ],
+   "partial": [],
+   "stage": "behind"
+  },
+  "s5.food-chains": {
+   "match": "direct",
+   "direct": [
+    "4Be.03"
+   ],
+   "partial": [
+    "6Be.01"
+   ]
+  },
+  "s5.dissolving": {
+   "match": "direct",
+   "direct": [
+    "5Cc.03",
+    "5Cp.01",
+    "3Cc.01"
+   ],
+   "partial": []
+  },
+  "s5.separating-mixtures": {
+   "match": "direct",
+   "direct": [
+    "3Cp.03",
+    "3Cp.04",
+    "5Cc.02"
+   ],
+   "partial": []
+  },
+  "s5.water-cycle": {
+   "match": "direct",
+   "direct": [
+    "5ESc.01",
+    "5Cc.01"
+   ],
+   "partial": [
+    "4Cc.02"
+   ]
+  },
+  "s5.mass-weight": {
+   "match": "direct",
+   "direct": [
+    "6Pf.01",
+    "6Pf.02"
+   ],
+   "partial": [
+    "3Pf.02"
+   ]
+  },
+  "s5.friction-resistance": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "3Pf.03",
+    "5Pf.01",
+    "5Pf.03"
+   ]
+  },
+  "s5.light-shadows": {
+   "match": "direct",
+   "direct": [
+    "3Ps.02",
+    "3Ps.03"
+   ],
+   "partial": [],
+   "stage": "behind"
+  },
+  "s5.sound": {
+   "match": "direct",
+   "direct": [
+    "5Ps.01",
+    "5Ps.02",
+    "5Ps.03"
+   ],
+   "partial": []
+  },
+  "s5.fair-tests": {
+   "match": "direct",
+   "direct": [
+    "5TWSp.04"
+   ],
+   "partial": [
+    "5TWSc.03",
+    "5TWSa.03"
+   ]
+  },
+  "s6.digestion": {
+   "match": "direct",
+   "direct": [
+    "5Bs.04"
+   ],
+   "partial": [],
+   "stage": "behind"
+  },
+  "s6.photosynthesis": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "s6.classification-keys": {
+   "match": "direct",
+   "direct": [
+    "6TWSc.02"
+   ],
+   "partial": [
+    "6TWSc.01"
+   ]
+  },
+  "s6.food-webs": {
+   "match": "direct",
+   "direct": [
+    "6Be.01"
+   ],
+   "partial": [
+    "6Be.02",
+    "6Be.03"
+   ]
+  },
+  "s6.reversible-changes": {
+   "match": "direct",
+   "direct": [
+    "6Cc.01"
+   ],
+   "partial": [
+    "4Cc.03",
+    "6Cc.04",
+    "6Cc.05"
+   ]
+  },
+  "s6.metals-materials": {
+   "match": "partial",
+   "direct": [],
+   "partial": [
+    "6Cp.03",
+    "4Pe.04"
+   ]
+  },
+  "s6.circuits": {
+   "match": "direct",
+   "direct": [
+    "6Pe.01",
+    "6Pe.02"
+   ],
+   "partial": []
+  },
+  "s6.forces-motion": {
+   "match": "direct",
+   "direct": [
+    "6Pf.03",
+    "6Pf.04"
+   ],
+   "partial": [
+    "5Pf.02"
+   ]
+  },
+  "s6.simple-machines": {
+   "match": "enrichment",
+   "direct": [],
+   "partial": []
+  },
+  "s6.light-seeing": {
+   "match": "direct",
+   "direct": [
+    "4Ps.01",
+    "4Ps.02",
+    "4Ps.03",
+    "6Ps.01",
+    "6Ps.02"
+   ],
+   "partial": []
+  },
+  "s6.earth-space": {
+   "match": "direct",
+   "direct": [
+    "6ESs.01",
+    "6ESs.02"
+   ],
+   "partial": [
+    "4ESs.02",
+    "5ESs.02"
+   ]
+  },
+  "s6.earth-structure": {
+   "match": "direct",
+   "direct": [
+    "4ESp.01",
+    "4ESp.02",
+    "4ESp.03"
+   ],
+   "partial": [],
+   "stage": "behind"
+  },
+  "s6.graphs-evidence": {
+   "match": "direct",
+   "direct": [
+    "6TWSa.02",
+    "6TWSa.05"
+   ],
+   "partial": [
+    "6TWSa.03"
+   ]
+  },
+  "s4.particles": {
+   "match": "direct",
+   "direct": [
+    "4Cm.01",
+    "4Cm.02",
+    "4Cm.03",
+    "4Cp.01",
+    "4Cp.02"
+   ],
+   "partial": []
+  },
+  "s4.energy": {
+   "match": "direct",
+   "direct": [
+    "4Pf.01",
+    "4Pf.02",
+    "4Pf.03",
+    "4Pf.04"
+   ],
+   "partial": []
+  },
+  "s4.solar-system": {
+   "match": "direct",
+   "direct": [
+    "4ESs.03",
+    "4ESs.04",
+    "4ESs.02"
+   ],
+   "partial": []
+  },
+  "s4.medicines-germs": {
+   "match": "direct",
+   "direct": [
+    "4Bp.01",
+    "4Bp.02",
+    "4Bp.03",
+    "4Bp.04"
+   ],
+   "partial": []
+  },
+  "s5.adaptations": {
+   "match": "direct",
+   "direct": [
+    "5Be.01",
+    "5Be.02",
+    "5Be.03"
+   ],
+   "partial": []
+  },
+  "s5.flowers": {
+   "match": "direct",
+   "direct": [
+    "5Bs.01",
+    "5Bs.02",
+    "5Bs.03"
+   ],
+   "partial": []
+  },
+  "s5.air-water-pollution": {
+   "match": "direct",
+   "direct": [
+    "5ESp.01",
+    "5ESp.02",
+    "5ESp.03"
+   ],
+   "partial": []
+  },
+  "s5.magnets-strength": {
+   "match": "direct",
+   "direct": [
+    "5Pe.01",
+    "5Pe.02",
+    "5Pe.03"
+   ],
+   "partial": []
+  },
+  "s5.gases-water": {
+   "match": "direct",
+   "direct": [
+    "5Cm.01",
+    "5Cm.02",
+    "5Cp.02"
+   ],
+   "partial": []
+  },
+  "s6.rocks-soil": {
+   "match": "direct",
+   "direct": [
+    "6ESp.01",
+    "6ESp.02",
+    "6ESp.04",
+    "6ESc.01"
+   ],
+   "partial": []
+  },
+  "s6.germs-defences": {
+   "match": "direct",
+   "direct": [
+    "6Bp.02",
+    "6Bp.03",
+    "6Bp.04"
+   ],
+   "partial": []
+  },
+  "s6.dissolving-boiling": {
+   "match": "direct",
+   "direct": [
+    "6Cc.02",
+    "6Cc.03",
+    "6Cp.01",
+    "6Cp.02"
+   ],
+   "partial": []
+  },
+  "m3.complements-multiples": {
+   "match": "direct",
+   "direct": [
+    "3Ni.03",
+    "3Ni.10",
+    "3Ni.01"
+   ],
+   "partial": []
+  },
+  "m3.unknown-patterns": {
+   "match": "direct",
+   "direct": [
+    "3Nc.04",
+    "3Nc.05",
+    "3Nc.06"
+   ],
+   "partial": []
+  },
+  "m4.percent-intro": {
+   "match": "direct",
+   "direct": [
+    "4Nf.06",
+    "4Nf.01",
+    "4Nf.02"
+   ],
+   "partial": []
+  },
+  "m4.time-units": {
+   "match": "direct",
+   "direct": [
+    "4Gt.01"
+   ],
+   "partial": []
+  },
+  "m4.square-numbers": {
+   "match": "direct",
+   "direct": [
+    "4Nc.05",
+    "4Nc.03"
+   ],
+   "partial": []
+  },
+  "m5.order-divisibility": {
+   "match": "direct",
+   "direct": [
+    "5Ni.03",
+    "5Ni.07",
+    "5Nc.03"
+   ],
+   "partial": []
+  },
+  "m6.rotational-symmetry": {
+   "match": "direct",
+   "direct": [
+    "6Gg.08"
+   ],
+   "partial": []
+  },
+  "m6.probability-events": {
+   "match": "direct",
+   "direct": [
+    "6Sp.02",
+    "6Sp.04"
+   ],
+   "partial": []
+  },
+  "e4.spelling-strategies": {
+   "match": "direct",
+   "direct": [
+    "4Ww.01",
+    "4Ww.05",
+    "4Ww.06",
+    "4Ww.07",
+    "4Ww.08",
+    "4Ww.09",
+    "4Rw.01",
+    "4Rw.02",
+    "4Rw.03",
+    "4Rv.04"
+   ],
+   "partial": []
+  },
+  "e4.speech-punctuation": {
+   "match": "direct",
+   "direct": [
+    "4Wg.01",
+    "4Wg.04",
+    "4Rg.01",
+    "4Rg.02",
+    "4Rg.03",
+    "4Wp.05"
+   ],
+   "partial": []
+  },
+  "e4.skim-scan": {
+   "match": "direct",
+   "direct": [
+    "4Ri.13",
+    "4Ri.14",
+    "4Ri.07",
+    "4Ri.06",
+    "4Wp.02"
+   ],
+   "partial": []
+  },
+  "e4.genres-purpose": {
+   "match": "direct",
+   "direct": [
+    "4Ri.01",
+    "4Ri.02",
+    "4Ri.03",
+    "4Ri.04",
+    "4Ri.05",
+    "4Ri.16",
+    "4Ra.01",
+    "4Wc.07"
+   ],
+   "partial": []
+  },
+  "e4.story-craft": {
+   "match": "direct",
+   "direct": [
+    "4Ri.08",
+    "4Ri.10",
+    "4Ri.17",
+    "4Wc.02",
+    "4Wc.03",
+    "4Wc.04",
+    "4Wc.05",
+    "4Wc.06",
+    "4Ra.02",
+    "4Ra.04"
+   ],
+   "partial": []
+  },
+  "e5.apostrophes": {
+   "match": "direct",
+   "direct": [
+    "5Wg.02"
+   ],
+   "partial": []
+  },
+  "e5.pronouns-nouns": {
+   "match": "direct",
+   "direct": [
+    "5Wg.06",
+    "5Rg.03",
+    "5Rg.04"
+   ],
+   "partial": []
+  },
+  "e5.adverbs-phrases": {
+   "match": "direct",
+   "direct": [
+    "5Wg.08"
+   ],
+   "partial": []
+  },
+  "e5.text-types": {
+   "match": "direct",
+   "direct": [
+    "5Ri.01",
+    "5Ri.03",
+    "5Ri.04",
+    "5Ri.05",
+    "5Ri.16",
+    "5Ri.08"
+   ],
+   "partial": []
+  },
+  "e5.skim-scan": {
+   "match": "direct",
+   "direct": [
+    "5Ri.13",
+    "5Ri.06",
+    "5Ri.14"
+   ],
+   "partial": []
+  },
+  "e6.genres-text-types": {
+   "match": "direct",
+   "direct": [
+    "6Ra.01",
+    "6Ra.02",
+    "6Ra.03",
+    "6Ri.01",
+    "6Ri.02",
+    "6Ri.03",
+    "6Ri.04",
+    "6Ri.05",
+    "6Rs.02"
+   ],
+   "partial": []
+  },
+  "e6.fact-opinion-voice-theme": {
+   "match": "direct",
+   "direct": [
+    "6Ri.06",
+    "6Ri.08",
+    "6Ri.12",
+    "6Ri.15",
+    "6Ri.17"
+   ],
+   "partial": []
+  },
+  "e6.skim-scan": {
+   "match": "direct",
+   "direct": [
+    "6Ri.13",
+    "6Ri.01"
+   ],
+   "partial": []
+  },
+  "e6.spelling-strategies": {
+   "match": "direct",
+   "direct": [
+    "6Ww.01",
+    "6Ww.03",
+    "6Ww.05",
+    "6Ww.06",
+    "6Ww.07"
+   ],
+   "partial": []
+  },
+  "e6.clauses-word-classes": {
+   "match": "direct",
+   "direct": [
+    "6Rg.02",
+    "6Rg.03",
+    "6Rg.05"
+   ],
+   "partial": []
+  }
+ },
+ "gapNotes": {
+  "1Gg.07": "shapes that look the same when turned",
+  "1Gg.08": "choose a measuring instrument with a scale",
+  "1Gt.01": "words for units of time",
+  "1Nc.02": "see a small number without counting",
+  "1Nc.03": "estimate up to 20 and check",
+  "1Nc.06": "describe a sequence of objects in words",
+  "1Np.01": "zero means none",
+  "1Ss.01": "answer a question by sorting into categories",
+  "2Gg.02": "circle centre and boundary",
+  "2Gg.08": "find 2D and 3D shapes in objects around us",
+  "2Gg.10": "count turns until a shape looks the same",
+  "2Gp.02": "sketch a reflection in a vertical mirror line",
+  "2Nc.02": "see a small number in unfamiliar patterns",
+  "2Nc.03": "estimate up to 100",
+  "2Nf.03": "half and quarter as division",
+  "2Nf.05": "compare and match halves, quarters, three quarters",
+  "2Np.04": "ordinal numbers beyond 10th",
+  "2Np.05": "round 2-digit numbers to the nearest 10",
+  "2Sp.01": "language of patterns and randomness",
+  "2Sp.02": "chance experiment with two outcomes",
+  "3Gg.08": "read pictures and diagrams of 3D shapes",
+  "3Gp.02": "sketch a reflection in a horizontal or vertical line",
+  "3Gt.01": "pick the sensible unit of time",
+  "3Nc.01": "estimate up to 1000",
+  "3Nc.04": "a symbol for an unknown in add and subtract",
+  "3Nc.05": "linear sequences and the term-to-term rule",
+  "3Nc.06": "spatial patterns that grow by a constant",
+  "3Nf.02": "the whole decides how big the part is",
+  "3Nf.04": "a fraction as a division",
+  "3Nf.07": "add and subtract fractions with the same denominator",
+  "3Ni.01": "read and write numbers to 1000 in words",
+  "3Ni.03": "complements of 100 and of multiples of 10 or 100",
+  "3Ni.10": "multiples of 2, 5 and 10 to 1000",
+  "3Np.02": "multiply a whole number by 10",
+  "3Sp.02": "run a chance experiment and describe results",
+  "4Gg.04": "estimate the area of an irregular shape on a grid",
+  "4Gp.03": "reflect a shape when the mirror line touches it",
+  "4Gt.01": "convert between units of time",
+  "4Nc.03": "a symbol for an unknown quantity",
+  "4Nc.05": "square numbers as a spatial pattern",
+  "4Nf.01": "more equal parts means smaller parts",
+  "4Nf.02": "a fraction as a division",
+  "4Nf.06": "percent as parts in each hundred",
+  "4Ss.01": "plan a data investigation and choose what to collect",
+  "5Gg.06": "complete a symmetrical pattern",
+  "5Gt.01": "time intervals shorter than a second",
+  "5Gt.04": "a time interval as a decimal or in mixed units",
+  "5Nc.02": "two unknown quantities in add and subtract",
+  "5Nc.03": "repeated addition of a constant to find any term",
+  "5Nc.04": "square and triangular number patterns",
+  "5Nf.01": "a fraction as a division with tenths and hundredths",
+  "5Nf.06": "multiply and divide a unit fraction by a whole number",
+  "5Ni.03": "the four operations follow an order",
+  "5Ni.07": "divisibility tests for 4 and 8",
+  "5Np.04": "compose and regroup decimals",
+  "5Sp.03": "chance experiments with many trials",
+  "5Ss.01": "plan an investigation with related questions",
+  "5Ss.04": "spot patterns between data sets",
+  "6Gg.08": "rotational symmetry up to order 4",
+  "6Gg.11": "construct a circle from a radius or diameter",
+  "6Nf.01": "a fraction as a division including improper fractions",
+  "6Sp.02": "events that can or cannot happen together",
+  "6Sp.04": "simulations and predicting from many trials",
+  "6Ss.01": "plan an investigation with predictions",
+  "1Bp.02": "animals and people need air, water, food",
+  "1ESp.01": "Earth is mostly covered in water",
+  "1Pe.01": "things that need electricity",
+  "1Pe.02": "how magnets act on different materials",
+  "1Pf.03": "some things float and some sink",
+  "2Be.03": "compare local environments (hot, cold, wet, dry)",
+  "2Bp.04": "offspring share features of both parents",
+  "2Cp.03": "test materials to find their properties",
+  "2ESp.03": "how people affect the environment",
+  "3Bp.02": "life processes of plants and animals",
+  "3Bs.03": "main organs of the human body",
+  "3Cm.02": "mixtures of two or more materials",
+  "3Cp.02": "materials keep their properties in a mixture",
+  "3ESp.01": "Earth is the source of materials we use",
+  "3ESs.03": "Earth, Sun and Moon are roughly spherical",
+  "3Pf.01": "measure forces with a forcemeter",
+  "4Bp.01": "medicines and safe use",
+  "4Bp.02": "infectious diseases and vaccination",
+  "4Bp.03": "energy for living things, plants get it from the Sun",
+  "4Bp.04": "movement keeps people healthy",
+  "4Bs.04": "some animals have an exoskeleton",
+  "4Cm.02": "materials, substances and particles",
+  "4Cm.03": "particles keep moving even in solids",
+  "4Cp.01": "particle model explains solids and liquids",
+  "4Cp.02": "powders that behave like liquids",
+  "4ESs.03": "the Sun is at the centre of the Solar System",
+  "4ESs.04": "stars, planets, asteroids and comets",
+  "4Pe.03": "changing components changes a series circuit",
+  "4Pf.01": "energy in matter, sound, light and heat",
+  "4Pf.02": "energy is transferred, not used up",
+  "4Pf.03": "movement needs energy",
+  "4Pf.04": "some energy is wasted as heat",
+  "5Be.01": "adaptations to hot, cold, wet and dry places",
+  "5Be.02": "plant adaptations for pollination and seed spread",
+  "5Be.03": "predator and prey adaptations",
+  "5Bs.01": "not all plants make flowers",
+  "5Bs.02": "parts of a flower",
+  "5Bs.03": "jobs of flower parts",
+  "5Cm.01": "particle model of solids, liquids and gases",
+  "5Cm.02": "common gases at room temperature",
+  "5Cp.02": "main properties of water",
+  "5ESp.01": "the atmosphere and the air around Earth",
+  "5ESp.02": "most water on Earth has dissolved substances",
+  "5ESp.03": "pollution and its effects",
+  "5ESs.01": "orbit of the Earth around the Sun",
+  "5ESs.03": "satellites and moons",
+  "5Pe.01": "magnet versus magnetic material",
+  "5Pe.02": "magnetic forces act at a distance",
+  "5Pe.03": "magnets differ in strength",
+  "6Bp.01": "body changes at puberty",
+  "6Bp.02": "diseases caused by microbes",
+  "6Bp.03": "hygiene stops disease spreading",
+  "6Bp.04": "body defences against infection",
+  "6Bs.03": "parts of the human reproductive system",
+  "6Cc.02": "temperature and dissolving",
+  "6Cc.03": "boiling versus evaporation",
+  "6Cp.01": "state-change temperature is a property of a substance",
+  "6Cp.02": "gases have mass",
+  "6ESc.01": "the rock cycle",
+  "6ESp.01": "igneous, sedimentary and metamorphic rocks",
+  "6ESp.02": "how fossils form in sedimentary rock",
+  "6ESp.04": "soil changes affect plant growth",
+  "6Pf.05": "mass and shape affect floating and sinking"
+ },
+ "gaps": {
+  "math": {
+   "1": [
+    "1Gg.07",
+    "1Gg.08",
+    "1Gt.01",
+    "1Nc.02",
+    "1Nc.03",
+    "1Nc.06",
+    "1Np.01",
+    "1Ss.01"
+   ],
+   "2": [
+    "2Gg.02",
+    "2Gg.08",
+    "2Gg.10",
+    "2Gp.02",
+    "2Nc.02",
+    "2Nc.03",
+    "2Nf.03",
+    "2Nf.05",
+    "2Np.04",
+    "2Np.05",
+    "2Sp.01",
+    "2Sp.02"
+   ],
+   "3": [
+    "3Gg.08",
+    "3Gp.02",
+    "3Gt.01",
+    "3Nc.01",
+    "3Nf.02",
+    "3Nf.04",
+    "3Nf.07",
+    "3Np.02",
+    "3Sp.02"
+   ],
+   "4": [
+    "4Gg.04",
+    "4Gp.03",
+    "4Ss.01"
+   ],
+   "5": [
+    "5Gg.06",
+    "5Gt.01",
+    "5Gt.04",
+    "5Nc.02",
+    "5Nc.04",
+    "5Nf.01",
+    "5Nf.06",
+    "5Np.04",
+    "5Sp.03",
+    "5Ss.01",
+    "5Ss.04"
+   ],
+   "6": [
+    "6Gg.11",
+    "6Nf.01",
+    "6Ss.01"
+   ]
+  },
+  "english": {
+   "1": [
+    "1Ra.02",
+    "1Ra.04",
+    "1Ra.05",
+    "1Ra.06",
+    "1Rg.03",
+    "1Rg.04",
+    "1Rg.07",
+    "1Ri.01",
+    "1Ri.02",
+    "1Ri.03",
+    "1Ri.04",
+    "1Ri.09",
+    "1Rs.02",
+    "1Rs.03",
+    "1Rs.04",
+    "1Rv.02",
+    "1Rv.03",
+    "1Rv.04",
+    "1SLg.01",
+    "1SLg.02",
+    "1SLg.03",
+    "1SLg.04",
+    "1SLm.01",
+    "1SLm.02",
+    "1SLm.04",
+    "1SLm.05",
+    "1SLp.02",
+    "1SLp.03",
+    "1SLp.04",
+    "1SLp.05",
+    "1SLr.02",
+    "1SLs.01",
+    "1SLs.02",
+    "1Wc.01",
+    "1Wc.02",
+    "1Wc.03",
+    "1Wc.04",
+    "1Wc.05",
+    "1Wg.02",
+    "1Wg.05",
+    "1Wg.06",
+    "1Wp.01",
+    "1Wp.03",
+    "1Wp.04",
+    "1Wp.05",
+    "1Wp.06",
+    "1Ws.02",
+    "1Wv.02",
+    "1Wv.03",
+    "1Ww.07"
+   ],
+   "2": [
+    "2Ra.01",
+    "2Ra.02",
+    "2Ra.04",
+    "2Ra.05",
+    "2Rg.04",
+    "2Ri.01",
+    "2Ri.02",
+    "2Ri.05",
+    "2Ri.08",
+    "2Ri.10",
+    "2Ri.11",
+    "2Ri.15",
+    "2Rv.02",
+    "2Rv.03",
+    "2Rv.05",
+    "2Rw.04",
+    "2Rw.05",
+    "2Rw.06",
+    "2SLg.01",
+    "2SLg.02",
+    "2SLg.03",
+    "2SLg.04",
+    "2SLm.01",
+    "2SLm.03",
+    "2SLm.04",
+    "2SLm.05",
+    "2SLp.02",
+    "2SLp.03",
+    "2SLr.01",
+    "2SLr.02",
+    "2SLr.03",
+    "2SLs.01",
+    "2SLs.02",
+    "2Wc.01",
+    "2Wc.02",
+    "2Wc.03",
+    "2Wg.08",
+    "2Wp.01",
+    "2Wp.02",
+    "2Wp.03",
+    "2Wp.04",
+    "2Wp.05",
+    "2Wp.06",
+    "2Ws.02",
+    "2Ws.03",
+    "2Wv.01",
+    "2Wv.03",
+    "2Wv.04",
+    "2Wv.05",
+    "2Ww.06",
+    "2Ww.10"
+   ],
+   "3": [
+    "3Ra.01",
+    "3Ra.02",
+    "3Ra.03",
+    "3Ra.04",
+    "3Ra.05",
+    "3Rg.01",
+    "3Rg.02",
+    "3Rg.03",
+    "3Rg.04",
+    "3Rg.05",
+    "3Rg.07",
+    "3Rg.09",
+    "3Ri.01",
+    "3Ri.02",
+    "3Ri.04",
+    "3Ri.06",
+    "3Ri.08",
+    "3Ri.09",
+    "3Ri.11",
+    "3Ri.13",
+    "3Ri.14",
+    "3Ri.15",
+    "3Ri.16",
+    "3Ri.17",
+    "3Rs.01",
+    "3Rs.04",
+    "3Rv.02",
+    "3Rv.04",
+    "3Rv.05",
+    "3Rv.06",
+    "3Rv.07",
+    "3Rw.01",
+    "3Rw.03",
+    "3Rw.04",
+    "3SLg.01",
+    "3SLg.02",
+    "3SLg.03",
+    "3SLg.04",
+    "3SLm.03",
+    "3SLm.04",
+    "3SLm.05",
+    "3SLp.01",
+    "3SLp.02",
+    "3SLp.03",
+    "3SLp.04",
+    "3SLr.01",
+    "3SLr.02",
+    "3SLs.01",
+    "3Wc.04",
+    "3Wc.05",
+    "3Wc.06",
+    "3Wg.04",
+    "3Wg.08",
+    "3Wp.01",
+    "3Wp.02",
+    "3Wp.03",
+    "3Wp.04",
+    "3Wp.05",
+    "3Ws.02",
+    "3Ws.03",
+    "3Ws.04",
+    "3Wv.01",
+    "3Wv.03",
+    "3Wv.04",
+    "3Wv.05",
+    "3Wv.06",
+    "3Wv.07",
+    "3Ww.01",
+    "3Ww.02",
+    "3Ww.05",
+    "3Ww.06"
+   ],
+   "4": [
+    "4Ra.03",
+    "4Rg.05",
+    "4Rg.06",
+    "4Rg.08",
+    "4Rs.04",
+    "4Rv.01",
+    "4Rv.03",
+    "4Rv.05",
+    "4Rv.06",
+    "4SLg.01",
+    "4SLg.04",
+    "4SLm.02",
+    "4SLm.03",
+    "4SLm.04",
+    "4SLm.05",
+    "4SLp.01",
+    "4SLp.02",
+    "4SLp.03",
+    "4SLp.04",
+    "4SLr.02",
+    "4SLs.01",
+    "4Wc.01",
+    "4Wg.08",
+    "4Wg.09",
+    "4Wp.01",
+    "4Wp.03",
+    "4Ws.01",
+    "4Ws.03",
+    "4Ws.04",
+    "4Wv.01",
+    "4Wv.02",
+    "4Wv.03",
+    "4Wv.06"
+   ],
+   "5": [
+    "5Ra.01",
+    "5Ra.02",
+    "5Ra.03",
+    "5Ra.04",
+    "5Rg.01",
+    "5Rg.06",
+    "5Ri.02",
+    "5Ri.10",
+    "5Ri.12",
+    "5Rs.03",
+    "5Rv.01",
+    "5Rv.03",
+    "5Rv.04",
+    "5Rw.01",
+    "5SLg.01",
+    "5SLg.02",
+    "5SLg.03",
+    "5SLg.04",
+    "5SLm.01",
+    "5SLm.02",
+    "5SLm.03",
+    "5SLp.01",
+    "5SLp.02",
+    "5SLp.04",
+    "5SLr.01",
+    "5SLr.02",
+    "5SLs.01",
+    "5Wc.01",
+    "5Wc.03",
+    "5Wc.04",
+    "5Wc.05",
+    "5Wg.05",
+    "5Wp.01",
+    "5Wp.02",
+    "5Wp.03",
+    "5Ws.01",
+    "5Ws.02",
+    "5Ws.03",
+    "5Wv.01",
+    "5Wv.05",
+    "5Ww.01",
+    "5Ww.03",
+    "5Ww.07",
+    "5Ww.08",
+    "5Ww.09",
+    "5Ww.10"
+   ],
+   "6": [
+    "6Rv.01",
+    "6Rv.03",
+    "6SLg.01",
+    "6SLg.04",
+    "6SLm.02",
+    "6SLm.03",
+    "6SLm.04",
+    "6SLp.01",
+    "6SLp.02",
+    "6SLp.04",
+    "6SLr.01",
+    "6SLr.02",
+    "6SLs.01",
+    "6Wc.01",
+    "6Wc.03",
+    "6Wc.04",
+    "6Wc.05",
+    "6Wg.06",
+    "6Wp.01",
+    "6Wp.02",
+    "6Wp.03",
+    "6Ws.04",
+    "6Wv.01",
+    "6Wv.04",
+    "6Wv.05",
+    "6Wv.06"
+   ]
+  },
+  "science": {
+   "1": [
+    "1Bp.02",
+    "1ESp.01",
+    "1Pe.01",
+    "1Pe.02",
+    "1Pf.03",
+    "1SIC.01",
+    "1SIC.02",
+    "1SIC.03",
+    "1SIC.04",
+    "1TWSa.01",
+    "1TWSc.02",
+    "1TWSc.03",
+    "1TWSc.04",
+    "1TWSp.01",
+    "1TWSp.02"
+   ],
+   "2": [
+    "2Be.03",
+    "2Bp.04",
+    "2Cp.03",
+    "2ESp.03",
+    "2SIC.01",
+    "2SIC.02",
+    "2SIC.03",
+    "2SIC.04",
+    "2TWSa.01",
+    "2TWSa.02",
+    "2TWSc.01",
+    "2TWSc.02",
+    "2TWSc.04",
+    "2TWSc.05",
+    "2TWSm.01",
+    "2TWSm.02",
+    "2TWSm.03",
+    "2TWSp.01"
+   ],
+   "3": [
+    "3Bp.02",
+    "3Bs.03",
+    "3Cm.02",
+    "3Cp.02",
+    "3ESp.01",
+    "3ESs.03",
+    "3Pf.01",
+    "3SIC.01",
+    "3SIC.02",
+    "3SIC.03",
+    "3SIC.04",
+    "3TWSa.01",
+    "3TWSa.02",
+    "3TWSa.03",
+    "3TWSc.01",
+    "3TWSc.04",
+    "3TWSc.05",
+    "3TWSm.01",
+    "3TWSm.02",
+    "3TWSm.03",
+    "3TWSp.01",
+    "3TWSp.03",
+    "3TWSp.04"
+   ],
+   "4": [
+    "4Bs.04",
+    "4Pe.03",
+    "4SIC.01",
+    "4SIC.02",
+    "4SIC.03",
+    "4SIC.04",
+    "4SIC.05",
+    "4TWSa.01",
+    "4TWSa.02",
+    "4TWSc.03",
+    "4TWSc.04",
+    "4TWSc.05",
+    "4TWSc.06",
+    "4TWSc.07",
+    "4TWSc.08",
+    "4TWSm.01",
+    "4TWSm.02",
+    "4TWSm.03",
+    "4TWSp.01",
+    "4TWSp.02",
+    "4TWSp.03",
+    "4TWSp.05"
+   ],
+   "5": [
+    "5ESs.01",
+    "5ESs.03",
+    "5SIC.01",
+    "5SIC.02",
+    "5SIC.03",
+    "5SIC.04",
+    "5SIC.05",
+    "5TWSa.01",
+    "5TWSa.02",
+    "5TWSa.04",
+    "5TWSa.05",
+    "5TWSc.01",
+    "5TWSc.02",
+    "5TWSc.04",
+    "5TWSc.05",
+    "5TWSc.06",
+    "5TWSc.07",
+    "5TWSc.08",
+    "5TWSm.01",
+    "5TWSm.02",
+    "5TWSp.01",
+    "5TWSp.02",
+    "5TWSp.03",
+    "5TWSp.05"
+   ],
+   "6": [
+    "6Bp.01",
+    "6Bs.03",
+    "6Pf.05",
+    "6SIC.01",
+    "6SIC.02",
+    "6SIC.03",
+    "6SIC.04",
+    "6SIC.05",
+    "6TWSa.01",
+    "6TWSa.04",
+    "6TWSc.03",
+    "6TWSc.04",
+    "6TWSc.05",
+    "6TWSc.06",
+    "6TWSc.07",
+    "6TWSc.08",
+    "6TWSm.01",
+    "6TWSm.02",
+    "6TWSp.01",
+    "6TWSp.02",
+    "6TWSp.03",
+    "6TWSp.04",
+    "6TWSp.05"
+   ]
+  }
+ }
+}

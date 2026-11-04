@@ -1,0 +1,79 @@
+{
+  "skill": "m6.area-triangles",
+  "items": [
+    {
+      "id": "m6.area-triangles.803",
+      "skill": "m6.area-triangles",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 4,
+      "prompt": "Make a right-angled triangle with an area of 10 square units.",
+      "size": 6,
+      "rule": {
+        "shape": "right-triangle",
+        "area": 10
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "hints": [
+        "A right-angled triangle: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (5,0), (0,4). It has 3 sides, a perimeter of 15.4 and an area of 10 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    },
+    {
+      "id": "m6.area-triangles.804",
+      "skill": "m6.area-triangles",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 5,
+      "prompt": "Make an isosceles triangle with an area of 8 square units.",
+      "size": 5,
+      "rule": {
+        "shape": "isosceles-triangle",
+        "area": 8
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "hints": [
+        "A isosceles triangle: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (4,0), (2,4). It has 3 sides, a perimeter of 12.9 and an area of 8 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    }
+  ]
+}

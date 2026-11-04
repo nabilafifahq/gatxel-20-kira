@@ -1,3 +1,4 @@
+import type { FeatureMap } from '@kira/core/features'
 /**
  * Kontrak data antara server (DAL, halaman) dan komponen layar.
  * Komponen layar hanya menerima DTO ini dan memanggil action lewat props.
@@ -6,7 +7,7 @@
  */
 
 import type { ClientItem } from '@kira/content/present'
-import type { SolutionStep } from '@kira/content/schema'
+import type { LessonStep, SolutionStep } from '@kira/content/schema'
 import type { FigureSpec } from '@kira/figures/spec'
 import type { AccessoryId } from '@kira/core'
 import type { AccessoryDTO, ArenaTutorDTO, XpTrackDTO } from './dto-arena'
@@ -41,6 +42,8 @@ export type LearnerShell = {
   /** Tampilkan tombol Review di navigasi bila Buku Koreksi aktif (Fase 2). */
   showReview: boolean
   dueReviewCount: number
+  /** Saklar fitur dari orang tua; kunci yang tidak ada berarti menyala (migrasi 0017). */
+  features?: FeatureMap
 }
 
 export type StreakDay = { date: string; label: string; longLabel: string; status: DayStatus; isToday: boolean }
@@ -150,7 +153,12 @@ export type QuestIntroDTO = {
 
 export type RunnerMode = 'belajar' | 'latihan' | 'kilat' | 'tes' | 'simulasi' | 'review'
 
-export type RunnerItem = ClientItem & { position: number; section: 'warmup' | 'core' | 'challenge' | 'sprint' }
+export type RunnerItem = ClientItem & {
+  position: number
+  section: 'warmup' | 'core' | 'challenge' | 'sprint'
+  /** Soal saudara dari putaran perbaikan: nomor soal yang salah. */
+  remedialOf?: number
+}
 
 export type SavedResponse = {
   position: number
@@ -186,6 +194,8 @@ export type RunnerDTO = {
   offline: boolean
   /** Sesi English Skills: listening menyembunyikan teks soal, speaking membacakan soal sebagai penguji. */
   englishArea?: 'listening' | 'speaking' | 'writing'
+  /** Tantangan Puzzle Robot: runner menampilkan bar lawan. */
+  boss?: boolean
 }
 
 export type AnswerPayload = {
@@ -207,10 +217,18 @@ export type AnswerResult = {
   /** Untuk mode tanpa umpan balik, status disembunyikan menjadi 'answered'. */
 }
 
+export type SolutionStepDTO = SolutionStep
+export type RemedialLessonDTO = { title: string; steps: SolutionStep[] }
+
 export type RunnerActions = {
   saveAnswer(p: AnswerPayload): Promise<ActionResult<AnswerResult>>
   submitAttempt(attemptId: string, clientId: string): Promise<ActionResult<{ redirectTo: string }>>
   reportProblem(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string }): Promise<ActionResult<{ reference: string }>>
+  /** Putaran perbaikan di Latihan (tidak ada di mode berwaktu). */
+  remedialLesson?(input: { attemptId: string; position: number }): Promise<ActionResult<{ lesson: RemedialLessonDTO | null }>>
+  addRemedialItem?(input: { attemptId: string; position: number }): Promise<ActionResult<{ item: RunnerItem | null }>>
+  /** Pembahasan bergerak satu soal, dimuat malas. */
+  walkthrough?(input: { attemptId: string; position: number }): Promise<ActionResult<{ steps: SolutionStep[] | null }>>
 }
 
 // ---------------------------------------------------------------------------
@@ -230,6 +248,8 @@ export type XpBarDTO = {
 
 export type ResultsDTO = {
   shell: LearnerShell
+  /** Siapa yang melihat jawaban tulis, bicara, gambar, dan foto: tutor, atau orang dewasa di rumah bila keluarga tanpa tutor. */
+  marker?: 'tutor' | 'grownup'
   attemptId: string
   subject: Subject
   title: string
@@ -244,6 +264,8 @@ export type ResultsDTO = {
   timeUsedSec: number
   timeLimitSec: number | null
   xp: number
+  /** Bintang Kira World dari sesi ini dan kartu baru (id). */
+  world?: { stars: number; cards: string[]; pet: { kind: string; name: string; stage: 1 | 2 | 3; costume: string | null } | null }
   newBadges: { id: string; title: string; description: string }[]
   questions: ResultQuestion[]
   strongest: { topic: string; line: string } | null
@@ -290,6 +312,7 @@ export type ReviewQuestionDTO = {
 
 export type ReviewDTO = {
   shell: LearnerShell
+  marker?: 'tutor' | 'grownup'
   attemptId: string
   title: string
   subject: Subject
@@ -365,6 +388,9 @@ export type CorrectionBookDTO = {
   startHref: string | null
 }
 
+// Alat peraga Math
+export type ToolsDTO = { shell: LearnerShell }
+
 // L12 Pelajaran
 export type LessonDTO = {
   shell: LearnerShell
@@ -372,7 +398,7 @@ export type LessonDTO = {
   subject: Subject
   title: string
   meta: string
-  steps: SolutionStep[]
+  steps: LessonStep[]
   check: ClientItem[]
   practiseHref: string
   backHref: string
@@ -506,6 +532,8 @@ export type PlanSlotDTO = {
   minutes: number
   questionCount: number
   config: PlanSlotConfig | null
+  /** Hanya untuk hari ini: sesinya sudah dimulai atau selesai di tablet, jadi isinya tidak bisa diubah (Wajib atau Opsional masih bisa). */
+  started?: boolean
 }
 export type PlannerDay = {
   date: string
@@ -536,6 +564,20 @@ export type PlannerDTO = {
   screenLimitMin: number
   prevWeekHref: string
   nextWeekHref: string
+  /** Aturan hari bawaan learner ini (Penuh, Seimbang, Ringan, atau Kustom) dan tautan untuk mengubahnya. */
+  dayPresetLabel: string
+  rulesHref: string
+}
+/** Hasil perubahan rencana. Bila mengenai hari ini, tablet langsung disamakan dan hasilnya dilaporkan di sini. */
+export type PlanChangeResult = {
+  today: boolean
+  /** Minggu ikut diterbitkan supaya perubahan hari ini langsung dipakai tablet. */
+  published: boolean
+  created: number
+  removed: number
+  regenerated: number
+  /** Sesi hari ini yang sedang berjalan atau selesai dan isinya dipertahankan. */
+  kept: number
 }
 export type UpsertSlotInput = {
   learnerId: string
@@ -549,16 +591,22 @@ export type UpsertSlotInput = {
   questionCount: number
   paperKind: 'mini' | 'full' | null
   config: PlanSlotConfig | null
+  /** Dibuka dari sesi otomatis hari itu: slot baru menggantikan sesi otomatis tersebut. */
+  fromAuto?: boolean
 }
+/** Sesi yang dituju perubahan cepat: slot yang ada, atau sesi otomatis (mapel dan jenis sesi pada tanggal itu). */
+export type SessionTarget = { learnerId: string; date: string; slotId: string | null; subject: Subject; session: SessionType }
 export type PlannerActions = {
-  upsertSlot(input: UpsertSlotInput): Promise<ActionResult>
-  moveSlot(input: { slotId: string; date: string }): Promise<ActionResult>
-  deleteSlot(slotId: string): Promise<ActionResult>
+  upsertSlot(input: UpsertSlotInput): Promise<ActionResult<PlanChangeResult>>
+  moveSlot(input: { slotId: string; date: string }): Promise<ActionResult<PlanChangeResult>>
+  deleteSlot(slotId: string): Promise<ActionResult<PlanChangeResult>>
+  setSessionRequired(input: SessionTarget & { required: boolean }): Promise<ActionResult<PlanChangeResult>>
+  removeSession(input: SessionTarget): Promise<ActionResult<PlanChangeResult>>
   setRestDay(input: { learnerId: string; date: string; rest: boolean }): Promise<ActionResult>
-  applySuggestions(input: { learnerId: string; weekStart: string; ids: string[] }): Promise<ActionResult>
-  publishWeek(input: { learnerId: string; weekStart: string }): Promise<ActionResult>
-  setDayTemplate(input: { learnerId: string; date: string; template: DayTemplateId }): Promise<ActionResult>
-  copyWeek(input: { learnerId: string; fromWeekStart: string; toWeekStart: string }): Promise<ActionResult<{ copied: number; skipped: number }>>
+  applySuggestions(input: { learnerId: string; weekStart: string; ids: string[] }): Promise<ActionResult<PlanChangeResult>>
+  publishWeek(input: { learnerId: string; weekStart: string }): Promise<ActionResult<PlanChangeResult>>
+  setDayTemplate(input: { learnerId: string; date: string; template: DayTemplateId }): Promise<ActionResult<PlanChangeResult>>
+  copyWeek(input: { learnerId: string; fromWeekStart: string; toWeekStart: string }): Promise<ActionResult<{ copied: number; skipped: number; change: PlanChangeResult }>>
 }
 
 // T04 Penyusun paper
@@ -711,7 +759,20 @@ export type SettingsDTO = {
   shell: ConsoleShell
   account: { name: string; email: string; passkeys: { id: string; name: string; createdAt: string; lastUsedAt: string | null }[] }
   devices: { id: string; name: string; learners: string[]; createdAt: string; lastSeenAt: string | null; expiresAt: string }[]
-  learners: { id: string; name: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean; soundEnabled?: boolean; musicEnabled?: boolean }[]
+  learners: {
+    id: string
+    name: string
+    screenLimitMin: number
+    restWeekdays: number[]
+    reviewEnabled: boolean
+    soundEnabled?: boolean
+    musicEnabled?: boolean
+    /** Aturan hari bawaan (Penuh, Seimbang, Ringan, Kustom) dan tingkat lengkapnya per hari, mapel, dan sesi. */
+    dayPreset?: DayPresetId
+    dayRules?: DayRulesDTO
+    /** Streak sekarang, untuk konfirmasi atur ulang streak. */
+    streak?: number
+  }[]
   members: { id: string; name: string; email: string; role: 'tutor' | 'guardian'; learners: string[] }[]
   invites: { id: string; email: string; role: 'tutor' | 'guardian'; expiresAt: string }[]
   email: { configured: boolean; from: string | null }
@@ -719,8 +780,16 @@ export type SettingsDTO = {
   /** APK tablet di <KIRA_DATA_DIR>/apk/kira.apk, diunduh lewat /api/apk. */
   apk?: { available: boolean; size: string | null; updatedAt: string | null }
 }
+export type DayPresetId = 'penuh' | 'seimbang' | 'ringan' | 'kustom'
+export type RuleLevelId = 'off' | 'optional' | 'required'
+/** Kunci hari '1' (Senin) sampai '6' (Sabtu), lalu mapel, lalu sesi. */
+export type DayRulesDTO = Record<string, Record<Subject, Record<'latihan' | 'tes' | 'paper', RuleLevelId>>>
 export type SettingsActions = {
   updateLearnerLimits(input: { learnerId: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean }): Promise<ActionResult>
+  /** Aturan hari bawaan; bila hari ini sudah punya sesi, tablet langsung disamakan. */
+  updateLearnerDayRules?(input: { learnerId: string; preset: DayPresetId; rules: DayRulesDTO | null }): Promise<ActionResult<PlanChangeResult>>
+  /** Hapus riwayat hari dan pembeku streak learner ini, lalu hitung ulang hari ini. Konfirmasi diketik: nama learner. */
+  resetLearnerStreak?(input: { learnerId: string; confirmName: string }): Promise<ActionResult<{ removedDays: number; streakBefore: number }>>
   /** Suara dan musik di perangkat anak; bila mati, pilihan perangkat tidak berlaku. */
   updateLearnerSound?(input: { learnerId: string; soundEnabled: boolean; musicEnabled: boolean }): Promise<ActionResult>
   revokeDevice(deviceId: string): Promise<ActionResult>
@@ -901,6 +970,10 @@ export type PrintPaperDTO = {
   date: string | null
   sections: { title: string; items: { number: number; item: ClientItem; answerText?: string; explanation?: string }[] }[]
   withKey: boolean
+  /** Label kunci pengganti "Answer key, for the tutor" (lembar kerja orang tua). Bila ada, catatan "After marking" tidak dicetak. */
+  keyLabel?: string
+  /** Satu kalimat penyemangat en-GB di bawah judul. */
+  cheer?: string
 }
 
 export type PrintLjkDTO = {
@@ -921,11 +994,15 @@ export type { FigureSpec }
 export type LoginScreenProps = {
   next: string | null
   notice: 'locked' | 'reset-done' | 'signed-out' | 'session-expired' | 'invite-accepted' | null
-  passwordLogin(input: { email: string; password: string; next: string | null }): Promise<ActionResult<{ redirectTo: string }>>
+  passwordLogin(input: { email: string; password: string; next: string | null; turnstile?: string }): Promise<ActionResult<{ redirectTo: string }>>
   /** Upacara WebAuthn dijalankan di client oleh pembungkus; layar hanya memanggilnya. */
   passkeyLogin(next: string | null): Promise<ActionResult<{ redirectTo: string }>>
   passkeySupported: boolean
-  requestReset(email: string): Promise<ActionResult>
+  requestReset(email: string, turnstile?: string): Promise<ActionResult>
+  /** Kunci situs Turnstile; null bila Turnstile mati. */
+  turnstileSiteKey?: string | null
+  /** Kirim ulang email konfirmasi untuk pendaftar yang belum mengonfirmasi. */
+  resendVerification?(input: { email: string; turnstile?: string }): Promise<ActionResult>
 }
 
 export type SetupScreenProps = {

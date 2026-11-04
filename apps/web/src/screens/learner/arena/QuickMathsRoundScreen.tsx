@@ -36,7 +36,7 @@ function sleep(ms: number): Promise<void> {
 function Prompt({ prompt, shown, flashIndex, flashing }: { prompt: QmPrompt; shown: boolean; flashIndex: number; flashing: boolean }): ReactElement {
   if (prompt.kind === 'arith') {
     return (
-      <p lang="en-GB" aria-live="polite" className="m-0 text-center font-display text-display font-semibold tabular-nums">
+      <p lang="en-GB" aria-live="polite" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
         {prompt.text}
       </p>
     )
@@ -47,7 +47,7 @@ function Prompt({ prompt, shown, flashIndex, flashing }: { prompt: QmPrompt; sho
     return (
       <div className="flex min-h-40 flex-col items-center justify-center gap-2 text-center">
         {flashing ? (
-          <p key={flashIndex} aria-hidden="true" className="kira-flash m-0 font-display text-[120px] leading-none font-semibold tabular-nums">
+          <p key={flashIndex} aria-hidden="true" className="kira-flash m-0 font-numbers text-[120px] leading-none font-semibold tabular-nums">
             {text}
           </p>
         ) : shown ? (
@@ -101,16 +101,16 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
     }
   }
   return (
-    <section aria-label="Round done" className="flex w-full max-w-[640px] flex-col items-center gap-4 rounded-card border border-divider bg-surface px-5 py-8 text-center md:px-8">
+    <section aria-label="Round done" className="flex w-full max-w-[640px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-5 py-8 text-center md:px-8">
       <h1 className="m-0 font-display text-display font-semibold">{result.title}</h1>
-      {result.strategyDone ? <p className="m-0 text-body-lg font-bold text-mental">{result.strategyDone.title}: you have the hang of it.</p> : null}
+      {result.strategyDone ? <p className="m-0 text-body-lg font-bold text-fg">{result.strategyDone.title}: you have the hang of it.</p> : null}
       {result.lines.map((l) => (
         <p key={l} className="m-0 text-body-lg">
           {l}
         </p>
       ))}
       {result.mission ? (
-        <p role="status" className="m-0 rounded-card border-2 border-mental bg-mental-50 px-4 py-2 text-body-lg font-bold text-mental">
+        <p role="status" className="m-0 rounded-card border-2 border-fg bg-mental-50 px-4 py-2 text-body-lg font-bold text-fg">
           {result.mission.complete
             ? `Daily mission done!${result.mission.bonusXp > 0 ? ` Bonus ${result.mission.bonusXp} XP.` : ''}`
             : `Mission step ${result.mission.stepsDone} of ${result.mission.stepsTotal} done.`}
@@ -366,7 +366,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         {result ? (
           <ResultView data={data} result={result} actions={actions} />
         ) : finishing || over || timeUp ? (
-          <section aria-label="Finishing" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card border border-divider bg-surface px-8 py-10 text-center">
+          <section aria-label="Finishing" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
             <h1 className="m-0 font-display text-display font-semibold">{timeUp ? "Time's up" : 'All done'}</h1>
             {error ? (
               <div role="alert" className="flex flex-col items-center gap-2">
@@ -383,7 +383,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
             )}
           </section>
         ) : prompt ? (
-          <section aria-label="Question" className="flex w-full max-w-[980px] flex-col gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
+          <section aria-label="Question" className="flex w-full max-w-[980px] flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
             {!online ? (
               <p role="alert" className="m-0 flex items-center gap-2 self-center rounded-control border-2 border-warn px-3 py-2 text-body font-bold">
                 <UiIcon name="offline" size={20} />
@@ -400,7 +400,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                 {prompt.kind === 'bead-read' ? <Soroban digits={prompt.digits} labels showValues={prompt.rods === 1} /> : null}
                 {prompt.kind === 'bead-set' ? (
                   <div className="flex w-full flex-col items-center gap-3">
-                    <p lang="en-GB" className="m-0 text-center font-display text-display font-semibold tabular-nums">
+                    <p lang="en-GB" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
                       Show {prompt.target}
                     </p>
                     <Soroban digits={beads} onChange={setBeads} labels showValues={prompt.rods === 1} disabled={Boolean(feedback) || busy} />
@@ -426,8 +426,8 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                 ) : null}
 
                 {hint && !feedback ? (
-                  <div role="note" className="w-full max-w-[560px] rounded-control border-2 border-mental bg-mental-50 p-4 text-left">
-                    <p className="m-0 text-body font-bold text-mental">Hint: {hint.title}</p>
+                  <div role="note" className="w-full max-w-[560px] rounded-control border-2 border-fg bg-mental-50 p-4 text-left">
+                    <p className="m-0 text-body font-bold text-fg">Hint: {hint.title}</p>
                     {hint.steps.map((st) => (
                       <p key={st} className="m-0 text-body-lg">
                         {st}
@@ -444,8 +444,8 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                     </span>
                     {!feedback.ok && feedback.answer !== undefined ? <p className="m-0 text-h2 font-bold tabular-nums">The answer is {feedback.answer}</p> : null}
                     {!feedback.ok && feedback.hint ? (
-                      <div className="w-full rounded-control border-2 border-mental bg-mental-50 p-4 text-left">
-                        <p className="m-0 text-body font-bold text-mental">{feedback.hint.title}</p>
+                      <div className="w-full rounded-control border-2 border-fg bg-mental-50 p-4 text-left">
+                        <p className="m-0 text-body font-bold text-fg">{feedback.hint.title}</p>
                         {feedback.hint.steps.map((st) => (
                           <p key={st} className="m-0 text-body-lg">
                             {st}

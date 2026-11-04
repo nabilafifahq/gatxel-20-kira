@@ -1,0 +1,153 @@
+{
+  "skill": "m3.equivalent-fractions",
+  "items": [
+    {
+      "id": "m3.equivalent-fractions.803",
+      "skill": "m3.equivalent-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Bar 1 shows one half. Shade bar 2 so it shows the same amount.",
+      "rows": [
+        {
+          "den": 2,
+          "locked": 1
+        },
+        {
+          "den": 6
+        }
+      ],
+      "targets": [
+        null,
+        {
+          "num": 3,
+          "den": 6
+        }
+      ],
+      "hints": [
+        "Bar 2 is cut into 6 equal parts.",
+        "Half of 6 parts is 3 parts.",
+        "Shade 3 parts of bar 2."
+      ],
+      "explanation": "One half is the same as 3 sixths, because 3 is half of 6.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m3.equivalent-fractions.804",
+      "skill": "m3.equivalent-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 3,
+      "prompt": "Bar 1 shows one third. Cut bar 2 into twelfths and shade the same amount.",
+      "rows": [
+        {
+          "den": 3,
+          "locked": 1
+        },
+        {}
+      ],
+      "splits": [
+        3,
+        6,
+        9,
+        12
+      ],
+      "targets": [
+        null,
+        {
+          "num": 4,
+          "den": 12
+        }
+      ],
+      "exactSplit": true,
+      "hints": [
+        "Tap 12 under Cut into.",
+        "One third of 12 parts is 4 parts.",
+        "Shade 4 parts."
+      ],
+      "explanation": "One third is the same as 4 twelfths, because 12 shared into 3 equal groups is 4 each.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m3.equivalent-fractions.805",
+      "skill": "m3.equivalent-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 3,
+      "prompt": "Bar 1 shows two quarters. Shade bar 2 and bar 3 so they show the same amount.",
+      "rows": [
+        {
+          "den": 4,
+          "locked": 2
+        },
+        {
+          "den": 8
+        },
+        {
+          "den": 12
+        }
+      ],
+      "targets": [
+        null,
+        {
+          "num": 4,
+          "den": 8
+        },
+        {
+          "num": 6,
+          "den": 12
+        }
+      ],
+      "hints": [
+        "Two quarters is the same as one half.",
+        "Half of 8 parts is 4 parts, and half of 12 parts is 6 parts.",
+        "Shade 4 parts of bar 2 and 6 parts of bar 3."
+      ],
+      "explanation": "Two quarters is one half. One half is 4 of 8 parts and 6 of 12 parts.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m3.equivalent-fractions.806",
+      "skill": "m3.equivalent-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 3,
+      "prompt": "Bar 1 shows two fifths. Shade bar 2 so it shows the same amount.",
+      "rows": [
+        {
+          "den": 5,
+          "locked": 2
+        },
+        {
+          "den": 10
+        }
+      ],
+      "targets": [
+        null,
+        {
+          "num": 4,
+          "den": 10
+        }
+      ],
+      "hints": [
+        "Bar 2 has twice as many parts as bar 1.",
+        "Twice as many parts means twice as many shaded.",
+        "Shade 4 parts of bar 2."
+      ],
+      "explanation": "Two fifths is the same as 4 tenths, because both numbers double.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    }
+  ]
+}

@@ -55,7 +55,7 @@ function StateCell({ s }: { s: SubjectTodayStatus }) {
 
 function AttentionList({ items }: { items: AttentionItem[] }) {
   return (
-    <ul className="m-0 list-none overflow-hidden rounded-card border border-divider bg-surface p-0 max-sm:flex max-sm:flex-col max-sm:gap-2.5 max-sm:overflow-visible max-sm:border-0 max-sm:bg-transparent">
+    <ul className="m-0 list-none overflow-hidden rounded-card bg-surface shadow-soft p-0 max-sm:flex max-sm:flex-col max-sm:gap-2.5 max-sm:overflow-visible max-sm:border-0 max-sm:bg-transparent">
       {items.map((it) => {
         const k = KIND_ICON[it.kind]
         return (
@@ -63,7 +63,7 @@ function AttentionList({ items }: { items: AttentionItem[] }) {
             key={it.id}
             className="flex flex-wrap items-center gap-x-4 gap-y-3 border-b border-divider px-5 py-4 last:border-b-0 max-sm:flex-col max-sm:items-stretch max-sm:gap-2.5 max-sm:rounded-card max-sm:border max-sm:bg-surface max-sm:px-4 max-sm:py-3.5 max-sm:last:border-b"
           >
-            <span className="flex size-10 flex-none items-center justify-center rounded-control border border-divider bg-bg max-sm:hidden">
+            <span className="flex size-10 flex-none items-center justify-center rounded-control bg-lavender max-sm:hidden">
               <ConsoleIcon name={k.icon} size={22} strokeWidth={k.tone === 'text-warn' ? 2.5 : 2} className={k.tone} />
             </span>
             <div className="flex min-w-0 flex-[1_1_320px] flex-col max-sm:flex-none">
@@ -83,7 +83,7 @@ function AttentionList({ items }: { items: AttentionItem[] }) {
 function TodayTable({ rows }: { rows: SubjectTodayStatus[] }) {
   return (
     <>
-      <div role="region" aria-labelledby="quest-hari-ini-cap" tabIndex={0} className="relative overflow-x-auto rounded-card border border-divider bg-surface max-sm:hidden">
+      <div role="region" aria-labelledby="quest-hari-ini-cap" tabIndex={0} className="relative overflow-x-auto rounded-card bg-surface shadow-soft max-sm:hidden">
         <table className="w-full min-w-[720px] border-collapse text-body">
           <caption id="quest-hari-ini-cap" className="visually-hidden">
             Status quest hari ini per mapel
@@ -122,7 +122,7 @@ function TodayTable({ rows }: { rows: SubjectTodayStatus[] }) {
         </table>
       </div>
       {/* HP: daftar ringkas (papan TutorHariIniHP) */}
-      <ul className="m-0 hidden list-none rounded-card border border-divider bg-surface px-4 py-0 max-sm:block">
+      <ul className="m-0 hidden list-none rounded-card bg-surface shadow-soft px-4 py-0 max-sm:block">
         {rows.map((s) => (
           <li key={s.subject} className="flex min-h-14 flex-wrap items-center gap-2.5 border-b border-divider py-2 last:border-b-0">
             <SubjectChip subject={s.subject} withIcon={false} size="sm" />
@@ -290,7 +290,7 @@ export function TutorTodayScreen({ data, failed = [] }: TutorTodayScreenProps) {
           <SectionHeading id="lomba-berikutnya" aside={<Link href={CONSOLE_ROUTES.competitions} className="text-body font-bold">Buka kalender lomba</Link>}>
             Lomba berikutnya
           </SectionHeading>
-          <ul className="m-0 list-none rounded-card border border-divider bg-surface p-0">
+          <ul className="m-0 list-none rounded-card bg-surface shadow-soft p-0">
             {data.upcoming.map((u) => (
               <li key={`${u.name}-${u.date}`} className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-divider px-5 py-3.5 last:border-b-0 max-sm:px-4">
                 <ConsoleIcon name="trophy" size={20} />

@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto'
 import postgres from 'postgres'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { answerToLabels, labelCount, type Item } from '@kira/content'
+import { manipulativeAnswer } from '@kira/content/manip-solve'
 import { createDb, withOrg, type Db, type OrgContext, type Tx } from '@kira/db/client'
 import { computeStreak, jakartaDate, retryXp, saturdayFullSubject, weekStart } from '@kira/core'
 
@@ -69,6 +70,12 @@ describe.skipIf(!ready)('sesi harian', () => {
         return { texts: item.blanks.map((b) => b.answers[0]) }
       case 'grid':
         return { cells: item.filled.flat() }
+      case 'blocks':
+      case 'fractionbar':
+      case 'barmodel':
+      case 'tangram':
+      case 'geoboard':
+        return manipulativeAnswer(item)
       default:
         return null
     }
@@ -147,6 +154,7 @@ describe.skipIf(!ready)('sesi harian', () => {
     await owner`insert into member_profile (user_id, org_id, name, role, email) values (${tutorId}, ${orgId}, 'Tutor uji', 'tutor', 'uji-sesi@example.test')`
     await owner`insert into learner_profile (user_id, org_id, name, grade, active, screen_limit_min, rest_weekdays, started_on)
       values (${learnerId}, ${orgId}, 'Anak uji', 2, true, 120, '{0}', '2026-10-01')`
+    await owner`insert into day_rules (learner_id, org_id, preset) values (${learnerId}, ${orgId}, 'penuh')`
   })
 
   afterAll(async () => {
@@ -358,6 +366,7 @@ describe.skipIf(!ready)('sesi harian', () => {
 
   it('tugas English dari tutor selesai saat sesi English Skills yang cocok dikumpulkan, dan tugas lain tetap terbuka', async () => {
     const today = jakartaDate()
+    await owner`update learner_profile set rest_weekdays = '{}' where user_id = ${learnerId}`
     const found = await owner`select id from plan_week where learner_id = ${learnerId} and week_start = ${weekStart(today)}`
     const weekId =
       found[0]?.id ??
@@ -404,6 +413,25 @@ describe.skipIf(!ready)('sesi harian', () => {
     expect(refsAssigned).toContain(photo)
   })
 
+  it('tidak mengulang soal tertulis sebelum bank skill habis, lintas sesi dan percobaan', async () => {
+    const base = { skillId: 's2.habitats', subject: 'science' as const, mode: 'latihan' as const, date: WEDNESDAY, style: 'easy' as const, length: 10 }
+    const seenRefs = new Set<string>()
+    for (let round = 0; round < 3; round++) {
+     const [att] = await owner`insert into attempt (org_id, learner_id, kind, mode, subject, title, items, submitted_at, status)
+        values (${orgId}, ${learnerId}, 'quest', 'latihan', 'science', 'Latihan', '[]'::jsonb, now() - interval '40 days', 'submitted') returning id`
+        const items = await run(async (tx) => m.session.buildQuestItems(tx, ctx, await learnerRow(tx), { ...base, seedKey: `norepeat-${round}` }))
+      const refs = items.map((x) => x.ref)
+      expect(new Set(refs).size).toBe(refs.length)
+      for (const r of refs) expect(seenRefs.has(r)).toBe(false)
+      let pos = 1
+      for (const r of refs) {
+        seenRefs.add(r)
+        await owner`insert into response (org_id, attempt_id, learner_id, position, item_ref, skill_id, subject, item_type, difficulty, status, client_id, answered_at)
+          values (${orgId}, ${att!.id}, ${learnerId}, ${pos++}, ${r}, 's2.habitats', 'science', 'mcq', 3, 'correct', ${randomUUID()}, now() - interval '40 days')`
+      }
+    }
+  })
+
   it('Sabtu: satu mapel mengerjakan paper penuh dengan waktu preset, dua lainnya paper mini', async () => {
     const day = await run(async (tx) => m.session.ensureTodayQuests(tx, ctx, await learnerRow(tx), SATURDAY))
     const papers = day.filter((q) => q.session === 'paper')
@@ -431,8 +459,8 @@ describe.skipIf(!ready)('sesi harian', () => {
     const [w] = await owner`
       insert into plan_week (org_id, learner_id, week_start, status, published_at, created_by)
       values (${orgId}, ${learnerId}, ${MONDAY}, 'published', now(), ${tutorId}) returning id`
-    await owner`insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, session, required, paper_id, mode, question_count)
-      values (${orgId}, ${w!.id}, ${learnerId}, ${MONDAY}, 'english', 'quest', 'paper', true, ${p!.id}, 'kertas', 5)`
+    await owner`insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, session, required, base, paper_id, mode, question_count)
+      values (${orgId}, ${w!.id}, ${learnerId}, ${MONDAY}, 'english', 'quest', 'paper', true, true, ${p!.id}, 'kertas', 5)`
     const day = await run(async (tx) => m.session.ensureTodayQuests(tx, ctx, await learnerRow(tx), MONDAY))
     expect(day.filter((q) => q.kind === 'daily')).toHaveLength(8)
     expect(day.some((q) => q.subject === 'english' && q.session === 'paper')).toBe(false)
@@ -447,8 +475,8 @@ describe.skipIf(!ready)('sesi harian', () => {
       insert into paper (org_id, code, title, subject, grade, minutes, mode, item_refs, created_by)
       values (${orgId}, 'P-UJI-TES', 'Paper tes uji', 'science', 2, 12, 'tes', ${refs}, ${tutorId}) returning id`
     const [w] = await owner`select id from plan_week where learner_id = ${learnerId} and week_start = '2026-10-19'`
-    await owner`insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, session, required, paper_id, mode, question_count)
-      values (${orgId}, ${w!.id}, ${learnerId}, ${TUESDAY}, 'science', 'quest', 'paper', true, ${p!.id}, 'tes', 6)`
+    await owner`insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, session, required, base, paper_id, mode, question_count)
+      values (${orgId}, ${w!.id}, ${learnerId}, ${TUESDAY}, 'science', 'quest', 'paper', true, true, ${p!.id}, 'tes', 6)`
     const day = await run(async (tx) => m.session.ensureTodayQuests(tx, ctx, await learnerRow(tx), TUESDAY))
     expect(day.filter((q) => q.kind === 'daily')).toHaveLength(9)
     const q = day.find((x) => x.subject === 'science' && x.session === 'paper')!
@@ -473,7 +501,8 @@ describe.skipIf(!ready)('sesi harian', () => {
     expect(full.filter((q) => q.kind === 'daily')).toHaveLength(9)
     const mathTes = full.find((q) => q.subject === 'math' && q.session === 'tes')!
     await answer((await quests(FRIDAY)).find((q) => q.subject === 'math' && q.session === 'latihan')!.attempt_id!, 1)
-    const dropped = await run((tx) => m.session.dropUnstartedHeavySessions(tx, ctx, learnerId, FRIDAY))
+    await owner`update plan_week set day_templates = ${owner.json({ [THURSDAY]: 'light', [FRIDAY]: 'light' })} where learner_id = ${learnerId} and week_start = ${'2026-10-12'}`
+    const dropped = await run(async (tx) => (await m.session.syncDay(tx, ctx, await learnerRow(tx), FRIDAY)).removed)
     expect(dropped).toBe(6)
     const left = await quests(FRIDAY)
     expect(left.filter((q) => q.kind === 'daily').every((q) => q.session === 'latihan')).toBe(true)

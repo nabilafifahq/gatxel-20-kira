@@ -1,0 +1,181 @@
+{
+  "skill": "m5.time-24-hour",
+  "items": [
+    {
+      "id": "m5.time-24-hour.001",
+      "skill": "m5.time-24-hour",
+      "difficulty": 3,
+      "prompt": "A bus leaves at 13.45. The journey takes 3 hours 50 minutes. At what time does it arrive? Write it in 24-hour time, like 09.30.",
+      "hints": [
+        "Add the hours first.",
+        "13.45 + 3 hours is 16.45.",
+        "Then add 50 minutes, going past the hour."
+      ],
+      "explanation": "13.45 + 3 hours = 16.45. 16.45 + 50 minutes = 17.35.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "17.35",
+            "17:35",
+            "1735"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.time-24-hour.002",
+      "skill": "m5.time-24-hour",
+      "difficulty": 4,
+      "prompt": "A film starts at 19.50 and finishes at 22.05. How many minutes does the film last?",
+      "hints": [
+        "Count on to the next whole hour first.",
+        "19.50 to 20.00 is 10 minutes.",
+        "Then count from 20.00 to 22.05."
+      ],
+      "explanation": "19.50 to 20.00 is 10 minutes. 20.00 to 22.00 is 120 minutes. 22.00 to 22.05 is 5 minutes. The total is 135 minutes.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "minutes",
+      "type": "numeric",
+      "answer": 135
+    },
+    {
+      "id": "m5.time-24-hour.003",
+      "skill": "m5.time-24-hour",
+      "difficulty": 4,
+      "prompt": "A ferry leaves at 07.40 and then every 50 minutes. At what time does the fourth ferry leave?",
+      "hints": [
+        "The fourth ferry comes after three gaps of 50 minutes.",
+        "Three gaps are 150 minutes.",
+        "150 minutes is 2 hours 30 minutes."
+      ],
+      "explanation": "The ferries leave at 07.40, 08.30, 09.20 and 10.10. The fourth ferry leaves at 10.10.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "10.00",
+          "why": "That is 140 minutes after the first ferry. Three gaps of 50 minutes are 150 minutes."
+        },
+        {
+          "text": "10.10"
+        },
+        {
+          "text": "09.20",
+          "why": "This is the third ferry, not the fourth."
+        },
+        {
+          "text": "11.00",
+          "why": "That is 200 minutes after the first ferry, which is the fifth ferry."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.time-24-hour.801",
+      "skill": "m5.time-24-hour",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The time 18:45 is 6.45 pm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Subtract 12 from the hour.",
+        "18 - 12.",
+        "It is evening."
+      ],
+      "explanation": "18 - 12 = 6, so 18:45 is 6.45 pm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.time-24-hour.802",
+      "skill": "m5.time-24-hour",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A film that starts at 14:20 and ends at 16:05 lasts 2 hours 15 minutes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count on to 15:00 then 16:00.",
+        "14:20 to 15:00 is 40 minutes.",
+        "Then 1 hour and 5 minutes more."
+      ],
+      "explanation": "14:20 to 16:00 is 1 h 40 min, then 5 more minutes gives 1 h 45 min.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.time-24-hour.701",
+      "skill": "m5.time-24-hour",
+      "difficulty": 4,
+      "prompt": "A coach leaves Jakarta at 08:50 and the journey takes 4 hours 45 minutes. The coach back leaves at 15:20 and arrives at 19:50.",
+      "hints": [
+        "4 hours is 240 minutes.",
+        "08:50 plus 4 hours is 12:50.",
+        "Journey back: 15:20 to 19:50."
+      ],
+      "explanation": "4 h 45 min = 285 min. 08:50 + 4 h = 12:50, plus 45 min is 13:35. The journey back is 4 h 30 min = 270 min, which is 15 minutes shorter.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many minutes is the journey to the destination?",
+          "answer": 285,
+          "unit": "min"
+        },
+        {
+          "type": "mcq",
+          "prompt": "At what time does the coach arrive at the destination?",
+          "options": [
+            {
+              "text": "12:35"
+            },
+            {
+              "text": "13:35"
+            },
+            {
+              "text": "13:45"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many minutes shorter is the journey back than the journey there?",
+          "answer": 15,
+          "unit": "min"
+        }
+      ]
+    }
+  ]
+}

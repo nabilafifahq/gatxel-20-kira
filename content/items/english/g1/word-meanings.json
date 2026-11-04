@@ -1107,31 +1107,31 @@
       "skill": "e1.word-meanings",
       "type": "mcq",
       "difficulty": 2,
-      "prompt": "Which one is a fruit?",
+      "prompt": "Which one is a vegetable?",
       "hints": [
-        "Fruits grow on trees or plants.",
-        "They are often sweet.",
-        "It is orange or yellow inside."
+        "Vegetables are plants we eat, often in a main meal.",
+        "A rabbit likes this one.",
+        "It is orange."
       ],
-      "explanation": "A mango is a fruit.",
+      "explanation": "A carrot is a vegetable. Bananas and apples are fruits.",
+      "options": [
+        {
+          "text": "banana",
+          "why": "A banana is a fruit."
+        },
+        {
+          "text": "carrot"
+        },
+        {
+          "text": "apple",
+          "why": "An apple is a fruit."
+        }
+      ],
+      "answer": 1,
       "tags": [
         "esmo",
         "iklc"
-      ],
-      "options": [
-        {
-          "text": "carrot",
-          "why": "A carrot is a vegetable."
-        },
-        {
-          "text": "bread",
-          "why": "Bread is made from flour."
-        },
-        {
-          "text": "mango"
-        }
-      ],
-      "answer": 2
+      ]
     },
     {
       "id": "e1.word-meanings.023",
@@ -1831,6 +1831,160 @@
           ]
         }
       ]
+    },
+    {
+      "id": "e1.word-meanings.801",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Hot and cold are opposites.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a cup of tea and an ice cube.",
+        "Opposites are very different.",
+        "Hot and cold are opposites."
+      ],
+      "explanation": "Opposites are words with meanings that are very different. Hot is the opposite of cold.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-meanings.802",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Big and large are opposites.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do big and large mean the same?",
+        "Think of a different word for small.",
+        "They are not opposites."
+      ],
+      "explanation": "Big and large mean almost the same. The opposite of big is small.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-meanings.803",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Cat, dog and rabbit all belong in the group of animals.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What are cat, dog and rabbit?",
+        "They are living things.",
+        "They are animals."
+      ],
+      "explanation": "A group is a set of words that go together. Cat, dog and rabbit are all animals.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-meanings.804",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Apple belongs in the group of vehicles.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is an apple something you ride?",
+        "You eat an apple.",
+        "Apple is in the fruit group."
+      ],
+      "explanation": "An apple is a fruit. Vehicles are things like cars and buses.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-meanings.805",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Up and down are opposites.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a lift.",
+        "Opposite directions.",
+        "Up and down are opposites."
+      ],
+      "explanation": "Up goes towards the sky and down goes towards the ground. They are opposites.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-meanings.701",
+      "skill": "e1.word-meanings",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The opposite of hot is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "cold"
+          ]
+        }
+      ],
+      "hints": [
+        "Ice is this.",
+        "Think of winter.",
+        "It starts with c."
+      ],
+      "explanation": "Cold is the opposite of hot.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

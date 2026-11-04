@@ -287,7 +287,9 @@
           "answers": [
             "decibels",
             "decibel",
-            "db"
+            "db",
+            "dbs",
+            "decibels (db)"
           ]
         }
       ],
@@ -397,6 +399,976 @@
         "iksc",
         "olympiad"
       ]
+    },
+    {
+      "id": "s4.sound-vibrations.013",
+      "skill": "s4.sound-vibrations",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Every sound is made when something ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vibrates",
+            "vibrate",
+            "shakes",
+            "shake",
+            "moves",
+            "moves back and forth",
+            "moves quickly back and forth"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about a plucked guitar string.",
+        "You can feel it on your throat when you hum.",
+        "The word starts with v."
+      ],
+      "explanation": "Sounds are made by vibrations, which are tiny movements back and forth."
+    },
+    {
+      "id": "s4.sound-vibrations.014",
+      "skill": "s4.sound-vibrations",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the drum experiment.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 110,
+            "w": 140,
+            "h": 70,
+            "r": 8,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 160,
+            "cy": 110,
+            "rx": 70,
+            "ry": 14,
+            "rot": 0,
+            "tone": "english",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 100,
+            "r": 3,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 135,
+            "cy": 96,
+            "r": 3,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 110,
+            "cy": 97,
+            "r": 3,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 232,
+            "y1": 40,
+            "x2": 176,
+            "y2": 102,
+            "tone": "warn",
+            "width": 5
+          },
+          {
+            "t": "circle",
+            "cx": 232,
+            "cy": 40,
+            "r": 7,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A drum seen from the side. Small grains of rice sit on the drum skin on top. A drumstick is held above the skin on the right."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The stick hits the drum.",
+        "The grains sit on the top of the drum."
+      ],
+      "explanation": "The stick hits the drum skin, and the skin vibrates. The rice grains jump to show the vibration.",
+      "labels": [
+        "drumstick",
+        "rice grains",
+        "drum skin",
+        "drum body"
+      ],
+      "spots": [
+        {
+          "x": 70.3,
+          "y": 25
+        },
+        {
+          "x": 37.5,
+          "y": 51
+        },
+        {
+          "x": 64.1,
+          "y": 57.5
+        },
+        {
+          "x": 50,
+          "y": 82.5
+        }
+      ]
+    },
+    {
+      "id": "s4.sound-vibrations.015",
+      "skill": "s4.sound-vibrations",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Two cups are joined by a tight string. Tap the part that carries the sound between the cups.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 160,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 10,
+            "y": 50,
+            "w": 40,
+            "h": 50,
+            "r": 6,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 270,
+            "y": 50,
+            "w": 40,
+            "h": 50,
+            "r": 6,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 75,
+            "x2": 270,
+            "y2": 75,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "text",
+            "x": 30,
+            "y": 125,
+            "text": "Cup 1",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 290,
+            "y": 125,
+            "text": "Cup 2",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "A string telephone: two cups, one on each side, joined by a straight string."
+      },
+      "hints": [
+        "Sound is carried by vibrations.",
+        "Something must pass the vibrations along.",
+        "Look between the cups."
+      ],
+      "explanation": "Voice makes the first cup vibrate. The vibrations travel along the tight string to the second cup.",
+      "regions": [
+        {
+          "label": "first cup",
+          "x": 9.4,
+          "y": 46.9,
+          "w": 15.6,
+          "h": 43.8
+        },
+        {
+          "label": "string",
+          "x": 50,
+          "y": 46.9,
+          "w": 50,
+          "h": 16.3
+        },
+        {
+          "label": "second cup",
+          "x": 90.6,
+          "y": 46.9,
+          "w": 15.6,
+          "h": 43.8
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "s4.sound-vibrations.016",
+      "skill": "s4.sound-vibrations",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "A speaker plays music. Tap the person who hears the quietest sound.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 160,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 8,
+            "y": 50,
+            "w": 40,
+            "h": 60,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 28,
+            "y": 130,
+            "text": "speaker",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "circle",
+            "cx": 110,
+            "cy": 70,
+            "r": 12,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 82,
+            "x2": 110,
+            "y2": 115,
+            "tone": "science",
+            "width": 4
+          },
+          {
+            "t": "text",
+            "x": 110,
+            "y": 138,
+            "text": "A",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "circle",
+            "cx": 190,
+            "cy": 70,
+            "r": 12,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 82,
+            "x2": 190,
+            "y2": 115,
+            "tone": "science",
+            "width": 4
+          },
+          {
+            "t": "text",
+            "x": 190,
+            "y": 138,
+            "text": "B",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "circle",
+            "cx": 290,
+            "cy": 70,
+            "r": 12,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 290,
+            "y1": 82,
+            "x2": 290,
+            "y2": 115,
+            "tone": "science",
+            "width": 4
+          },
+          {
+            "t": "text",
+            "x": 290,
+            "y": 138,
+            "text": "C",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "A speaker on the left. Three people stand in a line to the right of it: A is closest, B is in the middle and C is the farthest away."
+      },
+      "hints": [
+        "The vibrations spread out as they travel.",
+        "Think about how far each person is from the speaker.",
+        "The farthest person gets the weakest vibrations."
+      ],
+      "explanation": "Sound gets weaker as it travels away from its source. Person C is farthest, so C hears the quietest sound.",
+      "regions": [
+        {
+          "label": "person A",
+          "x": 34.4,
+          "y": 59.4,
+          "w": 15.6,
+          "h": 50
+        },
+        {
+          "label": "person B",
+          "x": 59.4,
+          "y": 59.4,
+          "w": 15.6,
+          "h": 50
+        },
+        {
+          "label": "person C",
+          "x": 90.6,
+          "y": 59.4,
+          "w": 15.6,
+          "h": 50
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "s4.sound-vibrations.017",
+      "skill": "s4.sound-vibrations",
+      "type": "table",
+      "difficulty": 4,
+      "prompt": "A sound meter is moved away from a speaker. Look for the pattern and complete the table.",
+      "head": [
+        "Distance (m)",
+        "Loudness (dB)"
+      ],
+      "rows": [
+        [
+          "1",
+          "80"
+        ],
+        [
+          "2",
+          "74"
+        ],
+        [
+          "4",
+          "68"
+        ],
+        [
+          "8",
+          ""
+        ],
+        [
+          "16",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "62"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "56"
+          ]
+        }
+      ],
+      "hints": [
+        "Compare 1 m, 2 m and 4 m.",
+        "The distance doubles each time.",
+        "The loudness drops by the same number each time the distance doubles."
+      ],
+      "explanation": "Each time the distance doubles, the sound is 6 dB quieter. So 8 m gives 62 dB and 16 m gives 56 dB."
+    },
+    {
+      "id": "s4.sound-vibrations.018",
+      "skill": "s4.sound-vibrations",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put these in order of how fast sound travels in them, slowest first.",
+      "items": [
+        "air",
+        "water",
+        "steel"
+      ],
+      "hints": [
+        "Vibrations pass more easily when particles are close together.",
+        "Gases have the particles furthest apart.",
+        "Solids pass sound fastest."
+      ],
+      "explanation": "Sound travels slowest in air, faster in water and fastest in a solid such as steel."
+    },
+    {
+      "id": "s4.sound-vibrations.019",
+      "skill": "s4.sound-vibrations",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Can sound travel through it? Sort the cards.",
+      "groups": [
+        "Sound can travel through",
+        "Sound cannot travel through"
+      ],
+      "items": [
+        {
+          "text": "air",
+          "group": 0
+        },
+        {
+          "text": "water",
+          "group": 0
+        },
+        {
+          "text": "steel",
+          "group": 0
+        },
+        {
+          "text": "wood",
+          "group": 0
+        },
+        {
+          "text": "empty space with no air",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Sound needs something to vibrate.",
+        "Gases, liquids and solids all have particles.",
+        "Empty space has no particles."
+      ],
+      "explanation": "Sound travels through materials that can vibrate. Empty space has nothing to vibrate, so sound cannot cross it."
+    },
+    {
+      "id": "s4.sound-vibrations.020",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Bayu hits a drum and then puts his hand flat on the skin. The sound stops. Why?",
+      "options": [
+        {
+          "text": "His hand makes the sound go away.",
+          "why": "Hands do not remove sound, they stop what makes it."
+        },
+        {
+          "text": "His hand stops the skin from vibrating."
+        },
+        {
+          "text": "The drum gets too hot.",
+          "why": "Drums do not get hot like this."
+        },
+        {
+          "text": "The air leaves the drum.",
+          "why": "Air does not leave the drum."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What makes the sound?",
+        "Think about what you feel on the skin.",
+        "Stopping the vibration stops the sound."
+      ],
+      "explanation": "Sound needs vibrations. Resting a hand on the skin stops the vibrations, so the sound stops."
+    },
+    {
+      "id": "s4.sound-vibrations.021",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Tom shouts towards a cliff. Two seconds later he hears his voice again. What happened?",
+      "options": [
+        {
+          "text": "The cliff made a new sound.",
+          "why": "A cliff cannot make sound by itself."
+        },
+        {
+          "text": "The sound was reflected by the cliff."
+        },
+        {
+          "text": "The sound was used up and came back.",
+          "why": "Sound is not used up."
+        },
+        {
+          "text": "The sound travelled faster than light.",
+          "why": "Sound is much slower than light."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hard surfaces can bounce sound.",
+        "A bounced sound is an echo.",
+        "The sound came back to Tom."
+      ],
+      "explanation": "The sound hit the hard cliff and bounced back. We call this an echo."
+    },
+    {
+      "id": "s4.sound-vibrations.022",
+      "skill": "s4.sound-vibrations",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Sound travels about 340 metres each second in air. How far does it travel in 3 seconds?",
+      "answer": 1020,
+      "unit": "m",
+      "hints": [
+        "Distance is speed times time.",
+        "Multiply 340 by 3.",
+        "340 times 3 is the same as 300 times 3 plus 40 times 3."
+      ],
+      "explanation": "In 3 seconds the sound travels 340 × 3 = 1020 metres."
+    },
+    {
+      "id": "s4.sound-vibrations.023",
+      "skill": "s4.sound-vibrations",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 ways to make a sound quieter for a listener.",
+      "options": [
+        {
+          "text": "Move the listener further away"
+        },
+        {
+          "text": "Hit the drum harder"
+        },
+        {
+          "text": "Put the buzzer in a foam-lined box"
+        },
+        {
+          "text": "Turn the speaker up"
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Quieter means weaker vibrations reach the ear.",
+        "Distance and soft materials weaken sound.",
+        "Hitting harder and turning up do the opposite."
+      ],
+      "explanation": "Distance and a foam box weaken the vibrations that reach the ear. Hitting harder or turning up makes it louder."
+    },
+    {
+      "id": "s4.sound-vibrations.024",
+      "skill": "s4.sound-vibrations",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A sound is made by a ___. The vibrations travel through a ___ such as air, water or steel to reach our ___.",
+      "gaps": [
+        {
+          "options": [
+            "vibration",
+            "shadow",
+            "colour"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "material",
+            "vacuum",
+            "mirror"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "ears",
+            "eyes",
+            "noses"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Sound is a kind of movement.",
+        "It needs something to travel through.",
+        "We hear with a part of our head."
+      ],
+      "explanation": "Vibrations make sound. They travel through a material to reach our ears."
+    },
+    {
+      "id": "s4.sound-vibrations.025",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Kofi covers a buzzer with four different materials. Which material is best at blocking sound?",
+      "options": [
+        {
+          "text": "Cardboard",
+          "why": "Cardboard gave a louder reading than foam and the towel."
+        },
+        {
+          "text": "No cover",
+          "why": "With no cover the sound was loudest."
+        },
+        {
+          "text": "Foam"
+        },
+        {
+          "text": "Towel",
+          "why": "The towel was good, but another material gave a lower reading."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The best blocker gives the lowest reading.",
+        "Compare the four dB numbers.",
+        "Find the smallest number."
+      ],
+      "explanation": "Foam gave the lowest reading, 52 dB. So it blocks the most sound.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Cover",
+          "Loudness (dB)"
+        ],
+        "rows": [
+          [
+            "none",
+            "80"
+          ],
+          [
+            "foam",
+            "52"
+          ],
+          [
+            "cardboard",
+            "66"
+          ],
+          [
+            "towel",
+            "58"
+          ]
+        ],
+        "alt": "Table of loudness: no cover 80 dB, foam 52 dB, cardboard 66 dB, towel 58 dB."
+      }
+    },
+    {
+      "id": "s4.sound-vibrations.026",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A diver under the sea hears a boat engine. What does this show?",
+      "options": [
+        {
+          "text": "Sound cannot travel through water.",
+          "why": "The diver heard the engine, so sound does travel."
+        },
+        {
+          "text": "Sound can travel through liquids."
+        },
+        {
+          "text": "Sound only travels through air.",
+          "why": "Sound also travels through liquids and solids."
+        },
+        {
+          "text": "The diver is hearing with their eyes.",
+          "why": "We hear with our ears."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The diver is not in the air.",
+        "What is the sound travelling through?",
+        "Think about liquids."
+      ],
+      "explanation": "Sound travels as vibrations through liquids as well as gases and solids. So the diver can hear the engine."
+    },
+    {
+      "id": "s4.sound-vibrations.027",
+      "skill": "s4.sound-vibrations",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each instrument to the part that vibrates.",
+      "pairs": [
+        [
+          "guitar",
+          "a string"
+        ],
+        [
+          "drum",
+          "the skin"
+        ],
+        [
+          "flute",
+          "the air inside"
+        ],
+        [
+          "triangle",
+          "the metal bar"
+        ]
+      ],
+      "hints": [
+        "Think about what you pluck, hit or blow.",
+        "Wind instruments make the air vibrate.",
+        "Drums have a stretched surface."
+      ],
+      "explanation": "A guitar has vibrating strings and a drum has a vibrating skin. A flute makes the air vibrate and a triangle is a vibrating metal bar."
+    },
+    {
+      "id": "s4.sound-vibrations.028",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Sekar says a loud shout travels faster than a whisper. Is she right?",
+      "options": [
+        {
+          "text": "Yes, loud sounds always travel faster.",
+          "why": "Loudness does not change the speed."
+        },
+        {
+          "text": "No, both travel at the same speed in the same air, but the shout is stronger and goes further."
+        },
+        {
+          "text": "Yes, whispers stop in the air.",
+          "why": "Whispers travel too, only weaker."
+        },
+        {
+          "text": "No, loud sounds do not travel at all.",
+          "why": "Loud sounds do travel."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare speed and loudness separately.",
+        "The speed depends on the material it travels through.",
+        "Both are in the same air."
+      ],
+      "explanation": "Speed depends on the material, not the loudness. A shout has bigger vibrations, so it can be heard from further away."
+    },
+    {
+      "id": "s4.sound-vibrations.029",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A closed wooden door still lets some sound through from the next room. How?",
+      "options": [
+        {
+          "text": "The sound flows through tiny holes only.",
+          "why": "Even a solid door without holes passes some sound."
+        },
+        {
+          "text": "The sound goes round the planet.",
+          "why": "It does not need to go round the planet."
+        },
+        {
+          "text": "The door vibrates and passes the vibrations on."
+        },
+        {
+          "text": "Sound goes through doors without vibrating.",
+          "why": "All sound is made of vibrations."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Sound can travel through solids.",
+        "Think about what the door does when sound hits it.",
+        "It passes the vibrations on to the air on the other side."
+      ],
+      "explanation": "Sound makes the door vibrate a little. The door then makes the air on the other side vibrate, so you hear a quieter sound."
+    },
+    {
+      "id": "s4.sound-vibrations.030",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A bell rings inside a glass jar. The air is pumped out. What do you notice?",
+      "options": [
+        {
+          "text": "The bell is louder.",
+          "why": "Without air, fewer vibrations reach your ear."
+        },
+        {
+          "text": "You see the bell move but hear almost nothing."
+        },
+        {
+          "text": "The bell stops moving.",
+          "why": "The bell still moves."
+        },
+        {
+          "text": "The sound turns to light.",
+          "why": "Sound never turns into light."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what sound needs to travel.",
+        "What carries the vibrations to the glass?",
+        "Remove the air and think what is left."
+      ],
+      "explanation": "With no air there is nothing to carry the vibrations to the jar and your ear. So the sound nearly disappears."
+    },
+    {
+      "id": "s4.sound-vibrations.801",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: All sounds are made by vibrations.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a plucked string do?",
+        "Touch your throat when you talk.",
+        "Sound comes from vibrations."
+      ],
+      "explanation": "Vibrating means moving back and forth very quickly. A guitar string vibrates to make sound.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.sound-vibrations.802",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Sound can travel through space where there is no air.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What carries the vibrations?",
+        "Is there air in space?",
+        "No material, no sound."
+      ],
+      "explanation": "Sound needs a material, like air, water or a solid, to travel through. Space is almost empty, so there is no sound.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.sound-vibrations.803",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Sound travels faster through water than through air.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which is more packed, water or air?",
+        "Closer particles pass vibrations faster.",
+        "Water carries sound faster."
+      ],
+      "explanation": "The particles in water are closer together, so vibrations pass along faster.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.sound-vibrations.804",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Sound travels faster than light.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which comes first in a storm?",
+        "Light is the fastest thing.",
+        "Light is faster."
+      ],
+      "explanation": "Light is much, much faster. That is why you see lightning before you hear the thunder.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.sound-vibrations.701",
+      "skill": "s4.sound-vibrations",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Sounds are made when things ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vibrate",
+            "vibrates"
+          ]
+        }
+      ],
+      "hints": [
+        "A guitar string does this.",
+        "It is a quick back and forth movement.",
+        "The word starts with vib."
+      ],
+      "explanation": "Sounds are made by vibrations, which are tiny quick movements.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

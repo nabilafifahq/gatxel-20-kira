@@ -52,7 +52,17 @@
         },
         {
           "say": "No 3 by 3 square fits.",
-          "show": "6 + 2 = 8"
+          "show": "6 + 2 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 2,
+            "r": 8
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -168,7 +178,17 @@
       "solution": [
         {
           "say": "Length: 3 + 3 = 6 cm. Width: 3 cm.",
-          "show": "6 cm by 3 cm"
+          "show": "6 cm by 3 cm",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 3,
+            "r": 6
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "Add all four sides.",
@@ -354,7 +374,17 @@
         },
         {
           "say": "Add the whole squares.",
-          "show": "5 + 2 = 7"
+          "show": "5 + 2 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 2,
+            "r": 7
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -455,8 +485,12 @@
           "show": "N to E"
         },
         {
-          "say": "Half turn: face the opposite way.",
+          "say": "Half turn: face the opposite way. Opposite of east is west.",
           "show": "E to W"
+        },
+        {
+          "say": "So Leo faces west.",
+          "show": "West"
         }
       ],
       "tags": [
@@ -506,7 +540,22 @@
         },
         {
           "say": "Each edge is 2 cm.",
-          "show": "8 × 2 = 16"
+          "show": "8 × 2 = 16",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 8
+              },
+              {
+                "v": 8
+              }
+            ],
+            "total": 16
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "The 2 edges where squares touch are inside, so they do not count."
@@ -610,15 +659,45 @@
       "solution": [
         {
           "say": "Dua sisi panjang.",
-          "show": "4 + 4 = 8"
+          "show": "4 + 4 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 4,
+            "r": 8
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Dua sisi lebar.",
-          "show": "2 + 2 = 4"
+          "show": "2 + 2 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 2,
+            "r": 4
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "Jumlahkan.",
-          "show": "8 + 4 = 12"
+          "show": "8 + 4 = 12",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 4,
+            "r": 12
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -733,7 +812,16 @@
                 2
               ]
             ],
+            "tone": "math",
+            "showUnits": false,
             "alt": "Lantai 4 kali 4 ubin. Empat ubin di tengah yang diarsir adalah ubin putih."
+          },
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 2,
+            "r": 4
           }
         }
       ],
@@ -816,11 +904,25 @@
         },
         {
           "say": "2 cuts: 4 pieces.",
-          "show": "2 + 2 = 4"
+          "show": "2 + 2 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 2,
+            "r": 4
+          }
         },
         {
           "say": "3 cuts: 6 pieces.",
-          "show": "4 + 2 = 6"
+          "show": "4 + 2 = 6",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 2,
+            "r": 6
+          }
         }
       ],
       "tags": [
@@ -875,7 +977,17 @@
         },
         {
           "say": "Gaps of 2 m.",
-          "show": "20 ÷ 2 = 10 gaps"
+          "show": "20 ÷ 2 = 10 gaps",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "÷",
+            "b": 2,
+            "r": 10
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "On a loop the last gap ends at the first post, so posts and gaps match.",
@@ -915,11 +1027,29 @@
       "solution": [
         {
           "say": "Side of the big square.",
-          "show": "24 ÷ 4 = 6 cm"
+          "show": "24 ÷ 4 = 6 cm",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 4,
+            "r": 6
+          },
+          "mark": [
+            "24",
+            "4"
+          ]
         },
         {
           "say": "Side of a small square.",
-          "show": "6 ÷ 2 = 3 cm"
+          "show": "6 ÷ 2 = 3 cm",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "÷",
+            "b": 2,
+            "r": 3
+          }
         },
         {
           "say": "Around a small square.",
@@ -1223,7 +1353,7 @@
       "skill": "m2.oly-shapes",
       "type": "mcq",
       "difficulty": 4,
-      "prompt": "Seen from above, its shadow is a square. Seen from the side, its shadow is a rectangle. Which solid is it?",
+      "prompt": "Seen from above, its shadow is a square. Seen from the side, its shadow is a rectangle that is not a square. Which solid is it?",
       "options": [
         {
           "text": "Cube",
@@ -1467,7 +1597,14 @@
           "say": "The whole shape is also a triangle."
         },
         {
-          "say": "So there are 2 + 1 = 3 triangles."
+          "say": "So there are 2 + 1 = 3 triangles.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 1,
+            "r": 3
+          }
         }
       ],
       "tags": [
@@ -1830,7 +1967,22 @@
           "say": "Each of the 4 arms of the plus has 3 outer edges, each 1 cm."
         },
         {
-          "say": "The distance around is 4 x 3 = 12 cm."
+          "say": "The distance around is 4 x 3 = 12 cm.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 12
+          }
         }
       ],
       "tags": [
@@ -2142,7 +2294,14 @@
           "say": "The prism has 2 triangle faces at the ends and 3 rectangle faces along the sides."
         },
         {
-          "say": "That makes 2 + 3 = 5 faces."
+          "say": "That makes 2 + 3 = 5 faces.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 3,
+            "r": 5
+          }
         }
       ],
       "tags": [
@@ -2200,7 +2359,14 @@
           "say": "There are 4 more edges going up to the point."
         },
         {
-          "say": "So 4 + 4 = 8 edges."
+          "say": "So 4 + 4 = 8 edges.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 4,
+            "r": 8
+          }
         }
       ],
       "tags": [
@@ -2236,7 +2402,24 @@
           "say": "The cube has 12 edges and 8 corners."
         },
         {
-          "say": "12 - 8 = 4, so there are 4 more edges."
+          "say": "12 - 8 = 4, so there are 4 more edges.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 8
+              },
+              {
+                "v": 4,
+                "q": true
+              }
+            ],
+            "total": 12
+          },
+          "mark": [
+            "12",
+            "8"
+          ]
         }
       ],
       "tags": [
@@ -2273,7 +2456,14 @@
           "say": "There are 2 ends."
         },
         {
-          "say": "So there are 3 + 3 = 6 corners."
+          "say": "So there are 3 + 3 = 6 corners.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 3,
+            "r": 6
+          }
         }
       ],
       "tags": [
@@ -2404,10 +2594,38 @@
       "explanation": "One layer has 2 x 2 = 4 cubes. There are 3 layers, so there are 4 x 3 = 12 cubes.",
       "solution": [
         {
-          "say": "One layer has 2 x 2 = 4 cubes."
+          "say": "One layer has 2 x 2 = 4 cubes.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 2,
+            "r": 4
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
-          "say": "There are 3 layers, so there are 4 x 3 = 12 cubes."
+          "say": "There are 3 layers, so there are 4 x 3 = 12 cubes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 12
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -2434,10 +2652,38 @@
       "explanation": "One layer has 3 x 3 = 9 cubes. There are 3 layers, so there are 9 x 3 = 27 cubes.",
       "solution": [
         {
-          "say": "One layer has 3 x 3 = 9 cubes."
+          "say": "One layer has 3 x 3 = 9 cubes.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
-          "say": "There are 3 layers, so there are 9 x 3 = 27 cubes."
+          "say": "There are 3 layers, so there are 9 x 3 = 27 cubes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 27
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -2590,10 +2836,30 @@
       "explanation": "The bottom layer has 3 x 3 = 9 cubes. The middle layer has 2 x 2 = 4 cubes. The top has 1 cube. In all, 9 + 4 + 1 = 14 cubes.",
       "solution": [
         {
-          "say": "The bottom layer has 3 x 3 = 9 cubes."
+          "say": "The bottom layer has 3 x 3 = 9 cubes.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
-          "say": "The middle layer has 2 x 2 = 4 cubes."
+          "say": "The middle layer has 2 x 2 = 4 cubes.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 2,
+            "r": 4
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "The top has 1 cube."
@@ -2629,7 +2895,24 @@
           "say": "The top and bottom faces are opposite, so they add up to 7."
         },
         {
-          "say": "The bottom face is 7 - 2 = 5."
+          "say": "The bottom face is 7 - 2 = 5.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 2
+              },
+              {
+                "v": 5,
+                "q": true
+              }
+            ],
+            "total": 7
+          },
+          "mark": [
+            "7",
+            "2"
+          ]
         }
       ],
       "tags": [

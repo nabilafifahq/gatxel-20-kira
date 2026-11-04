@@ -45,7 +45,7 @@ export function LegalLayout({
         </header>
         <nav
           aria-label="Daftar isi"
-          className="flex min-w-0 flex-col gap-1 rounded-card border border-divider bg-surface p-5 lg:sticky lg:top-6 lg:col-start-1 lg:row-span-2 lg:row-start-1"
+          className="flex min-w-0 flex-col gap-1 rounded-card bg-surface shadow-soft p-5 lg:sticky lg:top-6 lg:col-start-1 lg:row-span-2 lg:row-start-1"
         >
           <span className="pb-1.5 text-small font-bold text-fg-muted">Daftar isi</span>
           {toc.map((t) => (
@@ -77,7 +77,7 @@ export function LegalSection({ id, title, children }: { id: string; title: strin
 export function LegalTable({ caption, children, minWidth }: { caption: string; children: ReactNode; minWidth: number }) {
   const id = `tabel-${caption.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
   return (
-    <div role="region" aria-labelledby={id} tabIndex={0} className="relative overflow-x-auto rounded-card border border-divider bg-surface">
+    <div role="region" aria-labelledby={id} tabIndex={0} className="relative overflow-x-auto rounded-card bg-surface shadow-soft">
       <table className="w-full border-collapse text-body" style={{ minWidth }}>
         <caption id={id} className="visually-hidden">
           {caption}

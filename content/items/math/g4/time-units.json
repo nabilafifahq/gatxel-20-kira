@@ -1,0 +1,497 @@
+{
+  "skill": "m4.time-units",
+  "items": [
+    {
+      "id": "m4.time-units.001",
+      "skill": "m4.time-units",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "How many minutes are in 2 hours?",
+      "answer": 120,
+      "unit": "minutes",
+      "hints": [
+        "There are 60 minutes in an hour.",
+        "Multiply 2 by 60.",
+        "Count in sixties."
+      ],
+      "explanation": "2 × 60 = 120 minutes."
+    },
+    {
+      "id": "m4.time-units.002",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many minutes are in 3 hours?",
+      "answer": 180,
+      "unit": "minutes",
+      "hints": [
+        "There are 60 minutes in an hour.",
+        "Multiply 3 by 60.",
+        "Count in sixties."
+      ],
+      "explanation": "3 × 60 = 180 minutes."
+    },
+    {
+      "id": "m4.time-units.003",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many minutes are in 5 hours?",
+      "answer": 300,
+      "unit": "minutes",
+      "hints": [
+        "There are 60 minutes in an hour.",
+        "Multiply 5 by 60.",
+        "Count in sixties."
+      ],
+      "explanation": "5 × 60 = 300 minutes."
+    },
+    {
+      "id": "m4.time-units.004",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many days are in 2 weeks?",
+      "answer": 14,
+      "unit": "days",
+      "hints": [
+        "There are 7 days in a week.",
+        "Multiply 2 by 7.",
+        "Count in sevens."
+      ],
+      "explanation": "2 × 7 = 14 days."
+    },
+    {
+      "id": "m4.time-units.005",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many days are in 4 weeks?",
+      "answer": 28,
+      "unit": "days",
+      "hints": [
+        "There are 7 days in a week.",
+        "Multiply 4 by 7.",
+        "Count in sevens."
+      ],
+      "explanation": "4 × 7 = 28 days."
+    },
+    {
+      "id": "m4.time-units.006",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many days are in 6 weeks?",
+      "answer": 42,
+      "unit": "days",
+      "hints": [
+        "There are 7 days in a week.",
+        "Multiply 6 by 7.",
+        "Count in sevens."
+      ],
+      "explanation": "6 × 7 = 42 days."
+    },
+    {
+      "id": "m4.time-units.007",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many seconds are in 3 minutes?",
+      "answer": 180,
+      "unit": "seconds",
+      "hints": [
+        "There are 60 seconds in a minute.",
+        "Multiply 3 by 60.",
+        "Count in sixties."
+      ],
+      "explanation": "3 × 60 = 180 seconds."
+    },
+    {
+      "id": "m4.time-units.008",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many seconds are in 5 minutes?",
+      "answer": 300,
+      "unit": "seconds",
+      "hints": [
+        "There are 60 seconds in a minute.",
+        "Multiply 5 by 60.",
+        "Count in sixties."
+      ],
+      "explanation": "5 × 60 = 300 seconds."
+    },
+    {
+      "id": "m4.time-units.009",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "How many seconds are in 10 minutes?",
+      "answer": 600,
+      "unit": "seconds",
+      "hints": [
+        "There are 60 seconds in a minute.",
+        "Multiply 10 by 60.",
+        "Count in sixties."
+      ],
+      "explanation": "10 × 60 = 600 seconds."
+    },
+    {
+      "id": "m4.time-units.010",
+      "skill": "m4.time-units",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "How many minutes are 180 seconds?",
+      "answer": 3,
+      "unit": "minutes",
+      "hints": [
+        "Divide by 60.",
+        "There are 60 seconds in a minute.",
+        "Count how many 60s fit into 180."
+      ],
+      "explanation": "180 ÷ 60 = 3 minutes."
+    },
+    {
+      "id": "m4.time-units.011",
+      "skill": "m4.time-units",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "How many minutes are 300 seconds?",
+      "answer": 5,
+      "unit": "minutes",
+      "hints": [
+        "Divide by 60.",
+        "There are 60 seconds in a minute.",
+        "Count how many 60s fit into 300."
+      ],
+      "explanation": "300 ÷ 60 = 5 minutes."
+    },
+    {
+      "id": "m4.time-units.012",
+      "skill": "m4.time-units",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "How many minutes are 600 seconds?",
+      "answer": 10,
+      "unit": "minutes",
+      "hints": [
+        "Divide by 60.",
+        "There are 60 seconds in a minute.",
+        "Count how many 60s fit into 600."
+      ],
+      "explanation": "600 ÷ 60 = 10 minutes."
+    },
+    {
+      "id": "m4.time-units.013",
+      "skill": "m4.time-units",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "How many months are in 2 years?",
+      "answer": 24,
+      "unit": "months",
+      "hints": [
+        "There are 12 months in a year.",
+        "Multiply 2 by 12.",
+        "Count in twelves."
+      ],
+      "explanation": "2 × 12 = 24 months."
+    },
+    {
+      "id": "m4.time-units.014",
+      "skill": "m4.time-units",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "How many months are in 3 years?",
+      "answer": 36,
+      "unit": "months",
+      "hints": [
+        "There are 12 months in a year.",
+        "Multiply 3 by 12.",
+        "Count in twelves."
+      ],
+      "explanation": "3 × 12 = 36 months."
+    },
+    {
+      "id": "m4.time-units.015",
+      "skill": "m4.time-units",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "How many hours are in 3 days?",
+      "answer": 72,
+      "unit": "hours",
+      "hints": [
+        "There are 24 hours in a day.",
+        "Multiply 3 by 24.",
+        "Double 24 and add 24."
+      ],
+      "explanation": "3 × 24 = 72 hours."
+    },
+    {
+      "id": "m4.time-units.016",
+      "skill": "m4.time-units",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "How many days are in 2 weeks and 3 days?",
+      "answer": 17,
+      "unit": "days",
+      "hints": [
+        "Change the weeks to days first.",
+        "2 weeks is 14 days.",
+        "Then add 3."
+      ],
+      "explanation": "2 weeks is 14 days. 14 + 3 = 17 days."
+    },
+    {
+      "id": "m4.time-units.017",
+      "skill": "m4.time-units",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "How many minutes are in 1 hour 45 minutes?",
+      "answer": 105,
+      "unit": "minutes",
+      "hints": [
+        "Change the hour to minutes.",
+        "1 hour is 60 minutes.",
+        "Add 45."
+      ],
+      "explanation": "60 + 45 = 105 minutes."
+    },
+    {
+      "id": "m4.time-units.018",
+      "skill": "m4.time-units",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which is longer: 100 minutes or 1 hour 30 minutes?",
+      "options": [
+        {
+          "text": "1 hour 30 minutes",
+          "why": "1 hour 30 minutes is 90 minutes."
+        },
+        {
+          "text": "100 minutes"
+        },
+        {
+          "text": "They are the same.",
+          "why": "1 hour 30 minutes is 90 minutes, not 100."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Change both to minutes.",
+        "1 hour 30 minutes is 60 + 30.",
+        "Compare 100 and 90."
+      ],
+      "explanation": "1 hour 30 minutes is 90 minutes, so 100 minutes is longer."
+    },
+    {
+      "id": "m4.time-units.019",
+      "skill": "m4.time-units",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which is the best estimate for the time to brush your teeth?",
+      "options": [
+        {
+          "text": "2 hours",
+          "why": "That is far too long."
+        },
+        {
+          "text": "2 minutes"
+        },
+        {
+          "text": "2 seconds",
+          "why": "That is far too short."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about how long it really takes.",
+        "More than a few seconds.",
+        "Much less than an hour."
+      ],
+      "explanation": "Brushing your teeth takes about 2 minutes."
+    },
+    {
+      "id": "m4.time-units.020",
+      "skill": "m4.time-units",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A film lasts 150 minutes. How long is that in hours and minutes?",
+      "options": [
+        {
+          "text": "1 hour 50 minutes",
+          "why": "1 hour 50 minutes is 110 minutes."
+        },
+        {
+          "text": "2 hours 30 minutes"
+        },
+        {
+          "text": "3 hours",
+          "why": "3 hours is 180 minutes."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "2 hours is 120 minutes.",
+        "Take 120 from 150.",
+        "The rest is minutes."
+      ],
+      "explanation": "150 − 120 = 30, so 150 minutes is 2 hours 30 minutes."
+    },
+    {
+      "id": "m4.time-units.021",
+      "skill": "m4.time-units",
+      "difficulty": 5,
+      "type": "numeric",
+      "prompt": "A swimming race lasts 2 minutes and 25 seconds. How many seconds is that?",
+      "answer": 145,
+      "unit": "seconds",
+      "hints": [
+        "Change the minutes to seconds first.",
+        "2 minutes is 120 seconds.",
+        "Add 25 seconds."
+      ],
+      "explanation": "2 × 60 = 120. 120 + 25 = 145 seconds."
+    },
+    {
+      "id": "m4.time-units.022",
+      "skill": "m4.time-units",
+      "difficulty": 5,
+      "type": "numeric",
+      "prompt": "A trip takes 3 days. How many hours is it if the trip also takes another 5 hours?",
+      "answer": 77,
+      "unit": "hours",
+      "hints": [
+        "Change days to hours.",
+        "3 × 24 = 72.",
+        "Add the extra 5 hours."
+      ],
+      "explanation": "3 × 24 = 72. 72 + 5 = 77 hours."
+    },
+    {
+      "id": "m4.time-units.023",
+      "skill": "m4.time-units",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A year has 12 months. How many months are there in a decade (10 years)?",
+      "options": [
+        {
+          "text": "100",
+          "why": "There are 12 months in each year."
+        },
+        {
+          "text": "120"
+        },
+        {
+          "text": "12",
+          "why": "That is one year."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Multiply 10 by 12.",
+        "10 × 12.",
+        "Ten years is ten lots of 12."
+      ],
+      "explanation": "10 × 12 = 120 months."
+    },
+    {
+      "id": "m4.time-units.024",
+      "skill": "m4.time-units",
+      "difficulty": 2,
+      "type": "text",
+      "prompt": "There are ___ minutes in an hour.",
+      "blanks": [
+        {
+          "answers": [
+            "60",
+            "sixty"
+          ]
+        }
+      ],
+      "hints": [
+        "Count the minutes on a clock face.",
+        "It is more than 50.",
+        "It is less than 100."
+      ],
+      "explanation": "There are 60 minutes in an hour."
+    },
+    {
+      "id": "m4.time-units.801",
+      "skill": "m4.time-units",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 3 minutes is the same as 180 seconds.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many seconds in a minute?",
+        "Multiply by 3.",
+        "60 + 60 + 60."
+      ],
+      "explanation": "1 minute is 60 seconds, so 3 × 60 = 180 seconds.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-units.802",
+      "skill": "m4.time-units",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: There are 100 seconds in 1 minute.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about a clock face.",
+        "The clock counts in 60s.",
+        "1 hour is also 60 minutes."
+      ],
+      "explanation": "There are 60 seconds in 1 minute.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-units.803",
+      "skill": "m4.time-units",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 2 years is the same as 20 months.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many months in a year?",
+        "Multiply by 2.",
+        "12 + 12."
+      ],
+      "explanation": "1 year is 12 months, so 2 years is 24 months.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -31,8 +31,8 @@ export type LearnersScreenProps = { data: LearnersDTO; actions: LearnersActions 
 
 type Learner = LearnersDTO['learners'][number]
 
-const AVATARS: AvatarName[] = ['fox', 'cat', 'owl', 'bear', 'rabbit', 'turtle', 'penguin', 'frog']
-const AVATAR_LABEL: Record<AvatarName, string> = {
+export const AVATARS: AvatarName[] = ['fox', 'cat', 'owl', 'bear', 'rabbit', 'turtle', 'penguin', 'frog']
+export const AVATAR_LABEL: Record<AvatarName, string> = {
   fox: 'Rubah',
   cat: 'Kucing',
   owl: 'Burung hantu',
@@ -246,7 +246,7 @@ function LearnerCard({
   const st = statusOf(l)
   const hid = `learner-${l.id}`
   return (
-    <article aria-labelledby={hid} className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-6 max-sm:p-4">
+    <article aria-labelledby={hid} className="flex min-w-0 flex-col gap-4 rounded-card bg-surface shadow-soft p-6 max-sm:p-4">
       <div className="flex flex-wrap items-center gap-3">
         <Avatar name={l.avatar} size={56} className="flex-none" />
         <div className="flex min-w-0 flex-[1_1_140px] flex-col">
@@ -310,7 +310,7 @@ function LearnerCard({
 // ---------------------------------------------------------------------------
 // Kontrol bersama
 
-function AvatarPicker({ value, onChange, taken }: { value: AvatarName; onChange: (a: AvatarName) => void; taken: Partial<Record<AvatarName, string>> }) {
+export function AvatarPicker({ value, onChange, taken }: { value: AvatarName; onChange: (a: AvatarName) => void; taken: Partial<Record<AvatarName, string>> }) {
   const auto = useId()
   const name = `avatar${auto.replace(/:/g, '')}`
   return (

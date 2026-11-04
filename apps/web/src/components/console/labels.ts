@@ -15,6 +15,11 @@ export const TYPE_LABEL: Record<string, string> = {
   write: 'Menulis',
   speak: 'Berbicara',
   draw: 'Menggambar',
+  blocks: 'Balok nilai tempat',
+  fractionbar: 'Batang pecahan',
+  barmodel: 'Model batang',
+  tangram: 'Tangram',
+  geoboard: 'Geoboard',
 }
 
 export const SOURCE_LABEL: Record<BankItemRow['source'], string> = {

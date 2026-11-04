@@ -1,0 +1,122 @@
+{
+  "skill": "m5.round-whole-numbers",
+  "items": [
+    {
+      "id": "m5.round-whole-numbers.001",
+      "skill": "m5.round-whole-numbers",
+      "difficulty": 3,
+      "prompt": "A district has 648,950 people. A news site rounds this to the nearest 10,000. What number does it show?",
+      "hints": [
+        "Find the ten thousands digit first.",
+        "Look at the thousands digit to decide whether to round up or down.",
+        "The thousands digit is 8."
+      ],
+      "explanation": "The ten thousands digit is 4 and the thousands digit is 8, so we round up to 650,000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 650000
+    },
+    {
+      "id": "m5.round-whole-numbers.002",
+      "skill": "m5.round-whole-numbers",
+      "difficulty": 4,
+      "prompt": "Putri buys a phone for Rp2.849.000 and a case for Rp151.000. She rounds each price to the nearest Rp100.000 and adds. What is her estimate?",
+      "hints": [
+        "Round the phone price first.",
+        "Look at the tens of thousands digit of each price.",
+        "Rp2.849.000 and Rp151.000 are both rounded, then added."
+      ],
+      "explanation": "Rp2.849.000 rounds to Rp2.800.000 and Rp151.000 rounds to Rp200.000. The estimate is Rp2.800.000 + Rp200.000 = Rp3.000.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rp2.900.000",
+          "why": "You rounded Rp151.000 down to Rp100.000. The tens of thousands digit is 5, so it rounds up to Rp200.000."
+        },
+        {
+          "text": "Rp3.100.000",
+          "why": "Rp2.849.000 rounds down to Rp2.800.000, not up to Rp2.900.000."
+        },
+        {
+          "text": "Rp3.000.000"
+        },
+        {
+          "text": "Rp2.949.000",
+          "why": "Only the case was rounded. Both prices must be rounded first."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.round-whole-numbers.003",
+      "skill": "m5.round-whole-numbers",
+      "difficulty": 4,
+      "prompt": "How many whole numbers round to 30 when rounded to the nearest 10?",
+      "hints": [
+        "Find the smallest number that rounds up to 30.",
+        "Find the largest number that rounds down to 30.",
+        "Count from 25 to 34."
+      ],
+      "explanation": "Numbers from 25 to 34 round to 30. That is 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, so 10 numbers.",
+      "type": "numeric",
+      "answer": 10
+    },
+    {
+      "id": "m5.round-whole-numbers.801",
+      "skill": "m5.round-whole-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 48,650 rounds to 49,000 when rounded to the nearest 1,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the hundreds digit.",
+        "5 or more rounds up.",
+        "48,650 is closer to 49,000 than 48,000."
+      ],
+      "explanation": "The hundreds digit is 6, which is 5 or more, so round up to 49,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.round-whole-numbers.802",
+      "skill": "m5.round-whole-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The number 749,500 rounds to 800,000 when rounded to the nearest 100,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the digit just right of the hundred thousands.",
+        "That digit is 4.",
+        "4 rounds down."
+      ],
+      "explanation": "The ten-thousands digit is 4, which is less than 5, so round down to 700,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

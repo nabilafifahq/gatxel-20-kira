@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "Which habit helps to keep your teeth healthy?",
       "options": [
-        { "text": "eating sweets just before bed", "why": "Sugar left on teeth overnight feeds bacteria that make acid, and acid can make holes in teeth." },
-        { "text": "brushing your teeth twice a day" },
-        { "text": "brushing your teeth once a week", "why": "Once a week is not enough. Brush in the morning and before bed." },
-        { "text": "sipping sugary drinks all day", "why": "Sugary drinks cover your teeth in sugar again and again." }
+        {
+          "text": "eating sweets just before bed",
+          "why": "Sugar left on teeth overnight feeds bacteria that make acid, and acid can make holes in teeth."
+        },
+        {
+          "text": "brushing your teeth twice a day"
+        },
+        {
+          "text": "brushing your teeth once a week",
+          "why": "Once a week is not enough. Brush in the morning and before bed."
+        },
+        {
+          "text": "sipping sugary drinks all day",
+          "why": "Sugary drinks cover your teeth in sugar again and again."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -28,10 +39,22 @@
       "difficulty": 1,
       "prompt": "Match each food group to its main job in the body.",
       "pairs": [
-        ["carbohydrates", "give us energy"],
-        ["proteins", "help the body grow and repair itself"],
-        ["vitamins and minerals", "help keep the body working well"],
-        ["fibre", "helps food move through the gut"]
+        [
+          "carbohydrates",
+          "give us energy"
+        ],
+        [
+          "proteins",
+          "help the body grow and repair itself"
+        ],
+        [
+          "vitamins and minerals",
+          "help keep the body working well"
+        ],
+        [
+          "fibre",
+          "helps food move through the gut"
+        ]
       ],
       "hints": [
         "Each food group has one main job. Think about running, growing and staying well.",
@@ -47,10 +70,21 @@
       "difficulty": 2,
       "prompt": "Which food is rich in protein?",
       "options": [
-        { "text": "rice", "why": "Rice is mostly carbohydrate, which gives energy." },
-        { "text": "mango", "why": "Mangoes give vitamins, fibre and natural sugars, with very little protein." },
-        { "text": "cooking oil", "why": "Cooking oil is a fat. It stores energy but has no protein." },
-        { "text": "tempeh" }
+        {
+          "text": "rice",
+          "why": "Rice is mostly carbohydrate, which gives energy."
+        },
+        {
+          "text": "mango",
+          "why": "Mangoes give vitamins, fibre and natural sugars, with very little protein."
+        },
+        {
+          "text": "cooking oil",
+          "why": "Cooking oil is a fat. It stores energy but has no protein."
+        },
+        {
+          "text": "tempeh"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -66,16 +100,44 @@
       "type": "sort",
       "difficulty": 2,
       "prompt": "Sort the foods by the main food group in each one.",
-      "groups": ["Mostly carbohydrate", "Mostly protein", "Mostly fat"],
+      "groups": [
+        "Mostly carbohydrate",
+        "Mostly protein",
+        "Mostly fat"
+      ],
       "items": [
-        { "text": "rice", "group": 0 },
-        { "text": "bread", "group": 0 },
-        { "text": "sweet potato", "group": 0 },
-        { "text": "fish", "group": 1 },
-        { "text": "tofu", "group": 1 },
-        { "text": "chicken", "group": 1 },
-        { "text": "butter", "group": 2 },
-        { "text": "cooking oil", "group": 2 }
+        {
+          "text": "rice",
+          "group": 0
+        },
+        {
+          "text": "bread",
+          "group": 0
+        },
+        {
+          "text": "sweet potato",
+          "group": 0
+        },
+        {
+          "text": "fish",
+          "group": 1
+        },
+        {
+          "text": "tofu",
+          "group": 1
+        },
+        {
+          "text": "chicken",
+          "group": 1
+        },
+        {
+          "text": "butter",
+          "group": 2
+        },
+        {
+          "text": "cooking oil",
+          "group": 2
+        }
       ],
       "hints": [
         "Carbohydrates give quick energy, proteins help you grow and fats store energy.",
@@ -91,13 +153,29 @@
       "difficulty": 2,
       "prompt": "Choose all the habits that help to stop harmful microorganisms spreading.",
       "options": [
-        { "text": "washing your hands with soap before eating" },
-        { "text": "covering your mouth when you cough or sneeze" },
-        { "text": "sharing a drinking bottle with a friend who is ill", "why": "Microorganisms from the ill person can pass to you on the bottle." },
-        { "text": "keeping food covered so flies cannot land on it" },
-        { "text": "rinsing your hands with cold water only", "why": "Water alone leaves many microorganisms behind. Soap removes far more." }
+        {
+          "text": "washing your hands with soap before eating"
+        },
+        {
+          "text": "covering your mouth when you cough or sneeze"
+        },
+        {
+          "text": "sharing a drinking bottle with a friend who is ill",
+          "why": "Microorganisms from the ill person can pass to you on the bottle."
+        },
+        {
+          "text": "keeping food covered so flies cannot land on it"
+        },
+        {
+          "text": "rinsing your hands with cold water only",
+          "why": "Water alone leaves many microorganisms behind. Soap removes far more."
+        }
       ],
-      "answers": [0, 1, 3],
+      "answers": [
+        0,
+        1,
+        3
+      ],
       "hints": [
         "Harmful microorganisms spread on hands, in droplets from coughs and on flies.",
         "For each habit, ask whether it stops microorganisms reaching your mouth or someone else.",
@@ -112,10 +190,21 @@
       "difficulty": 3,
       "prompt": "Which food is made with the help of useful microorganisms?",
       "options": [
-        { "text": "boiled rice", "why": "Rice is cooked with heat in water. No microorganism is needed." },
-        { "text": "orange juice", "why": "Juice is squeezed from fruit. No microorganism is needed." },
-        { "text": "tapai, made from cassava" },
-        { "text": "sea salt", "why": "Sea salt is left behind when sea water evaporates. No microorganism is needed." }
+        {
+          "text": "boiled rice",
+          "why": "Rice is cooked with heat in water. No microorganism is needed."
+        },
+        {
+          "text": "orange juice",
+          "why": "Juice is squeezed from fruit. No microorganism is needed."
+        },
+        {
+          "text": "tapai, made from cassava"
+        },
+        {
+          "text": "sea salt",
+          "why": "Sea salt is left behind when sea water evaporates. No microorganism is needed."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -124,7 +213,10 @@
         "Cross out the foods that are only cooked, squeezed or dried."
       ],
       "explanation": "Tapai is made by adding ragi to cooked cassava. Ragi contains yeasts and moulds, useful microorganisms that turn the starch into sugars and make the cassava sweet and soft.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.keeping-healthy.007",
@@ -135,20 +227,46 @@
       "figure": {
         "kind": "table",
         "caption": "What is in each lunch box",
-        "head": ["Lunch box", "Foods inside"],
+        "head": [
+          "Lunch box",
+          "Foods inside"
+        ],
         "rows": [
-          ["A", "rice, fried chicken, cake"],
-          ["B", "rice, fish, spinach, papaya"],
-          ["C", "bread, jam, sweet biscuits"],
-          ["D", "noodles, rice, crackers"]
+          [
+            "A",
+            "rice, fried chicken, cake"
+          ],
+          [
+            "B",
+            "rice, fish, spinach, papaya"
+          ],
+          [
+            "C",
+            "bread, jam, sweet biscuits"
+          ],
+          [
+            "D",
+            "noodles, rice, crackers"
+          ]
         ],
         "alt": "Table of four lunch boxes. A: rice, fried chicken and cake. B: rice, fish, spinach and papaya. C: bread, jam and sweet biscuits. D: noodles, rice and crackers."
       },
       "options": [
-        { "text": "Box A", "why": "Box A has carbohydrate and protein, but no fruit or vegetables." },
-        { "text": "Box B" },
-        { "text": "Box C", "why": "Box C is mostly carbohydrate and sugar, with no protein, fruit or vegetables." },
-        { "text": "Box D", "why": "Box D has three carbohydrate foods and nothing from the other groups." }
+        {
+          "text": "Box A",
+          "why": "Box A has carbohydrate and protein, but no fruit or vegetables."
+        },
+        {
+          "text": "Box B"
+        },
+        {
+          "text": "Box C",
+          "why": "Box C is mostly carbohydrate and sugar, with no protein, fruit or vegetables."
+        },
+        {
+          "text": "Box D",
+          "why": "Box D has three carbohydrate foods and nothing from the other groups."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -166,11 +284,26 @@
       "prompt": "Plan a balanced lunch for a school day. Name four foods and say which food group each one belongs to. Explain why your lunch is balanced.",
       "rubric": {
         "criteria": [
-          { "label": "Names at least four foods", "points": 1 },
-          { "label": "Gives a correct food group for each food", "points": 2 },
-          { "label": "Includes a fruit or a vegetable", "points": 1 },
-          { "label": "Explains why the meal is balanced", "points": 1 },
-          { "label": "Writes in full sentences", "points": 1 }
+          {
+            "label": "Names at least four foods",
+            "points": 1
+          },
+          {
+            "label": "Gives a correct food group for each food",
+            "points": 2
+          },
+          {
+            "label": "Includes a fruit or a vegetable",
+            "points": 1
+          },
+          {
+            "label": "Explains why the meal is balanced",
+            "points": 1
+          },
+          {
+            "label": "Writes in full sentences",
+            "points": 1
+          }
         ]
       },
       "minWords": 30,
@@ -194,10 +327,21 @@
       "difficulty": 4,
       "prompt": "In 1796, Edward Jenner tested an idea that led to the first vaccine. What does a vaccine do?",
       "options": [
-        { "text": "It cures every illness straight away.", "why": "A vaccine protects against one particular disease. It does not cure every illness." },
-        { "text": "It kills microorganisms on your hands.", "why": "Soap and water do that. A vaccine works inside the body." },
-        { "text": "It gives the body extra vitamins.", "why": "Vitamins come from food. A vaccine trains the body's defences." },
-        { "text": "It helps the body learn to fight a disease before you catch it." }
+        {
+          "text": "It cures every illness straight away.",
+          "why": "A vaccine protects against one particular disease. It does not cure every illness."
+        },
+        {
+          "text": "It kills microorganisms on your hands.",
+          "why": "Soap and water do that. A vaccine works inside the body."
+        },
+        {
+          "text": "It gives the body extra vitamins.",
+          "why": "Vitamins come from food. A vaccine trains the body's defences."
+        },
+        {
+          "text": "It helps the body learn to fight a disease before you catch it."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -206,19 +350,32 @@
         "Cross out the choices about soap and food first."
       ],
       "explanation": "A vaccine trains the body's defences to recognise a disease, so the body can fight it quickly later. Jenner's 1796 test against smallpox led to the first vaccine.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.keeping-healthy.010",
       "skill": "s5.keeping-healthy",
       "type": "mcq",
       "difficulty": 5,
-      "prompt": "Class 5A washes their hands with water only. Class 5B uses soap and water. Each class touches a slice of bread, and both slices are sealed in bags for five days. Which result is most likely?",
+      "prompt": "Class 5A washes their hands with water only. Class 5B uses soap and water. Each class presses their fingers on a slice of bread. Both slices go straight into clean sealed bags and stay in the same warm place for five days. Which result is most likely?",
       "options": [
-        { "text": "Both slices grow the same amount of mould.", "why": "Soap removes more microorganisms, so fewer reach the bread from Class 5B." },
-        { "text": "The bread from Class 5B grows less mould." },
-        { "text": "The bread from Class 5A grows no mould at all.", "why": "Water alone leaves many microorganisms on hands, so mould can still grow." },
-        { "text": "Mould only grows on bread kept in a fridge.", "why": "Mould grows faster in warm places than in a cold fridge." }
+        {
+          "text": "Both slices grow the same amount of mould.",
+          "why": "Soap removes more microorganisms, so fewer reach the bread from Class 5B."
+        },
+        {
+          "text": "The bread touched by Class 5B grows less mould."
+        },
+        {
+          "text": "The bread from Class 5A grows no mould at all.",
+          "why": "Water alone leaves many microorganisms on hands, so mould can still grow."
+        },
+        {
+          "text": "Mould only grows on bread kept in a fridge.",
+          "why": "Mould grows faster in warm places than in a cold fridge."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -227,7 +384,745 @@
         "Compare water only with soap and water. Decide which removes more microorganisms."
       ],
       "explanation": "Soap and water remove more microorganisms than water alone. Fewer microorganisms reach Class 5B's bread, so less mould grows on it.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s5.keeping-healthy.011",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which activity helps to keep your heart strong?",
+      "options": [
+        {
+          "text": "Sitting still for most of the day",
+          "why": "A heart is a muscle and needs exercise to stay strong."
+        },
+        {
+          "text": "Sleeping with the lights on",
+          "why": "Sleep is good for you, but it does not exercise the heart."
+        },
+        {
+          "text": "Running and playing games outside"
+        },
+        {
+          "text": "Eating a big meal",
+          "why": "A meal gives you energy, but the heart still needs exercise."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Your heart is a muscle.",
+        "Muscles get stronger when they are used.",
+        "Choose the activity that makes your heart beat faster."
+      ],
+      "explanation": "Hard exercise makes the heart work harder, and regular exercise keeps the heart muscle strong."
+    },
+    {
+      "id": "s5.keeping-healthy.012",
+      "skill": "s5.keeping-healthy",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the habits into those that help your health and those that can harm it.",
+      "groups": [
+        "Helps health",
+        "Can harm health"
+      ],
+      "items": [
+        {
+          "text": "Washing hands with soap before meals",
+          "group": 0
+        },
+        {
+          "text": "Brushing teeth morning and night",
+          "group": 0
+        },
+        {
+          "text": "Playing outside with friends",
+          "group": 0
+        },
+        {
+          "text": "Drinking sugary drinks all day",
+          "group": 1
+        },
+        {
+          "text": "Staying up very late on school nights",
+          "group": 1
+        },
+        {
+          "text": "Never washing hands after the toilet",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Ask: does this habit protect my body or put it at risk?",
+        "Think about teeth, germs and sleep.",
+        "Start with the habits you already do at school."
+      ],
+      "explanation": "Hand washing, tooth brushing and exercise protect your health. Too much sugar, too little sleep and unwashed hands can cause problems."
+    },
+    {
+      "id": "s5.keeping-healthy.013",
+      "skill": "s5.keeping-healthy",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Dewi records the cups of water she drinks. Complete the table.",
+      "head": [
+        "Day",
+        "Cups of water"
+      ],
+      "rows": [
+        [
+          "Monday",
+          "4"
+        ],
+        [
+          "Tuesday",
+          "6"
+        ],
+        [
+          "Wednesday",
+          "5"
+        ],
+        [
+          "Thursday",
+          "7"
+        ],
+        [
+          "Friday",
+          "3"
+        ],
+        [
+          "Total for the week",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 5,
+          "col": 1,
+          "answers": [
+            "25"
+          ]
+        }
+      ],
+      "hints": [
+        "Add the five daily amounts.",
+        "Add in pairs that make easy numbers.",
+        "4 + 6 = 10 is a good first step."
+      ],
+      "explanation": "4 + 6 + 5 + 7 + 3 = 25 cups."
+    },
+    {
+      "id": "s5.keeping-healthy.014",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Four children record the minutes they exercised yesterday. Who exercised for exactly twice as long as Bayu?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Bayu",
+          "Putri",
+          "Leo",
+          "Maya"
+        ],
+        "values": [
+          20,
+          30,
+          40,
+          60
+        ],
+        "axisMax": 60,
+        "step": 10,
+        "yLabel": "Minutes of exercise",
+        "tone": "science",
+        "alt": "Bar chart of minutes of exercise: Bayu 20, Putri 30, Leo 40, Maya 60."
+      },
+      "options": [
+        {
+          "text": "Leo"
+        },
+        {
+          "text": "Putri",
+          "why": "Putri exercised for 30 minutes, which is one and a half times as long as Bayu."
+        },
+        {
+          "text": "Maya",
+          "why": "Maya exercised for three times as long as Bayu, not twice."
+        },
+        {
+          "text": "Nobody",
+          "why": "Look again: one child did exactly double."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read Bayu's bar first.",
+        "Double means multiply by 2.",
+        "Find the bar that is twice as tall as Bayu's bar."
+      ],
+      "explanation": "Bayu exercised for 20 minutes. Twice as long is 40 minutes, which is Leo."
+    },
+    {
+      "id": "s5.keeping-healthy.015",
+      "skill": "s5.keeping-healthy",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the ways that harmful microorganisms can spread from one person to another.",
+      "options": [
+        {
+          "text": "Sneezing without covering your nose"
+        },
+        {
+          "text": "Sharing a cup with a friend who is ill"
+        },
+        {
+          "text": "Eating with hands that have touched a dirty surface"
+        },
+        {
+          "text": "Washing fruit before you eat it"
+        },
+        {
+          "text": "Keeping food in a clean cupboard"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Think about how tiny living things move from one place to another.",
+        "Two of the choices are ways of staying safe.",
+        "Check each one: could it carry germs to someone?"
+      ],
+      "explanation": "Sneezes, shared cups and dirty hands can pass on microorganisms. Washing fruit and keeping food clean help to stop them spreading."
+    },
+    {
+      "id": "s5.keeping-healthy.016",
+      "skill": "s5.keeping-healthy",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Fish, beans and eggs give the body protein. Protein helps the body grow and ___ itself.",
+      "blanks": [
+        {
+          "answers": [
+            "repair",
+            "mend",
+            "heal",
+            "fix",
+            "rebuild"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what happens when you have a small cut.",
+        "The word starts with r.",
+        "It means to fix damage."
+      ],
+      "explanation": "Protein is the body-building nutrient. It helps the body to grow and to repair itself."
+    },
+    {
+      "id": "s5.keeping-healthy.017",
+      "skill": "s5.keeping-healthy",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each food to the main nutrient it gives.",
+      "pairs": [
+        [
+          "bread",
+          "carbohydrate"
+        ],
+        [
+          "tempeh",
+          "protein"
+        ],
+        [
+          "butter",
+          "fat"
+        ],
+        [
+          "orange",
+          "vitamins"
+        ]
+      ],
+      "hints": [
+        "Each food is mostly rich in one nutrient.",
+        "Think about what the food is made from.",
+        "Match the food that gives energy quickly, such as a grain food."
+      ],
+      "explanation": "Bread is a source of carbohydrate, tempeh gives protein, butter is mostly fat and oranges are rich in vitamins."
+    },
+    {
+      "id": "s5.keeping-healthy.018",
+      "skill": "s5.keeping-healthy",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Bread rises because ___ makes gas. Some microorganisms can make us ill, so we should wash our ___ with ___.",
+      "gaps": [
+        {
+          "options": [
+            "yeast",
+            "flour",
+            "salt"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "hands",
+            "shoes",
+            "books"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "soap and water",
+            "dry paper",
+            "cold air"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "One kind of microorganism helps bakers.",
+        "Think about which part of your body touches food.",
+        "Which choice would actually remove germs?"
+      ],
+      "explanation": "Yeast is a useful microorganism that makes bread rise. Washing hands with soap and water removes harmful ones."
+    },
+    {
+      "id": "s5.keeping-healthy.019",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Hadi keeps three slices of bread in different places for six days. What does the table show about temperature and mould?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Place",
+          "Day 2",
+          "Day 4",
+          "Day 6"
+        ],
+        "rows": [
+          [
+            "Warm cupboard",
+            "5",
+            "30",
+            "80"
+          ],
+          [
+            "Kitchen shelf",
+            "0",
+            "10",
+            "35"
+          ],
+          [
+            "Fridge",
+            "0",
+            "2",
+            "8"
+          ]
+        ],
+        "alt": "Table of the percentage of each bread slice covered by mould. Warm cupboard: 5, 30, 80. Kitchen shelf: 0, 10, 35. Fridge: 0, 2, 8 on days 2, 4 and 6."
+      },
+      "options": [
+        {
+          "text": "Bread in the fridge had no mould at all.",
+          "why": "The fridge slice still had 8 percent of its surface covered by day 6."
+        },
+        {
+          "text": "Mould grew much more slowly in the cold fridge."
+        },
+        {
+          "text": "Mould grew fastest on the kitchen shelf.",
+          "why": "The warm cupboard slice had the most mould."
+        },
+        {
+          "text": "Mould grew at the same rate in every place.",
+          "why": "The amounts covered are very different on day 6."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the day 6 readings for the three places.",
+        "Cold, cool and warm are the three temperatures.",
+        "Look at which place has the smallest number on day 6."
+      ],
+      "explanation": "The warm cupboard slice was 80 percent covered by day 6 but the fridge slice only 8 percent. Low temperature slows the growth of mould."
+    },
+    {
+      "id": "s5.keeping-healthy.020",
+      "skill": "s5.keeping-healthy",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps in order to show how too much sugar can lead to a hole in a tooth.",
+      "items": [
+        "Bacteria in the mouth feed on sugar left on the teeth",
+        "The bacteria make acid",
+        "The acid wears away the hard outer layer of the tooth",
+        "A hole called a cavity can form"
+      ],
+      "hints": [
+        "Start with the cause and finish with the result.",
+        "The bacteria need something to feed on first.",
+        "Sugar is the first step."
+      ],
+      "explanation": "Bacteria feed on sugar and make acid. The acid wears away the tooth, and a cavity can form."
+    },
+    {
+      "id": "s5.keeping-healthy.021",
+      "skill": "s5.keeping-healthy",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The table shows the hours of sleep five children had last night. What is the mean number of hours?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Child",
+          "Hours of sleep"
+        ],
+        "rows": [
+          [
+            "Rangga",
+            "9"
+          ],
+          [
+            "Citra",
+            "10"
+          ],
+          [
+            "Joko",
+            "11"
+          ],
+          [
+            "Sekar",
+            "8"
+          ],
+          [
+            "Wulan",
+            "12"
+          ]
+        ],
+        "alt": "Table of hours of sleep: Rangga 9, Citra 10, Joko 11, Sekar 8, Wulan 12."
+      },
+      "answer": 10,
+      "unit": "hours",
+      "hints": [
+        "The mean is the total shared out equally.",
+        "Add all five numbers, then divide.",
+        "9 + 10 + 11 + 8 + 12 is the total."
+      ],
+      "explanation": "The total is 50 hours. 50 shared between 5 children is 10 hours each."
+    },
+    {
+      "id": "s5.keeping-healthy.022",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Maya says that all microorganisms are harmful. Which fact shows that she is wrong?",
+      "options": [
+        {
+          "text": "Bacteria are used to make yoghurt."
+        },
+        {
+          "text": "Microorganisms are too small to see.",
+          "why": "Being tiny does not show whether they are harmful or useful."
+        },
+        {
+          "text": "Some microorganisms cause colds.",
+          "why": "This supports Maya instead of proving her wrong."
+        },
+        {
+          "text": "Soap helps to remove microorganisms from hands.",
+          "why": "This tells you how to remove them but not whether all are harmful."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "You need a fact about microorganisms that are helpful.",
+        "Think about foods made using microorganisms.",
+        "Find the fact that gives a useful job to some microorganisms."
+      ],
+      "explanation": "Some microorganisms are useful. Bacteria make yoghurt and yeast makes bread rise."
+    },
+    {
+      "id": "s5.keeping-healthy.023",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Two schools of the same size count children absent with colds each month. School A began hand washing before meals in month 3. School B changed nothing. What is the best conclusion?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Month",
+          "School A",
+          "School B"
+        ],
+        "rows": [
+          [
+            "1",
+            "18",
+            "17"
+          ],
+          [
+            "2",
+            "20",
+            "19"
+          ],
+          [
+            "3",
+            "12",
+            "18"
+          ],
+          [
+            "4",
+            "7",
+            "20"
+          ]
+        ],
+        "alt": "Table of children absent with colds. School A: 18, 20, 12, 7 in months 1 to 4. School B: 17, 19, 18, 20."
+      },
+      "options": [
+        {
+          "text": "Hand washing stopped all colds at School A.",
+          "why": "School A still had 7 absences in month 4, so colds were reduced and not stopped."
+        },
+        {
+          "text": "School B shows that hand washing makes colds worse.",
+          "why": "School B did not wash hands more, so it tells us nothing about hand washing making things worse."
+        },
+        {
+          "text": "The results cannot show anything, because the schools are different.",
+          "why": "School B acts as a comparison: it stayed about the same while School A fell."
+        },
+        {
+          "text": "Hand washing probably helped School A, because School B did not improve without it."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Which school acts as the comparison, or control?",
+        "Look at what happened in each school before and after month 3.",
+        "Ask what School B would have looked like without any change."
+      ],
+      "explanation": "Absences fell in School A after hand washing began, but stayed high in School B. This suggests hand washing helped, although it did not stop all colds."
+    },
+    {
+      "id": "s5.keeping-healthy.024",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why does your body need water?",
+      "options": [
+        {
+          "text": "Water helps to carry things around the body and keeps it working."
+        },
+        {
+          "text": "Water gives you energy in the same way as sugar.",
+          "why": "Water has no energy. Food gives energy."
+        },
+        {
+          "text": "Water builds new muscle.",
+          "why": "Muscles are built from protein."
+        },
+        {
+          "text": "Water stops you needing sleep.",
+          "why": "Water does not replace sleep."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what blood is mostly made of.",
+        "Your body loses water when you sweat and when you go to the toilet.",
+        "Choose the answer that says water helps the body work."
+      ],
+      "explanation": "Every part of the body needs water. It helps carry nutrients in the blood and replaces water lost in sweat and urine."
+    },
+    {
+      "id": "s5.keeping-healthy.025",
+      "skill": "s5.keeping-healthy",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the food on the plate that is the best source of protein.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 100,
+            "r": 92,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "rice",
+            "x": 72,
+            "y": 88,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "carrot",
+            "x": 192,
+            "y": 88,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "egg",
+            "x": 132,
+            "y": 22,
+            "size": 56
+          }
+        ],
+        "alt": "A round plate with three foods on it: a bowl of rice on the left, a carrot on the right and an egg at the top."
+      },
+      "regions": [
+        {
+          "label": "rice",
+          "x": 31.3,
+          "y": 58,
+          "w": 22,
+          "h": 34
+        },
+        {
+          "label": "carrot",
+          "x": 68.8,
+          "y": 58,
+          "w": 22,
+          "h": 34
+        },
+        {
+          "label": "egg",
+          "x": 50,
+          "y": 25,
+          "w": 22,
+          "h": 34
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Protein helps the body grow and repair.",
+        "Rice gives mostly energy and carrot gives vitamins.",
+        "Animal foods such as meat, fish and eggs are rich in protein."
+      ],
+      "explanation": "Eggs are rich in protein. Rice is mainly carbohydrate and a carrot gives vitamins and fibre."
+    },
+    {
+      "id": "s5.keeping-healthy.801",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Drinking plenty of water helps keep your body healthy.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do we lose when we sweat?",
+        "Your body is mostly water.",
+        "Water is essential."
+      ],
+      "explanation": "Water is needed by every part of the body, and it stops you drying out.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.keeping-healthy.802",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Eating only your favourite food is the best way to stay healthy.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is one food enough for everything?",
+        "What does balanced mean?",
+        "Variety gives all nutrients."
+      ],
+      "explanation": "The body needs a balanced diet with a variety of foods, so it gets all the nutrients it needs.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.keeping-healthy.803",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Too little sleep can make it hard to concentrate.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "When does the brain rest?",
+        "How do you feel after a bad night?",
+        "Sleep helps thinking."
+      ],
+      "explanation": "Sleep gives the brain and body time to rest and repair. Without enough, you feel tired and find it hard to think.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.keeping-healthy.804",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Washing your hands only matters if they look dirty.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you see germs?",
+        "Clean-looking hands can still carry germs.",
+        "Germs are invisible."
+      ],
+      "explanation": "Germs are too small to see, so hands can carry them even if they look clean. Wash before eating and after using the toilet.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

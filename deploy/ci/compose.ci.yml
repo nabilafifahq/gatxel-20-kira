@@ -1,7 +1,19 @@
-# Tambahan khusus CI: buka Postgres di 127.0.0.1:5432 supaya tes e2e bisa membuat data contoh.
+# Tambahan khusus CI: buka Postgres di 127.0.0.1:5432 supaya tes e2e bisa membuat data contoh,
+# terbitkan proxy di 127.0.0.1:3000 (alamat yang dipakai tes e2e dan alur CI), dan pakai dua replika web.
 # Jangan dipakai di server rumah.
 services:
   db:
     networks: [internal, egress]
     ports:
       - "127.0.0.1:5432:5432"
+  proxy:
+    ports: !override
+      - "127.0.0.1:3000:8080"
+    environment:
+      KIRA_WEB_REPLICAS: "2"
+  web:
+    deploy:
+      replicas: 2
+    environment:
+      # Tes e2e mengubah database langsung (di luar Server Action), jadi cache layar Today dimatikan.
+      KIRA_TODAY_CACHE: "off"

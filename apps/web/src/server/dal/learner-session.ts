@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, asc, eq, inArray, lte, sql } from 'drizzle-orm'
+import { and, asc, eq, lte, ne, sql } from 'drizzle-orm'
 import {
   DAY_TEMPLATES,
   dropTaperEntries,
@@ -15,6 +15,7 @@ import {
   pickItems,
   tesTimeLimitSec,
   weekStart,
+  type DayEntry,
   type DayTemplate,
   type IsoDate,
   type PaperKind,
@@ -23,14 +24,20 @@ import {
   type SessionType,
 } from '@kira/core'
 import { tables } from '@kira/db'
-import { genRef, newSeed } from '@kira/content/math'
+import { genRef, instanceSignature, newSeed } from '@kira/content/math'
+import { isFeatureOn } from './learner-features'
 import type { Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { conflict, notFound } from '../errors'
 import { poolForSkill, preset, resolveItems, skill, skillsFor, type PoolCandidate } from './content'
+import { guardAttemptItems } from './session-guard'
 import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
-import { isRestDay, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
+import { isRestDay, loadLearner, markerFor, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
+import { dayRulesFor } from './learner-rules'
+import { featureMapFor } from './learner-features'
+import { sessionAllowed } from '@kira/core/features'
+import { placementStartGrade } from './placement-grade'
 
 const { quest, attempt, planSlot, planWeek, reviewCard, paper, response } = tables
 
@@ -47,6 +54,8 @@ export type AttemptItem = {
   difficulty: number
   /** Nomor soal pada aturan skor preset. Kosong berarti sama dengan position (paper yang diulang diacak). */
   scorePos?: number
+  /** Soal saudara dari putaran perbaikan: nomor soal yang salah. Tidak ikut skor sesi. */
+  remedialOf?: number
 }
 
 const MANUAL_STRANDS = new Set(['Wc', 'SL', 'Wp'])
@@ -81,10 +90,24 @@ export function linkHref(q: Pick<QuestRow, 'session' | 'skillId' | 'config'>): s
 }
 
 /** Ubah kandidat generator tanpa seed menjadi ref lengkap dengan seed baru. */
-function materialise(ref: string, rng: ReturnType<typeof createRng>): string {
+function materialise(ref: string, rng: ReturnType<typeof createRng>, taken: Set<string> = new Set(), seenRefs: ReadonlyMap<string, number> = new Map()): string {
   const m = /^gen:([mes][1-6]\.[a-z0-9-]+):([1-5])$/.exec(ref)
-  return m ? genRef(m[1]!, Number(m[2]) as 1 | 2 | 3 | 4 | 5, newSeed(rng)) : ref
+  if (!m) return ref
+  const make = () => genRef(m[1]!, Number(m[2]) as 1 | 2 | 3 | 4 | 5, newSeed(rng))
+  // Seed baru dicoba ulang sampai instansnya (soal dan jawaban) belum ada di sesi ini dan belum pernah dijawab learner.
+  let out = make()
+  for (let i = 0; i < 40; i++) {
+    const sig = instanceSignature(out)
+    if (!taken.has(sig) && !seenRefs.has(out)) {
+      taken.add(sig)
+      return out
+    }
+    out = make()
+  }
+  taken.add(instanceSignature(out))
+  return out
 }
+
 
 // ---------------------------------------------------------------------------
 // Soal sesi
@@ -106,6 +129,10 @@ export type BuildInput = {
    * otomatis harian tidak memakainya karena MANUAL_STRANDS hanya memuat strand menulis dan bicara.
    */
   allowPhoto?: boolean
+  /** Latihan Bebas: skill tambahan yang ikut dalam satu kumpulan soal (satu topik punya beberapa skill). */
+  extraSkills?: readonly string[]
+  /** Latihan Bebas: saring kandidat (gaya soal, gaya lomba). Dengan saringan ini soal tidak diisi dari skill lain. */
+  accept?: (c: PoolCandidate) => boolean
 }
 
 function questLength(learner: LearnerRow, mode: string): number {
@@ -117,7 +144,7 @@ function questLength(learner: LearnerRow, mode: string): number {
 async function topUp(
   tx: Tx,
   ctx: OrgContext,
-  input: { skillId: string; subject: Subject; slots: QuestSlot[]; count: number; theta: number; style: 'easy' | 'test'; avoid: ReadonlySet<string>; seen: Map<string, number>; rng: ReturnType<typeof createRng> },
+  input: { skillId: string; subject: Subject; slots: QuestSlot[]; count: number; theta: number; style: 'easy' | 'test'; avoid: ReadonlySet<string>; seen: Map<string, number>; rng: ReturnType<typeof createRng>; manipulatives: boolean },
 ): Promise<QuestSlot[]> {
   const need = input.count - input.slots.length
   if (need <= 0) return input.slots
@@ -125,7 +152,7 @@ async function topUp(
   const near = skillsFor(input.subject, sk?.grade ?? 2).filter((s) => s.id !== input.skillId && s.strand !== 'Oly' && !MANUAL_STRANDS.has(s.strand))
   const ordered = [...near.filter((s) => s.strand === sk?.strand), ...near.filter((s) => s.strand !== sk?.strand)].slice(0, 6)
   const cands: PoolCandidate[] = []
-  for (const s of ordered) cands.push(...(await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false })))
+  for (const s of ordered) cands.push(...(await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives })))
   const picked = pickItems({
     candidates: cands.map((c) => ({ ...c, ...(input.seen.has(c.ref) && !c.unlimited ? { seenDaysAgo: input.seen.get(c.ref)! } : {}) })),
     theta: input.theta,
@@ -141,7 +168,10 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   const rng = createRng(input.seedKey)
   const sk = skill(input.skillId)
   const allowManual = input.allowManual ?? (input.style === 'test' ? false : sk ? MANUAL_STRANDS.has(sk.strand) : false)
-  const pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
+  const manipulatives = await isFeatureOn(learner.userId, 'manipulatives')
+  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, manipulatives, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
+  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false, manipulatives }))]
+  if (input.accept) pool = pool.filter(input.accept)
   const seen = await recentSeen(tx, learner.userId)
   const states = await skillStates(tx, learner.userId)
   const theta = states.get(input.skillId)?.theta ?? 0
@@ -171,7 +201,7 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
     const avoid = input.avoid ?? new Set<string>()
     slots = assembleSession({ kind: input.style === 'test' ? 'tes' : 'latihan', theta, dueRefs, candidates: withSeen(pool), count, avoid, reuse: false, rng })
     // Bank soal skill ini kurang: isi dari skill lain mapel yang sama, dan baru terakhir dengan soal yang dihindari.
-    slots = await topUp(tx, ctx, { skillId: input.skillId, subject: input.subject, slots, count, theta, style: input.style, avoid, seen, rng })
+    if (!input.accept) slots = await topUp(tx, ctx, { skillId: input.skillId, subject: input.subject, slots, count, theta, style: input.style, avoid, seen, rng, manipulatives })
     if (slots.length < count) {
       const used = new Set(slots.map((s) => s.ref))
       const band: [number, number] = input.style === 'test' ? [0.55, 0.75] : [0.85, 0.95]
@@ -181,12 +211,15 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   } else {
     slots = assembleQuest({ mode: input.mode, theta, dueRefs, candidates: withSeen(pool), length: input.length ?? questLength(learner, input.mode), rng })
   }
-  return slots.map((s, i) => ({ ref: materialise(s.ref, rng), section: s.section, position: i + 1, difficulty: s.difficulty }))
+  const taken = new Set<string>()
+  const built = slots.map((s, i) => ({ ref: materialise(s.ref, rng, taken, seen), section: s.section, position: i + 1, difficulty: s.difficulty }))
+  return guardAttemptItems(tx, built, { seed: `${input.seedKey}:guard`, mode: input.mode, ...(input.avoid ? { avoid: input.avoid } : {}) })
 }
 
 /** Pilih skill otomatis untuk satu mapel bila tutor belum merencanakan. */
-export function autoSkill(learner: LearnerRow, subject: Subject, states: Awaited<ReturnType<typeof skillStates>>, seedKey: string) {
-  const list = skillsFor(subject, learner.grade).filter((s) => s.strand !== 'Oly')
+/** `grade`: kelas titik awal dari tes penempatan; kosong berarti kelas anak. */
+export function autoSkill(learner: LearnerRow, subject: Subject, states: Awaited<ReturnType<typeof skillStates>>, seedKey: string, grade: number = learner.grade) {
+  const list = skillsFor(subject, grade).filter((s) => s.strand !== 'Oly')
   const progress = list.map((s) => ({
     id: s.id,
     order: s.order,
@@ -217,6 +250,8 @@ type PlanSpec = {
   seedKey: string
   /** Sesi berasal dari slot rencana tutor (bukan pilihan otomatis): soal foto jawaban boleh ikut Latihan. */
   assigned: boolean
+  /** Sesi wajib (dihitung streak). Keluarga tanpa tutor: soal tulis, bicara, gambar, dan foto tidak masuk sesi wajib. */
+  required: boolean
 }
 
 function paperItems(refs: readonly string[], resolved: Map<string, { difficulty: number }>): AttemptItem[] {
@@ -243,6 +278,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
   if (session === 'latihan' || session === 'reading') {
     if (!spec.skillId) return null
     const legacy = spec.mode === 'belajar'
+    const noManual = spec.required && (await markerFor(tx)) === 'grownup'
     const items = await buildQuestItems(tx, ctx, learner, {
       skillId: spec.skillId,
       subject,
@@ -251,7 +287,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
       seedKey: spec.seedKey,
       ...(legacy ? { length: spec.count ?? 6 } : { style: 'easy' as const, length: spec.count ?? LATIHAN_COUNT }),
       avoid,
-      ...(spec.assigned ? { allowPhoto: true } : {}),
+      ...(noManual ? { allowManual: false } : spec.assigned ? { allowPhoto: true } : {}),
     })
     return { title: skill(spec.skillId)?.title ?? SUBJECT_LABEL[subject], mode: legacy ? 'belajar' : 'latihan', items, timeLimitS: null, presetId: null }
   }
@@ -292,6 +328,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
 }
 
 async function insertAttempt(tx: Tx, ctx: OrgContext, learnerId: string, q: Pick<QuestRow, 'id' | 'subject'>, plan: Plan): Promise<string> {
+  const guarded = await guardAttemptItems(tx, plan.items, { seed: `${q.id}:guard`, mode: plan.mode })
   const [row] = await tx
     .insert(attempt)
     .values({
@@ -302,7 +339,7 @@ async function insertAttempt(tx: Tx, ctx: OrgContext, learnerId: string, q: Pick
       mode: plan.mode,
       subject: q.subject,
       title: plan.title,
-      items: plan.items,
+      items: guarded,
       timeLimitS: plan.timeLimitS,
       presetId: plan.presetId,
     })
@@ -329,7 +366,7 @@ export async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: Learner
   }
   let skillId = q.skillId
   if (!skillId && (q.session === 'paper' || q.session === 'tes' || q.session === 'latihan')) {
-    skillId = autoSkill(learner, q.subject as Subject, await skillStates(tx, learner.userId), `${learner.userId}:${q.date}:${q.subject}`)?.id ?? null
+    skillId = autoSkill(learner, q.subject as Subject, await skillStates(tx, learner.userId), `${learner.userId}:${q.date}:${q.subject}`, await placementStartGrade(tx, learner, q.subject as Subject))?.id ?? null
   }
   const plan = await planAttempt(
     tx,
@@ -347,6 +384,7 @@ export async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: Learner
       date: q.date,
       seedKey: seedKeyOf(q),
       assigned: q.planSlotId !== null,
+      required: q.kind === 'daily',
     },
     avoid,
   )
@@ -400,119 +438,354 @@ export function plannedSlots(rows: readonly SlotRow[]): PlannedSlot[] {
     required: r.kind === 'bonus' ? false : r.required,
     paperKind: r.paperKind,
     order: i,
+    base: r.base,
+    off: r.off,
   }))
 }
 
+// ---------------------------------------------------------------------------
+// Isi sesi yang diminta sebuah entri hari, dan perbandingannya dengan sesi yang sudah dibuat
+
+/** Isi yang diminta rencana untuk satu sesi. Nilai null berarti "terserah Kira" dan tidak dibandingkan. */
+type Want = { s: string | null; m: string; n: number | null; p: PaperKind | null; q: number | null; d: string | null; r: string | null; t: string | null }
+const WANT_KEYS = ['s', 'm', 'n', 'p', 'q', 'd', 'r', 't'] as const
+
+const COUNTED: ReadonlySet<SessionType> = new Set(['latihan', 'tes', 'reading'])
+
+function wantOf(entry: DayEntry, row: SlotRow | undefined): Want {
+  const cfg = (row?.config as Record<string, unknown> | null) ?? {}
+  const counted = COUNTED.has(entry.session)
+  return {
+    s: row?.skillId ?? null,
+    m: row?.mode === 'belajar' ? 'belajar' : entry.session === 'tes' ? 'tes' : 'latihan',
+    n: counted ? (row ? row.questionCount : entry.session === 'tes' ? TES_COUNT : LATIHAN_COUNT) : null,
+    p: entry.session === 'paper' ? (entry.paper ?? 'mini') : null,
+    q: entry.session === 'tes' ? (typeof cfg.perQuestionSec === 'number' ? cfg.perQuestionSec : TES_SECONDS_PER_QUESTION) : null,
+    d: row?.paperId ?? null,
+    r: typeof cfg.presetId === 'string' ? cfg.presetId : null,
+    t: typeof cfg.task === 'string' ? cfg.task : null,
+  }
+}
+
+/** Isi yang tercatat di quest: catatan `w` dari saat dibuat, atau turunan dari kolom quest lama (jumlah soal tidak diketahui). */
+function haveOf(q: Pick<QuestRow, 'config' | 'skillId' | 'mode' | 'paperId' | 'session'>): Partial<Want> {
+  const cfg = (q.config as { w?: Partial<Want>; paper?: PaperKind; perQuestionSec?: number; presetId?: string; task?: string } | null) ?? {}
+  if (cfg.w && typeof cfg.w === 'object') return cfg.w
+  return {
+    s: q.skillId,
+    m: q.mode,
+    p: cfg.paper ?? null,
+    q: q.session === 'tes' ? (cfg.perQuestionSec ?? TES_SECONDS_PER_QUESTION) : null,
+    d: q.paperId,
+    r: cfg.presetId ?? null,
+    t: cfg.task ?? null,
+  }
+}
+
+function contentDiffers(q: QuestRow, want: Want): boolean {
+  const have = haveOf(q)
+  return WANT_KEYS.some((k) => want[k] !== null && have[k] !== undefined && want[k] !== have[k])
+}
+
+/** Apakah isi yang diminta sebuah slot berbeda dari sesi hari ini yang sudah ada (jenis, mapel, skill, jumlah soal, mode, paper, atau detik per soal). */
+export function questContentDiffers(
+  q: QuestRow,
+  input: { session: SessionType; subject: Subject; skillId: string | null; mode: string; questionCount: number; paperKind: PaperKind | null; paperId: string | null; config: Record<string, unknown> | null },
+): boolean {
+  if (q.session !== input.session || q.subject !== input.subject) return true
+  const cfg = input.config ?? {}
+  const counted = COUNTED.has(input.session)
+  return contentDiffers(q, {
+    s: input.skillId,
+    m: input.mode === 'belajar' ? 'belajar' : input.session === 'tes' ? 'tes' : 'latihan',
+    n: counted ? input.questionCount : null,
+    p: input.session === 'paper' ? (input.paperKind ?? 'mini') : null,
+    q: input.session === 'tes' ? (typeof cfg.perQuestionSec === 'number' ? cfg.perQuestionSec : TES_SECONDS_PER_QUESTION) : null,
+    d: input.paperId,
+    r: typeof cfg.presetId === 'string' ? cfg.presetId : null,
+    t: typeof cfg.task === 'string' ? cfg.task : null,
+  })
+}
+
+/** Isi slot yang setara dengan sesi hari ini yang sudah ada, supaya mengubah Wajib atau Opsional tidak mengubah isinya. */
+export function questSlotValues(q: QuestRow): { mode: 'latihan' | 'tes' | 'belajar'; questionCount: number; paperKind: PaperKind | null; config: Record<string, string | number> | null } {
+  const have = haveOf(q)
+  const cfg = (q.config as { perQuestionSec?: number; presetId?: string; task?: string } | null) ?? {}
+  const config: Record<string, string | number> = {}
+  if (q.session === 'tes' && typeof have.q === 'number' && have.q !== TES_SECONDS_PER_QUESTION) config.perQuestionSec = have.q
+  if (typeof cfg.presetId === 'string') config.presetId = cfg.presetId
+  if (typeof cfg.task === 'string') config.task = cfg.task
+  return {
+    mode: have.m === 'belajar' ? 'belajar' : q.session === 'tes' ? 'tes' : 'latihan',
+    questionCount: typeof have.n === 'number' ? have.n : q.session === 'tes' ? TES_COUNT : LATIHAN_COUNT,
+    paperKind: q.session === 'paper' ? (have.p ?? 'mini') : null,
+    config: Object.keys(config).length > 0 ? config : null,
+  }
+}
+
+/** Isi yang dicatat di quest baru: pilihan nyata (skill yang terpilih), bukan "terserah Kira". */
+function recordOf(want: Want, skillId: string | null): Want {
+  return { ...want, s: skillId }
+}
+
+/** Sesi sudah dimulai bila statusnya bukan siap atau sudah ada jawaban. Isinya tidak boleh diganti lagi. */
+export async function questStarted(tx: Tx, q: Pick<QuestRow, 'status' | 'attemptId'>): Promise<boolean> {
+  if (q.status !== 'ready') return true
+  if (!q.attemptId) return false
+  const [r] = await tx.select({ n: sql<number>`count(*)::int` }).from(response).where(eq(response.attemptId, q.attemptId))
+  return (r?.n ?? 0) > 0
+}
+
+export type SyncReport = { created: number; removed: number; regenerated: number; kept: number; flagged: number }
+
+async function deleteQuest(tx: Tx, q: Pick<QuestRow, 'id' | 'attemptId'>): Promise<void> {
+  await tx.delete(quest).where(eq(quest.id, q.id))
+  if (q.attemptId) await tx.delete(attempt).where(eq(attempt.id, q.attemptId))
+}
+
 /**
- * Buat sesi hari ini yang belum ada: sesi wajib dari template hari dan rencana tutor yang sudah terbit
- * (Latihan, Tes, Paper per mapel), ditambah sesi opsional dari tutor. Aman dipanggil berulang:
- * sesi yang sudah ada dilewati, dan sesi opsional yang ditambah tutor belakangan ikut dibuat.
+ * Samakan sesi sebuah hari dengan rencana: aturan hari learner, template, dan slot tutor yang sudah terbit.
+ * Aman dipanggil berulang (tablet membuka Today, tutor mengubah hari ini).
+ * - Entri yang belum punya sesi dibuat.
+ * - Sesi yang belum dimulai dibuat ulang bila isinya berubah, dan dihapus bila entrinya hilang (Mati).
+ * - Sesi yang sedang berjalan atau selesai tidak disentuh isinya; hanya Wajib atau Opsional yang bisa berubah
+ *   (sesi yang entrinya hilang menjadi opsional).
+ * - day_record (sesi wajib dan selesai) dihitung ulang di transaksi yang sama.
  */
-export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: LearnerRow, date: IsoDate): Promise<QuestRow[]> {
+export async function syncDay(tx: Tx, ctx: OrgContext, learner: LearnerRow, date: IsoDate): Promise<SyncReport> {
+  await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`kira-day:${learner.userId}:${date}`}))`)
+  const report: SyncReport = { created: 0, removed: 0, regenerated: 0, kept: 0, flagged: 0 }
   const load = () => tx.select().from(quest).where(and(eq(quest.learnerId, learner.userId), eq(quest.date, date)))
-  const existing = await load()
-  if (await isRestDay(tx, learner, date)) return existing
 
   const day = await publishedDay(tx, learner.userId, date)
+  const { rules } = await dayRulesFor(tx, learner.userId)
   const rowById = new Map(day.rows.map((r) => [r.id, r]))
-  const entries = dropTaperEntries(composeDay({ template: day.template, date, slots: plannedSlots(day.rows) }), await taperSubjects(tx, learner.userId, date))
-  const haveKey = new Set(existing.filter((q) => q.kind !== 'bonus').map((q) => `${q.kind}:${q.subject}:${q.session}:${q.seq}`))
-  const haveSlot = new Set(existing.map((q) => q.planSlotId).filter((x): x is string => Boolean(x)))
+  const features = await featureMapFor(tx, learner.userId)
+  const entries = dropTaperEntries(composeDay({ template: day.template, date, slots: plannedSlots(day.rows), rules }), await taperSubjects(tx, learner.userId, date)).filter((e) => sessionAllowed(features, e.subject, e.session))
+  // Paper Kertas dikerjakan di kertas dan dinilai lewat Input LJK, jadi tidak ada sesi tablet untuk slot itu.
+  const live = entries.filter((e) => !(e.slotId && rowById.get(e.slotId)?.mode === 'kertas'))
 
+  const quests = (await load()).filter((q) => q.kind !== 'bonus')
+  const started = new Map<string, boolean>()
+  for (const q of quests) started.set(q.id, await questStarted(tx, q))
+
+  // Cocokkan entri dengan sesi yang sudah ada: lewat slot dulu, lalu lewat mapel dan jenis sesi.
+  const pairOf = new Map<string, QuestRow>()
+  const taken = new Set<string>()
+  for (const e of live) {
+    if (!e.slotId) continue
+    const q = quests.find((x) => x.planSlotId === e.slotId)
+    if (q) {
+      pairOf.set(e.key, q)
+      taken.add(q.id)
+    }
+  }
+  for (const e of live) {
+    if (pairOf.has(e.key)) continue
+    const q = quests
+      .filter((x) => !taken.has(x.id) && x.subject === e.subject && x.session === e.session)
+      .sort(
+        (a, b) =>
+          Number(started.get(b.id)) - Number(started.get(a.id)) ||
+          Number((b.kind === 'daily') === e.required) - Number((a.kind === 'daily') === e.required) ||
+          a.seq - b.seq ||
+          a.createdAt.getTime() - b.createdAt.getTime() ||
+          a.id.localeCompare(b.id),
+      )[0]
+    if (q) {
+      pairOf.set(e.key, q)
+      taken.add(q.id)
+    }
+  }
+
+  // Sesi tanpa entri: yang belum dimulai dihapus, yang sudah dimulai tetap ada sebagai sesi opsional.
+  type Move = { q: QuestRow; kind: 'daily' | 'extra'; seq: number; planSlotId: string | null }
+  const moves: Move[] = []
+  let orphanSeq = 200
+  for (const q of quests) {
+    if (taken.has(q.id)) continue
+    if (!started.get(q.id)) {
+      await deleteQuest(tx, q)
+      report.removed++
+    } else {
+      moves.push({ q, kind: 'extra', seq: orphanSeq++, planSlotId: null })
+      if (q.kind === 'daily') report.flagged++
+    }
+  }
+
+  const regen: { q: QuestRow; entry: DayEntry; row: SlotRow | undefined; want: Want }[] = []
+  for (const e of live) {
+    const q = pairOf.get(e.key)
+    if (!q) continue
+    const row = e.slotId ? rowById.get(e.slotId) : undefined
+    const kind = e.required ? 'daily' : 'extra'
+    if (q.kind !== kind || q.seq !== e.seq || q.planSlotId !== e.slotId) moves.push({ q, kind, seq: e.seq, planSlotId: e.slotId })
+    if (q.kind !== kind) report.flagged++
+    const want = wantOf(e, row)
+    if (!contentDiffers(q, want)) continue
+    if (started.get(q.id)) report.kept++
+    else regen.push({ q, entry: e, row, want })
+  }
+
+  // Ubah jenis, nomor urut, dan slot dalam dua tahap supaya indeks unik quest tidak bertabrakan.
+  if (moves.length > 0) {
+    let tmp = 1000
+    for (const m of moves) await tx.update(quest).set({ seq: tmp++, planSlotId: null }).where(eq(quest.id, m.q.id))
+    for (const m of moves) await tx.update(quest).set({ kind: m.kind, seq: m.seq, planSlotId: m.planSlotId }).where(eq(quest.id, m.q.id))
+  }
+
+  // Keadaan setelah penyesuaian, untuk memilih skill dan menghindari soal yang sama.
+  const current = (await load()).filter((q) => q.kind !== 'bonus')
   const skillBySubject = new Map<Subject, string>()
-  for (const q of existing) if (q.kind === 'daily' && q.session === 'latihan' && q.skillId) skillBySubject.set(q.subject as Subject, q.skillId)
+  for (const q of current.filter((x) => x.session === 'latihan' && x.skillId).sort((a, b) => Number(b.kind === 'daily') - Number(a.kind === 'daily'))) {
+    if (!skillBySubject.has(q.subject as Subject)) skillBySubject.set(q.subject as Subject, q.skillId!)
+  }
   let states: Awaited<ReturnType<typeof skillStates>> | null = null
   const pickSkill = async (subject: Subject) =>
-    skillBySubject.get(subject) ?? autoSkill(learner, subject, (states ??= await skillStates(tx, learner.userId)), `${learner.userId}:${date}:${subject}`)?.id ?? null
-  // Soal Latihan hari ini per mapel, supaya Tes memakai soal lain dari skill yang sama.
+    skillBySubject.get(subject) ?? autoSkill(learner, subject, (states ??= await skillStates(tx, learner.userId)), `${learner.userId}:${date}:${subject}`, await placementStartGrade(tx, learner, subject))?.id ?? null
   const latihanRefs = new Map<Subject, Set<string>>()
   const refsFor = async (subject: Subject) => {
     let s = latihanRefs.get(subject)
     if (!s) {
       s = new Set()
-      for (const q of existing) if (q.subject === subject && q.session === 'latihan') for (const ref of await itemRefsOf(tx, q.attemptId)) s.add(ref)
+      for (const q of current) if (q.subject === subject && q.session === 'latihan') for (const ref of await itemRefsOf(tx, q.attemptId)) s.add(ref)
       latihanRefs.set(subject, s)
     }
     return s
   }
 
-  for (const entry of entries) {
-    const kind = entry.required ? 'daily' : 'extra'
-    if ((entry.slotId && haveSlot.has(entry.slotId)) || haveKey.has(`${kind}:${entry.subject}:${entry.session}:${entry.seq}`)) continue
-    const row = entry.slotId ? rowById.get(entry.slotId) : undefined
-    // Paper Kertas dikerjakan di kertas dan dinilai lewat Input LJK, jadi tidak ada sesi tablet untuk slot itu.
-    if (row?.mode === 'kertas') continue
-
+  /** Rencanakan soal sebuah entri. null bila tidak ada soal atau skill yang cocok. */
+  const planEntry = async (entry: DayEntry, row: SlotRow | undefined, want: Want, seedKey: string, existingSkill: string | null) => {
     const session = entry.session
     const subject = entry.subject
-    let skillId = row?.skillId ?? null
+    let skillId = row?.skillId ?? existingSkill
     const needsSkill = session === 'latihan' || session === 'tes' || session === 'reading' || session === 'lesson'
     if (!skillId && (session === 'latihan' || session === 'tes')) skillId = await pickSkill(subject)
-    if (needsSkill && !skillId) continue
+    if (needsSkill && !skillId) return null
     // Paper tanpa soal bergaya lomba memakai skill hari ini sebagai cadangan, tetapi tidak menyimpannya di quest.
     const fallbackSkill = session === 'paper' && !row?.paperId ? await pickSkill(subject) : skillId
-    if (session === 'latihan' && entry.required && skillId) skillBySubject.set(subject, skillId)
-
+    if (!RUNNER_SESSIONS.has(session)) return { skillId, plan: null as Plan | null }
     const cfgIn = (row?.config as Record<string, unknown> | null) ?? {}
-    const config = session === 'paper' ? { ...cfgIn, paper: entry.paper ?? 'mini' } : Object.keys(cfgIn).length > 0 ? cfgIn : null
-    const mode = row?.mode === 'belajar' ? 'belajar' : session === 'tes' ? 'tes' : 'latihan'
-    const link = !RUNNER_SESSIONS.has(session)
-    const seedKey = seedKeyOf({ learnerId: learner.userId, date, subject, kind, session, seq: entry.seq })
+    const plan = await planAttempt(
+      tx,
+      ctx,
+      learner,
+      {
+        session,
+        subject,
+        skillId: fallbackSkill,
+        paperId: row?.paperId ?? null,
+        mode: row?.mode ?? want.m,
+        paper: entry.paper,
+        count: row && COUNTED.has(session) ? row.questionCount : null,
+        perQuestionSec: typeof cfgIn.perQuestionSec === 'number' ? cfgIn.perQuestionSec : null,
+        date,
+        seedKey,
+        assigned: Boolean(row?.skillId),
+        required: entry.required,
+      },
+      session === 'tes' ? await refsFor(subject) : new Set(),
+    )
+    if (!plan) return null
+    return { skillId, plan }
+  }
 
-    let plan: Plan | null = null
-    if (!link) {
-      plan = await planAttempt(
-        tx,
-        ctx,
-        learner,
-        {
-          session,
-          subject,
-          skillId: fallbackSkill,
-          paperId: row?.paperId ?? null,
-          mode: row?.mode ?? mode,
-          paper: entry.paper,
-          count: row && (session === 'latihan' || session === 'tes' || session === 'reading') ? row.questionCount : null,
-          perQuestionSec: typeof cfgIn.perQuestionSec === 'number' ? cfgIn.perQuestionSec : null,
-          date,
-          seedKey,
-          assigned: Boolean(row?.skillId),
-        },
-        session === 'tes' ? await refsFor(subject) : new Set(),
-      )
-      if (!plan) continue
+  const configOf = (entry: DayEntry, row: SlotRow | undefined, want: Want, skillId: string | null) => {
+    const cfgIn = (row?.config as Record<string, unknown> | null) ?? {}
+    return { ...cfgIn, ...(entry.session === 'paper' ? { paper: entry.paper ?? 'mini' } : {}), w: recordOf(want, entry.session === 'paper' ? null : skillId) }
+  }
+
+  // Sesi belum dimulai yang isinya berubah: buat ulang soalnya. Yang gagal direncanakan tetap seperti semula.
+  for (const r of regen) {
+    const seedKey = `${seedKeyOf({ learnerId: learner.userId, date, subject: r.entry.subject, kind: r.entry.required ? 'daily' : 'extra', session: r.entry.session, seq: r.entry.seq })}:${JSON.stringify(r.want)}`
+    const planned = await planEntry(r.entry, r.row, r.want, seedKey, null)
+    if (!planned) continue
+    const skillId = planned.skillId
+    const fields = {
+      skillId: r.entry.session === 'paper' ? null : (skillId ?? r.row?.skillId ?? null),
+      paperId: r.row?.paperId ?? null,
+      mode: r.want.m as QuestRow['mode'],
+      config: configOf(r.entry, r.row, r.want, skillId),
+      title: planned.plan?.title ?? extraTitle(r.entry.session, r.row),
     }
+    if (planned.plan) {
+      const oldAttempt = r.q.attemptId
+      await tx.update(quest).set({ ...fields, attemptId: null }).where(eq(quest.id, r.q.id))
+      if (oldAttempt) await tx.delete(attempt).where(eq(attempt.id, oldAttempt))
+      await insertAttempt(tx, ctx, learner.userId, { id: r.q.id, subject: r.q.subject }, planned.plan)
+    } else {
+      await tx.update(quest).set(fields).where(eq(quest.id, r.q.id))
+    }
+    if (r.entry.session === 'latihan') latihanRefs.delete(r.entry.subject)
+    report.regenerated++
+  }
+
+  // Entri baru.
+  for (const entry of live) {
+    if (pairOf.has(entry.key)) continue
+    const row = entry.slotId ? rowById.get(entry.slotId) : undefined
+    const kind = entry.required ? 'daily' : 'extra'
+    const want = wantOf(entry, row)
+    const seedKey = seedKeyOf({ learnerId: learner.userId, date, subject: entry.subject, kind, session: entry.session, seq: entry.seq })
+    const planned = await planEntry(entry, row, want, seedKey, null)
+    if (!planned) continue
     const [q] = await tx
       .insert(quest)
       .values({
         orgId: ctx.orgId,
         learnerId: learner.userId,
         date,
-        subject,
+        subject: entry.subject,
         kind,
-        session,
+        session: entry.session,
         seq: entry.seq,
         planSlotId: entry.slotId,
-        config,
-        skillId: session === 'paper' ? null : (skillId ?? row?.skillId ?? null),
+        config: configOf(entry, row, want, planned.skillId),
+        skillId: entry.session === 'paper' ? null : (planned.skillId ?? row?.skillId ?? null),
         paperId: row?.paperId ?? null,
-        mode,
-        title: plan?.title ?? extraTitle(session, row),
+        mode: want.m as QuestRow['mode'],
+        title: planned.plan?.title ?? extraTitle(entry.session, row),
       })
       .onConflictDoNothing()
       .returning()
-    if (!q || !plan) continue
-    await insertAttempt(tx, ctx, learner.userId, q, plan)
-    if (session === 'latihan') {
-      const set = await refsFor(subject)
-      for (const it of plan.items) set.add(it.ref)
+    if (!q) continue
+    report.created++
+    if (!planned.plan) continue
+    await insertAttempt(tx, ctx, learner.userId, q, planned.plan)
+    if (entry.session === 'latihan') {
+      if (planned.skillId && !skillBySubject.has(entry.subject)) skillBySubject.set(entry.subject, planned.skillId)
+      const set = await refsFor(entry.subject)
+      for (const it of planned.plan.items) set.add(it.ref)
     }
   }
 
   // Quest lama yang belum punya attempt (dibuat sebelum attempt-nya sempat terbentuk).
-  for (const q of existing) if (!q.attemptId && q.kind !== 'bonus') await createAttemptFor(tx, ctx, learner, q)
+  for (const q of await load()) if (!q.attemptId && q.kind !== 'bonus') await createAttemptFor(tx, ctx, learner, q)
   await refreshDayRecord(tx, ctx, learner.userId, date)
+  return report
+}
+
+/**
+ * Sesi hari ini untuk tablet: samakan dengan rencana (lihat syncDay) lalu kembalikan semuanya. Hari istirahat
+ * tidak mendapat sesi baru.
+ */
+export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: LearnerRow, date: IsoDate): Promise<QuestRow[]> {
+  const load = () => tx.select().from(quest).where(and(eq(quest.learnerId, learner.userId), eq(quest.date, date)))
+  if (await isRestDay(tx, learner, date)) return load()
+  await syncDay(tx, ctx, learner, date)
   return load()
+}
+
+/**
+ * Samakan sesi hari ini dengan rencana bila tablet sudah membuat sesi hari ini (dipakai saat tutor mengubah rencana
+ * atau aturan hari). Hari yang belum dibuat dibiarkan: tablet membuatnya dari rencana saat Today dibuka.
+ */
+export async function syncTodayIfCreated(tx: Tx, ctx: OrgContext, learnerId: string, date: IsoDate): Promise<SyncReport | null> {
+  const learner = await loadLearner(tx, learnerId)
+  if (await isRestDay(tx, learner, date)) return null
+  const rows = await tx.select({ id: quest.id }).from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus'))).limit(1)
+  if (rows.length === 0) return null
+  return syncDay(tx, ctx, learner, date)
 }
 
 /** Tes terbuka setelah semua Latihan wajib mapel itu selesai. */
@@ -641,6 +914,7 @@ export async function createRetryAttempt(tx: Tx, ctx: OrgContext, learner: Learn
       allowManual: false,
     })
   }
+  items = await guardAttemptItems(tx, items, { seed: `${root.id}:retry:${retryNo}`, mode: root.mode })
   const [row] = await tx
     .insert(attempt)
     .values({
@@ -681,28 +955,3 @@ export async function submittedFamily(tx: Tx, rootId: string): Promise<AttemptRo
 }
 
 
-/**
- * Hari ringan untuk hari ini yang sesinya sudah dibuat: Tes dan Paper wajib yang belum dikerjakan dibuang,
- * sehingga hari tetap lengkap dengan Latihan saja. Yang sudah dikerjakan atau sedang berjalan tetap ada.
- * Mengembalikan jumlah sesi yang dibuang.
- */
-export async function dropUnstartedHeavySessions(tx: Tx, ctx: OrgContext, learnerId: string, date: IsoDate): Promise<number> {
-  const rows = await tx
-    .select({ id: quest.id, attemptId: quest.attemptId })
-    .from(quest)
-    .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), eq(quest.kind, 'daily'), inArray(quest.session, ['tes', 'paper']), eq(quest.status, 'ready')))
-  let dropped = 0
-  for (const q of rows) {
-    if (q.attemptId) {
-      const [r] = await tx.select({ n: sql<number>`count(*)::int` }).from(response).where(eq(response.attemptId, q.attemptId))
-      if ((r?.n ?? 0) > 0) continue
-      await tx.delete(quest).where(eq(quest.id, q.id))
-      await tx.delete(attempt).where(eq(attempt.id, q.attemptId))
-    } else {
-      await tx.delete(quest).where(eq(quest.id, q.id))
-    }
-    dropped++
-  }
-  if (dropped > 0) await refreshDayRecord(tx, ctx, learnerId, date)
-  return dropped
-}

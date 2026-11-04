@@ -1,0 +1,75 @@
+{
+  "skill": "m5.fractions-of-amounts",
+  "items": [
+    {
+      "id": "m5.fractions-of-amounts.803",
+      "skill": "m5.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "partwhole",
+      "prompt": "A road trip is 120 km. Dina drove three eighths of it before lunch. Build a part-whole model with 8 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Before lunch",
+          "units": 3
+        },
+        {
+          "label": "After lunch",
+          "units": 5
+        }
+      ],
+      "extraLabels": [
+        "At lunch"
+      ],
+      "unitValue": 15,
+      "unitName": "km",
+      "hints": [
+        "Eighths mean 8 equal units in the whole.",
+        "Before lunch is 3 units and after lunch is 5 units.",
+        "Share 120 km equally between 8 units."
+      ],
+      "explanation": "120 divided by 8 is 15, so one unit is 15 km. Dina drove 3 units, which is 45 km, before lunch.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    },
+    {
+      "id": "m5.fractions-of-amounts.804",
+      "skill": "m5.fractions-of-amounts",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "partwhole",
+      "prompt": "A school sold five sixths of its 72 tickets. Build a part-whole model with 6 equal units and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Sold",
+          "units": 5
+        },
+        {
+          "label": "Not sold",
+          "units": 1
+        }
+      ],
+      "extraLabels": [
+        "Lost"
+      ],
+      "unitValue": 12,
+      "unitName": "tickets",
+      "hints": [
+        "Sixths mean 6 equal units in the whole.",
+        "Sold is 5 units and not sold is 1 unit.",
+        "Share 72 tickets equally between 6 units."
+      ],
+      "explanation": "72 divided by 6 is 12, so one unit is 12 tickets. Sold is 5 units, which is 60 tickets.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    }
+  ]
+}

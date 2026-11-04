@@ -143,7 +143,7 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
       ) : null}
 
       <div className="flex flex-wrap items-start gap-6">
-        <section aria-labelledby="untuk-ortu" className="flex min-w-0 flex-[1.2_1_480px] flex-col gap-5 rounded-card border border-divider bg-surface p-6 max-sm:p-4">
+        <section aria-labelledby="untuk-ortu" className="flex min-w-0 flex-[1.2_1_480px] flex-col gap-5 rounded-card bg-surface shadow-soft p-6 max-sm:p-4">
           <div className="flex flex-col gap-1">
             <h2 id="untuk-ortu" className="m-0 text-h2 font-bold max-sm:text-h3">
               Untuk orang tua
@@ -170,7 +170,7 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
           </div>
         </section>
 
-        <section aria-labelledby="ekspor-claude" className="flex min-w-0 flex-[1_1_420px] flex-col gap-4 rounded-card border border-divider bg-surface p-6 max-sm:p-4">
+        <section aria-labelledby="ekspor-claude" className="flex min-w-0 flex-[1_1_420px] flex-col gap-4 rounded-card bg-surface shadow-soft p-6 max-sm:p-4">
           <div className="flex flex-col gap-1">
             <h2 id="ekspor-claude" className="m-0 text-h2 font-bold max-sm:text-h3">
               Ekspor untuk Claude
@@ -200,7 +200,7 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
             onChange={(e) => setWithName(e.target.checked)}
           />
           {fmt === 'json' && exp.pending ? (
-            <p role="status" className="m-0 rounded-control border border-divider bg-bg p-4 text-body text-fg-muted">
+            <p role="status" className="m-0 rounded-control bg-lavender p-4 text-body text-fg-muted">
               Menyiapkan JSON
             </p>
           ) : fmt === 'json' && !json ? (
@@ -210,7 +210,7 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
               id="isi-ekspor"
               aria-label="Isi ekspor"
               tabIndex={0}
-              className="relative m-0 max-h-[420px] overflow-auto rounded-control border border-divider bg-bg px-4 py-3.5 font-body text-small whitespace-pre-wrap"
+              className="relative m-0 max-h-[420px] overflow-auto rounded-control bg-lavender px-4 py-3.5 font-body text-small whitespace-pre-wrap"
             >
               {exportText}
             </pre>
@@ -252,7 +252,7 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
         {data.outbox.length === 0 ? (
           <EmptyState compact icon="mail" title="Belum ada email laporan." body="Email laporan mingguan muncul di sini setelah dikirim, dengan statusnya." />
         ) : (
-          <ul className="m-0 list-none overflow-hidden rounded-card border border-divider bg-surface p-0">
+          <ul className="m-0 list-none overflow-hidden rounded-card bg-surface shadow-soft p-0">
             {data.outbox.map((o) => {
               const st = OUTBOX_STATUS[o.status]
               return (

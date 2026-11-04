@@ -1,0 +1,110 @@
+{
+  "skill": "m5.ratio-proportion",
+  "items": [
+    {
+      "id": "m5.ratio-proportion.803",
+      "skill": "m5.ratio-proportion",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "partwhole",
+      "prompt": "Red and white paint are mixed in the ratio 2 to 3. A pot holds 30 litres. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Red",
+          "units": 2
+        },
+        {
+          "label": "White",
+          "units": 3
+        }
+      ],
+      "extraLabels": [
+        "Blue"
+      ],
+      "unitValue": 6,
+      "unitName": "litres",
+      "hints": [
+        "The ratio 2 to 3 gives 2 units of red and 3 units of white.",
+        "There are 5 units in all.",
+        "Share 30 litres equally between 5 units."
+      ],
+      "explanation": "30 divided by 5 is 6, so one unit is 6 litres. Red is 2 units, which is 12 litres.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    },
+    {
+      "id": "m5.ratio-proportion.804",
+      "skill": "m5.ratio-proportion",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 4,
+      "kind": "compare",
+      "prompt": "Sam and Tara share 36 stickers in the ratio 1 to 5. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Sam",
+          "units": 1
+        },
+        {
+          "label": "Tara",
+          "units": 5
+        }
+      ],
+      "extraLabels": [
+        "Uma"
+      ],
+      "unitValue": 6,
+      "unitName": "stickers",
+      "hints": [
+        "The ratio 1 to 5 gives Sam 1 unit and Tara 5 units.",
+        "There are 6 units in all.",
+        "Share 36 stickers equally between 6 units."
+      ],
+      "explanation": "36 divided by 6 is 6, so one unit is 6 stickers. Sam gets 6 and Tara gets 30.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "compare"
+      ]
+    },
+    {
+      "id": "m5.ratio-proportion.805",
+      "skill": "m5.ratio-proportion",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 5,
+      "kind": "partwhole",
+      "prompt": "Orange juice and soda are mixed in the ratio 3 to 2 to make 20 cups of punch. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Orange juice",
+          "units": 3
+        },
+        {
+          "label": "Soda",
+          "units": 2
+        }
+      ],
+      "extraLabels": [
+        "Water"
+      ],
+      "unitValue": 4,
+      "unitName": "cups",
+      "hints": [
+        "The ratio 3 to 2 gives 3 units of juice and 2 units of soda.",
+        "There are 5 units in all.",
+        "Share 20 cups equally between 5 units."
+      ],
+      "explanation": "20 divided by 5 is 4, so one unit is 4 cups. Juice is 3 units, which is 12 cups.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "partwhole"
+      ]
+    }
+  ]
+}

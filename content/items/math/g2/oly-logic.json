@@ -54,7 +54,14 @@
         },
         {
           "say": "So one star is 5.",
-          "show": "5 + 5 = 10"
+          "show": "5 + 5 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 5,
+            "r": 10
+          }
         },
         {
           "say": "A star and a circle make 8.",
@@ -62,7 +69,17 @@
         },
         {
           "say": "The circle is 3.",
-          "show": "8 - 5 = 3"
+          "show": "8 - 5 = 3",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 5,
+            "r": 3
+          },
+          "mark": [
+            "8"
+          ]
         }
       ],
       "tags": [
@@ -375,11 +392,28 @@
         },
         {
           "say": "Take away A and C.",
-          "show": "12 - 8 = 4"
+          "show": "12 - 8 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 8,
+            "r": 4
+          },
+          "mark": [
+            "8"
+          ]
         },
         {
           "say": "Check: A = 3, B = 4, C = 5 gives 7, 9 and 8.",
-          "show": "3 + 4 = 7, 4 + 5 = 9, 3 + 5 = 8"
+          "show": "3 + 4 = 7, 4 + 5 = 9, 3 + 5 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 4,
+            "r": 7
+          }
         }
       ],
       "tags": [
@@ -473,19 +507,56 @@
       "solution": [
         {
           "say": "Sister now: half of 8.",
-          "show": "8 ÷ 2 = 4"
+          "show": "8 ÷ 2 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "÷",
+            "b": 2,
+            "r": 4
+          },
+          "mark": [
+            "8"
+          ]
         },
         {
           "say": "The gap stays the same.",
-          "show": "8 - 4 = 4 years"
+          "show": "8 - 4 = 4 years",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 4,
+            "r": 4
+          },
+          "mark": [
+            "8"
+          ]
         },
         {
           "say": "When Kai is 12.",
-          "show": "12 - 4 = 8"
+          "show": "12 - 4 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 4,
+            "r": 8
+          },
+          "mark": [
+            "12"
+          ]
         },
         {
           "say": "Check: from 8 to 12 is 4 years, and the sister grows from 4 to 8.",
-          "show": "4 + 4 = 8"
+          "show": "4 + 4 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 4,
+            "r": 8
+          }
         }
       ],
       "tags": [
@@ -527,7 +598,17 @@
       "solution": [
         {
           "say": "Digits that add up to 9 and are 3 apart.",
-          "show": "6 + 3 = 9 and 6 - 3 = 3"
+          "show": "6 + 3 = 9 and 6 - 3 = 3",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "The tens digit is the bigger one.",
@@ -535,7 +616,17 @@
         },
         {
           "say": "Check: 6 + 3 = 9, and 6 is 3 more than 3.",
-          "show": "63"
+          "show": "63",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -614,11 +705,33 @@
       "solution": [
         {
           "say": "Only apples.",
-          "show": "12 - 5 = 7"
+          "show": "12 - 5 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 5,
+            "r": 7
+          },
+          "mark": [
+            "12",
+            "5"
+          ]
         },
         {
           "say": "Only bananas.",
-          "show": "10 - 5 = 5"
+          "show": "10 - 5 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "-",
+            "b": 5,
+            "r": 5
+          },
+          "mark": [
+            "10",
+            "5"
+          ]
         },
         {
           "say": "Add the three parts.",
@@ -626,7 +739,23 @@
         },
         {
           "say": "Adding 12 + 10 = 22 counts the 5 children who like both twice.",
-          "show": "22 - 5 = 17"
+          "show": "22 - 5 = 17",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5
+              },
+              {
+                "v": 17,
+                "q": true
+              }
+            ],
+            "total": 22
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -844,7 +973,18 @@
         },
         {
           "say": "Up 4 floors.",
-          "show": "3 + 4 = 7"
+          "show": "3 + 4 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 4,
+            "r": 7
+          },
+          "mark": [
+            "3",
+            "4"
+          ]
         },
         {
           "say": "Down 2 floors.",
@@ -868,7 +1008,17 @@
               }
             ],
             "alt": "A number line from 0 to 10 with a jump from 3 up to 7, then a jump back from 7 to 5."
-          }
+          },
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "-",
+            "b": 2,
+            "r": 5
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -981,19 +1131,63 @@
       "solution": [
         {
           "say": "Undo add 10.",
-          "show": "30 - 10 = 20"
+          "show": "30 - 10 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 10,
+            "r": 20
+          },
+          "mark": [
+            "30",
+            "10"
+          ]
         },
         {
           "say": "Undo take away 4.",
-          "show": "20 + 4 = 24"
+          "show": "20 + 4 = 24",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "+",
+            "b": 4,
+            "r": 24
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Undo double.",
-          "show": "24 ÷ 2 = 12"
+          "show": "24 ÷ 2 = 12",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12,
+                "q": true
+              },
+              {
+                "v": 12
+              }
+            ],
+            "total": 24
+          }
         },
         {
           "say": "Check: 12 doubled is 24, 24 - 4 = 20, and 20 + 10 = 30.",
-          "show": "12, 24, 20, 30"
+          "show": "12, 24, 20, 30",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "-",
+            "b": 4,
+            "r": 20
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -2027,15 +2221,45 @@
       "solution": [
         {
           "say": "Three circles make 15.",
-          "show": "15 / 3 = 5"
+          "show": "15 / 3 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 15,
+            "op": "÷",
+            "b": 3,
+            "r": 5
+          },
+          "mark": [
+            "15"
+          ]
         },
         {
           "say": "The circle and the square make 9.",
-          "show": "9 - 5 = 4"
+          "show": "9 - 5 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "-",
+            "b": 5,
+            "r": 4
+          },
+          "mark": [
+            "9"
+          ]
         },
         {
           "say": "The square and the triangle make 7.",
-          "show": "7 - 4 = 3"
+          "show": "7 - 4 = 3",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "-",
+            "b": 4,
+            "r": 3
+          },
+          "mark": [
+            "7"
+          ]
         }
       ],
       "tags": [
@@ -2068,7 +2292,26 @@
           "say": "Each apple is 3 plums."
         },
         {
-          "say": "So 1 melon is 2 x 3 = 6 plums."
+          "say": "So 1 melon is 2 x 3 = 6 plums.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 2
+              },
+              {
+                "v": 2
+              },
+              {
+                "v": 2
+              }
+            ],
+            "total": 6
+          },
+          "mark": [
+            "2",
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -2095,10 +2338,37 @@
       "explanation": "Add the two sentences: 3 stars and 3 squares make 14 + 13 = 27. One star and one square make 27 / 3 = 9.",
       "solution": [
         {
-          "say": "Add the two sentences: 3 stars and 3 squares make 14 + 13 = 27."
+          "say": "Add the two sentences: 3 stars and 3 squares make 14 + 13 = 27.",
+          "anim": {
+            "k": "combine",
+            "a": 14,
+            "op": "+",
+            "b": 13,
+            "r": 27
+          },
+          "mark": [
+            "14",
+            "13"
+          ]
         },
         {
-          "say": "One star and one square make 27 / 3 = 9."
+          "say": "One star and one square make 27 / 3 = 9.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 27
+          }
         }
       ],
       "tags": [
@@ -2131,7 +2401,23 @@
           "say": "So 12 + 9 - 3 = 18 children have a pet."
         },
         {
-          "say": "20 - 18 = 2 children have neither."
+          "say": "20 - 18 = 2 children have neither.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 18
+              },
+              {
+                "v": 2,
+                "q": true
+              }
+            ],
+            "total": 20
+          },
+          "mark": [
+            "20"
+          ]
         }
       ],
       "tags": [
@@ -2158,7 +2444,18 @@
       "explanation": "9 + 8 = 17, but there are only 15 children. The 2 extra are the children counted twice, so 2 like both.",
       "solution": [
         {
-          "say": "9 + 8 = 17, but there are only 15 children."
+          "say": "9 + 8 = 17, but there are only 15 children.",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "+",
+            "b": 8,
+            "r": 17
+          },
+          "mark": [
+            "9",
+            "8"
+          ]
         },
         {
           "say": "The 2 extra are the children counted twice, so 2 like both."
@@ -2214,10 +2511,33 @@
       "explanation": "7 + 6 = 13, and the row adds up to 15. So the question mark is 15 - 13 = 2.",
       "solution": [
         {
-          "say": "7 + 6 = 13, and the row adds up to 15."
+          "say": "7 + 6 = 13, and the row adds up to 15.",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 6,
+            "r": 13
+          }
         },
         {
-          "say": "So the question mark is 15 - 13 = 2."
+          "say": "So the question mark is 15 - 13 = 2.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 13
+              },
+              {
+                "v": 2,
+                "q": true
+              }
+            ],
+            "total": 15
+          },
+          "mark": [
+            "15"
+          ]
         }
       ],
       "tags": [
@@ -2273,7 +2593,14 @@
           "say": "The full row 13 + 9 + 5 = 27, so every line adds to 27."
         },
         {
-          "say": "The top row has 6 + 11 = 17, so the question mark is 27 - 17 = 10."
+          "say": "The top row has 6 + 11 = 17, so the question mark is 27 - 17 = 10.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 11,
+            "r": 17
+          }
         }
       ],
       "tags": [
@@ -2332,7 +2659,20 @@
           "say": "The middle row is 11 + ?"
         },
         {
-          "say": "+ 3 = 21, so the middle is 21 - 14 = 7."
+          "say": "+ 3 = 21, so the middle is 21 - 14 = 7.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 14
+              },
+              {
+                "v": 7,
+                "q": true
+              }
+            ],
+            "total": 21
+          }
         }
       ],
       "tags": [

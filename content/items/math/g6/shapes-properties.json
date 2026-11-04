@@ -1,0 +1,162 @@
+{
+  "skill": "m6.shapes-properties",
+  "items": [
+    {
+      "id": "m6.shapes-properties.001",
+      "skill": "m6.shapes-properties",
+      "difficulty": 3,
+      "prompt": "Which statement is true for every rhombus?",
+      "hints": [
+        "A rhombus is a slanted square with four equal sides.",
+        "Think of a square pushed over.",
+        "Which property stays when the square is pushed over?"
+      ],
+      "explanation": "A rhombus always has four equal sides and two pairs of parallel sides. The angles do not have to be right angles.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "All four sides are equal and opposite sides are parallel"
+        },
+        {
+          "text": "All four angles are 90°",
+          "why": "That is true for a square, but a rhombus can lean over."
+        },
+        {
+          "text": "The two diagonals are the same length",
+          "why": "That is true for a rectangle, but not for every rhombus."
+        },
+        {
+          "text": "It has exactly one line of symmetry",
+          "why": "A rhombus has two lines of symmetry along its diagonals."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.shapes-properties.002",
+      "skill": "m6.shapes-properties",
+      "difficulty": 4,
+      "prompt": "How many edges does a hexagonal prism have? (Its two ends are hexagons.)",
+      "hints": [
+        "Count the edges of the top face and the bottom face.",
+        "Each hexagon has 6 edges.",
+        "Do not forget the edges that join the top to the bottom."
+      ],
+      "explanation": "The top hexagon has 6 edges, the bottom has 6, and 6 edges join them. 6 + 6 + 6 = 18 edges.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 18
+    },
+    {
+      "id": "m6.shapes-properties.003",
+      "skill": "m6.shapes-properties",
+      "difficulty": 4,
+      "prompt": "Citra draws the net of a cylinder with one rectangle and two circles. The long side of the rectangle must be equal to which measurement of the circle?",
+      "hints": [
+        "The rectangle wraps around the curved side of the cylinder.",
+        "What part of a circle goes all the way around it?",
+        "That distance is the circumference."
+      ],
+      "explanation": "The rectangle becomes the curved surface. It wraps once round the circle, so its long side equals the circumference.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The radius",
+          "why": "The radius is only half-way across the circle, much too short to wrap around it."
+        },
+        {
+          "text": "The circumference"
+        },
+        {
+          "text": "The diameter",
+          "why": "The diameter goes across the circle once, but the rectangle wraps all the way round."
+        },
+        {
+          "text": "The area",
+          "why": "Area is measured in square units, not a length."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.shapes-properties.801",
+      "skill": "m6.shapes-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The diameter of a circle is twice its radius.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Diameter goes across; radius goes to the centre.",
+        "Two radii make a diameter.",
+        "Radius is half the diameter."
+      ],
+      "explanation": "The diameter goes all the way across, through the centre. The radius is half of it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.shapes-properties.802",
+      "skill": "m6.shapes-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: All parallelograms have four equal sides.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a rectangle.",
+        "Does a rectangle have four equal sides?",
+        "Only a rhombus has four equal sides."
+      ],
+      "explanation": "A parallelogram has two pairs of parallel sides, but a rectangle that is not a square is a parallelogram with unequal sides.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.shapes-properties.803",
+      "skill": "m6.shapes-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A cube has 6 faces and 8 vertices.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the faces.",
+        "Count the corners.",
+        "4 on top and 4 on the bottom."
+      ],
+      "explanation": "A cube has 6 square faces and 8 corners.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

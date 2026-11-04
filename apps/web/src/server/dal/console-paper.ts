@@ -4,7 +4,7 @@ import { and, asc, desc, eq, gte, inArray, isNull, like, sql } from 'drizzle-orm
 import { addDays, createRng, formatDateId, jakartaDate, weekStart, type IsoDate, type Rng } from '@kira/core'
 import { tables } from '@kira/db'
 import { isPaperType, ITEM_ID, type Item } from '@kira/content'
-import { genRef, newSeed, parseGenRef, type Level } from '@kira/content/math'
+import { genRef, instanceSignature, newSeed, parseGenRef, type Level } from '@kira/content/math'
 import type { PaperBuilderDTO, PaperDTO, Subject } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
 import { orgCtx } from '../auth/actor'
@@ -17,6 +17,7 @@ import { spEnum, spInt, spString, spUuid } from '../params'
 import { bankData, genCandidate, previewGenRef, presentForConsole, withStats, type BankData } from './console-bank'
 import { SUBJECT_ID_LABEL } from './console-common'
 import { shellIn } from './console-shell'
+import { guardAttemptItems } from './session-guard'
 import { ORG_REF, poolForSkill, presets, promptPreview, resolveItems, skill, skillsFor, type PoolCandidate } from './content'
 import { isRestDay } from './learner-core'
 
@@ -228,8 +229,10 @@ export function pickPaperItems(pools: readonly SkillPool[], count: number, diffi
         const c = rng.pick(p.left)
         if (!c.unlimited) p.left.splice(p.left.indexOf(c), 1)
         const ref = c.unlimited ? materialise(c.ref, rng) : c.ref
-        if (used.has(ref)) continue
+        const sig = c.unlimited ? instanceSignature(ref) : ref
+        if (used.has(ref) || used.has(sig)) continue
         used.add(ref)
+        used.add(sig)
         out.push({ ref, difficulty: c.difficulty, skillId: p.skillId })
         progress = true
         break
@@ -260,7 +263,8 @@ export async function generatePaper(
       `Tidak ada soal ${where} dengan kesulitan ${lo} sampai ${hi}${input.skillIds.length ? ' di skill yang dipilih' : ''}. Longgarkan kesulitan atau pilih skill lain.`,
     )
   }
-  const refs = picked.map((p) => p.ref)
+  const guarded = await guardAttemptItems(tx, picked.map((p, i) => ({ ref: p.ref, difficulty: p.difficulty, position: i + 1 })), { seed: `${ctx.userId}:paper:${picked[0]?.ref ?? ''}`, mode: 'tes' })
+  const refs = guarded.map((p) => p.ref)
   const resolved = await resolveItems(tx, refs)
   const bank = await bankData(tx)
   const ok = refs.filter((r) => resolved.has(r))
@@ -280,6 +284,11 @@ export async function savePaper(tx: Tx, ctx: OrgContext, input: SavePaperInput):
   if (missing.length) {
     throw invalid(`${missing.length === 1 ? 'Soal' : `${missing.length} soal`} ${missing.slice(0, 3).join(', ')} tidak ada lagi di bank soal. Hapus dari paper lalu simpan lagi.`)
   }
+  // Dua soal berbeda id tetapi tampil sama juga ditolak. Susunan tutor tidak diganti diam-diam.
+  const same = await guardAttemptItems(tx, input.itemRefs.map((ref, i) => ({ ref, difficulty: resolved.get(ref)!.difficulty, position: i + 1 })), { seed: 'save-paper', mode: input.mode })
+  const kept = new Set(same.map((x) => x.ref))
+  const twin = input.itemRefs.find((r) => !kept.has(r))
+  if (twin) throw invalid(`Soal ${twin} tampil sama dengan soal lain di paper. Hapus salah satunya lalu simpan lagi.`)
   if (input.mode === 'kertas') {
     // Paper kertas dicetak dan dijawab lewat LJK: jenis soal layar saja (cerita, dengar, susun kata, dan sebangsanya) tidak bisa masuk.
     const screenOnly = input.itemRefs.filter((r) => {
@@ -396,6 +405,7 @@ export async function assignPaper(
     kind: 'quest',
     session: 'paper',
     required: true,
+    base: true,
     skillId: dominantSkill(p.itemRefs.map((r) => resolved.get(r)?.skill).filter((s): s is string => Boolean(s))),
     paperId: p.id,
     mode: p.mode,

@@ -1,0 +1,96 @@
+{
+  "skill": "m4.timetables",
+  "items": [
+    {
+      "id": "m4.timetables.001",
+      "skill": "m4.timetables",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Use the timetable. How many minutes does the bus take to go from Bukit stop to Taman stop?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Stop",
+          "Time"
+        ],
+        "rows": [
+          [
+            "Terminal",
+            "07:15"
+          ],
+          [
+            "Bukit",
+            "07:42"
+          ],
+          [
+            "Pasar",
+            "08:20"
+          ],
+          [
+            "Taman",
+            "08:55"
+          ]
+        ],
+        "alt": "Bus timetable. Terminal 07:15, Bukit 07:42, Pasar 08:20, Taman 08:55."
+      },
+      "answer": 73,
+      "unit": "minutes",
+      "hints": [
+        "Find the time at each stop.",
+        "From 07:42 to 08:42 is 60 minutes.",
+        "Add the minutes from 08:42 to 08:55."
+      ],
+      "explanation": "From 07:42 to 08:42 is 60 minutes, and 08:42 to 08:55 is 13 more minutes. The trip takes 73 minutes.",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.timetables.701",
+      "skill": "m4.timetables",
+      "difficulty": 4,
+      "prompt": "A bus leaves Yogyakarta at 06:45 and arrives in Semarang at 10:20. It stops once for a 25 minute rest.",
+      "hints": [
+        "06:45 to 10:00 is 3 hours 15 minutes.",
+        "Take the rest stop away.",
+        "Add 3 hours 35 minutes to 13:40."
+      ],
+      "explanation": "06:45 to 10:20 is 3 h 35 min, which is 215 minutes. Driving: 215 - 25 = 190 min. 13:40 plus 3 h 35 min is 17:15.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How long is the whole journey, in minutes?",
+          "answer": 215,
+          "unit": "min"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many minutes is the bus actually driving?",
+          "answer": 190,
+          "unit": "min"
+        },
+        {
+          "type": "mcq",
+          "prompt": "The bus makes the same journey back, with the same rest stop, leaving Semarang at 13:40. When does it arrive?",
+          "options": [
+            {
+              "text": "16:55"
+            },
+            {
+              "text": "17:15"
+            },
+            {
+              "text": "17:35"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    }
+  ]
+}

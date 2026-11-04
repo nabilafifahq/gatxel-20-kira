@@ -1,0 +1,140 @@
+{
+  "skill": "m5.multiples-factors",
+  "items": [
+    {
+      "id": "m5.multiples-factors.001",
+      "skill": "m5.multiples-factors",
+      "difficulty": 3,
+      "prompt": "Two buses leave the terminal together at 06.00. One bus leaves every 12 minutes and the other every 18 minutes. After how many minutes do they leave together again?",
+      "hints": [
+        "List multiples of 12 and multiples of 18.",
+        "Find the first number in both lists.",
+        "12, 24, 36 and 18, 36."
+      ],
+      "explanation": "Multiples of 12: 12, 24, 36. Multiples of 18: 18, 36. The first common multiple is 36, so they leave together again after 36 minutes.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 36
+    },
+    {
+      "id": "m5.multiples-factors.002",
+      "skill": "m5.multiples-factors",
+      "difficulty": 3,
+      "prompt": "What is the least common multiple of 4 and 6?",
+      "hints": [
+        "List the multiples of 4: 4, 8, 12, ...",
+        "List the multiples of 6: 6, 12, ...",
+        "Find the first number in both lists."
+      ],
+      "explanation": "Multiples of 4 are 4, 8, 12 and so on. Multiples of 6 are 6, 12 and so on. The first number in both lists is 12.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "12"
+        },
+        {
+          "text": "2",
+          "why": "This is a common factor, not a common multiple."
+        },
+        {
+          "text": "24",
+          "why": "This is a common multiple, but it is not the least one. 12 is smaller."
+        },
+        {
+          "text": "10",
+          "why": "This is 4 + 6. A common multiple is in both times tables."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.multiples-factors.003",
+      "skill": "m5.multiples-factors",
+      "difficulty": 4,
+      "prompt": "Sekar has 48 mangoes and 72 rambutans. She packs identical bags with no fruit left over. What is the greatest number of bags she can make?",
+      "hints": [
+        "The number of bags must divide both 48 and 72.",
+        "Find the common factors of 48 and 72.",
+        "The greatest one is the answer."
+      ],
+      "explanation": "24 divides 48 (2 times) and 72 (3 times). No bigger number divides both, so the greatest number of bags is 24.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 24
+    },
+    {
+      "id": "m5.multiples-factors.801",
+      "skill": "m5.multiples-factors",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The common factors of 12 and 18 are 1, 2, 3 and 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List the factors of each number.",
+        "Circle those in both lists.",
+        "The biggest one is 6."
+      ],
+      "explanation": "Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 18: 1, 2, 3, 6, 9, 18. Those in both lists are 1, 2, 3, 6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiples-factors.802",
+      "skill": "m5.multiples-factors",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The lowest common multiple of 4 and 6 is 24.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List the multiples of each.",
+        "Find the first number in both lists.",
+        "It is smaller than 24."
+      ],
+      "explanation": "Multiples of 4: 4, 8, 12. Multiples of 6: 6, 12. The first in both lists is 12, not 24.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiples-factors.701",
+      "skill": "m5.multiples-factors",
+      "difficulty": 3,
+      "prompt": "What is the highest common factor of 12 and 18?",
+      "hints": [
+        "List the factors of both.",
+        "12: 1, 2, 3, 4, 6, 12.",
+        "18: 1, 2, 3, 6, 9, 18."
+      ],
+      "explanation": "The common factors are 1, 2, 3 and 6. The highest is 6.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 6
+    }
+  ]
+}

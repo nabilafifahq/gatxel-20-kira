@@ -1,0 +1,57 @@
+{
+  "skill": "m2.subtraction",
+  "items": [
+    {
+      "id": "m2.subtraction.801",
+      "skill": "m2.subtraction",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 63 - 21 = 42.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Take away the tens first.",
+        "63 - 20 = 43.",
+        "Then take away 1."
+      ],
+      "explanation": "Take away 20: 63 - 20 = 43. Then take away 1: 43 - 1 = 42.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.subtraction.802",
+      "skill": "m2.subtraction",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 90 - 40 = 60.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of tens.",
+        "9 tens - 4 tens.",
+        "The answer is 50."
+      ],
+      "explanation": "9 tens take away 4 tens is 5 tens, which is 50.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

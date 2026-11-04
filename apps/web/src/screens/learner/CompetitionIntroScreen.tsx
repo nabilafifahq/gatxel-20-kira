@@ -56,7 +56,7 @@ export function CompetitionIntroScreen({
       </header>
 
       <div className="flex flex-1 flex-col gap-6 px-4 pb-8 md:px-8 lg:flex-row">
-        <section aria-labelledby="how-it-works" className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7 lg:flex-[1.35]">
+        <section aria-labelledby="how-it-works" className="flex min-w-0 flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7 lg:flex-[1.35]">
           {data.verified ? null : (
             <div role="note" className="flex items-start gap-2.5 rounded-control border-2 border-warn bg-surface px-4 py-3.5">
               <UiIcon name="warning" size={24} className="mt-0.5 flex-none text-warn" />
@@ -77,7 +77,7 @@ export function CompetitionIntroScreen({
             ))}
           </ol>
           {data.tip ? (
-            <div className="flex items-start gap-2.5 rounded-control border border-divider bg-bg px-3.5 py-3">
+            <div className="flex items-start gap-2.5 rounded-control bg-lavender px-3.5 py-3">
               <UiIcon name="hint" size={22} className="mt-1 flex-none" />
               <div className="flex flex-col">
                 <span className="text-body font-bold">Tip</span>
@@ -87,7 +87,7 @@ export function CompetitionIntroScreen({
           ) : null}
         </section>
 
-        <aside aria-label="Ready" className="flex min-w-0 flex-col items-center gap-4 rounded-card border border-divider bg-surface p-5 text-center md:p-7 lg:flex-1">
+        <aside aria-label="Ready" className="flex min-w-0 flex-col items-center gap-4 rounded-card bg-surface shadow-soft p-5 text-center md:p-7 lg:flex-1">
           <div aria-hidden="true" className="flex w-55 flex-col gap-2 rounded-control border-2 border-fg bg-surface px-4 py-3.5">
             <span className="text-left text-small font-bold">Answer sheet</span>
             {SAMPLE.map((filled, row) => (
@@ -101,7 +101,7 @@ export function CompetitionIntroScreen({
           </div>
           <div className="inline-flex h-14 items-center gap-2.5 rounded-control border-2 border-border bg-surface px-4.5">
             <UiIcon name="clock" size={24} />
-            <span className="font-display text-h1 font-semibold tabular-nums">{data.timeLimitSec > 0 ? formatClock(data.timeLimitSec) : 'No clock'}</span>
+            <span className="font-numbers text-h1 font-semibold tabular-nums">{data.timeLimitSec > 0 ? formatClock(data.timeLimitSec) : 'No clock'}</span>
           </div>
           <p className="m-0 text-body-lg">
             {data.questionCount} questions.{' '}

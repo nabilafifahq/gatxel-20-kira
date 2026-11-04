@@ -314,6 +314,651 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e6.active-passive.011",
+      "skill": "e6.active-passive",
+      "difficulty": 1,
+      "prompt": "Which sentence is in the active voice?",
+      "hints": [
+        "In an active sentence the subject does the action.",
+        "Ask: who or what is doing the catching?",
+        "Look for the sentence where the goalkeeper comes first."
+      ],
+      "explanation": "In an active sentence the subject does the action. The goalkeeper does the catching.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The ball was caught by the goalkeeper.",
+          "why": "Here the ball receives the action, so this is passive."
+        },
+        {
+          "text": "The goalkeeper caught the ball."
+        },
+        {
+          "text": "The ball was caught.",
+          "why": "The ball receives the action, so this is passive."
+        },
+        {
+          "text": "The ball is caught by the goalkeeper every time.",
+          "why": "The ball receives the action, so this is passive."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e6.active-passive.012",
+      "skill": "e6.active-passive",
+      "difficulty": 1,
+      "prompt": "Put the cards in order to make a passive sentence.",
+      "hints": [
+        "A passive sentence has a form of be and a past participle.",
+        "Was kicked goes in the middle, and the doer comes after by.",
+        "Start with The ball."
+      ],
+      "explanation": "The ball receives the action. Was kicked is the passive verb and by Leo names the doer.",
+      "type": "tiles",
+      "answer": "The ball was kicked by Leo.",
+      "distractors": [
+        "kicks",
+        "kicking"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "e6.active-passive.013",
+      "skill": "e6.active-passive",
+      "difficulty": 2,
+      "prompt": "The bridge ___ built in 1990, and the roads ___ repaired last week.",
+      "hints": [
+        "Ask whether the thing receiving the action is one or more than one.",
+        "Bridge is singular. Roads is plural.",
+        "Use was with one thing and were with many."
+      ],
+      "explanation": "In the passive, be agrees with the subject. The bridge was built and the roads were repaired.",
+      "type": "cloze",
+      "gaps": [
+        {
+          "options": [
+            "was",
+            "were"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "was",
+            "were"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "e6.active-passive.014",
+      "skill": "e6.active-passive",
+      "difficulty": 2,
+      "prompt": "Change the sentence into the passive. Dewi painted the mural. The mural ___ ___ by Dewi.",
+      "hints": [
+        "The mural now receives the action.",
+        "The passive uses a form of be plus the past participle.",
+        "The action happened in the past, so start with was."
+      ],
+      "explanation": "The passive is formed with was plus the past participle: The mural was painted by Dewi.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "was"
+          ]
+        },
+        {
+          "answers": [
+            "painted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.active-passive.015",
+      "skill": "e6.active-passive",
+      "difficulty": 2,
+      "prompt": "Put the steps of making a cake in order.",
+      "hints": [
+        "Think about what happens first when you bake.",
+        "Decide which step must come before the cake goes in the oven.",
+        "Start with the eggs."
+      ],
+      "explanation": "Passive sentences are often used for steps in a process. The steps happen in this order.",
+      "type": "order",
+      "items": [
+        "The eggs are cracked into a bowl.",
+        "The flour is added.",
+        "The mixture is poured into a tin.",
+        "The cake is baked for forty minutes."
+      ]
+    },
+    {
+      "id": "e6.active-passive.016",
+      "skill": "e6.active-passive",
+      "difficulty": 3,
+      "prompt": "Which sentence is the correct passive form of this one? The farmers harvest the rice every June.",
+      "hints": [
+        "The tense of the passive must match the tense of the active.",
+        "Harvest is present tense, so use is or are.",
+        "The rice is now the subject of the new sentence."
+      ],
+      "explanation": "Keep the same tense. Harvest is present, so the passive is is harvested.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The rice was harvested by the farmers every June.",
+          "why": "The tense has changed. The original sentence is in the present."
+        },
+        {
+          "text": "The rice harvests by the farmers every June.",
+          "why": "The passive needs a form of be before harvested."
+        },
+        {
+          "text": "The rice is harvested by the farmers every June."
+        },
+        {
+          "text": "The farmers are harvested by the rice every June.",
+          "why": "The farmers and the rice have swapped roles, so the meaning has changed."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.active-passive.017",
+      "skill": "e6.active-passive",
+      "difficulty": 3,
+      "prompt": "One verb is wrong. Write the correct form. The trophy was win by our school team.",
+      "hints": [
+        "The passive uses a past participle.",
+        "Win is irregular. Say: I win, I won, I have won.",
+        "Past participle of win."
+      ],
+      "explanation": "The passive needs the past participle. For win it is won.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "won"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.active-passive.018",
+      "skill": "e6.active-passive",
+      "difficulty": 3,
+      "prompt": "Sort the sentences by whether the doer is named.",
+      "hints": [
+        "Look for the word by.",
+        "The word by is followed by who did the action.",
+        "Check The door was locked first."
+      ],
+      "explanation": "In a passive sentence you can say who did the action with by, or you can leave it out.",
+      "type": "sort",
+      "groups": [
+        "Doer named",
+        "Doer not named"
+      ],
+      "items": [
+        {
+          "text": "The song was sung by Ines.",
+          "group": 0
+        },
+        {
+          "text": "The door was locked.",
+          "group": 1
+        },
+        {
+          "text": "The tree was cut down.",
+          "group": 1
+        },
+        {
+          "text": "The mural was painted by Bayu.",
+          "group": 0
+        },
+        {
+          "text": "The gate was left open.",
+          "group": 1
+        },
+        {
+          "text": "The goal was scored by Kofi.",
+          "group": 0
+        }
+      ]
+    },
+    {
+      "id": "e6.active-passive.019",
+      "skill": "e6.active-passive",
+      "difficulty": 3,
+      "prompt": "Which sentence is in the passive and talks about the future?",
+      "hints": [
+        "You need two things: passive and future.",
+        "Future passive uses will be and a past participle.",
+        "Look for will be given."
+      ],
+      "explanation": "The future passive is will be plus the past participle: will be given out.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The prizes were given out yesterday.",
+          "why": "This is passive, but it is in the past."
+        },
+        {
+          "text": "The teacher will give out the prizes tomorrow.",
+          "why": "This is about the future, but it is active."
+        },
+        {
+          "text": "The prizes will give out tomorrow.",
+          "why": "This is not passive. The verb needs be before given."
+        },
+        {
+          "text": "The prizes will be given out tomorrow."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.active-passive.020",
+      "skill": "e6.active-passive",
+      "difficulty": 3,
+      "prompt": "Choose all the passive sentences.",
+      "hints": [
+        "In a passive sentence, the subject has the action done to it.",
+        "Look for a part of be and a past participle: been chosen, is grown.",
+        "Check the sentences that have been, is or will be."
+      ],
+      "explanation": "The passive sentences are Tom has been chosen, Rice is grown, and The match will be played.",
+      "type": "multi",
+      "options": [
+        {
+          "text": "Tom has been chosen as captain."
+        },
+        {
+          "text": "Rice is grown in flooded fields."
+        },
+        {
+          "text": "The match will be played on Saturday."
+        },
+        {
+          "text": "The children are painting a mural.",
+          "why": "The children do the action, so this is active."
+        },
+        {
+          "text": "A storm destroyed the old shed.",
+          "why": "The storm does the action, so this is active."
+        },
+        {
+          "text": "Wulan opened the window.",
+          "why": "Wulan does the action, so this is active."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "e6.active-passive.021",
+      "skill": "e6.active-passive",
+      "difficulty": 4,
+      "prompt": "Which sentence is the passive form of this one? The cleaners have swept the hall.",
+      "hints": [
+        "Look at the exact tense of the verb in the first sentence.",
+        "Have swept is present perfect. The passive needs has or have been.",
+        "Make the hall the subject, then add has been swept."
+      ],
+      "explanation": "Present perfect passive is has or have been plus the past participle: has been swept.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The hall was swept by the cleaners.",
+          "why": "This changes the tense. Have swept is present perfect, and was swept is simple past."
+        },
+        {
+          "text": "The hall has swept by the cleaners.",
+          "why": "The passive needs been before the past participle."
+        },
+        {
+          "text": "The hall has been swept by the cleaners."
+        },
+        {
+          "text": "The hall is being swept by the cleaners.",
+          "why": "This changes the tense to present continuous."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.active-passive.022",
+      "skill": "e6.active-passive",
+      "difficulty": 4,
+      "prompt": "Change to the active voice. The old bridge has been repaired by the workers. The workers ___ ___ the old bridge.",
+      "hints": [
+        "The workers now do the action.",
+        "The tense is present perfect, so use have plus a past participle.",
+        "The first gap is a short helper word."
+      ],
+      "explanation": "Has been repaired by the workers becomes the workers have repaired. The tense stays present perfect.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "have"
+          ]
+        },
+        {
+          "answers": [
+            "repaired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.active-passive.023",
+      "skill": "e6.active-passive",
+      "difficulty": 4,
+      "prompt": "The temple was restored by teams of skilled workers. Why might the writer choose the passive voice here?",
+      "hints": [
+        "Think about which noun the writer wants the reader to focus on.",
+        "The subject of a passive sentence is the thing that matters most.",
+        "Which word is at the start of the sentence?"
+      ],
+      "explanation": "The writer puts the temple first because the temple is the focus. The workers are still named at the end.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The workers are not known.",
+          "why": "The workers are named in the sentence, as teams of skilled workers."
+        },
+        {
+          "text": "The passive is always better than the active.",
+          "why": "Neither voice is always better. It depends on what you want to focus on."
+        },
+        {
+          "text": "The sentence is about the future.",
+          "why": "The verb was restored is in the past, not the future."
+        },
+        {
+          "text": "The temple is the main topic of the writing."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.active-passive.024",
+      "skill": "e6.active-passive",
+      "difficulty": 4,
+      "prompt": "Change to the passive. Someone must clean the pool today. The pool must ___ ___ today.",
+      "hints": [
+        "After must the verb stays in its base form.",
+        "A passive with must needs be and a past participle.",
+        "The first gap is the base form of the verb to be."
+      ],
+      "explanation": "Modal passive is the modal verb plus be plus the past participle: must be cleaned.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "be"
+          ]
+        },
+        {
+          "answers": [
+            "cleaned"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.active-passive.025",
+      "skill": "e6.active-passive",
+      "difficulty": 4,
+      "prompt": "Read: The bread was baked by Hadi. Then it sold at the market. Many loaves were bought. Which sentence has a word missing?",
+      "hints": [
+        "Check that each sentence has a form of be before the past participle.",
+        "The bread is the subject of the second sentence.",
+        "Which verb stands alone?"
+      ],
+      "explanation": "It sold should be it was sold. The passive needs a form of be before the past participle.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Then it sold at the market."
+        },
+        {
+          "text": "The bread was baked by Hadi.",
+          "why": "This sentence is correct. It has was before baked."
+        },
+        {
+          "text": "Many loaves were bought.",
+          "why": "This sentence is correct. It has were before bought."
+        },
+        {
+          "text": "All three sentences are correct.",
+          "why": "One sentence is passive but has no form of be."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e6.active-passive.026",
+      "skill": "e6.active-passive",
+      "difficulty": 5,
+      "prompt": "Which sentence cannot be changed into the passive voice?",
+      "hints": [
+        "A passive sentence needs something to receive the action.",
+        "Find the sentence with no object.",
+        "Ask: the sun rose what?"
+      ],
+      "explanation": "Rose has no object, so nothing can receive the action. Only verbs with an object can become passive.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Dewi opened the window.",
+          "why": "Opened has an object, the window, so it can become The window was opened."
+        },
+        {
+          "text": "The sun rose at six."
+        },
+        {
+          "text": "The boys kicked the ball.",
+          "why": "Kicked has an object, the ball, so it can become The ball was kicked."
+        },
+        {
+          "text": "The cat chased the mouse.",
+          "why": "Chased has an object, the mouse, so it can become The mouse was chased."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e6.active-passive.801",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"The dog chased the cat\" is in the active voice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Who is doing the chasing?",
+        "Find the subject.",
+        "The subject does the action."
+      ],
+      "explanation": "In an active sentence, the subject does the action. The dog is doing the chasing.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.802",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"The cake was eaten by Tom\" is in the active voice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the cake do anything?",
+        "Who or what receives the action?",
+        "The subject receives the action."
+      ],
+      "explanation": "The cake receives the action, so the sentence is passive.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.803",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"The window was broken by the ball\" is in the passive voice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the window doing the action?",
+        "Look for was and by.",
+        "The subject receives the action."
+      ],
+      "explanation": "The window receives the action. The ball did the breaking.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.804",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The passive voice of \"Sara painted the picture\" is \"The picture painted Sara\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Who really did the painting?",
+        "The picture must be the one painted.",
+        "Use was painted by."
+      ],
+      "explanation": "The correct passive sentence is The picture was painted by Sara. The object of the active sentence becomes the subject.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.805",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a passive sentence, the person doing the action can be left out, as in \"The window was broken\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is there a by phrase in the sentence?",
+        "Do we know who broke it?",
+        "The doer does not have to be named."
+      ],
+      "explanation": "A passive sentence can leave out who did the action, which is useful when it is not known.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.806",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: In an active sentence, the subject receives the action.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of The teacher read the story.",
+        "Who does the reading?",
+        "Active subjects do the action."
+      ],
+      "explanation": "In an active sentence the subject does the action. In a passive sentence the subject receives it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.701",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The ball was kicked by Sam. Is this active or passive?",
+      "options": [
+        {
+          "text": "Passive"
+        },
+        {
+          "text": "Active"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Who does the action?",
+        "The ball receives the action.",
+        "Was kicked by shows passive."
+      ],
+      "explanation": "The ball receives the action, so the sentence is passive.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

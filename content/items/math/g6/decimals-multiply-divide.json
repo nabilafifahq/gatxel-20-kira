@@ -1,0 +1,130 @@
+{
+  "skill": "m6.decimals-multiply-divide",
+  "items": [
+    {
+      "id": "m6.decimals-multiply-divide.001",
+      "skill": "m6.decimals-multiply-divide",
+      "difficulty": 3,
+      "prompt": "Tom buys 6 packs of rice. Each pack has a mass of 3.45 kg. What is the total mass in kilograms?",
+      "hints": [
+        "Ignore the decimal point and multiply 345 by 6.",
+        "345 × 6 = 2,070.",
+        "Put the decimal point back: there are two decimal places."
+      ],
+      "explanation": "345 × 6 = 2,070. Two decimal places gives 20.70, so the total is 20.7 kg.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "kg",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 20.7
+    },
+    {
+      "id": "m6.decimals-multiply-divide.002",
+      "skill": "m6.decimals-multiply-divide",
+      "difficulty": 3,
+      "prompt": "A rope 12.6 m long is cut into 8 equal pieces. How long is each piece in metres?",
+      "hints": [
+        "Divide 12.6 by 8.",
+        "8 goes into 12 once, with 4 left. Write 12.6 as 12.600.",
+        "Keep dividing the remainders."
+      ],
+      "explanation": "12.6 ÷ 8 = 1.575. Each piece is 1.575 m long.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 1.575
+    },
+    {
+      "id": "m6.decimals-multiply-divide.003",
+      "skill": "m6.decimals-multiply-divide",
+      "difficulty": 4,
+      "prompt": "Ines says 6 × 0.8 = 0.48 because 6 × 8 = 48. What is the correct answer?",
+      "hints": [
+        "Estimate first: 0.8 is a little less than 1.",
+        "So 6 × 0.8 is a little less than 6.",
+        "Which choice is just under 6?"
+      ],
+      "explanation": "6 × 8 = 48, and 0.8 has one decimal place, so the answer is 4.8. It is just under 6, as the estimate says.",
+      "tags": [
+        "error-analysis",
+        "estimation"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0.48",
+          "why": "The point was put in the wrong place. 6 groups of nearly 1 should be nearly 6."
+        },
+        {
+          "text": "48",
+          "why": "The decimal point was forgotten. 0.8 is less than 1."
+        },
+        {
+          "text": "6.8",
+          "why": "This is 6 + 0.8, which is addition, not multiplication."
+        },
+        {
+          "text": "4.8"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m6.decimals-multiply-divide.801",
+      "skill": "m6.decimals-multiply-divide",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 3.6 ÷ 4 = 0.9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of 3.6 as 36 tenths.",
+        "36 ÷ 4.",
+        "Check by multiplying."
+      ],
+      "explanation": "36 tenths divided by 4 is 9 tenths, which is 0.9. Check: 4 × 0.9 = 3.6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.decimals-multiply-divide.802",
+      "skill": "m6.decimals-multiply-divide",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 2.35 × 4 = 9.20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Split 2.35 into 2, 0.3 and 0.05.",
+        "Multiply each part by 4.",
+        "8 + 1.2 + 0.2."
+      ],
+      "explanation": "2 × 4 = 8, 0.3 × 4 = 1.2 and 0.05 × 4 = 0.2. Total 9.40, not 9.20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

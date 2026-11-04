@@ -1,0 +1,161 @@
+{
+  "skill": "m5.multiply-divide-10-100-1000",
+  "items": [
+    {
+      "id": "m5.multiply-divide-10-100-1000.001",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "difficulty": 4,
+      "prompt": "A bakery uses 0.45 kg of flour for each loaf. Flour is sold in 10 kg sacks. How many sacks are needed for 100 loaves?",
+      "hints": [
+        "First find the flour for 100 loaves.",
+        "Multiply 0.45 by 100.",
+        "45 kg needs sacks of 10 kg. Think about the part sack."
+      ],
+      "explanation": "0.45 × 100 = 45 kg. 45 ÷ 10 = 4.5, so 4 full sacks is not enough. The baker needs 5 sacks.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 5
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.002",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "difficulty": 3,
+      "prompt": "Rangga says 3.7 ÷ 100 = 0.37. What is the correct answer?",
+      "hints": [
+        "Dividing by 100 moves every digit two places to the right.",
+        "The 3 is in the ones place and moves to the hundredths place.",
+        "Write 3.7 with a zero holder before the 3."
+      ],
+      "explanation": "Dividing by 100 moves each digit two places to the right. The 3 moves from ones to hundredths and the 7 to thousandths, giving 0.037.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0.37",
+          "why": "That is 3.7 ÷ 10. Dividing by 100 moves the digits two places."
+        },
+        {
+          "text": "0.0037",
+          "why": "That is 3.7 ÷ 1,000. Dividing by 100 moves the digits two places."
+        },
+        {
+          "text": "370",
+          "why": "That is 3.7 × 100, not 3.7 ÷ 100."
+        },
+        {
+          "text": "0.037"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.003",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "difficulty": 4,
+      "prompt": "A tank holds 7,250 ml of juice. Dina pours it equally into 10 bottles. How many litres of juice are in each bottle?",
+      "hints": [
+        "Change millilitres to litres first.",
+        "1 litre is 1,000 ml, so divide by 1,000.",
+        "Then share the litres between 10 bottles."
+      ],
+      "explanation": "7,250 ml ÷ 1,000 = 7.25 litres. 7.25 ÷ 10 = 0.725 litres in each bottle.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "litres",
+      "type": "numeric",
+      "answer": 0.725
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.801",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 4.6 × 100 = 460.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Move the digits two places left.",
+        "Fill the empty place with a zero.",
+        "The 4 moves from ones to hundreds."
+      ],
+      "explanation": "Each digit moves two places to the left: 4.6 × 100 = 460.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.802",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 52 ÷ 1,000 = 0.52.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many places do digits move for 1,000?",
+        "Three places.",
+        "Write 52 as 052 and put the point at the front: 0.052."
+      ],
+      "explanation": "Dividing by 1,000 moves digits three places right, so 52 ÷ 1,000 = 0.052.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.701",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "difficulty": 2,
+      "prompt": "3.4 × 100 = ?",
+      "hints": [
+        "Move the digits to the left.",
+        "Two zeros means two places.",
+        "3.4 becomes 340."
+      ],
+      "explanation": "Multiplying by 100 moves each digit 2 places left, so 3.4 × 100 = 340.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 340,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.702",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "difficulty": 2,
+      "prompt": "5,200 ÷ 1,000 = ?",
+      "hints": [
+        "Each digit moves right.",
+        "Three zeros means three places.",
+        "5,200 becomes 5.2."
+      ],
+      "explanation": "Dividing by 1,000 moves digits 3 places right, so 5,200 ÷ 1,000 = 5.2.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 9,
+      "type": "numeric",
+      "answer": 5.2,
+      "allowDecimal": true
+    }
+  ]
+}

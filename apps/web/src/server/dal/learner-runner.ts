@@ -1,8 +1,9 @@
 import 'server-only'
-import { and, eq, inArray, isNull } from 'drizzle-orm'
+import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
+import { parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { answerFromLabels, answerToLabels, checkAnswer, keyOf, labelCount, type Item, type LabelPerm } from '@kira/content'
 import type { AnswerPayload, AnswerResult, RunnerDTO, RunnerItem, SavedResponse, Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
@@ -13,6 +14,7 @@ import { presetRulesFor } from './daily-paper-scoring'
 import { effectiveRules, presetForAttempt } from './learner-competition'
 import { areaOfSessionRef, isReadingAttempt } from '@kira/core/english-skills'
 import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, refreshDayRecord } from './learner-core'
+import { awardReadingStars, awardSessionStars, finishBoss } from './kira-world'
 import { completeLinkedSession, isTesLocked, questOfAttempt, scoreOf, submittedFamily, type AttemptItem } from './learner-session'
 
 export type { AttemptItem }
@@ -23,6 +25,13 @@ type AttemptRow = typeof attempt.$inferSelect
 type ResponseRow = typeof response.$inferSelect
 
 const HIDDEN_MODES = new Set(['tes', 'simulasi', 'kertas'])
+
+/** Pembahasan bergerak dimuat malas lewat walkthroughFor, supaya runner tidak membawa langkah semua soal. */
+export function lazySolution<T extends { reveal?: { solution?: unknown; hasSolution?: boolean } }>(client: T): T {
+  if (!client.reveal?.solution) return client
+  const { solution: _steps, ...rest } = client.reveal
+  return { ...client, reveal: { ...rest, hasSolution: true } }
+}
 
 export function dtoKind(kind: AttemptRow['kind']): RunnerDTO['kind'] {
   switch (kind) {
@@ -43,6 +52,7 @@ export function dtoKind(kind: AttemptRow['kind']): RunnerDTO['kind'] {
 }
 
 export function exitFor(a: Pick<AttemptRow, 'kind'> & { refId?: string | null }): string {
+  if (a.refId?.startsWith('boss:')) return '/world/boss'
   if (areaOfSessionRef(a.refId)) return '/english'
   if (a.kind === 'esmo-pack' || a.kind === 'esmo-mock') return '/esmo'
   if (a.kind === 'simulation') return '/competitions'
@@ -114,7 +124,8 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     if (!item) continue
     const perm = hidden ? labelPerm(a.id, it.ref, labelCount(item)) : null
     byPosition.set(it.position, { item, perm })
-    runnerItems.push({ ...toClient(item, { ref: it.ref, seed, includeKey: feedback, includeHints: hints, labels: perm }), position: it.position, section: it.section })
+    const client = lazySolution(toClient(item, { ref: it.ref, seed, includeKey: feedback, includeHints: hints, labels: perm }))
+    runnerItems.push({ ...client, position: it.position, section: it.section, ...(it.remedialOf !== undefined ? { remedialOf: it.remedialOf } : {}) })
   }
   const resp = await tx.select().from(response).where(eq(response.attemptId, a.id))
   const latest = latestByPosition(resp)
@@ -151,6 +162,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     showTerms: runnerItems.some((i) => (i.terms?.length ?? 0) > 0),
     offline: true,
     ...(areaOfSessionRef(a.refId) ? { englishArea: areaOfSessionRef(a.refId)! } : {}),
+    ...(a.refId?.startsWith('boss:') ? { boss: true } : {}),
   }
 }
 
@@ -169,7 +181,7 @@ export const answerPayloadSchema = z
   .strict()
 
 /** Bentuk jawaban per tipe, dibatasi ukurannya. */
-function validAnswer(item: Item, answer: unknown): boolean {
+export function validAnswer(item: Item, answer: unknown): boolean {
   if (answer === null || answer === undefined) return true
   const json = JSON.stringify(answer)
   if (json.length > 20000) return false
@@ -220,6 +232,16 @@ function validAnswer(item: Item, answer: unknown): boolean {
       return strings(a.texts, 8, 40)
     case 'grid':
       return Array.isArray(a.cells) && a.cells.length === item.size * item.size && a.cells.every((c) => typeof c === 'number' && Number.isInteger(c) && c >= 0 && c < 100)
+    case 'blocks':
+      return parseBlocks(a.blocks) !== null
+    case 'fractionbar':
+      return parseBars(a.bars) !== null
+    case 'barmodel':
+      return parseModel(a.model) !== null
+    case 'tangram':
+      return parsePlacements(a.placed, item.slots.length, item.pieces.length) !== null
+    case 'geoboard':
+      return parsePegs(a.pegs, item.size) !== null
   }
 }
 
@@ -330,13 +352,17 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
 type Topic = { label: string; right: number; total: number }
 
 export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, attemptId: string): Promise<{ redirectTo: string }> {
+  // Kunci baris attempt: kumpul ganda (klik dua kali, sinkron offline bersamaan) menunggu, lalu melihat status sudah selesai.
+  await tx.execute(sql`select 1 from attempt where id = ${attemptId} and learner_id = ${learnerId} for update`)
   const a = await loadAttempt(tx, learnerId, attemptId)
-  const redirectTo = `/results/${a.id}`
+  const redirectTo = a.refId?.startsWith('boss:') ? `/world/boss/result/${a.id}` : `/results/${a.id}`
   if (a.status !== 'in_progress') return { redirectTo }
   const learner = await loadLearner(tx, learnerId)
   const date = jakartaDate()
-  const items = (a.items as AttemptItem[]) ?? []
-  const resolved = await resolveItems(tx, items.map((i) => i.ref))
+  const allItems = (a.items as AttemptItem[]) ?? []
+  // Soal saudara dari putaran perbaikan tidak ikut skor sesi; jawabannya sudah masuk mesin belajar.
+  const items = allItems.filter((i) => i.remedialOf === undefined)
+  const resolved = await resolveItems(tx, allItems.map((i) => i.ref))
   const resp = await tx.select().from(response).where(eq(response.attemptId, a.id))
   const latest = latestByPosition(resp)
   let xp = 0
@@ -417,6 +443,8 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
   }
   const result = { perfect, olympiad, byTopic: topics, timeUsedSec: timeUsed, pending, session, passed, early, improved, retry: isRetry }
 
+  let worldGain: { stars: number; cards: string[] } = { stars: 0, cards: [] }
+  let bossResult: { won: boolean; stars: number; cardId: string | null } | null = null
   if (a.kind === 'quest') {
     if (isRetry) {
       // Ulang sesi: percobaan pertama tetap resmi untuk streak dan laporan, ulangan memberi 25 persen XP.
@@ -429,11 +457,14 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
       await grantXp(tx, ctx, learnerId, gained, 'quest', a.id, date)
       xp += gained
       await refreshDayRecord(tx, ctx, learnerId, q.date)
+      worldGain = await awardSessionStars(tx, learnerId, { attemptId: a.id, required: q.kind === 'daily', perfect, retry: false, date })
     }
   } else if (a.kind === 'simulation' || a.kind === 'esmo-mock' || a.kind === 'esmo-pack' || a.kind === 'review' || a.kind === 'paper' || a.kind === 'test') {
-    const done = a.kind === 'review' ? 10 : 20
+    const isBoss = a.refId?.startsWith('boss:') ?? false
+    const done = isBoss ? 0 : a.kind === 'review' ? 10 : 20
     await grantXp(tx, ctx, learnerId, done, `${a.kind}-done`, a.id, date)
     xp += done
+    if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct, total)
     // Sesi opsional bertipe tautan yang cocok ikut selesai.
     if (a.kind === 'review') await completeLinkedSession(tx, learnerId, date, { session: 'review' })
     else if (a.kind === 'simulation') await completeLinkedSession(tx, learnerId, date, { session: 'simulation', subject: a.subject as Subject, ...(a.refId ? { presetId: a.refId } : {}) })
@@ -447,7 +478,10 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
   // Reading dikerjakan sebagai sesi reading; tugas Reading dari tutor ikut selesai.
   if (a.subject === 'english' && a.kind === 'quest' && !a.retryOf) {
     const sks = [...new Set(items.map((it) => resolved.get(it.ref)?.skill).filter((x): x is string => !!x))].map((id) => ({ id, strand: skill(id)?.strand ?? '' }))
-    if (isReadingAttempt({ questSession: session, skills: sks })) await completeLinkedSession(tx, learnerId, date, { session: 'english-skill', subject: 'english', task: 'reading' })
+    if (isReadingAttempt({ questSession: session, skills: sks })) {
+      await completeLinkedSession(tx, learnerId, date, { session: 'english-skill', subject: 'english', task: 'reading' })
+      worldGain = { ...worldGain, stars: worldGain.stars + (await awardReadingStars(tx, learnerId, a.id, date)) }
+    }
   }
   if (a.kind === 'lesson' && items[0]) {
     const skillId = resolved.get(items[0].ref)?.skill
@@ -465,11 +499,11 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
       scoreMax,
       scoreScaled: scaled,
       xp,
-      result: { ...result, newBadges: [] },
+      result: { ...result, newBadges: [], world: worldGain, ...(bossResult ? { boss: bossResult } : {}) },
     })
     .where(eq(attempt.id, a.id))
   const newBadges = await awardBadges(tx, ctx, learner, date)
-  if (newBadges.length > 0) await tx.update(attempt).set({ result: { ...result, newBadges } }).where(eq(attempt.id, a.id))
+  if (newBadges.length > 0) await tx.update(attempt).set({ result: { ...result, newBadges, world: worldGain, ...(bossResult ? { boss: bossResult } : {}) } }).where(eq(attempt.id, a.id))
   return { redirectTo }
 }
 

@@ -8,6 +8,8 @@ import { InlineAlert } from '@/components/console/Feedback'
 import { ConsoleIcon } from '@/components/console/icons'
 import { PasswordField } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
+import { TurnstileField } from '@/components/auth/TurnstileField'
+import { PUBLIC_ROUTES } from '@/components/console/routes'
 import { AuthCard, PublicFrame } from './PublicFrame'
 
 /**
@@ -43,7 +45,7 @@ export function LoginScreen(props: LoginScreenProps) {
       {mode === 'login' ? (
         <LoginForm {...props} email={email} setEmail={setEmail} onForgot={() => setMode('forgot')} />
       ) : (
-        <ForgotForm requestReset={props.requestReset} email={email} setEmail={setEmail} onBack={() => setMode('login')} />
+        <ForgotForm requestReset={props.requestReset} turnstileSiteKey={props.turnstileSiteKey} email={email} setEmail={setEmail} onBack={() => setMode('login')} />
       )}
     </PublicFrame>
   )
@@ -55,11 +57,17 @@ function LoginForm({
   passwordLogin,
   passkeyLogin,
   passkeySupported,
+  turnstileSiteKey,
+  resendVerification,
   email,
   setEmail,
   onForgot,
 }: LoginScreenProps & { email: string; setEmail: (v: string) => void; onForgot: () => void }) {
   const [password, setPassword] = useState('')
+  const [captcha, setCaptcha] = useState<string | null>(null)
+  const [captchaKey, setCaptchaKey] = useState(0)
+  const [resent, setResent] = useState(false)
+  const resend = useAction(resendVerification ?? (async () => ({ ok: true as const, data: undefined })))
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({})
   const login = useAction(passwordLogin)
   const passkey = useAction(passkeyLogin)
@@ -79,9 +87,16 @@ function LoginForm({
       return
     }
     passkey.reset()
-    const r = await login.run({ email: em, password, next })
+    if (turnstileSiteKey && !captcha) {
+      setErrors({ password: 'Selesaikan pemeriksaan keamanan di bawah dulu.' })
+      return
+    }
+    const r = await login.run({ email: em, password, next, ...(captcha ? { turnstile: captcha } : {}) })
     if (r.ok) go(r.data.redirectTo)
-    else window.setTimeout(() => alertRef.current?.focus(), 0)
+    else {
+      setCaptchaKey((k) => k + 1)
+      window.setTimeout(() => alertRef.current?.focus(), 0)
+    }
   }
 
   async function withPasskey() {
@@ -109,7 +124,26 @@ function LoginForm({
       {failure ? (
         <div ref={alertRef} tabIndex={-1} className="outline-none">
           <InlineAlert tone="danger" title={failure.message} reference={failure.reference}>
-            {login.error ? 'Cek email dan password, lalu coba lagi. Lupa password? Pakai tautan di atas kotak password.' : 'Coba lagi, atau masuk dengan email dan password.'}
+            {login.error?.fieldErrors?.unverified ? (
+              resent ? (
+                'Email konfirmasi dikirim ulang. Cek kotak masuk dan folder spam.'
+              ) : (
+                <Button
+                  variant="secondary"
+                  loading={resend.pending}
+                  onClick={async () => {
+                    const r = await resend.run({ email: email.trim(), ...(captcha ? { turnstile: captcha } : {}) })
+                    if (r.ok) setResent(true)
+                  }}
+                >
+                  Kirim ulang email konfirmasi
+                </Button>
+              )
+            ) : login.error ? (
+              'Cek email dan password, lalu coba lagi. Lupa password? Pakai tautan di atas kotak password.'
+            ) : (
+              'Coba lagi, atau masuk dengan email dan password.'
+            )}
           </InlineAlert>
         </div>
       ) : null}
@@ -150,10 +184,17 @@ function LoginForm({
             if (errors.password) setErrors((x) => ({ ...x, password: undefined }))
           }}
         />
+        <TurnstileField siteKey={turnstileSiteKey} onToken={setCaptcha} resetKey={captchaKey} />
         <Button type="submit" variant="primary" loading={login.pending} className="h-12! w-full">
           Masuk
         </Button>
       </form>
+      <p className="m-0 text-body text-fg-muted">
+        Belum punya akun?{' '}
+        <a href={PUBLIC_ROUTES.signup} className="font-bold">
+          Daftar kursi beta
+        </a>
+      </p>
       {passkeySupported ? (
         <>
           <div aria-hidden="true" className="flex items-center gap-3 text-small text-fg-muted">
@@ -172,11 +213,13 @@ function LoginForm({
 
 function ForgotForm({
   requestReset,
+  turnstileSiteKey,
   email,
   setEmail,
   onBack,
 }: {
   requestReset: LoginScreenProps['requestReset']
+  turnstileSiteKey?: string | null
   email: string
   setEmail: (v: string) => void
   onBack: () => void
@@ -184,6 +227,7 @@ function ForgotForm({
   const [error, setError] = useState<string | null>(null)
   const [sentTo, setSentTo] = useState<string | null>(null)
   const send = useAction(requestReset)
+  const [captcha, setCaptcha] = useState<string | null>(null)
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -191,7 +235,8 @@ function ForgotForm({
     if (!em) return setError('Isi email akun Kira.')
     if (!EMAIL_RE.test(em)) return setError('Tulis alamat email lengkap, dengan @ dan nama domain.')
     setError(null)
-    const r = await send.run(em)
+    if (turnstileSiteKey && !captcha) return setError('Selesaikan pemeriksaan keamanan di bawah dulu.')
+    const r = await send.run(em, captcha ?? undefined)
     if (r.ok) setSentTo(em)
   }
 
@@ -227,6 +272,7 @@ function ForgotForm({
               if (error) setError(null)
             }}
           />
+          <TurnstileField siteKey={turnstileSiteKey} onToken={setCaptcha} />
           {send.error ? (
             <InlineAlert tone="danger" title={send.error.message} reference={send.error.reference}>
               Coba lagi dalam beberapa menit.

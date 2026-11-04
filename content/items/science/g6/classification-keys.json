@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "In science, what is a key used for?",
       "options": [
-        { "text": "to identify a living thing by answering questions about its features" },
-        { "text": "to open the lock on an animal's cage", "why": "In science, a key is a set of questions, not a key for a lock." },
-        { "text": "to measure the size of an animal", "why": "A ruler measures size. A key helps you name a living thing." },
-        { "text": "to count the animals in a habitat", "why": "Counting animals is a survey. A key helps you identify them." }
+        {
+          "text": "to identify a living thing by answering questions about its features"
+        },
+        {
+          "text": "to open the lock on an animal's cage",
+          "why": "In science, a key is a set of questions, not a key for a lock."
+        },
+        {
+          "text": "to measure the size of an animal",
+          "why": "A ruler measures size. A key helps you name a living thing."
+        },
+        {
+          "text": "to count the animals in a habitat",
+          "why": "Counting animals is a survey. A key helps you identify them."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -30,19 +41,46 @@
       "figure": {
         "kind": "table",
         "caption": "A key to four small animals",
-        "head": ["Question", "If yes", "If no"],
+        "head": [
+          "Question",
+          "If yes",
+          "If no"
+        ],
         "rows": [
-          ["1. Does it have legs?", "go to 2", "snail"],
-          ["2. Does it have 8 legs?", "spider", "go to 3"],
-          ["3. Does it have wings?", "bee", "ant"]
+          [
+            "1. Does it have legs?",
+            "go to 2",
+            "snail"
+          ],
+          [
+            "2. Does it have 8 legs?",
+            "spider",
+            "go to 3"
+          ],
+          [
+            "3. Does it have wings?",
+            "bee",
+            "ant"
+          ]
         ],
         "alt": "A key. Question 1: does it have legs? If no, it is a snail; if yes, go to question 2. Question 2: does it have 8 legs? If yes, it is a spider; if no, go to question 3. Question 3: does it have wings? If yes, it is a bee; if no, it is an ant."
       },
       "options": [
-        { "text": "bee", "why": "A bee has wings." },
-        { "text": "spider", "why": "A spider has 8 legs." },
-        { "text": "snail", "why": "A snail has no legs." },
-        { "text": "ant" }
+        {
+          "text": "bee",
+          "why": "A bee has wings."
+        },
+        {
+          "text": "spider",
+          "why": "A spider has 8 legs."
+        },
+        {
+          "text": "snail",
+          "why": "A snail has no legs."
+        },
+        {
+          "text": "ant"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -61,15 +99,38 @@
       "figure": {
         "kind": "table",
         "caption": "A key to four small animals",
-        "head": ["Question", "If yes", "If no"],
+        "head": [
+          "Question",
+          "If yes",
+          "If no"
+        ],
         "rows": [
-          ["1. Does it have legs?", "go to 2", "snail"],
-          ["2. Does it have 8 legs?", "spider", "go to 3"],
-          ["3. Does it have wings?", "bee", "ant"]
+          [
+            "1. Does it have legs?",
+            "go to 2",
+            "snail"
+          ],
+          [
+            "2. Does it have 8 legs?",
+            "spider",
+            "go to 3"
+          ],
+          [
+            "3. Does it have wings?",
+            "bee",
+            "ant"
+          ]
         ],
         "alt": "A key. Question 1: does it have legs? If no, it is a snail; if yes, go to question 2. Question 2: does it have 8 legs? If yes, it is a spider; if no, go to question 3. Question 3: does it have wings? If yes, it is a bee; if no, it is an ant."
       },
-      "blanks": [{ "answers": ["bee", "a bee"] }],
+      "blanks": [
+        {
+          "answers": [
+            "bee",
+            "a bee"
+          ]
+        }
+      ],
       "hints": [
         "Follow the key from question 1 and answer yes or no each time.",
         "Having legs takes you to question 2. Not having 8 legs takes you to question 3.",
@@ -83,17 +144,48 @@
       "type": "sort",
       "difficulty": 3,
       "prompt": "Sort these living things into plants, animals and fungi.",
-      "groups": ["Plant", "Animal", "Fungus"],
+      "groups": [
+        "Plant",
+        "Animal",
+        "Fungus"
+      ],
       "items": [
-        { "text": "fern", "group": 0 },
-        { "text": "moss", "group": 0 },
-        { "text": "coconut palm", "group": 0 },
-        { "text": "coral", "group": 1 },
-        { "text": "sea sponge", "group": 1 },
-        { "text": "jellyfish", "group": 1 },
-        { "text": "mushroom", "group": 2 },
-        { "text": "bread mould", "group": 2 },
-        { "text": "yeast", "group": 2 }
+        {
+          "text": "fern",
+          "group": 0
+        },
+        {
+          "text": "moss",
+          "group": 0
+        },
+        {
+          "text": "coconut palm",
+          "group": 0
+        },
+        {
+          "text": "coral",
+          "group": 1
+        },
+        {
+          "text": "sea sponge",
+          "group": 1
+        },
+        {
+          "text": "jellyfish",
+          "group": 1
+        },
+        {
+          "text": "mushroom",
+          "group": 2
+        },
+        {
+          "text": "bread mould",
+          "group": 2
+        },
+        {
+          "text": "yeast",
+          "group": 2
+        }
       ],
       "hints": [
         "Plants make their own food. Animals and fungi cannot.",
@@ -101,7 +193,10 @@
         "Start with the ones that are green and make food in sunlight."
       ],
       "explanation": "Ferns, mosses and palms are plants because they make their own food. Mushrooms, mould and yeast are fungi, and corals, sponges and jellyfish are animals, even though they stay fixed or drift.",
-      "tags": ["iksc", "checkpoint"]
+      "tags": [
+        "iksc",
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.classification-keys.005",
@@ -110,10 +205,21 @@
       "difficulty": 2,
       "prompt": "Which question is best for a branching key?",
       "options": [
-        { "text": "Is it pretty?", "why": "People disagree about what is pretty. Key questions need answers that everyone agrees on." },
-        { "text": "Is it big?", "why": "Big compared with what? Use features you can check, such as legs or wings." },
-        { "text": "Does it have feathers?" },
-        { "text": "Is it dangerous?", "why": "Danger is a matter of opinion. Use a feature you can see." }
+        {
+          "text": "Is it pretty?",
+          "why": "People disagree about what is pretty. Key questions need answers that everyone agrees on."
+        },
+        {
+          "text": "Is it big?",
+          "why": "Big compared with what? Use features you can check, such as legs or wings."
+        },
+        {
+          "text": "Does it have feathers?"
+        },
+        {
+          "text": "Is it dangerous?",
+          "why": "Danger is a matter of opinion. Use a feature you can see."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -122,7 +228,9 @@
         "Cross out the questions that depend on someone's opinion."
       ],
       "explanation": "A good key question is about a feature anyone can check, such as feathers, legs or wings. Questions about being pretty, big or dangerous depend on opinion.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.classification-keys.006",
@@ -131,10 +239,21 @@
       "difficulty": 3,
       "prompt": "Why are mushrooms not classified as plants?",
       "options": [
-        { "text": "They grow in dark places.", "why": "Some plants grow in shade too. The main difference is how they get their food." },
-        { "text": "They cannot make their own food by photosynthesis." },
-        { "text": "They are too small.", "why": "Some mushrooms are bigger than many plants." },
-        { "text": "They do not need water.", "why": "Fungi need water to grow." }
+        {
+          "text": "They grow in dark places.",
+          "why": "Some plants grow in shade too. The main difference is how they get their food."
+        },
+        {
+          "text": "They cannot make their own food by photosynthesis."
+        },
+        {
+          "text": "They are too small.",
+          "why": "Some mushrooms are bigger than many plants."
+        },
+        {
+          "text": "They do not need water.",
+          "why": "Fungi need water to grow."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -143,7 +262,9 @@
         "Ask how a mushroom could get food without catching light."
       ],
       "explanation": "Fungi such as mushrooms have no chlorophyll, so they cannot make food by photosynthesis. They feed by soaking up food from dead or living things around them.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s6.classification-keys.007",
@@ -154,19 +275,46 @@
       "figure": {
         "kind": "table",
         "caption": "A key to plant groups",
-        "head": ["Question", "If yes", "If no"],
+        "head": [
+          "Question",
+          "If yes",
+          "If no"
+        ],
         "rows": [
-          ["1. Does it have flowers?", "flowering plant", "go to 2"],
-          ["2. Does it make seeds?", "conifer", "go to 3"],
-          ["3. Does it have roots and fronds?", "fern", "moss"]
+          [
+            "1. Does it have flowers?",
+            "flowering plant",
+            "go to 2"
+          ],
+          [
+            "2. Does it make seeds?",
+            "conifer",
+            "go to 3"
+          ],
+          [
+            "3. Does it have roots and fronds?",
+            "fern",
+            "moss"
+          ]
         ],
         "alt": "A key. Question 1: does it have flowers? If yes, it is a flowering plant; if no, go to question 2. Question 2: does it make seeds? If yes, it is a conifer; if no, go to question 3. Question 3: does it have roots and fronds? If yes, it is a fern; if no, it is a moss."
       },
       "options": [
-        { "text": "conifer" },
-        { "text": "flowering plant", "why": "The first question sends plants with no flowers on to question 2." },
-        { "text": "fern", "why": "Ferns do not make seeds. They make spores." },
-        { "text": "moss", "why": "Mosses are small and make spores, not seeds." }
+        {
+          "text": "conifer"
+        },
+        {
+          "text": "flowering plant",
+          "why": "The first question sends plants with no flowers on to question 2."
+        },
+        {
+          "text": "fern",
+          "why": "Ferns do not make seeds. They make spores."
+        },
+        {
+          "text": "moss",
+          "why": "Mosses are small and make spores, not seeds."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -175,7 +323,10 @@
         "Answer question 2: does the pine tree make seeds?"
       ],
       "explanation": "The pine has no flowers, so go to question 2. It makes seeds in cones, so it is a conifer.",
-      "tags": ["iksc", "checkpoint"]
+      "tags": [
+        "iksc",
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.classification-keys.008",
@@ -185,10 +336,22 @@
       "prompt": "Make a branching key to identify a frog, an eagle, a shark and a cat. Use yes or no questions about features you can see.",
       "rubric": {
         "criteria": [
-          { "label": "Every question can be answered yes or no", "points": 1 },
-          { "label": "Questions use features you can see, such as feathers or fins", "points": 2 },
-          { "label": "Each animal ends up alone at the end of a branch", "points": 2 },
-          { "label": "The key works when tested on all four animals", "points": 1 }
+          {
+            "label": "Every question can be answered yes or no",
+            "points": 1
+          },
+          {
+            "label": "Questions use features you can see, such as feathers or fins",
+            "points": 2
+          },
+          {
+            "label": "Each animal ends up alone at the end of a branch",
+            "points": 2
+          },
+          {
+            "label": "The key works when tested on all four animals",
+            "points": 1
+          }
         ]
       },
       "background": "blank",
@@ -197,7 +360,9 @@
         "Then ask a new question for each group until every animal is on its own."
       ],
       "explanation": "A good key splits the animals one clear question at a time, for example by asking about feathers or fins. Each branch ends with one animal, so the key always leads to one name.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.classification-keys.009",
@@ -206,10 +371,21 @@
       "difficulty": 5,
       "prompt": "Carl Linnaeus started the system of giving each kind of living thing a two-part scientific name. The Komodo dragon is Varanus komodoensis. The Asian water monitor is Varanus salvator. What does sharing the name Varanus tell us?",
       "options": [
-        { "text": "They live on the same island.", "why": "The first name shows a group of close relatives, not where they live." },
-        { "text": "They are the same species.", "why": "The second parts of their names are different, so they are different species." },
-        { "text": "They are close relatives in the same small group, called a genus." },
-        { "text": "They were named on the same day.", "why": "The names show how living things are related, not when they were named." }
+        {
+          "text": "They live on the same island.",
+          "why": "The first name shows a group of close relatives, not where they live."
+        },
+        {
+          "text": "They are the same species.",
+          "why": "The second parts of their names are different, so they are different species."
+        },
+        {
+          "text": "They are close relatives in the same small group, called a genus."
+        },
+        {
+          "text": "They were named on the same day.",
+          "why": "The names show how living things are related, not when they were named."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -218,7 +394,10 @@
         "Ask what it means when two living things share the first part of their names."
       ],
       "explanation": "The first part of a scientific name is the genus, a small group of closely related species. Both lizards are monitor lizards in the genus Varanus, but they are different species.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
     },
     {
       "id": "s6.classification-keys.010",
@@ -227,21 +406,1224 @@
       "difficulty": 4,
       "prompt": "A crab, a spider and an ant all belong to one big group of invertebrates. Choose all the features they share.",
       "options": [
-        { "text": "jointed legs" },
-        { "text": "a hard outer skeleton" },
-        { "text": "a body made of segments" },
-        { "text": "six legs", "why": "Only the ant has six legs. Spiders have eight and crabs have ten." },
-        { "text": "a backbone", "why": "All three are invertebrates, so none of them has a backbone." },
-        { "text": "wings", "why": "Crabs and spiders never have wings, and many ants have none." }
+        {
+          "text": "jointed legs"
+        },
+        {
+          "text": "a hard outer skeleton"
+        },
+        {
+          "text": "no bones inside the body"
+        },
+        {
+          "text": "six legs",
+          "why": "Only the ant has six legs. Spiders have eight and crabs have ten."
+        },
+        {
+          "text": "a backbone",
+          "why": "All three are invertebrates, so none of them has a backbone."
+        },
+        {
+          "text": "wings",
+          "why": "Crabs and spiders never have wings, and many ants have none."
+        }
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "hints": [
         "Look for features that every one of the three animals has.",
         "Count the legs of each animal. The numbers differ, but the legs bend in the same way.",
         "Check each feature against the crab first, then the spider, then the ant."
       ],
-      "explanation": "Crabs, spiders and ants are arthropods: they have jointed legs, a hard outer skeleton and a body in segments. The number of legs is different in each group.",
-      "tags": ["iksc"]
+      "explanation": "Crabs, spiders and ants are arthropods: they have jointed legs, a hard outer skeleton and no bones inside the body. The number of legs is different in each group.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.classification-keys.011",
+      "skill": "s6.classification-keys",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "The key names the animals. A lizard is being identified. Tap the question that tells the lizard apart from the shark.",
+      "figure": {
+        "kind": "scene",
+        "width": 440,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 10,
+            "y": 110,
+            "w": 100,
+            "h": 44,
+            "r": 8,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 137,
+            "text": "Has feathers?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 160,
+            "y": 110,
+            "w": 100,
+            "h": 44,
+            "r": 8,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 137,
+            "text": "Has fur?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 310,
+            "y": 110,
+            "w": 110,
+            "h": 44,
+            "r": 8,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 365,
+            "y": 137,
+            "text": "Has gills?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 10,
+            "y": 20,
+            "w": 100,
+            "h": 40,
+            "r": 8,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 45,
+            "text": "eagle",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 160,
+            "y": 20,
+            "w": 100,
+            "h": 40,
+            "r": 8,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 45,
+            "text": "cat",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 310,
+            "y": 20,
+            "w": 110,
+            "h": 40,
+            "r": 8,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 365,
+            "y": 45,
+            "text": "shark",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 310,
+            "y": 200,
+            "w": 110,
+            "h": 40,
+            "r": 8,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 365,
+            "y": 225,
+            "text": "lizard",
+            "size": 14
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 110,
+            "x2": 60,
+            "y2": 60,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 80,
+            "y": 90,
+            "text": "yes",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 132,
+            "x2": 160,
+            "y2": 132,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 135,
+            "y": 124,
+            "text": "no",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 210,
+            "y1": 110,
+            "x2": 210,
+            "y2": 60,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 230,
+            "y": 90,
+            "text": "yes",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 132,
+            "x2": 310,
+            "y2": 132,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 285,
+            "y": 124,
+            "text": "no",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 365,
+            "y1": 110,
+            "x2": 365,
+            "y2": 60,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 385,
+            "y": 90,
+            "text": "yes",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 365,
+            "y1": 154,
+            "x2": 365,
+            "y2": 200,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 385,
+            "y": 180,
+            "text": "no",
+            "size": 12,
+            "tone": "muted"
+          }
+        ],
+        "alt": "A branching key. Question boxes in a row read: Has feathers, Has fur, Has gills. Yes leads up to eagle, cat and shark, and a no arrow goes right to the next question. After Has gills, the no arrow goes down to lizard."
+      },
+      "regions": [
+        {
+          "label": "has feathers",
+          "x": 13.6,
+          "y": 50.8,
+          "w": 22.7,
+          "h": 16.9
+        },
+        {
+          "label": "has fur",
+          "x": 47.7,
+          "y": 50.8,
+          "w": 22.7,
+          "h": 16.9
+        },
+        {
+          "label": "has gills",
+          "x": 83,
+          "y": 50.8,
+          "w": 22.7,
+          "h": 16.9
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Follow the lizard along the arrows from the left.",
+        "The lizard and the shark are in the last two boxes.",
+        "Find the question just before the key splits them."
+      ],
+      "explanation": "Both animals pass the first two questions with no. The question Has gills? sends the shark up and the lizard down."
+    },
+    {
+      "id": "s6.classification-keys.012",
+      "skill": "s6.classification-keys",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Use the animals and the key to label the empty end boxes.",
+      "figure": {
+        "kind": "scene",
+        "width": 440,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 10,
+            "y": 110,
+            "w": 100,
+            "h": 44,
+            "r": 8,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 137,
+            "text": "Has feathers?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 160,
+            "y": 110,
+            "w": 100,
+            "h": 44,
+            "r": 8,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 137,
+            "text": "Has fur?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 310,
+            "y": 110,
+            "w": 110,
+            "h": 44,
+            "r": 8,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 365,
+            "y": 137,
+            "text": "Has gills?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 10,
+            "y": 20,
+            "w": 100,
+            "h": 40,
+            "r": 8,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 45,
+            "text": "?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 160,
+            "y": 20,
+            "w": 100,
+            "h": 40,
+            "r": 8,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 210,
+            "y": 45,
+            "text": "?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 310,
+            "y": 20,
+            "w": 110,
+            "h": 40,
+            "r": 8,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 365,
+            "y": 45,
+            "text": "?",
+            "size": 14
+          },
+          {
+            "t": "rect",
+            "x": 310,
+            "y": 200,
+            "w": 110,
+            "h": 40,
+            "r": 8,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 365,
+            "y": 225,
+            "text": "?",
+            "size": 14
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 110,
+            "x2": 60,
+            "y2": 60,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 80,
+            "y": 90,
+            "text": "yes",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 132,
+            "x2": 160,
+            "y2": 132,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 135,
+            "y": 124,
+            "text": "no",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 210,
+            "y1": 110,
+            "x2": 210,
+            "y2": 60,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 230,
+            "y": 90,
+            "text": "yes",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 132,
+            "x2": 310,
+            "y2": 132,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 285,
+            "y": 124,
+            "text": "no",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 365,
+            "y1": 110,
+            "x2": 365,
+            "y2": 60,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 385,
+            "y": 90,
+            "text": "yes",
+            "size": 12,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 365,
+            "y1": 154,
+            "x2": 365,
+            "y2": 200,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 385,
+            "y": 180,
+            "text": "no",
+            "size": 12,
+            "tone": "muted"
+          }
+        ],
+        "alt": "A branching key. Question boxes in a row read: Has feathers, Has fur, Has gills. A yes arrow goes up from each question to an empty box marked with a question mark, and a no arrow goes right to the next question. After Has gills, the no arrow goes down to a fourth empty box."
+      },
+      "labels": [
+        "eagle",
+        "cat",
+        "shark",
+        "lizard"
+      ],
+      "spots": [
+        {
+          "x": 13.6,
+          "y": 15.4
+        },
+        {
+          "x": 47.7,
+          "y": 15.4
+        },
+        {
+          "x": 83,
+          "y": 15.4
+        },
+        {
+          "x": 83,
+          "y": 84.6
+        }
+      ],
+      "extraLabels": [],
+      "hints": [
+        "Read the questions in each box first.",
+        "Feathers means a bird, and fur means a mammal.",
+        "Gills are for animals that breathe in water. Follow the no arrows to the last box."
+      ],
+      "explanation": "An eagle has feathers, a cat has fur and a shark has gills. The animal left over is the lizard."
+    },
+    {
+      "id": "s6.classification-keys.013",
+      "skill": "s6.classification-keys",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the 2 animals that are mammals.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 170,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "bat",
+            "x": 20,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 110,
+            "text": "bat",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "whale",
+            "x": 110,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 138,
+            "y": 110,
+            "text": "whale",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "shark",
+            "x": 200,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 228,
+            "y": 110,
+            "text": "shark",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "penguin",
+            "x": 290,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 318,
+            "y": 110,
+            "text": "penguin",
+            "size": 13
+          }
+        ],
+        "alt": "Four animals in a row with their names underneath: a bat, a whale, a shark and a penguin."
+      },
+      "regions": [
+        {
+          "label": "bat",
+          "x": 13.3,
+          "y": 38.2,
+          "w": 19.4,
+          "h": 58.8
+        },
+        {
+          "label": "whale",
+          "x": 38.3,
+          "y": 38.2,
+          "w": 19.4,
+          "h": 58.8
+        },
+        {
+          "label": "shark",
+          "x": 63.3,
+          "y": 38.2,
+          "w": 19.4,
+          "h": 58.8
+        },
+        {
+          "label": "penguin",
+          "x": 88.3,
+          "y": 38.2,
+          "w": 19.4,
+          "h": 58.8
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "Mammals feed their babies on milk.",
+        "A mammal has hair or fur and breathes air with lungs.",
+        "Living in the sea does not decide the group."
+      ],
+      "explanation": "Bats and whales are mammals. A bat has fur, and a whale breathes air and feeds its young milk. A shark is a fish and a penguin is a bird."
+    },
+    {
+      "id": "s6.classification-keys.014",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Use this key. 1a Has wings: go to 2. 1b No wings: go to 3. 2a Two wings: fly. 2b Four wings: bee. 3a Body in 3 parts, 6 legs: ant. 3b Body in 2 parts, 8 legs: spider. What is an animal with no wings, a body in 2 parts and 8 legs?",
+      "options": [
+        {
+          "text": "fly",
+          "why": "A fly has wings. This animal has none."
+        },
+        {
+          "text": "ant",
+          "why": "An ant has 6 legs and a body in three parts."
+        },
+        {
+          "text": "bee",
+          "why": "A bee has four wings."
+        },
+        {
+          "text": "spider"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Start at 1 and follow the numbers.",
+        "No wings sends you to question 3.",
+        "Count the legs and body parts at 3."
+      ],
+      "explanation": "No wings sends you to 3. A body in 2 parts with 8 legs matches 3b, so it is a spider."
+    },
+    {
+      "id": "s6.classification-keys.015",
+      "skill": "s6.classification-keys",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table of features.",
+      "head": [
+        "Animal",
+        "Legs",
+        "Wings"
+      ],
+      "rows": [
+        [
+          "Bee",
+          "6",
+          "yes"
+        ],
+        [
+          "Spider",
+          "",
+          "no"
+        ],
+        [
+          "Crab",
+          "10",
+          ""
+        ],
+        [
+          "Dragonfly",
+          "6",
+          "yes"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "8",
+            "eight"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "no",
+            "No",
+            "none"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about how many legs a spider has.",
+        "Crabs live in the sea, mostly walking along the bottom.",
+        "Spiders have 8, and crabs have no wings."
+      ],
+      "explanation": "A spider has 8 legs and a crab has no wings."
+    },
+    {
+      "id": "s6.classification-keys.016",
+      "skill": "s6.classification-keys",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these animals into vertebrates and invertebrates.",
+      "groups": [
+        "Vertebrates",
+        "Invertebrates"
+      ],
+      "items": [
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "snake",
+          "group": 0
+        },
+        {
+          "text": "bat",
+          "group": 0
+        },
+        {
+          "text": "shark",
+          "group": 0
+        },
+        {
+          "text": "earthworm",
+          "group": 1
+        },
+        {
+          "text": "crab",
+          "group": 1
+        },
+        {
+          "text": "jellyfish",
+          "group": 1
+        },
+        {
+          "text": "snail",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Vertebrates have a backbone.",
+        "Think of animals with a soft body and no bones.",
+        "Animals in the sea can be in either group."
+      ],
+      "explanation": "Frogs, snakes, bats and sharks have a backbone. Earthworms, crabs, jellyfish and snails do not."
+    },
+    {
+      "id": "s6.classification-keys.017",
+      "skill": "s6.classification-keys",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these steps for making a branching key in order.",
+      "items": [
+        "Choose the living things to identify",
+        "List the features of each one",
+        "Pick a feature that splits them into two groups",
+        "Write it as a yes or no question",
+        "Repeat on each group until every one has its own box"
+      ],
+      "hints": [
+        "You cannot ask a question before you know the animals.",
+        "Look for features before writing questions.",
+        "Splitting into groups comes before writing the question."
+      ],
+      "explanation": "You pick the living things, list features, find a feature that splits them, write the question, and repeat until each is named."
+    },
+    {
+      "id": "s6.classification-keys.018",
+      "skill": "s6.classification-keys",
+      "type": "match",
+      "difficulty": 4,
+      "prompt": "Match each animal to its group.",
+      "pairs": [
+        [
+          "spider",
+          "arachnid"
+        ],
+        [
+          "ant",
+          "insect"
+        ],
+        [
+          "crab",
+          "crustacean"
+        ],
+        [
+          "snail",
+          "mollusc"
+        ]
+      ],
+      "hints": [
+        "Spiders have eight legs.",
+        "Insects have six legs and three body parts.",
+        "Think about hard shells in the sea for crabs."
+      ],
+      "explanation": "Each is an invertebrate group. Spiders are arachnids, ants are insects, crabs are crustaceans and snails are molluscs."
+    },
+    {
+      "id": "s6.classification-keys.019",
+      "skill": "s6.classification-keys",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 good questions for a branching key.",
+      "options": [
+        {
+          "text": "Does it have wings?"
+        },
+        {
+          "text": "Does it have 6 legs?"
+        },
+        {
+          "text": "Is it pretty?",
+          "why": "Pretty is an opinion, so people may answer differently."
+        },
+        {
+          "text": "Is it scary?",
+          "why": "Scary depends on who is looking."
+        },
+        {
+          "text": "Is it my favourite?",
+          "why": "A favourite is a personal choice, not a feature."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "A key question must have the same answer for everyone.",
+        "You can see or count the feature.",
+        "Throw out questions about feelings."
+      ],
+      "explanation": "Having wings or six legs can be checked by anyone. Opinions like pretty or scary cannot."
+    },
+    {
+      "id": "s6.classification-keys.020",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Joko writes the key question Is it big? Why is this a poor question?",
+      "options": [
+        {
+          "text": "Because all animals are big.",
+          "why": "Animals differ in size, but big has no clear size."
+        },
+        {
+          "text": "Because big is not clear, so people may answer differently."
+        },
+        {
+          "text": "Because yes or no questions are not allowed.",
+          "why": "Keys use yes or no questions."
+        },
+        {
+          "text": "Because only plants can be big.",
+          "why": "Animals can be big too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Would a mouse and a goat both say yes?",
+        "Does everyone agree on what big means?",
+        "Look for a feature you can measure or count."
+      ],
+      "explanation": "Big depends on opinion. A better question gives a measurement or a feature that is the same for everyone."
+    },
+    {
+      "id": "s6.classification-keys.021",
+      "skill": "s6.classification-keys",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Animals that have a backbone are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vertebrates",
+            "vertebrate"
+          ]
+        }
+      ],
+      "hints": [
+        "They include fish, birds and mammals.",
+        "The word begins with the letter v.",
+        "Bones in the back are called vertebrae."
+      ],
+      "explanation": "Animals with a backbone are called vertebrates."
+    },
+    {
+      "id": "s6.classification-keys.022",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The table shows four leaves. Which pair of answers leads to leaf C?",
+      "options": [
+        {
+          "text": "Edge smooth, shape oval",
+          "why": "That describes leaf A."
+        },
+        {
+          "text": "Edge toothed, shape long",
+          "why": "That describes leaf D."
+        },
+        {
+          "text": "Edge toothed, shape oval"
+        },
+        {
+          "text": "Edge smooth, shape long",
+          "why": "That describes leaf B."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find leaf C in the table.",
+        "Read both features in its row.",
+        "Match both features to an option."
+      ],
+      "explanation": "Leaf C has a toothed edge and an oval shape.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Leaf",
+          "Edge",
+          "Shape"
+        ],
+        "rows": [
+          [
+            "A",
+            "smooth",
+            "oval"
+          ],
+          [
+            "B",
+            "smooth",
+            "long"
+          ],
+          [
+            "C",
+            "toothed",
+            "oval"
+          ],
+          [
+            "D",
+            "toothed",
+            "long"
+          ]
+        ],
+        "alt": "Table of four leaves. A is smooth and oval, B is smooth and long, C is toothed and oval, D is toothed and long."
+      }
+    },
+    {
+      "id": "s6.classification-keys.023",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Use this key. 1a Makes flowers: flowering plant. 1b No flowers: go to 2. 2a Seeds in cones: conifer. 2b No seeds, makes spores: go to 3. 3a Large feathery fronds: fern. 3b Tiny, soft, no true roots: moss. A plant in a damp, shady wall has no flowers or cones. It makes spores and is tiny, soft and has no true roots. What is it?",
+      "options": [
+        {
+          "text": "flowering plant",
+          "why": "It would have flowers."
+        },
+        {
+          "text": "conifer",
+          "why": "It would have cones."
+        },
+        {
+          "text": "fern",
+          "why": "A fern has large feathery fronds."
+        },
+        {
+          "text": "moss"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Start at 1 and follow the numbers.",
+        "No flowers sends you to 2.",
+        "Spores take you to 3, then compare size."
+      ],
+      "explanation": "No flowers, no cones, spores, and tiny with no true roots leads to moss."
+    },
+    {
+      "id": "s6.classification-keys.024",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Sekar makes a key for a bat, a hawk and a cat. Her first question is Has wings? Yes leads to hawk and bat, and no leads to cat. What is the main problem when she names the animals after that?",
+      "options": [
+        {
+          "text": "A cat should be in the yes box.",
+          "why": "Cats do not have wings."
+        },
+        {
+          "text": "Hawks and bats both have wings, so she needs another question to separate them, such as Has feathers?"
+        },
+        {
+          "text": "Wings only count for birds.",
+          "why": "Bats are mammals with wings, so wings are not only for birds."
+        },
+        {
+          "text": "The key must start with the cat.",
+          "why": "A key can start with any good question."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which two animals end up together?",
+        "What differs between a bat and a hawk?",
+        "Think of a feature only one has."
+      ],
+      "explanation": "Wings do not separate hawk from bat. She needs a second question such as Has feathers?, as bats have fur."
+    },
+    {
+      "id": "s6.classification-keys.025",
+      "skill": "s6.classification-keys",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A branching key uses questions with ___ possible answers. The questions are about features you can ___. The last box on each branch gives the ___ of the living thing.",
+      "gaps": [
+        {
+          "options": [
+            "five",
+            "two",
+            "ten"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "see or count",
+            "guess",
+            "dream"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "name",
+            "price",
+            "age"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Think about yes or no.",
+        "Features must be easy to check.",
+        "What do you want from the key at the end?"
+      ],
+      "explanation": "Each key question has two answers, uses features anyone can check, and ends with the name of the living thing."
+    },
+    {
+      "id": "s6.classification-keys.801",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A branching key uses questions to sort living things into groups.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does each question do?",
+        "Think of a tree with branches.",
+        "Questions make branches."
+      ],
+      "explanation": "Each question splits the group into two paths, so you eventually identify the organism.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.classification-keys.802",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The questions in a good key can have answers that are a matter of opinion.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can everybody agree on the answer?",
+        "Is pretty measurable?",
+        "Use features you can check."
+      ],
+      "explanation": "Key questions must have clear yes or no answers, such as has wings, not opinions like pretty.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.classification-keys.803",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A key question like Does it have six legs? can help to identify insects.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many legs does an insect have?",
+        "Spiders have eight.",
+        "Six legs is a feature."
+      ],
+      "explanation": "Insects have six legs, so the answer divides insects from other arthropods like spiders.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.classification-keys.804",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The first question in a key should only fit one living thing.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is the start of the key?",
+        "Do keys begin narrow or wide?",
+        "First questions are broad."
+      ],
+      "explanation": "The first question splits the whole group into two big sets. Questions get narrower along the way.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -1,0 +1,177 @@
+{
+  "skill": "m5.ratio-proportion",
+  "items": [
+    {
+      "id": "m5.ratio-proportion.001",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 3,
+      "prompt": "A recipe for sweet tea uses 2 spoons of sugar for every 5 cups of tea. How many spoons of sugar are needed for 35 cups of tea?",
+      "hints": [
+        "Find how many groups of 5 cups are in 35 cups.",
+        "35 ÷ 5 = 7 groups.",
+        "Each group needs 2 spoons."
+      ],
+      "explanation": "35 cups is 7 groups of 5 cups. Each group needs 2 spoons, so 7 × 2 = 14 spoons.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 14
+    },
+    {
+      "id": "m5.ratio-proportion.002",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 4,
+      "prompt": "Blue and white paint are mixed in the ratio 3 : 5 to make 40 litres. How many more litres of white paint than blue paint are used?",
+      "hints": [
+        "The ratio has 3 + 5 parts altogether.",
+        "Find the litres in one part.",
+        "The difference is 2 parts."
+      ],
+      "explanation": "3 + 5 = 8 parts, so one part is 40 ÷ 8 = 5 litres. White is 25 litres, blue is 15 litres, and the difference is 10 litres.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 10
+    },
+    {
+      "id": "m5.ratio-proportion.003",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 3,
+      "prompt": "Ali and Bea share Rp84.000 in the ratio 4 : 3. How much does Bea get?",
+      "hints": [
+        "Add the parts of the ratio first.",
+        "4 + 3 = 7 equal parts.",
+        "Find one part, then multiply by Bea's 3 parts."
+      ],
+      "explanation": "4 + 3 = 7 parts. One part is 84,000 ÷ 7 = 12,000. Bea gets 3 × 12,000 = Rp36.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rp36.000"
+        },
+        {
+          "text": "Rp48.000",
+          "why": "This is Ali's share. Bea has the smaller part."
+        },
+        {
+          "text": "Rp21.000",
+          "why": "This is one quarter of the money. Bea has 3 of the 7 parts."
+        },
+        {
+          "text": "Rp12.000",
+          "why": "This is one part. Bea has 3 parts."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.ratio-proportion.801",
+      "skill": "m5.ratio-proportion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If the ratio of red to blue counters is 2 : 3 and there are 10 red, there are 15 blue.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the value of 1 part.",
+        "10 ÷ 2.",
+        "3 × 5."
+      ],
+      "explanation": "2 parts = 10, so 1 part = 5. Blue is 3 parts = 15.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.ratio-proportion.802",
+      "skill": "m5.ratio-proportion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If 3 pens cost Rp 9,000, then 5 pens cost Rp 12,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the price of 1 pen.",
+        "9,000 ÷ 3.",
+        "Multiply by 5."
+      ],
+      "explanation": "1 pen costs 9,000 ÷ 3 = Rp 3,000, so 5 pens cost 5 × 3,000 = Rp 15,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.ratio-proportion.701",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 3,
+      "prompt": "Red to blue is 2 : 3. There are 10 red. How many blue?",
+      "hints": [
+        "10 is 5 times 2.",
+        "Multiply the 3 by 5.",
+        "Both parts scale by the same number."
+      ],
+      "explanation": "Red goes from 2 to 10, so everything multiplies by 5. Blue is 3 × 5 = 15.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 15
+    },
+    {
+      "id": "m5.ratio-proportion.702",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 4,
+      "prompt": "A stall sells es teler. The recipe uses coconut milk and syrup in the ratio 3 : 2. The stall owner uses 15 cups of coconut milk for one big pot.",
+      "hints": [
+        "15 is 5 times 3.",
+        "Add the coconut milk and syrup.",
+        "40 splits into 5 equal parts of 8."
+      ],
+      "explanation": "Scale factor 5: syrup is 2 × 5 = 10 cups. Total 15 + 10 = 25. For 40 cups, each of the 5 parts is 8, so coconut milk is 3 × 8 = 24 cups.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many cups of syrup go into the pot?",
+          "answer": 10
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many cups of mixture are there in total?",
+          "answer": 25
+        },
+        {
+          "type": "numeric",
+          "prompt": "For a party, she wants 40 cups of mixture in the same ratio. How many cups of coconut milk does she need?",
+          "answer": 24
+        }
+      ]
+    }
+  ]
+}

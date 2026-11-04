@@ -8,10 +8,22 @@
       "difficulty": 1,
       "prompt": "Match each change of state to what happens.",
       "pairs": [
-        ["melting", "solid to liquid"],
-        ["freezing", "liquid to solid"],
-        ["evaporating", "liquid to gas"],
-        ["condensing", "gas to liquid"]
+        [
+          "melting",
+          "solid to liquid"
+        ],
+        [
+          "freezing",
+          "liquid to solid"
+        ],
+        [
+          "evaporating",
+          "liquid to gas"
+        ],
+        [
+          "condensing",
+          "gas to liquid"
+        ]
       ],
       "hints": [
         "Each change of state turns one state of matter into another.",
@@ -26,17 +38,48 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort these into solids, liquids and gases.",
-      "groups": ["Solid", "Liquid", "Gas"],
+      "groups": [
+        "Solid",
+        "Liquid",
+        "Gas"
+      ],
       "items": [
-        { "text": "ice", "group": 0 },
-        { "text": "sand", "group": 0 },
-        { "text": "wooden block", "group": 0 },
-        { "text": "honey", "group": 1 },
-        { "text": "milk", "group": 1 },
-        { "text": "cooking oil", "group": 1 },
-        { "text": "water vapour", "group": 2 },
-        { "text": "air", "group": 2 },
-        { "text": "oxygen", "group": 2 }
+        {
+          "text": "ice",
+          "group": 0
+        },
+        {
+          "text": "sand",
+          "group": 0
+        },
+        {
+          "text": "wooden block",
+          "group": 0
+        },
+        {
+          "text": "honey",
+          "group": 1
+        },
+        {
+          "text": "milk",
+          "group": 1
+        },
+        {
+          "text": "cooking oil",
+          "group": 1
+        },
+        {
+          "text": "water vapour",
+          "group": 2
+        },
+        {
+          "text": "air",
+          "group": 2
+        },
+        {
+          "text": "oxygen",
+          "group": 2
+        }
       ],
       "hints": [
         "Solids keep their shape, liquids flow and gases spread out to fill any space.",
@@ -60,10 +103,21 @@
         "alt": "A thermometer showing minus 5 degrees Celsius."
       },
       "options": [
-        { "text": "solid ice" },
-        { "text": "liquid water", "why": "Water is a liquid between 0 °C and 100 °C. This temperature is below 0 °C." },
-        { "text": "water vapour", "why": "Water vapour is a gas. At this temperature water is frozen, and it would need a lot of heat to become a gas." },
-        { "text": "boiling water", "why": "Water boils at 100 °C, not below 0 °C." }
+        {
+          "text": "solid ice"
+        },
+        {
+          "text": "liquid water",
+          "why": "Water is a liquid between 0 °C and 100 °C. This temperature is below 0 °C."
+        },
+        {
+          "text": "water vapour",
+          "why": "Water vapour is a gas. At this temperature water is frozen, and it would need a lot of heat to become a gas."
+        },
+        {
+          "text": "boiling water",
+          "why": "Water boils at 100 °C, not below 0 °C."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -93,7 +147,9 @@
         "After the Sun heats the sea, think about what happens to the water at the surface."
       ],
       "explanation": "The Sun heats the sea and water evaporates into water vapour. The vapour rises, cools and condenses into clouds, then rain falls and rivers carry the water back to the sea.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.water-cycle.005",
@@ -102,10 +158,21 @@
       "difficulty": 3,
       "prompt": "Galih takes a glass of iced tea out of the fridge. Soon the outside of the glass is covered in drops of water. Where did the water come from?",
       "options": [
-        { "text": "The tea leaked through the glass.", "why": "Glass has no holes. The drops form even on a glass that holds only ice." },
-        { "text": "The glass started to melt.", "why": "Glass melts only at very high temperatures." },
-        { "text": "Water vapour in the air cooled and condensed on the cold glass." },
-        { "text": "The ice gave off water vapour that passed through the glass.", "why": "Nothing passes through the glass. The water comes from the air around it." }
+        {
+          "text": "The tea leaked through the glass.",
+          "why": "Glass has no holes. The drops form even on a glass that holds only ice."
+        },
+        {
+          "text": "The glass started to melt.",
+          "why": "Glass melts only at very high temperatures."
+        },
+        {
+          "text": "Water vapour in the air cooled and condensed on the cold glass."
+        },
+        {
+          "text": "The ice gave off water vapour that passed through the glass.",
+          "why": "Nothing passes through the glass. The water comes from the air around it."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -114,7 +181,10 @@
         "Ask whether water could get through solid glass. If not, look outside the glass."
       ],
       "explanation": "Air contains invisible water vapour. When it touches the cold glass, it cools and condenses into drops of liquid water.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.water-cycle.006",
@@ -123,10 +193,21 @@
       "difficulty": 3,
       "prompt": "A puddle on a concrete playground dries up on a sunny day. The water never reaches 100 °C. What happened to the water?",
       "options": [
-        { "text": "It went into the air as tiny drops of liquid.", "why": "In the air, the water is a gas called water vapour, not drops of liquid." },
-        { "text": "It evaporated. Evaporation can happen below the boiling point." },
-        { "text": "It froze.", "why": "It is a sunny day, so the water is warm, not frozen." },
-        { "text": "It disappeared and no longer exists.", "why": "The water still exists as water vapour in the air." }
+        {
+          "text": "It went into the air as tiny drops of liquid.",
+          "why": "In the air, the water is a gas called water vapour, not drops of liquid."
+        },
+        {
+          "text": "It evaporated into the air as water vapour."
+        },
+        {
+          "text": "It boiled and then disappeared.",
+          "why": "The water never reached 100 °C, so it did not boil. It changed into a gas more quietly, by evaporation."
+        },
+        {
+          "text": "It disappeared and no longer exists.",
+          "why": "The water still exists as water vapour in the air."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -143,13 +224,29 @@
       "difficulty": 3,
       "prompt": "Choose all the things that help wet clothes dry faster.",
       "options": [
-        { "text": "hanging them in the sun" },
-        { "text": "hanging them where the wind blows" },
-        { "text": "spreading them out" },
-        { "text": "folding them into a pile", "why": "Folding hides most of the cloth from the air, so less water can evaporate." },
-        { "text": "keeping them in a closed cupboard", "why": "Air in a closed cupboard is still and cool, so evaporation is slow." }
+        {
+          "text": "hanging them in the sun"
+        },
+        {
+          "text": "hanging them where the wind blows"
+        },
+        {
+          "text": "spreading them out"
+        },
+        {
+          "text": "folding them into a pile",
+          "why": "Folding hides most of the cloth from the air, so less water can evaporate."
+        },
+        {
+          "text": "keeping them in a closed cupboard",
+          "why": "Air in a closed cupboard is still and cool, so evaporation is slow."
+        }
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "hints": [
         "Clothes dry when the water in them evaporates.",
         "Think about what helps a puddle disappear quickly.",
@@ -164,10 +261,21 @@
       "difficulty": 4,
       "prompt": "Why is it often cooler and rainier on the high slopes of mountains in Java?",
       "options": [
-        { "text": "Mountains make rain from their rock.", "why": "Rock does not make rain. Rain comes from water vapour that cools and condenses." },
-        { "text": "The mountain top is much nearer the Sun.", "why": "A mountain is only a few kilometres high, which makes almost no difference to the distance to the Sun." },
-        { "text": "There is more sea water on mountains.", "why": "There is no sea on a mountain. The water comes from water vapour in the air." },
-        { "text": "Rising air cools, so its water vapour condenses into clouds and rain." }
+        {
+          "text": "Mountains make rain from their rock.",
+          "why": "Rock does not make rain. Rain comes from water vapour that cools and condenses."
+        },
+        {
+          "text": "The mountain top is much nearer the Sun.",
+          "why": "A mountain is only a few kilometres high, which makes almost no difference to the distance to the Sun."
+        },
+        {
+          "text": "There is more sea water on mountains.",
+          "why": "There is no sea on a mountain. The water comes from water vapour in the air."
+        },
+        {
+          "text": "Rising air cools, so its water vapour condenses into clouds and rain."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -176,7 +284,9 @@
         "Picture moist air from the sea being pushed up a mountainside. Follow it upwards."
       ],
       "explanation": "Wind pushes moist air up the mountain, where the air is colder. The water vapour cools and condenses into clouds, which often bring rain.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.water-cycle.009",
@@ -186,10 +296,22 @@
       "prompt": "A raindrop falls on a mountain in Java. Explain how the same water could end up in a cloud again. Use the words evaporate and condense.",
       "rubric": {
         "criteria": [
-          { "label": "Describes the water flowing or collecting, such as in a river or the sea", "points": 1 },
-          { "label": "Explains that the Sun's heat makes the water evaporate", "points": 2 },
-          { "label": "Explains water vapour rising, cooling and condensing into a cloud", "points": 2 },
-          { "label": "Uses evaporate and condense correctly", "points": 1 }
+          {
+            "label": "Describes the water flowing or collecting, such as in a river or the sea",
+            "points": 1
+          },
+          {
+            "label": "Explains that the Sun's heat makes the water evaporate",
+            "points": 2
+          },
+          {
+            "label": "Explains water vapour rising, cooling and condensing into a cloud",
+            "points": 2
+          },
+          {
+            "label": "Uses evaporate and condense correctly",
+            "points": 1
+          }
         ]
       },
       "minWords": 30,
@@ -213,10 +335,21 @@
       "difficulty": 5,
       "prompt": "When a kettle boils, a white cloud appears a few centimetres above the spout. What is the white cloud?",
       "options": [
-        { "text": "water vapour, which is a white gas", "why": "Water vapour is invisible. You only see it after it condenses into tiny drops." },
-        { "text": "tiny drops of liquid water formed as water vapour cooled" },
-        { "text": "smoke from the hot kettle", "why": "Nothing is burning. The cloud is made of water." },
-        { "text": "air that has turned white from the heat", "why": "Air does not turn white when it is heated." }
+        {
+          "text": "water vapour, which is a white gas",
+          "why": "Water vapour is invisible. You only see it after it condenses into tiny drops."
+        },
+        {
+          "text": "tiny drops of liquid water formed as water vapour cooled"
+        },
+        {
+          "text": "smoke from the hot kettle",
+          "why": "Nothing is burning. The cloud is made of water."
+        },
+        {
+          "text": "air that has turned white from the heat",
+          "why": "Air does not turn white when it is heated."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -225,7 +358,1305 @@
         "Ask what happens to water vapour as it leaves the spout and meets cooler air."
       ],
       "explanation": "Water vapour is invisible, which is why there is a clear gap at the spout. As the vapour meets cooler air, it condenses into tiny drops of liquid water that make the white cloud.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.water-cycle.011",
+      "skill": "s5.water-cycle",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the water cycle.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 180,
+            "w": 190,
+            "h": 60,
+            "r": 0,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                190,
+                240
+              ],
+              [
+                190,
+                170
+              ],
+              [
+                250,
+                80
+              ],
+              [
+                320,
+                110
+              ],
+              [
+                320,
+                240
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 8,
+            "y": 8,
+            "size": 44
+          },
+          {
+            "t": "icon",
+            "icon": "cloud",
+            "x": 180,
+            "y": 20,
+            "size": 56
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 175,
+            "x2": 50,
+            "y2": 120,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                44,
+                128
+              ],
+              [
+                50,
+                116
+              ],
+              [
+                56,
+                128
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 95,
+            "y1": 175,
+            "x2": 95,
+            "y2": 130,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                89,
+                138
+              ],
+              [
+                95,
+                126
+              ],
+              [
+                101,
+                138
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 90,
+            "x2": 196,
+            "y2": 118,
+            "tone": "science",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 212,
+            "y1": 92,
+            "x2": 208,
+            "y2": 120,
+            "tone": "science",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 224,
+            "y1": 90,
+            "x2": 220,
+            "y2": 118,
+            "tone": "science",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 236,
+            "y1": 102,
+            "x2": 203,
+            "y2": 172,
+            "tone": "science",
+            "width": 4
+          }
+        ],
+        "alt": "A sea on the left, a mountain on the right, a sun in the corner and a cloud above the mountain slope. Arrows point up from the sea, rain falls from the cloud and a river runs down the mountain to the sea."
+      },
+      "labels": [
+        "evaporation",
+        "condensation",
+        "precipitation",
+        "run-off"
+      ],
+      "spots": [
+        {
+          "x": 15.6,
+          "y": 60.4
+        },
+        {
+          "x": 65,
+          "y": 20
+        },
+        {
+          "x": 64.1,
+          "y": 41.7
+        },
+        {
+          "x": 64.1,
+          "y": 68.8
+        }
+      ],
+      "extraLabels": [
+        "melting"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "Arrows pointing up from the sea show water rising as a gas.",
+        "Water falling from the cloud is the third stage."
+      ],
+      "explanation": "Water evaporates from the sea, condenses into a cloud, falls as precipitation and runs back to the sea as run-off."
+    },
+    {
+      "id": "s5.water-cycle.012",
+      "skill": "s5.water-cycle",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the place where water vapour cools and turns into tiny drops of liquid water.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 180,
+            "w": 190,
+            "h": 60,
+            "r": 0,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                190,
+                240
+              ],
+              [
+                190,
+                170
+              ],
+              [
+                250,
+                80
+              ],
+              [
+                320,
+                110
+              ],
+              [
+                320,
+                240
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 8,
+            "y": 8,
+            "size": 44
+          },
+          {
+            "t": "icon",
+            "icon": "cloud",
+            "x": 180,
+            "y": 20,
+            "size": 56
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 175,
+            "x2": 50,
+            "y2": 120,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                44,
+                128
+              ],
+              [
+                50,
+                116
+              ],
+              [
+                56,
+                128
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 95,
+            "y1": 175,
+            "x2": 95,
+            "y2": 130,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                89,
+                138
+              ],
+              [
+                95,
+                126
+              ],
+              [
+                101,
+                138
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 90,
+            "x2": 196,
+            "y2": 118,
+            "tone": "science",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 212,
+            "y1": 92,
+            "x2": 208,
+            "y2": 120,
+            "tone": "science",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 224,
+            "y1": 90,
+            "x2": 220,
+            "y2": 118,
+            "tone": "science",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 236,
+            "y1": 102,
+            "x2": 203,
+            "y2": 172,
+            "tone": "science",
+            "width": 4
+          }
+        ],
+        "alt": "A sea on the left, a mountain on the right, a sun in the corner and a cloud above the mountain slope. Arrows point up from the sea, rain falls from the cloud and a river runs down the mountain to the sea."
+      },
+      "regions": [
+        {
+          "label": "sun",
+          "x": 9.4,
+          "y": 12.5,
+          "w": 13.8,
+          "h": 18.3
+        },
+        {
+          "label": "sea",
+          "x": 29.7,
+          "y": 87.5,
+          "w": 46.9,
+          "h": 20.8
+        },
+        {
+          "label": "cloud",
+          "x": 65,
+          "y": 20,
+          "w": 18.8,
+          "h": 20.8
+        },
+        {
+          "label": "mountain",
+          "x": 85.9,
+          "y": 70.8,
+          "w": 21.9,
+          "h": 37.5
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "The change from gas to liquid is condensation.",
+        "Water vapour must cool before it condenses.",
+        "Look at the high, cold part of the sky."
+      ],
+      "explanation": "Water vapour rises, cools and condenses into tiny drops. The drops gather to make a cloud."
+    },
+    {
+      "id": "s5.water-cycle.013",
+      "skill": "s5.water-cycle",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Four identical puddles are set up. Tap the puddle that will dry up first.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 5,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 165,
+            "y": 5,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 125,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 165,
+            "y": 125,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "icon",
+            "icon": "puddle",
+            "x": 55,
+            "y": 35,
+            "size": 50
+          },
+          {
+            "t": "icon",
+            "icon": "puddle",
+            "x": 215,
+            "y": 35,
+            "size": 50
+          },
+          {
+            "t": "icon",
+            "icon": "puddle",
+            "x": 55,
+            "y": 155,
+            "size": 50
+          },
+          {
+            "t": "icon",
+            "icon": "puddle",
+            "x": 215,
+            "y": 155,
+            "size": 50
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 272,
+            "y": 10,
+            "size": 36
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 272,
+            "y": 130,
+            "size": 36
+          },
+          {
+            "t": "icon",
+            "icon": "wind",
+            "x": 112,
+            "y": 130,
+            "size": 36
+          },
+          {
+            "t": "text",
+            "x": 80,
+            "y": 104,
+            "text": "Shade, still air",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 240,
+            "y": 104,
+            "text": "Sun, still air",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 80,
+            "y": 224,
+            "text": "Shade, windy",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 240,
+            "y": 224,
+            "text": "Sun, windy",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "icon",
+            "icon": "wind",
+            "x": 172,
+            "y": 130,
+            "size": 36
+          }
+        ],
+        "alt": "Four boxes each hold an identical puddle. Top left: shade and still air. Top right: sun and still air. Bottom left: shade and wind. Bottom right: sun and wind."
+      },
+      "regions": [
+        {
+          "label": "shade still",
+          "x": 25,
+          "y": 25,
+          "w": 43.8,
+          "h": 41.7
+        },
+        {
+          "label": "sun still",
+          "x": 75,
+          "y": 25,
+          "w": 43.8,
+          "h": 41.7
+        },
+        {
+          "label": "shade windy",
+          "x": 25,
+          "y": 75,
+          "w": 43.8,
+          "h": 41.7
+        },
+        {
+          "label": "sun windy",
+          "x": 75,
+          "y": 75,
+          "w": 43.8,
+          "h": 41.7
+        }
+      ],
+      "answers": [
+        3
+      ],
+      "hints": [
+        "Warmth and moving air both speed up evaporation.",
+        "Look for the box that has both helpers.",
+        "Read the label in each box."
+      ],
+      "explanation": "Heat and wind both make water evaporate faster. The puddle in the sun with wind has both."
+    },
+    {
+      "id": "s5.water-cycle.014",
+      "skill": "s5.water-cycle",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Rani puts 40 ml of water in each dish for two days. Work out the water lost and complete the table.",
+      "head": [
+        "Dish",
+        "Temp (°C)",
+        "Start (ml)",
+        "After 2 days (ml)",
+        "Water lost (ml)"
+      ],
+      "rows": [
+        [
+          "A",
+          "20",
+          "40",
+          "34",
+          "6"
+        ],
+        [
+          "B",
+          "30",
+          "40",
+          "26",
+          ""
+        ],
+        [
+          "C",
+          "40",
+          "40",
+          "20",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 4,
+          "answers": [
+            "14"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "answers": [
+            "20"
+          ]
+        }
+      ],
+      "hints": [
+        "Water lost is the start amount take away the amount left.",
+        "Subtract for each row. Dish A is done for you.",
+        "Dish B: start at 40 ml and subtract 26 ml."
+      ],
+      "explanation": "Dish B lost 40 - 26 = 14 ml and dish C lost 40 - 20 = 20 ml. Warmer dishes lost more water."
+    },
+    {
+      "id": "s5.water-cycle.015",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The bar chart shows the rainfall in a town. Which statement is supported by the data?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
+        "values": [
+          3,
+          2,
+          5,
+          11,
+          18,
+          24
+        ],
+        "axisMax": 24,
+        "step": 4,
+        "yLabel": "Rain (cm)",
+        "tone": "science",
+        "alt": "Bar chart of rain in cm each month: July 3, August 2, September 5, October 11, November 18, December 24."
+      },
+      "options": [
+        {
+          "text": "July was the wettest month.",
+          "why": "July was only 3 cm. Check which bar is tallest."
+        },
+        {
+          "text": "December had less rain than November.",
+          "why": "Compare the two bars again. December is taller."
+        },
+        {
+          "text": "Rainfall rose every month from August to December."
+        },
+        {
+          "text": "Rainfall was the same in August and September.",
+          "why": "August is 2 cm and September is 5 cm. They are different."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read the height of each bar carefully.",
+        "Compare each bar with the one before it.",
+        "Check August, September, October, November and December in turn."
+      ],
+      "explanation": "The bars are 2, 5, 11, 18 and 24 cm from August to December, so each month is wetter than the last."
+    },
+    {
+      "id": "s5.water-cycle.016",
+      "skill": "s5.water-cycle",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Use the bar chart. How many centimetres of rain fell in October, November and December together?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
+        "values": [
+          3,
+          2,
+          5,
+          11,
+          18,
+          24
+        ],
+        "axisMax": 24,
+        "step": 4,
+        "yLabel": "Rain (cm)",
+        "tone": "science",
+        "alt": "Bar chart of rain in cm each month: July 3, August 2, September 5, October 11, November 18, December 24."
+      },
+      "answer": 53,
+      "unit": "cm",
+      "hints": [
+        "Read the three bars you need.",
+        "Add the three heights.",
+        "October is 11 cm. Add the next two bars to it."
+      ],
+      "explanation": "11 + 18 + 24 = 53 cm of rain in the three months."
+    },
+    {
+      "id": "s5.water-cycle.017",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Hadi heats a pan of water and records its temperature. What is happening to the water between 4 and 6 minutes?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Time (min)",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "0",
+            "20"
+          ],
+          [
+            "1",
+            "40"
+          ],
+          [
+            "2",
+            "60"
+          ],
+          [
+            "3",
+            "80"
+          ],
+          [
+            "4",
+            "100"
+          ],
+          [
+            "5",
+            "100"
+          ],
+          [
+            "6",
+            "100"
+          ]
+        ],
+        "alt": "Table of water temperature while heated: 20, 40, 60, 80 at minutes 0 to 3, then 100 degrees Celsius at minutes 4, 5 and 6."
+      },
+      "options": [
+        {
+          "text": "It is boiling and changing into water vapour at 100 °C."
+        },
+        {
+          "text": "Nothing is happening because the temperature stays the same.",
+          "why": "The temperature stopped rising, but the water is still changing state."
+        },
+        {
+          "text": "It is freezing into ice.",
+          "why": "Freezing happens when water cools, not when it is heated."
+        },
+        {
+          "text": "It is condensing into tiny drops.",
+          "why": "Condensing is gas turning to liquid. The pan is being heated."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the temperature numbers from minute 4.",
+        "Water cannot get hotter than its boiling point as a liquid.",
+        "What state change happens to water at 100 °C?"
+      ],
+      "explanation": "At 100 °C the heat makes the liquid water boil and change into water vapour, so the temperature stays steady."
+    },
+    {
+      "id": "s5.water-cycle.018",
+      "skill": "s5.water-cycle",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these events in order to show how water from a puddle could end up as rain.",
+      "items": [
+        "The Sun warms the puddle.",
+        "Liquid water evaporates into water vapour.",
+        "The vapour rises and cools.",
+        "The vapour condenses into tiny drops that make a cloud.",
+        "Drops join together and fall as rain."
+      ],
+      "hints": [
+        "The Sun starts the whole process.",
+        "Think: warm, gas, cool, drops, fall.",
+        "The first step is the Sun warming the puddle."
+      ],
+      "explanation": "Heat makes water evaporate. The vapour cools, condenses into a cloud and falls as rain."
+    },
+    {
+      "id": "s5.water-cycle.019",
+      "skill": "s5.water-cycle",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each everyday event to the process that explains it.",
+      "pairs": [
+        [
+          "Wet footprints vanish from hot paving",
+          "evaporation"
+        ],
+        [
+          "A bathroom mirror mists up",
+          "condensation"
+        ],
+        [
+          "Hailstones fall from a storm cloud",
+          "precipitation"
+        ],
+        [
+          "Water flows from a river into the sea",
+          "run-off"
+        ]
+      ],
+      "hints": [
+        "Decide if water is turning into gas, turning into liquid or moving.",
+        "The misted mirror is cold and meets warm, damp air.",
+        "Falling rain, snow and hail have a special name."
+      ],
+      "explanation": "Drying is evaporation, misting is condensation, hail is precipitation and flowing water back to the sea is run-off."
+    },
+    {
+      "id": "s5.water-cycle.020",
+      "skill": "s5.water-cycle",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each event into evaporation or condensation.",
+      "groups": [
+        "Evaporation",
+        "Condensation"
+      ],
+      "items": [
+        {
+          "text": "A wet towel dries on a hot day",
+          "group": 0
+        },
+        {
+          "text": "Drops form on a cold drink can",
+          "group": 1
+        },
+        {
+          "text": "Dew appears on grass at dawn",
+          "group": 1
+        },
+        {
+          "text": "A pond shrinks in the dry season",
+          "group": 0
+        },
+        {
+          "text": "Windows mist up on a cold bus",
+          "group": 1
+        },
+        {
+          "text": "Wet hair dries with a hairdryer",
+          "group": 0
+        }
+      ],
+      "hints": [
+        "Evaporation: liquid becomes gas. Condensation: gas becomes liquid.",
+        "Ask if water is leaving a surface or appearing on it.",
+        "Drying means water is going into the air."
+      ],
+      "explanation": "Drying things lose liquid to the air by evaporation. Drops that appear on cool surfaces come from water vapour condensing."
+    },
+    {
+      "id": "s5.water-cycle.021",
+      "skill": "s5.water-cycle",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "When the Sun warms the sea, some water turns into an invisible gas called water ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vapour",
+            "vapor",
+            "water vapour"
+          ]
+        }
+      ],
+      "hints": [
+        "This gas is in the air around us.",
+        "You cannot see it, and it is not the white steam you can see.",
+        "It starts with the letter v."
+      ],
+      "explanation": "The gas form of water is called water vapour. It is invisible."
+    },
+    {
+      "id": "s5.water-cycle.022",
+      "skill": "s5.water-cycle",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Rain, snow, sleet and hail all fall from clouds. Together they are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "precipitation"
+          ]
+        }
+      ],
+      "hints": [
+        "It is the word for water falling from the sky.",
+        "It is a stage in the water cycle.",
+        "It begins with the letter p."
+      ],
+      "explanation": "Water that falls from clouds as rain, snow, sleet or hail is called precipitation."
+    },
+    {
+      "id": "s5.water-cycle.023",
+      "skill": "s5.water-cycle",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Water vapour is a ___. High in the sky it cools and ___ into tiny drops. The drops make ___.",
+      "gaps": [
+        {
+          "options": [
+            "gas",
+            "liquid"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "evaporates",
+            "condenses"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "clouds",
+            "puddles"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Vapour means the gas form.",
+        "Gas to liquid has a special name.",
+        "Tiny drops high in the air gather together."
+      ],
+      "explanation": "Water vapour is a gas. It condenses into tiny drops, and the drops make clouds."
+    },
+    {
+      "id": "s5.water-cycle.024",
+      "skill": "s5.water-cycle",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the true statements.",
+      "options": [
+        {
+          "text": "Water vapour is a gas."
+        },
+        {
+          "text": "You can see water vapour in the air.",
+          "why": "Water vapour is invisible. Mist and clouds are tiny drops of liquid."
+        },
+        {
+          "text": "Evaporation is faster in warm weather."
+        },
+        {
+          "text": "Condensation happens when air is heated.",
+          "why": "Condensation happens when vapour is cooled."
+        },
+        {
+          "text": "There is water vapour in the air of a dry classroom."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Check each statement on its own.",
+        "Mist you can see is made of liquid drops.",
+        "Water vapour is found in air everywhere, even if it feels dry."
+      ],
+      "explanation": "Water vapour is an invisible gas that is in all air. Warmth speeds up evaporation, and cooling causes condensation."
+    },
+    {
+      "id": "s5.water-cycle.025",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What are clouds made of?",
+      "options": [
+        {
+          "text": "Water vapour only",
+          "why": "Water vapour is an invisible gas. A cloud can be seen, so it must be something else."
+        },
+        {
+          "text": "Smoke from the ground",
+          "why": "Clouds form from water, not smoke."
+        },
+        {
+          "text": "Steam from boiling seas",
+          "why": "Seas do not boil. Water evaporates quietly from the surface."
+        },
+        {
+          "text": "Tiny drops of liquid water and ice crystals"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "You can see clouds, so think about what can be seen.",
+        "Gas is invisible.",
+        "Clouds form after condensation."
+      ],
+      "explanation": "When vapour condenses, it makes tiny liquid drops. High and cold, some freeze into ice crystals."
+    },
+    {
+      "id": "s5.water-cycle.026",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Maya seals a little water in a clear jar and leaves it in sunlight. Drops appear on the inside of the lid. Where did the water in the drops come from?",
+      "options": [
+        {
+          "text": "It leaked in through the lid from outside.",
+          "why": "The jar is sealed, so no water can get in."
+        },
+        {
+          "text": "Water in the jar evaporated, then condensed on the cooler lid."
+        },
+        {
+          "text": "The glass made new water.",
+          "why": "Glass does not make water. Water can only change state."
+        },
+        {
+          "text": "The lid is a solid, so it sweats.",
+          "why": "A lid does not sweat. The drops came from the jar water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The jar is closed, so think about what is inside it.",
+        "Which change happens in sunlight, and which at the cooler lid?",
+        "Gas to liquid is the last step."
+      ],
+      "explanation": "The sealed jar is a tiny water cycle. Water evaporates, then the vapour cools at the lid and condenses."
+    },
+    {
+      "id": "s5.water-cycle.027",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Yuki puts salty water in a bowl and covers it with clear plastic that slopes down to a small cup. She leaves it in the sun. Water collects in the cup. How does it taste?",
+      "options": [
+        {
+          "text": "Salty, because the salt evaporates with the water.",
+          "why": "Salt is a solid that does not evaporate at this temperature."
+        },
+        {
+          "text": "Very salty, because the water became more concentrated.",
+          "why": "The salt stays in the bowl, not in the cup."
+        },
+        {
+          "text": "Not salty, because only the water evaporates and the salt stays behind."
+        },
+        {
+          "text": "Sweet, because the Sun changes salt.",
+          "why": "Sunlight does not change salt into something sweet."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about which parts of the mixture can turn into a gas.",
+        "The water must evaporate, then condense under the plastic.",
+        "Where does the salt end up?"
+      ],
+      "explanation": "Water evaporates and condenses on the plastic, then drips into the cup. The salt is left in the bowl, so the water in the cup is fresh."
+    },
+    {
+      "id": "s5.water-cycle.028",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sekar puts the same amount of water in a wide dish and a tall narrow cup in the same warm room. After two days, which has lost more water, and why?",
+      "options": [
+        {
+          "text": "The wide dish, because more of the water surface is open to the air."
+        },
+        {
+          "text": "The tall cup, because the water is higher up.",
+          "why": "Height does not make water evaporate faster."
+        },
+        {
+          "text": "They lose the same, because the amounts of water were the same.",
+          "why": "The surface area matters, not only the amount."
+        },
+        {
+          "text": "The tall cup, because it holds the water in a narrow space.",
+          "why": "A narrow space slows evaporation."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Evaporation happens at the surface of the water.",
+        "Compare how much surface each container shows to the air.",
+        "A bigger surface lets more water escape."
+      ],
+      "explanation": "Evaporation happens at the surface, so the wide dish with more surface area loses water faster."
+    },
+    {
+      "id": "s5.water-cycle.029",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dewi sees small drops of water on the grass early in the morning. Where did the water come from?",
+      "options": [
+        {
+          "text": "The grass made the water inside its leaves.",
+          "why": "Dew forms outside the leaf from water in the air."
+        },
+        {
+          "text": "Water vapour in the air cooled at night and condensed on the cold grass."
+        },
+        {
+          "text": "It rained very lightly in the night.",
+          "why": "Dew is not rain. It forms on cold surfaces from vapour in the air."
+        },
+        {
+          "text": "The soil evaporated the water straight onto the leaves.",
+          "why": "Dew gathers on the surface it forms on, from the air."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Cold surfaces cool the air that touches them.",
+        "Which change takes a gas to a liquid?",
+        "Think of drops on a cold glass."
+      ],
+      "explanation": "The cold grass cools the air touching it, so water vapour condenses into drops of dew."
+    },
+    {
+      "id": "s5.water-cycle.801",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Water vapour is water as a gas.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What state is vapour?",
+        "You cannot see it.",
+        "It is a gas."
+      ],
+      "explanation": "When water evaporates, it becomes an invisible gas called water vapour.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.water-cycle.802",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Clouds are made of water vapour.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you see water vapour?",
+        "What forms when vapour cools?",
+        "Clouds are tiny droplets."
+      ],
+      "explanation": "Clouds are made of tiny drops of liquid water or ice crystals. Water vapour is invisible. It condenses to make the drops.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.water-cycle.803",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Condensation of water vapour in the air forms clouds.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens as air cools?",
+        "Gas to liquid.",
+        "Cooling makes cloud droplets."
+      ],
+      "explanation": "As warm moist air rises and cools, the vapour condenses into tiny water droplets that make clouds.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.water-cycle.804",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The Sun's heat makes water in the water cycle condense.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does heat make a gas or cool it?",
+        "Which change needs warmth?",
+        "Heat causes evaporation."
+      ],
+      "explanation": "The Sun's heat makes water evaporate. Cooling makes it condense.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.water-cycle.701",
+      "skill": "s5.water-cycle",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Water vapour turning back into liquid is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "condensation",
+            "condensing"
+          ]
+        }
+      ],
+      "hints": [
+        "It forms clouds.",
+        "Cold makes it happen.",
+        "It starts with cond."
+      ],
+      "explanation": "Condensation is when a gas cools and becomes a liquid.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

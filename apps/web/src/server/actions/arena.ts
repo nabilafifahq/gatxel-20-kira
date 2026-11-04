@@ -1,6 +1,7 @@
 'use server'
 
 import { z } from 'zod'
+import { throttleIp } from '../auth/ratelimit'
 import { ACCESSORY_IDS, QM_MODES, SOROBAN_STAGES, STRATEGY_IDS, MISSION_STEP_IDS } from '@kira/core'
 import { TOPIC_IDS, type KAnswer } from '@kira/content/knowledge'
 import type { AccessoryId } from '@kira/core'
@@ -58,6 +59,7 @@ export async function answerQmAction(input: { roundId: string; index: number; an
     'answerQm',
     async () => {
       const actor = await requireLearner()
+      await throttleIp('arena-answer', 600, actor.userId)
       const data = answerQm.parse(input)
       return inOrg(orgCtx(actor), (tx) => answerQmRound(tx, actor.userId, data))
     },
@@ -120,6 +122,7 @@ export async function answerQuizAction(input: { roundId: string; index: number; 
     'answerQuiz',
     async () => {
       const actor = await requireLearner()
+      await throttleIp('arena-answer', 600, actor.userId)
       const data = answerQuiz.parse(input)
       return inOrg(orgCtx(actor), (tx) => answerQuizRound(tx, actor.userId, data))
     },

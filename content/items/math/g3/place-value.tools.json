@@ -1,0 +1,220 @@
+{
+  "skill": "m3.place-value",
+  "items": [
+    {
+      "id": "m3.place-value.803",
+      "skill": "m3.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 1,
+      "prompt": "Show the number 235 with blocks.",
+      "places": "hto",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 2,
+        "t": 3,
+        "o": 5
+      },
+      "exact": false,
+      "hints": [
+        "The first digit of 235 is the hundreds.",
+        "Add 2 hundreds, then 3 tens.",
+        "Finish with 5 ones."
+      ],
+      "explanation": "235 is 2 hundreds, 3 tens and 5 ones, because 200, 30 and 5 make 235.",
+      "tags": [
+        "manipulative",
+        "blocks"
+      ]
+    },
+    {
+      "id": "m3.place-value.804",
+      "skill": "m3.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 1,
+      "prompt": "Show the number 408 with blocks.",
+      "places": "hto",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 4,
+        "t": 0,
+        "o": 8
+      },
+      "exact": false,
+      "hints": [
+        "Look at the digit in the tens place.",
+        "There are no tens in 408.",
+        "Use 4 hundreds, 0 tens and 8 ones."
+      ],
+      "explanation": "408 is 4 hundreds, 0 tens and 8 ones. The zero means no tens.",
+      "tags": [
+        "manipulative",
+        "blocks"
+      ]
+    },
+    {
+      "id": "m3.place-value.805",
+      "skill": "m3.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 2,
+      "prompt": "You have 23 tens. Trade until the number is shown with the fewest blocks.",
+      "places": "hto",
+      "start": {
+        "h": 0,
+        "t": 23,
+        "o": 0
+      },
+      "target": {
+        "h": 2,
+        "t": 3,
+        "o": 0
+      },
+      "exact": true,
+      "hints": [
+        "How many tens make one hundred?",
+        "Trade 10 tens for 1 hundred two times.",
+        "3 tens are left over."
+      ],
+      "explanation": "23 tens is 230. Two groups of 10 tens become 2 hundreds, and 3 tens are left.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m3.place-value.806",
+      "skill": "m3.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 3,
+      "prompt": "Show 300 as 2 hundreds and 10 tens by breaking a hundred.",
+      "places": "hto",
+      "start": {
+        "h": 3,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 2,
+        "t": 10,
+        "o": 0
+      },
+      "exact": true,
+      "hints": [
+        "A hundred can break into 10 tens.",
+        "Tap Break 1 into 10 tens in the hundreds column.",
+        "You should have 2 hundreds and 10 tens."
+      ],
+      "explanation": "One hundred breaks into 10 tens, so 300 is the same as 2 hundreds and 10 tens.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m3.place-value.807",
+      "skill": "m3.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 3,
+      "prompt": "Show 560 using exactly 4 hundreds.",
+      "places": "hto",
+      "start": {
+        "h": 5,
+        "t": 6,
+        "o": 0
+      },
+      "target": {
+        "h": 4,
+        "t": 16,
+        "o": 0
+      },
+      "exact": true,
+      "hints": [
+        "Give up one of the 5 hundreds.",
+        "Break 1 hundred into 10 tens.",
+        "You will have 16 tens in all."
+      ],
+      "explanation": "Breaking 1 hundred gives 10 more tens. So 560 is 4 hundreds and 16 tens.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m3.place-value.808",
+      "skill": "m3.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 4,
+      "prompt": "Start with 274. Add 58, then trade so the answer uses the fewest blocks.",
+      "places": "hto",
+      "start": {
+        "h": 2,
+        "t": 7,
+        "o": 4
+      },
+      "target": {
+        "h": 3,
+        "t": 3,
+        "o": 2
+      },
+      "exact": true,
+      "hints": [
+        "Add 5 tens and 8 ones.",
+        "You will have 12 ones and 12 tens. Trade ones first, then tens.",
+        "The answer is 3 hundreds, 3 tens and 2 ones."
+      ],
+      "explanation": "274 plus 58 is 332. After adding there are 12 tens and 12 ones. Trading gives 3 hundreds, 3 tens and 2 ones.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m3.place-value.809",
+      "skill": "m3.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 4,
+      "prompt": "Start with 412. Take away 27 by breaking blocks when you need to.",
+      "places": "hto",
+      "start": {
+        "h": 4,
+        "t": 1,
+        "o": 2
+      },
+      "target": {
+        "h": 3,
+        "t": 8,
+        "o": 5
+      },
+      "exact": true,
+      "hints": [
+        "You cannot take 7 ones from 2 ones yet.",
+        "Break a ten into ones, then break a hundred into tens.",
+        "The answer has 3 hundreds, 8 tens and 5 ones."
+      ],
+      "explanation": "412 minus 27 is 385. Breaking a ten and then a hundred gives enough ones and tens to take away.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    }
+  ]
+}

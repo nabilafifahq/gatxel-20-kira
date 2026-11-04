@@ -11,8 +11,8 @@ import { SUBJECT_NAME, SUBJECT_STYLE } from './subject'
 const SIZES = {
   L: { box: 'h-11 gap-2 pl-2 pr-4.5 border-2 text-body-lg font-bold', icon: 28 },
   M: { box: 'h-10 gap-2 pl-2 pr-3.5 border-2 text-body font-bold', icon: 24 },
-  S: { box: 'h-9 gap-2 pl-2 pr-3.5 border text-body font-bold', icon: 22 },
-  XS: { box: 'h-8 gap-1.5 pl-1.5 pr-3 border text-small font-semibold', icon: 20 },
+  S: { box: 'h-9 gap-2 pl-2 pr-3.5 border-2 text-body font-bold', icon: 22 },
+  XS: { box: 'h-8 gap-1.5 pl-1.5 pr-3 border-2 text-small font-bold', icon: 20 },
 } as const
 
 export function SubjectChip({
@@ -30,8 +30,8 @@ export function SubjectChip({
   const s = SIZES[size]
   const style = SUBJECT_STYLE[subject]
   return (
-    <span className={cx('inline-flex flex-none items-center rounded-pill text-fg whitespace-nowrap', s.box, style.tint, style.border, className)}>
-      <SubjectIcon subject={subject} size={s.icon} />
+    <span className={cx('inline-flex flex-none items-center rounded-pill bg-surface text-fg whitespace-nowrap', s.box, style.border, className)}>
+      <SubjectIcon subject={subject} size={s.icon - 4} className={cx('box-content rounded-pill p-0.5', style.solid)} />
       {label ?? SUBJECT_NAME[subject]}
     </span>
   )

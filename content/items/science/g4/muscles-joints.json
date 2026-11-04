@@ -364,6 +364,710 @@
         "The biceps is on the side that faces up when you curl your arm."
       ],
       "explanation": "The upper and lower arm bones meet at the elbow joint. The biceps is on the front of the upper arm and the triceps is on the back."
+    },
+    {
+      "id": "s4.muscles-joints.013",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is a joint?",
+      "options": [
+        {
+          "text": "thigh bone",
+          "why": "The thigh bone is a bone. A joint is where two bones meet."
+        },
+        {
+          "text": "skin",
+          "why": "Skin covers the body. It is not where bones meet."
+        },
+        {
+          "text": "knee"
+        },
+        {
+          "text": "hair",
+          "why": "Hair is not part of the skeleton."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A joint is a place where bones meet.",
+        "Look for a place where the leg bends.",
+        "Think about which part lets your leg bend."
+      ],
+      "explanation": "The knee is where the thigh bone meets the shin bone, so it is a joint."
+    },
+    {
+      "id": "s4.muscles-joints.014",
+      "skill": "s4.muscles-joints",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Muscles can only pull on bones. They can never ___ them.",
+      "blanks": [
+        {
+          "answers": [
+            "push"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what a muscle does when it contracts.",
+        "Use the opposite of pull.",
+        "It is a four letter word starting with p."
+      ],
+      "explanation": "A muscle gets shorter and pulls. It cannot push a bone away."
+    },
+    {
+      "id": "s4.muscles-joints.015",
+      "skill": "s4.muscles-joints",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "The arm bends towards the right. Label the diagram.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "ellipse",
+            "cx": 205,
+            "cy": 85,
+            "rx": 26,
+            "ry": 52,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 115,
+            "cy": 85,
+            "rx": 26,
+            "ry": 52,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 20,
+            "x2": 160,
+            "y2": 155,
+            "tone": "ink",
+            "width": 12
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 155,
+            "x2": 300,
+            "y2": 155,
+            "tone": "ink",
+            "width": 12
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 155,
+            "r": 16,
+            "tone": "star",
+            "fill": "solid"
+          }
+        ],
+        "alt": "Side view of an arm. A long bone goes down to a round yellow elbow joint, and a second bone goes out to the right. There is a muscle on each side of the upper bone. The arm is bending towards the right."
+      },
+      "labels": [
+        "biceps",
+        "triceps",
+        "elbow joint",
+        "lower arm bone"
+      ],
+      "spots": [
+        {
+          "x": 64.1,
+          "y": 35.4
+        },
+        {
+          "x": 35.9,
+          "y": 35.4
+        },
+        {
+          "x": 50,
+          "y": 64.6
+        },
+        {
+          "x": 85,
+          "y": 64.6
+        }
+      ],
+      "extraLabels": [
+        "skin"
+      ],
+      "hints": [
+        "The muscle on the inside of the bend is the biceps.",
+        "The muscle on the outside of the bend is the triceps.",
+        "The yellow circle is where two bones meet."
+      ],
+      "explanation": "The biceps is on the inside of the bend and the triceps is on the outside. The elbow is the joint between the bones."
+    },
+    {
+      "id": "s4.muscles-joints.016",
+      "skill": "s4.muscles-joints",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the muscle that contracts to bend this arm towards the right.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "ellipse",
+            "cx": 205,
+            "cy": 85,
+            "rx": 26,
+            "ry": 52,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 115,
+            "cy": 85,
+            "rx": 26,
+            "ry": 52,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 20,
+            "x2": 160,
+            "y2": 155,
+            "tone": "ink",
+            "width": 12
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 155,
+            "x2": 300,
+            "y2": 155,
+            "tone": "ink",
+            "width": 12
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 155,
+            "r": 16,
+            "tone": "star",
+            "fill": "solid"
+          }
+        ],
+        "alt": "Side view of an arm. A long bone goes down to a round yellow elbow joint, and a second bone goes out to the right. There is a muscle on each side of the upper bone. The arm is bending towards the right."
+      },
+      "regions": [
+        {
+          "label": "biceps",
+          "x": 64.1,
+          "y": 35.4,
+          "w": 20,
+          "h": 38
+        },
+        {
+          "label": "triceps",
+          "x": 35.9,
+          "y": 35.4,
+          "w": 20,
+          "h": 38
+        },
+        {
+          "label": "elbow joint",
+          "x": 50,
+          "y": 64.6,
+          "w": 14,
+          "h": 16
+        },
+        {
+          "label": "lower arm bone",
+          "x": 85,
+          "y": 64.6,
+          "w": 30,
+          "h": 14
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "The arm bends towards the right.",
+        "The muscle that bends the arm is on the inside of the bend.",
+        "This muscle is called the biceps."
+      ],
+      "explanation": "To bend the arm, the biceps on the inside of the bend contracts and pulls the lower arm up."
+    },
+    {
+      "id": "s4.muscles-joints.017",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Leo straightens his leg at the knee. The muscle at the back of his thigh relaxes. What must the muscle at the front do?",
+      "options": [
+        {
+          "text": "Contract and pull the lower leg straight"
+        },
+        {
+          "text": "Relax as well",
+          "why": "If both muscles relax, nothing pulls the bone, so the leg does not move."
+        },
+        {
+          "text": "Push the lower leg straight",
+          "why": "Muscles cannot push. They can only pull."
+        },
+        {
+          "text": "Turn into a bone",
+          "why": "Muscles stay muscles. They get shorter or longer."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Muscles work in pairs.",
+        "One relaxes while the other does the opposite.",
+        "Remember what a muscle does when it moves a bone."
+      ],
+      "explanation": "The pair works in opposite ways. The muscle at the front contracts and pulls the lower leg straight while the back muscle relaxes."
+    },
+    {
+      "id": "s4.muscles-joints.018",
+      "skill": "s4.muscles-joints",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Maya squeezes a ball as fast as she can. She counts squeezes in the first and last 10 seconds. Fill in the gaps.",
+      "caption": "Ball squeezes",
+      "head": [
+        "Child",
+        "First 10 s",
+        "Last 10 s",
+        "Fewer squeezes"
+      ],
+      "rows": [
+        [
+          "Maya",
+          "24",
+          "18",
+          "6"
+        ],
+        [
+          "Tom",
+          "22",
+          "15",
+          ""
+        ],
+        [
+          "Dewi",
+          "25",
+          "17",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 3,
+          "answers": [
+            "7"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "answers": [
+            "8"
+          ]
+        }
+      ],
+      "hints": [
+        "Subtract the last count from the first count.",
+        "For Tom, work out 22 take away 15.",
+        "For Dewi, work out 25 take away 17."
+      ],
+      "explanation": "Tom: 22 minus 15 is 7. Dewi: 25 minus 17 is 8. Tired muscles squeeze fewer times."
+    },
+    {
+      "id": "s4.muscles-joints.019",
+      "skill": "s4.muscles-joints",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Putri tests if a heavier bag makes her arm tire sooner. Sort each item.",
+      "groups": [
+        "Change",
+        "Measure",
+        "Keep the same"
+      ],
+      "items": [
+        {
+          "text": "mass of the bag",
+          "group": 0
+        },
+        {
+          "text": "time the arm stays up",
+          "group": 1
+        },
+        {
+          "text": "which arm holds the bag",
+          "group": 2
+        },
+        {
+          "text": "height the arm is held at",
+          "group": 2
+        },
+        {
+          "text": "the child holding it",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Change is the one thing you alter on purpose.",
+        "Measure is what you record to see the result.",
+        "Everything else must stay the same to be fair."
+      ],
+      "explanation": "She changes the mass of the bag and measures how long she can hold it. Everything else stays the same."
+    },
+    {
+      "id": "s4.muscles-joints.020",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The chart shows how long Yuki held bags out at arm length. Predict the time for a 4 kg bag.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "1 kg",
+          "2 kg",
+          "3 kg"
+        ],
+        "values": [
+          58,
+          44,
+          31
+        ],
+        "step": 10,
+        "yLabel": "Seconds held",
+        "alt": "Bar chart of seconds an arm held a bag out. 1 kg: 58 seconds. 2 kg: 44 seconds. 3 kg: 31 seconds."
+      },
+      "options": [
+        {
+          "text": "about 31 seconds",
+          "why": "The time goes down as the bag gets heavier. 31 s is the time for 3 kg."
+        },
+        {
+          "text": "about 18 seconds"
+        },
+        {
+          "text": "about 45 seconds",
+          "why": "That is more than for 3 kg, but heavier bags tire the arm faster."
+        },
+        {
+          "text": "about 60 seconds",
+          "why": "A heavier bag cannot be held for longer than a light one."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at how the bars change from 1 kg to 3 kg.",
+        "Find how many seconds are lost each time.",
+        "Take that amount off the 3 kg time."
+      ],
+      "explanation": "Each extra kilogram takes off about 13 seconds (58, 44, 31). So 4 kg would be about 18 seconds."
+    },
+    {
+      "id": "s4.muscles-joints.021",
+      "skill": "s4.muscles-joints",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 true sentences about muscles.",
+      "options": [
+        {
+          "text": "A muscle gets shorter when it contracts"
+        },
+        {
+          "text": "Muscles push the bones into place",
+          "why": "Muscles only pull. They cannot push."
+        },
+        {
+          "text": "Muscles work in pairs to move a bone both ways"
+        },
+        {
+          "text": "A muscle is a type of bone",
+          "why": "Muscles are soft and can change length. Bones are hard."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Think about what a muscle does when it contracts.",
+        "Think about why we need two muscles at a joint.",
+        "Cross out any sentence that says push."
+      ],
+      "explanation": "A muscle shortens when it contracts, and a pair lets a bone move in both directions."
+    },
+    {
+      "id": "s4.muscles-joints.022",
+      "skill": "s4.muscles-joints",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each bone to the part of the body it protects.",
+      "pairs": [
+        [
+          "skull",
+          "brain"
+        ],
+        [
+          "ribs",
+          "heart and lungs"
+        ],
+        [
+          "backbone",
+          "nerves in the back"
+        ]
+      ],
+      "hints": [
+        "The skull is the hard case at the top.",
+        "Ribs make a cage around the chest.",
+        "The backbone runs down your back."
+      ],
+      "explanation": "The skull guards the brain, the ribs guard the heart and lungs, and the backbone guards the nerves inside it."
+    },
+    {
+      "id": "s4.muscles-joints.023",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Amara says, \"My muscle pushes my bone up when I bend my arm.\" What should you tell her?",
+      "options": [
+        {
+          "text": "The biceps relaxes and pushes the bone up",
+          "why": "A relaxed muscle is loose and does not move a bone. Muscles never push."
+        },
+        {
+          "text": "The elbow joint pushes the bone up by itself",
+          "why": "A joint is only a meeting place for bones. It cannot make anything move."
+        },
+        {
+          "text": "Your skin pulls the bone up",
+          "why": "Skin covers your arm. It does not move the bones."
+        },
+        {
+          "text": "The biceps contracts and pulls the bone up"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Muscles can do only one thing to a bone.",
+        "Think about the word contract.",
+        "Decide which direction the force goes."
+      ],
+      "explanation": "A muscle works by pulling. When the biceps contracts it gets shorter and pulls the lower arm bone up."
+    },
+    {
+      "id": "s4.muscles-joints.024",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Dewi tightens both her biceps and her triceps at the same time. What happens to her arm?",
+      "options": [
+        {
+          "text": "It bends fully",
+          "why": "The triceps is also pulling the other way, so the arm cannot bend fully."
+        },
+        {
+          "text": "It stays stiff and hardly moves"
+        },
+        {
+          "text": "It straightens fully",
+          "why": "The biceps is pulling too, so the arm cannot straighten fully."
+        },
+        {
+          "text": "It swings round and round",
+          "why": "An elbow is a hinge. It only moves forwards and back, and two equal pulls cancel out."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The two muscles pull in opposite directions.",
+        "Think about a tug of war with two equal teams.",
+        "Which way does the bone move if both pull equally?"
+      ],
+      "explanation": "Both muscles pull the bone with similar force in opposite directions, so the bone stays almost still and the arm feels stiff."
+    },
+    {
+      "id": "s4.muscles-joints.025",
+      "skill": "s4.muscles-joints",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "To straighten your arm, the ___ contracts and the ___ relaxes.",
+      "gaps": [
+        {
+          "options": [
+            "triceps",
+            "biceps",
+            "tendon"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "triceps",
+            "biceps",
+            "knee"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Remember which muscle bends the arm.",
+        "The muscle that bends the arm must now relax.",
+        "The triceps is on the outside of the elbow."
+      ],
+      "explanation": "The triceps contracts to straighten the arm, while the biceps relaxes."
+    },
+    {
+      "id": "s4.muscles-joints.026",
+      "skill": "s4.muscles-joints",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A robot model has 3 pairs of string muscles. How many strings does it have?",
+      "answer": 6,
+      "hints": [
+        "A pair means two.",
+        "Count in 2s.",
+        "Add 2 + 2 + 2."
+      ],
+      "explanation": "3 pairs of 2 strings make 6 strings."
+    },
+    {
+      "id": "s4.muscles-joints.027",
+      "skill": "s4.muscles-joints",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The shoulder is a ball and ___ joint, so the arm can move in many directions.",
+      "blanks": [
+        {
+          "answers": [
+            "socket"
+          ]
+        }
+      ],
+      "hints": [
+        "A ball needs something to sit in.",
+        "It is a cup shaped hollow in a bone.",
+        "The word starts with the letter s."
+      ],
+      "explanation": "In a ball and socket joint, the round end of one bone sits in a hollow in another bone."
+    },
+    {
+      "id": "s4.muscles-joints.801",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Muscles pull on bones to make them move.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is joined to the bone?",
+        "Muscles can only do one kind of action.",
+        "Muscles pull, they do not push."
+      ],
+      "explanation": "Muscles are joined to bones by tendons. When a muscle gets shorter, it pulls the bone and the body part moves.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.muscles-joints.802",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Muscles push bones to move them.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does a muscle do when it contracts?",
+        "Can a muscle make itself longer by pushing?",
+        "Muscles only pull."
+      ],
+      "explanation": "Muscles can only pull, by getting shorter. To move a bone back again, a second muscle pulls the other way.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.muscles-joints.803",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Muscles work in pairs, so when one contracts the other relaxes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about bending and straightening your arm.",
+        "Two muscles are needed for two directions.",
+        "One shortens while the other relaxes."
+      ],
+      "explanation": "In the arm, the biceps contracts to bend the elbow while the triceps relaxes. Then they swap to straighten it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.muscles-joints.701",
+      "skill": "s4.muscles-joints",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Muscles can only pull. They cannot ___.",
+      "blanks": [
+        {
+          "answers": [
+            "push"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of the opposite of pull.",
+        "Pulling and ... are opposites.",
+        "It starts with p and has four letters."
+      ],
+      "explanation": "Muscles can only pull, so they work in pairs to move bones.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

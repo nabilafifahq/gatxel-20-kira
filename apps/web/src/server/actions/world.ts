@@ -1,0 +1,123 @@
+'use server'
+
+import { z } from 'zod'
+import { refresh } from 'next/cache'
+import { jakartaDate } from '@kira/core'
+import type { ActionResult } from '@/lib/dto'
+import { systemCtx } from '../audit'
+import { inOrg } from '../db'
+import { orgCtx, requireLearner } from '../auth/actor'
+import { requireParent, withFamilyAdmin } from '../auth/parent'
+import { forbidden, runAction } from '../errors'
+import { isFeatureOn } from '../dal/learner-features'
+import { addMedal, applyLook, buyItem, choosePet, equipItem, removeMedal, treatPet } from '../dal/kira-world'
+
+/**
+ * Aksi Kira World. Urutan: requireLearner (atau requireParent), Zod .strict(), saklar fitur, lalu DAL.
+ * Saldo bintang, kepemilikan, dan syarat dicek di DAL di bawah kunci, bukan di layar.
+ */
+
+async function learner() {
+  const actor = await requireLearner()
+  if (!(await isFeatureOn(actor.userId, 'kira-world'))) throw forbidden('Kira World is switched off for you.')
+  return actor
+}
+
+const idText = z.string().min(1).max(60).regex(/^[a-z0-9-]+$/)
+
+export async function choosePetAction(input: unknown): Promise<ActionResult> {
+  return runAction(
+    'choosePet',
+    async () => {
+      const actor = await learner()
+      const data = z.object({ kind: idText, name: z.string().min(1).max(30) }).strict().parse(input)
+      await inOrg(orgCtx(actor), (tx) => choosePet(tx, actor.userId, data))
+      refresh()
+      return undefined
+    },
+    'en-GB',
+  )
+}
+
+export async function treatPetAction(input: unknown): Promise<ActionResult<{ line: string; hearts: number }>> {
+  return runAction(
+    'treatPet',
+    async () => {
+      const actor = await learner()
+      const data = z.object({ treatId: idText, nonce: z.string().min(8).max(40).regex(/^[a-zA-Z0-9-]+$/) }).strict().parse(input)
+      const r = await inOrg(orgCtx(actor), (tx) => treatPet(tx, actor.userId, data.treatId, data.nonce))
+      refresh()
+      return r
+    },
+    'en-GB',
+  )
+}
+
+export async function buyItemAction(input: unknown): Promise<ActionResult> {
+  return runAction(
+    'buyItem',
+    async () => {
+      const actor = await learner()
+      const data = z.object({ id: idText }).strict().parse(input)
+      await inOrg(orgCtx(actor), (tx) => buyItem(tx, actor.userId, data.id))
+      refresh()
+      return undefined
+    },
+    'en-GB',
+  )
+}
+
+export async function equipItemAction(input: unknown): Promise<ActionResult> {
+  return runAction(
+    'equipItem',
+    async () => {
+      const actor = await learner()
+      const data = z.object({ kind: z.enum(['petcostume', 'pethome', 'frame', 'outfit', 'backdrop']), id: idText.nullable() }).strict().parse(input)
+      const look = await inOrg(orgCtx(actor), (tx) => equipItem(tx, actor.userId, data.kind, data.id))
+      // Pakaian dan latar avatar ada di profil, yang hanya boleh ditulis peran sistem (seperti peti hadiah).
+      if (look) await inOrg(systemCtx(actor.orgId), (tx) => applyLook(tx, actor.userId, look.look, look.value))
+      refresh()
+      return undefined
+    },
+    'en-GB',
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Orang tua: medali lomba sungguhan (id)
+
+const medalInput = z
+  .object({
+    learnerId: z.string().uuid(),
+    title: z.string().trim().min(2).max(80),
+    medal: z.enum(['gold', 'silver', 'bronze', 'honour', 'participant']),
+    earnedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  })
+  .strict()
+  .refine((v) => v.earnedOn <= jakartaDate(), { message: 'Tanggal tidak boleh di masa depan.', path: ['earnedOn'] })
+
+export async function parentAddMedalAction(input: unknown): Promise<ActionResult> {
+  return runAction('parentAddMedal', async () => {
+    const actor = await requireParent()
+    const data = medalInput.parse(input)
+    await withFamilyAdmin(actor, async (tx, scope) => {
+      await scope.assertParentOf(data.learnerId)
+      await addMedal(tx, data.learnerId, data)
+    })
+    refresh()
+    return undefined
+  })
+}
+
+export async function parentRemoveMedalAction(input: unknown): Promise<ActionResult> {
+  return runAction('parentRemoveMedal', async () => {
+    const actor = await requireParent()
+    const data = z.object({ learnerId: z.string().uuid(), medalId: z.string().uuid() }).strict().parse(input)
+    await withFamilyAdmin(actor, async (tx, scope) => {
+      await scope.assertParentOf(data.learnerId)
+      await removeMedal(tx, data.learnerId, data.medalId)
+    })
+    refresh()
+    return undefined
+  })
+}

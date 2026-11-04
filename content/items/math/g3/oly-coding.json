@@ -144,7 +144,8 @@
           "say": "The total is 4 + 15 + 7 = 26."
         },
         {
-          "say": "The other words have different totals."
+          "say": "The other words have different totals, so the word is DOG.",
+          "show": "DOG"
         }
       ],
       "tags": [
@@ -368,7 +369,7 @@
       "skill": "m3.oly-coding",
       "type": "mcq",
       "difficulty": 5,
-      "prompt": "In a code, each letter is replaced by the letter before it in the alphabet. Which word is written MBNQ?",
+      "prompt": "In a code, each letter is replaced by the letter after it in the alphabet. Which word is written MBNQ?",
       "options": [
         {
           "text": "NCOR",
@@ -439,7 +440,23 @@
           "say": "The right light is off: 0."
         },
         {
-          "say": "The number is 4 + 2 = 6."
+          "say": "The number is 4 + 2 = 6.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 2
+              }
+            ],
+            "total": 6
+          },
+          "mark": [
+            "4",
+            "2"
+          ]
         }
       ],
       "tags": [

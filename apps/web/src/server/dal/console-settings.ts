@@ -15,6 +15,7 @@ import { invalid, notFound } from '../errors'
 import { auditTx } from '../audit'
 import { log } from '../log'
 import { shellIn } from './console-shell'
+import { rulesAndStreak } from './learner-rules'
 
 /**
  * T10 Pengaturan: akun dan passkey, perangkat terdaftar, batas per learner, anggota dan undangan,
@@ -101,7 +102,9 @@ export async function settingsDTO(actor: Actor, learnerParam: string | null): Pr
       .where(isNull(memberProfile.removedAt))
       .orderBy(asc(memberProfile.name))
     const links = await tx.select({ guardianId: guardianLink.guardianId, learnerId: guardianLink.learnerId }).from(guardianLink)
-    return { shell, learners, members, links }
+    const extra = new Map<string, Awaited<ReturnType<typeof rulesAndStreak>>>()
+    for (const l of learners) extra.set(l.id, await rulesAndStreak(tx, l.id))
+    return { shell, learners, members, links, extra }
   })
   const nameOf = new Map(base.learners.map((l) => [l.id, l.name]))
   const [passkeys, devices, invites, backups, apk] = await Promise.all([listPasskeys(actor.userId), listDevices(actor.orgId), listPendingInvites(actor.orgId), backupStatus(), apkInfo()])
@@ -123,7 +126,7 @@ export async function settingsDTO(actor: Actor, learnerParam: string | null): Pr
       lastSeenAt: d.lastSeenAt ? d.lastSeenAt.toISOString() : null,
       expiresAt: d.expiresAt.toISOString(),
     })),
-    learners: base.learners.map((l) => ({ id: l.id, name: l.name, screenLimitMin: l.screenLimitMin, restWeekdays: [...l.restWeekdays].sort((a, b) => a - b), reviewEnabled: l.reviewEnabled, soundEnabled: l.soundEnabled, musicEnabled: l.musicEnabled })),
+    learners: base.learners.map((l) => ({ id: l.id, name: l.name, screenLimitMin: l.screenLimitMin, restWeekdays: [...l.restWeekdays].sort((a, b) => a - b), reviewEnabled: l.reviewEnabled, soundEnabled: l.soundEnabled, musicEnabled: l.musicEnabled, ...base.extra.get(l.id)!, dayPreset: base.extra.get(l.id)!.dayPreset, dayRules: base.extra.get(l.id)!.dayRules as never })),
     // Tutor dulu, lalu orang tua; masing-masing urut nama.
     members: [...base.members.filter((m) => m.role === 'tutor'), ...base.members.filter((m) => m.role !== 'tutor')].map((m) => ({
       id: m.id,

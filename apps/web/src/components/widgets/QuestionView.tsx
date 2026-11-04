@@ -7,6 +7,8 @@ import type { Subject } from '@/lib/dto'
 import { Button, IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { tapWordsAllowedFor } from '@kira/core/dictionary'
+import { TapWords } from '@/components/learner/TapWords'
 import { FigureFrame } from '@/components/learner/FigureFrame'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
@@ -26,7 +28,7 @@ export function NumberPill({ n, subject, className }: { n: number | string; subj
   return (
     <span
       className={cx(
-        'inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-body-lg font-bold text-white tabular-nums',
+        'inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-h3 font-bold text-fg tabular-nums',
         SUBJECT_STYLE[subject].solid,
         className,
       )}
@@ -65,11 +67,11 @@ export function TermsPanel({ terms, onClose, className }: { terms: { term: strin
   )
 }
 
-function PassagePanel({ passage, lang }: { passage: NonNullable<ClientItem['passage']>; lang: ClientItem['lang'] }): ReactElement {
+function PassagePanel({ passage, lang, tap = false }: { passage: NonNullable<ClientItem['passage']>; lang: ClientItem['lang']; tap?: boolean }): ReactElement {
   const [open, setOpen] = useState(true)
   const bodyId = useId()
   return (
-    <section aria-label={passage.title} className="rounded-control border border-divider bg-bg">
+    <section aria-label={passage.title} className="rounded-control bg-lavender">
       <div className="flex items-center gap-3 px-4 py-2">
         <UiIcon name="book" size={22} />
         <h3 className="m-0 min-w-0 flex-1 text-body-lg font-bold">{passage.title}</h3>
@@ -82,7 +84,7 @@ function PassagePanel({ passage, lang }: { passage: NonNullable<ClientItem['pass
         <ReadAloudButton text={passageClipPlan(passage.kind, passage.text)} lang={lang} subject="english" showNote={false} className="mb-3" />
         {passage.text.split(/\n{2,}/).map((para, i) => (
           <p key={i} className="text-question mt-0 mb-3 last:mb-0">
-            {para}
+            {tap ? <TapWords text={para} /> : para}
           </p>
         ))}
       </div>
@@ -132,6 +134,7 @@ export function QuestionView({
   children,
   figurePaper,
   listen = false,
+  tapWords = false,
   className,
 }: {
   item: ClientItem
@@ -147,6 +150,8 @@ export function QuestionView({
   figurePaper?: boolean
   /** Sesi listening English Skills: sembunyikan teks soal pilihan ganda dan putar suaranya. */
   listen?: boolean
+  /** Ketuk kata untuk arti (Kamus Ketuk). Hanya Latihan dan Pelajaran; mati di Tes berwaktu, Paper, dan Simulasi. */
+  tapWords?: boolean
   className?: string
 }): ReactElement {
   const [termsOpen, setTermsOpen] = useState(false)
@@ -156,10 +161,11 @@ export function QuestionView({
   const inlineGaps = item.type === 'cloze' && !!answer
   // Soal ketuk di gambar dan beri label menampilkan figurnya di area jawaban, lengkap dengan lapisan ketuk.
   const figureInAnswer = item.type === 'hotspot' || item.type === 'label'
+  const tap = tapWords && item.lang === 'en-GB' && tapWordsAllowedFor(item)
   const listenMode = listen && (item.type === 'mcq' || item.type === 'multi') && item.lang === 'en-GB'
   return (
     <div className={cx('flex flex-col gap-4 md:gap-5', className)}>
-      {item.passage ? <PassagePanel passage={item.passage} lang={item.lang} /> : null}
+      {item.passage ? <PassagePanel passage={item.passage} lang={item.lang} tap={tap} /> : null}
       <div className="flex items-start gap-3.5">
         <NumberPill n={number} subject={subject} className="mt-1" />
         {listenMode ? (
@@ -186,7 +192,7 @@ export function QuestionView({
           />
         ) : (
           <p id={promptId} lang={item.lang} className="text-question m-0 whitespace-pre-line">
-            {item.prompt}
+            {tap ? <TapWords text={item.prompt} /> : item.prompt}
           </p>
         )}
       </div>

@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "What is pollination?",
       "options": [
-        { "text": "pollen moving from an anther to a stigma" },
-        { "text": "a seed starting to grow", "why": "That is germination." },
-        { "text": "seeds being carried away from the parent plant", "why": "That is seed dispersal." },
-        { "text": "a plant making food in its leaves", "why": "That is how a plant makes its food, called photosynthesis." }
+        {
+          "text": "pollen moving from an anther to a stigma"
+        },
+        {
+          "text": "a seed starting to grow",
+          "why": "That is germination."
+        },
+        {
+          "text": "seeds being carried away from the parent plant",
+          "why": "That is seed dispersal."
+        },
+        {
+          "text": "a plant making food in its leaves",
+          "why": "That is how a plant makes its food, called photosynthesis."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -28,11 +39,26 @@
       "difficulty": 1,
       "prompt": "Match each part of a flower to its job.",
       "pairs": [
-        ["petal", "attracts insects with its colour"],
-        ["sepal", "protects the flower when it is a bud"],
-        ["anther", "makes pollen"],
-        ["stigma", "catches pollen"],
-        ["ovary", "holds the ovules that become seeds"]
+        [
+          "petal",
+          "attracts insects with its colour"
+        ],
+        [
+          "sepal",
+          "protects the flower when it is a bud"
+        ],
+        [
+          "anther",
+          "makes pollen"
+        ],
+        [
+          "stigma",
+          "catches pollen"
+        ],
+        [
+          "ovary",
+          "holds the ovules that become seeds"
+        ]
       ],
       "hints": [
         "A flower has parts for attracting insects, protecting the bud, making pollen and making seeds.",
@@ -47,14 +73,24 @@
       "type": "order",
       "difficulty": 2,
       "prompt": "Put the stages of a flowering plant's life cycle in order, starting with the seed.",
-      "items": ["seed", "germination", "seedling", "flowering", "pollination", "fertilisation", "seed dispersal"],
+      "items": [
+        "seed",
+        "germination",
+        "seedling",
+        "flowering",
+        "pollination",
+        "fertilisation",
+        "seed dispersal"
+      ],
       "hints": [
         "A life cycle goes round in a circle. Here it starts and ends with seeds.",
         "A plant must grow and make flowers before any pollen can move.",
         "After the seed comes the moment it first starts to grow."
       ],
       "explanation": "A seed germinates and grows into a seedling, then into an adult plant that flowers. After pollination and fertilisation, new seeds form and are dispersed, ready to start again.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.plant-life-cycle.004",
@@ -62,16 +98,43 @@
       "type": "sort",
       "difficulty": 2,
       "prompt": "Sort these features into insect-pollinated or wind-pollinated flowers.",
-      "groups": ["Insect-pollinated", "Wind-pollinated"],
+      "groups": [
+        "Insect-pollinated",
+        "Wind-pollinated"
+      ],
       "items": [
-        { "text": "bright, coloured petals", "group": 0 },
-        { "text": "sweet scent", "group": 0 },
-        { "text": "sugary nectar", "group": 0 },
-        { "text": "sticky pollen", "group": 0 },
-        { "text": "small, dull flowers", "group": 1 },
-        { "text": "light, smooth pollen", "group": 1 },
-        { "text": "feathery stigmas outside", "group": 1 },
-        { "text": "anthers dangling outside", "group": 1 }
+        {
+          "text": "bright, coloured petals",
+          "group": 0
+        },
+        {
+          "text": "sweet scent",
+          "group": 0
+        },
+        {
+          "text": "sugary nectar",
+          "group": 0
+        },
+        {
+          "text": "sticky pollen",
+          "group": 0
+        },
+        {
+          "text": "small, dull flowers",
+          "group": 1
+        },
+        {
+          "text": "light, smooth pollen",
+          "group": 1
+        },
+        {
+          "text": "feathery stigmas outside",
+          "group": 1
+        },
+        {
+          "text": "anthers dangling outside",
+          "group": 1
+        }
       ],
       "hints": [
         "Insect-pollinated flowers need to attract insects. Wind-pollinated flowers do not.",
@@ -79,7 +142,9 @@
         "Start with the bright petals. Ask yourself who they are meant to attract."
       ],
       "explanation": "Insect-pollinated flowers have bright petals, scent and nectar to attract insects, with sticky pollen that clings to them. Wind-pollinated flowers are small and dull, with light pollen and parts that hang in the wind.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.plant-life-cycle.005",
@@ -88,11 +153,26 @@
       "difficulty": 3,
       "prompt": "Match each seed or fruit to the way its seeds are dispersed.",
       "pairs": [
-        ["dandelion seed with a fluffy parachute", "carried by the wind"],
-        ["seed covered in tiny hooks", "sticks to animal fur"],
-        ["sweet, juicy guava fruit", "eaten by animals"],
-        ["balsam (pacar air) pod that bursts", "thrown out when the pod splits"],
-        ["coconut with air in its husk", "carried by water"]
+        [
+          "dandelion seed with a fluffy parachute",
+          "carried by the wind"
+        ],
+        [
+          "seed covered in tiny hooks",
+          "sticks to animal fur"
+        ],
+        [
+          "sweet, juicy guava fruit",
+          "eaten by animals"
+        ],
+        [
+          "balsam (pacar air) pod that bursts",
+          "thrown out when the pod splits"
+        ],
+        [
+          "coconut with air in its husk",
+          "carried by water"
+        ]
       ],
       "hints": [
         "Look at the special feature of each seed or fruit: fluff, hooks, juice, a pod or air inside.",
@@ -100,7 +180,10 @@
         "Start with the fluffy parachute. Think about what can lift something so light."
       ],
       "explanation": "Fluffy seeds are blown by the wind, hooked seeds stick to fur, and juicy fruits are eaten by animals that later drop the seeds. Balsam pods burst to throw out seeds, and coconuts float on water.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.plant-life-cycle.006",
@@ -109,10 +192,21 @@
       "difficulty": 3,
       "prompt": "Why is it better for seeds to be carried away from the parent plant?",
       "options": [
-        { "text": "Seeds can only grow in a different country.", "why": "Seeds can grow near or far. Moving away just gives them more space." },
-        { "text": "The young plants do not compete with the parent for light, water and space." },
-        { "text": "The parent plant needs its seeds to make food.", "why": "The parent plant makes its own food in its leaves." },
-        { "text": "Travelling a long way makes seeds grow faster.", "why": "Travelling does not speed up growth. Having less competition helps the seedling survive." }
+        {
+          "text": "Seeds can only grow in a different country.",
+          "why": "Seeds can grow near or far. Moving away just gives them more space."
+        },
+        {
+          "text": "The young plants do not compete with the parent for light, water and space."
+        },
+        {
+          "text": "The parent plant needs its seeds to make food.",
+          "why": "The parent plant makes its own food in its leaves."
+        },
+        {
+          "text": "Travelling a long way makes seeds grow faster.",
+          "why": "Travelling does not speed up growth. Having less competition helps the seedling survive."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -131,20 +225,56 @@
       "figure": {
         "kind": "table",
         "caption": "Mung bean seeds after five days",
-        "head": ["Dish", "Water", "Place", "Germinated?"],
+        "head": [
+          "Dish",
+          "Water",
+          "Place",
+          "Germinated?"
+        ],
         "rows": [
-          ["A", "wet", "warm, dark cupboard", "yes"],
-          ["B", "dry", "warm, dark cupboard", "no"],
-          ["C", "wet", "cold fridge, dark", "no"],
-          ["D", "wet", "warm, sunny window", "yes"]
+          [
+            "A",
+            "wet",
+            "warm, dark cupboard",
+            "yes"
+          ],
+          [
+            "B",
+            "dry",
+            "warm, dark cupboard",
+            "no"
+          ],
+          [
+            "C",
+            "wet",
+            "cold fridge, dark",
+            "no"
+          ],
+          [
+            "D",
+            "wet",
+            "warm, sunny window",
+            "yes"
+          ]
         ],
         "alt": "Table of results. Dish A: wet, warm and dark, germinated. Dish B: dry, warm and dark, did not germinate. Dish C: wet, cold fridge, did not germinate. Dish D: wet, warm and light, germinated."
       },
       "options": [
-        { "text": "Seeds need light to germinate.", "why": "Dish A was in a dark cupboard and its seeds still germinated." },
-        { "text": "Seeds germinate best in the cold.", "why": "The seeds in the cold fridge did not germinate." },
-        { "text": "Seeds need water and warmth to germinate, but they do not need light." },
-        { "text": "Seeds need soil to germinate.", "why": "None of the dishes had soil, yet the seeds in two dishes germinated." }
+        {
+          "text": "Seeds need light to germinate.",
+          "why": "Dish A was in a dark cupboard and its seeds still germinated."
+        },
+        {
+          "text": "Seeds germinate best in the cold.",
+          "why": "The seeds in the cold fridge did not germinate."
+        },
+        {
+          "text": "Seeds need water and warmth to germinate, but they do not need light."
+        },
+        {
+          "text": "Seeds need soil to germinate.",
+          "why": "None of the dishes had soil, yet the seeds in two dishes germinated."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -153,7 +283,10 @@
         "Start with A and B. Only the water is different. Check whether both germinated."
       ],
       "explanation": "Dishes B and C did not germinate, so seeds need water and warmth. Dish A germinated in the dark, so light is not needed for germination, although the seedling needs light later to grow well.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.plant-life-cycle.008",
@@ -161,7 +294,16 @@
       "type": "text",
       "difficulty": 3,
       "prompt": "After pollination, a male cell from a pollen grain joins with an ovule inside the ovary. This is called ___.",
-      "blanks": [{ "answers": ["fertilisation", "fertilization"] }],
+      "blanks": [
+        {
+          "answers": [
+            "fertilisation",
+            "fertilization",
+            "fertilised",
+            "fertilized"
+          ]
+        }
+      ],
       "hints": [
         "This step comes after pollination and before a seed forms.",
         "Pollination only moves pollen. In the next step, the male and female cells join together.",
@@ -177,10 +319,22 @@
       "prompt": "Draw a flower cut in half. Label the petal, sepal, anther, filament, stigma, style and ovary.",
       "rubric": {
         "criteria": [
-          { "label": "Draws petals and sepals in the right places", "points": 1 },
-          { "label": "Draws stamens with anthers on filaments", "points": 2 },
-          { "label": "Draws the carpel: stigma, style and ovary", "points": 2 },
-          { "label": "Labels each part with a straight line", "points": 1 }
+          {
+            "label": "Draws petals and sepals in the right places",
+            "points": 1
+          },
+          {
+            "label": "Draws stamens with anthers on filaments",
+            "points": 2
+          },
+          {
+            "label": "Draws the carpel: stigma, style and ovary",
+            "points": 2
+          },
+          {
+            "label": "Labels each part with a straight line",
+            "points": 1
+          }
         ]
       },
       "background": "blank",
@@ -197,10 +351,21 @@
       "difficulty": 5,
       "prompt": "A plant has small green flowers with no scent. Its anthers hang outside on long filaments, and it makes huge amounts of pollen. Which statement is most likely true?",
       "options": [
-        { "text": "Bees visit it often for its nectar.", "why": "Wind-pollinated flowers usually have no nectar or bright petals to attract bees." },
-        { "text": "Its pollen is large and sticky.", "why": "Wind-pollinated plants make light, smooth pollen that blows easily." },
-        { "text": "Its seeds must be spread by the wind too.", "why": "The way a flower is pollinated does not decide how its seeds are spread." },
-        { "text": "It is pollinated by the wind, like maize and grasses." }
+        {
+          "text": "Bees visit it often for its nectar.",
+          "why": "Wind-pollinated flowers usually have no nectar or bright petals to attract bees."
+        },
+        {
+          "text": "Its pollen is large and sticky.",
+          "why": "Wind-pollinated plants make light, smooth pollen that blows easily."
+        },
+        {
+          "text": "Its seeds must be spread by the wind too.",
+          "why": "The way a flower is pollinated does not decide how its seeds are spread."
+        },
+        {
+          "text": "It is pollinated by the wind, like maize and grasses."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -209,7 +374,964 @@
         "List the features: green, no scent, dangling anthers, lots of pollen. Match them to a type of pollination."
       ],
       "explanation": "Small green flowers with no scent do not attract insects. Dangling anthers and huge amounts of pollen are signs of wind pollination, as in maize and grasses.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.plant-life-cycle.011",
+      "skill": "s5.plant-life-cycle",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of this flower.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 250,
+            "x2": 200,
+            "y2": 320,
+            "tone": "science",
+            "width": 7
+          },
+          {
+            "t": "ellipse",
+            "cx": 263,
+            "cy": 181,
+            "rx": 66,
+            "ry": 20,
+            "rot": -38,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 137,
+            "cy": 181,
+            "rx": 66,
+            "ry": 20,
+            "rot": 38,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 225,
+            "x2": 200,
+            "y2": 42,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "circle",
+            "cx": 200,
+            "cy": 36,
+            "r": 10,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 225,
+            "x2": 152,
+            "y2": 118,
+            "tone": "ink",
+            "width": 2.5
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 108,
+            "rx": 7,
+            "ry": 12,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 208,
+            "y1": 225,
+            "x2": 248,
+            "y2": 118,
+            "tone": "ink",
+            "width": 2.5
+          },
+          {
+            "t": "ellipse",
+            "cx": 250,
+            "cy": 108,
+            "rx": 7,
+            "ry": 12,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 200,
+            "cy": 232,
+            "rx": 22,
+            "ry": 26,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 172,
+            "cy": 262,
+            "rx": 26,
+            "ry": 9,
+            "rot": 25,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 228,
+            "cy": 262,
+            "rx": 26,
+            "ry": 9,
+            "rot": -25,
+            "tone": "science",
+            "fill": "light"
+          }
+        ],
+        "alt": "A flower cut in half. A long thin tube with a round knob at the top rises from a swollen base. Two thin stalks with small oval tips curve up on either side of it. Two large coloured leaf shapes spread out and two small green shapes sit under the base."
+      },
+      "labels": [
+        "stigma",
+        "anther",
+        "petal",
+        "ovary"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 11.3
+        },
+        {
+          "x": 62.5,
+          "y": 33.8
+        },
+        {
+          "x": 28.3,
+          "y": 50.8
+        },
+        {
+          "x": 50,
+          "y": 72.5
+        }
+      ],
+      "extraLabels": [
+        "root",
+        "sepal"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The male parts have pollen. The female parts are in the middle.",
+        "The part at the very top of the tall centre tube is sticky."
+      ],
+      "explanation": "The stigma catches pollen. The anther makes pollen. The petals attract insects. The ovary is at the base and holds the ovules."
+    },
+    {
+      "id": "s5.plant-life-cycle.012",
+      "skill": "s5.plant-life-cycle",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "After fertilisation, one part of the flower swells and becomes the fruit. Tap it.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 250,
+            "x2": 200,
+            "y2": 320,
+            "tone": "science",
+            "width": 7
+          },
+          {
+            "t": "ellipse",
+            "cx": 263,
+            "cy": 181,
+            "rx": 66,
+            "ry": 20,
+            "rot": -38,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 137,
+            "cy": 181,
+            "rx": 66,
+            "ry": 20,
+            "rot": 38,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 225,
+            "x2": 200,
+            "y2": 42,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "circle",
+            "cx": 200,
+            "cy": 36,
+            "r": 10,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 225,
+            "x2": 152,
+            "y2": 118,
+            "tone": "ink",
+            "width": 2.5
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 108,
+            "rx": 7,
+            "ry": 12,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 208,
+            "y1": 225,
+            "x2": 248,
+            "y2": 118,
+            "tone": "ink",
+            "width": 2.5
+          },
+          {
+            "t": "ellipse",
+            "cx": 250,
+            "cy": 108,
+            "rx": 7,
+            "ry": 12,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 200,
+            "cy": 232,
+            "rx": 22,
+            "ry": 26,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 172,
+            "cy": 262,
+            "rx": 26,
+            "ry": 9,
+            "rot": 25,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 228,
+            "cy": 262,
+            "rx": 26,
+            "ry": 9,
+            "rot": -25,
+            "tone": "science",
+            "fill": "light"
+          }
+        ],
+        "alt": "A flower cut in half. A long thin tube with a round knob at the top rises from a swollen base. Two thin stalks with small oval tips curve up on either side of it. Two large coloured leaf shapes spread out and two small green shapes sit under the base."
+      },
+      "regions": [
+        {
+          "label": "stigma",
+          "x": 50,
+          "y": 11.3,
+          "w": 14,
+          "h": 16
+        },
+        {
+          "label": "anther",
+          "x": 62.5,
+          "y": 33.8,
+          "w": 14,
+          "h": 16
+        },
+        {
+          "label": "ovary",
+          "x": 50,
+          "y": 72.5,
+          "w": 16,
+          "h": 20
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "The fruit has to hold the seeds.",
+        "Seeds grow from ovules.",
+        "Find the part at the base that contains the ovules."
+      ],
+      "explanation": "The ovary contains the ovules. After fertilisation the ovules become seeds and the ovary grows into the fruit."
+    },
+    {
+      "id": "s5.plant-life-cycle.013",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which set of conditions does a bean seed need to germinate?",
+      "options": [
+        {
+          "text": "Water, warmth and air"
+        },
+        {
+          "text": "Water, light and soil",
+          "why": "A seed has its own store of food, so it needs neither soil nor light to start growing."
+        },
+        {
+          "text": "Sunlight, soil and fertiliser",
+          "why": "Seeds can germinate on damp cotton wool with none of these."
+        },
+        {
+          "text": "Cold, dry air and soil",
+          "why": "Seeds need water and some warmth to germinate."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A seed has a store of food inside it.",
+        "Think about what a seed needs to start growing, not what a mature plant needs.",
+        "Seeds on wet cotton wool in a warm room can germinate."
+      ],
+      "explanation": "Germination needs water, warmth and air. Light and soil are not needed until the young plant has used the food store in the seed."
+    },
+    {
+      "id": "s5.plant-life-cycle.014",
+      "skill": "s5.plant-life-cycle",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the stages of germination in order.",
+      "items": [
+        "The seed takes in water and swells",
+        "The root grows down",
+        "The shoot grows up towards the light",
+        "The first leaves open and make food"
+      ],
+      "hints": [
+        "Think about what happens first when a seed gets wet.",
+        "The root appears before the leaves.",
+        "Start with the seed taking in water."
+      ],
+      "explanation": "A wet seed swells, then the root pushes down, the shoot grows up and the first leaves can make food using light."
+    },
+    {
+      "id": "s5.plant-life-cycle.015",
+      "skill": "s5.plant-life-cycle",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Laras puts 10 seeds in each dish at different temperatures. Complete the percentage of seeds that germinated.",
+      "head": [
+        "Temperature",
+        "Germinated (of 10)",
+        "Percentage (%)"
+      ],
+      "rows": [
+        [
+          "5 °C",
+          "1",
+          "10"
+        ],
+        [
+          "15 °C",
+          "6",
+          ""
+        ],
+        [
+          "25 °C",
+          "9",
+          ""
+        ],
+        [
+          "40 °C",
+          "3",
+          "30"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "60"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "90"
+          ]
+        }
+      ],
+      "hints": [
+        "Each seed out of 10 is worth 10 percent.",
+        "Look at the first row to see the pattern.",
+        "6 out of 10 is the same as 60 out of 100."
+      ],
+      "explanation": "6 out of 10 is 60 percent and 9 out of 10 is 90 percent. The seeds germinated best at 25 °C."
+    },
+    {
+      "id": "s5.plant-life-cycle.016",
+      "skill": "s5.plant-life-cycle",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the seed features by how the seeds are carried away.",
+      "groups": [
+        "By wind",
+        "By animals"
+      ],
+      "items": [
+        {
+          "text": "A parachute of fine hairs",
+          "group": 0
+        },
+        {
+          "text": "A flat wing on the seed case",
+          "group": 0
+        },
+        {
+          "text": "Very light and tiny seeds",
+          "group": 0
+        },
+        {
+          "text": "Hooks that cling to fur",
+          "group": 1
+        },
+        {
+          "text": "A sweet, juicy fruit with seeds inside",
+          "group": 1
+        },
+        {
+          "text": "A tough seed that survives being eaten",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think about what is carried by air and what is carried by living things.",
+        "Hooks and sweet fruits are made for animals.",
+        "Look at the feature that would help a seed to float."
+      ],
+      "explanation": "Light parachutes and wings carry seeds on the wind. Hooks and juicy fruits make animals carry or eat seeds and drop them far from the parent."
+    },
+    {
+      "id": "s5.plant-life-cycle.017",
+      "skill": "s5.plant-life-cycle",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 features that help a flower to be pollinated by insects.",
+      "options": [
+        {
+          "text": "Bright, scented petals"
+        },
+        {
+          "text": "Sweet nectar"
+        },
+        {
+          "text": "Sticky or spiky pollen"
+        },
+        {
+          "text": "Long feathery stigmas hanging outside"
+        },
+        {
+          "text": "Huge amounts of very light pollen"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Insects must be attracted and then pick up pollen.",
+        "Wind-pollinated flowers have different features.",
+        "Think about what a bee likes to visit."
+      ],
+      "explanation": "Colour, scent and nectar attract insects. Sticky pollen clings to their bodies. Feathery stigmas and light pollen are for wind pollination."
+    },
+    {
+      "id": "s5.plant-life-cycle.018",
+      "skill": "s5.plant-life-cycle",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Laras tests whether the amount of light changes how tall bean seedlings grow. Choose 3 things she must keep the same.",
+      "options": [
+        {
+          "text": "The type of bean seed"
+        },
+        {
+          "text": "The amount of water each day"
+        },
+        {
+          "text": "The type of compost"
+        },
+        {
+          "text": "The amount of light"
+        },
+        {
+          "text": "The height of the seedlings at the end"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "One thing is changed and one thing is measured.",
+        "Everything else must be kept the same.",
+        "Cross out the thing she changes and the thing she measures."
+      ],
+      "explanation": "The amount of light is the thing changed and the final height is measured. Seed type, water and compost are kept the same."
+    },
+    {
+      "id": "s5.plant-life-cycle.019",
+      "skill": "s5.plant-life-cycle",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Amara measures a bean plant each week. How many centimetres did it grow between week 2 and week 4?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4"
+        ],
+        "values": [
+          2,
+          5,
+          11,
+          18
+        ],
+        "axisMax": 20,
+        "step": 5,
+        "yLabel": "Height (cm)",
+        "tone": "science",
+        "alt": "Bar chart of a bean plant's height: week 1 is 2 cm, week 2 is 5 cm, week 3 is 11 cm, week 4 is 18 cm."
+      },
+      "answer": 13,
+      "unit": "cm",
+      "hints": [
+        "Read the height at week 2 and at week 4.",
+        "Growth is the difference between two heights.",
+        "Take the week 2 height from the week 4 height."
+      ],
+      "explanation": "The plant was 18 cm at week 4 and 5 cm at week 2. 18 - 5 = 13 cm."
+    },
+    {
+      "id": "s5.plant-life-cycle.020",
+      "skill": "s5.plant-life-cycle",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The way seeds are carried away from the parent plant is called seed ___.",
+      "blanks": [
+        {
+          "answers": [
+            "dispersal",
+            "dispersion"
+          ]
+        }
+      ],
+      "hints": [
+        "The word begins with d.",
+        "It means to spread out.",
+        "Wind, water and animals can all help with it."
+      ],
+      "explanation": "Seed dispersal carries seeds away from the parent plant so that seedlings do not crowd it."
+    },
+    {
+      "id": "s5.plant-life-cycle.021",
+      "skill": "s5.plant-life-cycle",
+      "type": "cloze",
+      "difficulty": 4,
+      "prompt": "After fertilisation the ___ becomes the seed and the ___ becomes the fruit.",
+      "gaps": [
+        {
+          "options": [
+            "ovule",
+            "petal",
+            "anther"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "ovary",
+            "stigma",
+            "sepal"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Seeds form from the female cell that was fertilised.",
+        "The fruit is the part that surrounds the seeds.",
+        "Both parts are found inside the flower, at the base."
+      ],
+      "explanation": "The fertilised ovule becomes the seed and the ovary around it grows into the fruit."
+    },
+    {
+      "id": "s5.plant-life-cycle.022",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A farmer clears all the bees from an orchard of mango trees. What is most likely to happen?",
+      "options": [
+        {
+          "text": "Fewer flowers are pollinated, so fewer mangoes form."
+        },
+        {
+          "text": "More mangoes form, because there is less damage to flowers.",
+          "why": "Bees carry pollen, so the flowers need them to form fruit."
+        },
+        {
+          "text": "The same number of mangoes form, because the trees still have leaves.",
+          "why": "Leaves make food, but fruit only forms after pollination."
+        },
+        {
+          "text": "The mango seeds grow into plants faster.",
+          "why": "Removing bees does not change how fast seeds germinate."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do bees do when they visit flowers?",
+        "Without pollination, what cannot happen?",
+        "Link pollination to the formation of fruit."
+      ],
+      "explanation": "Bees move pollen between flowers. With fewer pollinators, fewer flowers are fertilised and fewer fruits grow."
+    },
+    {
+      "id": "s5.plant-life-cycle.023",
+      "skill": "s5.plant-life-cycle",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each stage of the plant life cycle to what happens.",
+      "pairs": [
+        [
+          "germination",
+          "a seed starts to grow into a seedling"
+        ],
+        [
+          "pollination",
+          "pollen moves to a stigma"
+        ],
+        [
+          "fertilisation",
+          "a male cell joins an ovule"
+        ],
+        [
+          "seed dispersal",
+          "seeds are carried away from the parent"
+        ]
+      ],
+      "hints": [
+        "The stages are in the order of the life cycle.",
+        "Pollination only moves the pollen.",
+        "Fertilisation happens after the pollen reaches the flower."
+      ],
+      "explanation": "Pollen reaches the stigma (pollination), a male cell joins an ovule (fertilisation), seeds are spread (dispersal) and a seed grows (germination)."
+    },
+    {
+      "id": "s5.plant-life-cycle.024",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Mia grows bean seeds in two identical dishes of damp cotton wool, one in the light and one in a dark cupboard. What does the table show?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Dish",
+          "Seeds germinated (out of 10)",
+          "Seedlings after ten days"
+        ],
+        "rows": [
+          [
+            "In the light",
+            "9",
+            "Short and green"
+          ],
+          [
+            "In the dark",
+            "9",
+            "Tall, thin and pale"
+          ]
+        ],
+        "alt": "Table: in the light, 9 of 10 seeds germinated and the seedlings are short and green. In the dark, 9 of 10 germinated and the seedlings are tall, thin and pale."
+      },
+      "options": [
+        {
+          "text": "Seeds can germinate without light, but the seedlings in the dark look pale and thin."
+        },
+        {
+          "text": "Seeds need light to germinate.",
+          "why": "Nine seeds germinated in the dark, so light is not needed for germination."
+        },
+        {
+          "text": "Seeds grow better in the dark.",
+          "why": "The seedlings in the dark are pale and weak. Taller does not mean healthier."
+        },
+        {
+          "text": "Seeds germinate in the dark because soil is dark.",
+          "why": "There is no soil in this experiment. They are on cotton wool."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at how many seeds germinated in each dish.",
+        "Compare the two seedlings after ten days.",
+        "Ask whether the dark dish had any germinated seeds."
+      ],
+      "explanation": "Both dishes had 9 germinated seeds, so light is not needed for germination. Without light the seedlings cannot make food and look pale."
+    },
+    {
+      "id": "s5.plant-life-cycle.025",
+      "skill": "s5.plant-life-cycle",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the part of the seedling that grows down into the soil.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 150,
+            "w": 320,
+            "h": 110,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 150,
+            "x2": 160,
+            "y2": 70,
+            "tone": "science",
+            "width": 5
+          },
+          {
+            "t": "ellipse",
+            "cx": 122,
+            "cy": 60,
+            "rx": 34,
+            "ry": 16,
+            "rot": -20,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 198,
+            "cy": 60,
+            "rx": 34,
+            "ry": 16,
+            "rot": 20,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 150,
+            "x2": 160,
+            "y2": 230,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 170,
+            "x2": 115,
+            "y2": 215,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 170,
+            "x2": 205,
+            "y2": 215,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A young plant in soil. Two green leaves are at the top of a short upright shoot. Thin brown threads spread down into the soil below."
+      },
+      "regions": [
+        {
+          "label": "leaves",
+          "x": 50,
+          "y": 22.3,
+          "w": 56,
+          "h": 24
+        },
+        {
+          "label": "shoot",
+          "x": 50,
+          "y": 42.3,
+          "w": 16,
+          "h": 24
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 82.7,
+          "w": 34,
+          "h": 34
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Look below the soil line.",
+        "Roots hold the plant and take in water.",
+        "Tap the thin threads in the soil."
+      ],
+      "explanation": "The root grows down first when a seed germinates. It holds the plant and takes in water."
+    },
+    {
+      "id": "s5.plant-life-cycle.801",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A flowering plant grows from a seed.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is the first stage?",
+        "Seeds grow into plants.",
+        "It begins as a seed."
+      ],
+      "explanation": "The seed germinates, grows into a seedling, becomes an adult plant and then makes flowers and new seeds.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.plant-life-cycle.802",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Pollination is when a seed starts to grow.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which word means seed starts growing?",
+        "Pollen is moved in pollination.",
+        "Pollination moves pollen."
+      ],
+      "explanation": "Germination is when a seed starts to grow. Pollination is when pollen is moved from one flower to another.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.plant-life-cycle.803",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Bees can help plants make seeds by carrying pollen between flowers.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do bees collect from flowers?",
+        "Where does the pollen go?",
+        "Bees move pollen."
+      ],
+      "explanation": "When a bee visits flowers for nectar, pollen sticks to its body and rubs off on the next flower, which can lead to seeds.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.plant-life-cycle.804",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: All seeds are spread by the wind.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a coconut and a burr.",
+        "Do all seeds have wings?",
+        "Seeds spread in several ways."
+      ],
+      "explanation": "Seeds can also be spread by animals, water or by plants that burst open, so there are many ways.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

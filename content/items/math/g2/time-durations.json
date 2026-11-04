@@ -27,6 +27,76 @@
           "unit": "hour"
         }
       ]
+    },
+    {
+      "id": "m2.time-durations.701",
+      "skill": "m2.time-durations",
+      "difficulty": 1,
+      "prompt": "How many minutes are there in 1 hour?",
+      "hints": [
+        "Think of a clock.",
+        "The minute hand goes all the way round.",
+        "Half an hour is 30 minutes."
+      ],
+      "explanation": "There are 60 minutes in 1 hour.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 60
+    },
+    {
+      "id": "m2.time-durations.801",
+      "skill": "m2.time-durations",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Two weeks is 14 days.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many days in one week?",
+        "Add it twice.",
+        "7 + 7."
+      ],
+      "explanation": "One week has 7 days, so 2 weeks is 7 + 7 = 14 days.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.time-durations.802",
+      "skill": "m2.time-durations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A film that starts at 2:00 and ends at 4:00 lasts 3 hours.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the hours from 2 to 4.",
+        "Go 2 to 3, then 3 to 4.",
+        "That is 2 hours."
+      ],
+      "explanation": "From 2:00 to 3:00 is 1 hour and from 3:00 to 4:00 is 1 hour. The film lasts 2 hours.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

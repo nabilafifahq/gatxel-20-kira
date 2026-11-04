@@ -23,7 +23,26 @@
           "say": "That is 3 blocks in all."
         },
         {
-          "say": "72 / 3 = 24, so Ann has 24 stickers."
+          "say": "72 / 3 = 24, so Ann has 24 stickers.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 24,
+                "q": true
+              },
+              {
+                "v": 24
+              },
+              {
+                "v": 24
+              }
+            ],
+            "total": 72
+          },
+          "mark": [
+            "72"
+          ]
         }
       ],
       "tags": [
@@ -56,7 +75,29 @@
           "say": "That is 4 blocks in all."
         },
         {
-          "say": "64 / 4 = 16, so Jo has 16 marbles."
+          "say": "64 / 4 = 16, so Jo has 16 marbles.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 16,
+                "q": true
+              },
+              {
+                "v": 16
+              },
+              {
+                "v": 16
+              },
+              {
+                "v": 16
+              }
+            ],
+            "total": 64
+          },
+          "mark": [
+            "64"
+          ]
         }
       ],
       "tags": [
@@ -98,10 +139,28 @@
       "explanation": "Take away Ali's extra 30: 100 - 30 = 70. Share equally: 70 / 2 = 35. Budi has 35 stickers and Ali has 65.",
       "solution": [
         {
-          "say": "Take away Ali's extra 30: 100 - 30 = 70."
+          "say": "Take away Ali's extra 30: 100 - 30 = 70.",
+          "anim": {
+            "k": "combine",
+            "a": 100,
+            "op": "-",
+            "b": 30,
+            "r": 70
+          },
+          "mark": [
+            "100",
+            "30"
+          ]
         },
         {
-          "say": "Share equally: 70 / 2 = 35."
+          "say": "Share equally: 70 / 2 = 35.",
+          "anim": {
+            "k": "combine",
+            "a": 70,
+            "op": "÷",
+            "b": 2,
+            "r": 35
+          }
         },
         {
           "say": "Budi has 35 stickers and Ali has 65."
@@ -137,10 +196,27 @@
           "say": "That is 6 blocks in all."
         },
         {
-          "say": "90 / 6 = 15 for one block."
+          "say": "90 / 6 = 15 for one block.",
+          "anim": {
+            "k": "combine",
+            "a": 90,
+            "op": "÷",
+            "b": 6,
+            "r": 15
+          },
+          "mark": [
+            "90"
+          ]
         },
         {
-          "say": "Cat has 3 x 15 = 45 cards."
+          "say": "Cat has 3 x 15 = 45 cards.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 15,
+            "r": 45
+          }
         }
       ],
       "tags": [
@@ -167,13 +243,56 @@
       "explanation": "Undo take away 6: 30 + 6 = 36. Undo times 4: 36 / 4 = 9. Check: 9 x 4 = 36 and 36 - 6 = 30.",
       "solution": [
         {
-          "say": "Undo take away 6: 30 + 6 = 36."
+          "say": "Undo take away 6: 30 + 6 = 36.",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "+",
+            "b": 6,
+            "r": 36
+          },
+          "mark": [
+            "30",
+            "6"
+          ]
         },
         {
-          "say": "Undo times 4: 36 / 4 = 9."
+          "say": "Undo times 4: 36 / 4 = 9.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 36
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
-          "say": "Check: 9 x 4 = 36 and 36 - 6 = 30."
+          "say": "Check: 9 x 4 = 36 and 36 - 6 = 30.",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 4,
+            "r": 36
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -233,16 +352,59 @@
       "explanation": "Undo halving: 11 x 2 = 22. Undo add 7: 22 - 7 = 15. Undo tripling: 15 / 3 = 5. Check: 5 x 3 = 15, 15 + 7 = 22 and 22 / 2 = 11.",
       "solution": [
         {
-          "say": "Undo halving: 11 x 2 = 22."
+          "say": "Undo halving: 11 x 2 = 22.",
+          "anim": {
+            "k": "combine",
+            "a": 11,
+            "op": "×",
+            "b": 2,
+            "r": 22
+          },
+          "mark": [
+            "11"
+          ]
         },
         {
-          "say": "Undo add 7: 22 - 7 = 15."
+          "say": "Undo add 7: 22 - 7 = 15.",
+          "anim": {
+            "k": "combine",
+            "a": 22,
+            "op": "-",
+            "b": 7,
+            "r": 15
+          },
+          "mark": [
+            "7"
+          ]
         },
         {
-          "say": "Undo tripling: 15 / 3 = 5."
+          "say": "Undo tripling: 15 / 3 = 5.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5,
+                "q": true
+              },
+              {
+                "v": 5
+              },
+              {
+                "v": 5
+              }
+            ],
+            "total": 15
+          }
         },
         {
-          "say": "Check: 5 x 3 = 15, 15 + 7 = 22 and 22 / 2 = 11."
+          "say": "Check: 5 x 3 = 15, 15 + 7 = 22 and 22 / 2 = 11.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 3,
+            "r": 15
+          }
         }
       ],
       "tags": [
@@ -273,10 +435,36 @@
           "say": "In 4 years Rani will be 10."
         },
         {
-          "say": "Mum will be 3 x 10 = 30 then."
+          "say": "Mum will be 3 x 10 = 30 then.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 10,
+            "r": 30
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
-          "say": "Mum is 30 - 4 = 26 now."
+          "say": "Mum is 30 - 4 = 26 now.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 26,
+                "q": true
+              }
+            ],
+            "total": 30
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -304,13 +492,39 @@
       "explanation": "In 5 years their ages add up to 50 + 10 = 60. Then the father is 3 blocks and the son is 1 block, so 4 blocks make 60 and 1 block is 15. The son will be 15, so he is 15 - 5 = 10 now.",
       "solution": [
         {
-          "say": "In 5 years their ages add up to 50 + 10 = 60."
+          "say": "In 5 years their ages add up to 50 + 10 = 60.",
+          "anim": {
+            "k": "combine",
+            "a": 50,
+            "op": "+",
+            "b": 10,
+            "r": 60
+          },
+          "mark": [
+            "50"
+          ]
         },
         {
           "say": "Then the father is 3 blocks and the son is 1 block, so 4 blocks make 60 and 1 block is 15."
         },
         {
-          "say": "The son will be 15, so he is 15 - 5 = 10 now."
+          "say": "The son will be 15, so he is 15 - 5 = 10 now.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5
+              },
+              {
+                "v": 10,
+                "q": true
+              }
+            ],
+            "total": 15
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -337,13 +551,49 @@
       "explanation": "Ben eats 2 x 3 = 6 sweets. Together they ate 3 + 6 = 9. So 20 - 9 = 11 sweets are left.",
       "solution": [
         {
-          "say": "Ben eats 2 x 3 = 6 sweets."
+          "say": "Ben eats 2 x 3 = 6 sweets.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 3,
+            "r": 6
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
-          "say": "Together they ate 3 + 6 = 9."
+          "say": "Together they ate 3 + 6 = 9.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 6,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
-          "say": "So 20 - 9 = 11 sweets are left."
+          "say": "So 20 - 9 = 11 sweets are left.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9
+              },
+              {
+                "v": 11,
+                "q": true
+              }
+            ],
+            "total": 20
+          },
+          "mark": [
+            "20"
+          ]
         }
       ],
       "tags": [
@@ -370,10 +620,31 @@
       "explanation": "The two taps fill 4 + 6 = 10 litres each minute. 50 / 10 = 5, so it takes 5 minutes.",
       "solution": [
         {
-          "say": "The two taps fill 4 + 6 = 10 litres each minute."
+          "say": "The two taps fill 4 + 6 = 10 litres each minute.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 6,
+            "r": 10
+          },
+          "mark": [
+            "4",
+            "6"
+          ]
         },
         {
-          "say": "50 / 10 = 5, so it takes 5 minutes."
+          "say": "50 / 10 = 5, so it takes 5 minutes.",
+          "anim": {
+            "k": "combine",
+            "a": 50,
+            "op": "÷",
+            "b": 10,
+            "r": 5
+          },
+          "mark": [
+            "50"
+          ]
         }
       ],
       "tags": [
@@ -478,10 +749,33 @@
           "say": "10 hens would have 20 legs."
         },
         {
-          "say": "There are 28 - 20 = 8 more legs."
+          "say": "There are 28 - 20 = 8 more legs.",
+          "anim": {
+            "k": "combine",
+            "a": 28,
+            "op": "-",
+            "b": 20,
+            "r": 8
+          },
+          "mark": [
+            "28"
+          ]
         },
         {
-          "say": "Each rabbit has 2 more legs than a hen, so there are 8 / 2 = 4 rabbits."
+          "say": "Each rabbit has 2 more legs than a hen, so there are 8 / 2 = 4 rabbits.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4,
+                "q": true
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 8
+          }
         }
       ],
       "tags": [

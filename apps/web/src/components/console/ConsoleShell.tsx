@@ -1,5 +1,6 @@
 'use client'
 
+import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useId, useState, type ReactNode } from 'react'
@@ -158,7 +159,7 @@ export function ConsoleShell({
           className="hidden flex-none flex-col gap-1.5 border-r border-divider bg-surface px-4 py-6 lg:sticky lg:top-0 lg:flex lg:h-svh lg:w-[232px] lg:overflow-y-auto"
         >
           <div className="flex items-baseline gap-2.5 px-3 pb-4">
-            <span className="font-display text-h1 leading-8 font-bold">Kira</span>
+            <KiraLogo size={32} />
             <span className="text-small text-fg-muted">Konsol tutor</span>
           </div>
           <div className="px-1 pb-4">
@@ -191,7 +192,7 @@ export function ConsoleShell({
 
         {/* Header HP dan tablet portrait */}
         <header className="sticky top-0 z-30 flex h-[60px] flex-none items-center gap-2.5 border-b border-divider bg-surface px-4 lg:hidden">
-          <span className="font-display text-h1 leading-8 font-bold">Kira</span>
+          <KiraLogo size={32} />
           <span className="text-small text-fg-muted max-[360px]:hidden">Konsol tutor</span>
           <div className="ml-auto min-w-0">
             <LearnerSwitcher shell={shell} compact />

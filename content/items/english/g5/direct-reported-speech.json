@@ -312,6 +312,620 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e5.direct-reported-speech.011",
+      "skill": "e5.direct-reported-speech",
+      "type": "tiles",
+      "difficulty": 1,
+      "prompt": "Build the sentence with direct speech.",
+      "answer": "“I love mangoes,” said Dewi.",
+      "distractors": [
+        "asked"
+      ],
+      "hints": [
+        "Speech marks open before the spoken words.",
+        "The comma goes inside the closing speech marks.",
+        "Dewi is the speaker, so her name comes last."
+      ],
+      "explanation": "The spoken words go inside speech marks, with a comma before the closing marks."
+    },
+    {
+      "id": "e5.direct-reported-speech.012",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is direct speech?",
+      "options": [
+        {
+          "text": "Tom said that he was cold.",
+          "why": "This reports what Tom said without his exact words."
+        },
+        {
+          "text": "Tom was cold.",
+          "why": "This is not speech."
+        },
+        {
+          "text": "Tom said, “I am cold.”"
+        },
+        {
+          "text": "Tom told us he was cold.",
+          "why": "This is reported speech."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Direct speech uses the exact words someone said.",
+        "Look for speech marks.",
+        "Find the sentence with speech marks around the words."
+      ],
+      "explanation": "Direct speech has speech marks around the exact words."
+    },
+    {
+      "id": "e5.direct-reported-speech.013",
+      "skill": "e5.direct-reported-speech",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "“We are late,” said the boys. The boys said that they ___ late.",
+      "gaps": [
+        {
+          "options": [
+            "were",
+            "are",
+            "was",
+            "have been"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Reported speech moves one tense back.",
+        "Are becomes were here.",
+        "They is plural, so use a plural verb."
+      ],
+      "explanation": "Are moves back to were in reported speech."
+    },
+    {
+      "id": "e5.direct-reported-speech.014",
+      "skill": "e5.direct-reported-speech",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "“I like swimming,” said Kofi. Kofi said that he ___ swimming.",
+      "blanks": [
+        {
+          "answers": [
+            "liked"
+          ]
+        }
+      ],
+      "hints": [
+        "Reported speech moves one tense back.",
+        "Present like becomes past.",
+        "Add -d to like."
+      ],
+      "explanation": "Like changes to liked in reported speech."
+    },
+    {
+      "id": "e5.direct-reported-speech.015",
+      "skill": "e5.direct-reported-speech",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Mum said, “I will be late.” Build the reported speech sentence.",
+      "answer": "Mum said that she would be late.",
+      "distractors": [
+        "will",
+        "I"
+      ],
+      "hints": [
+        "Reported speech uses said that.",
+        "Will moves back to would.",
+        "Be late goes at the end."
+      ],
+      "explanation": "Will changes to would in reported speech."
+    },
+    {
+      "id": "e5.direct-reported-speech.016",
+      "skill": "e5.direct-reported-speech",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the time words by what happens in reported speech.",
+      "groups": [
+        "Usually changes",
+        "Usually stays the same"
+      ],
+      "items": [
+        {
+          "text": "today",
+          "group": 0
+        },
+        {
+          "text": "tomorrow",
+          "group": 0
+        },
+        {
+          "text": "yesterday",
+          "group": 0
+        },
+        {
+          "text": "now",
+          "group": 0
+        },
+        {
+          "text": "always",
+          "group": 1
+        },
+        {
+          "text": "never",
+          "group": 1
+        },
+        {
+          "text": "often",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Words that point to the speaking moment need to change.",
+        "Words like always do not depend on the moment.",
+        "Tomorrow becomes the next day."
+      ],
+      "explanation": "Today, tomorrow, yesterday and now depend on when the words were spoken. Always, never and often do not."
+    },
+    {
+      "id": "e5.direct-reported-speech.017",
+      "skill": "e5.direct-reported-speech",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each direct speech sentence to its reported version.",
+      "pairs": [
+        [
+          "“I can sing,” said Leo.",
+          "Leo said he could sing."
+        ],
+        [
+          "“I will come,” said Amara.",
+          "Amara said she would come."
+        ],
+        [
+          "“I am cooking,” said Joko.",
+          "Joko said he was cooking."
+        ],
+        [
+          "“I have finished,” said Sekar.",
+          "Sekar said she had finished."
+        ]
+      ],
+      "hints": [
+        "Reported speech moves one tense back.",
+        "Can becomes could and will becomes would.",
+        "Match the helper words: am to was, have to had."
+      ],
+      "explanation": "Can changes to could, will to would, am to was and have to had."
+    },
+    {
+      "id": "e5.direct-reported-speech.018",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the correct reported speech? “I am making a kite,” said Joko.",
+      "options": [
+        {
+          "text": "Joko said that he is making a kite.",
+          "why": "The tense should move back to was."
+        },
+        {
+          "text": "Joko said that he was making a kite."
+        },
+        {
+          "text": "Joko said that I was making a kite.",
+          "why": "The pronoun should change to he."
+        },
+        {
+          "text": "Joko said that he made a kite.",
+          "why": "Making and made have different meanings."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Change the pronoun I to he.",
+        "Am becomes was.",
+        "Look for was making."
+      ],
+      "explanation": "I becomes he and am making becomes was making."
+    },
+    {
+      "id": "e5.direct-reported-speech.019",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which is the correct reported speech? “Where do you live?” Tom asked Leo.",
+      "options": [
+        {
+          "text": "Tom asked Leo where did he live.",
+          "why": "Reported questions do not use question word order."
+        },
+        {
+          "text": "Tom asked Leo where he lived."
+        },
+        {
+          "text": "Tom asked Leo where he lived?",
+          "why": "A reported question ends with a full stop."
+        },
+        {
+          "text": "Tom asked Leo that where he lived.",
+          "why": "Do not add that before a question word."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Reported questions use normal word order.",
+        "Do is not needed.",
+        "Do becomes lived."
+      ],
+      "explanation": "In reported questions the verb follows the subject and moves back."
+    },
+    {
+      "id": "e5.direct-reported-speech.020",
+      "skill": "e5.direct-reported-speech",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose 2 correct reports of: “I will call you tonight,” said Ines to Bayu.",
+      "options": [
+        {
+          "text": "Ines told Bayu she would call him that night."
+        },
+        {
+          "text": "Ines told Bayu she will call you tonight.",
+          "why": "Will should become would and you should become him."
+        },
+        {
+          "text": "Ines said that she would call Bayu that night."
+        },
+        {
+          "text": "Ines said she would call you tonight.",
+          "why": "You should become Bayu or him, and tonight becomes that night."
+        },
+        {
+          "text": "Ines told that she would call.",
+          "why": "Told needs someone after it."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Will changes to would.",
+        "You becomes Bayu or him.",
+        "Tonight becomes that night."
+      ],
+      "explanation": "Reported speech changes the tense and the pronouns."
+    },
+    {
+      "id": "e5.direct-reported-speech.021",
+      "skill": "e5.direct-reported-speech",
+      "type": "cloze",
+      "difficulty": 4,
+      "prompt": "Yuki told me, “I am saving for a bike and I will buy it next month.” Yuki told me that she ___ for a bike and that she ___ buy it the ___ month.",
+      "gaps": [
+        {
+          "options": [
+            "is saving",
+            "was saving",
+            "saved"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "will",
+            "would",
+            "can"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "following",
+            "previous",
+            "this"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Move each tense back.",
+        "Next month looks forward from a past time.",
+        "Choose words that fit a past report."
+      ],
+      "explanation": "Am saving becomes was saving, will becomes would and next month becomes the following month."
+    },
+    {
+      "id": "e5.direct-reported-speech.022",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence punctuates split speech correctly?",
+      "options": [
+        {
+          "text": "“I can’t find my pen” said Rangga “and I need it now.”",
+          "why": "Commas are needed."
+        },
+        {
+          "text": "“I can’t find my pen,” said Rangga, “and I need it now.”"
+        },
+        {
+          "text": "“I can’t find my pen,” said Rangga. “and I need it now.”",
+          "why": "If a full stop is used, the next speech needs a capital letter."
+        },
+        {
+          "text": "“I can’t find my pen, said Rangga, and I need it now.”",
+          "why": "Speech marks are missing around the spoken words."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Speech is split by a reporting clause.",
+        "Use commas where the speech continues.",
+        "The second part starts with a lower case letter."
+      ],
+      "explanation": "When the sentence continues, use commas and a lower case letter."
+    },
+    {
+      "id": "e5.direct-reported-speech.023",
+      "skill": "e5.direct-reported-speech",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "“I have been waiting for an hour,” said Kofi. Kofi said that he ___ waiting for an hour.",
+      "blanks": [
+        {
+          "answers": [
+            "had been"
+          ]
+        }
+      ],
+      "hints": [
+        "Reported speech moves one tense back.",
+        "Have been moves back one step.",
+        "Use the past perfect."
+      ],
+      "explanation": "Have been becomes had been."
+    },
+    {
+      "id": "e5.direct-reported-speech.024",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which is the correct reported speech? “I saw him here yesterday,” said Maya.",
+      "options": [
+        {
+          "text": "Maya said she saw him here yesterday.",
+          "why": "Nothing was changed."
+        },
+        {
+          "text": "Maya said she had seen him there the day before."
+        },
+        {
+          "text": "Maya said she had seen him here the day before.",
+          "why": "Here should change to there."
+        },
+        {
+          "text": "Maya said she would see him there the day before.",
+          "why": "Would see changes the meaning to the future."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Change the tense, place and time words.",
+        "Saw becomes had seen.",
+        "Here becomes there and yesterday becomes the day before."
+      ],
+      "explanation": "Reported speech changes tense, place and time words."
+    },
+    {
+      "id": "e5.direct-reported-speech.801",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: In direct speech, speech marks go around the words that are spoken.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which words are spoken?",
+        "Speech marks mark them.",
+        "Put marks around them."
+      ],
+      "explanation": "Direct speech uses the exact words, so speech marks show the words said.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.802",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence Tom said, I am hungry needs no speech marks.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which words did Tom say?",
+        "Direct speech needs marks.",
+        "Put them around the spoken words."
+      ],
+      "explanation": "Speech marks are needed around I am hungry because Tom said those words.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.803",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"Mia said that she was tired\" is reported speech.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Are there speech marks?",
+        "It uses that.",
+        "It reports what she said."
+      ],
+      "explanation": "Reported speech tells what was said without the exact words or speech marks.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.804",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Reported speech uses speech marks around the words.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which type uses exact words?",
+        "Direct speech uses marks.",
+        "Reported speech does not."
+      ],
+      "explanation": "Reported speech does not use speech marks because the exact words are not used.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.805",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When direct speech changes to reported speech, pronouns such as I often change to he or she.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Who is speaking?",
+        "The report is from outside.",
+        "I becomes he."
+      ],
+      "explanation": "If Ali says \"I am happy\", the report is Ali said that he was happy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.806",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A question inside speech marks ends with a question mark inside the speech marks.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does the question end?",
+        "Which mark shows a question?",
+        "It goes inside."
+      ],
+      "explanation": "For example, \"Where are you going?\" asked Ella. The question mark stays inside the speech marks.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.807",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A new line is not needed when a different person starts speaking.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a conversation in a story.",
+        "New speaker means new line.",
+        "Change speaker, change line."
+      ],
+      "explanation": "Start a new line each time a different person speaks. It helps the reader see who is talking.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.701",
+      "skill": "e5.direct-reported-speech",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Ali said, \"I am tired.\" Ali said he ___ tired.",
+      "blanks": [
+        {
+          "answers": [
+            "was"
+          ]
+        }
+      ],
+      "hints": [
+        "Reported speech moves back in time.",
+        "Am becomes another form.",
+        "Am becomes was."
+      ],
+      "explanation": "In reported speech, am changes to was.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

@@ -17,7 +17,8 @@ export function sniff(buf: Buffer): { mime: string; ext: string } | null {
   if (buf.length < 12) return null
   if (buf[0] === 0x1a && buf[1] === 0x45 && buf[2] === 0xdf && buf[3] === 0xa3) return { mime: 'audio/webm', ext: 'webm' }
   if (ascii(0, 4) === 'OggS') return { mime: 'audio/ogg', ext: 'ogg' }
-  if (ascii(4, 8) === 'ftyp') return { mime: 'audio/mp4', ext: 'm4a' }
+  // ftyp: hanya merek audio MP4/M4A. HEIC/HEIF dan video ditolak.
+  if (ascii(4, 8) === 'ftyp') return /^(M4A |M4B |M4P |mp42|isom|iso2)$/.test(ascii(8, 12)) ? { mime: 'audio/mp4', ext: 'm4a' } : null
   if (ascii(0, 4) === 'RIFF' && ascii(8, 12) === 'WAVE') return { mime: 'audio/wav', ext: 'wav' }
   if (ascii(0, 4) === 'RIFF' && ascii(8, 12) === 'WEBP') return { mime: 'image/webp', ext: 'webp' }
   if (buf[0] === 0x89 && ascii(1, 4) === 'PNG') return { mime: 'image/png', ext: 'png' }
@@ -32,8 +33,15 @@ export function allowedFor(kind: MediaKind, mime: string): boolean {
   return mime.startsWith('image/')
 }
 
-export function limitFor(kind: MediaKind): number {
+export function limitFor(kind: MediaKind, role: 'tutor' | 'guardian' | 'learner' = 'tutor'): number {
+  // Anak tidak perlu berkas besar: rekaman 2 menit sekitar 1 MB, foto jawaban dikecilkan di tablet.
+  if (role === 'learner') return Math.min(LIMITS[kind], kind === 'audio' ? 5 * 1024 * 1024 : kind === 'drawing' ? 3 * 1024 * 1024 : 6 * 1024 * 1024)
   return LIMITS[kind]
+}
+
+/** Jatah unggah dalam 24 jam terakhir. Anak: 40 berkas atau 60 MB. Dewasa: 300 berkas atau 800 MB. */
+export function dailyQuota(role: 'tutor' | 'guardian' | 'learner'): { files: number; bytes: number } {
+  return role === 'learner' ? { files: 40, bytes: 60 * 1024 * 1024 } : { files: 300, bytes: 800 * 1024 * 1024 }
 }
 
 function root(): string {

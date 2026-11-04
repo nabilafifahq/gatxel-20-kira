@@ -7,15 +7,39 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort these into thermal conductors and thermal insulators.",
-      "groups": ["Thermal conductor", "Thermal insulator"],
+      "groups": [
+        "Thermal conductor",
+        "Thermal insulator"
+      ],
       "items": [
-        { "text": "steel spoon", "group": 0 },
-        { "text": "copper pan", "group": 0 },
-        { "text": "aluminium foil", "group": 0 },
-        { "text": "wooden spoon", "group": 1 },
-        { "text": "plastic handle", "group": 1 },
-        { "text": "woollen scarf", "group": 1 },
-        { "text": "polystyrene cup", "group": 1 }
+        {
+          "text": "steel spoon",
+          "group": 0
+        },
+        {
+          "text": "copper pan",
+          "group": 0
+        },
+        {
+          "text": "aluminium foil",
+          "group": 0
+        },
+        {
+          "text": "wooden spoon",
+          "group": 1
+        },
+        {
+          "text": "plastic handle",
+          "group": 1
+        },
+        {
+          "text": "woollen scarf",
+          "group": 1
+        },
+        {
+          "text": "polystyrene cup",
+          "group": 1
+        }
       ],
       "hints": [
         "A thermal conductor lets heat pass through it easily. An insulator does not.",
@@ -23,7 +47,9 @@
         "Start with the spoons. Think about which one gets hot in a pan of soup."
       ],
       "explanation": "Metals such as steel, copper and aluminium conduct heat well. Wood, plastic, wool and polystyrene are thermal insulators, so heat passes through them slowly.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.metals-materials.002",
@@ -32,20 +58,38 @@
       "difficulty": 1,
       "prompt": "Choose all the properties that most metals have.",
       "options": [
-        { "text": "shiny when polished" },
-        { "text": "good conductors of electricity" },
-        { "text": "can be hammered into shape without breaking" },
-        { "text": "transparent", "why": "Light cannot pass through metals. They are opaque." },
-        { "text": "always magnetic", "why": "Only a few metals, such as iron and nickel, are magnetic. Copper and aluminium are not." }
+        {
+          "text": "shiny when polished"
+        },
+        {
+          "text": "good conductors of electricity"
+        },
+        {
+          "text": "can be hammered into shape without breaking"
+        },
+        {
+          "text": "transparent",
+          "why": "Light cannot pass through metals. They are opaque."
+        },
+        {
+          "text": "always magnetic",
+          "why": "Only a few metals, such as iron and nickel, are magnetic. Copper and aluminium are not."
+        }
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "hints": [
         "Think about a copper wire, a steel spoon and an aluminium pan.",
         "Metals are used for wires, pans and tools because of their properties.",
         "Check each property against copper, a metal that is not magnetic."
       ],
       "explanation": "Most metals are shiny, conduct electricity and heat well, and can be hammered into shape. Only a few metals are magnetic, and no metal is transparent.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.metals-materials.003",
@@ -53,15 +97,39 @@
       "type": "sort",
       "difficulty": 2,
       "prompt": "Sort these objects into attracted to a magnet and not attracted to a magnet.",
-      "groups": ["Attracted to a magnet", "Not attracted to a magnet"],
+      "groups": [
+        "Attracted to a magnet",
+        "Not attracted to a magnet"
+      ],
       "items": [
-        { "text": "an iron nail", "group": 0 },
-        { "text": "a steel paper clip", "group": 0 },
-        { "text": "a steel food can", "group": 0 },
-        { "text": "an aluminium drink can", "group": 1 },
-        { "text": "a copper wire", "group": 1 },
-        { "text": "a gold ring", "group": 1 },
-        { "text": "a plastic ruler", "group": 1 }
+        {
+          "text": "an iron nail",
+          "group": 0
+        },
+        {
+          "text": "a steel paper clip",
+          "group": 0
+        },
+        {
+          "text": "a steel food can",
+          "group": 0
+        },
+        {
+          "text": "an aluminium drink can",
+          "group": 1
+        },
+        {
+          "text": "a copper wire",
+          "group": 1
+        },
+        {
+          "text": "a gold ring",
+          "group": 1
+        },
+        {
+          "text": "a plastic ruler",
+          "group": 1
+        }
       ],
       "hints": [
         "Only a few metals are magnetic, such as iron, nickel and steel, which is mostly iron.",
@@ -69,7 +137,10 @@
         "Compare the steel food can with the aluminium drink can first."
       ],
       "explanation": "Iron and steel are attracted to a magnet, which is why recycling centres use magnets to pick out steel cans. Aluminium, copper and gold are metals that are not magnetic, and plastic is not a metal.",
-      "tags": ["checkpoint", "iksc"]
+      "tags": [
+        "checkpoint",
+        "iksc"
+      ]
     },
     {
       "id": "s6.metals-materials.004",
@@ -78,10 +149,21 @@
       "difficulty": 2,
       "prompt": "Why are cooking pans made of metal but have plastic or wooden handles?",
       "options": [
-        { "text": "Metal conducts heat to the food, and the handle is an insulator that stays cool." },
-        { "text": "Metal is cheaper than plastic.", "why": "The choice is about properties: metal passes heat on well and the handle blocks it." },
-        { "text": "Plastic and wood are stronger than metal.", "why": "Metal is usually stronger. The handle is chosen because it does not conduct heat well." },
-        { "text": "Handles must be magnetic.", "why": "Plastic and wood are not magnetic, and magnetism does not matter here." }
+        {
+          "text": "Metal conducts heat to the food, and the handle is an insulator that stays cool."
+        },
+        {
+          "text": "Metal is cheaper than plastic.",
+          "why": "The choice is about properties: metal passes heat on well and the handle blocks it."
+        },
+        {
+          "text": "Plastic and wood are stronger than metal.",
+          "why": "Metal is usually stronger. The handle is chosen because it does not conduct heat well."
+        },
+        {
+          "text": "Handles must be magnetic.",
+          "why": "Plastic and wood are not magnetic, and magnetism does not matter here."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -90,7 +172,9 @@
         "Decide which material is a thermal conductor and which is an insulator."
       ],
       "explanation": "The metal pan conducts heat quickly to cook the food. The plastic or wooden handle is a thermal insulator, so it stays cool enough to hold.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.metals-materials.005",
@@ -99,11 +183,26 @@
       "difficulty": 3,
       "prompt": "Match each material to a good use and the property that makes it suitable.",
       "pairs": [
-        ["copper", "electric wires: conducts electricity"],
-        ["glass", "windows: transparent"],
-        ["rubber", "bicycle tyres: flexible and grips the road"],
-        ["aluminium", "aeroplane bodies: light and strong"],
-        ["wool", "warm jumpers: a thermal insulator"]
+        [
+          "copper",
+          "electric wires: conducts electricity"
+        ],
+        [
+          "glass",
+          "windows: transparent"
+        ],
+        [
+          "rubber",
+          "bicycle tyres: flexible and grips the road"
+        ],
+        [
+          "aluminium",
+          "aeroplane bodies: light and strong"
+        ],
+        [
+          "wool",
+          "warm jumpers: a thermal insulator"
+        ]
       ],
       "hints": [
         "Think about what each object must do well.",
@@ -111,7 +210,9 @@
         "Start with copper. Think about what is inside the plastic covering of a cable."
       ],
       "explanation": "Copper conducts electricity, glass is transparent and rubber is flexible and grips. Aluminium is light but strong, and wool traps air, so it keeps heat in.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.metals-materials.006",
@@ -120,10 +221,21 @@
       "difficulty": 3,
       "prompt": "Gamelan gongs and saron bars are made of bronze, a mixture of copper and tin. Which property of metals makes them good for musical instruments?",
       "options": [
-        { "text": "They are magnetic.", "why": "Bronze is not magnetic, and magnetism does not make sound." },
-        { "text": "They are transparent.", "why": "Metals are opaque, and transparency has nothing to do with sound." },
-        { "text": "They ring when they are struck." },
-        { "text": "They are soft like rubber.", "why": "Soft, rubbery materials soak up vibrations, which would make a dull thud." }
+        {
+          "text": "They are magnetic.",
+          "why": "Bronze is not magnetic, and magnetism does not make sound."
+        },
+        {
+          "text": "They are transparent.",
+          "why": "Metals are opaque, and transparency has nothing to do with sound."
+        },
+        {
+          "text": "They ring when they are struck."
+        },
+        {
+          "text": "They are soft like rubber.",
+          "why": "Soft, rubbery materials soak up vibrations, which would make a dull thud."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -132,7 +244,10 @@
         "Cross out the properties that have nothing to do with sound."
       ],
       "explanation": "Metals ring when they are struck because they keep vibrating, and scientists call this sonorous. This is why bronze is used for gongs and saron bars.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.metals-materials.007",
@@ -141,10 +256,21 @@
       "difficulty": 2,
       "prompt": "A blacksmith hammers hot iron into a knife blade. Which property of metals does this use?",
       "options": [
-        { "text": "Metals are shiny.", "why": "Shininess does not help to shape the metal." },
-        { "text": "Metals can be hammered into shape without breaking." },
-        { "text": "Metals conduct electricity.", "why": "No electricity is used. The metal is shaped by hammering." },
-        { "text": "Metals are always magnetic.", "why": "Magnetism does not help, and many metals are not magnetic." }
+        {
+          "text": "Metals are shiny.",
+          "why": "Shininess does not help to shape the metal."
+        },
+        {
+          "text": "Metals can be hammered into shape without breaking."
+        },
+        {
+          "text": "Metals conduct electricity.",
+          "why": "No electricity is used. The metal is shaped by hammering."
+        },
+        {
+          "text": "Metals are always magnetic.",
+          "why": "Magnetism does not help, and many metals are not magnetic."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -163,20 +289,46 @@
       "figure": {
         "kind": "table",
         "caption": "Temperature after 20 minutes",
-        "head": ["Wrapping", "Temperature (°C)"],
+        "head": [
+          "Wrapping",
+          "Temperature (°C)"
+        ],
         "rows": [
-          ["no wrapping", "45"],
-          ["aluminium foil", "50"],
-          ["newspaper", "58"],
-          ["wool", "64"]
+          [
+            "no wrapping",
+            "45"
+          ],
+          [
+            "aluminium foil",
+            "50"
+          ],
+          [
+            "newspaper",
+            "58"
+          ],
+          [
+            "wool",
+            "64"
+          ]
         ],
         "alt": "Table: after 20 minutes, the cup with no wrapping was at 45 °C, aluminium foil 50 °C, newspaper 58 °C and wool 64 °C. All started at 80 °C."
       },
       "options": [
-        { "text": "aluminium foil", "why": "The cup in foil cooled to 50 °C, more than the newspaper and wool cups." },
-        { "text": "newspaper", "why": "Newspaper kept the water at 58 °C, but another material kept it warmer." },
-        { "text": "no wrapping", "why": "With no wrapping the water cooled the most, to 45 °C." },
-        { "text": "wool" }
+        {
+          "text": "aluminium foil",
+          "why": "The cup in foil cooled to 50 °C, more than the newspaper and wool cups."
+        },
+        {
+          "text": "newspaper",
+          "why": "Newspaper kept the water at 58 °C, but another material kept it warmer."
+        },
+        {
+          "text": "no wrapping",
+          "why": "With no wrapping the water cooled the most, to 45 °C."
+        },
+        {
+          "text": "wool"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -185,7 +337,9 @@
         "Find the highest temperature in the table."
       ],
       "explanation": "The cup wrapped in wool stayed hottest, at 64 °C, so it lost heat most slowly. Wool traps air, which is a poor conductor of heat.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.metals-materials.009",
@@ -194,10 +348,21 @@
       "difficulty": 4,
       "prompt": "Which metal is a liquid at room temperature?",
       "options": [
-        { "text": "mercury" },
-        { "text": "iron", "why": "Iron melts at over 1,500 °C." },
-        { "text": "copper", "why": "Copper melts at over 1,000 °C." },
-        { "text": "aluminium", "why": "Aluminium melts at about 660 °C." }
+        {
+          "text": "mercury"
+        },
+        {
+          "text": "iron",
+          "why": "Iron melts at over 1,500 °C."
+        },
+        {
+          "text": "copper",
+          "why": "Copper melts at over 1,000 °C."
+        },
+        {
+          "text": "aluminium",
+          "why": "Aluminium melts at about 660 °C."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -206,7 +371,9 @@
         "Cross out the metals used to make pans, wires and nails."
       ],
       "explanation": "Mercury melts at about minus 39 °C, so it is a liquid at room temperature. Iron, copper and aluminium all melt at hundreds or thousands of degrees.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s6.metals-materials.010",
@@ -215,10 +382,21 @@
       "difficulty": 5,
       "prompt": "Pencil lead is made of graphite, which is not a metal. Jaya puts a pencil lead in a circuit, and the bulb lights. What does this show?",
       "options": [
-        { "text": "Pencil lead is really the metal lead.", "why": "Pencil lead contains no lead metal. It is graphite mixed with clay." },
-        { "text": "All non-metals conduct electricity.", "why": "Most non-metal materials, such as plastic and wood, are insulators." },
-        { "text": "Graphite is an unusual non-metal that conducts electricity." },
-        { "text": "The bulb would light with any material in the circuit.", "why": "Insulators such as plastic would not let the bulb light." }
+        {
+          "text": "Pencil lead is really the metal lead.",
+          "why": "Pencil lead contains no lead metal. It is graphite mixed with clay."
+        },
+        {
+          "text": "All non-metals conduct electricity.",
+          "why": "Most non-metal materials, such as plastic and wood, are insulators."
+        },
+        {
+          "text": "Graphite is an unusual non-metal that conducts electricity."
+        },
+        {
+          "text": "The bulb would light with any material in the circuit.",
+          "why": "Insulators such as plastic would not let the bulb light."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -227,7 +405,923 @@
         "Ask what it means that the bulb lit with graphite in the circuit."
       ],
       "explanation": "The bulb lit, so electricity flowed through the graphite. Graphite is one of very few non-metals that conduct electricity.",
-      "tags": ["iksc", "imso", "checkpoint"]
+      "tags": [
+        "iksc",
+        "imso",
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.metals-materials.011",
+      "skill": "s6.metals-materials",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the object that a magnet will pick up.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 150,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "nail",
+            "x": 20,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 112,
+            "text": "nail",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 110,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 138,
+            "y": 112,
+            "text": "wooden spoon",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 200,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 228,
+            "y": 112,
+            "text": "glass",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "rubber-band",
+            "x": 290,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 318,
+            "y": 112,
+            "text": "rubber band",
+            "size": 12
+          }
+        ],
+        "alt": "Four objects in a row with names underneath: a nail, a wooden spoon, a glass and a rubber band."
+      },
+      "regions": [
+        {
+          "label": "nail",
+          "x": 13.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        },
+        {
+          "label": "wooden spoon",
+          "x": 38.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        },
+        {
+          "label": "glass",
+          "x": 63.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        },
+        {
+          "label": "rubber band",
+          "x": 88.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Only some metals are magnetic.",
+        "Wood, glass and rubber are not metals.",
+        "A nail is mostly iron."
+      ],
+      "explanation": "Iron is a magnetic metal, so the nail is picked up. Wood, glass and rubber are not magnetic."
+    },
+    {
+      "id": "s6.metals-materials.012",
+      "skill": "s6.metals-materials",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the 2 objects that let heat travel through them best.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 150,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "spoon",
+            "x": 20,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 112,
+            "text": "metal spoon",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 110,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 138,
+            "y": 112,
+            "text": "wooden spoon",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 200,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 228,
+            "y": 112,
+            "text": "glass",
+            "size": 13
+          },
+          {
+            "t": "icon",
+            "icon": "paperclip",
+            "x": 290,
+            "y": 30,
+            "size": 56
+          },
+          {
+            "t": "text",
+            "x": 318,
+            "y": 112,
+            "text": "metal paperclip",
+            "size": 11
+          }
+        ],
+        "alt": "Four objects in a row with names underneath: a metal spoon, a wooden spoon, a glass and a metal paperclip."
+      },
+      "regions": [
+        {
+          "label": "metal spoon",
+          "x": 13.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        },
+        {
+          "label": "wooden spoon",
+          "x": 38.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        },
+        {
+          "label": "glass",
+          "x": 63.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        },
+        {
+          "label": "metal paperclip",
+          "x": 88.3,
+          "y": 43.3,
+          "w": 19.4,
+          "h": 66.7
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Which materials are good thermal conductors?",
+        "Metals are usually good conductors of heat.",
+        "Wood and glass are insulators."
+      ],
+      "explanation": "Metals are good thermal conductors, so the metal spoon and paperclip carry heat well."
+    },
+    {
+      "id": "s6.metals-materials.013",
+      "skill": "s6.metals-materials",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label this circuit for testing whether a material conducts electricity.",
+      "figure": {
+        "kind": "scene",
+        "width": 340,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "battery",
+            "x": 32,
+            "y": 82,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "bulb",
+            "x": 252,
+            "y": 82,
+            "size": 56
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 82,
+            "x2": 60,
+            "y2": 40,
+            "width": 3,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 138,
+            "y2": 40,
+            "width": 3,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 202,
+            "y1": 40,
+            "x2": 280,
+            "y2": 40,
+            "width": 3,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 280,
+            "y1": 40,
+            "x2": 280,
+            "y2": 82,
+            "width": 3,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 138,
+            "x2": 60,
+            "y2": 180,
+            "width": 3,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 180,
+            "x2": 280,
+            "y2": 180,
+            "width": 3,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 280,
+            "y1": 180,
+            "x2": 280,
+            "y2": 138,
+            "width": 3,
+            "tone": "ink"
+          },
+          {
+            "t": "icon",
+            "icon": "paperclip",
+            "x": 148,
+            "y": 20,
+            "size": 44
+          }
+        ],
+        "alt": "A circuit drawn as a loop. A battery is on the left and a bulb on the right. In the top wire there is a gap filled by a small paperclip being tested."
+      },
+      "labels": [
+        "battery",
+        "bulb",
+        "test material"
+      ],
+      "spots": [
+        {
+          "x": 17.6,
+          "y": 55
+        },
+        {
+          "x": 82.4,
+          "y": 55
+        },
+        {
+          "x": 50,
+          "y": 20
+        }
+      ],
+      "extraLabels": [
+        "switch"
+      ],
+      "hints": [
+        "The loop has a power source and a lamp.",
+        "The material being tested sits in a gap in the wire.",
+        "The bulb is on the right."
+      ],
+      "explanation": "The battery gives energy, the bulb shows whether current flows, and the test material is in the gap."
+    },
+    {
+      "id": "s6.metals-materials.014",
+      "skill": "s6.metals-materials",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table: does each material conduct electricity?",
+      "head": [
+        "Material",
+        "Conducts electricity?"
+      ],
+      "rows": [
+        [
+          "Copper wire",
+          "yes"
+        ],
+        [
+          "Plastic ruler",
+          ""
+        ],
+        [
+          "Iron nail",
+          ""
+        ],
+        [
+          "Rubber band",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "yes"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        }
+      ],
+      "hints": [
+        "Metals usually conduct electricity.",
+        "Plastic and rubber are insulators.",
+        "Iron is a metal."
+      ],
+      "explanation": "Metals like copper and iron are electrical conductors. Plastic and rubber are insulators."
+    },
+    {
+      "id": "s6.metals-materials.015",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which material is best for the base of a frying pan that must conduct heat, be strong, and not rust? Use the table.",
+      "options": [
+        {
+          "text": "Iron",
+          "why": "It rusts, so it fails one of the needs."
+        },
+        {
+          "text": "Wood",
+          "why": "Wood does not conduct heat."
+        },
+        {
+          "text": "Aluminium"
+        },
+        {
+          "text": "Plastic",
+          "why": "Plastic does not conduct heat and is not strong."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the material that meets all three needs.",
+        "Cross out any with no in the Conducts heat column.",
+        "Then cross out any that rust."
+      ],
+      "explanation": "Aluminium conducts heat, is strong and does not rust. Iron rusts, and wood and plastic do not conduct heat.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Material",
+          "Conducts heat",
+          "Strong",
+          "Rusts"
+        ],
+        "rows": [
+          [
+            "Aluminium",
+            "yes",
+            "yes",
+            "no"
+          ],
+          [
+            "Iron",
+            "yes",
+            "yes",
+            "yes"
+          ],
+          [
+            "Wood",
+            "no",
+            "yes",
+            "no"
+          ],
+          [
+            "Plastic",
+            "no",
+            "no",
+            "no"
+          ]
+        ],
+        "alt": "Table of four materials. Aluminium conducts heat, is strong and does not rust. Iron conducts heat, is strong and rusts. Wood does not conduct heat, is strong and does not rust. Plastic does not conduct heat, is not strong and does not rust."
+      }
+    },
+    {
+      "id": "s6.metals-materials.016",
+      "skill": "s6.metals-materials",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Wax on a copper rod melts at one end in 24 seconds. On an iron rod it takes 40 seconds. How many seconds longer does it take on the iron rod?",
+      "answer": 16,
+      "hints": [
+        "Find the difference.",
+        "Take the smaller time from the larger.",
+        "40 minus 24."
+      ],
+      "explanation": "40 − 24 = 16 seconds. Heat travels along the copper rod faster.",
+      "unit": "s"
+    },
+    {
+      "id": "s6.metals-materials.017",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Galih compares four metal spoons to see which conducts heat best. Which must he keep the same?",
+      "options": [
+        {
+          "text": "The type of metal",
+          "why": "This is the one thing being compared, so it must change."
+        },
+        {
+          "text": "The spoon size, the water temperature and the time"
+        },
+        {
+          "text": "Nothing, if he writes down the results",
+          "why": "Unfair tests give misleading results."
+        },
+        {
+          "text": "Only the time",
+          "why": "The water and the spoon size matter too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A fair test changes only one thing.",
+        "What is Galih comparing?",
+        "List everything else."
+      ],
+      "explanation": "He changes only the type of metal. Everything else, such as spoon size, water temperature and time, must stay the same."
+    },
+    {
+      "id": "s6.metals-materials.018",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The chart shows how much the temperature of a handle rose after 2 minutes in hot water. Which material is the best insulator?",
+      "options": [
+        {
+          "text": "copper",
+          "why": "Copper had the biggest rise, so it conducts heat best."
+        },
+        {
+          "text": "steel",
+          "why": "Steel is in the middle."
+        },
+        {
+          "text": "wood"
+        },
+        {
+          "text": "plastic",
+          "why": "Plastic rose more than wood."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "An insulator does not let heat through.",
+        "Look for the smallest rise.",
+        "Compare the heights of the bars."
+      ],
+      "explanation": "Wood has the smallest rise, so it lets the least heat through.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Copper",
+          "Steel",
+          "Plastic",
+          "Wood"
+        ],
+        "values": [
+          38,
+          24,
+          6,
+          4
+        ],
+        "step": 10,
+        "yLabel": "Rise (°C)",
+        "alt": "Bar chart of temperature rise in degrees: copper 38, steel 24, plastic 6, wood 4."
+      }
+    },
+    {
+      "id": "s6.metals-materials.019",
+      "skill": "s6.metals-materials",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 reasons why aluminium is used for aircraft.",
+      "options": [
+        {
+          "text": "It is light for its size"
+        },
+        {
+          "text": "It does not rust easily"
+        },
+        {
+          "text": "It is magnetic",
+          "why": "Aluminium is not attracted to magnets."
+        },
+        {
+          "text": "It is a poor conductor of heat",
+          "why": "Aluminium conducts heat well."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "An aircraft needs to be strong and light.",
+        "Wet air makes some metals rust.",
+        "Cross out wrong properties."
+      ],
+      "explanation": "Aluminium is light and resists rust, which suits aircraft. It is not magnetic and conducts heat well."
+    },
+    {
+      "id": "s6.metals-materials.020",
+      "skill": "s6.metals-materials",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Nails are mostly made of the magnetic metal ___.",
+      "blanks": [
+        {
+          "answers": [
+            "iron",
+            "steel"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a hard grey metal.",
+        "Magnets pick it up.",
+        "It rusts in wet air."
+      ],
+      "explanation": "Iron is a magnetic metal that is used to make nails."
+    },
+    {
+      "id": "s6.metals-materials.021",
+      "skill": "s6.metals-materials",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "The time for ice to melt on rods of equal size is: copper 8 s, aluminium 11 s, steel 25 s, glass 140 s. Order the rods from best to worst conductor of heat.",
+      "items": [
+        "copper",
+        "aluminium",
+        "steel",
+        "glass"
+      ],
+      "hints": [
+        "A shorter time means heat moved faster.",
+        "Put the smallest time first.",
+        "Glass is the slowest."
+      ],
+      "explanation": "The shorter the time, the better the rod conducts heat. Copper is best and glass is poorest."
+    },
+    {
+      "id": "s6.metals-materials.022",
+      "skill": "s6.metals-materials",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        [
+          "ductile",
+          "can be pulled into wires"
+        ],
+        [
+          "malleable",
+          "can be hammered into shape"
+        ],
+        [
+          "conductor",
+          "lets heat or electricity pass"
+        ],
+        [
+          "insulator",
+          "does not let heat or electricity pass"
+        ]
+      ],
+      "hints": [
+        "Think of wire for ductile.",
+        "Hammering is for malleable.",
+        "Conductor and insulator are opposites."
+      ],
+      "explanation": "Metals are ductile and malleable. Conductors let energy pass, and insulators do not."
+    },
+    {
+      "id": "s6.metals-materials.023",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Mei Lin says, A metal spoon feels colder than a wooden spoon, so the metal is colder. What is the best reply?",
+      "options": [
+        {
+          "text": "She is right because metals are always cold.",
+          "why": "Both spoons are at the same room temperature."
+        },
+        {
+          "text": "Both are the same temperature, but metal takes heat from your hand faster so it feels colder."
+        },
+        {
+          "text": "Wood is colder because it is a plant.",
+          "why": "Wood is not colder."
+        },
+        {
+          "text": "The spoons feel the same.",
+          "why": "They feel different because of conduction."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Both have been in the same room.",
+        "Which one carries heat away from your hand faster?",
+        "Feeling cold is about heat leaving your hand."
+      ],
+      "explanation": "Metal is a good conductor, so it takes heat from your skin quickly and feels cold. Wood is an insulator."
+    },
+    {
+      "id": "s6.metals-materials.024",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Three students time how long a rod takes to melt wax. Copper: 21 s, 23 s, 22 s. Iron: 40 s, 38 s, 62 s. Which statement is correct?",
+      "options": [
+        {
+          "text": "The copper results are anomalous.",
+          "why": "They are close together, so they are consistent."
+        },
+        {
+          "text": "Iron is a better conductor than copper.",
+          "why": "Copper times are shorter, so it conducts better."
+        },
+        {
+          "text": "The 62 s result for iron is anomalous and should be checked."
+        },
+        {
+          "text": "All the results should be used in the average.",
+          "why": "An anomalous result may spoil the mean."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the result that does not fit the others.",
+        "Compare the three iron times.",
+        "Check the odd one before using it."
+      ],
+      "explanation": "62 s is far from 38 s and 40 s, so it is anomalous. Copper times are close, and copper conducts heat better."
+    },
+    {
+      "id": "s6.metals-materials.025",
+      "skill": "s6.metals-materials",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these into metal and not a metal.",
+      "groups": [
+        "Metal",
+        "Not a metal"
+      ],
+      "items": [
+        {
+          "text": "gold ring",
+          "group": 0
+        },
+        {
+          "text": "copper pipe",
+          "group": 0
+        },
+        {
+          "text": "steel fork",
+          "group": 0
+        },
+        {
+          "text": "brick",
+          "group": 1
+        },
+        {
+          "text": "plastic bottle",
+          "group": 1
+        },
+        {
+          "text": "wooden spoon",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Metals are shiny when polished.",
+        "Bricks, plastic and wood are not metals.",
+        "Metal makes a ringing sound when hit."
+      ],
+      "explanation": "Gold, copper and steel are metals. Brick, plastic and wood are not."
+    },
+    {
+      "id": "s6.metals-materials.026",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A camping pan must heat quickly, be light and not rust. Copper is heavy, iron rusts and plastic melts. Which choice is the best and why?",
+      "options": [
+        {
+          "text": "Copper, because it conducts heat the best.",
+          "why": "It is heavy, so it fails the need for being light."
+        },
+        {
+          "text": "Iron, because it is strong.",
+          "why": "It rusts, so it fails."
+        },
+        {
+          "text": "Plastic, because it is light.",
+          "why": "It melts and does not conduct heat."
+        },
+        {
+          "text": "Aluminium, because it conducts heat, is light and does not rust easily."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check each choice against all three needs.",
+        "A good choice meets every need.",
+        "Which one did the question not already rule out?"
+      ],
+      "explanation": "Aluminium conducts heat, is light and does not rust easily, so it meets all three needs."
+    },
+    {
+      "id": "s6.metals-materials.801",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Metals are good conductors of heat.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Why are pans made of metal?",
+        "Does heat pass easily?",
+        "They conduct heat."
+      ],
+      "explanation": "Heat travels easily through metals, which is why cooking pans are metal.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.metals-materials.802",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: All metals are magnetic.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is a copper wire attracted?",
+        "Which metals stick?",
+        "Only some metals."
+      ],
+      "explanation": "Only iron, steel, nickel and cobalt are magnetic. Copper, aluminium and gold are not.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.metals-materials.803",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Copper is used for electrical wires because it is a good electrical conductor.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does the wire carry?",
+        "Which property is needed?",
+        "It conducts."
+      ],
+      "explanation": "It lets electricity pass easily and can be bent into wires.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.metals-materials.804",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Most metals are poor conductors of electricity, which is why they are used to make insulation.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What coats wires?",
+        "Is plastic a conductor?",
+        "Metals conduct."
+      ],
+      "explanation": "Metals are good conductors. Insulation is made of materials like plastic or rubber, which do not conduct.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

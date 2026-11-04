@@ -283,7 +283,7 @@ export default async function FigureGallery({ searchParams }: { searchParams: Pr
             {SAMPLES[kind].map((sample, i) => {
               const parsed = figureSpec.safeParse(sample.spec)
               return (
-                <figure key={i} className="m-0 flex flex-col justify-between gap-3 rounded-card border border-divider bg-surface p-4">
+                <figure key={i} className="m-0 flex flex-col justify-between gap-3 rounded-card bg-surface shadow-soft p-4">
                   {parsed.success ? (
                     <div className="flex justify-center">
                       <Figure spec={parsed.data} />

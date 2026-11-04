@@ -1,0 +1,57 @@
+{
+  "skill": "m3.shapes-2d",
+  "items": [
+    {
+      "id": "m3.shapes-2d.801",
+      "skill": "m3.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A quadrilateral is a shape with 4 sides.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Quad means four.",
+        "Count the sides.",
+        "4 sides."
+      ],
+      "explanation": "Quad means four. A square, a rectangle and a kite are all quadrilaterals.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.shapes-2d.802",
+      "skill": "m3.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A rectangle has 2 right angles.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the corners.",
+        "Is each corner a square corner?",
+        "All 4 are right angles."
+      ],
+      "explanation": "A rectangle has 4 right angles, one at each corner.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

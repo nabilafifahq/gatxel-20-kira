@@ -1,4 +1,5 @@
 import 'server-only'
+import { awardDrillStars } from './kira-world'
 import { randomUUID } from 'node:crypto'
 import { and, desc, eq, isNotNull, sql } from 'drizzle-orm'
 import {
@@ -309,6 +310,7 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
     await tx.insert(xpEvent).values({ orgId: ctx.orgId, learnerId, amount: e.amount, reason: e.reason, ref: e.ref, date: row.date, track: 'hitung' }).onConflictDoNothing()
   }
   const earnedXp = events.reduce((n, e) => n + e.amount, 0)
+  if (r.answered >= 5) await awardDrillStars(tx, learnerId, row.id, row.date as IsoDate)
 
   await saveArenaState(tx, ctx, learnerId, 'hitung', state)
   const personal: string[] = []

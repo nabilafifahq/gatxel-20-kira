@@ -10,7 +10,10 @@
     "order": 10,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["kmnr", "timo"],
+    "competitions": [
+      "kmnr",
+      "timo"
+    ],
     "generator": true
   },
   {
@@ -22,9 +25,13 @@
     "titleId": "Membulatkan bilangan cacah",
     "canDo": "I can round whole numbers to the nearest 10, 100, 1,000, 10,000 or 100,000.",
     "order": 20,
-    "prerequisites": ["m5.place-value-millions"],
+    "prerequisites": [
+      "m5.place-value-millions"
+    ],
     "term": 1,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -38,7 +45,10 @@
     "order": 30,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["kmnr", "timo"],
+    "competitions": [
+      "kmnr",
+      "timo"
+    ],
     "generator": true
   },
   {
@@ -50,9 +60,13 @@
     "titleId": "Membandingkan dan mengurutkan desimal",
     "canDo": "I can compare and order decimals with up to two decimal places.",
     "order": 40,
-    "prerequisites": ["m5.decimal-place-value"],
+    "prerequisites": [
+      "m5.decimal-place-value"
+    ],
     "term": 1,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -64,7 +78,10 @@
     "titleId": "Membulatkan desimal",
     "canDo": "I can round a decimal to the nearest whole number or to one decimal place.",
     "order": 50,
-    "prerequisites": ["m5.decimal-place-value", "m5.round-whole-numbers"],
+    "prerequisites": [
+      "m5.decimal-place-value",
+      "m5.round-whole-numbers"
+    ],
     "term": 1,
     "competitions": [],
     "generator": true
@@ -78,9 +95,14 @@
     "titleId": "Mengali dan membagi dengan 10, 100, dan 1.000",
     "canDo": "I can multiply and divide whole numbers and decimals by 10, 100 and 1,000.",
     "order": 60,
-    "prerequisites": ["m5.decimal-place-value"],
+    "prerequisites": [
+      "m5.decimal-place-value"
+    ],
     "term": 1,
-    "competitions": ["kmnr", "sasmo"],
+    "competitions": [
+      "kmnr",
+      "sasmo"
+    ],
     "generator": true
   },
   {
@@ -94,7 +116,10 @@
     "order": 70,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["timo", "seamo"],
+    "competitions": [
+      "timo",
+      "seamo"
+    ],
     "generator": true
   },
   {
@@ -106,9 +131,16 @@
     "titleId": "Barisan bilangan",
     "canDo": "I can continue a sequence and describe its term-to-term rule.",
     "order": 80,
-    "prerequisites": ["m5.negative-numbers"],
+    "prerequisites": [
+      "m5.negative-numbers"
+    ],
     "term": 1,
-    "competitions": ["sasmo", "seamo", "hkimo", "kmnr"],
+    "competitions": [
+      "sasmo",
+      "seamo",
+      "hkimo",
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -122,7 +154,10 @@
     "order": 90,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["kmnr", "timo"],
+    "competitions": [
+      "kmnr",
+      "timo"
+    ],
     "generator": true
   },
   {
@@ -134,9 +169,13 @@
     "titleId": "Penjumlahan dan pengurangan bersusun",
     "canDo": "I can add and subtract large numbers using columns.",
     "order": 100,
-    "prerequisites": ["m5.place-value-millions"],
+    "prerequisites": [
+      "m5.place-value-millions"
+    ],
     "term": 1,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -150,7 +189,13 @@
     "order": 110,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["sasmo", "seamo", "hkimo", "timo", "osn-sd"],
+    "competitions": [
+      "sasmo",
+      "seamo",
+      "hkimo",
+      "timo",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -162,9 +207,16 @@
     "titleId": "Bilangan prima dan bilangan kuadrat",
     "canDo": "I can tell if a number is prime and recognise square numbers.",
     "order": 120,
-    "prerequisites": ["m5.multiples-factors"],
+    "prerequisites": [
+      "m5.multiples-factors"
+    ],
     "term": 1,
-    "competitions": ["sasmo", "seamo", "timo", "osn-sd"],
+    "competitions": [
+      "sasmo",
+      "seamo",
+      "timo",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -176,9 +228,13 @@
     "titleId": "Perkalian bersusun",
     "canDo": "I can multiply a 4-digit number by a 1-digit number and a 2-digit number by a 2-digit number.",
     "order": 130,
-    "prerequisites": ["m5.place-value-millions"],
+    "prerequisites": [
+      "m5.place-value-millions"
+    ],
     "term": 1,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -190,9 +246,13 @@
     "titleId": "Pembagian bersusun",
     "canDo": "I can divide a number up to 4 digits by a 1-digit number and decide what to do with a remainder.",
     "order": 140,
-    "prerequisites": ["m5.multiply-written"],
+    "prerequisites": [
+      "m5.multiply-written"
+    ],
     "term": 1,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -204,9 +264,14 @@
     "titleId": "Pecahan senilai",
     "canDo": "I can find equivalent fractions and write a fraction in its simplest form.",
     "order": 150,
-    "prerequisites": ["m5.multiples-factors"],
+    "prerequisites": [
+      "m5.multiples-factors"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -218,9 +283,14 @@
     "titleId": "Membandingkan pecahan dan pecahan campuran",
     "canDo": "I can compare and order fractions and change between improper fractions and mixed numbers.",
     "order": 160,
-    "prerequisites": ["m5.equivalent-fractions"],
+    "prerequisites": [
+      "m5.equivalent-fractions"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "sasmo"],
+    "competitions": [
+      "kmnr",
+      "sasmo"
+    ],
     "generator": true
   },
   {
@@ -232,9 +302,14 @@
     "titleId": "Penjumlahan dan pengurangan pecahan",
     "canDo": "I can add and subtract fractions with the same or related denominators.",
     "order": 170,
-    "prerequisites": ["m5.compare-fractions"],
+    "prerequisites": [
+      "m5.compare-fractions"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -246,9 +321,15 @@
     "titleId": "Pecahan dari suatu jumlah",
     "canDo": "I can find a fraction of a number, an amount of money or a measurement.",
     "order": 180,
-    "prerequisites": ["m5.equivalent-fractions", "m5.divide-written"],
+    "prerequisites": [
+      "m5.equivalent-fractions",
+      "m5.divide-written"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "sasmo"],
+    "competitions": [
+      "kmnr",
+      "sasmo"
+    ],
     "generator": true
   },
   {
@@ -260,9 +341,13 @@
     "titleId": "Penjumlahan dan pengurangan desimal",
     "canDo": "I can add and subtract decimals with up to two decimal places.",
     "order": 190,
-    "prerequisites": ["m5.compare-decimals"],
+    "prerequisites": [
+      "m5.compare-decimals"
+    ],
     "term": 2,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -274,7 +359,10 @@
     "titleId": "Perkalian desimal dengan bilangan cacah",
     "canDo": "I can multiply a number with one decimal place by a 1-digit whole number.",
     "order": 200,
-    "prerequisites": ["m5.multiply-written", "m5.add-subtract-decimals"],
+    "prerequisites": [
+      "m5.multiply-written",
+      "m5.add-subtract-decimals"
+    ],
     "term": 2,
     "competitions": [],
     "generator": true
@@ -288,9 +376,14 @@
     "titleId": "Pecahan, desimal, dan persen",
     "canDo": "I can write the same amount as a fraction, a decimal and a percentage.",
     "order": 210,
-    "prerequisites": ["m5.equivalent-fractions", "m5.decimal-place-value"],
+    "prerequisites": [
+      "m5.equivalent-fractions",
+      "m5.decimal-place-value"
+    ],
     "term": 2,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -302,9 +395,15 @@
     "titleId": "Persen dari suatu jumlah",
     "canDo": "I can find a percentage of an amount, including amounts of money.",
     "order": 220,
-    "prerequisites": ["m5.fractions-decimals-percentages", "m5.fractions-of-amounts"],
+    "prerequisites": [
+      "m5.fractions-decimals-percentages",
+      "m5.fractions-of-amounts"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "sasmo"],
+    "competitions": [
+      "kmnr",
+      "sasmo"
+    ],
     "generator": true
   },
   {
@@ -316,9 +415,15 @@
     "titleId": "Rasio dan proporsi",
     "canDo": "I can use ratio and proportion to solve problems about groups and recipes.",
     "order": 230,
-    "prerequisites": ["m5.multiples-factors"],
+    "prerequisites": [
+      "m5.multiples-factors"
+    ],
     "term": 2,
-    "competitions": ["sasmo", "seamo", "kmnr"],
+    "competitions": [
+      "sasmo",
+      "seamo",
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -332,7 +437,10 @@
     "order": 240,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["kmnr", "seamo"],
+    "competitions": [
+      "kmnr",
+      "seamo"
+    ],
     "generator": true
   },
   {
@@ -344,9 +452,15 @@
     "titleId": "Keliling dan luas",
     "canDo": "I can find the perimeter and area of rectangles and of shapes made from rectangles.",
     "order": 250,
-    "prerequisites": ["m5.multiply-written"],
+    "prerequisites": [
+      "m5.multiply-written"
+    ],
     "term": 3,
-    "competitions": ["ikmc", "seamo", "kmnr"],
+    "competitions": [
+      "ikmc",
+      "seamo",
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -360,7 +474,10 @@
     "order": 260,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["ikmc", "seamo"],
+    "competitions": [
+      "ikmc",
+      "seamo"
+    ],
     "generator": true
   },
   {
@@ -374,7 +491,11 @@
     "order": 270,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["ikmc", "seamo", "imso"],
+    "competitions": [
+      "ikmc",
+      "seamo",
+      "imso"
+    ],
     "generator": true
   },
   {
@@ -388,7 +509,10 @@
     "order": 280,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["ikmc", "seamo"],
+    "competitions": [
+      "ikmc",
+      "seamo"
+    ],
     "generator": true
   },
   {
@@ -402,7 +526,10 @@
     "order": 290,
     "prerequisites": [],
     "term": 3,
-    "competitions": ["seamo", "imso"],
+    "competitions": [
+      "seamo",
+      "imso"
+    ],
     "generator": true
   },
   {
@@ -414,9 +541,34 @@
     "titleId": "Peluang",
     "canDo": "I can describe how likely an event is and list the possible outcomes.",
     "order": 300,
-    "prerequisites": ["m5.equivalent-fractions"],
+    "prerequisites": [
+      "m5.equivalent-fractions"
+    ],
     "term": 3,
-    "competitions": ["seamo", "imso"],
+    "competitions": [
+      "seamo",
+      "imso"
+    ],
     "generator": true
+  },
+  {
+    "id": "m5.order-divisibility",
+    "subject": "math",
+    "grade": 5,
+    "strand": "Ni",
+    "title": "Order of operations and divisibility",
+    "titleId": "Urutan operasi dan sifat habis dibagi",
+    "canDo": "I can use the order of operations and test numbers for divisibility by 4 and 8.",
+    "order": 310,
+    "prerequisites": [
+      "m5.multiples-factors"
+    ],
+    "term": 1,
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": false
   }
 ]

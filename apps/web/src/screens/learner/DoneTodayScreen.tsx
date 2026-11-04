@@ -2,10 +2,11 @@ import type { ReactElement } from 'react'
 import type { DoneTodayDTO } from '@/lib/dto'
 import { ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
+import { KiraStar } from '@/components/ui/KiraStar'
 import { UiIcon } from '@/components/ui/icons'
 import { plural } from '@/components/learner/format'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
-import { DayGlyph, StreakChain } from '@/components/learner/StreakChain'
+import { StreakChain } from '@/components/learner/StreakChain'
 import { SubjectIcon } from '@/components/learner/SubjectIcon'
 import { SUBJECT_NAME, SUBJECT_STYLE } from '@/components/learner/subject'
 import { XpPill } from '@/components/learner/XpPill'
@@ -31,13 +32,11 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
       <main className="flex flex-1 flex-col gap-8 px-4 pb-6 md:px-12 lg:flex-row lg:items-center lg:gap-12">
         <section aria-labelledby="done-title" className="flex min-w-0 flex-1 flex-col items-start gap-4.5">
           {limit ? (
-            <span className="flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg bg-surface md:h-28 md:w-28">
+            <span className="flex h-24 w-24 items-center justify-center rounded-card bg-lavender md:h-28 md:w-28">
               <UiIcon name="clock" size={60} strokeWidth={1.75} className="h-12 w-12 md:h-15 md:w-15" />
             </span>
           ) : (
-            <span className="h-24 w-24 md:h-28 md:w-28 [&>svg]:h-full [&>svg]:w-full">
-              <DayGlyph status="complete" size={112} />
-            </span>
+            <KiraStar size={112} />
           )}
           <h1 id="done-title" className="m-0 font-display text-h1 font-semibold md:text-display">
             {data.title}
@@ -58,7 +57,7 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
           </div>
         </section>
 
-        <section aria-labelledby="done-quests" className="flex min-w-0 flex-col gap-2 rounded-card border border-divider bg-surface p-5 md:p-8 lg:flex-[1.05]">
+        <section aria-labelledby="done-quests" className="flex min-w-0 flex-col gap-2 rounded-card bg-surface shadow-soft p-5 md:p-8 lg:flex-[1.05]">
           <h2 id="done-quests" className="m-0 mb-2 text-h2 font-bold">
             Today&apos;s sessions
           </h2>
@@ -90,7 +89,7 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
               )
             })}
           </ul>
-          <div className="mt-3 flex items-start gap-3 rounded-control border border-divider bg-bg px-4 py-3.5">
+          <div className="mt-3 flex items-start gap-3 rounded-control bg-lavender px-4 py-3.5">
             <UiIcon name="sun" size={24} className="mt-0.5 flex-none" />
             <p className="m-0 text-body-lg">{data.tomorrow}</p>
           </div>

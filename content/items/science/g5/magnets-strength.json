@@ -1,0 +1,645 @@
+{
+  "skill": "s5.magnets-strength",
+  "items": [
+    {
+      "id": "s5.magnets-strength.001",
+      "skill": "s5.magnets-strength",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which of these is a magnetic material?",
+      "options": [
+        {
+          "text": "wood",
+          "why": "Wood is not magnetic."
+        },
+        {
+          "text": "iron"
+        },
+        {
+          "text": "glass",
+          "why": "Glass is not magnetic."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what a magnet can pick up.",
+        "It is a metal.",
+        "Many nails are made of it."
+      ],
+      "explanation": "Iron is a magnetic material."
+    },
+    {
+      "id": "s5.magnets-strength.002",
+      "skill": "s5.magnets-strength",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What are the two ends of a magnet called?",
+      "options": [
+        {
+          "text": "the top and bottom",
+          "why": "Magnets have poles."
+        },
+        {
+          "text": "the north pole and the south pole"
+        },
+        {
+          "text": "the plus and minus",
+          "why": "That is used for batteries."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "They are named after directions.",
+        "Each magnet has two.",
+        "Opposite poles attract."
+      ],
+      "explanation": "A magnet has a north pole and a south pole."
+    },
+    {
+      "id": "s5.magnets-strength.003",
+      "skill": "s5.magnets-strength",
+      "difficulty": 1,
+      "type": "text",
+      "prompt": "An iron nail is a magnetic ___, not a magnet.",
+      "blanks": [
+        {
+          "answers": [
+            "material"
+          ]
+        }
+      ],
+      "hints": [
+        "It is attracted by a magnet.",
+        "It is made of iron.",
+        "The word starts with m."
+      ],
+      "explanation": "Iron is a magnetic material. It is attracted to magnets but is not a magnet unless it is magnetised."
+    },
+    {
+      "id": "s5.magnets-strength.004",
+      "skill": "s5.magnets-strength",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What is the difference between a magnet and a magnetic material?",
+      "options": [
+        {
+          "text": "A magnetic material always attracts other materials.",
+          "why": "Only magnets do that."
+        },
+        {
+          "text": "A magnet has its own magnetic force, but a magnetic material is only attracted to magnets."
+        },
+        {
+          "text": "They are the same thing.",
+          "why": "They are different."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A magnet can attract and repel.",
+        "A magnetic material is only attracted.",
+        "Iron is a magnetic material."
+      ],
+      "explanation": "A magnet has its own magnetic force. A magnetic material is attracted by a magnet but is not a magnet itself."
+    },
+    {
+      "id": "s5.magnets-strength.005",
+      "skill": "s5.magnets-strength",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which of these will a magnet NOT attract?",
+      "options": [
+        {
+          "text": "an iron nail",
+          "why": "Iron is magnetic."
+        },
+        {
+          "text": "a copper coin"
+        },
+        {
+          "text": "a steel paper clip",
+          "why": "Steel is mostly iron."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Not all metals are magnetic.",
+        "Iron and steel are magnetic.",
+        "Copper is not."
+      ],
+      "explanation": "Copper is a metal but it is not magnetic."
+    },
+    {
+      "id": "s5.magnets-strength.006",
+      "skill": "s5.magnets-strength",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Two magnets are held with their north poles close together. What happens?",
+      "options": [
+        {
+          "text": "They attract each other.",
+          "why": "Like poles repel."
+        },
+        {
+          "text": "They repel each other."
+        },
+        {
+          "text": "Nothing happens.",
+          "why": "They push apart."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Like poles are the same.",
+        "North and north are like poles.",
+        "Think about pushing."
+      ],
+      "explanation": "Like poles repel, so two north poles push each other away."
+    },
+    {
+      "id": "s5.magnets-strength.007",
+      "skill": "s5.magnets-strength",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which statement about magnetic forces is true?",
+      "options": [
+        {
+          "text": "They only work when the objects touch.",
+          "why": "Magnetic forces act across a gap."
+        },
+        {
+          "text": "They can act without the objects touching."
+        },
+        {
+          "text": "They only work in water.",
+          "why": "They work in air too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A magnet can pick up a paper clip without touching it.",
+        "Gravity also works across a gap.",
+        "It is a force that acts over a distance."
+      ],
+      "explanation": "Magnetic forces act over a distance, so a magnet can attract a nearby object without touching it."
+    },
+    {
+      "id": "s5.magnets-strength.008",
+      "skill": "s5.magnets-strength",
+      "difficulty": 2,
+      "type": "sort",
+      "prompt": "Sort each object into magnetic or not magnetic.",
+      "groups": [
+        "Magnetic",
+        "Not magnetic"
+      ],
+      "items": [
+        {
+          "text": "iron nail",
+          "group": 0
+        },
+        {
+          "text": "steel paper clip",
+          "group": 0
+        },
+        {
+          "text": "steel can",
+          "group": 0
+        },
+        {
+          "text": "plastic comb",
+          "group": 1
+        },
+        {
+          "text": "wooden pencil",
+          "group": 1
+        },
+        {
+          "text": "glass bottle",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Iron and steel are magnetic.",
+        "Wood, plastic and glass are not.",
+        "Try to remember which metals work."
+      ],
+      "explanation": "Iron and steel objects are magnetic. Plastic, wood and glass are not."
+    },
+    {
+      "id": "s5.magnets-strength.009",
+      "skill": "s5.magnets-strength",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A student tests two magnets. Magnet A picks up 12 paper clips and magnet B picks up 5. Which statement is true?",
+      "options": [
+        {
+          "text": "Magnet B is stronger than magnet A.",
+          "why": "B picked up fewer clips."
+        },
+        {
+          "text": "Magnet A is stronger than magnet B."
+        },
+        {
+          "text": "They have the same strength.",
+          "why": "They picked up different numbers."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A stronger magnet pulls more.",
+        "Compare 12 and 5.",
+        "More paper clips means more strength."
+      ],
+      "explanation": "Magnet A picks up more paper clips, so it is stronger."
+    },
+    {
+      "id": "s5.magnets-strength.010",
+      "skill": "s5.magnets-strength",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "Magnet A holds 12 paper clips and magnet B holds 5. How many more paper clips does magnet A hold?",
+      "answer": 7,
+      "unit": "paper clips",
+      "hints": [
+        "Take the smaller number from the larger.",
+        "Work out 12 − 5.",
+        "It is less than 10."
+      ],
+      "explanation": "12 − 5 = 7. Magnet A holds 7 more paper clips."
+    },
+    {
+      "id": "s5.magnets-strength.011",
+      "skill": "s5.magnets-strength",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A magnet picks up a paper clip from 2 cm away but not from 6 cm away. What does this show?",
+      "options": [
+        {
+          "text": "The magnet only works up to 6 cm in water.",
+          "why": "The test was in air."
+        },
+        {
+          "text": "The magnetic force gets weaker with distance."
+        },
+        {
+          "text": "The paper clip stops being magnetic.",
+          "why": "The force just gets too weak."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Distance changes the pull.",
+        "Closer is stronger.",
+        "The pull at 6 cm is too small."
+      ],
+      "explanation": "Magnetic forces get weaker as distance grows, so the magnet works at 2 cm but not 6 cm."
+    },
+    {
+      "id": "s5.magnets-strength.012",
+      "skill": "s5.magnets-strength",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "How can a student compare the strength of two magnets?",
+      "options": [
+        {
+          "text": "Weigh each magnet.",
+          "why": "Weight does not show magnetic strength."
+        },
+        {
+          "text": "Count how many paper clips each can hold."
+        },
+        {
+          "text": "See which looks bigger.",
+          "why": "Size does not always show strength."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A stronger magnet pulls more.",
+        "Use the same paper clips.",
+        "Count what each can pick up."
+      ],
+      "explanation": "A stronger magnet can pick up more paper clips, so counting them is a fair test."
+    },
+    {
+      "id": "s5.magnets-strength.013",
+      "skill": "s5.magnets-strength",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which of these will a magnet attract?",
+      "options": [
+        {
+          "text": "a steel screw"
+        },
+        {
+          "text": "an aluminium can",
+          "why": "Aluminium is not magnetic."
+        },
+        {
+          "text": "a copper wire",
+          "why": "Copper is not magnetic."
+        },
+        {
+          "text": "an iron nail"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Iron and steel are magnetic.",
+        "Some metals are not magnetic.",
+        "Think about which metals are iron-based."
+      ],
+      "explanation": "A magnet attracts iron and steel. It does not attract aluminium or copper."
+    },
+    {
+      "id": "s5.magnets-strength.014",
+      "skill": "s5.magnets-strength",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which pair will attract each other?",
+      "options": [
+        {
+          "text": "two north poles",
+          "why": "Like poles repel."
+        },
+        {
+          "text": "a north pole and a south pole"
+        },
+        {
+          "text": "two south poles",
+          "why": "Like poles repel."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Opposite poles attract.",
+        "N and S are opposites.",
+        "Like poles push apart."
+      ],
+      "explanation": "Opposite poles attract and like poles repel."
+    },
+    {
+      "id": "s5.magnets-strength.015",
+      "skill": "s5.magnets-strength",
+      "difficulty": 3,
+      "type": "text",
+      "prompt": "Magnets and gravity are both forces that can act over a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "distance"
+          ]
+        }
+      ],
+      "hints": [
+        "They do not need to touch.",
+        "Think about how far away.",
+        "The word starts with d."
+      ],
+      "explanation": "Both magnetic force and gravity can act over a distance."
+    },
+    {
+      "id": "s5.magnets-strength.016",
+      "skill": "s5.magnets-strength",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A magnet is placed under a sheet of card with iron filings on top. The filings move. What does this show?",
+      "options": [
+        {
+          "text": "The card is magnetic.",
+          "why": "Card is not magnetic."
+        },
+        {
+          "text": "The magnetic force can act through the card."
+        },
+        {
+          "text": "The filings are alive.",
+          "why": "Filings are tiny bits of iron."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The magnet does not touch the filings.",
+        "The force passes through the card.",
+        "Iron is magnetic."
+      ],
+      "explanation": "The force goes through the card, so it acts over a distance."
+    },
+    {
+      "id": "s5.magnets-strength.017",
+      "skill": "s5.magnets-strength",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A paper clip is held up by a magnet and a second clip hangs from the first. Why does this happen?",
+      "options": [
+        {
+          "text": "The two clips are glued together.",
+          "why": "There is no glue."
+        },
+        {
+          "text": "The first clip becomes a temporary magnet."
+        },
+        {
+          "text": "The second clip is lighter than air.",
+          "why": "It is not lighter than air."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A magnet can make iron act like a magnet.",
+        "The effect stops when the magnet is removed.",
+        "The first clip attracts the second."
+      ],
+      "explanation": "A magnetic material near a magnet can become magnetised for a short time, so the first clip attracts the second."
+    },
+    {
+      "id": "s5.magnets-strength.018",
+      "skill": "s5.magnets-strength",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which is the fairest way to compare two magnets?",
+      "options": [
+        {
+          "text": "Use big clips for one and small clips for the other.",
+          "why": "That changes more than one thing."
+        },
+        {
+          "text": "Use the same paper clips and place each magnet at the same distance."
+        },
+        {
+          "text": "Test one in the sun and one in the shade.",
+          "why": "The Sun does not matter here."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Change only one thing.",
+        "Keep the clips the same.",
+        "Keep the distance the same."
+      ],
+      "explanation": "In a fair test only the magnet changes. The clips and the distance stay the same."
+    },
+    {
+      "id": "s5.magnets-strength.019",
+      "skill": "s5.magnets-strength",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A magnet picks up 10 clips when new, but only 6 after being dropped many times. What is the best conclusion?",
+      "options": [
+        {
+          "text": "The magnet has become stronger.",
+          "why": "It holds fewer clips."
+        },
+        {
+          "text": "The magnet has become weaker."
+        },
+        {
+          "text": "The clips have become lighter.",
+          "why": "The clips did not change."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare 10 and 6.",
+        "Fewer clips means weaker.",
+        "Hitting a magnet can weaken it."
+      ],
+      "explanation": "It holds fewer clips than before, so it has become weaker."
+    },
+    {
+      "id": "s5.magnets-strength.020",
+      "skill": "s5.magnets-strength",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Why does a fridge magnet stick to a steel fridge door but not to a wooden cupboard?",
+      "options": [
+        {
+          "text": "The cupboard is too warm.",
+          "why": "Temperature is not the reason."
+        },
+        {
+          "text": "Steel is a magnetic material and wood is not."
+        },
+        {
+          "text": "Wood is too heavy.",
+          "why": "Weight is not the reason."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The door is made of steel.",
+        "Steel contains iron.",
+        "Wood is not attracted."
+      ],
+      "explanation": "The magnet is attracted to the steel, which is magnetic. Wood is not magnetic."
+    },
+    {
+      "id": "s5.magnets-strength.801",
+      "skill": "s5.magnets-strength",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A magnet can attract a magnetic object without touching it.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does a paper clip jump to a magnet?",
+        "It does not need to touch.",
+        "Magnetic force works at a distance."
+      ],
+      "explanation": "Magnetic forces act at a distance, so the force can reach across a small gap.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.magnets-strength.802",
+      "skill": "s5.magnets-strength",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Everything made of metal is a magnet.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is a coin a magnet?",
+        "Is the spoon magnetic?",
+        "Not all metal is magnetic."
+      ],
+      "explanation": "Most metals are not magnets and many are not even magnetic. A magnet is an object that attracts iron and can repel other magnets.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.magnets-strength.803",
+      "skill": "s5.magnets-strength",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The magnetic force gets weaker as the distance from the magnet grows.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the pull stronger up close?",
+        "Move the clip away.",
+        "The farther, the weaker."
+      ],
+      "explanation": "The farther away an object is, the weaker the pull.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.magnets-strength.804",
+      "skill": "s5.magnets-strength",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Any object that a magnet attracts is a magnet itself.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does an iron nail push away a magnet?",
+        "A magnet can attract and repel.",
+        "Only magnets repel."
+      ],
+      "explanation": "Many things are attracted but are not magnets, such as an iron nail. They are magnetic materials, and a real magnet can also repel another magnet.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "skill": "m2.place-value",
+  "items": [
+    {
+      "id": "m2.place-value.803",
+      "skill": "m2.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 1,
+      "prompt": "Show the number 47 with blocks.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 0,
+        "t": 4,
+        "o": 7
+      },
+      "exact": false,
+      "hints": [
+        "The first digit of 47 tells you the tens.",
+        "Add 4 tens.",
+        "Then add 7 ones."
+      ],
+      "explanation": "47 is 4 tens and 7 ones, because 40 and 7 make 47.",
+      "tags": [
+        "manipulative",
+        "blocks"
+      ]
+    },
+    {
+      "id": "m2.place-value.804",
+      "skill": "m2.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 1,
+      "prompt": "Show 90 using only tens.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 0
+      },
+      "target": {
+        "h": 0,
+        "t": 9,
+        "o": 0
+      },
+      "exact": true,
+      "hints": [
+        "Count in tens: 10, 20, 30 and so on.",
+        "You need to reach 90.",
+        "Use 9 tens and no ones."
+      ],
+      "explanation": "90 is 9 tens, because nine groups of 10 make 90.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m2.place-value.805",
+      "skill": "m2.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 2,
+      "prompt": "You have 25 ones. Trade until 25 is shown with the fewest blocks.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 0,
+        "o": 25
+      },
+      "target": {
+        "h": 0,
+        "t": 2,
+        "o": 5
+      },
+      "exact": true,
+      "hints": [
+        "How many groups of 10 are in 25?",
+        "Trade 10 ones for 1 ten two times.",
+        "Five ones are left over."
+      ],
+      "explanation": "25 ones hold 2 groups of ten and 5 ones left over, so 25 is 2 tens and 5 ones.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m2.place-value.806",
+      "skill": "m2.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 3,
+      "prompt": "Show 40 as 3 tens and 10 ones by breaking one ten.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 4,
+        "o": 0
+      },
+      "target": {
+        "h": 0,
+        "t": 3,
+        "o": 10
+      },
+      "exact": true,
+      "hints": [
+        "Breaking a ten gives you 10 ones.",
+        "Tap Break 1 into 10 ones in the tens column.",
+        "You should have 3 tens and 10 ones."
+      ],
+      "explanation": "One ten becomes 10 ones, so 4 tens is the same as 3 tens and 10 ones.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m2.place-value.807",
+      "skill": "m2.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 3,
+      "prompt": "Show 58 using exactly 4 tens.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 5,
+        "o": 8
+      },
+      "target": {
+        "h": 0,
+        "t": 4,
+        "o": 18
+      },
+      "exact": true,
+      "hints": [
+        "You must give up one of the 5 tens.",
+        "Break 1 ten into 10 ones.",
+        "Then you have 4 tens and 18 ones."
+      ],
+      "explanation": "Breaking 1 ten gives 10 more ones. So 58 is 4 tens and 18 ones.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    },
+    {
+      "id": "m2.place-value.808",
+      "skill": "m2.place-value",
+      "source": "kira-original",
+      "type": "blocks",
+      "difficulty": 3,
+      "prompt": "Start with 36. Add 2 tens and 5 ones, then trade so the answer uses the fewest blocks.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 3,
+        "o": 6
+      },
+      "target": {
+        "h": 0,
+        "t": 6,
+        "o": 1
+      },
+      "exact": true,
+      "hints": [
+        "Add the tens, then add the ones.",
+        "You will have 11 ones. Trade 10 of them.",
+        "The answer is 6 tens and 1 one."
+      ],
+      "explanation": "36 plus 25 is 61. Adding gives 5 tens and 11 ones, and trading 10 ones leaves 6 tens and 1 one.",
+      "tags": [
+        "manipulative",
+        "blocks",
+        "regroup"
+      ]
+    }
+  ]
+}

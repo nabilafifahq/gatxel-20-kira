@@ -1,11 +1,26 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { httpsRedirectTarget } from '@/lib/https-redirect'
+import { accessLogLine } from '@/lib/access-log'
 
 /**
  * CSP ber-nonce untuk semua halaman (GTX-ENG-001, aplikasi terautentikasi).
  * Proxy bukan batas otorisasi: pemeriksaan sesi ada di DAL dan setiap action.
  * style-src memakai 'unsafe-inline' karena atribut style dari React tidak bisa diberi nonce.
  */
+/** Halaman auth publik yang boleh memuat Cloudflare Turnstile (hanya bila dikonfigurasi). Area learner tidak pernah. */
+const TURNSTILE_PATHS = [/^\/$/, /^\/beranda$/, /^\/daftar(\/|$)/, /^\/masuk$/, /^\/reset(\/|$)/]
+const SESSION_COOKIE = '__Host-kira.session'
+const DEVICE_COOKIE = '__Host-kira.device'
+
 export function proxy(request: NextRequest) {
+  const redirect = httpsRedirectTarget(request.headers, request.nextUrl.pathname + request.nextUrl.search, process.env.NODE_ENV === 'production', process.env.KIRA_ORIGIN)
+  // eslint-disable-next-line no-console -- log akses JSON satu baris; proxy tidak bisa memakai server/log (server-only)
+  if (process.env.KIRA_ACCESS_LOG !== 'off') console.log(accessLogLine(request.method, request.nextUrl.pathname, request.headers))
+  if (redirect) return NextResponse.redirect(redirect, 308)
+  if (request.nextUrl.pathname.startsWith('/api/')) return NextResponse.next()
+  const path = request.nextUrl.pathname
+  const anonymousHome = path === '/' && !request.cookies.has(SESSION_COOKIE) && !request.cookies.has(DEVICE_COOKIE)
+  const turnstile = Boolean(process.env.KIRA_TURNSTILE_SITE_KEY && process.env.KIRA_TURNSTILE_SECRET) && (path === '/' ? anonymousHome : TURNSTILE_PATHS.some((re) => re.test(path)))
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const dev = process.env.NODE_ENV !== 'production'
   // upgrade-insecure-requests hanya bila Kira memang dibuka lewat https (Cloudflare Tunnel). Di http://localhost
@@ -13,12 +28,13 @@ export function proxy(request: NextRequest) {
   const httpsOrigin = (process.env.KIRA_ORIGIN ?? '').startsWith('https://')
   const csp = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${dev ? " 'unsafe-eval'" : ''}`,
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${turnstile ? ' https://challenges.cloudflare.com' : ''}${dev ? " 'unsafe-eval'" : ''}`,
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' blob: data:",
     "media-src 'self' blob:",
     "font-src 'self' data:",
-    "connect-src 'self'",
+    `connect-src 'self'${turnstile ? ' https://challenges.cloudflare.com' : ''}`,
+    ...(turnstile ? ["frame-src https://challenges.cloudflare.com"] : []),
     "worker-src 'self'",
     "manifest-src 'self'",
     "object-src 'none'",
@@ -31,7 +47,8 @@ export function proxy(request: NextRequest) {
   const headers = new Headers(request.headers)
   headers.set('x-nonce', nonce)
   headers.set('Content-Security-Policy', csp)
-  const response = NextResponse.next({ request: { headers } })
+  // Pengunjung tanpa sesi dan tanpa tablet terdaftar melihat halaman depan publik; alamat tetap /.
+  const response = anonymousHome ? NextResponse.rewrite(new URL('/beranda', request.url), { request: { headers } }) : NextResponse.next({ request: { headers } })
   response.headers.set('Content-Security-Policy', csp)
   return response
 }
@@ -39,7 +56,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     {
-      source: '/((?!api|_next/static|_next/image|favicon.ico|icons|sounds|sw.js|manifest.webmanifest|fonts).*)',
+      source: '/((?!_next/static|_next/image|favicon.ico|icons|sounds|dict|panduan-img|sw.js|manifest.webmanifest|fonts).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },

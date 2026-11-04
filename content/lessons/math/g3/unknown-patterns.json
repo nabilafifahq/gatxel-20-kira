@@ -1,0 +1,48 @@
+{
+  "skill": "m3.unknown-patterns",
+  "title": "Unknowns and patterns",
+  "steps": [
+    {
+      "say": "A symbol can stand for a number we do not know yet. In ? + 6 = 15, the ? stands for 9, because 9 + 6 = 15."
+    },
+    {
+      "say": "To find the unknown in an addition, take away: 15 − 6 = 9. To find the unknown in a subtraction, think about what is left."
+    },
+    {
+      "say": "A sequence is a list of numbers that follows a rule. In 4, 7, 10, 13 the rule is add 3 each time. This is the term-to-term rule."
+    },
+    {
+      "say": "A pattern of shapes can grow by the same amount each time. If each new row adds 3 sticks, the number of sticks follows an add-3 sequence."
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.unknown-patterns.901",
+      "skill": "m3.unknown-patterns",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "? + 6 = 15. What number does the ? stand for?",
+      "answer": 9,
+      "hints": [
+        "Take 6 away from 15.",
+        "What do you add to 6 to make 15?",
+        "The answer is less than 10."
+      ],
+      "explanation": "15 − 6 = 9, so ? is 9."
+    },
+    {
+      "id": "m3.unknown-patterns.902",
+      "skill": "m3.unknown-patterns",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is the next number? 4, 7, 10, 13, ___",
+      "answer": 16,
+      "hints": [
+        "Find how much it goes up each time.",
+        "It goes up by 3.",
+        "Add 3 to 13."
+      ],
+      "explanation": "The rule is add 3, so the next number is 16."
+    }
+  ]
+}

@@ -326,6 +326,645 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e5.figurative-language.011",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is an exaggeration (hyperbole)?",
+      "options": [
+        {
+          "text": "The soup was hot.",
+          "why": "This is a plain fact, with no exaggeration."
+        },
+        {
+          "text": "I have told you a million times to tidy your room!"
+        },
+        {
+          "text": "The cat sat on the mat.",
+          "why": "This is a plain fact."
+        },
+        {
+          "text": "The leaves fell in autumn.",
+          "why": "This is a plain fact."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hyperbole makes something sound much bigger than it is.",
+        "Look for a number or amount that cannot be real.",
+        "Which sentence could not be literally true?"
+      ],
+      "explanation": "A hyperbole is a big exaggeration. Nobody has said something a million times, so it is only to show how often."
+    },
+    {
+      "id": "e5.figurative-language.012",
+      "skill": "e5.figurative-language",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "Dewi ran ___ a cheetah. Her brother was as brave ___ a lion.",
+      "gaps": [
+        {
+          "options": [
+            "than",
+            "like",
+            "as"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "as",
+            "like",
+            "than"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Similes compare two things using two small words.",
+        "One pattern is \"like\", the other is \"as ... as\".",
+        "Look at the words just before the gap: is there already an \"as\"?"
+      ],
+      "explanation": "A simile uses \"like\" or \"as ... as\". Here it is \"ran like a cheetah\" and \"as brave as a lion\"."
+    },
+    {
+      "id": "e5.figurative-language.013",
+      "skill": "e5.figurative-language",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each sentence by the kind of figurative language it uses.",
+      "groups": [
+        "Simile",
+        "Metaphor",
+        "Personification"
+      ],
+      "items": [
+        {
+          "text": "The moon is a silver coin.",
+          "group": 1
+        },
+        {
+          "text": "The clock stared at us all lesson.",
+          "group": 2
+        },
+        {
+          "text": "Her laugh was like bells ringing.",
+          "group": 0
+        },
+        {
+          "text": "The classroom was a zoo at lunchtime.",
+          "group": 1
+        },
+        {
+          "text": "The wind whispered through the trees.",
+          "group": 2
+        },
+        {
+          "text": "He was as quiet as a mouse.",
+          "group": 0
+        }
+      ],
+      "hints": [
+        "Similes use \"like\" or \"as\".",
+        "Metaphors say one thing IS another.",
+        "Personification gives a human action to an object or animal."
+      ],
+      "explanation": "Similes compare with \"like\" or \"as\", metaphors say something is something else, and personification gives human actions to things."
+    },
+    {
+      "id": "e5.figurative-language.014",
+      "skill": "e5.figurative-language",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each sentence to its technique.",
+      "pairs": [
+        [
+          "My bag weighs a tonne.",
+          "Hyperbole"
+        ],
+        [
+          "The old door groaned in pain.",
+          "Personification"
+        ],
+        [
+          "He was as tall as a tree.",
+          "Simile"
+        ],
+        [
+          "The night was a black blanket.",
+          "Metaphor"
+        ]
+      ],
+      "hints": [
+        "Look for \"as\" or \"like\" first.",
+        "Which sentence gives a door a human feeling?",
+        "Which sentence is much too big to be true?"
+      ],
+      "explanation": "A bag cannot weigh a tonne (hyperbole), a door cannot feel pain (personification), \"as tall as\" is a simile, and \"was a black blanket\" is a metaphor."
+    },
+    {
+      "id": "e5.figurative-language.015",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is a metaphor?",
+      "options": [
+        {
+          "text": "The runner flew like the wind.",
+          "why": "This uses \"like\", so it is a simile."
+        },
+        {
+          "text": "The sun smiled down at the beach.",
+          "why": "The sun is given a human action, so this is personification."
+        },
+        {
+          "text": "The runner was a cheetah on the track."
+        },
+        {
+          "text": "The runner was very fast.",
+          "why": "This is a plain statement."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A metaphor says one thing IS another thing.",
+        "There is no \"like\" or \"as\".",
+        "The thing is not given human actions here."
+      ],
+      "explanation": "\"The runner was a cheetah\" says one thing is another without \"like\" or \"as\", so it is a metaphor."
+    },
+    {
+      "id": "e5.figurative-language.016",
+      "skill": "e5.figurative-language",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Which word shows this is a simile? The snow was soft like a feather pillow.",
+      "blanks": [
+        {
+          "answers": [
+            "like"
+          ]
+        }
+      ],
+      "hints": [
+        "Similes use special comparing words.",
+        "There are two such words: \"like\" and \"as\".",
+        "Scan the sentence for one of them."
+      ],
+      "explanation": "\"Like\" compares the snow with a feather pillow, which makes the sentence a simile."
+    },
+    {
+      "id": "e5.figurative-language.017",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence uses hyperbole to show that a bag is very heavy?",
+      "options": [
+        {
+          "text": "My bag is so heavy that it will break the whole earth."
+        },
+        {
+          "text": "My bag is a rock.",
+          "why": "This is a metaphor, not an exaggeration of weight."
+        },
+        {
+          "text": "My bag sighed under its load.",
+          "why": "This is personification."
+        },
+        {
+          "text": "My bag is as heavy as a stone.",
+          "why": "This is a simile."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Hyperbole is exaggeration.",
+        "Look for something impossible.",
+        "Which option makes the bag sound far too heavy to be real?"
+      ],
+      "explanation": "Only an exaggeration like \"break the whole earth\" is hyperbole; the other options are metaphor, personification and simile."
+    },
+    {
+      "id": "e5.figurative-language.018",
+      "skill": "e5.figurative-language",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the examples of hyperbole.",
+      "options": [
+        {
+          "text": "I am so hungry I could eat a horse."
+        },
+        {
+          "text": "The tea was hot."
+        },
+        {
+          "text": "This bag weighs a million kilograms."
+        },
+        {
+          "text": "The waves danced on the shore."
+        },
+        {
+          "text": "She waited for ages and ages and ages."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Hyperbole means a big exaggeration.",
+        "Plain facts are not hyperbole.",
+        "Personification is a different technique."
+      ],
+      "explanation": "The horse, the million kilograms and the \"ages and ages\" are exaggerations. \"Hot tea\" is plain and \"waves danced\" is personification."
+    },
+    {
+      "id": "e5.figurative-language.019",
+      "skill": "e5.figurative-language",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a sentence in which the wind is given a human action.",
+      "answer": "The wind whispered secrets to the trees.",
+      "distractors": [
+        "like",
+        "was"
+      ],
+      "hints": [
+        "Personification gives a human action to a thing.",
+        "Whispering is something people do.",
+        "Begin with \"The wind\"."
+      ],
+      "explanation": "The wind cannot whisper secrets. Giving it a human action is personification."
+    },
+    {
+      "id": "e5.figurative-language.020",
+      "skill": "e5.figurative-language",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Name the technique in each sentence. Use one word: simile, metaphor, personification or hyperbole.",
+      "head": [
+        "Sentence",
+        "Technique"
+      ],
+      "rows": [
+        [
+          "Hands as cold as ice.",
+          "simile"
+        ],
+        [
+          "Patience is an ocean.",
+          ""
+        ],
+        [
+          "The door groaned.",
+          ""
+        ],
+        [
+          "I have a million jobs.",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "metaphor"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "personification"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "hyperbole"
+          ]
+        }
+      ],
+      "hints": [
+        "Check for \"like\" or \"as\" first.",
+        "Is a thing doing something only people do?",
+        "Is a number or size impossibly large?"
+      ],
+      "explanation": "The ocean line is a metaphor, a door groaning is personification, and a million things is hyperbole."
+    },
+    {
+      "id": "e5.figurative-language.021",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Time is a thief that steals our holidays. What does this metaphor suggest?",
+      "options": [
+        {
+          "text": "Time is a person who breaks into houses.",
+          "why": "This takes the words too literally."
+        },
+        {
+          "text": "Holidays go by quickly and we cannot get them back."
+        },
+        {
+          "text": "Holidays are very long.",
+          "why": "The metaphor suggests the opposite."
+        },
+        {
+          "text": "Thieves like to visit on holidays.",
+          "why": "This misses the idea about time."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A metaphor is not meant to be literal.",
+        "What does a thief do to things?",
+        "Think about how holidays feel when time passes."
+      ],
+      "explanation": "A thief takes things away without us noticing. Time works like that, because holidays seem to disappear quickly."
+    },
+    {
+      "id": "e5.figurative-language.022",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses figurative language to make the reader feel afraid?",
+      "options": [
+        {
+          "text": "The cave was dark.",
+          "why": "This is a plain fact with no picture or feeling."
+        },
+        {
+          "text": "The cave yawned open like a hungry mouth, waiting."
+        },
+        {
+          "text": "The cave was large and cool.",
+          "why": "This is a plain description."
+        },
+        {
+          "text": "We walked into the cave.",
+          "why": "This is a plain action."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Figurative language builds a picture and a feeling.",
+        "Which sentence makes the cave seem alive and dangerous?",
+        "Look for \"hungry\" and \"waiting\"."
+      ],
+      "explanation": "The simile and the word \"hungry\" make the cave seem like a creature ready to swallow the children, which creates fear."
+    },
+    {
+      "id": "e5.figurative-language.023",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Read: The exam paper lay on the desk, a white field of danger. Sekar's pencil trembled, afraid to begin. Which statement is correct?",
+      "options": [
+        {
+          "text": "Both sentences use similes.",
+          "why": "There is no \"like\" or \"as\" in either sentence."
+        },
+        {
+          "text": "The first uses a metaphor and the second uses personification."
+        },
+        {
+          "text": "The first uses personification and the second uses a simile.",
+          "why": "The paper is not given a human action; it is called a field."
+        },
+        {
+          "text": "Both sentences use hyperbole.",
+          "why": "Neither sentence is a big exaggeration."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for \"like\" or \"as\" first.",
+        "Is the paper described as something else?",
+        "Can a pencil really feel afraid?"
+      ],
+      "explanation": "\"A white field of danger\" says the paper is something else, so it is a metaphor. A pencil that is afraid has a human feeling, so it is personification."
+    },
+    {
+      "id": "e5.figurative-language.024",
+      "skill": "e5.figurative-language",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose both metaphors.",
+      "options": [
+        {
+          "text": "The stars were diamonds scattered on black velvet."
+        },
+        {
+          "text": "The stars twinkled like tiny lamps."
+        },
+        {
+          "text": "The stars danced in the sky."
+        },
+        {
+          "text": "My brother is a night owl who never sleeps before midnight."
+        },
+        {
+          "text": "I have seen that film a thousand times."
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "A metaphor says something IS something else.",
+        "Remove sentences that use \"like\" or \"as\".",
+        "Hyperbole and personification are not metaphors."
+      ],
+      "explanation": "Stars as diamonds and a brother as a night owl are metaphors. The other options are a simile, personification and hyperbole."
+    },
+    {
+      "id": "e5.figurative-language.801",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"The wind whispered through the trees\" is an example of personification.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can a wind whisper?",
+        "Whisper is a human action.",
+        "Giving human qualities to a thing."
+      ],
+      "explanation": "Personification gives human actions to something that is not human. The wind cannot whisper like a person.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.figurative-language.802",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"Her smile was sunshine\" is a simile.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for like or as.",
+        "They are missing.",
+        "Saying it is something is a metaphor."
+      ],
+      "explanation": "It says her smile was sunshine without like or as, so it is a metaphor.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.figurative-language.803",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"The classroom was a zoo\" is a metaphor.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does it use like or as?",
+        "It says it is a zoo.",
+        "Metaphors say something is something else."
+      ],
+      "explanation": "A metaphor says one thing is another to show how it seems. The classroom was noisy and busy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.figurative-language.804",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A metaphor always uses the word like or as.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which figure of speech needs like or as?",
+        "Think of simile.",
+        "A metaphor does not."
+      ],
+      "explanation": "Similes use like or as. A metaphor says something is something else without those words.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.figurative-language.805",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In the sentence \"The sun smiled down on us\", the sun is personified.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can the sun smile?",
+        "Who smiles?",
+        "It gets a human action."
+      ],
+      "explanation": "Smiling is a human action, so giving it to the sun is personification.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.figurative-language.806",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"He is as tall as a tree\" is a metaphor.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for as.",
+        "It compares two things using as.",
+        "Similes use as or like."
+      ],
+      "explanation": "It uses as to compare, so it is a simile.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.figurative-language.701",
+      "skill": "e5.figurative-language",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The moon is a silver coin. Is this a simile or metaphor?",
+      "options": [
+        {
+          "text": "Simile"
+        },
+        {
+          "text": "Metaphor"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is like or as used?",
+        "No like or as.",
+        "Saying it is something is a metaphor."
+      ],
+      "explanation": "It says the moon is a coin without like or as, so it is a metaphor.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

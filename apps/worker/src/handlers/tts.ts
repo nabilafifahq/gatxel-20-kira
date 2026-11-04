@@ -8,7 +8,7 @@ import { isClipText, isTtsStyle, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipReq
 import { tables, withOrg } from '@kira/db'
 import { PostponeError, abortError, whenWib } from '../errors'
 import { createTtsClient } from '../tts/client'
-import { dedupe, globalClipKeys, itemClips, repoClips } from '../tts/collect'
+import { bookClips, dedupe, dictionaryClips, globalClipKeys, itemClips, repoClips } from '../tts/collect'
 import { clipKey, hasClip, PUBLIC_SCOPE, readServedVersion, writeClip, type ClipScope } from '../tts/store'
 import type { Handler, HandlerCtx } from './types'
 
@@ -165,7 +165,7 @@ export const ttsBatchHandler: Handler = {
       if (errors.length > 0) h.log.warn('konten punya error, soal yang rusak dilewati', { count: errors.length })
       const spelling = loadSpelling(findContentDir())
       const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
-      clips = dedupe<ClipJob>([...repoClips(index), ...spellingClips, ...(await orgClips(h))]).filter((c) => isClipText(c.text))
+      clips = dedupe<ClipJob>([...repoClips(index), ...spellingClips, ...dictionaryClips(), ...bookClips(), ...(await orgClips(h))]).filter((c) => isClipText(c.text))
     }
     // Versi yang dibuat = versi layanan (backend dan nama suaranya). Bila berbeda dari versi yang disajikan, ini set calon:
     // ia dibuat penuh, diperiksa gerbang mutu, lalu dipromosikan dengan pnpm tts:promote. Anak tetap mendengar versi lama.

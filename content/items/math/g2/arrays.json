@@ -24,6 +24,58 @@
           }
         ]
       }
+    },
+    {
+      "id": "m2.arrays.801",
+      "skill": "m2.arrays",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: An array with 3 rows of 5 dots has 15 dots.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count each row as 5.",
+        "Skip count in 5s three times.",
+        "5, 10, 15."
+      ],
+      "explanation": "Count in 5s: 5, 10, 15. So 3 × 5 = 15.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.arrays.802",
+      "skill": "m2.arrays",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: An array with 4 rows of 2 dots shows 4 + 4 + 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many dots are in each row?",
+        "Add one row at a time.",
+        "Each row is 2."
+      ],
+      "explanation": "4 rows of 2 shows 2 + 2 + 2 + 2 = 8, not 4 + 4 + 4.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

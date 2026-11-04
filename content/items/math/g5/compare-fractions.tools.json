@@ -1,0 +1,69 @@
+{
+  "skill": "m5.compare-fractions",
+  "items": [
+    {
+      "id": "m5.compare-fractions.803",
+      "skill": "m5.compare-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 4,
+      "prompt": "Bar 1 shows three quarters. Shade bar 2 so it shows more than bar 1.",
+      "rows": [
+        {
+          "den": 4,
+          "locked": 3
+        },
+        {
+          "den": 8
+        }
+      ],
+      "targets": [
+        null,
+        null
+      ],
+      "relation": "gt",
+      "hints": [
+        "Three quarters is the same as 6 eighths.",
+        "Bar 2 must show more than 6 eighths.",
+        "Shade 7 or 8 parts of bar 2."
+      ],
+      "explanation": "Three quarters is 6 eighths, so 7 or 8 eighths is more.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m5.compare-fractions.804",
+      "skill": "m5.compare-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 4,
+      "prompt": "Bar 1 shows two fifths. Shade bar 2 so it shows more than bar 1.",
+      "rows": [
+        {
+          "den": 5,
+          "locked": 2
+        },
+        {
+          "den": 10
+        }
+      ],
+      "targets": [
+        null,
+        null
+      ],
+      "relation": "gt",
+      "hints": [
+        "Two fifths is the same as 4 tenths.",
+        "Bar 2 must show more than 4 tenths.",
+        "Shade 5 or more parts of bar 2."
+      ],
+      "explanation": "Two fifths is 4 tenths, so anything above 4 tenths is more.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    }
+  ]
+}
