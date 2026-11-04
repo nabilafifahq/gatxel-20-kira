@@ -4466,13 +4466,13 @@ const ratioProportion: Generator = {
       const beadFig: Fig = {
         kind: 'pattern',
         items: [...Array(a).fill({ shape: 'circle', tone: 'english' }), ...Array(b).fill({ shape: 'circle', tone: 'math' }), ...Array(a).fill({ shape: 'circle', tone: 'english' }), ...Array(b).fill({ shape: 'circle', tone: 'math' })].slice(0, a + b > 7 ? a + b : 14),
-        alt: `A string of beads: ${a} red then ${b} blue, repeated.`,
+        alt: `A string of beads: ${a} purple then ${b} blue, repeated.`,
       }
       return numItem({
-        prompt: `On a necklace, for every ${a} red ${a === 1 ? 'bead' : 'beads'} there are ${b} blue beads. There are ${a * k} red beads. How many blue beads are there?`,
+        prompt: `On a necklace, for every ${a} purple ${a === 1 ? 'bead' : 'beads'} there are ${b} blue beads. There are ${a * k} purple beads. How many blue beads are there?`,
         answer: b * k,
         figure: beadFig,
-        hints: [`The pattern repeats: ${a} red, then ${b} blue.`, `How many groups of ${plural(a, 'red bead', 'red beads')} are there?`, `${a * k} ÷ ${a} = ${k} groups.`],
+        hints: [`The pattern repeats: ${a} purple, then ${b} blue.`, `How many groups of ${plural(a, 'purple bead', 'purple beads')} are there?`, `${a * k} ÷ ${a} = ${k} groups.`],
         explanation: `There are ${k} groups. Each group has ${b} blue beads, so ${k} × ${b} = ${b * k} blue beads.`,
         solution: [
           { say: 'Count the groups.', show: `${a * k} ÷ ${a} = ${k}`, figure: beadFig },
