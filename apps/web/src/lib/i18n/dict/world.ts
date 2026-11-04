@@ -289,7 +289,7 @@ const id: typeof en = {
     'frame-star': 'Bingkai bintang',
   },
   treats: {
-    apple: { name: 'Apel', line: 'Kriuk kriuk. Enak!' },
+    apple: { name: 'Apel', line: 'Kriuk-kriuk. Enak!' },
     strawberry: { name: 'Stroberi', line: 'Manis sekali!' },
     cake: { name: 'Kue', line: 'Waktunya pesta!' },
     'ice-cream': { name: 'Es krim', line: 'Hari ini seru sekali!' },
