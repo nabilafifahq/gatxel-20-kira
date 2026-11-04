@@ -110,14 +110,14 @@ describe.skipIf(!ready)('konkurensi', () => {
     const same = randomUUID()
     const results = await Promise.all(Array.from({ length: 6 }, () => run((tx) => m.runner.saveAnswer(tx, ctx, learnerId, payload(attemptId, first!.position, first!.answer, same)))))
     expect(results.every((r) => r.status === 'correct' || r.status === 'wrong' || r.status === 'answered')).toBe(true)
-    const [{ n }] = await owner`select count(*)::int as n from response where attempt_id = ${attemptId} and position = ${first!.position}`
+    const { n } = (await owner`select count(*)::int as n from response where attempt_id = ${attemptId} and position = ${first!.position}`)[0]!
     expect(n).toBe(1)
     // clientId berbeda untuk soal yang sama dan percobaan yang sama: tetap satu baris.
     await Promise.all(Array.from({ length: 6 }, () => run((tx) => m.runner.saveAnswer(tx, ctx, learnerId, payload(attemptId, first!.position, first!.answer)))))
-    const [{ n: n2 }] = await owner`select count(*)::int as n from response where attempt_id = ${attemptId} and position = ${first!.position}`
+    const { n: n2 } = (await owner`select count(*)::int as n from response where attempt_id = ${attemptId} and position = ${first!.position}`)[0]!
     expect(n2).toBe(1)
-    const [{ xp }] = await owner`select coalesce(sum(amount),0)::int as xp from xp_event where learner_id = ${learnerId} and ref = ${attemptId}`
-    const [{ rxp }] = await owner`select coalesce(sum(xp),0)::int as rxp from response where attempt_id = ${attemptId}`
+    const { xp } = (await owner`select coalesce(sum(amount),0)::int as xp from xp_event where learner_id = ${learnerId} and ref = ${attemptId}`)[0]!
+    const { rxp } = (await owner`select coalesce(sum(xp),0)::int as rxp from response where attempt_id = ${attemptId}`)[0]!
     expect(xp).toBe(rxp)
   })
 
@@ -132,8 +132,8 @@ describe.skipIf(!ready)('konkurensi', () => {
       const [st] = await owner`select n_answers from skill_state where learner_id = ${learnerId} and skill_id = ${skill}`
       expect(st!.n_answers, skill).toBe(count)
     }
-    const [{ xp }] = await owner`select coalesce(sum(amount),0)::int as xp from xp_event where learner_id = ${learnerId} and ref = ${attemptId}`
-    const [{ rxp }] = await owner`select coalesce(sum(xp),0)::int as rxp from response where attempt_id = ${attemptId}`
+    const { xp } = (await owner`select coalesce(sum(amount),0)::int as xp from xp_event where learner_id = ${learnerId} and ref = ${attemptId}`)[0]!
+    const { rxp } = (await owner`select coalesce(sum(xp),0)::int as rxp from response where attempt_id = ${attemptId}`)[0]!
     expect(xp).toBe(rxp)
   })
 
@@ -146,7 +146,7 @@ describe.skipIf(!ready)('konkurensi', () => {
     const shape = async (id: string) => {
       // Peristiwa XP selain per jawaban (bonus sesi) harus sama dengan kumpul tunggal; XP jawaban harus sama dengan XP di baris response.
       const rows = await owner`select reason, count(*)::int as n, coalesce(sum(amount),0)::int as total from xp_event where learner_id = ${learnerId} and ref = ${id} and reason <> 'answer' group by reason order by reason`
-      const [{ a, r }] = await owner`select (select coalesce(sum(amount),0)::int from xp_event where learner_id = ${learnerId} and ref = ${id} and reason = 'answer') as a, (select coalesce(sum(xp),0)::int from response where attempt_id = ${id}) as r`
+      const { a, r } = (await owner`select (select coalesce(sum(amount),0)::int from xp_event where learner_id = ${learnerId} and ref = ${id} and reason = 'answer') as a, (select coalesce(sum(xp),0)::int from response where attempt_id = ${id}) as r`)[0]!
       expect(a).toBe(r)
       return rows.map((x) => `${x.reason}:${x.n}:${x.total}`)
     }
@@ -154,7 +154,7 @@ describe.skipIf(!ready)('konkurensi', () => {
     const settled = await Promise.allSettled(Array.from({ length: 4 }, () => run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, paralel))))
     expect(settled.every((s) => s.status === 'fulfilled')).toBe(true)
     expect(await shape(paralel)).toEqual(await shape(urut))
-    const [{ n }] = await owner`select count(*)::int as n from quest where learner_id = ${learnerId} and date = ${WEDNESDAY} and status = 'done'`
+    const { n } = (await owner`select count(*)::int as n from quest where learner_id = ${learnerId} and date = ${WEDNESDAY} and status = 'done'`)[0]!
     expect(n).toBe(2)
     const badges = await owner`select badge_id, count(*)::int as n from badge_award where learner_id = ${learnerId} group by badge_id`
     expect(badges.every((b) => b.n === 1)).toBe(true)
@@ -164,7 +164,7 @@ describe.skipIf(!ready)('konkurensi', () => {
     const today = { variant: 'all-done', progress: { done: 9, total: 9, extraDone: 0, extraTotal: 0 } } as never
     const settled = await Promise.allSettled(Array.from({ length: 6 }, () => run((tx) => m.motion.openChestTx(tx, orgId, learnerId, today, WEDNESDAY))))
     expect(settled.filter((s) => s.status === 'fulfilled')).toHaveLength(1)
-    const [{ n }] = await owner`select count(*)::int as n from daily_chest where learner_id = ${learnerId} and date = ${WEDNESDAY}`
+    const { n } = (await owner`select count(*)::int as n from daily_chest where learner_id = ${learnerId} and date = ${WEDNESDAY}`)[0]!
     expect(n).toBe(1)
   })
 
