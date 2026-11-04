@@ -9,7 +9,9 @@ import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { content, preset, presets, skillsFor } from './content'
 import { guardAttemptItems } from './session-guard'
+import type { FeatureKey } from '@kira/core/features'
 import { learnerShell, loadLearner, type LearnerRow } from './learner-core'
+import { assertFeatureOnTx } from './learner-features'
 
 const { attempt, orgItem, competitionEvent } = tables
 
@@ -124,6 +126,7 @@ export async function startSimulation(tx: Tx, ctx: OrgContext, learnerId: string
   const learner = await loadLearner(tx, learnerId)
   const p = preset(presetId)
   if (!p) throw notFound()
+  await assertFeatureOnTx(tx, learnerId, `olympiad-${p.subject}` as FeatureKey)
   const open = await tx
     .select({ id: attempt.id })
     .from(attempt)
@@ -230,6 +233,7 @@ export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, 
   const learner = await loadLearner(tx, learnerId)
   const pack = (await esmoPacks(tx, learner)).find((p) => p.id === packId)
   if (!pack) throw notFound()
+  await assertFeatureOnTx(tx, learnerId, `olympiad-${pack.subject}` as FeatureKey)
   const open = await tx
     .select({ id: attempt.id })
     .from(attempt)
@@ -259,6 +263,7 @@ export async function startEsmoMock(tx: Tx, ctx: OrgContext, learnerId: string, 
   const learner = await loadLearner(tx, learnerId)
   const p = preset(`esmo-${subject}-2026`)
   if (!p) throw notFound()
+  await assertFeatureOnTx(tx, learnerId, `olympiad-${subject}` as FeatureKey)
   const packs = (await esmoPacks(tx, learner)).filter((x) => x.subject === subject)
   const rng = createRng(`${learnerId}:esmo-mock:${Date.now()}`)
   const refs = rng.shuffle(packs.flatMap((x) => x.refs)).slice(0, p.rules.questionCount)

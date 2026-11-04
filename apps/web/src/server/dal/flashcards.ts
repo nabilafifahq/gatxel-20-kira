@@ -10,7 +10,7 @@ import type { LearnerShell } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { featureMapFor } from './learner-features'
-import { learnerShell, loadLearner } from './learner-core'
+import { learnerShell, loadLearner, lockLearnerScope } from './learner-core'
 import { PERSONAL_DECK_ID, personalDeckFor } from './personal-deck'
 import type { FigureSpec } from '@kira/figures/spec'
 
@@ -124,6 +124,8 @@ export const finishSchema = z
 export async function finishCards(tx: Tx, ctx: OrgContext, learnerId: string, raw: unknown): Promise<{ xp: number; knew: number; total: number }> {
   const input = finishSchema.safeParse(raw)
   if (!input.success) throw invalid('Hasil kartu tidak valid.')
+  // Batas XP harian dibaca dan ditulis di bawah kunci: dek berbeda yang dikirim serentak tidak melewati batas.
+  await lockLearnerScope(tx, 'flashcards', learnerId)
   const learner = await loadLearner(tx, learnerId)
   const d = await resolveDeck(tx, learnerId, learner.grade, input.data.deckId)
   const valid = new Set(d.cards.map((c) => c.id))

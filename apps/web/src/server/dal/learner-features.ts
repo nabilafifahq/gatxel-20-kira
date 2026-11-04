@@ -6,6 +6,7 @@ import { jakartaDate } from '@kira/core'
 import type { PlanChangeResult } from '@/lib/dto'
 import { auditTx } from '../audit'
 import { inOrg, type OrgContext, type Tx } from '../db'
+import { forbidden } from '../errors'
 import { syncTodayIfCreated } from './learner-session'
 import { getActor, orgCtx } from '../auth/actor'
 
@@ -36,6 +37,21 @@ export async function isFeatureOn(learnerId: string, key: FeatureKey): Promise<b
   } catch {
     return true
   }
+}
+
+/**
+ * Saklar orang tua ditegakkan di server: layout halaman hanya menutup halaman, tidak menutup Server Action dan
+ * rute mulai sesi. Lolos bila salah satu kunci menyala (sama dengan gateFeature).
+ */
+export async function assertFeatureOn(learnerId: string, ...keys: FeatureKey[]): Promise<void> {
+  for (const k of keys) if (await isFeatureOn(learnerId, k)) return
+  throw forbidden('That is switched off for you. Ask a grown-up.')
+}
+
+/** Versi dalam transaksi yang sudah ada. */
+export async function assertFeatureOnTx(tx: Tx, learnerId: string, ...keys: FeatureKey[]): Promise<void> {
+  const map = await featureMapFor(tx, learnerId)
+  if (!keys.some((k) => effectiveOn(map, k))) throw forbidden('That is switched off for you. Ask a grown-up.')
 }
 
 /** Simpan satu set saklar. Hanya baris yang berbeda dari bawaan (mati) disimpan; menyala menghapus baris. */

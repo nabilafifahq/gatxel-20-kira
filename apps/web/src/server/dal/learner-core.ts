@@ -264,6 +264,14 @@ async function capQuickReviewXp(tx: Tx, learnerId: string, attemptId: string, da
   return Math.max(0, Math.min(xp, QUICK_REVIEW_DAILY_XP_CAP - (used?.n ?? 0)))
 }
 
+/**
+ * Kunci transaksi per anak dan per jenis aksi. Dipakai setiap pola "baca jumlah lalu tulis" (batas XP harian, XP pertama
+ * sekali) supaya permintaan serentak tidak melewati batasnya. Aman di PgBouncer mode transaksi.
+ */
+export async function lockLearnerScope(tx: Tx, scope: string, learnerId: string): Promise<void> {
+  await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${scope + ':' + learnerId}))`)
+}
+
 export async function grantXp(tx: Tx, ctx: OrgContext, learnerId: string, amount: number, reason: string, ref: string, date: IsoDate): Promise<void> {
   if (amount <= 0) return
   await tx.insert(xpEvent).values({ orgId: ctx.orgId, learnerId, amount, reason, ref, date })
