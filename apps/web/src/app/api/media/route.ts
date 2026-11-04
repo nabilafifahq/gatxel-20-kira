@@ -17,6 +17,11 @@ const fields = z.object({
   position: z.coerce.number().int().min(1).max(200).optional(),
 })
 
+/** HEIC/HEIF: kotak ftyp dengan merek heic, heix, mif1, msf1, hevc, atau heif. */
+function isHeic(b: Buffer): boolean {
+  return b.length > 12 && b.toString('latin1', 4, 8) === 'ftyp' && /^(heic|heix|hevc|heim|heis|mif1|msf1|heif)$/.test(b.toString('latin1', 8, 12))
+}
+
 /** Unggah rekaman, gambar, atau PDF. Learner hanya untuk attempt miliknya; PDF hanya tutor. */
 export async function POST(req: Request) {
   const actor = await getActor()
@@ -44,7 +49,13 @@ export async function POST(req: Request) {
   if (file.size > limitFor(kind, actor.role)) return NextResponse.json({ error: 'too-large', message: 'Berkas terlalu besar.' }, { status: 413 })
   let buf: Buffer = Buffer.from(await file.arrayBuffer())
   const type = sniff(buf)
-  if (!type || !allowedFor(kind, type.mime)) return NextResponse.json({ error: 'type', message: 'Jenis berkas tidak didukung.' }, { status: 415 })
+  if (!type && kind === 'image' && isHeic(buf)) {
+    return NextResponse.json(
+      { error: 'type', message: 'Foto dari iPhone atau iPad berformat HEIC belum bisa dipakai. Ubah Pengaturan, Kamera, Format ke Paling Kompatibel, atau ambil foto langsung dari Kira, lalu coba lagi.' },
+      { status: 415 },
+    )
+  }
+  if (!type || !allowedFor(kind, type.mime)) return NextResponse.json({ error: 'type', message: 'Jenis berkas ini belum didukung. Pakai foto JPEG atau PNG.' }, { status: 415 })
   if (type.mime.startsWith('image/')) {
     // Buang EXIF/XMP (lokasi, perangkat) dan tolak gambar yang strukturnya rusak.
     const cleaned = cleanImage(type.mime, buf)

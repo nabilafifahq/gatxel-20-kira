@@ -8,7 +8,7 @@ import { AppError, conflict, invalid, notFound } from '../errors'
 import { auditTx, systemCtx } from '../audit'
 import { queueEmail, simpleEmail } from '../dal/outbox'
 import { burnVerify, hashSecret, passwordProblem, verifySecret } from './password'
-import { ACCOUNT_LOCK_AFTER, clientIp, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
+import { ACCOUNT_LOCK_AFTER, clientIp, emailSendAllowed, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
 import { ipPrefix } from '@/lib/access-log'
 import { log } from '../log'
 import { randomToken, safeEqual, sha256hex } from './crypto'
@@ -202,6 +202,7 @@ async function requestPasswordResetInner(emailRaw: string): Promise<void> {
     .limit(1)
   const user = rows[0]
   if (!user) return
+  if (!emailSendAllowed('reset', email)) return
   const link = await createResetLink(user.id)
   const mail = simpleEmail({
     title: 'Atur ulang password Kira',

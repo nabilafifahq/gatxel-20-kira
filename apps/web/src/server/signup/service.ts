@@ -9,6 +9,7 @@ import { NOTICE_VERSION, TERMS_VERSION } from '../auth/accounts'
 import { randomToken, sha256hex } from '../auth/crypto'
 import { hashSecret, passwordProblem, verifySecret } from '../auth/password'
 import { queuePublicMail, simpleEmail } from '../dal/outbox'
+import { emailSendAllowed } from '../auth/ratelimit'
 import { checkEmail, emailKey } from './email-policy'
 
 const { signup, userAccount, waitlist } = tables
@@ -46,6 +47,7 @@ async function emailTaken(emailNorm: string, emailLower: string): Promise<boolea
 }
 
 async function sendVerification(to: string, token: string): Promise<void> {
+  if (!emailSendAllowed('verify', to)) return
   const mail = simpleEmail({
     title: 'Satu langkah lagi untuk membuka Kira',
     lines: ['Terima kasih sudah mendaftar. Tekan tombol di bawah untuk memastikan email ini milikmu. Setelah itu keluarga Kira kamu langsung dibuat dan kamu bisa menambahkan anak.', 'Tautan berlaku 24 jam dan hanya bisa dipakai sekali.'],
@@ -57,6 +59,7 @@ async function sendVerification(to: string, token: string): Promise<void> {
 }
 
 async function sendAlreadyHaveAccount(to: string): Promise<void> {
+  if (!emailSendAllowed('verify', to)) return
   const mail = simpleEmail({
     title: 'Email ini sudah punya akun Kira',
     lines: ['Ada yang mendaftar di Kira memakai email ini, tetapi akunnya sudah ada.', 'Kalau itu kamu, masuk saja. Lupa password? Pakai Lupa password di halaman masuk.'],
@@ -167,6 +170,7 @@ export async function signupTokenValid(token: string): Promise<boolean> {
 // Daftar tunggu kabar
 
 function waitlistMail(kind: 'confirm' | 'welcome', to: string, token: string) {
+  if (kind === 'confirm' && !emailSendAllowed('waitlist', to)) return Promise.resolve()
   const mail = simpleEmail(
     kind === 'confirm'
       ? {

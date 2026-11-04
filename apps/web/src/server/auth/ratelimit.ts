@@ -83,3 +83,26 @@ export async function escalatingDelay(failures: number): Promise<void> {
 
 export const ACCOUNT_LOCK_AFTER = 20
 export const ACCOUNT_LOCK_MS = 15 * 60 * 1000
+
+const emailBuckets = new Map<string, number[]>()
+const EMAIL_PER_HOUR = 5
+
+/**
+ * Batas email keluar per alamat tujuan: paling banyak 5 per jam per jenis (konfirmasi, reset), supaya Kira tidak
+ * dipakai membanjiri kotak masuk orang lain. Mengembalikan false bila batas habis. Pemanggil tidak boleh
+ * membedakan jawabannya ke pengunjung: email dilewati diam-diam dan jawaban tetap sama.
+ */
+export function emailSendAllowed(kind: string, emailNorm: string): boolean {
+  const key = `${kind}:${emailNorm.trim().toLowerCase()}`
+  const now = Date.now()
+  const recent = (emailBuckets.get(key) ?? []).filter((t) => now - t < 3_600_000)
+  if (recent.length >= EMAIL_PER_HOUR) {
+    emailBuckets.set(key, recent)
+    log.warn('keamanan: batas email per alamat terlampaui', { event: 'ratelimit', action: `email-${kind}`, scoped: true })
+    return false
+  }
+  recent.push(now)
+  emailBuckets.set(key, recent)
+  if (emailBuckets.size > 5000) emailBuckets.clear()
+  return true
+}
