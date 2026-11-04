@@ -1,3 +1,6 @@
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { dictFor, htmlLang, parseUiLang, tOf } from '@/lib/i18n'
 import { en, id } from '@/lib/i18n/dict'
@@ -80,5 +83,18 @@ describe('kamus antarmuka anak', () => {
     // Aktor tanpa bahasa hanya ada di fixture tes lama.
     expect(tOf({})).toBe(en)
     expect(tOf({ uiLang: 'id' })).toBe(id)
+  })
+})
+
+describe('suara hanya untuk isi berbahasa Inggris', () => {
+  const SRC = fileURLToPath(new URL('../src', import.meta.url))
+  const files = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? files(join(dir, e.name)) : /\.tsx?$/.test(e.name) ? [join(dir, e.name)] : []))
+
+  it('tidak ada teks kamus yang dikirim ke text-to-speech', () => {
+    // t.x, tr.x, dict.x sebagai isi bacaan. Label tombol (labels=, label=) boleh diterjemahkan.
+    const SPOKEN = /(?:\bspeak\(\s*\[?\s*|\btoggle\(\s*\[?\s*|\bhostSay\(\s*|<ReadAloudButton\b[^>]*?\btext=\{\s*|<ListenButton\b[^>]*?\btext=\{\s*)t\.[a-z]/
+    const hits = [...files(join(SRC, 'screens/learner')), ...files(join(SRC, 'components/learner')), ...files(join(SRC, 'components/widgets'))].filter((f) => SPOKEN.test(readFileSync(f, 'utf8')))
+    expect(hits).toEqual([])
   })
 })
