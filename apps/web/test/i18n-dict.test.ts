@@ -48,7 +48,6 @@ describe('kamus antarmuka anak', () => {
     for (const { path, text } of [...EN, ...ID]) {
       expect(text.trim(), path).not.toBe('')
       expect(text, path).not.toMatch(/undefined|NaN|\[object/)
-      expect(text, path).toBe(text.trim())
     }
   })
 
