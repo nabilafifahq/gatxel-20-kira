@@ -159,7 +159,7 @@
       "skill": "m6.oly-number-puzzles",
       "type": "mcq",
       "difficulty": 5,
-      "prompt": "What is the sum of the digits of the number 10^25 - 25? Here 10^25 is 1 followed by 25 zeros.",
+      "prompt": "What is the sum of the digits of the number 10²⁵ - 25? Here 10²⁵ is 1 followed by 25 zeros.",
       "options": [
         {
           "text": "207",
@@ -184,10 +184,10 @@
       "answer": 2,
       "hints": [
         "Try a smaller case: 1000 - 25 = 975.",
-        "10^25 - 25 is a long row of 9s followed by 75.",
+        "10²⁵ - 25 is a long row of 9s followed by 75.",
         "The number has 25 digits. The last two are 7 and 5."
       ],
-      "explanation": "10^25 - 25 has 25 digits: 23 nines followed by 7 and 5, just like 1000 - 25 = 975. The digit sum is 23 × 9 + 7 + 5 = 207 + 12 = 219.",
+      "explanation": "10²⁵ - 25 has 25 digits: 23 nines followed by 7 and 5, just like 1000 - 25 = 975. The digit sum is 23 × 9 + 7 + 5 = 207 + 12 = 219.",
       "solution": [
         {
           "say": "Small case.",
