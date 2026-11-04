@@ -2061,7 +2061,7 @@ const shapes2d2: Generator = {
       type: 'text',
       prompt: 'Every point on a circle is the same distance from its ___.',
       figure: { kind: 'shape', shape: 'circle', sideLabels: ['3 cm'], alt: 'A circle with a dot in the middle and a line 3 cm long from the dot to the edge.' },
-      blanks: [{ answers: ['centre', 'center'] }],
+      blanks: [{ answers: ['centre', 'center', 'middle'] }],
       hints: ['Look at the dot in the picture.', 'The line goes from the dot to the edge.', 'It is the point in the middle. Its name starts with c.'],
       explanation: 'The middle point of a circle is its centre. Every point on the circle is the same distance from it.',
     }
