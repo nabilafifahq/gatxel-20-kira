@@ -18,6 +18,7 @@ import { arenaTutorDTO } from './arena-tutor'
 import { xpTracksDTO } from './arena-tracks'
 import { promptPreview, resolveItems, skill, skillsFor } from './content'
 import { dayRulesFor } from './learner-rules'
+import { featureMapFor } from './learner-features'
 import { loadLearner, markerFor, streakFor, streakDTO, totalXp, type LearnerRow } from './learner-core'
 import { yourAnswerText } from './learner-results'
 import { openMistakes } from './mistake-book'
@@ -293,6 +294,7 @@ export async function parentChildDTO(actor: Actor, learnerId: string): Promise<P
         soundEnabled: learner.soundEnabled,
         musicEnabled: learner.musicEnabled,
         dayPreset: preset,
+        features: await featureMapFor(tx, learnerId),
         dayRules: rules as never,
         streak: streak.current,
         grade: learner.grade,

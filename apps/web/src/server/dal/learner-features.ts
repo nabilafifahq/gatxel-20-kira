@@ -2,7 +2,11 @@ import 'server-only'
 import { and, eq } from 'drizzle-orm'
 import { effectiveOn, FEATURE_KEYS, type FeatureKey, type FeatureMap } from '@kira/core/features'
 import { tables } from '@kira/db'
-import { inOrg, type Tx } from '../db'
+import { jakartaDate } from '@kira/core'
+import type { PlanChangeResult } from '@/lib/dto'
+import { auditTx } from '../audit'
+import { inOrg, type OrgContext, type Tx } from '../db'
+import { syncTodayIfCreated } from './learner-session'
 import { getActor, orgCtx } from '../auth/actor'
 
 const { learnerFeature } = tables
@@ -46,4 +50,12 @@ export async function saveFeatureMap(tx: Tx, orgId: string, learnerId: string, m
       await tx.delete(learnerFeature).where(and(eq(learnerFeature.learnerId, learnerId), eq(learnerFeature.key, key)))
     }
   }
+}
+
+/** Simpan saklar lalu samakan sesi hari ini: mapel yang dimatikan tidak lagi punya sesi, hitungan streak ikut menyesuaikan. */
+export async function saveFeaturesTx(tx: Tx, ctx: OrgContext, learnerId: string, map: FeatureMap): Promise<PlanChangeResult> {
+  await saveFeatureMap(tx, ctx.orgId, learnerId, map)
+  await auditTx(tx, ctx, 'learner.features', learnerId, { off: FEATURE_KEYS.filter((k) => map[k] === false) })
+  const r = await syncTodayIfCreated(tx, ctx, learnerId, jakartaDate())
+  return { today: Boolean(r), published: false, created: r?.created ?? 0, removed: r?.removed ?? 0, regenerated: r?.regenerated ?? 0, kept: r?.kept ?? 0 }
 }

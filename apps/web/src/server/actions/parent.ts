@@ -13,6 +13,7 @@ import {
   parentResetPin,
   parentResetStreak,
   parentSaveDayRules,
+  parentSaveFeatures,
   parentSaveLimits,
   parentSaveSound,
   parentSetQuestionCount,
@@ -36,6 +37,16 @@ export async function parentSaveDayRulesAction(input: unknown): Promise<ActionRe
     const actor = await requireParent()
     const data = S.dayRules.parse(input)
     const change = await parentSaveDayRules(actor, data)
+    after(change)
+    return change
+  })
+}
+
+export async function parentSaveFeaturesAction(input: unknown): Promise<ActionResult<PlanChangeResult>> {
+  return runAction('parentSaveFeatures', async () => {
+    const actor = await requireParent()
+    const data = S.features.parse(input)
+    const change = await parentSaveFeatures(actor, data)
     after(change)
     return change
   })

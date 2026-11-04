@@ -12,6 +12,7 @@ import { Checkbox, FieldError, Select, TextField } from '@/components/console/Fi
 import { InlineAlert } from '@/components/console/Feedback'
 import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { useAction } from '@/components/console/useAction'
+import { FeatureChecklist } from '@/components/family/FeatureChecklist'
 import { PublicFrame } from '@/screens/public/PublicFrame'
 import { addChildAction, saveConsentsAction } from '@/server/actions/onboarding'
 import { registerDeviceAction } from '@/server/actions/auth'
@@ -61,7 +62,10 @@ export function Onboarding({ state }: { state: OnboardingState }) {
             1. Tambahkan anak
           </h2>
           {state.children.map((c) => (
-            <ChildCard key={c.id} child={c} onSaved={() => startTransition(() => router.refresh())} />
+            <div key={c.id} className="flex flex-col gap-3">
+              <ChildCard child={c} onSaved={() => startTransition(() => router.refresh())} />
+              <ChildFeatures child={c} />
+            </div>
           ))}
           {canAdd ? (
             <AddChildForm existing={state.children} first={state.children.length === 0} onAdded={() => startTransition(() => router.refresh())} />
@@ -154,6 +158,17 @@ function ChildCard({ child, onSaved }: { child: OnboardingChild; onSaved: () => 
         Simpan izin
       </Button>
     </form>
+  )
+}
+
+function ChildFeatures({ child }: { child: OnboardingChild }) {
+  return (
+    <details className="rounded-card border border-divider bg-surface">
+      <summary className="min-h-14 cursor-pointer px-5 py-4 text-body font-bold">Pilih mapel dan fitur untuk {child.name} (boleh dilewati)</summary>
+      <div className="border-t border-divider p-5">
+        <FeatureChecklist learnerId={child.id} name={child.name} initial={child.features} />
+      </div>
+    </details>
   )
 }
 

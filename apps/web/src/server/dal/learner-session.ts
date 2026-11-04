@@ -33,6 +33,8 @@ import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
 import { isRestDay, loadLearner, markerFor, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
 import { dayRulesFor } from './learner-rules'
+import { featureMapFor } from './learner-features'
+import { sessionAllowed } from '@kira/core/features'
 
 const { quest, attempt, planSlot, planWeek, reviewCard, paper, response } = tables
 
@@ -543,7 +545,8 @@ export async function syncDay(tx: Tx, ctx: OrgContext, learner: LearnerRow, date
   const day = await publishedDay(tx, learner.userId, date)
   const { rules } = await dayRulesFor(tx, learner.userId)
   const rowById = new Map(day.rows.map((r) => [r.id, r]))
-  const entries = dropTaperEntries(composeDay({ template: day.template, date, slots: plannedSlots(day.rows), rules }), await taperSubjects(tx, learner.userId, date))
+  const features = await featureMapFor(tx, learner.userId)
+  const entries = dropTaperEntries(composeDay({ template: day.template, date, slots: plannedSlots(day.rows), rules }), await taperSubjects(tx, learner.userId, date)).filter((e) => sessionAllowed(features, e.subject, e.session))
   // Paper Kertas dikerjakan di kertas dan dinilai lewat Input LJK, jadi tidak ada sesi tablet untuk slot itu.
   const live = entries.filter((e) => !(e.slotId && rowById.get(e.slotId)?.mode === 'kertas'))
 

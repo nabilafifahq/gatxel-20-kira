@@ -18,6 +18,8 @@ import { plannerDTO, removeSession, setSessionRequired, upsertSlot } from './con
 import { updateLearnerLimitsTx } from './console-settings'
 import { updateLearnerSoundTx } from './learner-motion'
 import { resolveItems } from './content'
+import { saveFeaturesTx } from './learner-features'
+import type { FeatureMap } from '@kira/core/features'
 
 /**
  * Aksi orang tua atas anaknya. Setiap fungsi memeriksa guardian_link lebih dulu (`ownChild`), lalu memakai
@@ -44,6 +46,10 @@ const asStaff = (actor: Actor): Actor => ({ ...actor, role: 'tutor' })
 
 export async function parentSaveDayRules(actor: Actor, input: { learnerId: string; preset: DayPresetId; rules: DayRulesDTO | null }): Promise<PlanChangeResult> {
   return ownChild(actor, input.learnerId, 'dayrules', { preset: input.preset }, (tx, scope) => scope.elevate(() => saveDayRulesTx(tx, scope.ctx, input)))
+}
+
+export async function parentSaveFeatures(actor: Actor, input: { learnerId: string; features: FeatureMap }): Promise<PlanChangeResult> {
+  return ownChild(actor, input.learnerId, 'features', {}, (tx, scope) => scope.elevate(() => saveFeaturesTx(tx, scope.ctx, input.learnerId, input.features)))
 }
 
 export async function parentResetStreak(actor: Actor, input: { learnerId: string; confirmName: string }) {

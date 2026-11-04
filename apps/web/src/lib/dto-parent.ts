@@ -1,3 +1,4 @@
+import type { FeatureMap } from '@kira/core/features'
 import type { AvatarName, DayPresetId, DayRulesDTO, Subject, WeekSummaryDTO } from './dto'
 import type { ArenaTutorDTO, XpTrackDTO } from './dto-arena'
 
@@ -95,6 +96,7 @@ export type ParentChildDTO = {
     soundEnabled: boolean
     musicEnabled: boolean
     dayPreset: DayPresetId
+    features: FeatureMap
     dayRules: DayRulesDTO
     streak: number
     grade: number

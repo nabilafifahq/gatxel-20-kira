@@ -95,3 +95,22 @@ export function effectiveOn(map: FeatureMap, key: FeatureKey): boolean {
   const need = FEATURE_NEEDS[key]
   return need ? featureOn(map, need) : true
 }
+
+const SESSION_FEATURE: Record<string, FeatureKey | undefined> = {
+  paper: 'paper',
+  'quick-maths': 'mental-math',
+  knowledge: 'quiz-arena',
+  'english-skill': 'english-skills',
+  reading: 'reading-room',
+}
+
+/**
+ * Apakah sebuah sesi harian (mapel dan jenis) boleh dibuat. Mapel mati mematikan semua sesinya; Paper, Quick Maths,
+ * Quiz, English Skills, dan Reading mengikuti saklarnya sendiri; lomba dan ESMO mengikuti Olimpiade mapelnya.
+ */
+export function sessionAllowed(map: FeatureMap, subject: FeatureSubject, session: string): boolean {
+  if (!featureOn(map, subject)) return false
+  if (session === 'simulation' || session === 'esmo') return olympiadOn(map, subject)
+  const f = SESSION_FEATURE[session]
+  return f ? effectiveOn(map, f) : true
+}
