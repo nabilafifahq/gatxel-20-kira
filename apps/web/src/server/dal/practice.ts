@@ -55,7 +55,6 @@ const OFF_LABEL: Partial<Record<FeatureKey, keyof Dict['lessons']['practice']['o
   'olympiad-science': 'competitions',
 }
 
-const STYLE_LABEL: Record<QuestionStyle, string> = { short: 'Short questions', 'true-false': 'True or false', 'long-read': 'Long reading', 'word-problem': 'Word problems', mixed: 'Mixed' }
 
 const sentenceCase = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1)
 
@@ -119,10 +118,10 @@ export function buildSections(grade: number, features: FeatureMap, dict: Dict): 
 
   const en: PracticeTile[] = []
   if (on('reading-room')) {
-    for (const t of strandsOf('english', grade, (s) => s.startsWith('R'))) en.push(drill(`e-${t.strand}`, strandName(t.strand).replace(/^Reading: /, ''), copy.readingSub, `subject=english&strand=${t.strand}`))
+    for (const t of strandsOf('english', grade, (s) => s.startsWith('R'))) en.push(drill(`e-${t.strand}`, sentenceCase(strandName(t.strand).replace(/^Reading: /, '')), copy.readingSub, `subject=english&strand=${t.strand}`))
   }
   if (on('english')) {
-    for (const t of strandsOf('english', grade, (s) => !s.startsWith('R') && s !== 'Oly')) en.push(drill(`e-${t.strand}`, strandName(t.strand).replace(/^Writing: /, ''), copy.englishSub, `subject=english&strand=${t.strand}`))
+    for (const t of strandsOf('english', grade, (s) => !s.startsWith('R') && s !== 'Oly')) en.push(drill(`e-${t.strand}`, sentenceCase(strandName(t.strand).replace(/^Writing: /, '')), copy.englishSub, `subject=english&strand=${t.strand}`))
   }
   if (en.length) sections.push({ id: 'english', title: copy.englishTitle, hint: copy.englishHint, tiles: en })
 
