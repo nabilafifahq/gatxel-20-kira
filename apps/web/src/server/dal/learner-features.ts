@@ -29,9 +29,9 @@ export async function isFeatureOnTx(tx: Tx, learnerId: string, key: FeatureKey):
  * konteks RLS. Tanpa sesi atau saat gagal membaca, fitur dianggap menyala (gagal terbuka agar anak tidak terkunci).
  */
 export async function isFeatureOn(learnerId: string, key: FeatureKey): Promise<boolean> {
-  const actor = await getActor()
-  if (!actor) return true
   try {
+    const actor = await getActor()
+    if (!actor) return true
     return await inOrg(orgCtx(actor), (tx) => isFeatureOnTx(tx, learnerId, key))
   } catch {
     return true

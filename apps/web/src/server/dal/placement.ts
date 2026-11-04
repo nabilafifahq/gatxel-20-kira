@@ -19,7 +19,7 @@ import {
   type PlacementResult,
 } from '@kira/core/placement'
 import { tables } from '@kira/db'
-import { checkAnswer, keyOf, MANUAL_TYPES } from '@kira/content'
+import { checkAnswer, clashKeys, keyOf, MANUAL_TYPES } from '@kira/content'
 import { GENERATORS, genRef, instanceSignature, newSeed } from '@kira/content/math'
 import type { AvatarName, Subject } from '@/lib/dto'
 import type {
@@ -166,10 +166,22 @@ async function pickAndStore(tx: Tx, learner: LearnerRow, run: RunRow): Promise<s
   const seen = await recentSeen(tx, learner.userId)
   const candidates = candidatesFor(subject).map((c) => (!c.unlimited && seen.has(c.ref) ? { ...c, seenDaysAgo: seen.get(c.ref)! } : c))
   const rng = createRng(`${run.id}:${answers.length}`)
-  const c = pickNext({ candidates, theta: run.theta, asked: answers, rng })
-  if (!c) return null
+  // Penjaga soal kembar pusat: soal yang tampil sama, atau operan Math yang sama, dengan soal yang sudah ditanyakan dilewati.
+  const askedItems = await resolveItems(tx, answers.map((a) => a.ref))
+  const taken = new Set<string>()
+  for (const it of askedItems.values()) for (const k of clashKeys(it)) taken.add(k)
   const used = new Set(answers.map((a) => instanceSignature(a.ref)))
-  const ref = materialise(c.ref, rng, used)
+  let pool = candidates
+  let ref: string | null = null
+  for (let tries = 0; tries < 8 && !ref; tries++) {
+    const c = pickNext({ candidates: pool, theta: run.theta, asked: answers, rng })
+    if (!c) break
+    const r = materialise(c.ref, rng, used)
+    const it = (await resolveItems(tx, [r])).get(r)
+    if (it && clashKeys(it).some((k) => taken.has(k))) pool = pool.filter((x) => x.ref !== c.ref)
+    else ref = r
+  }
+  if (!ref) return null
   await tx.update(placementRun).set({ current: { ref } }).where(eq(placementRun.id, run.id))
   return ref
 }
