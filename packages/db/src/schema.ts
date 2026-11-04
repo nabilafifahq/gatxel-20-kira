@@ -340,6 +340,28 @@ export const skillState = pgTable(
   (t) => [primaryKey({ columns: [t.learnerId, t.skillId] })],
 )
 
+/** Tes penempatan per mapel (migrasi 0020): satu baris per percobaan. */
+export const placementRun = pgTable(
+  'placement_run',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
+    status: text('status', { enum: ['ready', 'in_progress', 'done', 'skipped'] }).notNull().default('ready'),
+    origin: text('origin', { enum: ['auto', 'parent', 'tutor'] }).notNull().default('auto'),
+    startGrade: smallint('start_grade').notNull(),
+    theta: real('theta').notNull().default(0),
+    answers: jsonb('answers').notNull().default(sql`'[]'::jsonb`),
+    current: jsonb('current'),
+    result: jsonb('result'),
+    createdAt: createdAt(),
+    startedAt: ts('started_at'),
+    finishedAt: ts('finished_at'),
+  },
+  (t) => [index('placement_run_learner_idx').on(t.learnerId, t.subject, t.finishedAt)],
+)
+
 export const planWeek = pgTable(
   'plan_week',
   {
@@ -1022,13 +1044,13 @@ export const TENANT_TABLES = [
   'day_record', 'badge_award', 'media', 'note', 'problem_report', 'competition_event', 'org_item', 'ai_job',
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
   'arena_session', 'arena_state', 'daily_chest',
-  'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state',
+  'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state', 'placement_run',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */
 export const LEARNER_SCOPED_TABLES = [
   'skill_state', 'plan_week', 'plan_slot', 'rest_day', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
-  'day_record', 'badge_award', 'note', 'week_report',
+  'day_record', 'badge_award', 'note', 'week_report', 'placement_run',
   'arena_session', 'arena_state', 'daily_chest',
   'paper_pick',
 ] as const
