@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const envState: { KIRA_INTERNAL_TOKEN?: string } = {}
 vi.mock('@/server/env', () => ({ env: () => envState, origin: () => 'https://kira.test', isProd: () => false }))
+vi.mock('@/server/auth/ratelimit', () => ({ throttleResponse: async () => null }))
 
 const deliver = vi.fn()
 vi.mock('@/server/dal/console-report', () => ({
@@ -92,5 +93,13 @@ describe('POST /api/internal/weekly-report', () => {
     expect(text).not.toContain('mama@contoh.test')
     expect(text).not.toContain('Failed query')
     expect(JSON.parse(text).requestId).toMatch(/^KR-/)
+  })
+})
+
+describe('POST /api/internal/weekly-report lewat Cloudflare', () => {
+  it('menjawab 404 bila permintaan membawa header Cloudflare, bahkan dengan token benar', async () => {
+    envState.KIRA_INTERNAL_TOKEN = TOKEN
+    const res = await POST(new Request('https://kira.test/api/internal/weekly-report', { method: 'POST', headers: { authorization: `Bearer ${TOKEN}`, 'cf-ray': 'abc-CGK' }, body: '{}' }))
+    expect(res.status).toBe(404)
   })
 })
