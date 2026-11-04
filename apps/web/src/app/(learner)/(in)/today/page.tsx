@@ -6,6 +6,8 @@ import { ensureStarted } from '@/server/dal/learner-entry'
 import { offlineUrlsForToday, todayDTO } from '@/server/dal/learner-today'
 import { xpTracksDTO } from '@/server/dal/arena-tracks'
 import { load } from '@/server/page'
+import { jakartaDate } from '@kira/core'
+import { cachedToday } from '@/server/today-cache'
 import { chestDTO } from '@/server/dal/learner-motion'
 import { equipChestRewardAction, openChestAction } from '@/server/actions/chest'
 
@@ -15,11 +17,13 @@ export default async function TodayPage() {
   const actor = await pageActor(['learner'])
   await ensureStarted(actor.orgId, actor.userId)
   const { data, urls } = await load(() =>
-    inOrg(orgCtx(actor), async (tx) => {
-      const today = await todayDTO(tx, orgCtx(actor), actor.userId)
-      const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today) }
-      return { data, urls: await offlineUrlsForToday(tx, actor.userId) }
-    }),
+    cachedToday(actor, jakartaDate(), () =>
+      inOrg(orgCtx(actor), async (tx) => {
+        const today = await todayDTO(tx, orgCtx(actor), actor.userId)
+        const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today) }
+        return { data, urls: await offlineUrlsForToday(tx, actor.userId) }
+      }),
+    ),
   )
   return (
     <>

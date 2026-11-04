@@ -4,13 +4,13 @@ import { and, eq, gt, sql } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import { authDb } from '../db'
 import { AppError } from '../errors'
+import { takeToken } from '../limiter'
 
 /**
  * Pembatas laju. Akun: jeda bertambah setelah 3 kali gagal dalam 15 menit dan
  * akun dikunci 15 menit setelah 100 kali gagal (GTX: kunci akun, bukan IP; jangan 5 kali).
- * IP: ember token di memori untuk menahan banjir permintaan.
+ * IP: ember token di Valkey (dibagi semua replika web), cadangan di memori bila Valkey mati.
  */
-const buckets = new Map<string, { tokens: number; at: number }>()
 
 export async function clientIp(): Promise<string | null> {
   const h = await headers()
@@ -19,18 +19,8 @@ export async function clientIp(): Promise<string | null> {
 
 export async function throttleIp(action: string, perMinute: number): Promise<void> {
   const ip = (await clientIp()) ?? 'unknown'
-  const key = `${action}:${ip}`
-  const now = Date.now()
-  const b = buckets.get(key) ?? { tokens: perMinute, at: now }
-  b.tokens = Math.min(perMinute, b.tokens + ((now - b.at) / 60000) * perMinute)
-  b.at = now
-  if (b.tokens < 1) {
-    buckets.set(key, b)
-    throw new AppError('rate-limited', 'Terlalu banyak percobaan dari perangkat ini. Tunggu satu menit lalu coba lagi.')
-  }
-  b.tokens -= 1
-  buckets.set(key, b)
-  if (buckets.size > 5000) buckets.clear()
+  const wait = await takeToken(`ip:${action}:${ip}`, perMinute)
+  if (wait > 0) throw new AppError('rate-limited', 'Terlalu banyak percobaan dari perangkat ini. Tunggu satu menit lalu coba lagi.')
 }
 
 const WINDOW_MS = 15 * 60 * 1000

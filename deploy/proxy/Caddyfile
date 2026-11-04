@@ -1,0 +1,118 @@
+# Proxy depan Kira: satu pintu di 127.0.0.1:3030 (Cloudflare Tunnel menunjuk ke sini), membagi beban ke replika web,
+# menyajikan berkas statis langsung dari disk, dan menutup /api/internal dari luar.
+# Daftar replika ditulis entrypoint.sh ke /tmp/upstreams.caddy dari KIRA_WEB_REPLICAS.
+{
+	admin off
+	auto_https off
+	servers {
+		# Cloudflared berjalan di host, jadi sambungan masuk dari jaringan privat. Alamat klien asli ada di CF-Connecting-IP.
+		trusted_proxies static private_ranges
+		client_ip_headers CF-Connecting-IP
+		timeouts {
+			read_header 10s
+			idle 2m
+		}
+	}
+	log {
+		output stderr
+		level WARN
+	}
+}
+
+(app) {
+	reverse_proxy {
+		import /tmp/upstreams.caddy
+		lb_policy least_conn
+		lb_try_duration 3s
+		lb_try_interval 200ms
+		health_uri /api/health
+		health_interval 5s
+		health_timeout 3s
+		health_status 2xx
+		fail_duration 15s
+		max_fails 3
+		unhealthy_status 502 503 504
+		flush_interval -1
+		header_up X-Forwarded-For {client_ip}
+		header_up X-Real-IP {client_ip}
+		transport http {
+			dial_timeout 2s
+			response_header_timeout 90s
+			keepalive 30s
+			keepalive_idle_conns_per_host 64
+		}
+	}
+}
+
+:8080 {
+	encode zstd gzip
+
+	# /api/internal hanya untuk worker lewat jaringan internal (http://web:3000), tidak pernah lewat proxy ini.
+	@internal path /api/internal /api/internal/*
+	handle @internal {
+		respond 404
+	}
+
+	# Hasil build Next: nama berkas memuat hash isinya, jadi aman disimpan setahun oleh Cloudflare dan browser.
+	@nextstatic {
+		path /_next/static/*
+		file {
+			root /srv/static
+			try_files {path}
+		}
+	}
+	handle @nextstatic {
+		root * /srv/static
+		header Cache-Control "public, max-age=31536000, immutable"
+		header X-Content-Type-Options nosniff
+		file_server
+	}
+
+	# Berkas tetap di public/ (efek suara, bendera, font, ikon, peta).
+	@pub {
+		path /sounds/* /flags/* /fonts/* /icons/* /maps/*
+		file {
+			root /srv/public
+			try_files {path}
+		}
+	}
+	handle @pub {
+		root * /srv/public
+		header Cache-Control "public, max-age=604800"
+		header X-Content-Type-Options nosniff
+		file_server
+	}
+
+	# Klip suara: nama berkas adalah sha256 teks+gaya, isinya tidak pernah berubah. Dibaca dari volume data (read-only).
+	# Klip yang belum ada diteruskan ke web (404 atau permintaan pembuatan).
+	@clip {
+		path_regexp clip ^/tts/[0-9a-f]{64}\.mp3$
+		file {
+			root /srv/media
+			try_files {path}
+		}
+	}
+	handle @clip {
+		root * /srv/media
+		header Cache-Control "public, max-age=31536000, immutable"
+		header X-Content-Type-Options nosniff
+		file_server
+	}
+
+	# Unggahan besar: impor konsol (PDF paket resmi sampai 60 MB) dan media. Jenis dan ukuran per jenis tetap diperiksa web.
+	@big path /konsol/impor /konsol/impor/* /api/media /api/media/*
+	handle @big {
+		request_body {
+			max_size 62MB
+		}
+		import app
+	}
+
+	# Semua jalur lain (layar learner, Server Action): paling banyak 8 MB.
+	handle {
+		request_body {
+			max_size 8MB
+		}
+		import app
+	}
+}
