@@ -258,7 +258,7 @@ const en = {
     ctaReview: 'Review now',
     ctaPractise: 'Practise',
     chapter: (n: number, title: string) => `Chapter ${n}, ${title}`,
-    notReady: (subject: string, grade: number) => `The ${subject} map is not ready yet. Your tutor adds the chapters for Grade ${grade}.`,
+    notReady: (subject: string, grade: number) => `The ${subject} map is not ready yet. Chapters for Grade ${grade} are on the way.`,
     selectedSkill: 'Selected skill',
     locked: 'Locked',
     lessonOf: (skill: string) => `Lesson: ${skill}`,
@@ -362,10 +362,10 @@ const en = {
   },
 
   sound: {
-    musicBlockedLabel: 'Music is turned off by your tutor.',
+    musicBlockedLabel: 'Music is turned off by a grown-up.',
     musicOnLabel: 'Music is on. Turn it off.',
     musicOffLabel: 'Music is off. Turn it on.',
-    musicBlocked: 'Music off by tutor',
+    musicBlocked: 'Music off by a grown-up',
     musicOn: 'Music on',
     musicOff: 'Music off',
     sfxOffLabel: 'Sound effects are off. Turn them on.',

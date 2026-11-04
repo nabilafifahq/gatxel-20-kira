@@ -58,7 +58,7 @@ const en = {
     nextQuestion: 'Next question',
     backToScore: 'Back to the score',
     rightCount: (right: number, total: number) => `${right} of ${total} right`,
-    notReady: 'The answers for this paper are not ready yet. Try again after your tutor has marked it.',
+    notReady: 'The answers for this paper are not ready yet. Try again after a grown-up has marked it.',
     questionsNav: 'Questions',
     questionStatus: (n: number, status: string) => `Question ${n}, ${status}`,
   },
