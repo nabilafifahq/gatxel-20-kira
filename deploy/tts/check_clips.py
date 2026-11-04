@@ -35,7 +35,7 @@ import sys
 import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
-from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor
 from typing import Any
 
 import numpy as np
@@ -316,6 +316,46 @@ def write_report(path: str, rows: list[dict[str, Any]]) -> None:
     os.replace(tmp, path)
 
 
+class Analyzer:
+    """Kumpulan proses analisis yang tahan mati: bila satu pekerja mati atau macet (Pool biasa menggantung selamanya), klip
+    yang belum selesai diulang satu per satu, dan klip penyebabnya ditandai "analisis gagal" tanpa menghentikan sisanya."""
+
+    def __init__(self, procs: int) -> None:
+        self.procs = procs
+        self.ex: ProcessPoolExecutor | None = None
+
+    def __enter__(self) -> "Analyzer":
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self.ex:
+            self.ex.shutdown(wait=False, cancel_futures=True)
+
+    def _fresh(self) -> ProcessPoolExecutor:
+        if self.ex:
+            self.ex.shutdown(wait=False, cancel_futures=True)
+        self.ex = ProcessPoolExecutor(self.procs)
+        return self.ex
+
+    def map(self, fn: Any, jobs: list[Any], chunksize: int = 1) -> list[dict[str, Any]]:
+        results: list[dict[str, Any] | None] = [None] * len(jobs)
+        ex = self.ex or self._fresh()
+        futs = [ex.submit(fn, j) for j in jobs]
+        redo: list[int] = []
+        for i, f in enumerate(futs):
+            try:
+                results[i] = f.result(timeout=600)
+            except Exception:  # noqa: BLE001 - pekerja mati atau waktu habis
+                redo.append(i)
+        for i in redo:
+            try:
+                results[i] = self._fresh().submit(fn, jobs[i]).result(timeout=120)
+            except Exception:  # noqa: BLE001
+                log(f"analisis gagal untuk {jobs[i][0][:12]}")
+                results[i] = {"key": jobs[i][0], "style": jobs[i][1], "flags": ["analisis gagal"]}
+        return [r for r in results if r is not None]
+
+
 def evaluate(todo: list[dict[str, Any]], dir_: str, pool: Any, asr: Asr | None, threads: int) -> list[dict[str, Any]]:
     """Akustik (proses paralel) lalu Whisper (GPU) untuk daftar klip manifest."""
     jobs = [(m["key"], m["style"], os.path.join(dir_, m["key"] + ".mp3")) for m in todo]
@@ -386,7 +426,7 @@ def main() -> int:
         args.url = None  # bagian tidak membuat ulang; penggabungan yang melakukannya
     rows_by_key: dict[str, dict[str, Any]] = dict(fresh)
     started = time.time()
-    with Pool(args.procs) as pool:
+    with Analyzer(args.procs) as pool:
         for at in range(0, len(todo), args.chunk):
             chunk = todo[at : at + args.chunk]
             for r in evaluate(chunk, args.dir, pool, asr, args.threads):
