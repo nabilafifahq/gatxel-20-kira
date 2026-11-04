@@ -212,11 +212,11 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
                       <p className={cx('m-0 text-body font-bold', lv === 'reteach' ? 'text-warn' : lv === 'empty' ? 'text-fg-muted' : 'text-fg')}>
                         {STATUS_LINE[lv]}
                       </p>
-                      <p className="m-0 flex items-center gap-1 text-body" aria-label={`${detail.skill.stars} dari 3 bintang`}>
+                      <p className="m-0 flex items-center gap-1 text-body">
                         {[0, 1, 2].map((i) => (
                           <StarGlyph key={i} size={20} filled={i < detail.skill.stars} />
                         ))}
-                        <span className="ml-1 text-fg-muted" aria-hidden="true">
+                        <span className="ml-1 text-fg-muted">
                           {detail.skill.stars} dari 3 bintang
                         </span>
                       </p>

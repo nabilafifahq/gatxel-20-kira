@@ -17,12 +17,14 @@ type Band = '1-2' | '3-4' | '5-6'
 
 /**
  * Yang menyala per jenjang, selain tiga mapel harian. Olimpiade menyala hanya atas pilihan orang tua, karena lebih berat.
- * Kelas 1-2 fokus pada kebiasaan: kartu, baca, dan alat peraga. Quiz Arena, English Skills, dan Paper menyusul di kelas lebih tinggi.
+ * Paper tetap menyala di semua kelas: di hari Seimbang (bawaan keluarga baru) Paper dan Tes memang opsional.
+ * Quiz Arena banyak membaca, jadi mulai kelas 3. Setiap fitur di sini punya konten untuk kelas itu (diuji recommendation.test.ts).
  */
+const CORE: FeatureKey[] = ['drill-math', 'mental-math', 'vocab', 'flashcards', 'reading-room', 'english-skills', 'paper', 'kira-world', 'dictionary', 'manipulatives', 'placement']
 const EXTRAS: Record<Band, FeatureKey[]> = {
-  '1-2': ['drill-math', 'mental-math', 'vocab', 'flashcards', 'reading-room', 'kira-world', 'dictionary', 'manipulatives', 'placement'],
-  '3-4': ['drill-math', 'mental-math', 'vocab', 'flashcards', 'reading-room', 'kira-world', 'dictionary', 'manipulatives', 'placement', 'quiz-arena', 'english-skills'],
-  '5-6': ['drill-math', 'mental-math', 'vocab', 'flashcards', 'reading-room', 'kira-world', 'dictionary', 'manipulatives', 'placement', 'quiz-arena', 'english-skills', 'paper'],
+  '1-2': CORE,
+  '3-4': [...CORE, 'quiz-arena'],
+  '5-6': [...CORE, 'quiz-arena'],
 }
 
 /** Tiga hal yang disebut dalam kalimat penjelasan, urut dari yang paling terasa bagi jenjang itu. */

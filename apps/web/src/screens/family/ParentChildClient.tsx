@@ -56,7 +56,7 @@ function Section({ id, title, hint, open, children }: { id: string; title: strin
   // Tautan "Pengaturan" dan "Mapel dan fitur" dari beranda membuka bagian ini langsung.
   useEffect(() => {
     const hash = window.location.hash
-    const target = hash === `#${id}` ? ref.current : hash && /^#[a-z-]+$/.test(hash) ? ref.current?.querySelector(hash) : null
+    const target = /^#[a-z-]+$/.test(hash) ? ref.current?.querySelector(hash) : null
     if (target && ref.current) {
       ref.current.open = true
       target.scrollIntoView({ block: 'start' })

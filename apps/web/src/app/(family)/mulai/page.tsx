@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Onboarding } from '@/components/family/Onboarding'
-import { resolveStep } from '@/lib/onboarding-steps'
+import { naturalStep, resolveStep } from '@/lib/onboarding-steps'
 import { redirect } from 'next/navigation'
 import { getActor } from '@/server/auth/actor'
 import { getDevice } from '@/server/auth/device'
@@ -20,7 +20,10 @@ export default async function StartPage({ searchParams }: { searchParams: Promis
   if (!(await isFamilyOwner(actor))) redirect('/keluarga')
   const sp = await searchParams
   const state = await onboardingState(actor)
-  const step = resolveStep(state.children, spString(sp, 'langkah', 2))
+  const requested = spString(sp, 'langkah', 2)
+  // Alamat selalu menyebut langkahnya, supaya orang tua tetap di langkah yang sama setelah menambah anak, dan bisa menambah anak lain.
+  if (!requested) redirect(`/mulai?langkah=${naturalStep(state.children)}`)
+  const step = resolveStep(state.children, requested)
   const anak = spUuid(sp, 'anak')
   const custom = step === 2 && anak ? (state.children.find((c) => c.id === anak) ?? null) : null
   return <Onboarding state={state} step={step} customChild={custom} />

@@ -452,8 +452,8 @@ const SPACE_STATIC: KFact[] = [
     topic: 'space',
     group: 'other',
     tier: 2,
-    card: { front: 'Gravity', back: 'Gravity is the force that pulls things toward the Earth, so we stay on the ground.' },
-    asks: [{ prompt: 'Which force keeps us on the ground?', answer: { label: 'Gravity' }, pool: '', wrong: ['Wind', 'Magnetism', 'Friction'], explain: 'Gravity pulls things toward the Earth, so we stay on the ground.' }],
+    card: { front: 'Gravity', back: 'Gravity is the force that pulls things towards the Earth, so we stay on the ground.' },
+    asks: [{ prompt: 'Which force keeps us on the ground?', answer: { label: 'Gravity' }, pool: '', wrong: ['Wind', 'Magnetism', 'Friction'], explain: 'Gravity pulls things towards the Earth, so we stay on the ground.' }],
   },
   {
     id: 'space:galaxy',

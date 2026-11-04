@@ -120,6 +120,8 @@ export async function createPracticeAttempt(name: LearnerName, refs: { id: strin
 
 /** Jalankan axe dan gagal bila ada pelanggaran serius atau kritis. */
 export async function expectNoSeriousA11y(page: Page, label: string): Promise<void> {
+  // Tunggu gerak masuk selesai: warna saat memudar bukan warna sebenarnya.
+  await page.waitForTimeout(300)
   const res = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze()
   const bad = res.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical')
   expect(bad.map((v) => `${label}: ${v.id} (${v.impact}) ${v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(' | ')}`)).toEqual([])
@@ -145,4 +147,13 @@ export async function noHorizontalScroll(page: Page): Promise<void> {
 
 export async function newTabletContext(context: BrowserContext): Promise<Page> {
   return context.newPage()
+}
+
+/**
+ * Status yang benar untuk /api/internal/*: lewat proxy Caddy (stack Compose) rute ini ditutup dengan 404 persis; langsung ke
+ * Next (tanpa proxy) rute ada tetapi menolak tanpa token yang benar dengan 401, atau 503 bila token server belum diatur.
+ */
+export async function internalStatuses(request: { get(url: string): Promise<{ headers(): Record<string, string> }> }): Promise<number[]> {
+  const server = (await request.get('/api/health')).headers()['server'] ?? ''
+  return /caddy/i.test(server) ? [404] : [401, 503]
 }

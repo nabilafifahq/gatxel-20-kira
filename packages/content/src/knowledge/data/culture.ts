@@ -97,7 +97,7 @@ const LANDMARKS: readonly Landmark[] = [
   { id: 'parthenon', name: 'Parthenon', the: 'The Parthenon', country: 'Greece', tier: 2, fact: 'The Parthenon is an old temple in Athens.' },
   { id: 'hagia', name: 'Hagia Sophia', the: 'Hagia Sophia', country: 'Turkey', tier: 2, fact: 'Hagia Sophia is a huge old building with a big dome in Istanbul.' },
   { id: 'kilimanjaro', name: 'Mount Kilimanjaro', the: 'Mount Kilimanjaro', country: 'Tanzania', tier: 2, fact: 'Mount Kilimanjaro is the tallest mountain in Africa.' },
-  { id: 'halong', name: 'Ha Long Bay', the: 'Ha Long Bay', country: 'Vietnam', tier: 2, fact: 'Ha Long Bay has thousands of rocky islands in the sea.' },
+  { id: 'halong', name: 'Ha Long Bay', the: 'Ha Long Bay', country: 'Vietnam', tier: 2, fact: 'Ha Long Bay has about 2,000 rocky islands in the sea.' },
   { id: 'chichen', name: 'Chichen Itza', the: 'Chichen Itza', country: 'Mexico', tier: 2, fact: 'Chichen Itza is an old Maya city with a big stepped pyramid.' },
   { id: 'brandenburg', name: 'Brandenburg Gate', the: 'The Brandenburg Gate', country: 'Germany', tier: 2, fact: 'The Brandenburg Gate is a famous old gate in Berlin.' },
   { id: 'cntower', name: 'CN Tower', the: 'The CN Tower', country: 'Canada', tier: 2, fact: 'The CN Tower is a very tall tower in Toronto.' },

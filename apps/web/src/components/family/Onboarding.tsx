@@ -138,6 +138,9 @@ function StepChildren({ state, pins, onPin }: { state: OnboardingState; pins: Re
               {pins[c.id] ? <PinPreview name={c.name} pin={pins[c.id]!} /> : null}
             </div>
             {c.active ? <UiIcon name="check-circle" size={24} className="flex-none text-success" title="Izin belajar sudah diberikan" /> : null}
+            <Link href={`${FAMILY_ROUTES.child(c.id)}#atur`} aria-label={`Ubah data ${c.name}`} className="kira-press inline-flex min-h-11 flex-none items-center px-1 font-bold">
+              Ubah
+            </Link>
           </div>
           {!c.active ? <ChildCard child={c} onSaved={refresh} /> : null}
         </div>
@@ -199,12 +202,18 @@ function StepPath({ state }: { state: OnboardingState }) {
   const router = useRouter()
   const apply = useAction(applyPathAction)
   const skip = useAction(applyPathAction)
+  // Tombol tetap memuat sampai langkah berikutnya benar-benar tampil, jadi tidak ada ketukan kedua.
+  const [moving, startMove] = useTransition()
+  const [chosen, setChosen] = useState<'recommended' | 'skipped' | null>(null)
   const pending = state.children.filter((c) => c.setupPath === null)
   const targets = (pending.length > 0 ? pending : state.children).map((c) => c.id)
   const go = async (runner: typeof apply, mode: 'recommended' | 'skipped') => {
+    setChosen(mode)
     const r = await runner.run({ mode, learnerIds: targets })
-    if (r.ok) router.push(stepHref(3))
+    if (r.ok) startMove(() => router.push(stepHref(3)))
   }
+  const busyRec = apply.pending || (moving && chosen === 'recommended')
+  const busySkip = skip.pending || (moving && chosen === 'skipped')
   const failure = apply.error ?? skip.error
   return (
     <section aria-labelledby="langkah-2" className="flex flex-col gap-5">
@@ -233,7 +242,7 @@ function StepPath({ state }: { state: OnboardingState }) {
             </li>
           ))}
         </ul>
-        <Button variant="primary" className="h-12 w-full" loading={apply.pending} disabled={skip.pending} onClick={() => go(apply, 'recommended')}>
+        <Button variant="primary" className="h-12 w-full" loading={busyRec} disabled={busySkip} onClick={() => go(apply, 'recommended')}>
           Pakai jalur rekomendasi
         </Button>
       </div>
@@ -249,7 +258,7 @@ function StepPath({ state }: { state: OnboardingState }) {
         </div>
       </div>
       <div className="flex flex-col items-center gap-1 text-center">
-        <Button variant="quiet" loading={skip.pending} disabled={apply.pending} onClick={() => go(skip, 'skipped')} className="min-h-11">
+        <Button variant="quiet" loading={busySkip} disabled={busyRec} onClick={() => go(skip, 'skipped')} className="min-h-11">
           Lewati dulu
         </Button>
         <p className="m-0 text-small text-fg-muted">Kalau dilewati, kami pakai jalur rekomendasi. {CAN_CHANGE}</p>
@@ -261,6 +270,7 @@ function StepPath({ state }: { state: OnboardingState }) {
 function StepCustom({ child, all }: { child: OnboardingChild; all: OnboardingChild[] }) {
   const router = useRouter()
   const mark = useAction(markCustomPathAction)
+  const [, startMove] = useTransition()
   // Belum pernah memilih: mulai dari jalur rekomendasi, lalu diubah seperlunya.
   const initial = child.setupPath ? child.features : recommendationFor(child.grade).features
   return (
@@ -283,7 +293,7 @@ function StepCustom({ child, all }: { child: OnboardingChild; all: OnboardingChi
           const r = await mark.run({ learnerId: child.id })
           if (!r.ok) return
           const others = all.some((c) => c.id !== child.id && c.setupPath === null)
-          router.push(others ? stepHref(2) : stepHref(3))
+          startMove(() => router.push(others ? stepHref(2) : stepHref(3)))
         }}
       />
     </section>
@@ -362,7 +372,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
               {pins[c.id] ? <PinPreview name={c.name} pin={pins[c.id]!} /> : <span className="text-small">PIN gambar yang kamu pilih saat menambah {c.name}.</span>}
               {!c.active ? <span className="text-small font-bold">Belum bisa masuk: izin belajar belum diberikan.</span> : null}
             </div>
-            <Link href={FAMILY_ROUTES.child(c.id)} className="kira-press inline-flex min-h-11 flex-none items-center text-small font-bold">
+            <Link href={`${FAMILY_ROUTES.child(c.id)}#atur`} className="kira-press inline-flex min-h-11 flex-none items-center text-small font-bold">
               Ganti PIN
             </Link>
           </li>
