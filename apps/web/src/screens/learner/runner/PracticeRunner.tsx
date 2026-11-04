@@ -411,7 +411,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
       {header}
       {data.boss ? <BossBar right={states.filter((s) => s.phase === 'correct').length} total={states.length} /> : null}
       {syncState ? <OfflineBanner state={syncState} pendingCount={queue.pending} variant="banner" className="mx-4 mb-2.5 md:hidden" /> : null}
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-x-6 gap-y-3.5 px-4 md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-x-6 gap-y-3.5 px-4 max-lg:grid-rows-[auto_1fr_auto] md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
         <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:col-start-1 lg:row-start-1">
           <QuestionView
             key={item.ref}
