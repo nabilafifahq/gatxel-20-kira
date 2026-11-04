@@ -9,8 +9,9 @@ import { Mascot, type MascotMood } from '@/components/learner/Mascot'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
 import { TapSound } from '@/components/learner/TapSound'
 import { playSfx } from '@/components/learner/sfx'
-import { TOOL_INFO, ToolPlay } from '@/components/manipulatives/ToolPlay'
+import { ToolPlay } from '@/components/manipulatives/ToolPlay'
 import type { ToolMilestone } from '@/components/manipulatives/types'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Alat peraga Math (bermain bebas). Lima alat ketuk: balok nilai tempat, batang pecahan, model batang,
@@ -25,6 +26,7 @@ export function ToolsScreen({ data }: { data: ToolsDTO }): ReactElement {
   const [mood, setMood] = useState<{ mood: MascotMood; n: number }>({ mood: 'idle', n: 0 })
   const timer = useRef(0)
   const style = SUBJECT_STYLE.math
+  const t = useT()
 
   useEffect(() => () => window.clearTimeout(timer.current), [])
 
@@ -40,13 +42,13 @@ export function ToolsScreen({ data }: { data: ToolsDTO }): ReactElement {
     <LearnerFrame shell={data.shell} current="tools" className="flex flex-col gap-6 md:gap-7">
       <header className="flex items-center justify-between gap-4">
         <div className="flex flex-col gap-1.5">
-          <h1 className="m-0 text-h1 font-bold">Maths Tools</h1>
-          <p className="m-0 text-body-lg text-fg-muted">Play with blocks, bars, shapes and pegs. There are no marks here. Try things out.</p>
+          <h1 className="m-0 text-h1 font-bold">{t.widgets.tools.title}</h1>
+          <p className="m-0 text-body-lg text-fg-muted">{t.widgets.tools.intro}</p>
         </div>
         <Mascot name={data.shell.avatar} mood={mood.mood} replayKey={mood.n} size={72} accessory={data.shell.accessory} background={data.shell.background} className="flex-none" />
       </header>
 
-      <div role="radiogroup" aria-label="Choose a tool" className="grid grid-cols-2 gap-2 md:grid-cols-5">
+      <div role="radiogroup" aria-label={t.widgets.tools.choose} className="grid grid-cols-2 gap-2 md:grid-cols-5">
         {ORDER.map((k) => {
           const on = kind === k
           return (
@@ -64,7 +66,7 @@ export function ToolsScreen({ data }: { data: ToolsDTO }): ReactElement {
                 on ? cx('border-3', style.border, style.tint, 'text-fg') : 'border-divider bg-surface text-fg hover:border-border',
               )}
             >
-              {TOOL_INFO[k].title}
+              {t.widgets.tools.info[k].title}
             </button>
           )
         })}
@@ -72,9 +74,9 @@ export function ToolsScreen({ data }: { data: ToolsDTO }): ReactElement {
 
       <section aria-labelledby="tool-title" className="flex flex-col gap-3">
         <h2 id="tool-title" className="m-0 text-h2 font-bold">
-          {TOOL_INFO[kind].title}
+          {t.widgets.tools.info[kind].title}
         </h2>
-        <p className="m-0 text-body text-fg-muted">{TOOL_INFO[kind].blurb}</p>
+        <p className="m-0 text-body text-fg-muted">{t.widgets.tools.info[kind].blurb}</p>
         <TapSound>
           <div key={kind} className="kira-rise max-w-3xl">
             <ToolPlay kind={kind} onMilestone={react} />

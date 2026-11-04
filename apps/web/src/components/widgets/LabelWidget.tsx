@@ -5,6 +5,7 @@ import { normaliseText } from '@kira/content/check'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asTexts } from './answers'
 import { FigureStage, pinStyle } from './FigureStage'
 import type { WidgetProps } from './types'
@@ -19,6 +20,7 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
   const diagram = item.labelDiagram
   const figure = item.figure
   const [picked, setPicked] = useState<string | null>(null)
+  const dict = useT()
   if (!diagram || !figure) return null
   const spots = diagram.spots
   const placed = asTexts(value, spots.length)
@@ -48,10 +50,10 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
   return (
     <div className="flex w-full flex-col gap-3.5" onKeyDown={(e) => e.key === 'Escape' && setPicked(null)}>
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {locked ? 'Your labels' : picked !== null ? `Picked: ${picked}. Now tap its number.` : 'Tap a label, then tap its place.'}
+        {locked ? dict.widgets.label.yourLabels : picked !== null ? dict.widgets.label.picked(picked) : dict.widgets.label.tapLabel}
       </p>
-      <FigureStage spec={figure}>
-        <div role="group" aria-label="Places to label">
+      <FigureStage spec={figure} lang={item.lang}>
+        <div role="group" aria-label={dict.widgets.label.placesToLabel}>
           {spots.map((sp, s) => {
             const label = placed[s] ?? ''
             const st = stateOf(s)
@@ -61,7 +63,7 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
                 key={s}
                 type="button"
                 disabled={locked}
-                aria-label={label !== '' ? `Place ${s + 1}: ${label}${st === 'correct' ? ', right' : st === 'not-yet' ? ', not yet' : ''}` : `Place ${s + 1}, empty`}
+                aria-label={label !== '' ? `${dict.widgets.label.placeFilled(s + 1, label)}${st === 'correct' ? dict.widgets.shared.ariaRight : st === 'not-yet' ? dict.widgets.shared.ariaNotYet : ''}` : dict.widgets.label.placeEmpty(s + 1)}
                 onClick={() => tapSpot(s)}
                 style={pinStyle(sp.x, sp.y)}
                 className={cx('absolute flex items-center justify-center p-0 transition-transform duration-150 ease-kira', !locked && 'cursor-pointer active:scale-97')}
@@ -99,7 +101,7 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
                 type="button"
                 disabled={locked}
                 onClick={() => tapSpot(s)}
-                aria-label={label !== '' ? `Place ${s + 1}: ${label}` : `Place ${s + 1}, empty`}
+                aria-label={label !== '' ? dict.widgets.label.placeFilled(s + 1, label) : dict.widgets.label.placeEmpty(s + 1)}
                 className={cx(
                   'flex min-h-14 w-full items-center gap-3 rounded-control border-2 px-3 text-left font-reading text-h3',
                   st === 'correct' ? 'border-3 border-success bg-success-50' : st === 'not-yet' ? 'border-3 border-warn bg-surface' : picked !== null && !locked ? cx('border-dashed bg-surface', style.border) : 'border-border bg-surface',
@@ -109,18 +111,19 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
                 <span aria-hidden="true" className={cx('inline-flex h-8 w-8 flex-none items-center justify-center rounded-pill text-body font-bold', label !== '' ? cx('bg-fg', 'text-white') : 'border-2 border-border text-fg')}>
                   {s + 1}
                 </span>
-                <span className={cx('min-w-0 flex-1 font-bold', label === '' && 'font-normal text-fg-muted')}>{label !== '' ? label : 'Empty'}</span>
+                <span lang={label !== '' ? item.lang : undefined} className={cx('min-w-0 flex-1 font-bold', label === '' && 'font-normal text-fg-muted')}>{label !== '' ? label : dict.widgets.label.emptyRow}</span>
                 {st ? <UiIcon name={st === 'correct' ? 'check' : 'not-yet'} size={20} className={st === 'correct' ? 'text-success' : 'text-warn'} /> : null}
               </button>
             </li>
           )
         })}
       </ol>
-      <div role="group" aria-label="Labels" lang={item.lang} className="flex flex-wrap gap-2.5">
+      <div role="group" aria-label={dict.widgets.label.labels} className="flex flex-wrap gap-2.5">
         {bank.map((l) => (
           <button
             key={l}
             type="button"
+            lang={item.lang}
             disabled={locked}
             aria-pressed={picked === l}
             onClick={() => setPicked((p) => (p === l ? null : l))}
@@ -133,7 +136,7 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
             {l}
           </button>
         ))}
-        {bank.length === 0 ? <span className="self-center text-body text-fg-muted">All the labels are placed.</span> : null}
+        {bank.length === 0 ? <span className="self-center text-body text-fg-muted">{dict.widgets.label.allPlaced}</span> : null}
       </div>
     </div>
   )

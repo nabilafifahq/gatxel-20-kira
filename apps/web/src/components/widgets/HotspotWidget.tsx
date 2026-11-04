@@ -5,6 +5,7 @@ import { normaliseText } from '@kira/content/check'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asTexts } from './answers'
 import { FigureStage, stageStyle } from './FigureStage'
 import type { WidgetProps } from './types'
@@ -18,6 +19,7 @@ export function HotspotWidget({ item, value, onChange, disabled = false, feedbac
   const style = SUBJECT_STYLE[subject]
   const spot = item.hotspot
   const figure = item.figure
+  const dict = useT()
   if (!spot || !figure) return null
   const need = spot.count
   const chosen = asTexts(value, 8).filter((t) => t !== '')
@@ -36,10 +38,10 @@ export function HotspotWidget({ item, value, onChange, disabled = false, feedbac
   return (
     <div className="flex w-full flex-col gap-3">
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {need > 1 ? `Tap ${need} places in the picture. ${chosen.length} of ${need} chosen.` : 'Tap the right place in the picture.'}
+        {need > 1 ? dict.widgets.hotspot.tapN(need, chosen.length) : dict.widgets.hotspot.tapRight}
       </p>
-      <FigureStage spec={figure}>
-        <div role="group" aria-label="Places in the picture" lang={item.lang}>
+      <FigureStage spec={figure} lang={item.lang}>
+        <div role="group" aria-label={dict.widgets.hotspot.places}>
           {spot.regions.map((r) => {
             const selected = chosen.includes(r.label)
             const ok = feedback && key && selected ? key.includes(normaliseText(r.label, false)) : null
@@ -49,7 +51,8 @@ export function HotspotWidget({ item, value, onChange, disabled = false, feedbac
                 type="button"
                 disabled={locked}
                 aria-pressed={selected}
-                aria-label={`${r.label}${ok === true ? ', right place' : ok === false ? ', not yet' : ''}`}
+                lang={ok === null ? item.lang : undefined}
+                aria-label={`${r.label}${ok === true ? dict.widgets.shared.ariaRightPlace : ok === false ? dict.widgets.shared.ariaNotYet : ''}`}
                 onClick={() => toggle(r.label)}
                 style={stageStyle(r.x, r.y, r.w, r.h)}
                 className={cx(

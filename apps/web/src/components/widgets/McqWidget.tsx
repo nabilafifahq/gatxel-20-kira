@@ -5,6 +5,7 @@ import { Figure } from '@kira/figures'
 import type { ClientOption } from '@kira/content/present'
 import { AnswerTile, type AnswerTileState } from '@/components/learner/AnswerTile'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { asChoice, asChoices, letterAt } from './answers'
 import { useWidgetDensity } from './density'
 import type { WidgetProps } from './types'
@@ -18,21 +19,21 @@ function optionLabel(o: ClientOption): string {
   return o.text ?? o.figure?.alt ?? ''
 }
 
-function OptionContent({ o, exam = false, short = true }: { o: ClientOption; exam?: boolean; short?: boolean }): ReactElement {
+function OptionContent({ o, lang, exam = false, short = true }: { o: ClientOption; lang: string; exam?: boolean; short?: boolean }): ReactElement {
   if (exam && !o.figure) {
-    return <span className={cx('block text-center font-reading font-bold', short ? 'text-h1' : 'text-h2')}>{o.text}</span>
+    return <span lang={lang} className={cx('block text-center font-reading font-bold', short ? 'text-h1' : 'text-h2')}>{o.text}</span>
   }
   if (o.figure) {
     return (
       <>
-        <span className="block w-full max-w-[220px]" aria-hidden="true">
+        <span lang={lang} className="block w-full max-w-[220px]" aria-hidden="true">
           <Figure spec={o.figure} />
         </span>
-        {o.text ? <span className="text-center font-reading text-h3">{o.text}</span> : null}
+        {o.text ? <span lang={lang} className="text-center font-reading text-h3">{o.text}</span> : null}
       </>
     )
   }
-  return <span className="text-question block">{o.text}</span>
+  return <span lang={lang} className="text-question block">{o.text}</span>
 }
 
 function useLayout(options: ClientOption[]): { pictures: boolean; wide: boolean } {
@@ -55,12 +56,13 @@ export function McqWidget({ item, value, onChange, disabled = false, feedback = 
   const stack = pictures || exam
   // Satu ukuran huruf untuk semua opsi di satu soal: besar hanya bila semua opsi pendek.
   const short = options.every((o) => (o.text ?? '').length <= 6)
+  const t = useT()
   return (
     <div className="@container flex w-full flex-col gap-3.5">
-      <p className="m-0 text-body font-semibold text-fg-muted">{pictures ? 'Tap a picture.' : 'Choose one answer.'}</p>
+      <p className="m-0 text-body font-semibold text-fg-muted">{pictures ? t.widgets.mcq.tapPicture : t.widgets.mcq.chooseOne}</p>
       <div
         role="group"
-        aria-label="Answers"
+        aria-label={t.widgets.shared.answers}
         className={cx('grid gap-x-4 gap-y-5 pt-1', pictures || exam ? 'grid-cols-2' : wide ? 'grid-cols-1 @lg:grid-cols-2' : 'grid-cols-2')}
       >
         {options.map((o, idx) => {
@@ -74,12 +76,12 @@ export function McqWidget({ item, value, onChange, disabled = false, feedback = 
               layout={stack ? 'stack' : 'row'}
               state={tileState(selected, disabled, feedback)}
               aria-pressed={selected}
-              aria-label={`${letter}, ${optionLabel(o)}${feedback && selected ? (feedback === 'correct' ? ', correct' : ', not yet') : ''}`}
+              aria-label={`${letter}, ${optionLabel(o)}${feedback && selected ? (feedback === 'correct' ? t.widgets.shared.ariaCorrect : t.widgets.shared.ariaNotYet) : ''}`}
               disabled={disabled || !!feedback}
               onClick={() => onChange({ choice: o.i })}
               className={pictures ? 'min-h-[150px]' : exam ? 'min-h-[132px] max-md:min-h-24' : undefined}
             >
-              <OptionContent o={o} exam={exam} short={short} />
+              <OptionContent o={o} lang={item.lang} exam={exam} short={short} />
             </AnswerTile>
           )
         })}
@@ -93,6 +95,7 @@ export function MultiWidget({ item, value, onChange, disabled = false, feedback 
   const chosen = asChoices(value)
   const { pictures, wide } = useLayout(options)
   const need = item.multiCount ?? 0
+  const t = useT()
   const toggle = (i: number) => {
     const has = chosen.includes(i)
     let next = has ? chosen.filter((c) => c !== i) : [...chosen, i]
@@ -103,11 +106,11 @@ export function MultiWidget({ item, value, onChange, disabled = false, feedback 
   return (
     <div className="@container flex w-full flex-col gap-3">
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {need > 0 ? `Choose ${need}. ${chosen.length} of ${need} chosen.` : `Choose all the right answers. ${chosen.length} chosen.`}
+        {need > 0 ? t.widgets.mcq.chooseN(need, chosen.length) : t.widgets.mcq.chooseAll(chosen.length)}
       </p>
       <div
         role="group"
-        aria-label="Answers"
+        aria-label={t.widgets.shared.answers}
         className={cx('grid gap-x-4 gap-y-5 pt-1', pictures ? 'grid-cols-2' : wide ? 'grid-cols-1 @lg:grid-cols-2' : 'grid-cols-2')}
       >
         {options.map((o, idx) => {
@@ -125,7 +128,7 @@ export function MultiWidget({ item, value, onChange, disabled = false, feedback 
               disabled={disabled || !!feedback}
               onClick={() => toggle(o.i)}
             >
-              <OptionContent o={o} />
+              <OptionContent o={o} lang={item.lang} />
             </AnswerTile>
           )
         })}

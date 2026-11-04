@@ -3,6 +3,7 @@
 import { useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asPairs } from './answers'
 import type { WidgetProps } from './types'
 
@@ -21,6 +22,7 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
   const [pending, setPending] = useState<Pending>(null)
   const style = SUBJECT_STYLE[subject]
   const locked = disabled || !!feedback
+  const t = useT()
 
   const pairedLefts = pairs.map((p, l) => (p >= 0 ? l : -1)).filter((l) => l >= 0)
   const numberOfLeft = (l: number) => pairedLefts.indexOf(l) + 1
@@ -82,7 +84,7 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
   return (
     <div className="flex w-full flex-col gap-3" onKeyDown={(e) => e.key === 'Escape' && setPending(null)}>
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {locked ? 'Your pairs' : pending ? 'Now tap its match.' : 'Tap a card, then tap its match.'}
+        {locked ? t.widgets.match.yourPairs : pending ? t.widgets.match.nowTapMatch : t.widgets.match.tapCard}
       </p>
       <div className="grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-x-4 gap-y-3 max-md:gap-x-2.5">
         {left.map((text, l) => {
@@ -100,11 +102,11 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
                 type="button"
                 disabled={locked}
                 aria-pressed={pendL}
-                aria-label={`${text}${pairedL ? `, matched with ${right.find((x) => x.i === pairs[l])?.text ?? ''}` : ''}`}
+                aria-label={`${text}${pairedL ? t.widgets.match.ariaMatchedWith(right.find((x) => x.i === pairs[l])?.text ?? '') : ''}`}
                 onClick={() => tapLeft(l)}
                 className={cx(cell, 'font-reading text-h3', stateCls(pairedL, pendL, okL), !locked && 'cursor-pointer active:scale-97')}
               >
-                <span className="min-w-0">{text}</span>
+                <span lang={item.lang} className="min-w-0">{text}</span>
                 {pairedL ? badge(numberOfLeft(l)) : null}
               </button>
               {r ? (
@@ -112,11 +114,11 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
                   type="button"
                   disabled={locked}
                   aria-pressed={pendR}
-                  aria-label={`${r.text}${pairedR ? ', matched' : ''}`}
+                  aria-label={`${r.text}${pairedR ? t.widgets.match.ariaMatched : ''}`}
                   onClick={() => tapRight(r.i)}
                   className={cx(cell, 'font-reading text-h3 font-bold', stateCls(pairedR, pendR, okR), !locked && 'cursor-pointer active:scale-97')}
                 >
-                  <span className="min-w-0">{r.text}</span>
+                  <span lang={item.lang} className="min-w-0">{r.text}</span>
                   {pairedR ? badge(numberOfLeft(lOfR)) : null}
                 </button>
               ) : (

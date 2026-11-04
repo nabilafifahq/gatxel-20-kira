@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type ReactElement } from 'react'
+import { useT } from '@/lib/i18n/client'
 import { Chips } from './Chips'
 import { Geoboard, type GeoState } from './Geoboard'
 import type { ToolMilestone } from './types'
@@ -8,13 +9,14 @@ import type { ToolMilestone } from './types'
 type Props = { onMilestone?(k: ToolMilestone): void }
 
 export function GeoboardPlay({ size: startSize, fixed = false, onMilestone }: Props & { size?: number; fixed?: boolean }): ReactElement {
+  const t = useT()
   const [size, setSize] = useState(startSize ?? 6)
   const [value, setValue] = useState<GeoState>({ pegs: [], closed: false })
   return (
     <div className="flex w-full flex-col gap-4">
       {fixed ? null : (
         <Chips
-          label="Board"
+          label={t.widgets.tools.boardChip}
           value={size}
           options={[4, 5, 6, 7, 8] as const}
           onPick={(n) => {
