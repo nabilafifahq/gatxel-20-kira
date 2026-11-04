@@ -10,7 +10,7 @@ import { dictFor, DEFAULT_UI_LANG, type Dict, type UiLang } from './index'
  */
 export const getLang = cache(async (): Promise<UiLang> => {
   const session = await getSession()
-  if (session) return session.uiLang
+  if (session) return session.uiLang ?? DEFAULT_UI_LANG
   const device = await getDevice()
   return device ? deviceUiLang(device.learnerIds) : DEFAULT_UI_LANG
 })

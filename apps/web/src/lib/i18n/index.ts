@@ -10,3 +10,8 @@ const DICTS: Record<UiLang, Dict> = { en, id }
 export function dictFor(lang: UiLang): Dict {
   return DICTS[lang]
 }
+
+/** Kamus untuk aktor yang sudah terbaca (Server Action, DAL): tanpa query tambahan. */
+export function tOf(actor: { uiLang?: UiLang }): Dict {
+  return DICTS[actor.uiLang ?? 'en']
+}

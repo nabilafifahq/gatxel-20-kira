@@ -21,10 +21,10 @@ export type SessionInfo = {
   email: string | null
   deviceId: string | null
   createdAt: Date
-  /** Bahasa tampilan anak, ikut terbaca bersama sesi supaya tidak ada query tambahan. */
-  uiLang: UiLang
+  /** Bahasa tampilan anak, ikut terbaca bersama sesi supaya tidak ada query tambahan. Opsional hanya untuk fixture tes. */
+  uiLang?: UiLang
   /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
-  uiLangSwitch: boolean
+  uiLangSwitch?: boolean
 }
 
 /** Sesi aktif untuk request ini (di-cache per request). Null bila tidak ada atau kedaluwarsa. */
