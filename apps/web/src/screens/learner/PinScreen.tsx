@@ -13,7 +13,7 @@ import { useTicker } from '@/components/learner/hooks'
 import { avatarLabel } from '@/components/learner/LearnerHeader'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { Timer } from '@/components/learner/Timer'
-import { plural } from '@/components/learner/format'
+import { useLang, useT } from '@/lib/i18n/client'
 import { ActionError, SignInBar } from './common'
 
 /**
@@ -24,18 +24,6 @@ import { ActionError, SignInBar } from './common'
  * teks) untuk PIN salah, `fieldErrors.lockedUntil` (ISO) saat terkunci. Kegagalan tanpa
  * keduanya dianggap error biasa dan ditampilkan dengan pesan dan kode referensi.
  */
-
-const WORD: Record<PinPicture, string> = {
-  sun: 'Sun',
-  moon: 'Moon',
-  star: 'Star',
-  cat: 'Cat',
-  fish: 'Fish',
-  tree: 'Tree',
-  apple: 'Apple',
-  boat: 'Boat',
-  ball: 'Ball',
-}
 
 const LOCK_MINUTES = 15
 
@@ -57,6 +45,8 @@ export function PinScreen({
   pickHref?: string
   grownUpHref?: string
 }): ReactElement {
+  const t = useT()
+  const lang = useLang()
   const router = useRouter()
   const [entered, setEntered] = useState<PinPicture[]>([])
   const [phase, setPhase] = useState<Phase>({ kind: 'enter' })
@@ -100,7 +90,7 @@ export function PinScreen({
       setPhase({ kind: 'error', message: res.message, reference: res.reference })
     } catch {
       setEntered([])
-      setPhase({ kind: 'error', message: 'Kira could not reach the server. Check the internet and try again.', reference: 'KRA-PIN-NET' })
+      setPhase({ kind: 'error', message: t.shell.pin.noServer, reference: 'KRA-PIN-NET' })
     }
   }
 
@@ -119,7 +109,7 @@ export function PinScreen({
 
   const wrong = phase.kind === 'wrong'
   const n = entered.length
-  const prompt = phase.kind === 'ok' ? 'All 4 pictures match.' : 'Tap your 4 secret pictures, in order.'
+  const prompt = phase.kind === 'ok' ? t.shell.pin.allMatch : t.shell.pin.prompt
 
   return (
     <div
@@ -133,15 +123,15 @@ export function PinScreen({
     >
       <SignInBar grownUpHref={grownUpHref} />
       <main className="flex flex-1 flex-col items-center justify-center gap-8 px-4 pt-2 pb-10 md:px-10 lg:flex-row lg:gap-18 lg:pb-12">
-        <section aria-label="Sign in" className="flex w-full max-w-[440px] flex-col items-center gap-5 text-center lg:w-95 lg:flex-none lg:items-start lg:text-left">
-          <Avatar name={data.avatar} size={120} title={avatarLabel(data.avatar)} className="h-24 w-24 md:h-30 md:w-30" />
+        <section aria-label={t.shell.pin.signIn} className="flex w-full max-w-[440px] flex-col items-center gap-5 text-center lg:w-95 lg:flex-none lg:items-start lg:text-left">
+          <Avatar name={data.avatar} size={120} title={avatarLabel(data.avatar, lang)} className="h-24 w-24 md:h-30 md:w-30" />
           <div className="flex flex-col gap-1">
-            <h1 className="m-0 text-h1 font-bold break-words">Hi, {data.name}</h1>
-            <p className="m-0 text-body-lg text-fg-muted">{locked ? 'Your pictures are resting for a few minutes.' : prompt}</p>
+            <h1 className="m-0 text-h1 font-bold break-words">{t.shell.hi(data.name)}</h1>
+            <p className="m-0 text-body-lg text-fg-muted">{locked ? t.shell.pin.resting : prompt}</p>
           </div>
           {locked ? null : (
             <div className="flex items-center gap-5">
-              <ol aria-label={`${n} of 4 pictures chosen`} className="m-0 flex list-none gap-3.5 p-0">
+              <ol aria-label={t.shell.pin.chosen(n)} className="m-0 flex list-none gap-3.5 p-0">
                 {[0, 1, 2, 3].map((i) => (
                   <li
                     key={i}
@@ -152,14 +142,14 @@ export function PinScreen({
                   />
                 ))}
               </ol>
-              <IconButton icon="backspace" label="Remove the last picture" iconSize={26} disabled={n === 0 || busy} onClick={undo} />
+              <IconButton icon="backspace" label={t.shell.pin.removeLast} iconSize={26} disabled={n === 0 || busy} onClick={undo} />
             </div>
           )}
           <div aria-live="polite" className="contents">
             {phase.kind === 'checking' ? (
               <p role="status" className="m-0 inline-flex items-center gap-2 text-body-lg font-semibold">
                 <UiIcon name="spinner" size={22} />
-                Checking your pictures
+                {t.shell.pin.checking}
               </p>
             ) : null}
           </div>
@@ -167,8 +157,8 @@ export function PinScreen({
             <div role="alert" className="flex items-start gap-2.5 rounded-control border-2 border-warn bg-surface px-4 py-3 text-left text-body-lg font-semibold">
               <UiIcon name="replay" size={22} strokeWidth={2.5} className="mt-1 flex-none text-warn" />
               <span>
-                Those pictures do not match. Try again.
-                {phase.left !== null ? ` ${phase.left === 1 ? '1 more try.' : `${phase.left} more tries.`}` : ''}
+                {t.shell.pin.noMatch}
+                {phase.left !== null ? ` ${t.shell.pin.triesLeft(phase.left)}` : ''}
               </span>
             </div>
           ) : null}
@@ -177,15 +167,15 @@ export function PinScreen({
             <div role="status" className="flex flex-col items-center gap-3.5 lg:items-start">
               <p className="m-0 inline-flex items-center gap-2.5 text-body-lg font-bold">
                 <UiIcon name="check-circle" size={24} strokeWidth={2.5} className="text-success" />
-                Welcome back, {data.name}.
+                {t.shell.pin.welcomeBack(data.name)}
               </p>
               <ButtonLink href={phase.redirectTo} iconAfter="arrow-right">
-                Go to Today
+                {t.shell.goToToday}
               </ButtonLink>
             </div>
           ) : null}
           <Link href={pickHref} className="text-body font-semibold text-fg underline underline-offset-3">
-            Not {data.name}? Pick another learner
+            {t.shell.pin.notYou(data.name)}
           </Link>
         </section>
 
@@ -194,28 +184,28 @@ export function PinScreen({
             <span className="flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg bg-bg">
               <UiIcon name="lock" size={48} strokeWidth={1.75} />
             </span>
-            <h2 className="m-0 font-display text-h1 font-semibold">Time for a short break</h2>
+            <h2 className="m-0 font-display text-h1 font-semibold">{t.shell.pin.breakTitle}</h2>
             <p className="m-0 text-body-lg" suppressHydrationWarning>
-              Too many tries. You can try again in {plural(Math.max(1, Math.ceil(remaining / 60)), 'minute', 'minutes')}.
+              {t.shell.pin.tooManyTries(Math.max(1, Math.ceil(remaining / 60)))}
             </p>
             <Timer mode="countdown" seconds={remaining} warnAt={0} />
-            <p className="m-0 text-body text-fg-muted">A grown-up can end the break now.</p>
-            <ButtonLink href={grownUpHref}>Ask a grown-up</ButtonLink>
+            <p className="m-0 text-body text-fg-muted">{t.shell.pin.grownUpCanEnd}</p>
+            <ButtonLink href={grownUpHref}>{t.shell.askGrownUp}</ButtonLink>
           </section>
         ) : (
-          <div role="group" aria-label="Picture keys" className="grid w-full max-w-[440px] grid-cols-3 gap-3 sm:gap-4 lg:w-110 lg:flex-none">
+          <div role="group" aria-label={t.shell.pin.keys} className="grid w-full max-w-[440px] grid-cols-3 gap-3 sm:gap-4 lg:w-110 lg:flex-none">
             {data.pictures.map((p, i) => (
               <button
                 key={p}
                 ref={i === 0 ? firstKey : undefined}
                 type="button"
-                aria-label={WORD[p]}
+                aria-label={t.shell.pin.pictures[p]}
                 disabled={busy}
                 onClick={() => pick(p)}
                 className="flex aspect-square flex-col items-center justify-center gap-2 rounded-card border-2 border-border bg-surface p-0 text-fg transition-transform duration-150 ease-kira hover:border-fg enabled:active:scale-97 disabled:cursor-progress"
               >
                 <Icon name={p} size={64} className="h-12 w-12 sm:h-16 sm:w-16" />
-                <span className="text-body font-bold">{WORD[p]}</span>
+                <span className="text-body font-bold">{t.shell.pin.pictures[p]}</span>
               </button>
             ))}
           </div>

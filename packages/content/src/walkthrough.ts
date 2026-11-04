@@ -123,8 +123,9 @@ export function animateSteps(item: Item, steps: readonly SolutionStep[]): Soluti
   })
 }
 
-const splitSentences = (text: string): string[] =>
-  (text.match(/[^.!?]+[.!?]+(?:["')\]]+)?|[^.!?]+$/g) ?? [text]).map((s) => s.trim()).filter(Boolean)
+/** Pisah kalimat. Titik di antara angka (Rp90.000, 3.14) bukan akhir kalimat. */
+export const splitSentences = (text: string): string[] =>
+  (text.match(/(?:[^.!?]|\.(?=\d))+[.!?]+(?:["')\]]+)?|(?:[^.!?]|\.(?=\d))+$/g) ?? [text]).map((s) => s.trim()).filter(Boolean)
 
 function clip(text: string, max: number): string {
   if (text.length <= max) return text

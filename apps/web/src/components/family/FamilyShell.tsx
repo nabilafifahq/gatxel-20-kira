@@ -8,7 +8,7 @@ import type { ReactNode } from 'react'
 import type { ConsoleShell } from '@/lib/dto'
 import { cx } from '@/components/console/cx'
 import { ConsoleIcon } from '@/components/console/icons'
-import { CONSOLE_ROUTES, FAMILY_ROUTES } from '@/components/console/routes'
+import { CONSOLE_ROUTES, FAMILY_ROUTES, PUBLIC_ROUTES } from '@/components/console/routes'
 import { ToastProvider } from '@/components/console/Toast'
 
 /**
@@ -35,6 +35,7 @@ export function FamilyShell({
     { key: 'sheet', label: 'Lembar kerja', href: `${FAMILY_ROUTES.sheet}${q}`, icon: 'printer' as const },
     { key: 'report', label: 'Rapor', href: `${FAMILY_ROUTES.report}${q}`, icon: 'paper' as const },
     { key: 'privacy', label: 'Privasi', href: `${FAMILY_ROUTES.privacy}${q}`, icon: 'shield' as const },
+    { key: 'help', label: 'Bantuan', href: `${PUBLIC_ROUTES.feedback}?dari=${FAMILY_ROUTES.home}`, icon: 'chat' as const },
   ]
   return (
     <ToastProvider>

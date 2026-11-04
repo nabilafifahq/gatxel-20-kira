@@ -14,6 +14,7 @@ import {
 } from '@kira/core'
 import { tables } from '@kira/db'
 import type { TodayDTO } from '@/lib/dto'
+import { dictFor, type Dict, type UiLang } from '@/lib/i18n'
 import type { ChestDTO, ChestRewardDTO, CollectionDTO, SoundPolicyDTO } from '@/lib/dto-motion'
 import type { Tx } from '../db'
 import { conflict, forbidden, notFound } from '../errors'
@@ -40,15 +41,15 @@ export async function ownedRewardKeys(tx: Tx, learnerId: string): Promise<Set<st
   return new Set(rows.map((r) => rewardKey(r.kind, r.id)))
 }
 
-function rewardDto(kind: ChestKind, id: string, isNew: boolean): ChestRewardDTO {
+function rewardDto(kind: ChestKind, id: string, isNew: boolean, t: Dict): ChestRewardDTO {
   const def = chestRewardByKey(kind, id)
-  return { kind, id, label: def?.label ?? id, isNew }
+  return { kind, id, label: t.shell.rewards[kind][id] ?? def?.label ?? id, isNew }
 }
 
-function lineFor(state: ChestDTO['state'], left: number): string {
-  if (state === 'ready') return 'All sessions done. Open your chest.'
-  if (state === 'opened') return 'You opened today’s chest. See you tomorrow.'
-  return left === 1 ? '1 more session to open your chest' : `${left} more sessions to open your chest`
+function lineFor(state: ChestDTO['state'], left: number, t: Dict): string {
+  if (state === 'ready') return t.shell.chest.lineReady
+  if (state === 'opened') return t.shell.chest.lineOpened
+  return t.shell.chest.lineLeft(left)
 }
 
 async function profileLooks(
@@ -69,7 +70,9 @@ export async function chestDTO(
   learnerId: string,
   today: TodayProgress,
   date = jakartaDate(),
+  lang: UiLang = 'en',
 ): Promise<ChestDTO | null> {
+  const t = dictFor(lang)
   const opened = (
     await tx
       .select()
@@ -84,7 +87,7 @@ export async function chestDTO(
     openedToday: Boolean(opened),
   })
   if (state === 'none') return null
-  const reward = opened ? rewardDto(opened.rewardKind, opened.rewardId, opened.isNew) : null
+  const reward = opened ? rewardDto(opened.rewardKind, opened.rewardId, opened.isNew, t) : null
   let equipped = false
   if (reward && reward.kind !== 'sticker') {
     const looks = await profileLooks(tx, learnerId)
@@ -92,7 +95,7 @@ export async function chestDTO(
   }
   return {
     state,
-    line: lineFor(state, Math.max(0, today.progress.total - today.progress.done)),
+    line: lineFor(state, Math.max(0, today.progress.total - today.progress.done), t),
     reward,
     equipped,
   }
@@ -108,7 +111,9 @@ export async function openChestTx(
   learnerId: string,
   today: TodayProgress,
   date = jakartaDate(),
+  lang: UiLang = 'en',
 ): Promise<ChestRewardDTO> {
+  const t = dictFor(lang)
   const existing = (
     await tx
       .select({ id: dailyChest.id })
@@ -116,14 +121,14 @@ export async function openChestTx(
       .where(and(eq(dailyChest.learnerId, learnerId), eq(dailyChest.date, date)))
       .limit(1)
   )[0]
-  if (existing) throw conflict('You already opened today’s chest.')
+  if (existing) throw conflict(t.shell.chest.alreadyOpened)
   const state = chestStateOf({
     rest: today.variant === 'rest-day',
     doneCount: today.progress.done,
     totalCount: today.progress.total,
     openedToday: false,
   })
-  if (state !== 'ready') throw forbidden('Finish today’s sessions first, then open the chest.')
+  if (state !== 'ready') throw forbidden(t.shell.chest.finishFirst)
   const owned = await ownedRewardKeys(tx, learnerId)
   const { reward, isNew } = pickChestReward(`${learnerId}:${date}`, owned)
   const inserted = await tx
@@ -131,8 +136,8 @@ export async function openChestTx(
     .values({ orgId, learnerId, date, rewardKind: reward.kind, rewardId: reward.id, isNew })
     .onConflictDoNothing()
     .returning({ id: dailyChest.id })
-  if (inserted.length === 0) throw conflict('You already opened today’s chest.')
-  return { kind: reward.kind, id: reward.id, label: reward.label, isNew }
+  if (inserted.length === 0) throw conflict(t.shell.chest.alreadyOpened)
+  return { kind: reward.kind, id: reward.id, label: t.shell.rewards[reward.kind][reward.id] ?? reward.label, isNew }
 }
 
 /** Boleh dipakai bila hadiah itu sudah didapat dari peti. */
@@ -141,14 +146,15 @@ export async function assertChestOwned(
   learnerId: string,
   kind: ChestKind,
   id: string,
+  lang: UiLang = 'en',
 ): Promise<void> {
   const owned = await ownedRewardKeys(tx, learnerId)
-  if (!owned.has(rewardKey(kind, id))) throw forbidden('You have not earned that one yet.')
+  if (!owned.has(rewardKey(kind, id))) throw forbidden(dictFor(lang).shell.chest.notEarned)
 }
 
-export async function applyBackground(tx: Tx, learnerId: string, background: string | null): Promise<void> {
+export async function applyBackground(tx: Tx, learnerId: string, background: string | null, lang: UiLang = 'en'): Promise<void> {
   if (background !== null && !isChestBackgroundId(background))
-    throw notFound('That background does not exist.')
+    throw notFound(dictFor(lang).shell.chest.noBackground)
   await tx
     .update(learnerProfile)
     .set({ avatarBackground: background, updatedAt: new Date() })
@@ -156,18 +162,21 @@ export async function applyBackground(tx: Tx, learnerId: string, background: str
 }
 
 /** Koleksi di Me: stiker, latar, dan aksesori peti, dengan tanda sudah dimiliki dan sedang dipakai. */
-export async function collectionDTO(tx: Tx, learnerId: string): Promise<CollectionDTO> {
+export async function collectionDTO(tx: Tx, learnerId: string, lang: UiLang = 'en'): Promise<CollectionDTO> {
+  const names = dictFor(lang).shell.rewards
   const owned = await ownedRewardKeys(tx, learnerId)
   const looks = await profileLooks(tx, learnerId)
   return {
-    stickers: CHEST_STICKERS.map((s) => ({ ...s, owned: owned.has(rewardKey('sticker', s.id)) })),
+    stickers: CHEST_STICKERS.map((s) => ({ ...s, label: names.sticker[s.id] ?? s.label, owned: owned.has(rewardKey('sticker', s.id)) })),
     backgrounds: CHEST_BACKGROUNDS.map((b) => ({
       ...b,
+      label: names.background[b.id] ?? b.label,
       owned: owned.has(rewardKey('background', b.id)),
       equipped: looks?.bg === b.id,
     })),
     accessories: CHEST_ACCESSORIES.map((a) => ({
       ...a,
+      label: names.accessory[a.id] ?? a.label,
       owned: owned.has(rewardKey('accessory', a.id)),
       equipped: looks?.acc === a.id,
     })),

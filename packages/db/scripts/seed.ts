@@ -54,9 +54,10 @@ await sql.begin(async (tx) => {
   await tx`insert into auth.user_account (id, org_id, kind, role, email, name, password_hash, password_changed_at) values
     (${tutorId}, ${orgId}, 'adult', 'tutor', 'tutor@contoh.test', 'Tutor Contoh', ${await hash('kira-tutor-contoh-2026', ARGON)}, now()),
     (${mamaId}, ${orgId}, 'adult', 'guardian', 'mama@contoh.test', 'Mama Contoh', ${await hash('kira-mama-contoh-2026', ARGON)}, now())`
-  await tx`insert into auth.user_account (id, org_id, kind, role, email, name) values
-    (${aishaId}, ${orgId}, 'learner', 'learner', null, 'Aisha'),
-    (${rakaId}, ${orgId}, 'learner', 'learner', null, 'Raka')`
+  // Data contoh memakai tampilan Inggris supaya tes e2e lama tetap berlaku; anak baru mulai dengan tampilan Indonesia.
+  await tx`insert into auth.user_account (id, org_id, kind, role, email, name, ui_lang) values
+    (${aishaId}, ${orgId}, 'learner', 'learner', null, 'Aisha', 'en'),
+    (${rakaId}, ${orgId}, 'learner', 'learner', null, 'Raka', 'en')`
   await tx`insert into auth.learner_secret (user_id, pin_hash) values
     (${aishaId}, ${await hash('kira-pin:sun-moon-star-cat', ARGON)}),
     (${rakaId}, ${await hash('kira-pin:tree-apple-boat-ball', ARGON)})`

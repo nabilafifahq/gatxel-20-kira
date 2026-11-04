@@ -14,6 +14,7 @@ import { applyDefaultPreset } from './default-preset'
 import { setConsentTx } from './privacy'
 import { featureMapFor, saveFeatureMap, saveFeaturesTx } from './learner-features'
 import type { FeatureMap } from '@kira/core/features'
+import type { UiLang } from '@/lib/i18n/lang'
 import { recommendationFor, type SetupPath } from '@kira/core/recommendation'
 
 const { learnerProfile, guardianLink } = tables
@@ -58,7 +59,7 @@ export async function onboardingState(actor: Actor): Promise<OnboardingState> {
  * penasihat per org, jadi dua permintaan serentak tidak melewati batas. Anak belum aktif sampai orang tua
  * memberi persetujuan belajar.
  */
-export async function addChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[] }): Promise<string> {
+export async function addChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang }): Promise<string> {
   const max = env().KIRA_MAX_LEARNERS_PER_FAMILY
   const name = input.name.trim()
   if (!(await isFamilyOwner(actor))) throw forbidden('Hanya pemilik keluarga yang bisa menambah anak dari sini. Minta tutor menambahkan anak.')
@@ -74,7 +75,7 @@ export async function addChild(actor: Actor, input: { name: string; grade: numbe
       const msg = `Nama ${name} sudah dipakai anak lain. Pakai nama lain supaya mudah dibedakan di tablet.`
       throw invalid(msg, { name: msg })
     }
-    const learnerId = await createLearnerAccount({ orgId: actor.orgId, userId: actor.userId }, { name, grade: input.grade, avatar: input.avatar, pin: input.pin })
+    const learnerId = await createLearnerAccount({ orgId: actor.orgId, userId: actor.userId }, { name, grade: input.grade, avatar: input.avatar, pin: input.pin, uiLang: input.uiLang })
     const ctx = orgCtx(actor)
     await scope.elevate(async () => {
       await tx.insert(guardianLink).values({ orgId: actor.orgId, guardianId: actor.userId, learnerId })

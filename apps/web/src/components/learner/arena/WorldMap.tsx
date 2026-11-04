@@ -3,6 +3,7 @@
 import { useState, type ReactElement } from 'react'
 import { WORLD_MAP } from '@kira/content/worldmap'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Peta dunia sederhana untuk soal "Point on the map" (Quiz Arena). Path SVG dibuat saat build dari world-atlas
@@ -36,11 +37,12 @@ export function regionIdByLabel(label: string | undefined): string | null {
 }
 
 export function WorldMap({ onPick, disabled, feedback }: { onPick: (regionId: string) => void; disabled: boolean; feedback: MapFeedback }): ReactElement {
+  const t = useT().arena.map
   const [hot, setHot] = useState<string | null>(null)
   return (
     <svg
       role="group"
-      aria-label="World map. Tap a continent or an ocean."
+      aria-label={t.aria}
       viewBox={WORLD_MAP.viewBox}
       className="block h-auto w-full max-w-[860px] touch-manipulation rounded-card border-2 border-border bg-bg"
     >
@@ -50,6 +52,7 @@ export function WorldMap({ onPick, disabled, feedback }: { onPick: (regionId: st
           d={r.d}
           role="button"
           tabIndex={disabled ? -1 : 0}
+          lang="en-GB"
           aria-label={r.label}
           aria-disabled={disabled}
           strokeWidth={r.kind === 'land' ? 0.5 : 0.3}

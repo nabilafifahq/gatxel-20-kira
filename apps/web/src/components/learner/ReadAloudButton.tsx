@@ -5,6 +5,7 @@ import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import type { TtsStyleId } from '@kira/core/tts'
+import { useT } from '@/lib/i18n/client'
 import { useSpeech, type SpeechInput, type SpeechLang } from './speech'
 
 /**
@@ -42,6 +43,7 @@ export function ReadAloudButton({
 }): ReactElement | null {
   const { status, toggle } = useSpeech(lang)
   const noteId = useId()
+  const t = useT()
   const reading = status === 'reading'
   const off = status === 'unavailable'
   if (lang === 'id') return null
@@ -50,7 +52,7 @@ export function ReadAloudButton({
       <button
         type="button"
         aria-pressed={off ? undefined : reading}
-        aria-label={compact ? (reading ? 'Stop reading' : 'Read aloud') : undefined}
+        aria-label={compact ? (reading ? t.widgets.readAloud.stop : t.widgets.readAloud.idle) : undefined}
         aria-describedby={off ? noteId : undefined}
         disabled={off}
         onClick={() => toggle(text, style ? { style } : undefined)}
@@ -65,11 +67,11 @@ export function ReadAloudButton({
         )}
       >
         <UiIcon name={off ? 'speaker-off' : reading ? 'waveform' : 'speaker'} size={22} />
-        {compact ? null : reading ? (labels?.busy ?? 'Reading') : (labels?.idle ?? 'Read aloud')}
+        {compact ? null : reading ? (labels?.busy ?? t.widgets.readAloud.busy) : (labels?.idle ?? t.widgets.readAloud.idle)}
       </button>
       {off ? (
         <span id={noteId} className={cx('text-body text-fg-muted', showNote ? '' : 'visually-hidden')}>
-          No English voice on this device.
+          {t.widgets.shared.noVoice}
         </span>
       ) : null}
     </span>

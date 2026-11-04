@@ -6,6 +6,7 @@ import { Button, IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { useOnline } from '@/components/learner/hooks'
+import { useT } from '@/lib/i18n/client'
 import { asMedia } from './answers'
 import type { WidgetProps } from './types'
 
@@ -23,16 +24,16 @@ const H = 512
 const PEN = 6
 const ERASER = 28
 
-const COLOURS: { hex: string; name: string; swatch: string }[] = [
-  { hex: INK, name: 'Black', swatch: 'bg-fg' },
-  { hex: MATH, name: 'Blue', swatch: 'bg-math' },
-  { hex: SCIENCE, name: 'Green', swatch: 'bg-science' },
-  { hex: ENGLISH, name: 'Red', swatch: 'bg-english' },
-  { hex: STAR, name: 'Yellow', swatch: 'bg-star' },
-  { hex: WARN, name: 'Brown', swatch: 'bg-warn' },
+const COLOURS: { hex: string; name: 'black' | 'blue' | 'green' | 'red' | 'yellow' | 'brown'; swatch: string }[] = [
+  { hex: INK, name: 'black', swatch: 'bg-fg' },
+  { hex: MATH, name: 'blue', swatch: 'bg-math' },
+  { hex: SCIENCE, name: 'green', swatch: 'bg-science' },
+  { hex: ENGLISH, name: 'red', swatch: 'bg-english' },
+  { hex: STAR, name: 'yellow', swatch: 'bg-star' },
+  { hex: WARN, name: 'brown', swatch: 'bg-warn' },
 ]
 
-const BG_NAME: Record<Bg, string> = { blank: 'Blank', grid: 'Squares', lines: 'Lines', dots: 'Dots' }
+const BGS: Bg[] = ['blank', 'grid', 'lines', 'dots']
 
 function drawBackground(ctx: CanvasRenderingContext2D, bg: Bg): void {
   ctx.fillStyle = WHITE
@@ -113,6 +114,7 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
   const current = useRef<Stroke | null>(null)
   const [dpr, setDpr] = useState(1)
   const locked = disabled || !!sentId || sending
+  const t = useT()
 
   useEffect(() => {
     setDpr(Math.min(3, Math.max(1, window.devicePixelRatio || 1)))
@@ -220,17 +222,17 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
   const redoOff = locked || redo.length === 0
 
   return (
-    <section aria-label="Your drawing" className="flex w-full flex-col gap-3.5">
+    <section aria-label={t.widgets.draw.yourDrawing} className="flex w-full flex-col gap-3.5">
       {mode === 'draw' && !sentId ? (
-        <div role="toolbar" aria-label="Drawing tools" className="flex flex-wrap items-center gap-2">
-          <button type="button" aria-label="Pen" aria-pressed={tool === 'pen'} disabled={locked} onClick={() => setTool('pen')} className={tile(tool === 'pen')}>
+        <div role="toolbar" aria-label={t.widgets.draw.tools} className="flex flex-wrap items-center gap-2">
+          <button type="button" aria-label={t.widgets.draw.pen} aria-pressed={tool === 'pen'} disabled={locked} onClick={() => setTool('pen')} className={tile(tool === 'pen')}>
             <UiIcon name="pencil" size={26} />
           </button>
-          <button type="button" aria-label="Rubber" aria-pressed={tool === 'eraser'} disabled={locked} onClick={() => setTool('eraser')} className={tile(tool === 'eraser')}>
+          <button type="button" aria-label={t.widgets.draw.rubber} aria-pressed={tool === 'eraser'} disabled={locked} onClick={() => setTool('eraser')} className={tile(tool === 'eraser')}>
             <UiIcon name="eraser" size={26} />
           </button>
           <span aria-hidden="true" className="mx-1 h-9 w-0.5 flex-none bg-divider" />
-          <div role="radiogroup" aria-label="Colour" className="flex flex-wrap items-center gap-1.5">
+          <div role="radiogroup" aria-label={t.widgets.draw.colour} className="flex flex-wrap items-center gap-1.5">
             {COLOURS.map((c) => {
               const on = tool === 'pen' && colour === c.hex
               return (
@@ -239,7 +241,7 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
                   type="button"
                   role="radio"
                   aria-checked={on}
-                  aria-label={c.name}
+                  aria-label={t.widgets.draw.colours[c.name]}
                   disabled={locked}
                   onClick={() => {
                     setColour(c.hex)
@@ -255,7 +257,7 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
           <span aria-hidden="true" className="mx-1 h-9 w-0.5 flex-none bg-divider" />
           <IconButton
             icon="undo"
-            label="Undo"
+            label={t.widgets.shared.undo}
             disabled={undoOff}
             onClick={() => {
               const last = strokes[strokes.length - 1]
@@ -266,7 +268,7 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
           />
           <IconButton
             icon="redo"
-            label="Redo"
+            label={t.widgets.draw.redo}
             disabled={redoOff}
             onClick={() => {
               const last = redo[redo.length - 1]
@@ -276,16 +278,16 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
             }}
           />
           <label className="flex items-center gap-2 text-body font-semibold">
-            <span className="sr-only sm:not-sr-only">Paper</span>
+            <span className="sr-only sm:not-sr-only">{t.widgets.draw.paper}</span>
             <select
               value={bg}
               disabled={locked}
               onChange={(e) => setBg(e.target.value as Bg)}
               className="h-14 rounded-control border-2 border-border bg-surface px-3 text-body"
             >
-              {(Object.keys(BG_NAME) as Bg[]).map((b) => (
+              {BGS.map((b) => (
                 <option key={b} value={b}>
-                  {BG_NAME[b]}
+                  {t.widgets.draw.paperKinds[b]}
                 </option>
               ))}
             </select>
@@ -296,7 +298,7 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
             onClick={() => setConfirm(true)}
             className="ml-auto h-14 cursor-pointer rounded-control border-2 border-danger bg-surface px-4 text-body-lg font-bold text-danger disabled:cursor-not-allowed disabled:border-divider disabled:text-border"
           >
-            Clear
+            {t.widgets.shared.clear}
           </button>
         </div>
       ) : null}
@@ -308,7 +310,7 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
             ref={canvasRef}
             width={W * dpr}
             height={H * dpr}
-            aria-label={sentId ? 'Your drawing, sent' : `Drawing area, ${strokes.length} ${strokes.length === 1 ? 'line' : 'lines'} drawn`}
+            aria-label={sentId ? t.widgets.draw.sentAria : t.widgets.draw.areaAria(strokes.length)}
             role="img"
             onPointerDown={down}
             onPointerMove={move}
@@ -319,14 +321,14 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
           />
           {strokes.length === 0 && !sentId ? (
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 flex items-center justify-center text-h3 font-semibold text-border">
-              Draw here with your finger
+              {t.widgets.draw.drawHereHint}
             </span>
           ) : null}
           {confirm ? (
-            <div role="alertdialog" aria-label="Clear the whole drawing?" className="absolute inset-x-3 top-3 z-10 flex flex-wrap items-center gap-3 rounded-control border-2 border-warn bg-surface py-2.5 pr-3 pl-4">
-              <span className="flex-1 text-body-lg font-bold">Clear the whole drawing?</span>
+            <div role="alertdialog" aria-label={t.widgets.draw.clearConfirm} className="absolute inset-x-3 top-3 z-10 flex flex-wrap items-center gap-3 rounded-control border-2 border-warn bg-surface py-2.5 pr-3 pl-4">
+              <span className="flex-1 text-body-lg font-bold">{t.widgets.draw.clearConfirm}</span>
               <Button variant="secondary" size="M" onClick={() => setConfirm(false)} autoFocus>
-                Keep it
+                {t.widgets.draw.keepIt}
               </Button>
               <Button
                 variant="danger"
@@ -337,14 +339,14 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
                   setConfirm(false)
                 }}
               >
-                Yes, clear
+                {t.widgets.draw.yesClear}
               </Button>
             </div>
           ) : null}
           {emptyErr ? (
             <p role="alert" className="absolute bottom-3 left-3 z-10 m-0 flex items-center gap-2 rounded-control border-2 border-warn bg-surface px-3.5 py-2.5 text-body-lg font-bold">
               <UiIcon name="alert-circle" size={22} />
-              Draw something first, then send it.
+              {t.widgets.draw.drawFirst}
             </p>
           ) : null}
         </div>
@@ -353,24 +355,22 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
       {sentId ? (
         <div role="status" className="flex flex-wrap items-center gap-3 rounded-control border-2 border-success bg-success-50 px-4 py-3">
           <UiIcon name="check-circle" size={28} className="text-success" />
-          <span className="flex-1 text-body-lg font-bold">Sent to your tutor. Your tutor will look and give you stars.</span>
+          <span className="flex-1 text-body-lg font-bold">{t.widgets.draw.sent}</span>
         </div>
       ) : mode === 'paper' ? (
         <div role="status" className="flex flex-col gap-3 rounded-control border-2 border-border bg-bg px-4 py-3">
           <span className="text-body-lg font-bold">
-            {onUpload
-              ? 'Draw it on paper. When you finish, show your tutor. Your tutor takes a photo.'
-              : 'Drawings cannot be sent from this device yet. Draw it on paper and show your tutor.'}
+            {onUpload ? t.widgets.draw.onPaper : t.widgets.draw.cannotSend}
           </span>
           <div className="flex flex-wrap gap-3">
             {onUpload ? (
               <Button variant="secondary" onClick={() => setMode('draw')}>
-                Draw here
+                {t.widgets.draw.drawHere}
               </Button>
             ) : null}
             {onSkip ? (
               <Button iconAfter="arrow-right" onClick={onSkip}>
-                Next question
+                {t.widgets.shared.nextQuestion}
               </Button>
             ) : null}
           </div>
@@ -378,20 +378,20 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
       ) : (
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="quiet" className="underline" onClick={() => setMode('paper')} disabled={sending}>
-            Draw on paper instead
+            {t.widgets.draw.paperInstead}
           </Button>
           {failed ? (
             <span role="alert" className="text-body font-semibold text-warn">
-              Your drawing did not send. Check the internet and try again.
+              {t.widgets.draw.failed}
             </span>
           ) : !online ? (
             <span className="inline-flex items-center gap-2 text-body font-semibold">
               <UiIcon name="offline" size={20} />
-              Offline. Send it when the internet is back.
+              {t.widgets.draw.offline}
             </span>
           ) : null}
           <Button icon="send" loading={sending} disabled={!online || disabled} onClick={() => void send()} className="ml-auto">
-            {sending ? 'Sending' : 'Send to tutor'}
+            {sending ? t.widgets.shared.sending : t.widgets.shared.sendToTutor}
           </Button>
         </div>
       )}

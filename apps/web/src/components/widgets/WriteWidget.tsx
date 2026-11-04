@@ -2,6 +2,7 @@
 
 import { useId, useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { asText, countWords } from './answers'
 import type { WidgetProps } from './types'
 
@@ -27,25 +28,26 @@ export function WriteWidget({ item, value, onChange, disabled = false, feedback 
   const areaId = useId()
   const countId = useId()
   const locked = disabled || !!feedback
+  const dict = useT()
 
-  let countLine = words === 1 ? '1 word' : `${words} words`
+  let countLine = dict.widgets.write.words(words)
   let countTone = 'text-fg-muted'
-  if (min > 0 && words < min) countLine += `. Write ${min - words} more to reach ${min}.`
+  if (min > 0 && words < min) countLine += dict.widgets.write.writeMore(min - words, min)
   else if (max > 0 && words > max) {
-    countLine += `. That is ${words - max} more than ${max}. Take some words out.`
+    countLine += dict.widgets.write.tooMany(words - max, max)
     countTone = 'text-warn font-bold'
   } else if (words > 0) {
     countLine += '.'
     countTone = 'text-fg'
   }
 
-  const range = min > 0 && max > 0 ? `Write ${min} to ${max} words.` : min > 0 ? `Write at least ${min} words.` : max > 0 ? `Write up to ${max} words.` : null
+  const range = min > 0 && max > 0 ? dict.widgets.write.range(min, max) : min > 0 ? dict.widgets.write.atLeast(min) : max > 0 ? dict.widgets.write.upTo(max) : null
 
   return (
     <div className="flex w-full flex-col gap-4">
       {item.planning && item.planning.length > 0 ? (
         <fieldset className="m-0 flex flex-col gap-2 border-0 p-0">
-          <legend className="mb-2 p-0 text-body-lg font-bold">Check your writing</legend>
+          <legend className="mb-2 p-0 text-body-lg font-bold">{dict.widgets.write.checkWriting}</legend>
           {item.planning.map((p, k) => (
             <label
               key={k}
@@ -60,18 +62,19 @@ export function WriteWidget({ item, value, onChange, disabled = false, feedback 
                 onChange={() => setTicks((t) => t.map((x, j) => (j === k ? !x : x)))}
                 className="h-6.5 w-6.5 flex-none accent-fg"
               />
-              <span className="font-reading text-h3">{p}</span>
+              <span lang={item.lang} className="font-reading text-h3">{p}</span>
             </label>
           ))}
         </fieldset>
       ) : null}
       <div className="flex flex-col gap-2">
         <label htmlFor={areaId} className="text-body-lg font-bold">
-          Your writing
+          {dict.widgets.write.yourWriting}
         </label>
         {range ? <p className="m-0 text-body text-fg-muted">{range}</p> : null}
         <textarea
           id={areaId}
+          lang={item.lang}
           value={text}
           disabled={locked}
           rows={7}

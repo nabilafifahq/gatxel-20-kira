@@ -3,6 +3,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactElement, type ReactNode } from 'react'
 import { cx } from './cx'
 import { UiIcon } from './icons'
+import { htmlLang } from '@/lib/i18n'
+import { useLang, useT } from '@/lib/i18n/client'
 
 /**
  * Toast untuk kejadian sistem yang tidak mendesak (papan Toast). role="status",
@@ -85,12 +87,14 @@ function TimedToast({ toast, area, onDone }: { toast: ToastItem; area: Area; onD
 
 /** Tampilan satu toast. Bisa dipakai langsung untuk galeri atau pesan inline. */
 export function Toast({ toast, area = 'learner', className }: { toast: ToastInput; area?: Area; className?: string }): ReactElement {
+  const t = useT()
+  const uiLang = useLang()
   const learner = area === 'learner'
   const isError = toast.kind === 'error'
   return (
     <div
       role="status"
-      lang={learner ? 'en-GB' : 'id'}
+      lang={learner ? htmlLang(uiLang) : 'id'}
       className={cx(
         'motion-fade flex max-w-[min(560px,calc(100vw-32px))] items-start gap-3 rounded-control bg-surface shadow-soft starting:-translate-y-2 starting:opacity-0',
         isError ? 'border-2 border-danger' : '',
@@ -108,7 +112,7 @@ export function Toast({ toast, area = 'learner', className }: { toast: ToastInpu
         {toast.body ? <div className={learner ? 'text-body-lg' : 'text-body'}>{toast.body}</div> : null}
         {toast.reference ? (
           <div className={cx('tabular-nums text-fg-muted', learner ? 'text-body' : 'text-small')}>
-            {learner ? `Reference ${toast.reference}` : `Kode referensi ${toast.reference}`}
+            {learner ? t.shell.reference(toast.reference) : `Kode referensi ${toast.reference}`}
           </div>
         ) : null}
       </div>

@@ -2,6 +2,7 @@
 
 import type { ReactElement } from 'react'
 import { Button } from '@/components/ui/Button'
+import { useT } from '@/lib/i18n/client'
 import { playSfx, useSfxMuted } from './sfx'
 
 /**
@@ -9,6 +10,7 @@ import { playSfx, useSfxMuted } from './sfx'
  * pilihan sendiri. Saat dinyalakan, satu ketukan kecil diputar sebagai contoh.
  */
 export function SoundToggle({ className }: { className?: string }): ReactElement {
+  const t = useT()
   const [muted, setMuted] = useSfxMuted()
   return (
     <Button
@@ -16,14 +18,14 @@ export function SoundToggle({ className }: { className?: string }): ReactElement
       size="M"
       icon={muted ? 'speaker-off' : 'speaker'}
       aria-pressed={!muted}
-      aria-label={muted ? 'Sound effects are off. Turn them on.' : 'Sound effects are on. Turn them off.'}
+      aria-label={muted ? t.shell.sound.sfxOffLabel : t.shell.sound.sfxOnLabel}
       className={className}
       onClick={() => {
         setMuted(!muted)
         if (muted) playSfx('tap')
       }}
     >
-      {muted ? 'Sound off' : 'Sound on'}
+      {muted ? t.shell.sound.sfxOff : t.shell.sound.sfxOn}
     </Button>
   )
 }

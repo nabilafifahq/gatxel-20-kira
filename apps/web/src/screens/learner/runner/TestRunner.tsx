@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { Dialog } from '@/components/ui/Dialog'
 import { UiIcon } from '@/components/ui/icons'
-import { joinAnd } from '@/components/learner/format'
 import { useMediaQuery, useOnline, useTicker } from '@/components/learner/hooks'
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
@@ -21,6 +20,7 @@ import { WidgetDensityContext } from '@/components/widgets/density'
 import { QuestionView, TermsPanel } from '@/components/widgets/QuestionView'
 import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { Widget } from '@/components/widgets/Widget'
+import { useT } from '@/lib/i18n/client'
 import { ExitControl, ReportControl } from './parts'
 import { savedByPosition, sortedItems, testWord, type RunnerUpload } from './shared'
 import { newClientId, useAnswerQueue } from './useAnswerQueue'
@@ -38,6 +38,11 @@ const SAVE_DELAY = 800
 
 export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actions: RunnerActions; onUpload?: RunnerUpload }): ReactElement {
   const router = useRouter()
+  const dict = useT()
+  const tr = dict.runner
+  const tt = tr.test
+  const common = dict.common
+  const joinAnd = (list: number[]) => (list.length < 2 ? list.join('') : `${list.slice(0, -1).join(', ')} ${tt.and} ${list[list.length - 1]}`)
   const items = useMemo(() => sortedItems(data), [data])
   const [answers, setAnswers] = useState<Answer[]>(() => {
     const saved = savedByPosition(data.saved)
@@ -152,9 +157,9 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
       if (res.ok) setSubmit({ state: 'done', redirectTo: res.data.redirectTo || data.doneHref })
       else setSubmit({ state: 'error', message: res.message, reference: res.reference })
     } catch {
-      setSubmit({ state: 'error', message: 'Your answers could not be handed in yet.', reference: 'KRA-RUN-NET' })
+      setSubmit({ state: 'error', message: tt.submitFailed, reference: 'KRA-RUN-NET' })
     }
-  }, [actions, data.attemptId, data.doneHref, flushSaves, queue])
+  }, [actions, data.attemptId, data.doneHref, flushSaves, queue, tt])
 
   // Waktu habis: kumpulkan otomatis.
   const timeUpHandled = useRef(false)
@@ -169,13 +174,13 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 
   // Setelah kumpul manual berhasil, langsung ke halaman hasil.
   useEffect(() => {
-    if (submit.state === 'done' && phase !== 'timeup' && submit.redirectTo) router.push(submit.redirectTo)
+    if (submit.state === 'done' && phase !== 'timeup' && submit.redirectTo) router.replace(submit.redirectTo)
   }, [submit, phase, router])
 
   if (!item || !cur) {
     return (
       <div className="flex min-h-svh items-center justify-center bg-bg p-8 text-body-lg">
-        This {testWord(data.kind)} has no questions yet.
+        {tt.noQuestions(testWord(data.kind, tr))}
       </div>
     )
   }
@@ -185,7 +190,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
   const answeredN = items.length - unanswered.length
   const low = remaining !== null && remaining > 0 && remaining <= 60
   const isLast = index >= items.length - 1
-  const word = testWord(data.kind)
+  const word = testWord(data.kind, tr)
   const many = items.length > 20
   const showTermsBtn = data.showTerms && !!item.terms && item.terms.length > 0
   const syncState = !online ? 'offline' : queue.stuck && queue.pending > 0 ? 'pending' : queue.justSynced ? 'synced' : null
@@ -196,9 +201,9 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
       <header className="flex min-h-18 flex-none flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 md:h-22 md:flex-nowrap md:px-8 md:py-0">
         <ExitControl
           exitHref={data.exitHref}
-          ariaLabel="Exit and save"
-          title={`Leave this ${word}?`}
-          body={data.timeLimitSec ? 'Your answers are saved. The clock keeps going while you are away.' : 'Your answers are saved. You can carry on later.'}
+          ariaLabel={tt.exitAria}
+          title={tt.leaveTitle(word)}
+          body={data.timeLimitSec ? tt.leaveTimed : tt.leaveUntimed}
           beforeLeave={async () => {
             flushSaves()
             await queue.flush(1500)
@@ -207,9 +212,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
         <span className="hidden md:inline-flex"><SubjectChip subject={subject} size="M" /></span>
         <div className="flex min-w-0 flex-1 flex-col">
           <span className="truncate text-body-lg font-bold">{data.title}</span>
-          <span className="text-body text-fg-muted tabular-nums">
-            Question {index + 1} of {items.length}
-          </span>
+          <span className="text-body text-fg-muted tabular-nums">{tr.questionOf(index + 1, items.length)}</span>
         </div>
         {syncState ? (
           <span className="hidden md:inline-flex">
@@ -224,13 +227,13 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             onClick={() => setTermsOpen((o) => !o)}
             className={cx('px-4.5 aria-expanded:border-fg', subject === 'math' ? 'aria-expanded:bg-math-50' : subject === 'english' ? 'aria-expanded:bg-english-50' : 'aria-expanded:bg-science-50')}
           >
-            Terms
+            {tt.terms}
           </Button>
         ) : null}
         {remaining !== null ? <Timer mode="countdown" seconds={remaining} total={data.timeLimitSec ?? undefined} compact={narrow} /> : <Timer mode="stopwatch" seconds={elapsed} compact={narrow} />}
       </header>
 
-      <nav aria-label="Questions" className={cx('flex flex-none flex-wrap items-center gap-6 px-4 md:px-8', many ? 'pb-3' : 'pb-4')}>
+      <nav aria-label={tt.questions} className={cx('flex flex-none flex-wrap items-center gap-6 px-4 md:px-8', many ? 'pb-3' : 'pb-4')}>
         <ol className={cx('m-0 flex list-none flex-wrap p-0', many ? 'gap-1.5' : 'gap-2')}>
           {items.map((it, k) => {
             const a = answers[k]
@@ -243,7 +246,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
                   onClick={() => go(k)}
                   disabled={locked}
                   aria-current={now ? 'step' : undefined}
-                  aria-label={`Question ${it.position}${done ? ', answered' : ', no answer yet'}${a?.flagged ? ', look again' : ''}${now ? ', now' : ''}`}
+                  aria-label={`${tt.paletteQuestion(it.position)}${done ? tt.paletteAnswered : tt.paletteBlank}${a?.flagged ? tt.paletteFlagged : ''}${now ? tt.paletteNow : ''}`}
                   className={cx(
                     'relative cursor-pointer rounded-control p-0 font-bold tabular-nums',
                     many ? 'h-11 w-11 text-body' : 'h-12 w-12 text-body-lg',
@@ -266,13 +269,13 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
           <div aria-hidden="true" className="ml-auto hidden items-center gap-5 text-body font-semibold text-fg-muted lg:flex">
             <span className="inline-flex items-center gap-2">
               <span className={cx('h-5 w-5 rounded-control', style.solid)} />
-              Answered
+              {tt.answered}
             </span>
             <span className="inline-flex items-center gap-2">
               <span className="flex h-5.5 w-5.5 items-center justify-center rounded-pill bg-warn text-white">
                 <UiIcon name="flag-filled" size={12} />
               </span>
-              Look again
+              {tt.lookAgain}
             </span>
           </div>
         ) : null}
@@ -283,13 +286,12 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
       {phase === 'answer' && low && unanswered.length > 0 ? (
         <div role="status" className="mx-4 mb-3 flex flex-none items-center gap-2.5 text-body-lg font-bold text-warn md:mx-8">
           <UiIcon name="alert-circle" size={22} />
-          No answer yet: {joinAnd(unanswered.slice(0, 6))}
-          {unanswered.length > 6 ? ' and more' : ''}.
+          {tt.noAnswerYet(joinAnd(unanswered.slice(0, 6)), unanswered.length - 6)}
         </div>
       ) : null}
 
       <div className="relative flex min-h-0 flex-1 flex-col gap-4 px-4 md:px-8 lg:flex-row lg:gap-6">
-        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:flex-[1.15]">
+        <section aria-label={tr.question} className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:flex-[1.15]">
           <QuestionView
             key={item.ref}
             item={item}
@@ -299,9 +301,9 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             answer={{ value: cur.value, onChange: setValue, disabled: locked }}
           />
         </section>
-        <section aria-label="Answers" className="relative flex min-h-0 flex-col overflow-y-auto py-1 lg:flex-1">
+        <section aria-label={tt.answers} className="relative flex min-h-0 flex-col overflow-y-auto py-1 lg:flex-1">
           <RunnerCorner shell={data.shell} phase="answer" timed streak={0} xp={0} nonce={item.ref} />
-          <div className="m-auto flex w-full flex-col gap-3.5">
+          <div className="m-auto flex w-full flex-col gap-3.5 max-md:[&>*>*>p:first-child]:pr-12">
             <WidgetDensityContext.Provider value="exam">
               <Widget item={item} value={cur.value} onChange={setValue} disabled={locked} feedback={null} subject={subject} onUpload={upload} />
             </WidgetDensityContext.Provider>
@@ -325,13 +327,13 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
           className="aria-pressed:border-3 aria-pressed:border-warn"
         >
           <UiIcon name={cur.flagged ? 'flag-filled' : 'flag'} size={22} className={cur.flagged ? 'text-warn' : undefined} />
-          Look again
+          {tt.lookAgain}
         </Button>
-        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+        <ReadAloudButton key={item.ref} text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
         <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} className="max-md:hidden" />
         <div className="ml-auto flex gap-3">
           <Button variant="secondary" icon="arrow-left" disabled={index === 0 || locked} onClick={() => go(index - 1)} className="max-sm:px-3">
-            <span className="max-sm:sr-only">Previous</span>
+            <span className="max-sm:sr-only">{tt.previous}</span>
           </Button>
           <Button
             iconAfter={isLast ? undefined : 'arrow-right'}
@@ -339,7 +341,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             onClick={() => (isLast ? setPhase('confirm') : go(index + 1))}
             className="min-w-36 lg:min-w-45"
           >
-            {isLast ? 'Hand in' : 'Next'}
+            {isLast ? tt.handIn : common.next}
           </Button>
         </div>
       </footer>
@@ -347,15 +349,15 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
       <Dialog
         open={phase === 'confirm'}
         onClose={() => submit.state !== 'busy' && setPhase('answer')}
-        title={`Hand in your ${word}?`}
+        title={tt.handInTitle(word)}
         size="md"
         footer={
           <>
             <Button variant="secondary" onClick={() => setPhase('answer')} disabled={submit.state === 'busy'} data-autofocus>
-              Go back
+              {tt.goBack}
             </Button>
             <Button iconAfter="arrow-right" loading={submit.state === 'busy'} onClick={() => void handIn()}>
-              Hand in
+              {tt.handIn}
             </Button>
           </>
         }
@@ -363,15 +365,13 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
         <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
           <li className="flex items-start gap-3 text-body-lg">
             <UiIcon name="check-circle" size={24} className="mt-0.5 text-success" />
-            <span>
-              You answered {answeredN} of {items.length}.
-            </span>
+            <span>{tt.youAnswered(answeredN, items.length)}</span>
           </li>
           {unanswered.length > 0 ? (
             <li className="flex items-start gap-3 text-body-lg">
               <UiIcon name="alert-circle" size={24} className="mt-0.5 text-warn" />
               <span>
-                {unanswered.length === 1 ? `Question ${unanswered[0]} has no answer yet.` : `Questions ${joinAnd(unanswered)} have no answer yet.`}
+                {unanswered.length === 1 ? tt.oneBlank(unanswered[0] ?? 0) : tt.manyBlank(joinAnd(unanswered))}
               </span>
             </li>
           ) : null}
@@ -379,14 +379,14 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             <li className="flex items-start gap-3 text-body-lg">
               <UiIcon name="flag-filled" size={24} className="mt-0.5 text-warn" />
               <span>
-                {flagged.length === 1 ? `Question ${flagged[0]} is marked to look again.` : `Questions ${joinAnd(flagged)} are marked to look again.`}
+                {flagged.length === 1 ? tt.oneFlagged(flagged[0] ?? 0) : tt.manyFlagged(joinAnd(flagged))}
               </span>
             </li>
           ) : null}
           {unanswered.length > 0 ? (
             <li className="flex items-start gap-3 text-body-lg">
               <UiIcon name="hint" size={24} className="mt-0.5" />
-              <span>Wrong answers do not take points off, so a guess is better than a blank.</span>
+              <span>{tt.guessTip}</span>
             </li>
           ) : null}
         </ul>
@@ -405,29 +405,27 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             <span className="kira-pop flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg bg-bg">
               <UiIcon name="clock" size={60} />
             </span>
-            Time&apos;s up
+            {tt.timeUp}
           </span>
         }
       >
         <div className="flex flex-col items-center gap-3.5 text-center">
-          <p className="m-0 text-body-lg">
-            Your answers are saved. You answered {answeredN} of {items.length}.
-          </p>
+          <p className="m-0 text-body-lg">{tt.savedSummary(answeredN, items.length)}</p>
           {submit.state === 'error' ? (
             <>
               <SubmitError message={submit.message} reference={submit.reference} online={online} />
               <Button variant="secondary" onClick={() => void handIn()}>
-                Try again
+                {common.tryAgain}
               </Button>
             </>
           ) : (
             <Button
               iconAfter="arrow-right"
               loading={submit.state === 'busy'}
-              onClick={() => submit.redirectTo && router.push(submit.redirectTo)}
+              onClick={() => submit.redirectTo && router.replace(submit.redirectTo)}
               data-autofocus
             >
-              See my score
+              {tt.seeScore}
             </Button>
           )}
         </div>
@@ -437,12 +435,13 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 }
 
 function SubmitError({ message, reference, online }: { message?: string; reference?: string; online: boolean }): ReactElement {
+  const tr = useT().runner
   return (
     <div role="alert" className="flex flex-col gap-1 rounded-control border-2 border-danger bg-danger-50 px-4 py-3">
       <p className="m-0 text-body-lg">
-        {message ?? 'Your answers could not be handed in yet.'} {online ? 'Try again in a moment.' : 'Connect to the internet, then try again. Your answers are safe here.'}
+        {message ?? tr.test.submitFailed} {online ? tr.tryInAMoment : tr.test.connectFirst}
       </p>
-      {reference ? <p className="m-0 text-body text-fg-muted tabular-nums">Reference {reference}</p> : null}
+      {reference ? <p className="m-0 text-body text-fg-muted tabular-nums">{tr.reference(reference)}</p> : null}
     </div>
   )
 }

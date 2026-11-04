@@ -877,11 +877,11 @@
       "rows": [
         [
           "2",
-          "80"
+          "1280"
         ],
         [
           "4",
-          "40"
+          "320"
         ],
         [
           "8",
@@ -897,30 +897,30 @@
           "row": 2,
           "col": 1,
           "answers": [
-            "20"
+            "80"
           ]
         },
         {
           "row": 3,
           "col": 1,
           "answers": [
-            "10"
+            "20"
           ]
         }
       ],
       "hints": [
-        "From 2 cm to 4 cm the overhang doubled. The vibrations went from 80 to 40, so they halved.",
-        "Each time the overhang doubles, the vibrations halve.",
-        "Halve 40 to get the 8 cm row. Halve again for the 16 cm row."
+        "From 2 cm to 4 cm the overhang doubled. The vibrations went from 1280 to 320, so they were divided by 4.",
+        "Each time the overhang doubles, the vibrations are divided by 4.",
+        "Divide 320 by 4 to get the 8 cm row. Divide by 4 again for the 16 cm row."
       ],
-      "explanation": "Each time the overhang doubles, the number of vibrations halves. So 8 cm gives 20 and 16 cm gives 10. A longer overhang vibrates more slowly."
+      "explanation": "Each time the overhang doubles, the number of vibrations is divided by 4. So 8 cm gives 80 and 16 cm gives 20. A longer overhang vibrates more slowly."
     },
     {
       "id": "s4.pitch-and-volume.023",
       "skill": "s4.pitch-and-volume",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "A ruler overhangs by 6, 12, 18 and 24 cm. It vibrates 60, 30, 20 and 15 times in a second. What do the results show?",
+      "prompt": "A ruler overhangs by 6, 12, 18 and 24 cm. It vibrates 400, 100, 44 and 25 times in a second. What do the results show?",
       "options": [
         {
           "text": "The longer the overhang, the higher the pitch.",
@@ -954,22 +954,22 @@
         "rows": [
           [
             "6",
-            "60"
+            "400"
           ],
           [
             "12",
-            "30"
+            "100"
           ],
           [
             "18",
-            "20"
+            "44"
           ],
           [
             "24",
-            "15"
+            "25"
           ]
         ],
-        "alt": "Table: overhang 6 cm gives 60 vibrations, 12 cm gives 30, 18 cm gives 20 and 24 cm gives 15."
+        "alt": "Table: overhang 6 cm gives 400 vibrations, 12 cm gives 100, 18 cm gives 44 and 24 cm gives 25."
       }
     },
     {
@@ -1138,7 +1138,7 @@
       ],
       "answer": 1,
       "hints": [
-        "Heavy things move more slowly.",
+        "A heavier string vibrates more slowly.",
         "Slow vibrations are low notes.",
         "Which string is lighter?"
       ],

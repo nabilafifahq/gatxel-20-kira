@@ -611,8 +611,79 @@
       "difficulty": 5,
       "prompt": "The numbers 1 to 6 go in the circles of a triangle. There is one circle at each corner and one on each side. Each side adds up to 10. What do the three corner numbers add up to?",
       "figure": {
-        "kind": "shape",
-        "shape": "triangle",
+        "kind": "scene",
+        "width": 240,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                120,
+                24
+              ],
+              [
+                40,
+                156
+              ],
+              [
+                200,
+                156
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 24,
+            "r": 14,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 40,
+            "cy": 156,
+            "r": 14,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 200,
+            "cy": 156,
+            "r": 14,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 80,
+            "cy": 90,
+            "r": 14,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 156,
+            "r": 14,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 90,
+            "r": 14,
+            "tone": "math",
+            "fill": "light"
+          }
+        ],
         "alt": "A triangle with 6 circles: one at each corner and one in the middle of each side. Each side has 3 circles: two corners and one middle circle."
       },
       "answer": 9,
@@ -772,7 +843,7 @@
       "id": "m2.oly-number-puzzles.011",
       "skill": "m2.oly-number-puzzles",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 3,
       "lang": "id",
       "prompt": "Bu Ani membeli 2 kg beras. Harga 1 kg beras Rp12.000. Ia juga membeli 1 botol kecap seharga Rp8.000. Ia membayar dengan uang Rp50.000. Berapa uang kembaliannya?",
       "figure": {
@@ -891,7 +962,8 @@
           "en": "change (money)"
         }
       ],
-      "expectedSeconds": 150
+      "expectedSeconds": 90,
+      "points": 3
     },
     {
       "id": "m2.oly-number-puzzles.012",

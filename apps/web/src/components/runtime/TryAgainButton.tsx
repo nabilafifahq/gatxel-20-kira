@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useState, type ReactElement } from 'react'
 import { Button } from '@/components/ui/Button'
+import { useT } from '@/lib/i18n/client'
 import { retrySessionAction } from '@/server/actions/learner'
 
 /**
@@ -10,6 +11,7 @@ import { retrySessionAction } from '@/server/actions/learner'
  * Percobaan pertama tetap yang resmi; ulangan memberi seperempat XP.
  */
 export function TryAgainButton({ attemptId, label }: { attemptId: string; label: string }): ReactElement {
+  const t = useT()
   const router = useRouter()
   const [state, setState] = useState<{ busy: boolean; error?: string }>({ busy: false })
   async function go() {
@@ -20,9 +22,9 @@ export function TryAgainButton({ attemptId, label }: { attemptId: string; label:
         router.push(r.data.redirectTo)
         return
       }
-      setState({ busy: false, error: `${r.message} Reference ${r.reference}.` })
+      setState({ busy: false, error: t.shell.errors.withReference(r.message, r.reference) })
     } catch {
-      setState({ busy: false, error: 'Could not start another try. Check the internet and try once more.' })
+      setState({ busy: false, error: t.shell.tryAgainFailed })
     }
   }
   return (

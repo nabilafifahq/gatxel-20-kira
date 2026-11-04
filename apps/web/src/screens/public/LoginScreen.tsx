@@ -138,7 +138,7 @@ function LoginForm({
       ) : null}
       {failure ? (
         <div ref={alertRef} tabIndex={-1} className="outline-none">
-          <InlineAlert tone="danger" title={failure.message} reference={failure.reference}>
+          <InlineAlert tone="danger" title={failure.message} reference={login.error ? undefined : failure.reference}>
             {login.error?.fieldErrors?.unverified ? (
               resent ? (
                 'Email konfirmasi dikirim ulang. Cek kotak masuk dan folder spam.'
@@ -154,6 +154,8 @@ function LoginForm({
                   Kirim ulang email konfirmasi
                 </Button>
               )
+            ) : login.error && /dikunci/.test(login.error.message) ? (
+              'Password baru dari Lupa password langsung membuka kunci ini.'
             ) : login.error ? (
               'Cek email dan password, lalu coba lagi. Lupa password? Pakai tautan di atas kotak password.'
             ) : (

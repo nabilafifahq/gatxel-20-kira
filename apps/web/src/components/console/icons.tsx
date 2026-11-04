@@ -159,6 +159,7 @@ const P: Record<string, ReactNode> = {
   ),
   move: <path d="M12 3v18M3 12h18M12 3l-3 3M12 3l3 3M12 21l-3-3M12 21l3-3M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3" />,
   moon: <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" />,
+  chat: <path d="M20.5 11.6a8.2 8.2 0 0 1-12.1 7.2l-4.9 1.4 1.4-4.7a8.2 8.2 0 1 1 15.6-3.9z" />,
   x: <path d="M6 6l12 12M18 6L6 18" />,
   check: <path d="M5 12.5l4.5 4.5L19 7.5" />,
   arrowUp: <path d="M12 19V5M6 11l6-6 6 6" />,

@@ -1,12 +1,13 @@
 import 'server-only'
 import { cache } from 'react'
-import { and, eq, gt, isNull } from 'drizzle-orm'
+import { and, eq, gt, inArray, isNull } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import { authDb } from '../db'
 import { clearCookie, DEVICE_COOKIE, DEVICE_TTL_MS, readCookie, writeCookie } from './cookies'
 import { randomToken, sha256hex } from './crypto'
+import { DEFAULT_UI_LANG, type UiLang } from '@/lib/i18n/lang'
 
-const { device } = tables
+const { device, userAccount } = tables
 
 export type DeviceInfo = { id: string; orgId: string; name: string; learnerIds: string[] }
 
@@ -23,6 +24,16 @@ export const getDevice = cache(async (): Promise<DeviceInfo | null> => {
   if (!row) return null
   return { id: row.id, orgId: row.orgId, name: row.name, learnerIds: row.learnerIds }
 })
+
+/**
+ * Bahasa untuk layar tanpa sesi (pilih anak, PIN) di tablet ini: Inggris hanya bila semua anak di tablet memakai
+ * Inggris, jadi tablet keluarga lama tetap seperti sebelumnya.
+ */
+export async function deviceUiLang(learnerIds: string[]): Promise<UiLang> {
+  if (learnerIds.length === 0) return DEFAULT_UI_LANG
+  const rows = await authDb().select({ uiLang: userAccount.uiLang }).from(userAccount).where(inArray(userAccount.id, learnerIds))
+  return rows.length > 0 && rows.every((r) => r.uiLang === 'en') ? 'en' : DEFAULT_UI_LANG
+}
 
 export async function registerDevice(input: { orgId: string; name: string; learnerIds: string[]; registeredBy: string }): Promise<DeviceInfo> {
   const token = randomToken(32)

@@ -3,7 +3,7 @@ import { animProblem, animResult, findEquation, parseEquation, type Anim } from 
 import { semanticProblems, solutionProblems } from '../src/load'
 import { GENERATORS, generateUncached, genRef } from '../src/math'
 import { itemSchema, type Item } from '../src/schema'
-import { animateSteps, deriveSteps, solutionReaches, withWalkthrough } from '../src/walkthrough'
+import { animateSteps, deriveSteps, solutionReaches, splitSentences, withWalkthrough } from '../src/walkthrough'
 
 const base = { skill: 'm3.test', difficulty: 2, hints: ['One.', 'Two.', 'Three.'], explanation: 'Add the two amounts to find the total.' }
 const make = (extra: Record<string, unknown>): Item => itemSchema.parse({ id: 'm3.test.001', ...base, ...extra })
@@ -118,5 +118,16 @@ describe('generator', () => {
     }
     // Cakupan: sepertiga lebih soal generator punya gerakan.
     expect(animated / total).toBeGreaterThan(0.3)
+  })
+})
+
+describe('splitSentences', () => {
+  it('tidak memotong titik di dalam angka', () => {
+    expect(splitSentences('Two adults cost Rp90.000. Two children cost Rp50.000.')).toEqual(['Two adults cost Rp90.000.', 'Two children cost Rp50.000.'])
+    expect(splitSentences('Pi is about 3.14. Use it.')).toEqual(['Pi is about 3.14.', 'Use it.'])
+  })
+  it('memisah dua kalimat biasa dan menjaga tanda tanya', () => {
+    expect(splitSentences('Add the two amounts. What is the total?')).toEqual(['Add the two amounts.', 'What is the total?'])
+    expect(splitSentences('No end mark')).toEqual(['No end mark'])
   })
 })

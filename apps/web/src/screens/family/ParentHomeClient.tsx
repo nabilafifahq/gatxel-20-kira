@@ -20,6 +20,8 @@ import type { ChecklistItem } from '@/server/dal/onboarding'
 import { UiIcon } from '@/components/ui/icons'
 import { AVATARS, AvatarPicker } from '@/screens/console/LearnersScreen'
 import { parentAddChildAction } from '@/server/actions/parent'
+import { UiLangChoice } from '@/components/family/UiLangChoice'
+import type { UiLang } from '@/lib/i18n/lang'
 import { registerDeviceAction } from '@/server/actions/auth'
 
 /**
@@ -37,7 +39,7 @@ const TONE: Record<ParentChildCard['status'], string> = {
 }
 
 export function ChildCard({ c }: { c: ParentChildCard }) {
-  const pct = c.requiredTotal > 0 ? Math.round((c.requiredDone / c.requiredTotal) * 100) : c.status === 'none' ? 100 : 0
+  const pct = c.requiredTotal > 0 ? Math.round((c.requiredDone / c.requiredTotal) * 100) : c.status === 'none' && c.optionalTotal > 0 ? 100 : 0
   return (
     <article aria-labelledby={`anak-${c.id}`} className="flex flex-col gap-3 rounded-card bg-surface p-4 shadow-soft">
       <div className="flex items-center gap-3">
@@ -180,6 +182,7 @@ export function ParentHomeClient({ shell, data, checklist = null, owner = false 
           <ButtonLink href="/keluarga/piala" variant="secondary" className="h-12">
             Medali lomba anak
           </ButtonLink>
+          <ButtonLink href="/panduan" variant="secondary" className="h-12">Panduan orang tua</ButtonLink>
         </div>
       </section>
 
@@ -195,6 +198,7 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
   const used = Object.fromEntries(taken) as Partial<Record<AvatarName, string>>
   const [avatar, setAvatar] = useState<AvatarName>(AVATARS.find((a) => !used[a]) ?? 'cat')
   const [pin, setPin] = useState<PinPicture[]>([])
+  const [uiLang, setUiLang] = useState<UiLang>('id')
   const [error, setError] = useState<string | null>(null)
   const add = useAction(parentAddChildAction)
 
@@ -203,7 +207,7 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
     const p = pinProblem(pin)
     if (p) return setError(p)
     setError(null)
-    const r = await add.run({ name: name.trim(), grade: Number(grade), avatar, pin })
+    const r = await add.run({ name: name.trim(), grade: Number(grade), avatar, pin, uiLang })
     if (r.ok) onDone(r.data.learnerId)
   }
 
@@ -237,6 +241,7 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
           layout="row"
         />
         <AvatarPicker value={avatar} onChange={setAvatar} taken={used} />
+        <UiLangChoice name="bahasa-baru" value={uiLang} onChange={setUiLang} />
         <PinChooser value={pin} onChange={setPin} />
         {error ? <InlineAlert tone="danger" title={error} /> : null}
         <ActionError error={add.error} />

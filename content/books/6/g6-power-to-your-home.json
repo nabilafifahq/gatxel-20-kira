@@ -13,474 +13,618 @@
     {
       "id": "c1",
       "title": "What Is Electricity?",
-      "text": "Everything around us is made of tiny particles called atoms. Inside atoms there are even smaller particles called electrons, which carry a negative electric charge. In some materials, such as copper, electrons can move easily from one atom to the next. We call these materials conductors.\n\nWhen a large number of electrons flow in the same direction through a wire, we say that an electric current is flowing. Electric current is not something that you can see, but you can see what it does: it lights a bulb, spins a fan or heats a kettle.\n\nMaterials such as plastic, rubber and glass hold their electrons tightly. They are called insulators, and they do not let current pass. That is why electric wires have a plastic coat. The metal inside carries the current, and the plastic keeps you safe.",
+      "text": "Everything around us is made of tiny particles called atoms. A single grain of salt holds more atoms than you could count in a lifetime. Inside atoms there are even smaller particles called electrons, which carry a negative electric charge. In some materials, such as copper, electrons can move easily from one atom to the next. We call these materials conductors.\n\nWhen a large number of electrons flow in the same direction through a wire, we say that an electric current is flowing. Electric current is not something that you can see, but you can see what it does: it lights a bulb, spins a fan or heats a kettle.\n\nHere is a puzzle. Electrons creep along a wire very slowly, often more slowly than a snail. So how can a lamp come on the moment you press the switch?\n\nThink of a long tube packed full of marbles. Push one marble in at one end, and straight away another marble drops out at the other end. No marble has travelled far, but the push has gone all the way along. A wire works in a similar way. It is already full of electrons, and the push travels along it at a huge speed, close to the speed of light.\n\nMaterials such as plastic, rubber and glass hold their electrons tightly. They are called insulators, and they do not let current pass. That is why electric wires have a plastic coat. The metal inside carries the current, and the plastic keeps you safe.\n\nYour body is neither a very good conductor nor a very good insulator, but it can carry a current. A strong current through the body can burn you and can stop your heart. So electricity needs to be respected, even though it is hard to see. A wire with a damaged coat may look harmless, but it is no longer safe.\n\nYou can see electrons at work on a small scale. Rub a balloon on dry hair and it picks up extra electrons. Then it can pull your hair towards it, or stick to a wall for a while. Lightning comes from a similar build-up of charge, but on an enormous scale.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "What are the very small particles with a negative charge called?",
+          "prompt": "What are the tiny particles with a negative charge called?",
           "options": [
             "Atoms",
-            "Wires",
             "Electrons",
-            "Bulbs"
+            "Insulators",
+            "Conductors"
           ],
-          "answer": 2,
-          "why": "Inside atoms there are electrons, which carry a negative electric charge."
+          "answer": 1,
+          "why": "Inside atoms there are even smaller particles called electrons, which carry a negative electric charge."
         },
         {
           "id": "q2",
           "prompt": "What do we call materials that let electrons move easily?",
           "options": [
-            "Conductors",
-            "Insulators",
+            "Currents",
             "Magnets",
-            "Coats"
+            "Insulators",
+            "Conductors"
           ],
-          "answer": 0,
-          "why": "Materials such as copper are conductors."
+          "answer": 3,
+          "why": "In materials such as copper, electrons can move easily. We call these materials conductors."
         },
         {
           "id": "q3",
           "prompt": "What is an electric current?",
           "options": [
-            "A kind of wire",
-            "A kind of battery",
-            "A hot kettle",
-            "Many electrons flowing in the same direction"
+            "A small particle that is found inside every atom",
+            "A plastic coat that keeps the metal in a wire safe",
+            "A large number of electrons flowing in the same direction",
+            "A strong magnet that is pushing against a copper wire"
           ],
-          "answer": 3,
-          "why": "When many electrons flow in the same direction through a wire, an electric current is flowing."
+          "answer": 2,
+          "why": "When a large number of electrons flow in the same direction through a wire, an electric current is flowing."
         },
         {
           "id": "q4",
-          "prompt": "Which of these is an insulator?",
+          "prompt": "Why does the text describe a tube full of marbles?",
           "options": [
-            "Copper",
-            "Rubber",
-            "Silver",
-            "Iron"
+            "To explain how a lamp can light at once although electrons are slow",
+            "To show how much electricity a single lamp will use up",
+            "To explain why copper wire has to be covered in plastic",
+            "To show that electrons are about the same size as small marbles"
           ],
-          "answer": 1,
-          "why": "Plastic, rubber and glass are insulators."
+          "answer": 0,
+          "why": "No marble travels far, but the push goes all the way along. In the same way, the push moves quickly along the wire, even though electrons creep."
         },
         {
           "id": "q5",
-          "prompt": "Why do electric wires have a plastic coat?",
+          "prompt": "How fast do electrons themselves move along a wire?",
           "options": [
-            "To make them heavier",
-            "To make electricity faster",
-            "The plastic keeps you safe because it does not let current pass",
-            "To make them colourful"
+            "At a huge speed, close to the speed of light",
+            "At a steady speed of one metre every second",
+            "As fast as a car on a very busy road",
+            "Very slowly, often more slowly than a snail"
           ],
-          "answer": 2,
-          "why": "The metal carries the current, and the plastic keeps you safe."
+          "answer": 3,
+          "why": "Electrons creep along a wire very slowly, often more slowly than a snail. It is the push that travels near the speed of light."
         },
         {
           "id": "q6",
-          "prompt": "How can we know that a current is flowing?",
+          "prompt": "Which of these is an insulator?",
           "options": [
-            "By what it does, such as lighting a bulb",
-            "By seeing the electrons",
-            "By smelling the wire",
-            "By hearing the atoms"
+            "A metal wire",
+            "Copper",
+            "Rubber",
+            "Lightning"
+          ],
+          "answer": 2,
+          "why": "Materials such as plastic, rubber and glass are called insulators."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why is a wire with a damaged coat no longer safe?",
+          "options": [
+            "The metal that carries current is exposed, and your body can carry current",
+            "The plastic coat is what makes the current flow along inside the wire",
+            "The wire becomes an insulator, and insulators can burn your hand",
+            "The damage will stop the electrons from moving through the metal at all"
           ],
           "answer": 0,
-          "why": "You cannot see current, but you can see what it does."
+          "why": "The metal carries the current and the plastic keeps you safe. Without the coat, a body touching the metal could carry a current."
+        },
+        {
+          "id": "q8",
+          "prompt": "What happens when you rub a balloon on dry hair?",
+          "options": [
+            "It turns into a conductor and can light a very small bulb",
+            "It picks up extra electrons and can pull your hair towards it",
+            "It loses all of its atoms and slowly becomes much smaller",
+            "It makes a strong current flow through the hair to the floor"
+          ],
+          "answer": 1,
+          "why": "Rub a balloon on dry hair and it picks up extra electrons. Then it can pull your hair towards it."
         }
       ]
     },
     {
       "id": "c2",
       "title": "Making Electricity",
-      "text": "In a power station, electricity is made by a machine called a generator. A generator contains a strong magnet and a coil of copper wire. When the magnet spins next to the coil, it pushes the electrons in the wire and a current begins to flow. This was discovered by a scientist called Michael Faraday in 1831.\n\nSomething must spin the magnet. Usually, it is a turbine, which is a wheel with blades like a very large fan. In many power stations, steam turns the turbine. The steam is made by boiling water with heat from burning coal or gas.\n\nIn a hydroelectric station, falling water spins the turbine. In a wind farm, the wind does it. In a geothermal power station, steam comes from hot rocks deep underground. Indonesia has many volcanoes, so it has a lot of hot rock, and geothermal energy is an important source there.",
+      "text": "In 1831, a scientist called Michael Faraday made a discovery on a workbench in London. As a boy, Faraday had very little schooling. He worked for a bookbinder, and he read the science books that he was binding. Years later, he pushed a magnet into a coil of copper wire and watched a needle on a measuring instrument. The needle twitched. A current had begun to flow, and there was no battery anywhere in the circuit.\n\nAlmost all the electricity we use today comes from that same idea. In a power station, electricity is made by a machine called a generator. A generator contains a strong magnet and a coil of copper wire. When the magnet spins next to the coil, it pushes the electrons in the wire and a current begins to flow. A small dynamo that lights a bicycle lamp works in the same way.\n\nSomething must spin the magnet. Usually, it is a turbine, which is a wheel with blades like a very large fan. In many power stations, steam turns the turbine. The steam is made by boiling water with heat from burning coal or gas. In Indonesia, more than half of all electricity still comes from burning coal.\n\nOther power stations find different ways to turn the same kind of wheel. In a hydroelectric station, falling water spins the turbine. At Cirata in West Java, water from a huge reservoir does this job. In a wind farm, the wind does it. At Sidrap, in South Sulawesi, thirty tall wind turbines stand together in Indonesia's first large wind farm.\n\nIn a geothermal power station, steam comes from hot rocks deep underground. Engineers drill wells and let the steam rise up through pipes. Indonesia has many volcanoes, so it has a lot of hot rock, and geothermal energy is an important source there. Kamojang, in West Java, was the country's first geothermal power station, and it is still running.\n\nSo however different they look, most power stations are doing the same simple thing as Faraday did on his workbench. They move a magnet and a coil of wire past each other, and they find something strong enough to keep them moving, day and night.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "What machine makes electricity in a power station?",
+          "prompt": "What did Faraday see when he pushed a magnet into a coil of wire?",
           "options": [
-            "A transformer",
-            "A generator",
-            "A switch",
-            "A battery"
+            "The magnet stuck to the end of the coil",
+            "A small lamp lit up on the bench",
+            "The copper wire grew hot and melted",
+            "A needle on an instrument twitched"
           ],
-          "answer": 1,
-          "why": "Electricity is made by a machine called a generator."
+          "answer": 3,
+          "why": "He pushed a magnet into a coil of copper wire and watched a needle. The needle twitched."
         },
         {
           "id": "q2",
-          "prompt": "What are the two main parts of a generator?",
+          "prompt": "How did the young Faraday learn about science?",
           "options": [
-            "A bulb and a fan",
-            "A pipe and a pump",
-            "A wheel and a rope",
-            "A strong magnet and a coil of copper wire"
+            "By going to a very expensive school",
+            "By asking questions in a science class",
+            "By reading the books he was binding",
+            "By working in a large power station"
           ],
-          "answer": 3,
-          "why": "A generator contains a strong magnet and a coil of copper wire."
+          "answer": 2,
+          "why": "He worked for a bookbinder, and he read the science books that he was binding."
         },
         {
           "id": "q3",
-          "prompt": "What happens when the magnet spins next to the coil?",
+          "prompt": "Why was it surprising that a current began to flow on Faraday's bench?",
           "options": [
-            "A current begins to flow in the wire",
-            "The wire melts",
-            "The magnet stops",
-            "Water begins to flow"
+            "There was no copper wire anywhere on the bench",
+            "There was no battery anywhere in the circuit",
+            "The magnet was much too weak to lift a needle",
+            "Nobody in London had ever seen a magnet before"
           ],
-          "answer": 0,
-          "why": "When the magnet spins next to the coil, it pushes the electrons in the wire."
+          "answer": 1,
+          "why": "The text stresses that a current had begun to flow, \"and there was no battery anywhere in the circuit\". The magnet alone had caused it."
         },
         {
           "id": "q4",
-          "prompt": "What is a turbine?",
+          "prompt": "What are the two main parts of a generator, according to the text?",
           "options": [
-            "A kind of battery",
-            "A kind of lamp",
-            "A wheel with blades like a large fan",
-            "A kind of wire"
+            "A strong magnet and a coil of copper wire",
+            "A boiler and a pipe full of steam",
+            "A battery and a long rubber insulator",
+            "A large fan and a tall steel tower"
           ],
-          "answer": 2,
-          "why": "A turbine is a wheel with blades like a very large fan."
+          "answer": 0,
+          "why": "A generator contains a strong magnet and a coil of copper wire."
         },
         {
           "id": "q5",
-          "prompt": "What spins the turbine in a hydroelectric station?",
+          "prompt": "What is a turbine?",
           "options": [
-            "Steam from hot rocks",
-            "Wind",
-            "Burning coal",
-            "Falling water"
+            "A wheel with blades like a very large fan",
+            "A pipe that carries steam from hot rocks",
+            "A strong magnet inside a coil of wire",
+            "A tower that carries cables across the land"
           ],
-          "answer": 3,
-          "why": "In a hydroelectric station, falling water spins the turbine."
+          "answer": 0,
+          "why": "Usually, it is a turbine, which is a wheel with blades like a very large fan."
         },
         {
           "id": "q6",
+          "prompt": "What spins the turbine at Cirata?",
+          "options": [
+            "Steam from burning coal",
+            "Steam from hot rocks",
+            "Wind blowing over the hills",
+            "Water from a huge reservoir"
+          ],
+          "answer": 3,
+          "why": "In a hydroelectric station, falling water spins the turbine. At Cirata, water from a huge reservoir does this job."
+        },
+        {
+          "id": "q7",
           "prompt": "Why is geothermal energy important in Indonesia?",
           "options": [
-            "There are many deserts",
-            "There are many volcanoes, so there is a lot of hot rock underground",
-            "It rains every day",
-            "There are no rivers"
+            "It has no coal of its own to burn in power stations",
+            "It has many volcanoes, so there is a lot of hot rock",
+            "It has too few hills on which to build wind farms",
+            "It has very little rain, so its rivers are often dry"
           ],
           "answer": 1,
-          "why": "Indonesia has many volcanoes, so it has a lot of hot rock."
+          "why": "Indonesia has many volcanoes, so it has a lot of hot rock, and geothermal energy is an important source there."
+        },
+        {
+          "id": "q8",
+          "prompt": "What do coal, water, wind and geothermal power stations have in common?",
+          "options": [
+            "Each of them can only be built close to the sea or a river",
+            "Each stores its electricity in very large batteries for later",
+            "Each finds a way to turn a turbine and move a magnet past a coil",
+            "Each burns a fuel, and each makes a lot of smoke and ash"
+          ],
+          "answer": 2,
+          "why": "Steam, falling water or wind turns the wheel in each case. The last paragraph says most power stations are doing the same simple thing as Faraday."
         }
       ]
     },
     {
       "id": "c3",
       "title": "Up the Wires",
-      "text": "After the electricity is made, it must travel to towns and cities that may be hundreds of kilometres away. It travels along thick metal cables carried by tall steel towers. There is a problem, however. As current flows through a long wire, some of the energy turns into heat and is lost. The bigger the current, the more energy is wasted.\n\nEngineers solve the problem with a clever machine called a transformer. A step-up transformer at the power station raises the voltage to a very high level, such as 150,000 volts. When the voltage is high, the current needed to carry the same power is smaller, so less energy is lost as heat.\n\nThis is why we see warning signs on tall towers. Very high voltage is dangerous, and nobody should climb near the cables.",
+      "text": "After the electricity is made, it must travel to towns and cities that may be hundreds of kilometres away. It travels along thick metal cables carried by tall steel towers. There is a problem, however. As current flows through a long wire, some of the energy turns into heat and is lost. The bigger the current, the more energy is wasted.\n\nEngineers solve the problem with a clever machine called a transformer. A transformer has two coils of wire wound around an iron core. A step-up transformer at the power station raises the voltage to a very high level, such as one hundred and fifty thousand volts. You can think of voltage as the push behind the current. When the voltage is high, the current needed to carry the same power is smaller, so less energy is lost as heat. The main lines across Java work at an even higher level, five hundred thousand volts.\n\nIf you look up at a tower, you will see stacks of glass or ceramic discs holding up the cables. These discs are insulators. High cables usually have no plastic coat, because the air around them does not easily let current pass. The discs stop the current from reaching the steel tower and running down it to the ground.\n\nAll of these cables are joined into a huge network called a grid. Running a grid is a difficult balancing act. Electricity is hard to store in large amounts, so power stations must make about as much as people are using at each moment. In Indonesia, use rises in the early evening, when millions of families turn on their lights and televisions. Engineers in control rooms watch the numbers and bring more generators into action.\n\nSometimes things go wrong. In August 2019, a fault on the lines left Jakarta and much of western Java without power for many hours. Trains stopped, and traffic lights went dark.\n\nVery high voltage is dangerous, and this is why we see warning signs on tall towers. Nobody should climb near the cables. It is also unsafe to fly a kite close to power lines, because a damp string can carry current down to the person holding it.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "How does electricity travel to distant towns?",
+          "prompt": "On a very hot evening, millions of people switch on fans and air conditioners. What must the engineers in the control rooms do?",
           "options": [
-            "Along thick metal cables on tall steel towers",
-            "Through the air",
-            "Through pipes of water",
-            "On trucks"
+            "Turn off all the step-up transformers",
+            "Stop the turbines until it is cooler",
+            "Lower the cables closer to the ground",
+            "Bring more generators into action"
           ],
-          "answer": 0,
-          "why": "It travels along thick metal cables carried by tall steel towers."
+          "answer": 3,
+          "why": "Power stations must make about as much as people are using at each moment. When use rises, engineers bring more generators into action."
         },
         {
           "id": "q2",
-          "prompt": "What is the problem with long wires?",
+          "prompt": "What is the problem with sending current along long wires?",
           "options": [
-            "They are too heavy",
-            "They are too colourful",
+            "The current becomes too cold to be used at home",
             "Some of the energy turns into heat and is lost",
-            "They break in the rain"
+            "The wires become too heavy for towers to hold up",
+            "The electrons stop moving after a few kilometres"
           ],
-          "answer": 2,
-          "why": "Some of the energy turns into heat and is lost."
+          "answer": 1,
+          "why": "As current flows through a long wire, some of the energy turns into heat and is lost."
         },
         {
           "id": "q3",
           "prompt": "What does a step-up transformer do?",
           "options": [
-            "It lowers the voltage",
             "It raises the voltage to a very high level",
-            "It makes the wire longer",
-            "It stores energy"
+            "It lowers the voltage to a very safe level",
+            "It spins the magnet inside the generator",
+            "It stores the extra energy for the evening"
           ],
-          "answer": 1,
-          "why": "A step-up transformer raises the voltage."
+          "answer": 0,
+          "why": "A step-up transformer at the power station raises the voltage to a very high level."
         },
         {
           "id": "q4",
-          "prompt": "Why is high voltage used for long distances?",
+          "prompt": "Why is very high voltage used for long distances?",
           "options": [
-            "It looks better",
-            "It costs nothing",
-            "It is safer for people",
-            "The current needed is smaller, so less energy is lost as heat"
+            "It makes the electrons travel a lot faster along the wire",
+            "It is much safer for anyone who lives near the towers",
+            "The current needed is smaller, so less energy is lost as heat",
+            "It lets engineers use thinner towers that are cheaper"
           ],
-          "answer": 3,
-          "why": "When the voltage is high, the current needed is smaller, so less energy is lost."
+          "answer": 2,
+          "why": "When the voltage is high, the current needed to carry the same power is smaller, so less energy is lost as heat."
         },
         {
           "id": "q5",
-          "prompt": "What happens to the energy lost in a wire?",
+          "prompt": "What are the stacks of discs on a tower for?",
           "options": [
-            "It turns into heat",
-            "It turns into light",
-            "It goes back to the power station",
-            "It turns into sound"
+            "They store electricity for use in the evening",
+            "They raise the voltage in the high cables",
+            "They stop current from reaching the steel tower",
+            "They keep birds away from the top of the tower"
           ],
-          "answer": 0,
-          "why": "Some of the energy turns into heat and is lost."
+          "answer": 2,
+          "why": "These discs are insulators. They stop the current from reaching the steel tower and running down it to the ground."
         },
         {
           "id": "q6",
-          "prompt": "Why are there warning signs on tall towers?",
+          "prompt": "Why can high cables manage without a plastic coat?",
           "options": [
-            "To show the way",
-            "To advertise",
-            "Very high voltage is dangerous",
-            "To tell people the time"
+            "They are made of a metal that cannot carry any current",
+            "They carry too little current to be a danger",
+            "They are kept safe by the rain that washes them",
+            "The air around them does not easily let current pass"
           ],
-          "answer": 2,
-          "why": "Very high voltage is dangerous, and nobody should climb near the cables."
+          "answer": 3,
+          "why": "High cables usually have no plastic coat, because the air around them does not easily let current pass."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why must power stations make about as much electricity as people are using?",
+          "options": [
+            "Electricity is hard to store in large amounts",
+            "Families pay for only what they use in the evening",
+            "Electricity is too dangerous to send at night",
+            "Generators will break if they run all day"
+          ],
+          "answer": 0,
+          "why": "Electricity is hard to store in large amounts, so power stations must make about as much as people are using at each moment."
+        },
+        {
+          "id": "q8",
+          "prompt": "Why is it unsafe to fly a kite close to power lines?",
+          "options": [
+            "The kite could turn the towers and damage the steel",
+            "A damp string can carry current to the person holding it",
+            "The power lines would pull the kite up into the sky",
+            "The wind around power lines is much too strong for a kite"
+          ],
+          "answer": 1,
+          "why": "The text says a damp string can carry current down to the person holding it."
         }
       ]
     },
     {
       "id": "c4",
       "title": "Cities and Substations",
-      "text": "Before electricity can be used at home, the voltage must come down again. Near the city, the cables enter a substation, which is a fenced area with large machines. Here, step-down transformers lower the voltage in stages.\n\nThe electricity then runs along smaller cables and wires on poles along the street. Near your house, a last small transformer reduces the voltage to 230 volts, which is the voltage used in homes in Indonesia.\n\nIslands need special solutions. In places where islands are close to each other, cables are laid on the sea floor to carry electricity across the water. For example, there is an undersea cable between Java and Bali. In remote villages without a cable, solar panels or small generators supply power.",
+      "text": "Before electricity can be used at home, the voltage must come down again. Near the city, the cables enter a substation, which is a fenced area with large machines. Here, step-down transformers lower the voltage in stages. If you walk past one, you may hear a low, steady hum, which comes from the iron core of the transformers shaking very slightly. Substations are never places to play. If a ball goes over the fence, leave it there and tell an adult.\n\nThe electricity then runs along smaller cables and wires on poles along the street. In the middle of some big cities, the cables run underground instead. Near your house, a last small transformer reduces the voltage to about two hundred and thirty volts, which is the voltage used in homes in Indonesia. You may be able to see this transformer, which often looks like a large grey box on a pole.\n\nNot every country uses the same voltage. Homes in Japan, for example, use about one hundred volts. A hairdryer made for Japan could burn out if someone plugged it straight into a wall socket in Indonesia.\n\nIslands need special solutions, and Indonesia has more than seventeen thousand of them. In places where islands are close to each other, cables are laid on the sea floor to carry electricity across the water. For example, there is an undersea cable between Java and Bali. A special ship lets the heavy cable slide slowly down to the seabed. Ships' anchors can damage it, so it is marked on sea charts.\n\nMany other islands are too far apart to be joined in this way, so they have their own separate networks. In remote villages without a cable, solar panels or small generators supply power. A small diesel generator needs fuel, and the fuel has to come by boat, so its power can be very expensive. In some hill villages, a small stream turns a tiny turbine, and the people of the village look after it together. These small schemes may only light a few dozen homes, but for a child who can now read after dark, that makes a very big difference.",
       "questions": [
         {
           "id": "q1",
           "prompt": "What is a substation?",
           "options": [
-            "A shop that sells electricity",
-            "A kind of battery",
-            "A school",
-            "A fenced area with large machines that change the voltage"
+            "A fenced area with large machines that lower the voltage",
+            "A station where diesel fuel is brought in by boat",
+            "A shop where families can pay for their electricity",
+            "A tall steel tower that holds up long metal cables"
           ],
-          "answer": 3,
-          "why": "A substation is a fenced area with large machines. Here, transformers lower the voltage."
+          "answer": 0,
+          "why": "A substation is a fenced area with large machines. Here, step-down transformers lower the voltage in stages."
         },
         {
           "id": "q2",
-          "prompt": "What do step-down transformers do?",
+          "prompt": "What causes the low hum near a substation?",
           "options": [
-            "They raise the voltage",
-            "They lower the voltage",
-            "They make a turbine",
-            "They spin the magnet"
+            "Electrons hitting the fence around the large machines",
+            "Wind blowing across the cables above the machines",
+            "The iron core of the transformers shaking very slightly",
+            "Water running through the pipes under the ground"
           ],
-          "answer": 1,
-          "why": "Step-down transformers lower the voltage in stages."
+          "answer": 2,
+          "why": "You may hear a low, steady hum, which comes from the iron core of the transformers shaking very slightly."
         },
         {
           "id": "q3",
-          "prompt": "What is the voltage used in homes in Indonesia, according to the text?",
+          "prompt": "What should you do if a ball goes over a substation fence?",
           "options": [
-            "110 volts",
-            "150,000 volts",
-            "12 volts",
-            "230 volts"
+            "Climb over quickly and fetch it",
+            "Ask a friend to help you get it",
+            "Use a long stick to reach it",
+            "Leave it there and tell an adult"
           ],
           "answer": 3,
-          "why": "A last small transformer reduces the voltage to 230 volts."
+          "why": "If a ball goes over the fence, leave it there and tell an adult."
         },
         {
           "id": "q4",
-          "prompt": "How can electricity cross the sea between close islands?",
+          "prompt": "About what voltage is used in homes in Indonesia, according to the text?",
           "options": [
-            "By cables laid on the sea floor",
-            "By long poles in the water",
-            "By boats",
-            "By radio waves"
+            "One hundred volts",
+            "Two hundred and thirty volts",
+            "One hundred and fifty thousand volts",
+            "Five hundred thousand volts"
           ],
-          "answer": 0,
-          "why": "Cables are laid on the sea floor."
+          "answer": 1,
+          "why": "A last small transformer reduces the voltage to about two hundred and thirty volts, which is the voltage used in homes in Indonesia."
         },
         {
           "id": "q5",
-          "prompt": "Which two islands does the text mention as having an undersea cable?",
+          "prompt": "Why could a hairdryer made for Japan burn out in Indonesia?",
           "options": [
-            "Sumatra and Borneo",
-            "Sulawesi and Papua",
-            "Lombok and Flores",
-            "Java and Bali"
+            "Indonesian wall sockets supply a much higher voltage than it was made for",
+            "The air in Indonesia is too warm for it to cool down after use",
+            "Indonesian wall sockets supply much less current than it needs to work",
+            "The plugs in Japan are too large to fit into Indonesian sockets"
           ],
-          "answer": 3,
-          "why": "There is an undersea cable between Java and Bali."
+          "answer": 0,
+          "why": "Homes in Japan use about one hundred volts and homes in Indonesia use about two hundred and thirty, more than twice as much."
         },
         {
           "id": "q6",
-          "prompt": "What do remote villages without a cable use?",
+          "prompt": "How can electricity cross the sea between close islands?",
           "options": [
-            "Solar panels or small generators",
-            "Candles only",
-            "Nothing",
-            "Horses"
+            "Through long poles standing in the water",
+            "As radio waves sent across the sea",
+            "In batteries carried by small boats",
+            "Through cables laid on the sea floor"
           ],
-          "answer": 0,
-          "why": "In remote villages without a cable, solar panels or small generators supply power."
+          "answer": 3,
+          "why": "Cables are laid on the sea floor to carry electricity across the water."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why is power from a small diesel generator often so expensive?",
+          "options": [
+            "It can only be run for a few hours each year",
+            "Its fuel has to be brought to the village by boat",
+            "It has to be repaired by engineers from Japan",
+            "Its turbine needs a very large stream to turn it"
+          ],
+          "answer": 1,
+          "why": "A small diesel generator needs fuel, and the fuel has to come by boat, so its power can be very expensive."
+        },
+        {
+          "id": "q8",
+          "prompt": "What does the last sentence suggest about electricity in a remote village?",
+          "options": [
+            "Solar panels are not able to light a whole home",
+            "Only big power stations are worth building at all",
+            "Even a small supply can change a child's life",
+            "Children in remote villages do not like reading"
+          ],
+          "answer": 2,
+          "why": "The text says these small schemes may light only a few dozen homes, but a child who can now read after dark gains a great deal."
         }
       ]
     },
     {
       "id": "c5",
       "title": "Inside Your Home",
-      "text": "The electricity enters your home through a meter, which measures how much you use, and then goes to a box with switches called circuit breakers. From there, wires run inside the walls to sockets and lights.\n\nFor a lamp to work, the current must have a complete path, called a circuit. It leaves the supply, passes through the lamp and returns. When you press a switch, you open or close a gap in the circuit. A closed circuit lets current flow, and an open circuit stops it.\n\nCircuit breakers keep you safe. If too much current flows, perhaps because a wire has been damaged, the breaker switches itself off and cuts the circuit. Remember these safety rules: never put anything but a plug into a socket, keep water away from sockets, and never touch a damaged wire.",
+      "text": "The electricity enters your home through a meter, which measures how much you use, and then goes to a box with switches called circuit breakers. From there, wires run inside the walls to sockets and lights. Many homes in Indonesia have a prepaid meter. The family buys a long number, called a token, and types it in. When the credit runs low, the meter starts to beep, and someone has to hurry out and buy more.\n\nFor a lamp to work, the current must have a complete path, called a circuit. It leaves the supply, passes through the lamp and returns. When you press a switch, you open or close a gap in the circuit. A closed circuit lets current flow, and an open circuit stops it.\n\nThe idea of a complete path explains something you may have seen. Birds can sit safely on a single power line. The current has no reason to go through the bird, because the bird does not give it a path to anywhere else. A person standing on the ground and touching a live wire is in a very different position. The body now makes a path from the wire down to the ground, and the current can flow through it. So never try to rescue a kite or a ball from a power line.\n\nSome things use far more electricity than others. A lamp uses very little, but things that make heat, such as a rice cooker or an iron, use a lot. Too many of these on one socket can make the wires dangerously hot.\n\nCircuit breakers keep you safe. If too much current flows, perhaps because a wire has been damaged or a socket is overloaded, the breaker switches itself off and cuts the circuit. Without it, the wires could overheat and start a fire. If a breaker keeps switching off, it is telling you that something is wrong, so ask an adult to get it checked.\n\nRemember these safety rules: never put anything but a plug into a socket, keep water away from sockets, and never touch a damaged wire.",
       "questions": [
         {
           "id": "q1",
           "prompt": "What does the meter do?",
           "options": [
-            "It makes electricity",
+            "It switches on the lights in the evening",
             "It measures how much electricity you use",
-            "It switches the lights",
-            "It stores power"
+            "It makes electricity for the whole house",
+            "It stores electricity for use at night"
           ],
           "answer": 1,
-          "why": "The meter measures how much you use."
+          "why": "The electricity enters your home through a meter, which measures how much you use."
         },
         {
           "id": "q2",
-          "prompt": "What is a circuit?",
+          "prompt": "What does a beeping prepaid meter tell a family?",
           "options": [
-            "A kind of switch",
-            "A complete path for the current",
-            "A kind of lamp",
-            "A meter"
+            "An adult should go outside and check the transformer",
+            "The voltage has risen too high, and they should leave",
+            "A wire has been damaged, and the circuit is broken",
+            "The credit is running low, and they need to buy more"
           ],
-          "answer": 1,
-          "why": "For a lamp to work, the current must have a complete path, called a circuit."
+          "answer": 3,
+          "why": "When the credit runs low, the meter starts to beep, and someone has to hurry out and buy more."
         },
         {
           "id": "q3",
-          "prompt": "What happens when a switch opens the circuit?",
+          "prompt": "What is a circuit?",
           "options": [
-            "The current flows faster",
-            "The lamp gets brighter",
-            "The current stops",
-            "The wires melt"
+            "A complete path for the current",
+            "A box that measures electricity",
+            "A long number typed into a meter",
+            "A switch that turns itself off"
           ],
-          "answer": 2,
-          "why": "An open circuit stops the current."
+          "answer": 0,
+          "why": "For a lamp to work, the current must have a complete path, called a circuit."
         },
         {
           "id": "q4",
-          "prompt": "What does a circuit breaker do if too much current flows?",
+          "prompt": "What happens to a lamp when a switch opens the circuit?",
           "options": [
-            "It makes the lamp brighter",
-            "It does nothing",
-            "It adds more current",
-            "It switches itself off and cuts the circuit"
+            "The current goes round the house through other wires",
+            "The current goes back to the power station at once",
+            "The current stops, and the lamp goes out",
+            "The current flows faster, and the lamp grows brighter"
           ],
-          "answer": 3,
-          "why": "The breaker switches itself off and cuts the circuit."
+          "answer": 2,
+          "why": "An open circuit stops the current, and a lamp needs current flowing through it to work."
         },
         {
           "id": "q5",
-          "prompt": "Which of these is a safety rule from the text?",
+          "prompt": "Why can a bird sit safely on a single power line?",
           "options": [
-            "Keep water away from sockets",
-            "Touch a wire to test it",
-            "Put keys in sockets",
-            "Plug in wet cables"
+            "The bird gives the current no path to anywhere else",
+            "The power line carries no current at all during the day",
+            "The bird's feet have a plastic coat that protects them",
+            "The bird's feathers are very good conductors of current"
           ],
           "answer": 0,
-          "why": "Keep water away from sockets."
+          "why": "The current has no reason to go through the bird, because the bird does not give it a path to anywhere else."
         },
         {
           "id": "q6",
-          "prompt": "What path does the current follow for a lamp?",
+          "prompt": "Why is a person on the ground in danger when touching a live wire, although a bird is not?",
           "options": [
-            "It goes in and stays in the lamp",
-            "It leaves the supply, passes through the lamp and returns",
-            "It goes straight into the ground",
-            "It goes around the house"
+            "The person is a better insulator than a small bird is",
+            "The person's hands are wet, but a bird's feet are always dry",
+            "The person's body makes a path from the wire to the ground",
+            "The person is much heavier than a bird and pulls the wire down"
+          ],
+          "answer": 2,
+          "why": "The body now makes a path from the wire down to the ground, so the current can flow through it."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why are too many heating things on one socket a risk?",
+          "options": [
+            "They can make the meter run out of its token",
+            "They can make the lamps in the house too bright",
+            "They can make the current flow in the wrong direction",
+            "They can make the wires dangerously hot"
+          ],
+          "answer": 3,
+          "why": "Things that make heat use a lot, and too many of these on one socket can make the wires dangerously hot."
+        },
+        {
+          "id": "q8",
+          "prompt": "What does it probably mean if a breaker keeps switching off?",
+          "options": [
+            "The breaker likes to be reset by whoever is nearest to it",
+            "There is a fault, so it needs to be checked by an adult",
+            "The family has bought too many tokens for the meter",
+            "The house is using too little electricity on that circuit"
           ],
           "answer": 1,
-          "why": "It leaves the supply, passes through the lamp and returns."
+          "why": "The text says that if a breaker keeps switching off, it is telling you that something is wrong, so ask an adult to get it checked."
         }
       ]
     },
     {
       "id": "c6",
       "title": "Power for Tomorrow",
-      "text": "Today, many power stations burn coal and gas, which release carbon dioxide. This gas traps heat in the air and contributes to climate change. So scientists and engineers are looking for cleaner ways to make electricity.\n\nSolar panels turn sunlight into electricity. They are very useful in sunny countries like Indonesia, and they can be placed on roofs. Wind turbines and hydro stations make power without burning fuel. Geothermal power stations use the Earth's own heat.\n\nBut the cleanest energy of all is the energy that we do not use. Switching off lights when you leave a room, choosing efficient bulbs and unplugging chargers all help. If every family saved a little, the power stations would have to burn less fuel, and the air would be cleaner for everyone.",
+      "text": "Today, many power stations burn coal and gas, which release carbon dioxide. This gas traps heat in the air and contributes to climate change. So scientists and engineers are looking for cleaner ways to make electricity.\n\nSolar panels turn sunlight into electricity. They have no turbine and no magnet. Instead, sunlight knocks electrons loose in a thin layer of a material called silicon, and a current begins to flow. They are very useful in sunny countries like Indonesia, and they can be placed on roofs. They can even float. On the Cirata reservoir in West Java, a huge field of solar panels has been floating on the water since 2023. The water helps to keep the panels cool, and panels work better when they are not too hot.\n\nWind turbines and hydro stations make power without burning fuel. Geothermal power stations use the Earth's own heat.\n\nMost of these have a weakness. The sun goes down in the early evening, just when many homes need the most power. The wind can drop for days. In a long dry season, reservoirs run low. A big dam can also flood a valley where people used to live. So engineers mix different sources together, and they are building very large batteries to store power for later. No single answer solves everything, which is what makes this such an interesting problem.\n\nBut the cleanest energy of all is the energy that we do not use. Switching off lights when you leave a room, choosing efficient bulbs and unplugging chargers all help. A modern bulb called an LED gives the same light as an old filament bulb for a small part of the energy. In many homes, the air conditioner uses more power than anything else, so setting it a little warmer saves a surprising amount. If every family saved a little, the power stations would have to burn less fuel, and the air would be cleaner for everyone.\n\nThe people who solve these problems will need to know about magnets, turbines, grids and much more. Some of them are probably at primary school today. If you have read this far, one of them could be you.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "Which gas is released when coal and gas are burned?",
+          "prompt": "Which gas is released when power stations burn coal and gas?",
           "options": [
             "Oxygen",
+            "Carbon dioxide",
             "Helium",
-            "Nitrogen",
-            "Carbon dioxide"
+            "Nitrogen"
           ],
-          "answer": 3,
+          "answer": 1,
           "why": "Many power stations burn coal and gas, which release carbon dioxide."
         },
         {
           "id": "q2",
-          "prompt": "What can this gas do in the air?",
+          "prompt": "How is a solar panel different from most other power stations in this book?",
           "options": [
-            "Trap heat and contribute to climate change",
-            "Make rain stop",
-            "Make the sky blue",
-            "Clean the air"
+            "It burns a small amount of coal",
+            "It needs falling water to work",
+            "It has no turbine and no magnet",
+            "It only works in very cold places"
           ],
-          "answer": 0,
-          "why": "This gas traps heat in the air."
+          "answer": 2,
+          "why": "Solar panels have no turbine and no magnet. Instead, sunlight knocks electrons loose in a thin layer of silicon."
         },
         {
           "id": "q3",
-          "prompt": "What do solar panels do?",
+          "prompt": "Why does floating on water help the panels at Cirata?",
           "options": [
-            "Make wind",
-            "Turn sunlight into electricity",
-            "Burn coal",
-            "Store water"
+            "The water reflects moonlight, so they work through the night",
+            "The water turns the panels around to follow the sun",
+            "The water carries the electricity to the nearest town",
+            "The water keeps them cool, and they work better that way"
           ],
-          "answer": 1,
-          "why": "Solar panels turn sunlight into electricity."
+          "answer": 3,
+          "why": "The water helps to keep the panels cool, and panels work better when they are not too hot."
         },
         {
           "id": "q4",
-          "prompt": "Which of these makes power without burning fuel?",
+          "prompt": "Why is the time of sunset a problem for solar power?",
           "options": [
-            "A coal station",
-            "A gas station",
-            "A wind turbine",
-            "A diesel generator"
+            "The sun goes down just when many homes need the most power",
+            "The grid is switched off in the early evening for repairs",
+            "The panels get too hot in the evening and have to rest",
+            "The electrons in the silicon fall asleep once it gets dark"
           ],
-          "answer": 2,
-          "why": "Wind turbines and hydro stations make power without burning fuel."
+          "answer": 0,
+          "why": "The sun goes down in the early evening, just when many homes need the most power."
         },
         {
           "id": "q5",
+          "prompt": "Why do engineers mix different energy sources?",
+          "options": [
+            "Every source is much cheaper when it is used with coal",
+            "Every source is required by a law in every country",
+            "A weakness in one source can be covered by the others",
+            "Every source works only on one day of the week"
+          ],
+          "answer": 2,
+          "why": "The text lists weaknesses of the sun, the wind and reservoirs, then says engineers mix different sources together."
+        },
+        {
+          "id": "q6",
           "prompt": "What does the writer call the cleanest energy of all?",
           "options": [
-            "Solar energy",
-            "The energy we do not use",
-            "Geothermal energy",
-            "Wind energy"
+            "The energy from the wind",
+            "The energy that we do not use",
+            "The energy from the sun",
+            "The energy from hot rocks"
           ],
           "answer": 1,
           "why": "The cleanest energy of all is the energy that we do not use."
         },
         {
-          "id": "q6",
+          "id": "q7",
+          "prompt": "In many homes, which change would probably save the most electricity?",
+          "options": [
+            "Switching off one small lamp for an hour",
+            "Opening the fridge door a little more often",
+            "Unplugging a phone charger once a week",
+            "Setting the air conditioner a little warmer"
+          ],
+          "answer": 3,
+          "why": "The text says that in many homes, the air conditioner uses more power than anything else, and setting it warmer saves a surprising amount."
+        },
+        {
+          "id": "q8",
           "prompt": "What is the main message of the final chapter?",
           "options": [
-            "Electricity is too dangerous",
             "We can make and use electricity in cleaner and smarter ways",
-            "Only engineers can save energy",
-            "Solar panels do not work"
+            "Only engineers can do anything to help save energy",
+            "Electricity is too dangerous for families to use at home",
+            "Solar panels have solved every problem with power"
           ],
-          "answer": 1,
-          "why": "The chapter describes cleaner sources and small ways in which everyone can save energy."
+          "answer": 0,
+          "why": "The chapter describes cleaner sources and their weaknesses, along with ways in which everyone can use less energy."
         }
       ]
     }

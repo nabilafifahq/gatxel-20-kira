@@ -21,6 +21,8 @@ import { SegmentedControl } from '@/components/ui/SegmentedControl'
 import { ONBOARDING_STEPS, naturalStep, type OnboardingStep } from '@/lib/onboarding-steps'
 import { PublicFrame } from '@/screens/public/PublicFrame'
 import { addChildAction, applyPathAction, markCustomPathAction, saveConsentsAction } from '@/server/actions/onboarding'
+import { UiLangChoice } from './UiLangChoice'
+import type { UiLang } from '@/lib/i18n/lang'
 import { registerDeviceAction } from '@/server/actions/auth'
 import type { OnboardingChild, OnboardingPurpose, OnboardingState } from '@/server/dal/onboarding'
 
@@ -36,7 +38,7 @@ const AVATAR_LABEL: Record<AvatarName, string> = {
 }
 
 const PURPOSES: { id: OnboardingPurpose; label: string; description: string }[] = [
-  { id: 'learning', label: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Perlu dicentang supaya anak bisa masuk.' },
+  { id: 'learning', label: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare, termasuk pusat data di luar Indonesia. Perlu dicentang supaya anak bisa masuk.' },
   { id: 'progress-email', label: 'Laporan mingguan lewat email', description: 'Ringkasan belajar seminggu sekali ke email kamu.' },
   { id: 'audio', label: 'Rekaman suara', description: 'Menyimpan rekaman latihan berbicara. Disimpan 90 hari.' },
   { id: 'photo', label: 'Foto dan gambar jawaban', description: 'Menyimpan foto jawaban di kertas. Disimpan 90 hari.' },
@@ -470,6 +472,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
   const [grade, setGrade] = useState(1)
   const [avatar, setAvatar] = useState<AvatarName>(firstFree)
   const [pin, setPin] = useState<PinPicture[]>([])
+  const [uiLang, setUiLang] = useState<UiLang>('id')
   const [consents, setConsents] = useState<Record<OnboardingPurpose, boolean>>({ learning: false, 'progress-email': false, audio: false, photo: false })
   const [errors, setErrors] = useState<{ name?: string; pin?: string; consent?: string }>({})
   const add = useAction(addChildAction)
@@ -485,7 +488,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
     if (!consents.learning) next.consent = 'Centang izin Belajar di Kira supaya anak bisa masuk.'
     setErrors(next)
     if (next.name || next.pin || next.consent) return
-    const r = await add.run({ name: name.trim(), grade, avatar, pin })
+    const r = await add.run({ name: name.trim(), grade, avatar, pin, uiLang })
     if (r.ok) {
       // Izin dicatat sesudah anak ada. Bila gagal, kartu izin muncul di daftar anak dan bisa dicoba lagi.
       await saveConsents.run({ learnerId: r.data.learnerId, consents })
@@ -542,6 +545,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
           ))}
         </div>
       </fieldset>
+      <UiLangChoice name={`bahasa${gid}`} value={uiLang} onChange={setUiLang} />
       <PinChooser value={pin} onChange={(p) => { setPin(p); if (errors.pin) setErrors((x) => ({ ...x, pin: undefined })) }} error={errors.pin} legend="PIN gambar untuk masuk" />
       <fieldset className="m-0 flex min-w-0 flex-col gap-3 border-0 p-0">
         <legend className="mb-1 p-0 text-small font-bold">Izin data</legend>

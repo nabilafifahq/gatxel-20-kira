@@ -10,6 +10,7 @@ import { Button, ButtonLink, IconButton, IconLink } from '@/components/ui/Button
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { NO_LOOKUP_SKILLS } from '@kira/core/dictionary'
+import { useT } from '@/lib/i18n/client'
 import { TapWords } from '@/components/learner/TapWords'
 import { useReducedMotion } from '@/components/learner/hooks'
 import { useSpeech } from '@/components/learner/speech'
@@ -50,6 +51,8 @@ function dwellMs(step: LessonStep): number {
 }
 
 export function LessonScreen({ data, actions }: { data: LessonDTO; actions: LessonActions }): ReactElement {
+  const t = useT()
+  const copy = t.lessons.lesson
   const parts = useMemo<Part[]>(
     () => [...data.steps.map((step, i): Part => ({ kind: 'step', step, n: i })), ...data.check.map((item, i): Part => ({ kind: 'check', item, n: i }))],
     [data.steps, data.check],
@@ -88,9 +91,9 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
       if (res.ok) setSave({ state: 'done' })
       else setSave({ state: 'error', message: res.message, reference: res.reference })
     } catch {
-      setSave({ state: 'error', message: 'The lesson was not saved yet. Check the internet and try again.', reference: 'KRA-LES-NET' })
+      setSave({ state: 'error', message: copy.notSaved, reference: 'KRA-LES-NET' })
     }
-  }, [actions, checks, data.check.length, data.skillId])
+  }, [actions, checks, copy.notSaved, data.check.length, data.skillId])
 
   const goNext = useCallback(() => {
     if (!passableAt(parts, checks, at)) return
@@ -153,12 +156,12 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
       <header className="flex min-h-18 flex-none flex-wrap items-center gap-3 px-4 py-2 md:h-22 md:gap-4 md:px-8 md:py-0">
-        <IconLink href={data.backHref} icon="arrow-left" label="Back to the map" />
+        <IconLink href={data.backHref} icon="arrow-left" label={copy.backToMap} />
         <span className="hidden sm:inline-flex">
           <SubjectChip subject={data.subject} size="M" />
         </span>
         <div className="flex min-w-0 flex-1 flex-col">
-          <h1 className="m-0 text-h3 font-bold">{data.title}</h1>
+          <h1 lang="en-GB" className="m-0 text-h3 font-bold">{data.title}</h1>
           <span className="text-body text-fg-muted">{data.meta}</span>
         </div>
         <div className="flex w-full gap-2 sm:w-auto">
@@ -171,7 +174,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               captions ? 'border-fg bg-surface' : 'border-border bg-bg',
             )}
           >
-            Captions
+            {copy.captions}
           </button>
           <button
             type="button"
@@ -183,46 +186,46 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
             )}
           >
             <UiIcon name={sound ? 'speaker' : 'speaker-off'} size={20} />
-            {sound ? 'Sound on' : 'Sound off'}
+            {sound ? copy.soundOn : copy.soundOff}
           </button>
         </div>
       </header>
 
       <div className="flex min-h-0 flex-1 flex-col gap-6 px-4 pb-7 md:px-8 lg:flex-row">
-        <section aria-label="Lesson player" className="flex min-w-0 flex-col gap-3 lg:flex-[1.7]">
+        <section aria-label={copy.player} className="flex min-w-0 flex-col gap-3 lg:flex-[1.7]">
           {finished ? (
             <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-card bg-surface shadow-soft px-6 py-10 text-center">
               <span className={cx('flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg text-fg', style.solid)}>
                 <UiIcon name="check" size={52} />
               </span>
-              <h2 className="m-0 font-display text-display font-semibold">Lesson done</h2>
+              <h2 className="m-0 font-display text-display font-semibold">{copy.done}</h2>
               {data.check.length > 0 ? (
                 <p className="m-0 text-body-lg">
-                  {correct} of {data.check.length} checks right the first time.
+                  {copy.checksRight(correct, data.check.length)}
                 </p>
               ) : null}
               {save.state === 'busy' ? (
                 <p role="status" className="m-0 inline-flex items-center gap-2 text-body-lg font-semibold">
                   <UiIcon name="spinner" size={22} />
-                  Saving
+                  {copy.saving}
                 </p>
               ) : null}
               {save.state === 'error' ? (
                 <ActionError message={save.message ?? ''} reference={save.reference ?? 'KRA-LES'} className="text-left">
                   <Button variant="secondary" size="M" onClick={() => void complete()} className="mt-1 self-start">
-                    Try again
+                    {t.common.tryAgain}
                   </Button>
                 </ActionError>
               ) : null}
               <div className="mt-2 flex flex-wrap justify-center gap-3">
                 <ButtonLink href={data.backHref} variant="secondary">
-                  Back to the map
+                  {copy.backToMap}
                 </ButtonLink>
                 <ButtonLink href={`/practice/review/${data.skillId}`} variant="secondary" prefetch={false}>
-                  Review this lesson
+                  {copy.reviewLesson}
                 </ButtonLink>
                 <ButtonLink href={data.practiseHref} iconAfter="arrow-right">
-                  Practise now
+                  {copy.practiseNow}
                 </ButtonLink>
               </div>
             </div>
@@ -255,7 +258,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                 ) : null}
               </div>
               {part.step.show ? (
-                <span className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-numbers text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
+                <span lang="en-GB" className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-numbers text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
                   {part.step.show}
                 </span>
               ) : null}
@@ -263,7 +266,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           ) : null}
 
           {!finished && part?.kind === 'step' && captions ? (
-            <p aria-live="polite" className="m-0 min-h-16.5 rounded-control border border-divider bg-surface px-4 py-2.5 font-reading text-h3 md:text-h2 md:font-normal">
+            <p lang="en-GB" aria-live="polite" className="m-0 min-h-16.5 rounded-control border border-divider bg-surface px-4 py-2.5 font-reading text-h3 md:text-h2 md:font-normal">
               <TapWords text={part.step.say} enabled={!NO_LOOKUP_SKILLS.includes(data.skillId)} />
             </p>
           ) : null}
@@ -273,15 +276,15 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               {reduced ? null : (
                 <IconButton
                   icon={playing ? 'pause' : 'play'}
-                  label={playing ? 'Pause' : 'Play'}
+                  label={playing ? copy.pause : copy.play}
                   variant="primary"
                   disabled={part?.kind === 'check'}
                   onClick={() => setPlaying((p) => !p)}
                 />
               )}
-              <IconButton icon="skip-back" label="Previous part" disabled={at === 0} onClick={() => go(at - 1)} />
-              <IconButton icon="skip-next" label="Next part" disabled={!passable(at)} onClick={() => (at >= total - 1 ? goNext() : go(at + 1))} />
-              <ol aria-label={`Part ${at + 1} of ${total}`} className="m-0 ml-1.5 flex min-w-0 flex-1 list-none gap-1.5 p-0">
+              <IconButton icon="skip-back" label={copy.previousPart} disabled={at === 0} onClick={() => go(at - 1)} />
+              <IconButton icon="skip-next" label={copy.nextPart} disabled={!passable(at)} onClick={() => (at >= total - 1 ? goNext() : go(at + 1))} />
+              <ol aria-label={copy.partOf(at + 1, total)} className="m-0 ml-1.5 flex min-w-0 flex-1 list-none gap-1.5 p-0">
                 {parts.map((p, i) => (
                   <li key={i} className={cx('relative h-3 flex-1 rounded-pill', i < stepsDone ? style.bar : i === at ? 'border-2 border-fg bg-surface' : 'bg-divider')}>
                     {p.kind === 'check' ? (
@@ -299,7 +302,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
 
         <aside aria-labelledby="lesson-parts" className="flex min-w-0 flex-col gap-3 rounded-card bg-surface shadow-soft p-5.5 lg:flex-1">
           <h2 id="lesson-parts" className="m-0 text-h3 font-bold">
-            In this lesson
+            {copy.inThisLesson}
           </h2>
           <ol className="m-0 flex list-none flex-col gap-2 p-0">
             {parts.map((p, i) => {
@@ -330,15 +333,15 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                     >
                       {done ? <UiIcon name="check" size={16} strokeWidth={3} /> : p.kind === 'check' ? <UiIcon name="question" size={16} /> : i + 1}
                     </span>
-                    <span className="text-body-lg leading-6 font-bold">
-                      {p.kind === 'check' ? `Check: ${firstSentence(p.item.prompt)}` : firstSentence(p.step.say)}
+                    <span lang={p.kind === 'check' ? undefined : 'en-GB'} className="text-body-lg leading-6 font-bold">
+                      {p.kind === 'check' ? copy.checkPrefix(firstSentence(p.item.prompt)) : firstSentence(p.step.say)}
                     </span>
                   </button>
                 </li>
               )
             })}
           </ol>
-          <p className="m-0 mt-auto text-body text-fg-muted">The lesson stops at each check until you answer. Then you can keep going.</p>
+          <p className="m-0 mt-auto text-body text-fg-muted">{copy.stopsNote}</p>
         </aside>
       </div>
     </div>
@@ -366,22 +369,24 @@ function CheckPart({
   onNext: () => void
   isLast: boolean
 }): ReactElement {
+  const t = useT()
+  const copy = t.lessons.lesson
   const open = state.status === 'open'
   const feedback = state.status === 'correct' ? 'correct' : state.status === 'revealed' ? 'not-yet' : null
   const line =
     state.status === 'correct'
-      ? 'Correct.'
+      ? copy.correct
       : state.status === 'revealed'
-        ? `Not yet. The answer is ${item.reveal?.answerText ?? 'shown above'}.`
+        ? copy.notYetAnswer(item.reveal?.answerText ?? copy.answerShownAbove)
         : state.tries > 0
-          ? 'Not yet. Look at the picture again and try once more.'
+          ? copy.notYetLookAgain
           : null
   return (
     <div role="group" aria-labelledby={`check-title-${n}`} className="flex flex-1 flex-col gap-4 rounded-card border-3 border-fg bg-surface p-4 md:p-6">
       <div className="flex items-center gap-2.5">
         <span id={`check-title-${n}`} className="inline-flex h-7.5 items-center gap-1.5 rounded-pill bg-fg px-3 text-body font-bold text-white">
           <UiIcon name="check" size={14} strokeWidth={3} />
-          Check {count > 1 ? `${n + 1} of ${count}` : ''}
+          {count > 1 ? copy.checkBadgeOf(n + 1, count) : copy.checkBadge}
         </span>
       </div>
       <QuestionView item={item} number={n + 1} subject={subject} hideTools tapWords answer={{ value: state.value, onChange, disabled: !open, feedback }} />
@@ -392,11 +397,11 @@ function CheckPart({
         </p>
         {open ? (
           <Button onClick={onCheck} disabled={!isAnswerComplete(item, state.value)}>
-            Check
+            {t.common.check}
           </Button>
         ) : (
           <Button onClick={onNext} iconAfter="arrow-right" autoFocus>
-            {isLast ? 'Finish the lesson' : 'Keep going'}
+            {isLast ? copy.finishLesson : copy.keepGoing}
           </Button>
         )}
       </div>

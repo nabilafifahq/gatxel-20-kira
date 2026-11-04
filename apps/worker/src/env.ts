@@ -20,6 +20,9 @@ const schema = z
     TTS_URL: z.url({ error: 'harus berupa URL, misalnya http://tts:8000' }).optional(),
     SMTP_URL: z.string().regex(/^smtps?:\/\/\S+$/, 'harus diawali smtp:// atau smtps://').optional(),
     SMTP_FROM: z.string().optional(),
+    /** Alamat tim dukungan, dipisah koma. Dipakai sebagai Reply-To email keluar; cadangannya KIRA_LEGAL_EMAIL. */
+    KIRA_SUPPORT_EMAIL: z.string().optional(),
+    KIRA_LEGAL_EMAIL: z.string().optional(),
     AI_PROVIDER: z.enum(['claude-code', 'openai-compatible', 'none'], { error: 'pilih claude-code, openai-compatible, atau none' }).default('claude-code'),
     CLAUDE_CODE_OAUTH_TOKEN: z.string().optional(),
     CLAUDE_MODEL_AUTHOR: z.string().optional(),

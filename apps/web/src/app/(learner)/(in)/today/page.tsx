@@ -5,7 +5,7 @@ import { orgCtx, pageActor } from '@/server/auth/actor'
 import { ensureStarted, firstRunPending } from '@/server/dal/learner-entry'
 import { FirstRunTips } from '@/components/learner/FirstRunTips'
 import { offlineUrlsForToday, todayDTO } from '@/server/dal/learner-today'
-import { xpTracksDTO } from '@/server/dal/arena-tracks'
+import { tracksFor, xpTracksDTO } from '@/server/dal/arena-tracks'
 import { load } from '@/server/page'
 import { isFeatureOn } from '@/server/dal/learner-features'
 import { worldPeek } from '@/server/dal/kira-world'
@@ -23,8 +23,8 @@ export default async function TodayPage() {
   const { data, urls } = await load(() =>
     cachedToday(actor, jakartaDate(), () =>
       inOrg(orgCtx(actor), async (tx) => {
-        const today = await todayDTO(tx, orgCtx(actor), actor.userId)
-        const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today) }
+        const today = await todayDTO(tx, orgCtx(actor), actor.userId, actor.uiLang)
+        const data = { ...today, tracks: tracksFor(await xpTracksDTO(tx, actor.userId), today.shell.features ?? {}), chest: await chestDTO(tx, actor.userId, today, undefined, actor.uiLang) }
         return { data, urls: await offlineUrlsForToday(tx, actor.userId) }
       }),
     ),

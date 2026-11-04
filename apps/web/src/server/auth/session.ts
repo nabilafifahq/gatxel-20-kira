@@ -8,6 +8,7 @@ import { kvConfigured, kvDel, kvGet, kvSet } from '../kv'
 import { log } from '../log'
 import { clearCookie, readCookie, SESSION_ABSOLUTE_MS, SESSION_COOKIE, SESSION_IDLE_MS, writeCookie } from './cookies'
 import { randomToken, sha256hex } from './crypto'
+import type { UiLang } from '@/lib/i18n/lang'
 
 const { session, userAccount, device } = tables
 
@@ -21,6 +22,10 @@ export type SessionInfo = {
   email: string | null
   deviceId: string | null
   createdAt: Date
+  /** Bahasa tampilan anak, ikut terbaca bersama sesi supaya tidak ada query tambahan. Opsional hanya untuk fixture tes. */
+  uiLang?: UiLang
+  /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
+  uiLangSwitch?: boolean
 }
 
 /**
@@ -37,7 +42,11 @@ let flusher: NodeJS.Timeout | null = null
 
 const cacheKey = (id: string) => `sess:${id}`
 
+/** KIRA_TODAY_CACHE=off (CI e2e, yang mengubah database langsung) mematikan juga cache sesi. */
+const cacheOff = () => process.env.KIRA_TODAY_CACHE === 'off'
+
 async function cacheGet(id: string): Promise<CachedSession | null> {
+  if (cacheOff()) return null
   const raw = await kvGet(cacheKey(id))
   if (raw) {
     try {
@@ -53,6 +62,7 @@ async function cacheGet(id: string): Promise<CachedSession | null> {
 }
 
 async function cachePut(id: string, v: CachedSession): Promise<void> {
+  if (cacheOff()) return
   local.set(id, { at: Date.now(), v })
   if (local.size > 5000) local.clear()
   await kvSet(cacheKey(id), JSON.stringify(v), CACHE_TTL_S)
@@ -117,6 +127,8 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
       role: userAccount.role,
       name: userAccount.name,
       email: userAccount.email,
+      uiLang: userAccount.uiLang,
+      uiLangSwitch: userAccount.uiLangSwitch,
     })
     .from(session)
     .innerJoin(userAccount, eq(session.userId, userAccount.id))
@@ -149,6 +161,8 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
     email: row.email,
     deviceId: row.deviceId,
     createdAt: row.createdAt,
+    uiLang: row.uiLang,
+    uiLangSwitch: row.uiLangSwitch,
   }
   await cachePut(id, { info: { ...info, createdAt: info.createdAt.toISOString() }, expiresAt: row.expiresAt.getTime(), lastSeenAt: Math.max(row.lastSeenAt.getTime(), now) })
   return info
