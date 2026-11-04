@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto'
 import { and, desc, eq, isNotNull, sql } from 'drizzle-orm'
 import {
   ARENA_BADGES,
+  FLASH_LEVELS,
   FULL_XP_ROUNDS,
   MISSION_BONUS_XP,
   MISSION_MINUTES,
@@ -53,17 +54,29 @@ import type {
   QmStartInput,
   QmStatsDTO,
 } from '@/lib/dto-arena'
+import type { Dict } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { AppError, conflict, invalid } from '../errors'
 import { trackDTOs } from './arena-tracks'
 import { finishedRoundsOn, loadQmState, loadRolled, saveArenaState, trackTotals, type QmState } from './arena-state'
-import { assertCanPlay, assertOpen, clampMs, dropStaleRounds, loadSession, xpNote, type SessionRow } from './arena-session'
+import { EN_DICT, assertCanPlay, assertOpen, clampMs, dropStaleRounds, loadSession, requestDict, xpNote, type SessionRow } from './arena-session'
 import { awardBadges, learnerShell, loadLearner } from './learner-core'
 import { completeLinkedSession } from './learner-session'
 
 const { arenaSession, xpEvent } = tables
 
-const OP_WORD: Record<QmOp, string> = { add: 'Adding', sub: 'Taking away', mul: 'Times', div: 'Sharing' }
+function levelText(op: QmOp, level: number, t: Dict): string {
+  return t.arena.qm.levelDesc(op, level, describeLevel(op, level))
+}
+
+function flashText(level: number, t: Dict): string {
+  const s = FLASH_LEVELS[Math.max(1, Math.min(FLASH_LEVELS.length, level)) - 1]!
+  return t.arena.qm.flashDesc(s.terms, s.digits, s.signs ? 1 : 0, s.intervalMs, describeFlashLevel(level))
+}
+
+function strategyTitle(id: string, t: Dict): string {
+  return t.arena.qm.strategies[id as keyof Dict['arena']['qm']['strategies']]?.title ?? t.arena.qm.strategyFallback
+}
 
 // ---------------------------------------------------------------------------
 // Pengaturan ronde
@@ -85,9 +98,9 @@ function startInputOf(cfg: QmConfig): QmStartInput {
   }
 }
 
-function parseConfig(raw: unknown): QmConfig {
+function parseConfig(raw: unknown, t: Dict = EN_DICT): QmConfig {
   const cfg = raw as QmConfig
-  if (!cfg || typeof cfg !== 'object' || !QM_MODE_INFO[cfg.mode]) throw new AppError('invalid', 'That round is not valid.')
+  if (!cfg || typeof cfg !== 'object' || !QM_MODE_INFO[cfg.mode]) throw new AppError('invalid', t.arena.errors.roundInvalid)
   return cfg
 }
 
@@ -95,23 +108,30 @@ function parseAnswers(raw: unknown): StoredAnswer[] {
   return Array.isArray(raw) ? (raw as StoredAnswer[]) : []
 }
 
-function roundTitle(cfg: QmConfig, mission: string | null): string {
-  if (cfg.focus) return strategyById(cfg.focus)?.title ?? 'Strategy'
-  if (mission) return MISSION_STEPS.find((s) => s.id === mission)?.title ?? 'Daily mission'
-  if (cfg.mode === 'tables') return `${cfg.table} times table`
-  if (cfg.mode === 'soroban') return cfg.sorobanStage === 'read' ? 'Soroban: read the beads' : cfg.sorobanStage === 'set' ? 'Soroban: set the beads' : 'Soroban in your head'
-  if (cfg.mode === 'flash') return `Flash Anzan level ${cfg.flashLevel}`
-  return QM_MODE_INFO[cfg.mode].title
+function missionTitle(mission: string, t: Dict): string {
+  const step = MISSION_STEPS.find((s) => s.id === mission)
+  return step ? t.arena.qm.missionStep[step.id] : t.arena.qm.dailyMission
 }
 
-function roundSubtitle(cfg: QmConfig): string {
-  if (cfg.focus) return 'Try the strategy on five questions.'
-  if (cfg.mode === 'flash') return describeFlashLevel(cfg.flashLevel)
-  if (cfg.mode === 'soroban') return QM_MODE_INFO.soroban.blurb
-  if (cfg.mode === 'tables') return cfg.division ? 'Times and sharing facts.' : 'Times facts.'
-  if (cfg.auto) return 'Kira keeps the questions just right for you.'
-  const op = cfg.op === 'mixed' ? 'All four operations' : OP_WORD[cfg.op]
-  return `${op}, ${cfg.digits === 'mixed' ? 'mixed digits' : `${cfg.digits} digit${cfg.digits === 1 ? '' : 's'}`}, ${cfg.carry ? 'with' : 'without'} carrying`
+function roundTitle(cfg: QmConfig, mission: string | null, t: Dict): string {
+  const qm = t.arena.qm
+  if (cfg.focus) return strategyTitle(cfg.focus, t)
+  if (mission) return missionTitle(mission, t)
+  if (cfg.mode === 'tables') return qm.timesTable(cfg.table)
+  if (cfg.mode === 'soroban') return cfg.sorobanStage === 'read' ? qm.roundTitle.sorobanRead : cfg.sorobanStage === 'set' ? qm.roundTitle.sorobanSet : qm.roundTitle.sorobanAnzan
+  if (cfg.mode === 'flash') return qm.roundTitle.flash(cfg.flashLevel)
+  return qm.modes[cfg.mode]
+}
+
+function roundSubtitle(cfg: QmConfig, t: Dict): string {
+  const s = t.arena.qm.subtitle
+  if (cfg.focus) return s.focus
+  if (cfg.mode === 'flash') return flashText(cfg.flashLevel, t)
+  if (cfg.mode === 'soroban') return s.soroban
+  if (cfg.mode === 'tables') return cfg.division ? s.tablesBoth : s.tables
+  if (cfg.auto) return s.auto
+  const op = cfg.op === 'mixed' ? s.allOps : t.arena.qm.opWord[cfg.op]
+  return `${op}, ${cfg.digits === 'mixed' ? s.digitsMixed : s.digits(cfg.digits)}, ${cfg.carry ? s.withCarry : s.withoutCarry}`
 }
 
 async function missionStepsDoneOn(tx: Tx, learnerId: string, date: IsoDate): Promise<string[]> {
@@ -122,10 +142,10 @@ async function missionStepsDoneOn(tx: Tx, learnerId: string, date: IsoDate): Pro
   return rows.map((r) => r.step as string)
 }
 
-export async function startQmRound(tx: Tx, ctx: OrgContext, learnerId: string, input: QmStartInput): Promise<{ roundId: string }> {
+export async function startQmRound(tx: Tx, ctx: OrgContext, learnerId: string, input: QmStartInput, t: Dict = EN_DICT): Promise<{ roundId: string }> {
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
-  await assertCanPlay(tx, learner, today)
+  await assertCanPlay(tx, learner, today, t)
   await dropStaleRounds(tx, learnerId)
   const state = await loadQmState(tx, learnerId, learner.grade)
 
@@ -133,8 +153,8 @@ export async function startQmRound(tx: Tx, ctx: OrgContext, learnerId: string, i
   let missionStep: string | null = null
   if (input.mission) {
     const step = MISSION_STEPS.find((x) => x.id === input.mission)
-    if (!step) throw invalid('That mission step does not exist.')
-    if ((await missionStepsDoneOn(tx, learnerId, today)).includes(step.id)) throw conflict('You already finished that step today.')
+    if (!step) throw invalid(t.arena.errors.stepMissing)
+    if ((await missionStepsDoneOn(tx, learnerId, today)).includes(step.id)) throw conflict(t.arena.errors.stepDone)
     mode = step.mode
     missionStep = step.id
   }
@@ -171,25 +191,25 @@ function hintsOf(row: SessionRow): number[] {
   return Array.isArray(r?.hints) ? r!.hints! : []
 }
 
-export async function hintQmRound(tx: Tx, learnerId: string, input: { roundId: string; index: number }): Promise<{ title: string; steps: string[] }> {
-  const row = await loadSession(tx, learnerId, input.roundId, 'hitung', true)
-  assertOpen(row)
-  const cfg = parseConfig(row.config)
-  if (QM_MODE_INFO[cfg.mode].timed) throw invalid('Hints are not available in timed rounds.')
+export async function hintQmRound(tx: Tx, learnerId: string, input: { roundId: string; index: number }, t: Dict = EN_DICT): Promise<{ title: string; steps: string[] }> {
+  const row = await loadSession(tx, learnerId, input.roundId, 'hitung', true, t)
+  assertOpen(row, t)
+  const cfg = parseConfig(row.config, t)
+  if (QM_MODE_INFO[cfg.mode].timed) throw invalid(t.arena.errors.hintsTimed)
   const answers = parseAnswers(row.answers)
-  if (input.index !== answers.length || input.index >= cfg.count) throw conflict('Hints are only for the question you are on.')
+  if (input.index !== answers.length || input.index >= cfg.count) throw conflict(t.arena.errors.hintCurrent)
   const hint = hintFor(generateProblem(cfg, row.seed, input.index))
-  if (!hint) throw invalid('There is no hint for this question.')
+  if (!hint) throw invalid(t.arena.errors.noHint)
   const hints = hintsOf(row)
   if (!hints.includes(input.index)) await tx.update(arenaSession).set({ result: { hints: [...hints, input.index] } }).where(eq(arenaSession.id, row.id))
   return { title: hint.title, steps: hint.steps.slice(0, -1) }
 }
 
-export async function answerQmRound(tx: Tx, learnerId: string, input: { roundId: string; index: number; answer: number | null; ms: number }): Promise<QmAnswerResult> {
-  const row = await loadSession(tx, learnerId, input.roundId, 'hitung', true)
-  assertOpen(row)
-  const cfg = parseConfig(row.config)
-  if (input.index < 0 || input.index >= cfg.count) throw invalid('That question does not exist.')
+export async function answerQmRound(tx: Tx, learnerId: string, input: { roundId: string; index: number; answer: number | null; ms: number }, t: Dict = EN_DICT): Promise<QmAnswerResult> {
+  const row = await loadSession(tx, learnerId, input.roundId, 'hitung', true, t)
+  assertOpen(row, t)
+  const cfg = parseConfig(row.config, t)
+  if (input.index < 0 || input.index >= cfg.count) throw invalid(t.arena.errors.noQuestion)
   const info = QM_MODE_INFO[cfg.mode]
   const answers = parseAnswers(row.answers)
   const problem = generateProblem(cfg, row.seed, input.index)
@@ -201,9 +221,9 @@ export async function answerQmRound(tx: Tx, learnerId: string, input: { roundId:
   // Jawaban pertama untuk satu soal yang berlaku; panggilan ulang hanya mengembalikan hasilnya.
   const prev = answers[input.index]
   if (prev) return reveal(prev.a === problem.answer)
-  if (input.index !== answers.length) throw conflict('Answer the questions in order.')
+  if (input.index !== answers.length) throw conflict(t.arena.errors.inOrder)
   const elapsed = Date.now() - row.startedAt.getTime()
-  if (info.limitSec && elapsed > info.limitSec * 1000 + SPRINT_GRACE_MS) throw conflict("Time's up.")
+  if (info.limitSec && elapsed > info.limitSec * 1000 + SPRINT_GRACE_MS) throw conflict(t.arena.errors.timeUp)
   const stored: StoredAnswer = { i: input.index, a: input.answer, ms: clampMs(input.ms), t: elapsed, ...(hintsOf(row).includes(input.index) ? { hint: true } : {}) }
   await tx.update(arenaSession).set({ answers: [...answers, stored] }).where(eq(arenaSession.id, row.id))
   return reveal(input.answer === problem.answer)
@@ -228,25 +248,27 @@ async function priorBests(tx: Tx, learnerId: string, excludeId: string): Promise
   return { sprintPpm: r?.ppm ?? null, targetSec: r?.target != null ? r.target / 1000 : null }
 }
 
-function resultLines(cfg: QmConfig, r: ReturnType<typeof scoreQmRound>): string[] {
+function resultLines(cfg: QmConfig, r: ReturnType<typeof scoreQmRound>, t: Dict): string[] {
+  const res = t.arena.qm.result
   const total = cfg.count
   const sec = Math.round(r.durationMs / 100) / 10
-  if (cfg.mode === 'sprint60' || cfg.mode === 'sprint120') return [`You got ${r.correct} right in ${QM_MODE_INFO[cfg.mode].limitSec} seconds.`, `That is ${r.ppm} right a minute.`]
-  if (cfg.mode === 'target20') return [`${r.correct} of 20 right in ${sec} seconds.`]
-  if (cfg.mode === 'flash') return [`You got ${r.correct} of ${total} right at level ${cfg.flashLevel}.`]
-  if (cfg.mode === 'soroban') return [`You got ${r.correct} of ${total} right.`]
-  return [`You got ${r.correct} of ${total} right.`, ...(r.ppm > 0 && cfg.mode !== 'practice' ? [`That is ${r.ppm} right a minute.`] : [])]
+  if (cfg.mode === 'sprint60' || cfg.mode === 'sprint120') return [res.sprint(r.correct, QM_MODE_INFO[cfg.mode].limitSec), res.perMinute(r.ppm)]
+  if (cfg.mode === 'target20') return [res.target(r.correct, sec)]
+  if (cfg.mode === 'flash') return [res.flash(r.correct, total, cfg.flashLevel)]
+  if (cfg.mode === 'soroban') return [res.plain(r.correct, total)]
+  return [res.plain(r.correct, total), ...(r.ppm > 0 && cfg.mode !== 'practice' ? [res.perMinute(r.ppm)] : [])]
 }
 
-export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, roundId: string): Promise<QmResultDTO> {
-  const row = await loadSession(tx, learnerId, roundId, 'hitung', true)
+export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, roundId: string, t: Dict = EN_DICT): Promise<QmResultDTO> {
+  const res = t.arena.qm.result
+  const row = await loadSession(tx, learnerId, roundId, 'hitung', true, t)
   if (row.finishedAt) {
     const stored = (row.result as { dto?: QmResultDTO } | null)?.dto
     if (stored) return stored
-    throw conflict('This round is already finished.')
+    throw conflict(t.arena.errors.alreadyFinished)
   }
   const learner = await loadLearner(tx, learnerId)
-  const cfg = parseConfig(row.config)
+  const cfg = parseConfig(row.config, t)
   const answers = parseAnswers(row.answers)
   const r = scoreQmRound(cfg, row.seed, answers)
   const state: QmState = await loadQmState(tx, learnerId, learner.grade, true)
@@ -254,7 +276,7 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
   const before = await trackTotals(tx, learnerId)
   const bests = await priorBests(tx, learnerId, row.id)
   const levelNotes: string[] = []
-  const lines = resultLines(cfg, r)
+  const lines = resultLines(cfg, r, t)
 
   // Level adaptif (hanya ronde otomatis berisi soal aritmetika campuran, bukan pelajaran strategi)
   const arithmetic = ['practice', 'sprint60', 'sprint120', 'target20'].includes(cfg.mode) && !cfg.focus
@@ -264,14 +286,14 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
     state.ppm = { ...state.ppm, ...u.ppm }
     state.pending = u.pending
     for (const c of u.changes) {
-      levelNotes.push(c.to > c.from ? `${OP_WORD[c.op]} is now level ${c.to}: ${describeLevel(c.op, c.to)}.` : `Kira moved ${OP_WORD[c.op].toLowerCase()} to level ${c.to} so it feels just right.`)
+      levelNotes.push(c.to > c.from ? res.levelUp(t.arena.qm.opWord[c.op], c.to, levelText(c.op, c.to, t)) : res.levelDown(t.arena.qm.opWord[c.op], c.to))
     }
   }
   for (const op of QM_OPS) if ((r.perOp[op]?.correct ?? 0) > 0 && !state.opsPlayed.includes(op)) state.opsPlayed.push(op)
   if (cfg.mode === 'flash') {
     const next = nextSimpleLevel(cfg.flashLevel, r.correct, cfg.count, 8)
     if (r.correct / cfg.count >= 0.8) state.flashCleared = Math.max(state.flashCleared, cfg.flashLevel)
-    if (next !== cfg.flashLevel) levelNotes.push(next > cfg.flashLevel ? `Flash Anzan is now level ${next}: ${describeFlashLevel(next)}.` : `Kira moved Flash Anzan to level ${next} so it feels just right.`)
+    if (next !== cfg.flashLevel) levelNotes.push(next > cfg.flashLevel ? res.flashUp(next, flashText(next, t)) : res.flashDown(next))
     state.flashLevel = next
   }
   if (cfg.mode === 'soroban') {
@@ -279,13 +301,13 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
     state.soroban[cfg.sorobanStage] = next
     state.sorobanRounds += 1
     if (cfg.sorobanStage === 'anzan' && r.correct / cfg.count >= 0.75) state.anzanPassed += 1
-    if (next > cfg.sorobanLevel) levelNotes.push(`The soroban is now level ${next}. There are more rods.`)
+    if (next > cfg.sorobanLevel) levelNotes.push(res.sorobanUp(next))
   }
   if (cfg.mode === 'tables' && r.answered >= 10 && r.correct / r.answered >= 0.9 && !state.tablesMastered.includes(cfg.table)) state.tablesMastered.push(cfg.table)
   let strategyDone: QmResultDTO['strategyDone'] = null
   if (cfg.focus && r.correct >= 4) {
     const s = strategyById(cfg.focus)
-    if (s) strategyDone = { id: s.id, title: s.title }
+    if (s) strategyDone = { id: s.id, title: strategyTitle(s.id, t) }
     if (!state.strategies.includes(cfg.focus)) state.strategies.push(cfg.focus)
   }
 
@@ -315,8 +337,8 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
   await saveArenaState(tx, ctx, learnerId, 'hitung', state)
   const personal: string[] = []
   const sprint = cfg.mode === 'sprint60' || cfg.mode === 'sprint120'
-  if (sprint && r.answered >= 10 && r.correct / r.answered >= 0.8 && r.ppm > (bests.sprintPpm ?? 0) && bests.sprintPpm !== null) personal.push(`A new best sprint: ${r.ppm} a minute.`)
-  if (cfg.mode === 'target20' && r.answered === 20 && r.correct === 20 && bests.targetSec !== null && r.durationMs / 1000 < bests.targetSec) personal.push(`A new Target 20 record: ${Math.round(r.durationMs / 100) / 10} seconds.`)
+  if (sprint && r.answered >= 10 && r.correct / r.answered >= 0.8 && r.ppm > (bests.sprintPpm ?? 0) && bests.sprintPpm !== null) personal.push(res.bestSprint(r.ppm))
+  if (cfg.mode === 'target20' && r.answered === 20 && r.correct === 20 && bests.targetSec !== null && r.durationMs / 1000 < bests.targetSec) personal.push(res.bestTarget(Math.round(r.durationMs / 100) / 10))
 
   // Simpan hasil dulu supaya hitungan lencana dan level melihat ronde ini.
   await tx
@@ -331,14 +353,14 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
   const accessories = newlyEarnedAccessories(trackLevels(before), trackLevels(after))
   const reward: ArenaRewardDTO = {
     xp: earnedXp,
-    xpNote: xpNote(roundsBefore),
-    trackLabel: 'Quick Maths XP',
-    levelUp: ups ? { level: ups.to, label: `Quick Maths level ${ups.to}` } : null,
+    xpNote: xpNote(roundsBefore, t),
+    trackLabel: t.arena.reward.trackLabel.hitung,
+    levelUp: ups ? { level: ups.to, label: t.arena.reward.levelUp.hitung(ups.to) } : null,
     badges: newBadges
       .map((b) => ARENA_BADGES.find((a) => a.id === b.id) ?? null)
       .filter((b): b is NonNullable<typeof b> => b !== null)
-      .map((b) => ({ id: b.id, title: b.title, description: b.description, glyph: b.glyph })),
-    accessories: accessories.map((a) => ({ id: a.id, label: a.label })),
+      .map((b) => ({ id: b.id, title: t.arena.badges[b.id]?.title ?? b.title, description: t.arena.badges[b.id]?.description ?? b.description, glyph: b.glyph })),
+    accessories: accessories.map((a) => ({ id: a.id, label: t.arena.accessories[a.id] })),
     tracks: trackDTOs(after),
   }
   const accuracy = r.answered > 0 ? Math.round((r.correct / r.answered) * 100) : 0
@@ -348,7 +370,7 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
     accuracy,
     ppm: r.ppm,
     durationSec: Math.round(r.durationMs / 1000),
-    title: strategyDone ? 'Strategy learned' : 'Round done',
+    title: strategyDone ? res.strategyLearned : res.roundDone,
     lines: [...lines, ...personal],
     review: r.review,
     reward,
@@ -368,9 +390,10 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
 // Halaman ronde
 
 export async function qmRoundDTO(tx: Tx, learnerId: string, roundId: string): Promise<QmRoundDTO> {
-  const row = await loadSession(tx, learnerId, roundId, 'hitung')
+  const t = await requestDict()
+  const row = await loadSession(tx, learnerId, roundId, 'hitung', false, t)
   const learner = await loadLearner(tx, learnerId)
-  const cfg = parseConfig(row.config)
+  const cfg = parseConfig(row.config, t)
   const info = QM_MODE_INFO[cfg.mode]
   const answers = parseAnswers(row.answers)
   const done = answers.map((a) => {
@@ -384,8 +407,8 @@ export async function qmRoundDTO(tx: Tx, learnerId: string, roundId: string): Pr
     shell: await learnerShell(tx, learner),
     id: row.id,
     mode: cfg.mode,
-    title: roundTitle(cfg, row.missionStep),
-    subtitle: roundSubtitle(cfg),
+    title: roundTitle(cfg, row.missionStep, t),
+    subtitle: roundSubtitle(cfg, t),
     timed: info.timed,
     limitSec: info.limitSec,
     elapsedSec: Math.max(0, Math.floor((Date.now() - row.startedAt.getTime()) / 1000)),
@@ -393,8 +416,8 @@ export async function qmRoundDTO(tx: Tx, learnerId: string, roundId: string): Pr
     done,
     right,
     hints: hintsOn,
-    mission: row.missionStep ? { step: row.missionStep, title: MISSION_STEPS.find((s) => s.id === row.missionStep)?.title ?? 'Daily mission' } : null,
-    focus: cfg.focus ? { id: cfg.focus, title: strategyById(cfg.focus)?.title ?? 'Strategy' } : null,
+    mission: row.missionStep ? { step: row.missionStep, title: missionTitle(row.missionStep, t) } : null,
+    focus: cfg.focus ? { id: cfg.focus, title: strategyTitle(cfg.focus, t) } : null,
     finished,
     exitHref: cfg.focus ? `/quick-maths/lessons/${cfg.focus}` : '/quick-maths',
     again: row.missionStep ? null : startInputOf(cfg),
@@ -422,7 +445,7 @@ export async function qmStatRows(tx: Tx, learnerId: string, limit = 300): Promis
   }))
 }
 
-export function qmStatsDTO(rows: QmStatRow[], today: IsoDate, rolled: ArenaRolled = EMPTY_ROLLED): QmStatsDTO {
+export function qmStatsDTO(rows: QmStatRow[], today: IsoDate, rolled: ArenaRolled = EMPTY_ROLLED, t: Dict = EN_DICT): QmStatsDTO {
   const s = mergeQmRecords(summariseQm(rows, today), rolled)
   return {
     rounds: s.rounds,
@@ -431,12 +454,14 @@ export function qmStatsDTO(rows: QmStatRow[], today: IsoDate, rolled: ArenaRolle
     bestSprintPpm: s.bestSprintPpm,
     bestTargetSec: s.bestTargetSec,
     bestAccuracyRound: s.bestAccuracyRound,
-    week: s.week.map((d) => ({ date: d.date, label: d.label, rounds: d.rounds, correct: d.correct, ppm: d.ppm })),
-    slowest: s.slowest.map((f) => ({ fact: f.fact, label: f.label, avgSec: Math.round(f.avgMs / 100) / 10, accuracy: f.accuracy, n: f.n })),
+    week: s.week.map((d) => ({ date: d.date, label: t.arena.qm.weekdayShort[d.label] ?? d.label, rounds: d.rounds, correct: d.correct, ppm: d.ppm })),
+    slowest: s.slowest.map((f) => ({ fact: f.fact, label: t.arena.qm.factLabel(f.fact, f.label), avgSec: Math.round(f.avgMs / 100) / 10, accuracy: f.accuracy, n: f.n })),
   }
 }
 
 export async function qmHubDTO(tx: Tx, learnerId: string): Promise<QmHubDTO> {
+  const t = await requestDict()
+  const qm = t.arena.qm
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
   const state = await loadQmState(tx, learnerId, learner.grade)
@@ -452,21 +477,21 @@ export async function qmHubDTO(tx: Tx, learnerId: string): Promise<QmHubDTO> {
     shell: await learnerShell(tx, learner, today),
     tracks: trackDTOs(totals),
     modes: (Object.keys(QM_MODE_INFO) as (keyof typeof QM_MODE_INFO)[]).map((mode) => ({ mode, title: QM_MODE_INFO[mode].title, blurb: QM_MODE_INFO[mode].blurb, timed: QM_MODE_INFO[mode].timed })),
-    levels: QM_OPS.map((op) => ({ op, label: OP_WORD[op], level: state.levels[op], description: describeLevel(op, state.levels[op]) })),
-    flash: { level: state.flashLevel, description: describeFlashLevel(state.flashLevel), cleared: state.flashCleared },
+    levels: QM_OPS.map((op) => ({ op, label: qm.opWord[op], level: state.levels[op], description: levelText(op, state.levels[op], t) })),
+    flash: { level: state.flashLevel, description: flashText(state.flashLevel, t), cleared: state.flashCleared },
     soroban: state.soroban,
-    strategies: STRATEGIES.map((s) => ({ id: s.id, title: s.title, summary: s.summary, done: state.strategies.includes(s.id) })),
+    strategies: STRATEGIES.map((s) => ({ id: s.id, title: qm.strategies[s.id].title, summary: qm.strategies[s.id].summary, done: state.strategies.includes(s.id) })),
     mission: {
-      steps: MISSION_STEPS.map((s) => ({ id: s.id, title: s.id === 'tables' ? `${missionTable(today)} times table` : s.title, minutes: s.minutes, done: doneSteps.includes(s.id), mode: s.mode })),
+      steps: MISSION_STEPS.map((s) => ({ id: s.id, title: s.id === 'tables' ? qm.timesTable(missionTable(today)) : qm.missionStep[s.id], minutes: s.minutes, done: doneSteps.includes(s.id), mode: s.mode })),
       done: missionComplete(doneSteps),
       table: missionTable(today),
       minutes: MISSION_MINUTES,
       streak: missionStreak(state.missionDates, today),
       bonusXp: MISSION_BONUS_XP,
     },
-    stats: qmStatsDTO(rows, today, await loadRolled(tx, learnerId, 'hitung')),
+    stats: qmStatsDTO(rows, today, await loadRolled(tx, learnerId, 'hitung'), t),
     roundsToday,
-    xpNote: roundsToday >= FULL_XP_ROUNDS ? xpNote(roundsToday) : null,
+    xpNote: roundsToday >= FULL_XP_ROUNDS ? xpNote(roundsToday, t) : null,
     limitReached,
   }
 }
@@ -474,14 +499,15 @@ export async function qmHubDTO(tx: Tx, learnerId: string): Promise<QmHubDTO> {
 export async function qmLessonDTO(tx: Tx, learnerId: string, id: string): Promise<QmLessonDTO | null> {
   const strategy = strategyById(id)
   if (!strategy) return null
+  const copy = (await requestDict()).arena.qm.strategies[strategy.id]
   const learner = await loadLearner(tx, learnerId)
   const state = await loadQmState(tx, learnerId, learner.grade)
   const next = STRATEGIES.find((s) => s.id !== strategy.id && !state.strategies.includes(s.id))
   return {
     shell: await learnerShell(tx, learner),
     id: strategy.id,
-    title: strategy.title,
-    summary: strategy.summary,
+    title: copy.title,
+    summary: copy.summary,
     cards: strategy.cards,
     done: state.strategies.includes(strategy.id),
     nextHref: next ? `/quick-maths/lessons/${next.id}` : null,

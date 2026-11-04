@@ -12,6 +12,7 @@ import { CountdownOverlay } from '@/components/learner/CountdownOverlay'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
 import { ActionError } from '@/screens/learner/common'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Quick Maths: misi harian, permainan (Practice, Sprint, Target, Times tables, Flash Anzan, Soroban),
@@ -23,12 +24,12 @@ type Settings = { auto: boolean; op: QmStartInput['op']; digits: QmStartInput['d
 const DEFAULTS: Settings = { auto: true, op: 'mixed', digits: 'mixed', carry: true, table: 2, division: false, stage: 'read' }
 const STORAGE_KEY = 'kira.quickmaths.settings'
 
-const OPS: { id: Settings['op']; label: string; sym: string }[] = [
-  { id: 'add', label: 'Add', sym: '+' },
-  { id: 'sub', label: 'Take away', sym: '−' },
-  { id: 'mul', label: 'Times', sym: '×' },
-  { id: 'div', label: 'Share', sym: '÷' },
-  { id: 'mixed', label: 'Mixed', sym: '+ − × ÷' },
+const OPS: { id: Settings['op']; sym: string }[] = [
+  { id: 'add', sym: '+' },
+  { id: 'sub', sym: '−' },
+  { id: 'mul', sym: '×' },
+  { id: 'div', sym: '÷' },
+  { id: 'mixed', sym: '+ − × ÷' },
 ]
 
 function Chips<T extends string | number>({ label, value, options, onChange, disabled }: { label: string; value: T; options: { id: T; label: string }[]; onChange: (v: T) => void; disabled?: boolean }): ReactElement {
@@ -70,11 +71,12 @@ function Card({ title, id, children, className }: { title: string; id?: string; 
 }
 
 function WeekChart({ week }: { week: QmStatsDTO['week'] }): ReactElement {
+  const t = useT().arena.qm.hub
   const max = Math.max(1, ...week.map((d) => d.correct))
   return (
-    <ul aria-label="Right answers in the last 7 days" className="m-0 flex h-36 list-none items-end gap-2 p-0">
+    <ul aria-label={t.weekAria} className="m-0 flex h-36 list-none items-end gap-2 p-0">
       {week.map((d) => (
-        <li key={d.date} className="flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-1" aria-label={`${d.label}: ${d.correct} right in ${d.rounds} ${d.rounds === 1 ? 'round' : 'rounds'}${d.ppm > 0 ? `, ${d.ppm} a minute` : ''}`}>
+        <li key={d.date} className="flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-1" aria-label={t.weekDayAria(d.label, d.correct, d.rounds, d.ppm)}>
           <span aria-hidden="true" className="text-body font-bold tabular-nums">
             {d.correct > 0 ? d.correct : ''}
           </span>
@@ -89,21 +91,22 @@ function WeekChart({ week }: { week: QmStatsDTO['week'] }): ReactElement {
 }
 
 function StatsCard({ stats }: { stats: QmStatsDTO }): ReactElement {
+  const t = useT().arena.qm.hub
   if (stats.rounds === 0) {
     return (
-      <Card title="My Quick Maths">
-        <p className="m-0 text-body-lg text-fg-muted">Finish a round to see how many a minute you can do, your best scores and which facts to practise.</p>
+      <Card title={t.statsTitle}>
+        <p className="m-0 text-body-lg text-fg-muted">{t.statsEmpty}</p>
       </Card>
     )
   }
   return (
-    <Card title="My Quick Maths" id="stats">
+    <Card title={t.statsTitle} id="stats">
       <dl className="m-0 grid grid-cols-2 gap-3 md:grid-cols-4">
         {[
-          ['Rounds', String(stats.rounds)],
-          ['Right a minute', stats.ppm === null ? '-' : String(stats.ppm)],
-          ['Accuracy', stats.accuracy === null ? '-' : `${stats.accuracy}%`],
-          ['Best sprint', stats.bestSprintPpm === null ? '-' : `${stats.bestSprintPpm} a minute`],
+          [t.statRounds, String(stats.rounds)],
+          [t.statRight, stats.ppm === null ? '-' : String(stats.ppm)],
+          [t.statAccuracy, stats.accuracy === null ? '-' : `${stats.accuracy}%`],
+          [t.statBest, stats.bestSprintPpm === null ? '-' : t.perMinute(stats.bestSprintPpm)],
         ].map(([k, v]) => (
           <div key={k} className="flex flex-col rounded-control bg-mental-50 px-3 py-2">
             <dt className="text-body text-fg-muted">{k}</dt>
@@ -112,20 +115,20 @@ function StatsCard({ stats }: { stats: QmStatsDTO }): ReactElement {
         ))}
       </dl>
       <div className="flex flex-wrap gap-x-6 gap-y-1 text-body-lg">
-        {stats.bestTargetSec !== null ? <span>Target 20 record: <strong className="tabular-nums">{stats.bestTargetSec} s</strong></span> : null}
-        {stats.bestAccuracyRound ? <span>Best round: <strong className="tabular-nums">{stats.bestAccuracyRound.correct} of {stats.bestAccuracyRound.answered}</strong></span> : null}
+        {stats.bestTargetSec !== null ? <span>{t.targetRecord} <strong className="tabular-nums">{t.seconds(stats.bestTargetSec)}</strong></span> : null}
+        {stats.bestAccuracyRound ? <span>{t.bestRound} <strong className="tabular-nums">{t.of(stats.bestAccuracyRound.correct, stats.bestAccuracyRound.answered)}</strong></span> : null}
       </div>
-      <h3 className="m-0 text-h3 font-bold">This week</h3>
+      <h3 className="m-0 text-h3 font-bold">{t.thisWeek}</h3>
       <WeekChart week={stats.week} />
       {stats.slowest.length > 0 ? (
         <>
-          <h3 className="m-0 text-h3 font-bold">Slowest facts</h3>
-          <p className="m-0 text-body text-fg-muted">These take you the longest. A few practice rounds will speed them up.</p>
+          <h3 className="m-0 text-h3 font-bold">{t.slowest}</h3>
+          <p className="m-0 text-body text-fg-muted">{t.slowestNote}</p>
           <ul className="m-0 flex list-none flex-col gap-1.5 p-0">
             {stats.slowest.map((f) => (
               <li key={f.fact} className="flex flex-wrap items-baseline justify-between gap-2 rounded-control border border-divider px-3 py-2 text-body-lg">
                 <span className="font-bold">{f.label}</span>
-                <span className="tabular-nums text-fg-muted">{f.avgSec} s each, {f.accuracy}% right</span>
+                <span className="tabular-nums text-fg-muted">{t.slowestRow(f.avgSec, f.accuracy)}</span>
               </li>
             ))}
           </ul>
@@ -136,6 +139,9 @@ function StatsCard({ stats }: { stats: QmStatsDTO }): ReactElement {
 }
 
 export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions: Pick<QmActions, 'start'> }): ReactElement {
+  const dict = useT()
+  const qm = dict.arena.qm
+  const t = qm.hub
   const router = useRouter()
   const [settings, setSettings] = useState<Settings>(DEFAULTS)
   const [busy, setBusy] = useState<string | null>(null)
@@ -193,7 +199,7 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
       if (res.ok) router.push(res.data.redirectTo)
       else setError({ message: res.message, reference: res.reference })
     } catch {
-      setError({ message: 'The round could not start. Check the internet and try again.', reference: 'KRA-QM-NET' })
+      setError({ message: dict.arena.errors.roundNet, reference: 'KRA-QM-NET' })
     } finally {
       setBusy(null)
     }
@@ -209,15 +215,15 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <UiIcon name="bolt" size={36} className="text-fg" />
-          <h1 className="m-0 text-h1 font-bold">Quick Maths</h1>
+          <h1 className="m-0 text-h1 font-bold">{qm.title}</h1>
         </div>
-        <p className="m-0 max-w-[640px] text-body-lg text-fg-muted">Fast sums, any time. You earn purple XP and Quick Maths levels.</p>
+        <p className="m-0 max-w-[640px] text-body-lg text-fg-muted">{t.intro}</p>
         <XpTrackBars tracks={data.tracks} only="hitung" className="max-w-[460px]" />
       </header>
 
       {off ? (
         <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface p-4 text-body-lg font-bold">
-          Time for a break. You have used your minutes for today.
+          {dict.arena.breakTime}
         </p>
       ) : null}
       {data.xpNote ? (
@@ -227,10 +233,10 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
       ) : null}
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
 
-      <Card title="Daily mission" id="mission">
+      <Card title={t.mission} id="mission">
         <p className="m-0 text-body-lg text-fg-muted">
-          About {data.mission.minutes} minutes. Finish all four steps for {data.mission.bonusXp} bonus XP.
-          {data.mission.streak > 1 ? ` ${data.mission.streak} days in a row.` : ''}
+          {t.missionIntro(data.mission.minutes, data.mission.bonusXp)}
+          {data.mission.streak > 1 ? t.missionStreak(data.mission.streak) : ''}
         </p>
         <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2 lg:grid-cols-4">
           {data.mission.steps.map((s, i) => (
@@ -240,29 +246,29 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
               </span>
               <span className="flex min-w-0 flex-col">
                 <span className="text-body font-bold">{s.title}</span>
-                <span className="text-body text-fg-muted">{s.done ? 'Done' : `About ${s.minutes} min`}</span>
+                <span className="text-body text-fg-muted">{s.done ? dict.common.done : t.aboutMin(s.minutes)}</span>
               </span>
             </li>
           ))}
         </ol>
         {data.mission.done ? (
-          <p className="m-0 text-body-lg font-bold text-success">Mission done for today. Nice work.</p>
+          <p className="m-0 text-body-lg font-bold text-success">{t.missionDone}</p>
         ) : (
           <Button iconAfter="arrow-right" loading={busy === 'mission'} disabled={off || !nextStep} onClick={() => nextStep && void start('mission', { mode: nextStep.mode, mission: nextStep.id })} className="self-start">
-            {data.mission.steps.some((s) => s.done) ? `Next step: ${nextStep?.title ?? ''}` : 'Start the mission'}
+            {data.mission.steps.some((s) => s.done) ? t.nextStep(nextStep?.title ?? '') : t.startMission}
           </Button>
         )}
       </Card>
 
-      <Card title="Your settings" id="settings">
+      <Card title={t.settings} id="settings">
         <div className="flex flex-col gap-1.5">
-          <span className="text-body font-bold">Level</span>
+          <span className="text-body font-bold">{t.level}</span>
           <Chips
-            label="Level"
+            label={t.level}
             value={settings.auto ? 'auto' : 'mine'}
             options={[
-              { id: 'auto', label: 'Auto (just right)' },
-              { id: 'mine', label: 'My choice' },
+              { id: 'auto', label: t.auto },
+              { id: 'mine', label: t.mine },
             ]}
             onChange={(v) => update({ auto: v === 'auto' })}
           />
@@ -271,55 +277,55 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
           <ul className="m-0 grid list-none gap-1.5 p-0 text-body md:grid-cols-2">
             {data.levels.map((l) => (
               <li key={l.op} className="rounded-control bg-mental-50 px-3 py-2">
-                <strong>{l.label}</strong> level {l.level}: {l.description}
+                <strong>{l.label}</strong>{t.levelRow(l.level, l.description)}
               </li>
             ))}
           </ul>
         ) : (
           <>
             <div className="flex flex-col gap-1.5">
-              <span className="text-body font-bold">Sums</span>
-              <Chips label="Sums" value={settings.op} options={OPS.map((o) => ({ id: o.id, label: `${o.label}${o.id === 'mixed' ? '' : ` ${o.sym}`}` }))} onChange={(v) => update({ op: v })} />
+              <span className="text-body font-bold">{t.sums}</span>
+              <Chips label={t.sums} value={settings.op} options={OPS.map((o) => ({ id: o.id, label: `${qm.ops[o.id]}${o.id === 'mixed' ? '' : ` ${o.sym}`}` }))} onChange={(v) => update({ op: v })} />
             </div>
             <div className="flex flex-col gap-1.5">
-              <span className="text-body font-bold">Digits</span>
+              <span className="text-body font-bold">{t.digits}</span>
               <Chips
-                label="Digits"
+                label={t.digits}
                 value={settings.digits}
                 options={[
                   { id: 1 as QmStartInput['digits'], label: '1' },
                   { id: 2 as QmStartInput['digits'], label: '2' },
                   { id: 3 as QmStartInput['digits'], label: '3' },
-                  { id: 'mixed' as QmStartInput['digits'], label: 'Mixed' },
+                  { id: 'mixed' as QmStartInput['digits'], label: t.mixed },
                 ]}
                 onChange={(v) => update({ digits: v })}
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <span className="text-body font-bold">Carrying and borrowing</span>
+              <span className="text-body font-bold">{t.carry}</span>
               <Chips
-                label="Carrying and borrowing"
+                label={t.carry}
                 value={settings.carry ? 'yes' : 'no'}
                 options={[
-                  { id: 'yes', label: 'With' },
-                  { id: 'no', label: 'Without' },
+                  { id: 'yes', label: t.with },
+                  { id: 'no', label: t.without },
                 ]}
                 onChange={(v) => update({ carry: v === 'yes' })}
               />
             </div>
           </>
         )}
-        <p className="m-0 text-body text-fg-muted">For Grade 2: answers are never negative and sharing always comes out even.</p>
+        <p className="m-0 text-body text-fg-muted">{t.gradeNote}</p>
       </Card>
 
-      <Card title="Pick a game" id="games">
+      <Card title={t.games} id="games">
         <ul className="m-0 grid list-none gap-3 p-0 md:grid-cols-2 xl:grid-cols-3">
           {(
             [
-              ['practice', 'Practice', 'No timer. Ask for a hint any time.', 'Start practice'],
-              ['sprint60', 'Sprint 60', 'As many as you can in 60 seconds.', 'Start sprint'],
-              ['sprint120', 'Sprint 120', 'As many as you can in 2 minutes.', 'Start sprint'],
-              ['target20', 'Target 20', '20 questions, as fast as you can.', 'Start target'],
+              ['practice', qm.modes.practice, t.practiceBlurb, t.startPractice],
+              ['sprint60', qm.modes.sprint60, t.sprint60Blurb, t.startSprint],
+              ['sprint120', qm.modes.sprint120, t.sprint120Blurb, t.startSprint],
+              ['target20', qm.modes.target20, t.targetBlurb, t.startTarget],
             ] as const
           ).map(([mode, title, blurb, cta]) => (
             <li key={mode} className="flex flex-col gap-2 rounded-control border-2 border-border p-4">
@@ -331,50 +337,50 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
             </li>
           ))}
           <li className="flex flex-col gap-2 rounded-control border-2 border-border p-4 md:col-span-2 xl:col-span-1">
-            <h3 className="m-0 text-h3 font-bold">Times tables</h3>
-            <p className="m-0 text-body text-fg-muted">Pick one table and master it.</p>
-            <Chips label="Table" value={settings.table} options={Array.from({ length: 11 }, (_, i) => ({ id: i + 2, label: String(i + 2) }))} onChange={(v) => update({ table: v })} />
+            <h3 className="m-0 text-h3 font-bold">{qm.modes.tables}</h3>
+            <p className="m-0 text-body text-fg-muted">{t.tablesBlurb}</p>
+            <Chips label={t.table} value={settings.table} options={Array.from({ length: 11 }, (_, i) => ({ id: i + 2, label: String(i + 2) }))} onChange={(v) => update({ table: v })} />
             <label className="flex min-h-11 items-center gap-2 text-body font-semibold">
               <input type="checkbox" checked={settings.division} onChange={(e) => update({ division: e.target.checked })} className="h-5 w-5" />
-              Include sharing facts
+              {t.includeSharing}
             </label>
             <Button variant="secondary" size="M" loading={busy === 'tables'} disabled={off} onClick={() => void start('tables', { mode: 'tables' })}>
-              Practise the {settings.table} times table
+              {t.practiseTable(settings.table)}
             </Button>
           </li>
           <li className="flex flex-col gap-2 rounded-control border-2 border-border p-4 md:col-span-2 xl:col-span-1">
-            <h3 className="m-0 text-h3 font-bold">Flash Anzan</h3>
-            <p className="m-0 text-body text-fg-muted">Numbers flash by. Add them in your head.</p>
+            <h3 className="m-0 text-h3 font-bold">{qm.modes.flash}</h3>
+            <p className="m-0 text-body text-fg-muted">{t.flashBlurb}</p>
             <p className="m-0 text-body">
-              Level {data.flash.level}: {data.flash.description}
+              {t.flashLevel(data.flash.level, data.flash.description)}
             </p>
             <Button variant="secondary" size="M" loading={busy === 'flash'} disabled={off} onClick={() => void start('flash', { mode: 'flash' })}>
-              Start Flash Anzan
+              {t.startFlash}
             </Button>
           </li>
           <li className="flex flex-col gap-2 rounded-control border-2 border-border p-4 md:col-span-2 xl:col-span-1">
-            <h3 className="m-0 text-h3 font-bold">Soroban</h3>
-            <p className="m-0 text-body text-fg-muted">Learn the bead values, then see the beads in your mind.</p>
+            <h3 className="m-0 text-h3 font-bold">{qm.modes.soroban}</h3>
+            <p className="m-0 text-body text-fg-muted">{t.sorobanBlurb}</p>
             <Chips
-              label="Soroban stage"
+              label={t.sorobanStage}
               value={settings.stage}
               options={[
-                { id: 'read' as Settings['stage'], label: `Read (L${data.soroban.read})` },
-                { id: 'set' as Settings['stage'], label: `Set (L${data.soroban.set})` },
-                { id: 'anzan' as Settings['stage'], label: `In my head (L${data.soroban.anzan})` },
+                { id: 'read' as Settings['stage'], label: t.stageRead(data.soroban.read) },
+                { id: 'set' as Settings['stage'], label: t.stageSet(data.soroban.set) },
+                { id: 'anzan' as Settings['stage'], label: t.stageAnzan(data.soroban.anzan) },
               ]}
               onChange={(v) => update({ stage: v })}
             />
             <Button variant="secondary" size="M" loading={busy === 'soroban'} disabled={off} onClick={() => void start('soroban', { mode: 'soroban', sorobanStage: settings.stage })}>
-              Start soroban
+              {t.startSoroban}
             </Button>
           </li>
         </ul>
-        {manual ? <p className="m-0 text-body text-fg-muted">Sprints, Target and Practice use your settings above.</p> : null}
+        {manual ? <p className="m-0 text-body text-fg-muted">{t.settingsNote}</p> : null}
       </Card>
 
-      <Card title="Strategy lessons" id="strategies">
-        <p className="m-0 text-body-lg text-fg-muted">Short lessons with tricks for quick sums. Finish a lesson to earn 10 XP.</p>
+      <Card title={t.strategies} id="strategies">
+        <p className="m-0 text-body-lg text-fg-muted">{t.strategiesIntro}</p>
         <ul className="m-0 grid list-none gap-2 p-0 md:grid-cols-2">
           {data.strategies.map((s) => (
             <li key={s.id}>
@@ -386,7 +392,7 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
                   <span className="text-body-lg font-bold">{s.title}</span>
                   <span className="text-body text-fg-muted">{s.summary}</span>
                 </span>
-                <span className="ml-auto text-body font-bold">{s.done ? 'Done' : 'Open'}</span>
+                <span className="ml-auto text-body font-bold">{s.done ? dict.common.done : t.open}</span>
               </Link>
             </li>
           ))}
