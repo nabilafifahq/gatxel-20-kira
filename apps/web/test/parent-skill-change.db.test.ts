@@ -51,6 +51,14 @@ describe.skipIf(!ready)('ganti pelajaran oleh orang tua', () => {
     (await owner`select id, skill_id, attempt_id, kind, status, title, plan_slot_id from quest where learner_id = ${learner} and date = ${today} and subject = ${subject} and session = ${sessionName} order by kind, seq limit 1`)[0]!
   const dayRecord = async (learner: string) => (await owner`select quests_done, quests_required from day_record where learner_id = ${learner} and date = ${today}`)[0]!
   const childSession = async (learner: string, questId: string, a = PA()) => (await R.parentChildDTO(a, learner)).today.sessions.find((s) => s.questId === questId)!
+  const childSession2 = async (learner: string, questId: string) => {
+    await owner`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgA}, ${gA}, ${learner}) on conflict do nothing`
+    try {
+      return await childSession(learner, questId)
+    } finally {
+      await owner`delete from guardian_link where guardian_id = ${gA} and learner_id = ${learner}`
+    }
+  }
   /** Satu jawaban nyata di attempt ini: sesi menjadi sedang dikerjakan, seperti di runner. */
   const answerOne = async (learner: string, org: string, attemptId: string) => {
     const [at] = await owner`select items, subject from attempt where id = ${attemptId}`
@@ -213,6 +221,14 @@ describe.skipIf(!ready)('ganti pelajaran oleh orang tua', () => {
     expect(await questOf(a1, 'english', 'latihan')).toMatchObject({ skill_id: lat.skill_id, attempt_id: lat.attempt_id })
     expect(await questOf(a1, 'english', 'tes')).toMatchObject({ id: tes.id, skill_id: pick.id })
     expect((await owner`select count(*)::int as n from response where attempt_id = ${lat.attempt_id as string}`)[0]!.n).toBe(1)
+  })
+
+  it('sesi yang sudah dibuka di runner, walau belum dijawab, juga tetap berjalan', async () => {
+    const lat = await questOf(a3, 'english', 'latihan')
+    await owner`update attempt set opened_at = now() where id = ${lat.attempt_id as string}`
+    const row = await childSession2(a3, lat.id as string)
+    expect(row).toMatchObject({ state: 'in-progress', canChangeSkill: true })
+    await owner`update attempt set opened_at = null where id = ${lat.attempt_id as string}`
   })
 
   it('sesi berjalan tanpa sesi berikutnya: orang tua diberi tahu dan tidak ada yang berubah', async () => {

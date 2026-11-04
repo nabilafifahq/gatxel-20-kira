@@ -62,11 +62,12 @@ describe('skillChangeView', () => {
     expect(skillChangeView(s('p', { session: 'paper' }), [], sessionName)).toMatchObject({ canChange: false, note: null })
   })
 
-  it('jawaban yang sudah masuk berarti sedang dikerjakan, walau status quest masih ready', () => {
-    expect(sessionState('ready', 0)).toBe('ready')
-    expect(sessionState('ready', 1)).toBe('in-progress')
-    expect(sessionState('in_progress', 0)).toBe('in-progress')
-    expect(sessionState('done', 3)).toBe('done')
+  it('jawaban yang sudah masuk atau runner yang sudah dibuka berarti sedang dikerjakan, walau status quest masih ready', () => {
+    expect(sessionState('ready', 0, false)).toBe('ready')
+    expect(sessionState('ready', 1, false)).toBe('in-progress')
+    expect(sessionState('ready', 0, true)).toBe('in-progress')
+    expect(sessionState('in_progress', 0, false)).toBe('in-progress')
+    expect(sessionState('done', 3, true)).toBe('done')
   })
 })
 

@@ -27,9 +27,9 @@ import { groupSkillOptions, sessionName, sessionState, skillChangeView, type Ski
  * membatalkannya.
  */
 
-const { quest, response } = tables
+const { attempt, quest, response } = tables
 
-/** Jumlah jawaban per attempt: status quest tetap ready sampai selesai, jadi sesi berjalan terlihat dari jawabannya. */
+/** Jumlah jawaban per attempt, untuk sessionState. */
 export async function answeredByAttempt(tx: Tx, attemptIds: readonly (string | null)[]): Promise<Map<string, number>> {
   const ids = attemptIds.filter((id): id is string => id !== null)
   if (ids.length === 0) return new Map()
@@ -53,11 +53,13 @@ async function daySessions(tx: Tx, learnerId: string, date: IsoDate): Promise<(S
       status: quest.status,
       slotId: quest.planSlotId,
       attemptId: quest.attemptId,
+      openedAt: attempt.openedAt,
     })
     .from(quest)
+    .leftJoin(attempt, eq(attempt.id, quest.attemptId))
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
   const answered = await answeredByAttempt(tx, rows.map((r) => r.attemptId))
-  return rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, answered.get(r.attemptId ?? '') ?? 0), slotId: r.slotId }))
+  return rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, answered.get(r.attemptId ?? '') ?? 0, r.openedAt !== null), slotId: r.slotId }))
 }
 
 /** Sesi hari ini yang dituju, hanya bila anaknya tertaut ke orang tua ini. */

@@ -23,10 +23,13 @@ const SESSION_NAME: Record<string, string> = { latihan: 'Latihan', tes: 'Tes' }
 /** "Tes Math". */
 export const sessionName = (s: { session: string; subject: Subject }) => `${SESSION_NAME[s.session] ?? s.session} ${SUBJECT_NAME[s.subject]}`
 
-/** Keadaan sesi seperti di Today anak: ada jawaban berarti sedang dikerjakan, walau status quest masih ready. */
-export function sessionState(status: string, answered: number): SkillSessionState {
+/**
+ * Keadaan sesi untuk orang tua. Status quest tetap ready sampai selesai, jadi sesi berjalan terlihat dari jawabannya,
+ * dan dari runner yang sudah dibuka: anak bisa sedang membaca soal pertama, dan soal itu tidak boleh hilang dari layarnya.
+ */
+export function sessionState(status: string, answered: number, opened: boolean): SkillSessionState {
   if (status === 'done' || status === 'skipped') return 'done'
-  return status === 'in_progress' || answered > 0 ? 'in-progress' : 'ready'
+  return status === 'in_progress' || answered > 0 || opened ? 'in-progress' : 'ready'
 }
 
 /** Hanya Latihan dan Tes yang berisi satu pelajaran. Paper berisi campuran beberapa topik. */

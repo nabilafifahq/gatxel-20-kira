@@ -173,6 +173,7 @@ async function todaySessions(tx: Tx, learnerId: string, date: IsoDate): Promise<
       max: attempt.scoreMax,
       scaled: attempt.scoreScaled,
       aStatus: attempt.status,
+      openedAt: attempt.openedAt,
       count: sql<number | null>`case when ${attempt.items} is null then null else jsonb_array_length(${attempt.items}) end`,
     })
     .from(quest)
@@ -180,7 +181,7 @@ async function todaySessions(tx: Tx, learnerId: string, date: IsoDate): Promise<
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
   const order = (s: string) => ['latihan', 'tes', 'paper'].indexOf(s)
   const answered = await answeredByAttempt(tx, rows.map((r) => r.attemptId))
-  const plans: SkillSession[] = rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, answered.get(r.attemptId ?? '') ?? 0) }))
+  const plans: SkillSession[] = rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, answered.get(r.attemptId ?? '') ?? 0, r.openedAt !== null) }))
   return rows
     .sort((a, b) => Number(b.kind === 'daily') - Number(a.kind === 'daily') || SUBJECT_ORDER.indexOf(a.subject as Subject) - SUBJECT_ORDER.indexOf(b.subject as Subject) || order(a.session) - order(b.session) || a.seq - b.seq)
     .map((r) => {
