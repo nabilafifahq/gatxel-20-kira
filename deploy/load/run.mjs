@@ -30,7 +30,7 @@ const appPw = envVal('KIRA_APP_PASSWORD')
 const sh = (cmd, args, opts = {}) => {
   try {
     return execFileSync(cmd, args, { encoding: 'utf8', timeout: 20000, maxBuffer: 16 * 1024 * 1024, ...opts })
-  } catch (e) {
+  } catch {
     return ''
   }
 }

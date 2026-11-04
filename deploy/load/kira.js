@@ -5,9 +5,9 @@
 // Satu VU adalah satu anak yang sedang aktif (atau satu orang tua). Staging saja, bukan produksi.
 import http from 'k6/http'
 import { SharedArray } from 'k6/data'
-import { check, group } from 'k6'
+import { check } from 'k6'
 import {
-  BASE, MAILPIT, THINK, ACTIONS, families, action, page, cookieFor, headers, think, uuids, uuidv4, bizOk, expect200,
+  BASE, MAILPIT, THINK, families, action, page, cookieFor, headers, think, uuids, uuidv4, bizOk, expect200,
 } from './lib.js'
 
 const SCENARIO = __ENV.SCENARIO || 'mixed'
@@ -141,7 +141,7 @@ function runSession(w, s, opts) {
 const clips = new SharedArray('clips', () => {
   try {
     return JSON.parse(open('/out/clips.json'))
-  } catch (e) {
+  } catch {
     return []
   }
 })
