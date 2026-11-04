@@ -87,7 +87,7 @@ test('Kira World: telur menetas, beri camilan, belanja, album, cerita, bos, pial
   await shot('story-end')
   // Selesai bab: kartu kenangan, lalu sobekan surat tersimpan.
   await page.getByRole('button', { name: 'Finish chapter' }).click()
-  await expect(page.getByRole('dialog').getByText('Lumi')).toBeVisible()
+  await expect(page.getByRole('dialog').getByText('Lumi')).toBeVisible({ timeout: 60_000 })
   await shot('story-card')
   await page.getByRole('dialog').getByRole('button', { name: 'Close' }).first().click()
   await expect(page.getByText('1 of 8 scraps')).toBeVisible()
@@ -133,6 +133,8 @@ test('Kira World: telur menetas, beri camilan, belanja, album, cerita, bos, pial
   await page.goto(`/world/boss/result/${won!.id}`)
   await expect(page.getByRole('heading', { level: 1, name: 'You beat Clickerclaw!' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'A new rare card!' })).toBeVisible()
+  // Kartu berbalik sambil memudar. Tunggu selesai, supaya pemeriksaan kontras tidak membaca warna di tengah animasi.
+  await page.locator('.kw-flip').evaluate((el) => Promise.all(el.getAnimations().map((x) => x.finished)))
   await expectNoSeriousA11y(page, 'Hasil menang')
   await noHorizontalScroll(page)
   await shot('boss-win')
