@@ -3,18 +3,18 @@
 import Link from 'next/link'
 import { useEffect, useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
-import { Checkbox, TextField } from '@/components/console/Field'
+import { Checkbox, FieldError, focusFirstProblem, RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
-import { PasswordField, passwordProblem } from '@/components/console/PasswordField'
+import { PasswordField } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
 import { TurnstileField } from '@/components/auth/TurnstileField'
+import { isComplete, signupProblems, type Problems, type SignupField } from '@/lib/required-rules'
 import { AuthCard } from '@/screens/public/PublicFrame'
 import { resendVerificationAction, signUpAction } from '@/server/actions/signup'
 
-const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 /** Sama dengan RESEND_GAP_MS di server. Di bawah jeda ini server tidak mengirim apa pun. */
 const RESEND_WAIT_S = 60
-type Errors = { name?: string; email?: string; password?: string; consent?: string }
+type Errors = Problems<SignupField>
 
 /** Pendaftaran orang tua: nama, email, password, persetujuan. Setelah terkirim, layar berganti ke petunjuk cek email. */
 export function SignupClient({
@@ -44,6 +44,7 @@ export function SignupClient({
   }
   const [password, setPassword] = useState('')
   const [consent, setConsent] = useState(false)
+  const [marketing, setMarketing] = useState(false)
   const [captcha, setCaptcha] = useState<string | null>(null)
   const [captchaKey, setCaptchaKey] = useState(0)
   const [errors, setErrors] = useState<Errors>({})
@@ -60,23 +61,19 @@ export function SignupClient({
     return () => window.clearInterval(t)
   }, [waiting])
 
+  const problems = signupProblems({ name, email, password, consent, captchaNeeded: Boolean(turnstileSiteKey) && !captcha })
+  const incomplete = !isComplete(problems)
+
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = e.currentTarget
     const em = email.trim()
-    const next: Errors = {}
-    if (name.trim().length < 2) next.name = 'Tulis nama Anda, paling sedikit 2 huruf.'
-    if (!em) next.email = 'Isi email Anda.'
-    else if (!EMAIL_RE.test(em)) next.email = 'Tulis alamat email lengkap, dengan @ dan nama domain.'
-    const pwProblem = passwordProblem(password)
-    if (pwProblem) next.password = pwProblem
-    if (!consent) next.consent = 'Centang persetujuan untuk melanjutkan.'
-    setErrors(next)
-    if (Object.keys(next).length > 0) return
-    if (turnstileSiteKey && !captcha) {
-      setErrors({ consent: 'Selesaikan pemeriksaan keamanan di atas dulu.' })
+    setErrors(problems)
+    if (incomplete) {
+      focusFirstProblem(form)
       return
     }
-    const r = await signup.run({ name: name.trim(), email: em, password, consent, ...(captcha ? { turnstile: captcha } : {}) })
+    const r = await signup.run({ name: name.trim(), email: em, password, consent, marketing, ...(captcha ? { turnstile: captcha } : {}) })
     if (r.ok) {
       setSentTo(em)
       setPassword('')
@@ -84,7 +81,10 @@ export function SignupClient({
       setWait(RESEND_WAIT_S)
       setCaptchaKey((k) => k + 1)
     } else {
-      if (r.fieldErrors) setErrors({ name: r.fieldErrors.name, email: r.fieldErrors.email, password: r.fieldErrors.password, consent: r.fieldErrors.consent })
+      if (r.fieldErrors) {
+        setErrors({ name: r.fieldErrors.name, email: r.fieldErrors.email, password: r.fieldErrors.password, consent: r.fieldErrors.consent })
+        focusFirstProblem(form)
+      }
       setCaptchaKey((k) => k + 1)
     }
   }
@@ -146,8 +146,10 @@ export function SignupClient({
         </p>
       </div>
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
+        <RequiredNote />
         <TextField
           name="name"
+          required
           label="Nama orang tua"
           autoComplete="name"
           value={name}
@@ -160,6 +162,7 @@ export function SignupClient({
         />
         <TextField
           name="email"
+          required
           label="Email"
           type="email"
           inputMode="email"
@@ -177,6 +180,7 @@ export function SignupClient({
         />
         <PasswordField
           name="password"
+          required
           label="Password"
           autoComplete="new-password"
           size="L"
@@ -188,36 +192,52 @@ export function SignupClient({
             if (errors.password) setErrors((x) => ({ ...x, password: undefined }))
           }}
         />
-        <div className="flex flex-col gap-1">
-          <Checkbox
-            name="consent"
-            checked={consent}
-            onChange={(e) => {
-              setConsent(e.target.checked)
-              if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }))
+        <Checkbox
+          name="consent"
+          required
+          checked={consent}
+          error={errors.consent}
+          onChange={(e) => {
+            setConsent(e.target.checked)
+            if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }))
+          }}
+          label={
+            <>
+              Saya setuju dengan{' '}
+              <Link href="/ketentuan" target="_blank" className="underline underline-offset-3">
+                Syarat dan Ketentuan
+              </Link>{' '}
+              dan{' '}
+              <Link href="/privasi" target="_blank" className="underline underline-offset-3">
+                Kebijakan Privasi
+              </Link>
+            </>
+          }
+        />
+        <Checkbox
+          name="marketing"
+          optional
+          checked={marketing}
+          onChange={(e) => setMarketing(e.target.checked)}
+          label="Kirim saya kabar produk, tips belajar, dan penawaran dari Kira lewat email"
+        />
+        <div tabIndex={errors.captcha ? -1 : undefined} data-problem={errors.captcha ? 'true' : undefined} className="flex flex-col gap-1">
+          <TurnstileField
+            siteKey={turnstileSiteKey}
+            onToken={(t) => {
+              setCaptcha(t)
+              if (t && errors.captcha) setErrors((x) => ({ ...x, captcha: undefined }))
             }}
-            label={
-              <>
-                Saya setuju dengan{' '}
-                <Link href="/ketentuan" target="_blank" className="underline underline-offset-3">
-                  Syarat dan Ketentuan
-                </Link>{' '}
-                dan sudah membaca{' '}
-                <Link href="/privasi" target="_blank" className="underline underline-offset-3">
-                  Kebijakan Privasi
-                </Link>
-              </>
-            }
+            resetKey={captchaKey}
           />
-          {errors.consent ? <p className="m-0 text-small font-bold text-danger">{errors.consent}</p> : null}
+          {errors.captcha ? <FieldError id="daftar-captcha-error">{errors.captcha}</FieldError> : null}
         </div>
-        <TurnstileField siteKey={turnstileSiteKey} onToken={setCaptcha} resetKey={captchaKey} />
         {signup.error && !signup.error.fieldErrors ? (
           <InlineAlert tone="danger" title={signup.error.message} reference={signup.error.reference}>
             Coba lagi dalam beberapa menit.
           </InlineAlert>
         ) : null}
-        <Button type="submit" variant="primary" loading={signup.pending} className="h-12! w-full">
+        <Button type="submit" variant="primary" loading={signup.pending} incomplete={incomplete} className="h-12! w-full">
           Daftar
         </Button>
       </form>

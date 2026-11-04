@@ -49,7 +49,7 @@ export const MULAI: { title: string; body: ReactNode }[] = [
     title: 'Tambahkan anak',
     body: (
       <>
-        Isi nama panggilan, kelas, avatar, dan PIN dari empat gambar. Centang izin <L>Belajar di Kira</L>, karena anak baru bisa masuk setelah izin ini disimpan.
+        Isi nama panggilan, kelas, avatar, dan PIN dari empat gambar. Centang persetujuan orang tua atau wali, karena anak hanya bisa ditambahkan setelah persetujuan ini diberikan.
       </>
     ),
   },

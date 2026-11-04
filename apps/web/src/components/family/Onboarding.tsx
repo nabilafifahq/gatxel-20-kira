@@ -9,16 +9,18 @@ import { recommendationFor, recommendationSummary } from '@kira/core/recommendat
 import type { AvatarName, PinPicture } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
 import { cx } from '@/components/console/cx'
-import { Checkbox, FieldError, TextField } from '@/components/console/Field'
+import { Checkbox, FieldError, focusFirstProblem, RequiredMark, RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
 import { PIN_LABEL, PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useAction } from '@/components/console/useAction'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
+import { GuardianConsent } from '@/components/family/GuardianConsent'
 import { AccountMenu } from '@/components/ui/AccountMenu'
 import { UiIcon } from '@/components/ui/icons'
 import { SegmentedControl } from '@/components/ui/SegmentedControl'
 import { ONBOARDING_STEPS, naturalStep, type OnboardingStep } from '@/lib/onboarding-steps'
+import { addChildProblems, isComplete, type AddChildField, type Problems } from '@/lib/required-rules'
 import { PublicFrame } from '@/screens/public/PublicFrame'
 import { addChildAction, applyPathAction, markCustomPathAction, saveConsentsAction } from '@/server/actions/onboarding'
 import { UiLangChoice } from './UiLangChoice'
@@ -477,36 +479,43 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
   const [pin, setPin] = useState<PinPicture[]>([])
   const [uiLang, setUiLang] = useState<UiLang>('id')
   const [consents, setConsents] = useState<Record<OnboardingPurpose, boolean>>({ learning: false, 'progress-email': false, audio: false, photo: false })
-  const [errors, setErrors] = useState<{ name?: string; pin?: string; consent?: string }>({})
+  const [errors, setErrors] = useState<Problems<AddChildField>>({})
   const add = useAction(addChildAction)
   const saveConsents = useAction(saveConsentsAction)
   const gid = useId().replace(/:/g, '')
 
-  async function submit(e: FormEvent) {
+  const problems = addChildProblems({ name, pinProblem: pinProblem(pin), consent: consents.learning })
+  const incomplete = !isComplete(problems)
+
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const next: typeof errors = {}
-    if (!name.trim()) next.name = 'Isi nama panggilan anak.'
-    const pp = pinProblem(pin)
-    if (pp) next.pin = pp
-    if (!consents.learning) next.consent = 'Centang izin Belajar di Kira supaya anak bisa masuk.'
-    setErrors(next)
-    if (next.name || next.pin || next.consent) return
-    const r = await add.run({ name: name.trim(), grade, avatar, pin, uiLang })
+    const form = e.currentTarget
+    setErrors(problems)
+    if (incomplete) {
+      focusFirstProblem(form)
+      return
+    }
+    const r = await add.run({ name: name.trim(), grade, avatar, pin, uiLang, guardianConsent: consents.learning })
     if (r.ok) {
-      // Izin dicatat sesudah anak ada. Bila gagal, kartu izin muncul di daftar anak dan bisa dicoba lagi.
+      // Izin belajar sudah tercatat bersama anaknya di server. Izin tambahan menyusul; bila gagal, bisa diubah di halaman Privasi.
       await saveConsents.run({ learnerId: r.data.learnerId, consents })
       const chosen = pin
       setName('')
       setPin([])
       setAvatar(AVATARS.find((a) => a !== avatar && !taken.has(a)) ?? firstFree)
       onAdded(r.data.learnerId, chosen)
-    } else if (r.fieldErrors?.name) setErrors({ name: r.fieldErrors.name })
+    } else if (r.fieldErrors) {
+      setErrors({ name: r.fieldErrors.name, consent: r.fieldErrors.guardianConsent })
+      focusFirstProblem(form)
+    }
   }
 
   return (
     <form onSubmit={submit} noValidate aria-label="Tambah anak" className="flex flex-col gap-5 rounded-card bg-surface p-5 shadow-soft">
       <h2 className="m-0 text-h3 font-bold">{first ? 'Siapa yang akan belajar?' : 'Tambah anak lain'}</h2>
+      <RequiredNote className="-mt-3" />
       <TextField
+        required
         label="Nama panggilan"
         hint="Nama yang tampil di layar anak. Tidak perlu nama lengkap."
         value={name}
@@ -519,7 +528,10 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
         }}
       />
       <div className="flex flex-col gap-1.5">
-        <span className="text-small font-bold">Kelas</span>
+        <span className="text-small font-bold">
+          Kelas
+          <RequiredMark />
+        </span>
         <SegmentedControl
           label="Kelas"
           value={String(grade)}
@@ -528,7 +540,10 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
         />
       </div>
       <fieldset className="m-0 flex min-w-0 flex-col gap-2 border-0 p-0">
-        <legend className="mb-1.5 p-0 text-small font-bold">Avatar</legend>
+        <legend className="mb-1.5 p-0 text-small font-bold">
+          Avatar
+          <RequiredMark />
+        </legend>
         <div className="grid grid-cols-4 gap-2">
           {AVATARS.map((a) => (
             <label key={a} className={cx('relative flex min-w-0', taken.has(a) ? 'cursor-not-allowed' : 'cursor-pointer')}>
@@ -548,20 +563,18 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
           ))}
         </div>
       </fieldset>
-      <UiLangChoice name={`bahasa${gid}`} value={uiLang} onChange={setUiLang} />
-      <PinChooser value={pin} onChange={(p) => { setPin(p); if (errors.pin) setErrors((x) => ({ ...x, pin: undefined })) }} error={errors.pin} legend="PIN gambar untuk masuk" />
+      <UiLangChoice name={`bahasa${gid}`} value={uiLang} onChange={setUiLang} required />
+      <PinChooser value={pin} onChange={(p) => { setPin(p); if (errors.pin) setErrors((x) => ({ ...x, pin: undefined })) }} error={errors.pin} required legend="PIN gambar untuk masuk" />
       <fieldset className="m-0 flex min-w-0 flex-col gap-3 border-0 p-0">
         <legend className="mb-1 p-0 text-small font-bold">Izin data</legend>
-        <Checkbox
+        <GuardianConsent
           checked={consents.learning}
-          onChange={(e) => {
-            setConsents((c) => ({ ...c, learning: e.target.checked }))
+          error={errors.consent}
+          onChange={(checked) => {
+            setConsents((c) => ({ ...c, learning: checked }))
             if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }))
           }}
-          label={PURPOSES[0]!.label}
-          description={PURPOSES[0]!.description}
         />
-        {errors.consent ? <FieldError id={`${gid}-c`}>{errors.consent}</FieldError> : null}
         <details className="group">
           <summary className="flex min-h-11 list-none items-center gap-2 text-body font-bold">
             <UiIcon name="chevron-right" size={18} className="transition-transform duration-150 ease-kira group-open:rotate-90" />
@@ -569,7 +582,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
           </summary>
           <div className="flex flex-col gap-3 pt-2">
             {PURPOSES.slice(1).map((p) => (
-              <Checkbox key={p.id} checked={consents[p.id]} onChange={(e) => setConsents((c) => ({ ...c, [p.id]: e.target.checked }))} label={p.label} description={p.description} />
+              <Checkbox key={p.id} optional checked={consents[p.id]} onChange={(e) => setConsents((c) => ({ ...c, [p.id]: e.target.checked }))} label={p.label} description={p.description} />
             ))}
           </div>
         </details>
@@ -580,7 +593,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
         </InlineAlert>
       ) : null}
       {add.error?.fieldErrors?.name ? <FieldError id={`${gid}-n`}>{add.error.fieldErrors.name}</FieldError> : null}
-      <Button type="submit" variant="primary" loading={add.pending} className="h-12 w-full">
+      <Button type="submit" variant="primary" loading={add.pending} incomplete={incomplete} className="h-12 w-full">
         Tambahkan anak
       </Button>
     </form>
