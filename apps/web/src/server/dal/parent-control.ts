@@ -17,8 +17,8 @@ import { plannerDTO, removeSession, setSessionRequired, upsertSlot } from './con
 import { updateLearnerLimitsTx } from './console-settings'
 import { updateLearnerSoundTx } from './learner-motion'
 import { resolveItems } from './content'
-import { saveFeaturesTx } from './learner-features'
-import type { FeatureMap } from '@kira/core/features'
+import { featureMapFor, saveFeaturesTx } from './learner-features'
+import { sessionAllowed, type FeatureMap } from '@kira/core/features'
 
 /**
  * Aksi orang tua atas anaknya. Setiap fungsi memeriksa guardian_link lebih dulu (`ownChild`), lalu memakai
@@ -87,7 +87,9 @@ const DEFAULT_COUNT = { latihan: 10, tes: 8 } as const
 
 /** Tambah sesi opsional hari ini (paling banyak 10 sesi tambahan; server menolak yang ke-11). */
 export async function parentAddOptional(actor: Actor, input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper' }): Promise<PlanChangeResult> {
-  await ownChild(actor, input.learnerId, 'session.added', { subject: input.subject, session: input.session }, async () => undefined)
+  await ownChild(actor, input.learnerId, 'session.added', { subject: input.subject, session: input.session }, async (tx) => {
+    if (!sessionAllowed(await featureMapFor(tx, input.learnerId), input.subject, input.session)) throw conflict('Mapel atau jenis sesi ini sedang dimatikan untuk anak ini. Nyalakan dulu di Pengaturan.')
+  })
   return upsertSlot(asStaff(actor), {
     learnerId: input.learnerId,
     date: jakartaDate(),

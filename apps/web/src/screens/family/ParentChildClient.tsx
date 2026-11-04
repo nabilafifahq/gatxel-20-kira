@@ -16,6 +16,7 @@ import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
+import { activeSubjects, type FeatureMap } from '@kira/core/features'
 import { FamilyShell } from '@/components/family/FamilyShell'
 import { WeekSummary } from '@/components/family/WeekSummary'
 import { PlacementSection } from './PlacementSection'
@@ -113,7 +114,7 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
         {note ? <InlineAlert tone="success" title={note} /> : null}
         <SessionList title="Wajib" sessions={required} onNote={setNote} learnerId={c.id} />
         <SessionList title="Opsional" sessions={optional} onNote={setNote} learnerId={c.id} />
-        <AddOptional learnerId={c.id} onNote={setNote} />
+        <AddOptional learnerId={c.id} features={data.controls.features} onNote={setNote} />
       </Section>
 
       <Section id="hasil" title="Hasil terbaru" hint="Buka satu sesi untuk melihat soal, jawaban anak, jawaban benar, dan penjelasan.">
@@ -350,8 +351,10 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
   )
 }
 
-function AddOptional({ learnerId, onNote }: { learnerId: string; onNote: (n: string | null) => void }) {
-  const [subject, setSubject] = useState<Subject>('math')
+function AddOptional({ learnerId, features, onNote }: { learnerId: string; features: FeatureMap; onNote: (n: string | null) => void }) {
+  const subjects = activeSubjects(features)
+  const [picked, setSubject] = useState<Subject | null>(null)
+  const subject = picked && subjects.includes(picked) ? picked : (subjects[0] ?? 'math')
   const [session, setSession] = useState<'latihan' | 'tes' | 'paper'>('latihan')
   const add = useAction(parentAddOptionalAction)
   return (
@@ -362,7 +365,7 @@ function AddOptional({ learnerId, onNote }: { learnerId: string; onNote: (n: str
           label="Mata pelajaran"
           value={subject}
           onChange={(e) => setSubject(e.target.value as Subject)}
-          options={(['math', 'english', 'science'] as const).map((s) => ({ value: s, label: SUBJECT_NAME[s] }))}
+          options={subjects.map((s) => ({ value: s, label: SUBJECT_NAME[s] }))}
         />
         <Select
           label="Jenis"
