@@ -4,7 +4,7 @@ import { AccountMenu } from '@/components/ui/AccountMenu'
 import { SiteFooter } from '@/components/ui/SiteFooter'
 import { SiteHeader } from '@/components/ui/SiteHeader'
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import type { ConsoleShell } from '@/lib/dto'
 import { cx } from '@/components/console/cx'
 import { ConsoleIcon } from '@/components/console/icons'
@@ -37,6 +37,14 @@ export function FamilyShell({
     { key: 'privacy', label: 'Privasi', href: `${FAMILY_ROUTES.privacy}${q}`, icon: 'shield' as const },
     { key: 'help', label: 'Bantuan', href: `${PUBLIC_ROUTES.feedback}?dari=${FAMILY_ROUTES.home}`, icon: 'chat' as const },
   ]
+  // Di HP tab tidak muat semua. Tiap halaman punya shell sendiri, jadi tab aktif digeser ke tengah supaya tetap terlihat.
+  const navRef = useRef<HTMLElement>(null)
+  useEffect(() => {
+    const el = navRef.current
+    const tab = el?.querySelector<HTMLElement>('[aria-current="page"]')
+    if (!el || !tab || el.scrollWidth <= el.clientWidth) return
+    el.scrollLeft += tab.getBoundingClientRect().left - el.getBoundingClientRect().left - (el.clientWidth - tab.offsetWidth) / 2
+  }, [active])
   return (
     <ToastProvider>
       <div className="flex min-h-svh flex-col bg-bg text-fg">
@@ -57,7 +65,12 @@ export function FamilyShell({
               {learnerName}
             </p>
           ) : null}
-          <nav aria-label="Halaman keluarga" className="mx-auto flex max-w-[720px] gap-1 overflow-x-auto px-2 lg:max-w-[880px] lg:justify-center">
+          {/* Tepi kanan memudar di HP: tanda bahwa masih ada tab Lembar kerja, Rapor, dan Privasi di sebelah kanan. */}
+          <nav
+            ref={navRef}
+            aria-label="Halaman keluarga"
+            className="mx-auto flex max-w-[720px] gap-1 overflow-x-auto px-2 max-sm:pr-8 max-sm:[mask-image:linear-gradient(to_right,black_calc(100%-40px),transparent)] lg:max-w-[880px] lg:justify-center"
+          >
             {nav.map((n) => {
               const on = n.key === active
               return (
