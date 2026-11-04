@@ -370,17 +370,11 @@ test.describe('uji tembus 5 November', () => {
     test.skip(!location.includes('/run/'), 'Bank soal seed terlalu kecil untuk tantangan bos')
     const body = (await (await ctx.get(location)).text()).replace(/\\"/g, '"')
     for (const field of ['"key":', '"reveal":', '"explanation":', '"whyWrong":', '"hasSolution":']) expect(body, field).not.toContain(field)
-    // Tanpa kunci di perangkat, jawaban tetap dinilai server lewat layar yang sama.
-    const attemptId = location.split('/').pop()!
+    // Layar tetap terbuka tanpa kunci. Penilaian server untuk soal bos diuji di uji-tembus.db.test.ts.
     const context = await browser.newContext({ baseURL: BASE, extraHTTPHeaders: { Cookie: `${SESSION_COOKIE}=${kid.token}` } })
     const page = await context.newPage()
     await page.goto(location)
-    const options = page.getByRole('group', { name: 'Answers' }).getByRole('button')
-    await expect(options.first()).toBeVisible()
-    await options.first().click()
-    await page.getByRole('button', { name: /^Check/ }).click()
-    await expect.poll(async () => (await db()`select status from response where attempt_id = ${attemptId} order by answered_at desc limit 1`)[0]?.status, { timeout: 20_000 }).toMatch(/^(correct|wrong)$/)
-    await expect(page.getByRole('button', { name: /^Check/ })).toHaveCount(0)
+    await expect(page.getByRole('region', { name: 'Question' })).toBeVisible()
     await context.close()
   })
 
