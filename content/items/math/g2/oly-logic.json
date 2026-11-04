@@ -1645,7 +1645,7 @@
       "id": "m2.oly-logic.024",
       "skill": "m2.oly-logic",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "A hen is heavier than a cat. A cat is heavier than a dog. A rabbit is lighter than the dog. Which animal is the lightest?",
       "options": [
         {
@@ -1688,8 +1688,8 @@
         "sasmo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-logic.025",
@@ -2656,10 +2656,7 @@
           "say": "The top row adds up to 4 + 9 + 8 = 21."
         },
         {
-          "say": "The middle row is 11 + ?"
-        },
-        {
-          "say": "+ 3 = 21, so the middle is 21 - 14 = 7.",
+          "say": "The middle row must also add up to 21, and 11 + 3 = 14. So the middle is 21 - 14 = 7.",
           "anim": {
             "k": "bar",
             "parts": [
@@ -3099,8 +3096,8 @@
         ]
       ],
       "hints": [
-        "Find a row, column or box with only one empty box.",
-        "Look at which numbers are already there. Which is missing?",
+        "No line has just one empty box yet. Start with row 1, which still needs 2 and 4.",
+        "Column 4 already has a 2. So which number goes at the end of row 1?",
         "Check the column and the 2 by 2 box as well."
       ],
       "explanation": "Every row, column and 2 by 2 box has 1, 2, 3 and 4 once. Fill the boxes one at a time, starting where only one number fits.",
@@ -3152,11 +3149,11 @@
         ]
       ],
       "hints": [
-        "Find a row or column with only one empty box.",
-        "Which number is missing from that row?",
-        "Check the column too."
+        "Row 2 still needs 1 and 3.",
+        "Column 3 already has a 3. So which number goes at the end of row 2?",
+        "Then finish row 3 the same way."
       ],
-      "explanation": "Each row and each column has 1, 2 and 3 once. Start with a line that has only one empty box.",
+      "explanation": "Each row and each column has 1, 2 and 3 once. Row 2 still needs 1 and 3. Column 3 already has a 3, so row 2 is 3, 2, 1. Then row 3 is 1, 3, 2.",
       "tags": [
         "olympiad"
       ],
