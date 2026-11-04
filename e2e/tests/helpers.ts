@@ -148,3 +148,12 @@ export async function noHorizontalScroll(page: Page): Promise<void> {
 export async function newTabletContext(context: BrowserContext): Promise<Page> {
   return context.newPage()
 }
+
+/**
+ * Status yang benar untuk /api/internal/*: lewat proxy Caddy (stack Compose) rute ini ditutup dengan 404 persis; langsung ke
+ * Next (tanpa proxy) rute ada tetapi menolak tanpa token yang benar dengan 401, atau 503 bila token server belum diatur.
+ */
+export async function internalStatuses(request: { get(url: string): Promise<{ headers(): Record<string, string> }> }): Promise<number[]> {
+  const server = (await request.get('/api/health')).headers()['server'] ?? ''
+  return /caddy/i.test(server) ? [404] : [401, 503]
+}
