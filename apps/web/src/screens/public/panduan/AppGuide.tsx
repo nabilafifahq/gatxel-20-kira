@@ -15,7 +15,7 @@ export type AppGuideProps = {
 /** Gambar HP sederhana dengan isi layar yang menjelaskan satu langkah. Hiasan: langkahnya ada di teks. */
 function PhoneFigure({ children, label }: { children: React.ReactNode; label: string }) {
   return (
-    <svg viewBox="0 0 120 200" width="120" height="200" role="img" aria-label={label} className="flex-none">
+    <svg viewBox="0 0 120 200" width="120" height="200" role="img" aria-label={label} className="h-auto w-[72px] flex-none sm:w-[120px]">
       <rect x="6" y="4" width="108" height="192" rx="18" className="fill-surface stroke-fg" strokeWidth="3" />
       <rect x="46" y="11" width="28" height="4" rx="2" className="fill-lavender" />
       {children}
@@ -151,7 +151,7 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
               body: 'Masuk dengan email dan password Ayah/Bunda. Di halaman Keluarga tekan Daftarkan perangkat ini, pilih anak, lalu simpan. Sejak itu perangkat menampilkan pilihan nama anak dan PIN gambar.',
             },
           ].map((s, i) => (
-            <div key={s.title} className="flex items-center gap-5 rounded-card bg-surface p-5 shadow-soft max-sm:flex-col max-sm:items-start">
+            <div key={s.title} className="flex items-start gap-4 rounded-card bg-surface p-5 shadow-soft sm:items-center sm:gap-5">
               {s.fig}
               <div className="flex min-w-0 flex-col gap-1">
                 <h3 className="m-0 text-h3 font-semibold">

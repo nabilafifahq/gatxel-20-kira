@@ -187,7 +187,8 @@ const HARI: GuideFeature[] = [
     title: 'Sesi wajib atau opsional',
     short: 'Wajib atau opsional',
     icon: con('plan'),
-    what: 'Setiap sesi bisa wajib, opsional, atau mati. Hanya sesi wajib yang dihitung untuk streak. Seimbang adalah aturan bawaan: Latihan wajib, Tes dan Paper opsional. Penuh mewajibkan ketiganya, jadi 9 sesi sehari. Ringan hanya berisi Latihan. Kustom bisa diatur per hari, per mapel, dan per sesi.',
+    what: 'Setiap sesi bisa wajib, opsional, atau mati. Hanya sesi wajib yang dihitung untuk streak. Seimbang adalah aturan bawaan, dengan 3 sesi wajib sehari. Penuh berisi 9 sesi wajib. Kustom bisa diatur per hari, per mapel, dan per sesi.',
+    extra: <PresetTable />,
     suits: 'Dimas kelas 1 cepat lelah, jadi cocok dengan Ringan. Raka kelas 4 sedang menyiapkan ujian sekolah, jadi bundanya memilih Penuh selama dua minggu lalu kembali ke Seimbang.',
     steps: [
       <>
@@ -281,11 +282,8 @@ const SAKLAR: GuideFeature[] = [
     title: 'Saklar mapel dan fitur',
     icon: con('settings'),
     what: 'Setiap anak punya daftar saklar sendiri. Semua menyala dari awal, jadi Ayah/Bunda tinggal mematikan yang tidak dipakai. Mapel yang dimatikan hilang dari Today dan tidak dihitung untuk streak.',
-    suits: (
-      <>
-        Contoh pemilik Kira untuk seorang anak: Science harian, olimpiade Science, English harian yang mengacu pada kerangka Cambridge Primary, dan drill kosakata saja, tanpa drill Math. Caranya: biarkan <L>Sains</L>, <L>Olimpiade Sains</L>, <L>Bahasa Inggris</L>, dan <L>Drill kosakata</L> tercentang, lalu hapus centang <L>Drill Matematika</L> dan drill lain yang tidak dipakai. Kalau Math juga tidak diinginkan di Today, hapus centang <L>Matematika</L>.
-      </>
-    ),
+    extra: <SwitchExample />,
+    suits: 'Anak yang sudah punya les Math di luar dan ingin fokus pada Science dan English. Contohnya ada di kotak di atas, dan Ayah/Bunda bisa mengubahnya kapan saja.',
     steps: [
       <>
         Buka <A href="/keluarga">Keluarga</A>, pilih anak, lalu buka <L>Pengaturan</L>.
@@ -304,6 +302,80 @@ const SAKLAR: GuideFeature[] = [
     shot: shot('saklar-fitur', 'Bagian Fitur yang dipakai: pilihan cepat dan daftar centang untuk mapel, olimpiade, drill, dan fitur lain.'),
   },
 ]
+
+/** Empat aturan hari dan isinya. Sama dengan PRESET_SESSION_LEVELS di @kira/core. */
+function PresetTable() {
+  const rows = [
+    ['Seimbang', 'Wajib', 'Opsional', 'Opsional'],
+    ['Penuh', 'Wajib', 'Wajib', 'Wajib'],
+    ['Ringan', 'Wajib', 'Mati', 'Mati'],
+  ]
+  return (
+    <table className="w-full border-collapse text-left text-small">
+      <caption className="sr-only">Isi setiap aturan hari</caption>
+      <thead>
+        <tr className="border-b-2 border-divider">
+          {['Aturan', 'Latihan', 'Tes', 'Paper'].map((h) => (
+            <th key={h} scope="col" className="py-2 pr-2 font-bold">
+              {h}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(([name, ...cells]) => (
+          <tr key={name} className="border-b border-divider">
+            <th scope="row" className="py-2 pr-2 font-bold">
+              {name}
+            </th>
+            {cells.map((c, i) => (
+              <td key={i} className="py-2 pr-2">
+                {c}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+/** Contoh dari pemilik Kira: apa yang tetap dicentang dan apa yang dihapus. */
+function SwitchExample() {
+  const keep = ['Sains', 'Olimpiade Sains', 'Bahasa Inggris', 'Drill kosakata']
+  return (
+    <div className="flex flex-col gap-3 rounded-control border-2 border-lavender p-4">
+      <p className="m-0 font-bold">Contoh: Science harian, olimpiade Science, English harian, dan drill kosakata saja, tanpa drill Math</p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="flex flex-col gap-1">
+          <p className="m-0 font-bold">Tetap dicentang</p>
+          <ul className="m-0 flex list-none flex-col gap-1 p-0">
+            {keep.map((k) => (
+              <li key={k} className="flex items-center gap-2">
+                <UiIcon name="check" size={20} />
+                {k}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="m-0 font-bold">Hapus centang</p>
+          <ul className="m-0 flex list-none flex-col gap-1 p-0">
+            <li className="flex items-center gap-2">
+              <UiIcon name="close" size={20} />
+              Drill Matematika
+            </li>
+            <li className="flex items-center gap-2">
+              <UiIcon name="close" size={20} />
+              Saklar lain yang tidak dipakai
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p className="m-0">English harian di sini mengacu pada kerangka Cambridge Primary. Kalau Math juga tidak diinginkan di Today, hapus centang Matematika.</p>
+    </div>
+  )
+}
 
 export const SWITCHES: { title: string; items: [string, string][] }[] = [
   {
@@ -371,7 +443,7 @@ const LATIHAN: GuideFeature[] = [
     short: 'Hitung cepat',
     icon: ui('bolt'),
     what: 'Quick Maths melatih hitungan di kepala. Ada misi harian sekitar 5 menit, permainan Practice, Sprint 60 detik dan 2 menit, Target 20 soal, tabel perkalian 2 sampai 12, Flash Anzan, dan soroban. Ada juga 7 pelajaran strategi.',
-    suits: 'Tio kelas 2 masih menghitung dengan jari untuk penjumlahan sederhana. Lima menit misi harian membantunya makin cepat, dan ia bisa melihat grafik kecepatannya sendiri.',
+    suits: 'Tio kelas 2 masih menghitung dengan jari untuk penjumlahan sederhana. Lima menit misi harian melatihnya setiap hari, dan ia bisa melihat kecepatannya sendiri naik di bagian statistik.',
     steps: [
       <>
         Anak membuka <L>Quick Maths</L>, lalu menekan <L>Start the mission</L>.

@@ -104,6 +104,7 @@ export function ParentGuide({ contact }: { contact: string }) {
             </p>
             <h3 className="m-0 mt-2 text-h3 font-semibold">Laporkan soal yang salah</h3>
             <Steps
+              chip="bg-surface"
               items={[
                 'Foto layar soalnya, supaya soal yang dimaksud mudah ditemukan.',
                 <>

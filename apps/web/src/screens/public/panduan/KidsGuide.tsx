@@ -63,15 +63,18 @@ const STOPS: Stop[] = [
     thumb: <SubjectIcon subject="math" size={56} />,
     art: (
       <span className="flex items-center gap-2">
-        <span className="rounded-control bg-surface p-2 shadow-soft">
-          <SubjectIcon subject="math" size={56} />
-        </span>
-        <span className="rounded-control bg-surface p-2 shadow-soft">
-          <SubjectIcon subject="english" size={56} />
-        </span>
-        <span className="rounded-control bg-surface p-2 shadow-soft">
-          <SubjectIcon subject="science" size={56} />
-        </span>
+        {(
+          [
+            ['math', 'Math'],
+            ['english', 'English'],
+            ['science', 'Science'],
+          ] as const
+        ).map(([subject, name]) => (
+          <span key={subject} className="flex flex-col items-center gap-1 rounded-control bg-surface p-2 font-display font-semibold shadow-soft">
+            <SubjectIcon subject={subject} size={56} />
+            {name}
+          </span>
+        ))}
       </span>
     ),
     lines: ['Buka halaman Hari ini.', 'Di sana ada sesimu.', 'Satu sesi berisi beberapa soal.', 'Kerjakan satu per satu.', 'Semua selesai? Ada peti hadiah untukmu!'],
@@ -81,7 +84,7 @@ const STOPS: Stop[] = [
     menu: 'Salah? Boleh!',
     title: 'Salah itu boleh',
     tone: 'yellow',
-    thumb: <KiraStar size={56} mood="calm" animate={false} />,
+    thumb: <UiIcon name="not-yet" size={48} />,
     art: (
       <span className="flex flex-col items-center gap-3">
         <KiraStar size={128} mood="calm" />
@@ -237,7 +240,7 @@ export function KidsGuide() {
                   {s.title}
                 </h2>
                 {s.lines.map((line) => (
-                  <p key={line} className="m-0 font-reading text-h3 font-semibold">
+                  <p key={line} className="m-0 font-reading text-h3 font-semibold sm:text-h2">
                     {line}
                   </p>
                 ))}

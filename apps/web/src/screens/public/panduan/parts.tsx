@@ -31,12 +31,12 @@ export function IconTile({ icon, tone = 'lavender', size = 48, children }: { ico
 }
 
 /** Langkah bernomor dengan angka bulat. */
-export function Steps({ items, start = 1 }: { items: ReactNode[]; start?: number }) {
+export function Steps({ items, start = 1, chip = 'bg-lavender' }: { items: ReactNode[]; start?: number; chip?: 'bg-lavender' | 'bg-surface' }) {
   return (
     <ol className="m-0 flex list-none flex-col gap-3 p-0">
       {items.map((item, i) => (
         <li key={i} className="flex gap-3">
-          <span aria-hidden="true" className="flex h-8 w-8 flex-none items-center justify-center rounded-pill bg-lavender font-numbers text-body font-bold tabular-nums">
+          <span aria-hidden="true" className={cx('flex h-8 w-8 flex-none items-center justify-center rounded-pill font-numbers text-body font-bold tabular-nums', chip)}>
             {start + i}
           </span>
           <span className="min-w-0 flex-1 pt-0.5">{item}</span>
@@ -52,6 +52,8 @@ export type Feature = {
   icon: ReactNode
   tone?: Tone
   what: ReactNode
+  /** Tabel atau gambar kecil setelah penjelasan, bila kalimat saja kurang jelas. */
+  extra?: ReactNode
   /** Contoh anak yang cocok memakai fitur ini. Nama fiktif. */
   suits: ReactNode
   steps: ReactNode[]
@@ -72,6 +74,7 @@ export function FeatureCard({ f }: { f: Feature }) {
       <div className={cx('grid gap-5', f.shot && 'md:grid-cols-[minmax(0,1fr)_220px]')}>
         <div className="flex min-w-0 flex-col gap-4">
           <p className="m-0">{f.what}</p>
+          {f.extra}
           <div className="rounded-control bg-lavender p-4">
             <p className="m-0 font-bold">Cocok untuk</p>
             <p className="m-0">{f.suits}</p>
