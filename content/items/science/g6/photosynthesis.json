@@ -1393,6 +1393,246 @@
         "Plants make their own food, they do not take it from soil."
       ],
       "explanation": "Each observation links to light, chlorophyll or the gases of photosynthesis. Plants make their own food using light."
+    },
+    {
+      "id": "s6.photosynthesis.801",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Green plants make their own food using light.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which living things are producers?",
+        "What do leaves capture?",
+        "Plants use light to make food."
+      ],
+      "explanation": "In photosynthesis, leaves use light energy to make food, which is a sugar called glucose.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.photosynthesis.802",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Plants take in oxygen and give out carbon dioxide to make food.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which gas do we breathe in?",
+        "Plants give out the gas we need.",
+        "They take in carbon dioxide."
+      ],
+      "explanation": "Plants take in carbon dioxide and give out oxygen when making food. It is the opposite way round.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.photosynthesis.803",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The green substance in leaves, chlorophyll, absorbs light for photosynthesis.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Why are leaves green?",
+        "What does it absorb?",
+        "Chlorophyll absorbs light."
+      ],
+      "explanation": "Chlorophyll gives leaves their colour and captures light energy to start the food making.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.photosynthesis.804",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Plants get most of their food by taking it up from the soil.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where does the plant make food?",
+        "Is soil a food?",
+        "Leaves make the food."
+      ],
+      "explanation": "Plants make their own food in leaves. Soil provides water and minerals, but not the sugar food.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.photosynthesis.805",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Photosynthesis needs water, carbon dioxide and light.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Name the three inputs.",
+        "One is a gas.",
+        "Water, carbon dioxide and light."
+      ],
+      "explanation": "Water comes up from the roots, carbon dioxide enters leaves from the air and light gives the energy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.photosynthesis.701",
+      "skill": "s6.photosynthesis",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Photosynthesis gives out the gas ___.",
+      "blanks": [
+        {
+          "answers": [
+            "oxygen"
+          ]
+        }
+      ],
+      "hints": [
+        "We need it to breathe.",
+        "Plants make it in the light.",
+        "It starts with o."
+      ],
+      "explanation": "Plants give out oxygen during photosynthesis.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s6.photosynthesis.702",
+      "skill": "s6.photosynthesis",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The green substance in leaves that traps light is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "chlorophyll"
+          ]
+        }
+      ],
+      "hints": [
+        "It makes leaves green.",
+        "It starts with chlor.",
+        "c, h, l, o, r, o..."
+      ],
+      "explanation": "Chlorophyll traps light energy for photosynthesis.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
+    },
+    {
+      "id": "s6.photosynthesis.703",
+      "skill": "s6.photosynthesis",
+      "type": "story",
+      "difficulty": 4,
+      "prompt": "A pondweed was placed in water with a lamp at different distances. Bubbles in one minute: 10 cm gave 24, 20 cm gave 12, 30 cm gave 8, 40 cm gave 6.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many bubbles at 20 cm?",
+          "answer": 12,
+          "tolerance": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many fewer bubbles at 40 cm than at 10 cm?",
+          "answer": 18,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which gas is in the bubbles?",
+          "options": [
+            {
+              "text": "Carbon dioxide"
+            },
+            {
+              "text": "Nitrogen"
+            },
+            {
+              "text": "Oxygen"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the best conclusion?",
+          "options": [
+            {
+              "text": "Distance does not matter"
+            },
+            {
+              "text": "Brighter light gives more photosynthesis"
+            },
+            {
+              "text": "Light has no effect"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Read the 20 cm result.",
+        "24 take away 6.",
+        "Plants release the gas we breathe."
+      ],
+      "explanation": "12 bubbles at 20 cm. 24 - 6 = 18. The bubbles are oxygen. Closer lamp gives more bubbles, so more photosynthesis.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

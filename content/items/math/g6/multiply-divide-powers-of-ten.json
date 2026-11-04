@@ -69,6 +69,58 @@
       "allowDecimal": true,
       "type": "numeric",
       "answer": 3.5
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.801",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 0.045 × 1,000 = 45.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Move the digits three places to the left.",
+        "The point moves to the right.",
+        "0.045 is 45 thousandths."
+      ],
+      "explanation": "Each digit moves three places left: 0.045 × 1,000 = 45.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.802",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A length of 2.5 m is the same as 25 cm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many cm in 1 m?",
+        "Multiply by 100.",
+        "2 m is 200 cm."
+      ],
+      "explanation": "1 m = 100 cm, so 2.5 m = 2.5 × 100 = 250 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

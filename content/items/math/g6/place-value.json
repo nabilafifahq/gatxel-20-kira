@@ -84,6 +84,58 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m6.place-value.801",
+      "skill": "m6.place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 4.327 the digit 7 stands for 7 thousandths.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the places after the point.",
+        "Tenths, hundredths, thousandths.",
+        "The 7 is the third digit after the point."
+      ],
+      "explanation": "The 7 is in the third place after the decimal point, the thousandths place.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.place-value.802",
+      "skill": "m6.place-value",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In the number 2,057,310 the digit 5 is worth 5,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the places from the right.",
+        "Ones, tens, hundreds, thousands, ten thousands.",
+        "The 5 is the fifth digit from the right."
+      ],
+      "explanation": "The 5 is in the ten-thousands place, so it is worth 50,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -1253,6 +1253,197 @@
         "A skydiver changes at different stages of a jump."
       ],
       "explanation": "Speeding up needs a bigger forward force. Slowing down needs a bigger backward force. Steady speed means balanced forces."
+    },
+    {
+      "id": "s6.forces-motion.801",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Balanced forces on an object mean that it does not change its movement.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do forces cancel?",
+        "What happens to speed?",
+        "No change."
+      ],
+      "explanation": "A still object stays still, and a moving object keeps the same speed in a straight line.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.forces-motion.802",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: When forces are unbalanced, an object stays still.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do the forces cancel?",
+        "Which force is bigger?",
+        "It will move or change."
+      ],
+      "explanation": "Unbalanced forces make the object speed up, slow down or change direction.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.forces-motion.803",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A book resting on a table has balanced forces acting on it.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What holds it up?",
+        "Do the forces match?",
+        "They are equal and opposite."
+      ],
+      "explanation": "Gravity pulls it down and the table pushes up with an equal force, so the book stays still.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.forces-motion.804",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A car moving at a steady speed in a straight line must have unbalanced forces.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is speed changing?",
+        "What do balanced forces do?",
+        "Balanced forces keep it steady."
+      ],
+      "explanation": "Steady speed means balanced forces. The driving force equals the resistive forces.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.forces-motion.701",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Equal forces in opposite directions are...",
+      "options": [
+        {
+          "text": "unbalanced"
+        },
+        {
+          "text": "balanced"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "They cancel each other.",
+        "The result is zero.",
+        "Equal means balanced."
+      ],
+      "explanation": "Equal opposite forces cancel, so they are balanced.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s6.forces-motion.702",
+      "skill": "s6.forces-motion",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A sled is pulled forward with 40 N. Friction acts backwards with 15 N.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the resultant forward force in N?",
+          "answer": 25,
+          "tolerance": 0,
+          "unit": "N"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Are the forces balanced or unbalanced?",
+          "options": [
+            {
+              "text": "Unbalanced"
+            },
+            {
+              "text": "Balanced"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "If friction rose to 40 N, what would the resultant force be?",
+          "answer": 0,
+          "tolerance": 0,
+          "unit": "N"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What happens to a moving sled then?",
+          "options": [
+            {
+              "text": "It speeds up"
+            },
+            {
+              "text": "It goes backwards"
+            },
+            {
+              "text": "It keeps moving at a steady speed"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "40 - 15.",
+        "The forces are not equal.",
+        "Equal forces cancel."
+      ],
+      "explanation": "40 - 15 = 25 N, unbalanced. If friction is 40 N the forces are balanced, so the resultant is 0 and speed stays steady.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

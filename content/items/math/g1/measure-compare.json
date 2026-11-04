@@ -1,0 +1,83 @@
+{
+  "skill": "m1.measure-compare",
+  "items": [
+    {
+      "id": "m1.measure-compare.801",
+      "skill": "m1.measure-compare",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A ribbon that is 10 cm long is longer than a ribbon that is 5 cm long.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare 10 and 5.",
+        "Which number is more?",
+        "10 cm is longer."
+      ],
+      "explanation": "10 is more than 5, so 10 cm is longer than 5 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.measure-compare.802",
+      "skill": "m1.measure-compare",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A bucket holds less water than a cup.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which one is bigger?",
+        "How many cups fill a bucket?",
+        "The bucket holds more."
+      ],
+      "explanation": "A bucket holds much more water than a cup, so the statement is wrong.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.measure-compare.803",
+      "skill": "m1.measure-compare",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A bag of rice is heavier than a feather.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one is hard to lift?",
+        "A feather is very light.",
+        "The bag of rice is heavier."
+      ],
+      "explanation": "A bag of rice has a lot more mass than a feather, so it is heavier.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

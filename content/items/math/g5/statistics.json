@@ -62,6 +62,58 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m5.statistics.801",
+      "skill": "m5.statistics",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The median of the data 3, 5, 7, 9, 11 is 7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Put the data in order.",
+        "Find the middle value.",
+        "Two numbers on each side of 7."
+      ],
+      "explanation": "The numbers are in order and 7 is in the middle.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.statistics.802",
+      "skill": "m5.statistics",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The range of the data 4, 9, 15, 20 is 24.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Range is the gap between the biggest and smallest.",
+        "20 and 4.",
+        "Subtract."
+      ],
+      "explanation": "Range = largest - smallest = 20 - 4 = 16.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

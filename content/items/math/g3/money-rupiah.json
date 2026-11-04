@@ -27,6 +27,115 @@
           "unit": "rupiah"
         }
       ]
+    },
+    {
+      "id": "m3.money-rupiah.701",
+      "skill": "m3.money-rupiah",
+      "difficulty": 2,
+      "prompt": "Rp5.000 - Rp3.500 = Rp?",
+      "hints": [
+        "Count on from 3.500 to 5.000.",
+        "3.500 + 500 = 4.000.",
+        "Then 1.000 more."
+      ],
+      "explanation": "500 + 1000 = 1500, so Rp5.000 - Rp3.500 = Rp1.500.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 1500
+    },
+    {
+      "id": "m3.money-rupiah.702",
+      "skill": "m3.money-rupiah",
+      "difficulty": 2,
+      "prompt": "Ibu Ani goes to Pasar Minggu. She buys 4 mangoes at Rp3.000 each and 2 bunches of bananas at Rp5.000 each. She pays with a Rp50.000 note.",
+      "hints": [
+        "Multiply price by number for each fruit.",
+        "Add the two costs for the total.",
+        "Change = what she paid minus the total."
+      ],
+      "explanation": "Mangoes: 4 × 3,000 = 12,000. Bananas: 2 × 5,000 = 10,000. Total 22,000. Change: 50,000 - 22,000 = 28,000.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How much do the 4 mangoes cost, in rupiah?",
+          "answer": 12000
+        },
+        {
+          "type": "numeric",
+          "prompt": "How much do the 2 bunches of bananas cost, in rupiah?",
+          "answer": 10000
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the total cost, in rupiah?",
+          "answer": 22000
+        },
+        {
+          "type": "numeric",
+          "prompt": "How much change does Ibu Ani get, in rupiah?",
+          "answer": 28000
+        }
+      ]
+    },
+    {
+      "id": "m3.money-rupiah.801",
+      "skill": "m3.money-rupiah",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Three pens that cost 2000 rupiah each cost 6000 rupiah altogether.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply 3 by 2 thousand.",
+        "3 × 2 = 6.",
+        "6 thousands is 6000."
+      ],
+      "explanation": "3 × 2000 = 6000. 3 × 2 = 6 thousands.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.money-rupiah.802",
+      "skill": "m3.money-rupiah",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: You pay 10000 rupiah for a book that costs 7500 rupiah and get 3500 rupiah change.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count up from 7500 to 10000.",
+        "7500 to 8000 is 500.",
+        "8000 to 10000 is 2000."
+      ],
+      "explanation": "10000 - 7500 = 2500. The change is 2500 rupiah.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

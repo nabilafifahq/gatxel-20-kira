@@ -1055,6 +1055,186 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e2.adjectives.801",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: In the phrase a red balloon, the word red is a describing word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which word tells us what the balloon looks like?",
+        "Describing words tell us more about a thing.",
+        "Red describes the balloon."
+      ],
+      "explanation": "A describing word, or adjective, tells us more about a noun. Red tells us the colour of the balloon.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.adjectives.802",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the sentence The dog barked, the word barked is a describing word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does barked tell us what the dog did or what it looks like?",
+        "Action words are called verbs.",
+        "Describing words tell us about nouns."
+      ],
+      "explanation": "Barked is a verb, an action word. It tells us what the dog did. It does not describe the dog.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.adjectives.803",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: We use -est to compare three or more things, as in tallest.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the things you are comparing.",
+        "Taller is for two things.",
+        "Three or more needs the longer ending."
+      ],
+      "explanation": "Use -er for two things (taller) and -est for three or more (tallest). Example: Of the three trees, this is the tallest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.adjectives.804",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word bigger is spelt with only one letter g.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Spell bigger out loud.",
+        "Say big then add -ger.",
+        "The word big ends in one vowel and one consonant."
+      ],
+      "explanation": "Bigger has two g letters. We double the last letter in short words like big before adding -er.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.adjectives.805",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word happier is made by changing the y in happy to i and adding -er.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the end of happy.",
+        "The y changes to a different letter.",
+        "Happy, happier, happiest."
+      ],
+      "explanation": "With words ending in a consonant and y, we change y to i. Example: happy becomes happier.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.adjectives.806",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The word happier is made by adding -er straight to the word happy.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the end of the word happy.",
+        "The letter y changes.",
+        "Spell happier."
+      ],
+      "explanation": "We cannot add -er straight to happy. We change the y to i first, so we get happier, not happyer.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.adjectives.701",
+      "skill": "e2.adjectives",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "big, bigger, ___",
+      "blanks": [
+        {
+          "answers": [
+            "biggest"
+          ]
+        }
+      ],
+      "hints": [
+        "Three steps of comparing.",
+        "Add est.",
+        "Double the g."
+      ],
+      "explanation": "Big, bigger, biggest: double the g and add -est.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

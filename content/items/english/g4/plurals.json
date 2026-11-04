@@ -902,6 +902,210 @@
         "Leaf changes to ves. Roof just adds s."
       ],
       "explanation": "Leaf changes to leaves. Roof is an exception and just adds -s: roofs."
+    },
+    {
+      "id": "e4.plurals.801",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The plural of leaf is leaves.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say the plural out loud.",
+        "Think of a tree with many of them.",
+        "The f changes to v."
+      ],
+      "explanation": "Many words ending in f change the f to v and add -es. Leaf becomes leaves.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.plurals.802",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The plural of sheep is sheeps.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a farm with many of them.",
+        "Does the word change at all?",
+        "Sheep stays the same."
+      ],
+      "explanation": "Sheep is an irregular plural. The word stays the same for one or many sheep.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.plurals.803",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The plural of pony is ponies.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the letter before the y.",
+        "P and n are consonants, so the y changes.",
+        "Change y to i then add es."
+      ],
+      "explanation": "When a word ends in a consonant plus y, change the y to i and add -es. Pony becomes ponies.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.plurals.804",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The plural of toy is toies.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the letter before the y.",
+        "O is a vowel.",
+        "Just add s."
+      ],
+      "explanation": "When a vowel comes before the y, just add s. Toy becomes toys.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.plurals.805",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The plural of wolf is wolves.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare with leaf and leaves.",
+        "Change f to v.",
+        "Wolf has a plural with ves."
+      ],
+      "explanation": "Some words ending in f or fe change to ves. Wolf becomes wolves.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.plurals.806",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The plural of knife is knifes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a drawer full of them.",
+        "Compare with life and lives.",
+        "It ends in ves."
+      ],
+      "explanation": "Knife changes to knives in the plural. The f becomes v and the e is kept before s.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.plurals.701",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The plural of leaf is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "leaves"
+          ]
+        }
+      ],
+      "hints": [
+        "f changes to v.",
+        "Then add es.",
+        "l, e, a, v, e, s."
+      ],
+      "explanation": "Many words ending in f change to -ves: leaf becomes leaves.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "e4.plurals.702",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "One sheep, two ___.",
+      "blanks": [
+        {
+          "answers": [
+            "sheep"
+          ]
+        }
+      ],
+      "hints": [
+        "It is an irregular plural.",
+        "It does not change.",
+        "It is the same word."
+      ],
+      "explanation": "Sheep has the same form in singular and plural.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

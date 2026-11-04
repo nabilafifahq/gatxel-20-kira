@@ -738,6 +738,191 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e6.colons-semicolons.801",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A colon can introduce a list.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of the list in the example.",
+        "What comes before the list?",
+        "A colon points to what follows."
+      ],
+      "explanation": "After a complete clause, a colon introduces a list, for example We need three things: a map, a torch and water.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.colons-semicolons.802",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A semicolon is used at the end of a question.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which mark ends a question?",
+        "Think of what a semicolon links.",
+        "It joins two clauses."
+      ],
+      "explanation": "A question ends with a question mark. A semicolon joins related clauses.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.colons-semicolons.803",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"It was late; we went home\" uses a semicolon correctly.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can each part be its own sentence?",
+        "Are the ideas closely related?",
+        "It joins two main clauses."
+      ],
+      "explanation": "A semicolon can join two closely related main clauses, each of which could stand alone.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.colons-semicolons.804",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A semicolon must always be followed by a capital letter.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at It was late; we went home.",
+        "Is we a capital?",
+        "Lower case follows a semicolon."
+      ],
+      "explanation": "A semicolon is followed by a lower case letter unless the next word is a name.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.colons-semicolons.805",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"We need three things: a map, a torch and water\" uses a colon correctly.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can We need three things stand alone?",
+        "What follows the colon?",
+        "It introduces a list."
+      ],
+      "explanation": "The part before the colon is a complete clause, and the colon introduces the list.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.colons-semicolons.806",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The sentence \"I like; tea and coffee\" is correctly punctuated.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can I like stand alone as a full thought?",
+        "What does a semicolon need on both sides?",
+        "No punctuation is needed here."
+      ],
+      "explanation": "A semicolon joins two main clauses and cannot be used before a list. The sentence should read I like tea and coffee.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.colons-semicolons.701",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which mark introduces a list?",
+      "options": [
+        {
+          "text": "Semicolon"
+        },
+        {
+          "text": "Hyphen"
+        },
+        {
+          "text": "Colon"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "It has two dots.",
+        "One above the other.",
+        "Two dots, one above the other, then the list."
+      ],
+      "explanation": "A colon introduces a list.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

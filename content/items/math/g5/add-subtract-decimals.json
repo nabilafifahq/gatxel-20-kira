@@ -67,6 +67,117 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "m5.add-subtract-decimals.801",
+      "skill": "m5.add-subtract-decimals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 4.5 + 2.75 = 7.25.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Line up the decimal points.",
+        "4.5 is 4.50.",
+        "Add the hundredths first."
+      ],
+      "explanation": "Write 4.5 as 4.50. 4.50 + 2.75 = 7.25.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.add-subtract-decimals.802",
+      "skill": "m5.add-subtract-decimals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 10 - 3.6 = 6.6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add your answer back to 3.6.",
+        "6.6 + 3.6.",
+        "3.6 plus 6.4 makes 10."
+      ],
+      "explanation": "10 - 3.6 = 6.4. Check: 6.4 + 3.6 = 10.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.add-subtract-decimals.701",
+      "skill": "m5.add-subtract-decimals",
+      "difficulty": 3,
+      "prompt": "2.5 + 1.75 = ?",
+      "hints": [
+        "Write 2.5 as 2.50.",
+        "Line up the decimal points.",
+        "Add hundredths, tenths, then ones."
+      ],
+      "explanation": "2.50 + 1.75 = 4.25.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 4.25,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.add-subtract-decimals.702",
+      "skill": "m5.add-subtract-decimals",
+      "difficulty": 3,
+      "prompt": "At the market, Bu Tini buys 2.35 kg of mangoes, 1.8 kg of papayas and 3.45 kg of melons. Her basket can carry up to 10 kg.",
+      "hints": [
+        "Line up the decimal points.",
+        "Add the melons to your first answer.",
+        "Subtract the total from 10."
+      ],
+      "explanation": "2.35 + 1.80 = 4.15 kg. Then 4.15 + 3.45 = 7.60 kg. Space left: 10 - 7.6 = 2.4 kg.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many kg are the mangoes and papayas together?",
+          "answer": 4.15,
+          "allowDecimal": true,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the total mass of all her fruit, in kg?",
+          "answer": 7.6,
+          "allowDecimal": true,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many more kg can her basket carry?",
+          "answer": 2.4,
+          "allowDecimal": true,
+          "unit": "kg"
+        }
+      ]
     }
   ]
 }

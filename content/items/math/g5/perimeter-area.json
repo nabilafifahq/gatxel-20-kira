@@ -70,6 +70,95 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m5.perimeter-area.801",
+      "skill": "m5.perimeter-area",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rectangle 12 m long and 5 m wide has an area of 60 m².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply length by width.",
+        "12 × 5.",
+        "The unit is m²."
+      ],
+      "explanation": "12 × 5 = 60, so the area is 60 m².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.perimeter-area.802",
+      "skill": "m5.perimeter-area",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rectangle with perimeter 20 cm and one side of 6 cm has an area of 40 cm².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the other side.",
+        "20 - 12 = 8, then halve it.",
+        "The other side is 4 cm."
+      ],
+      "explanation": "Two sides of 6 cm use 12 cm. The other two sides share 8 cm, so each is 4 cm. Area = 6 × 4 = 24 cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.perimeter-area.701",
+      "skill": "m5.perimeter-area",
+      "difficulty": 4,
+      "prompt": "A rice field is a rectangle 120 m long and 45 m wide. Every 100 square metres of the field gives 70 kg of rice.",
+      "hints": [
+        "Area = length × width.",
+        "Perimeter = 2 × (length + width).",
+        "How many lots of 100 m² are in the area?"
+      ],
+      "explanation": "Area: 120 × 45 = 5,400 m². Perimeter: 2 × 165 = 330 m. There are 54 lots of 100 m², and 54 × 70 = 3,780 kg.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the area of the field, in square metres?",
+          "answer": 5400,
+          "unit": "m²"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the perimeter of the field, in metres?",
+          "answer": 330,
+          "unit": "m"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many kilograms of rice does the whole field give?",
+          "answer": 3780,
+          "unit": "kg"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,83 @@
+{
+  "skill": "m1.subtract-within-20",
+  "items": [
+    {
+      "id": "m1.subtract-within-20.801",
+      "skill": "m1.subtract-within-20",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 15 - 6 = 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count back 6 steps.",
+        "Or take 5 away to reach 10, then 1 more.",
+        "15 - 5 = 10 and 10 - 1 = 9."
+      ],
+      "explanation": "Count back 6 from 15: 14, 13, 12, 11, 10, 9. You land on 9.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.subtract-within-20.802",
+      "skill": "m1.subtract-within-20",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 12 - 5 = 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take 2 away to reach 10.",
+        "Then take away the other 3.",
+        "10 - 3 = 7."
+      ],
+      "explanation": "12 - 2 = 10, then 10 - 3 = 7. So 12 - 5 = 7.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.subtract-within-20.803",
+      "skill": "m1.subtract-within-20",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: If you take 0 away from 9, you still have 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What changes when you take away nothing?",
+        "Nothing is removed.",
+        "9 stays 9."
+      ],
+      "explanation": "Taking nothing away leaves the number the same, so 9 - 0 = 9.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

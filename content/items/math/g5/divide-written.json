@@ -68,6 +68,58 @@
       ],
       "type": "numeric",
       "answer": 3
+    },
+    {
+      "id": "m5.divide-written.801",
+      "skill": "m5.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1,248 ÷ 6 = 208.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check by multiplying.",
+        "6 × 208.",
+        "1,200 + 48."
+      ],
+      "explanation": "6 × 200 = 1,200 and 6 × 8 = 48. 1,200 + 48 = 1,248, so the answer is 208.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.divide-written.802",
+      "skill": "m5.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When you divide by 7, the remainder can be 7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you share out 7 more?",
+        "Remainders are the leftovers that cannot make another group.",
+        "The remainder is between 0 and 6."
+      ],
+      "explanation": "If you could take another 7 away, the remainder would be 0 and the answer one bigger. A remainder is always less than the divisor.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -69,6 +69,76 @@
       "max": 100,
       "step": 10,
       "answer": 60
+    },
+    {
+      "id": "m2.sequences.701",
+      "skill": "m2.sequences",
+      "difficulty": 2,
+      "prompt": "Count back in 5s: 50, 45, 40, __",
+      "hints": [
+        "Take away 5 each time.",
+        "40 - 5.",
+        "Think of the 5 times table."
+      ],
+      "explanation": "Each number is 5 less than the one before, so 40 - 5 = 35.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 35
+    },
+    {
+      "id": "m2.sequences.801",
+      "skill": "m2.sequences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Counting on in 5s from 15 goes 15, 20, 25, 30.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add 5 each time.",
+        "15 + 5 = 20.",
+        "Check the next jumps are also 5."
+      ],
+      "explanation": "Each number is 5 more than the one before, so the pattern is right.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.sequences.802",
+      "skill": "m2.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Counting back in 10s from 80 goes 80, 70, 60, 55.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take 10 away from 60.",
+        "The tens digit goes down by one.",
+        "60 - 10 = 50."
+      ],
+      "explanation": "Counting back in 10s goes 80, 70, 60, 50. The last number should be 50.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

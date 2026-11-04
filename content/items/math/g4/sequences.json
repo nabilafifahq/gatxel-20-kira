@@ -59,6 +59,84 @@
       "explanation": "The differences are 3, 5, 7, 9, so the next difference is 11. 26 + 11 = 37.",
       "type": "numeric",
       "answer": 37
+    },
+    {
+      "id": "m4.sequences.801",
+      "skill": "m4.sequences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The next number in the sequence 5, 12, 19, 26 is 33.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the gap between the first two numbers.",
+        "Check the gap is the same each time.",
+        "Add 7 to 26."
+      ],
+      "explanation": "The rule is add 7. 26 + 7 = 33.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.sequences.802",
+      "skill": "m4.sequences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sequence 2, 6, 10, 15 follows the rule add 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work out each gap.",
+        "Do all gaps equal 4?",
+        "The last gap is 5."
+      ],
+      "explanation": "2 + 4 = 6 and 6 + 4 = 10, but 10 + 4 = 14, not 15. The rule does not fit.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.sequences.803",
+      "skill": "m4.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The missing number in 100, 90, 80, __, 60 is 70.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the rule.",
+        "The numbers go down by the same amount.",
+        "80 minus 10."
+      ],
+      "explanation": "The rule is subtract 10. 80 - 10 = 70, and 70 - 10 = 60.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

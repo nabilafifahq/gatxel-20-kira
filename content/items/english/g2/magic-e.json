@@ -1061,6 +1061,186 @@
         0,
         1
       ]
+    },
+    {
+      "id": "e2.magic-e.801",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The e at the end of cake is silent and makes the a say its name.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say cake and listen for the e at the end.",
+        "Compare cap and cape.",
+        "The e does not make a sound but it changes the a."
+      ],
+      "explanation": "This is called magic e. It changes the short a in cak to the long a in cake.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.magic-e.802",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word bike has a short i sound.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say bike and bit.",
+        "Which one says the letter name i?",
+        "Magic e makes the vowel say its name."
+      ],
+      "explanation": "Bike has a long i sound because of the magic e at the end. Compare bit, which has a short i.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.magic-e.803",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Adding magic e to the word hop makes the word hope.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say hop, then say hope.",
+        "Listen to the o in each word.",
+        "The e at the end changes the sound."
+      ],
+      "explanation": "Hop has a short o. Add e and it becomes hope with a long o.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.magic-e.804",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word home is spelt h-o-m.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say home slowly.",
+        "The o says its own name.",
+        "What letter is missing at the end?"
+      ],
+      "explanation": "Home needs a magic e at the end, so it is spelt h-o-m-e.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.magic-e.805",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word cube has the long u sound and a silent e at the end.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say cube and listen to the u.",
+        "Look at the last letter.",
+        "Compare cub and cube."
+      ],
+      "explanation": "Cube is spelt c-u-b-e. The final e is silent and makes the u say its name.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.magic-e.806",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Adding magic e to the word tub gives the word tube with a short u sound.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say tub and tube.",
+        "Does tube sound like cub or like cube?",
+        "Magic e makes the vowel long."
+      ],
+      "explanation": "Tube has a long u sound, not a short one. The magic e changes the sound.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.magic-e.701",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add magic e to bik: ___.",
+      "blanks": [
+        {
+          "answers": [
+            "bike"
+          ]
+        }
+      ],
+      "hints": [
+        "The i says its name.",
+        "Add e at the end.",
+        "b, i, k, e."
+      ],
+      "explanation": "Bik plus magic e makes bike.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

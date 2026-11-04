@@ -1,0 +1,57 @@
+{
+  "skill": "m3.sequences",
+  "items": [
+    {
+      "id": "m3.sequences.801",
+      "skill": "m3.sequences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Counting on in 4s from 12 gives 12, 16, 20, 24.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add 4 each time.",
+        "12 + 4 = 16.",
+        "16 + 4 = 20."
+      ],
+      "explanation": "Each number is 4 more than the one before, so the pattern is right.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.sequences.802",
+      "skill": "m3.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Counting back in 3s from 30 gives 30, 27, 24, 22.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take 3 from 24.",
+        "24 - 3 = ?",
+        "24 - 3 = 21."
+      ],
+      "explanation": "Counting back in 3s goes 30, 27, 24, 21. The last number should be 21.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

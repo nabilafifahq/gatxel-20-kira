@@ -411,6 +411,58 @@
         "The answer is a single digit."
       ],
       "explanation": "12 − 5 = 7."
+    },
+    {
+      "id": "m3.unknown-patterns.801",
+      "skill": "m3.unknown-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If ? + 7 = 15, then ? is 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Use the opposite operation.",
+        "15 - 7.",
+        "It is 8."
+      ],
+      "explanation": "8 + 7 = 15. You can also find it by doing 15 - 7 = 8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.unknown-patterns.802",
+      "skill": "m3.unknown-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The sequence 3, 7, 11, 15 has the rule add 3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the jump from 3 to 7.",
+        "Check the jump from 7 to 11.",
+        "The jump is 4."
+      ],
+      "explanation": "The numbers go up by 4 each time: 3 + 4 = 7, 7 + 4 = 11, 11 + 4 = 15. The rule is add 4.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -1297,6 +1297,134 @@
         "6 m is how many times 1.5 m?"
       ],
       "explanation": "6 / 1.5 = 4, so the tree is 4 times as tall as the stick, 4 m."
+    },
+    {
+      "id": "s5.light-shadows.801",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Light travels in straight lines.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you see round a wall?",
+        "Shadows have sharp edges.",
+        "Light goes straight."
+      ],
+      "explanation": "That is why you cannot see round corners and why shadows have clear edges.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.802",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A shadow is made when light bends around an object.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does light travel in curves?",
+        "What does the object block?",
+        "Light is blocked."
+      ],
+      "explanation": "A shadow is made when an opaque object blocks the straight light rays, leaving a dark area.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.803",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A shadow gets bigger when the object moves closer to the light source.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try a hand near a torch.",
+        "Closer to light.",
+        "Closer makes it bigger."
+      ],
+      "explanation": "The object blocks more rays, so the shadow spreads over a larger area.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.804",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Your shadow is longest at midday.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where is the Sun at noon?",
+        "When is it low?",
+        "Short at midday."
+      ],
+      "explanation": "At midday the Sun is high, so shadows are short. They are longest when the Sun is low in the morning and evening.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.701",
+      "skill": "s5.light-shadows",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "A shadow is longest when the Sun is ___ in the sky.",
+      "blanks": [
+        {
+          "answers": [
+            "low"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of a shadow at sunrise.",
+        "The opposite is high.",
+        "It has three letters."
+      ],
+      "explanation": "When the Sun is low, shadows are long. When it is high, they are short.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

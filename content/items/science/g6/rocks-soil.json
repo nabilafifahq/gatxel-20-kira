@@ -568,6 +568,134 @@
         "Boiling is quick."
       ],
       "explanation": "Rocks form over very long periods of time, often millions of years."
+    },
+    {
+      "id": "s6.rocks-soil.801",
+      "skill": "s6.rocks-soil",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Igneous rock forms when melted rock cools and hardens.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does lava come from?",
+        "What happens when it cools?",
+        "Cooling makes igneous rock."
+      ],
+      "explanation": "Magma or lava cools down and becomes solid, such as granite or basalt.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.rocks-soil.802",
+      "skill": "s6.rocks-soil",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Sedimentary rock forms when rock is melted deep in the Earth.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which rock forms from sediment?",
+        "Melting makes igneous.",
+        "Layers squash together."
+      ],
+      "explanation": "Sedimentary rock forms from layers of sediment pressed together. Melted rock cools to form igneous rock.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.rocks-soil.803",
+      "skill": "s6.rocks-soil",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Metamorphic rock is formed when heat and pressure change other rocks.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do heat and pressure do?",
+        "Marble is one.",
+        "They change rock."
+      ],
+      "explanation": "Limestone, for example, changes into marble.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.rocks-soil.804",
+      "skill": "s6.rocks-soil",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Fossils are usually found in igneous rock.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which rock has layers?",
+        "Is lava hot?",
+        "Sedimentary rock holds fossils."
+      ],
+      "explanation": "The heat of igneous rock would destroy remains. Fossils are usually found in sedimentary rock.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.rocks-soil.701",
+      "skill": "s6.rocks-soil",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Rock made when magma or lava cools is ___ rock.",
+      "blanks": [
+        {
+          "answers": [
+            "igneous"
+          ]
+        }
+      ],
+      "hints": [
+        "Volcanoes make it.",
+        "It is one of three kinds.",
+        "It starts with i."
+      ],
+      "explanation": "Igneous rock forms when molten rock cools and hardens.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

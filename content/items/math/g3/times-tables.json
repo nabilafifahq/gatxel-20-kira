@@ -84,6 +84,128 @@
           ]
         }
       ]
+    },
+    {
+      "id": "m3.times-tables.701",
+      "skill": "m3.times-tables",
+      "difficulty": 2,
+      "prompt": "6 × 8 = ?",
+      "hints": [
+        "5 × 8 = 40.",
+        "Add one more 8.",
+        "40 + 8."
+      ],
+      "explanation": "5 × 8 = 40 and one more 8 makes 48.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 48
+    },
+    {
+      "id": "m3.times-tables.702",
+      "skill": "m3.times-tables",
+      "difficulty": 2,
+      "prompt": "9 × 4 = ?",
+      "hints": [
+        "10 × 4 = 40.",
+        "Take away one 4.",
+        "40 - 4."
+      ],
+      "explanation": "10 × 4 = 40, and 9 × 4 is one 4 less: 36.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 36
+    },
+    {
+      "id": "m3.times-tables.703",
+      "skill": "m3.times-tables",
+      "difficulty": 2,
+      "prompt": "Class 3 goes on a trip to the zoo in 6 minibuses. Each minibus carries 8 children. 4 teachers also come on the trip.",
+      "hints": [
+        "Use 6 groups of 8.",
+        "Add the 4 teachers to the children.",
+        "Double the number of children."
+      ],
+      "explanation": "6 × 8 = 48 children. 48 + 4 = 52 people. Each child gets 2 snacks, so 48 × 2 = 96 snacks.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many children go on the trip?",
+          "answer": 48
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many people go in total, children and teachers?",
+          "answer": 52
+        },
+        {
+          "type": "numeric",
+          "prompt": "Each child gets 2 snacks. How many snacks are needed for the children?",
+          "answer": 96
+        }
+      ]
+    },
+    {
+      "id": "m3.times-tables.801",
+      "skill": "m3.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 6 × 7 = 42.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count in 7s.",
+        "Or use 6 × 6 = 36 and add 6.",
+        "36 + 6 = 42."
+      ],
+      "explanation": "6 × 7 is 6 sevens: 7, 14, 21, 28, 35, 42. So the answer is 42.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.times-tables.802",
+      "skill": "m3.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 8 × 9 = 81.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Use 10 × 8 = 80.",
+        "Take away one 8.",
+        "80 - 8 = 72."
+      ],
+      "explanation": "8 × 9 = 72. 9 × 9 = 81. Check: 10 × 8 = 80, take away 8 gives 72.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

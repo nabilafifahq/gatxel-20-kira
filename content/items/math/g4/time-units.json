@@ -414,6 +414,84 @@
         "It is less than 100."
       ],
       "explanation": "There are 60 minutes in an hour."
+    },
+    {
+      "id": "m4.time-units.801",
+      "skill": "m4.time-units",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 3 minutes is the same as 180 seconds.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many seconds in a minute?",
+        "Multiply by 3.",
+        "60 + 60 + 60."
+      ],
+      "explanation": "1 minute is 60 seconds, so 3 × 60 = 180 seconds.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-units.802",
+      "skill": "m4.time-units",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: There are 100 seconds in 1 minute.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about a clock face.",
+        "The clock counts in 60s.",
+        "1 hour is also 60 minutes."
+      ],
+      "explanation": "There are 60 seconds in 1 minute.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-units.803",
+      "skill": "m4.time-units",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 2 years is the same as 20 months.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many months in a year?",
+        "Multiply by 2.",
+        "12 + 12."
+      ],
+      "explanation": "1 year is 12 months, so 2 years is 24 months.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -1397,6 +1397,135 @@
         "yLabel": "Length (cm)",
         "alt": "Bar chart of gut lengths in centimetres: oesophagus 25, small intestine 600, large intestine 150."
       }
+    },
+    {
+      "id": "s6.digestion.801",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Digestion begins in the mouth.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does food enter the body?",
+        "Teeth and saliva are in the mouth.",
+        "Chewing is the first step."
+      ],
+      "explanation": "Teeth break food into smaller pieces and saliva starts to break down starch, so digestion starts as soon as you chew.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.digestion.802",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Most water and nutrients are absorbed in the stomach.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which tube is long and coiled?",
+        "The stomach churns food.",
+        "The small intestine absorbs nutrients."
+      ],
+      "explanation": "Most nutrients pass into the blood through the walls of the small intestine. The large intestine absorbs mainly water.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.digestion.803",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The large intestine absorbs water from the food that is left.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is left after nutrients are absorbed?",
+        "Is water needed by the body?",
+        "It takes back water."
+      ],
+      "explanation": "The leftover food is mostly waste and water. The large intestine takes back the water and the rest becomes faeces.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.digestion.804",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Food passes through the liver on its way from the mouth to the stomach.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What tube carries food to the stomach?",
+        "Does the liver hold food?",
+        "Food travels in the gut tube."
+      ],
+      "explanation": "Food goes down the oesophagus to the stomach. The liver is not on the food path, though it helps digestion by making bile.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.digestion.701",
+      "skill": "s6.digestion",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Most nutrients are absorbed in the small ___.",
+      "blanks": [
+        {
+          "answers": [
+            "intestine",
+            "intestines"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a long coiled tube.",
+        "It comes after the stomach.",
+        "It starts with in."
+      ],
+      "explanation": "The small intestine absorbs nutrients into the blood.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

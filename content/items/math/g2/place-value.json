@@ -26,6 +26,76 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m2.place-value.701",
+      "skill": "m2.place-value",
+      "difficulty": 1,
+      "prompt": "How many tens are there in 83?",
+      "hints": [
+        "83 is tens and ones.",
+        "Look at the first digit.",
+        "80 is how many tens?"
+      ],
+      "explanation": "83 is 80 + 3, and 80 is 8 tens.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 8
+    },
+    {
+      "id": "m2.place-value.801",
+      "skill": "m2.place-value",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: In the number 53, the digit 5 stands for 50.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which place is the 5 in?",
+        "5 tens.",
+        "5 tens = 50."
+      ],
+      "explanation": "The 5 is in the tens place, so it means 5 tens, which is 50.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.place-value.802",
+      "skill": "m2.place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 38, the digit 8 stands for 80.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which place is the 8 in?",
+        "The ones place is on the right.",
+        "8 means 8 ones."
+      ],
+      "explanation": "The 8 is in the ones place, so it means 8 ones, which is 8. The 3 stands for 30.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

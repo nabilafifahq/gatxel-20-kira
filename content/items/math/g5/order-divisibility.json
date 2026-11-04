@@ -415,6 +415,102 @@
         "The word starts with m."
       ],
       "explanation": "We multiply before we add: 2 × 3 = 6, then 5 + 6 = 11."
+    },
+    {
+      "id": "m5.order-divisibility.801",
+      "skill": "m5.order-divisibility",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 3 + 4 × 2 = 11.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which operation comes first?",
+        "Multiplication before addition.",
+        "4 × 2 = 8."
+      ],
+      "explanation": "Multiply first: 4 × 2 = 8. Then 3 + 8 = 11.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.order-divisibility.802",
+      "skill": "m5.order-divisibility",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The number 2,314 is divisible by 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the last two digits.",
+        "Does 4 divide 14?",
+        "It leaves a remainder."
+      ],
+      "explanation": "A number is divisible by 4 if its last two digits are. 14 ÷ 4 = 3 remainder 2, so 2,314 is not.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.order-divisibility.803",
+      "skill": "m5.order-divisibility",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The number 1,328 is divisible by 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide by 8.",
+        "Use halving three times.",
+        "1,328 to 664 to 332 to 166."
+      ],
+      "explanation": "1,328 ÷ 8 = 166. Check: 8 × 166 = 1,328.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.order-divisibility.701",
+      "skill": "m5.order-divisibility",
+      "difficulty": 2,
+      "prompt": "2 + 3 × 4 = ?",
+      "hints": [
+        "Multiply before you add.",
+        "3 × 4 first.",
+        "Then add 2."
+      ],
+      "explanation": "3 × 4 = 12 first, then 2 + 12 = 14.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 14
     }
   ]
 }

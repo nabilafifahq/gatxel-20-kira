@@ -68,6 +68,110 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m5.percentages-of-amounts.801",
+      "skill": "m5.percentages-of-amounts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 25% of 80 is 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "25% is the same as 1/4.",
+        "Divide by 4.",
+        "80 ÷ 4."
+      ],
+      "explanation": "25% is one quarter. 80 ÷ 4 = 20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.percentages-of-amounts.802",
+      "skill": "m5.percentages-of-amounts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 10% of 250 is 2.5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "10% means divide by 10.",
+        "250 ÷ 10.",
+        "Take one zero off 250."
+      ],
+      "explanation": "10% is one tenth. 250 ÷ 10 = 25, not 2.5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.percentages-of-amounts.701",
+      "skill": "m5.percentages-of-amounts",
+      "difficulty": 2,
+      "prompt": "10% of 250 = ?",
+      "hints": [
+        "10% is one tenth.",
+        "Divide by 10.",
+        "250 ÷ 10."
+      ],
+      "explanation": "10% means 1/10, and 250 ÷ 10 = 25.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 25
+    },
+    {
+      "id": "m5.percentages-of-amounts.702",
+      "skill": "m5.percentages-of-amounts",
+      "difficulty": 3,
+      "prompt": "A shop in Surabaya sells a school bag for Rp180.000. In a sale, the price is reduced by 15%.",
+      "hints": [
+        "Find 10% then 5%.",
+        "Subtract the discount from the original price.",
+        "Double the sale price."
+      ],
+      "explanation": "10% of 180,000 = 18,000 and 5% = 9,000, so 15% = 27,000. Sale price: 180,000 - 27,000 = 153,000. Two bags: 306,000.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How much is the discount on one bag, in rupiah?",
+          "answer": 27000
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the sale price of one bag, in rupiah?",
+          "answer": 153000
+        },
+        {
+          "type": "numeric",
+          "prompt": "Two sisters each buy one bag at the sale price. How much do they pay in total?",
+          "answer": 306000
+        }
+      ]
     }
   ]
 }

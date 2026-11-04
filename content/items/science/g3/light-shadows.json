@@ -1365,6 +1365,134 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.light-shadows.801",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The Sun is a light source.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does the Sun make its own light?",
+        "It lights up the day.",
+        "The Sun is a light source."
+      ],
+      "explanation": "A light source makes its own light. The Sun, a torch and a candle flame all do.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.light-shadows.802",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The Moon is a light source because it shines at night.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the Moon make its own light?",
+        "Where does the light come from?",
+        "The Moon reflects sunlight."
+      ],
+      "explanation": "The Moon does not make light. It reflects light from the Sun, so it is not a light source.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.light-shadows.803",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A shadow forms when an object blocks light.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens to the light at the object?",
+        "Is it dark behind it?",
+        "Blocking light makes shadow."
+      ],
+      "explanation": "An opaque object stops light from passing, leaving a dark area behind it. That dark area is the shadow.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.light-shadows.804",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A shadow of a person is always the same length through the day.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where is the Sun at midday?",
+        "Think of your shadow at sunrise.",
+        "Length changes with the Sun's height."
+      ],
+      "explanation": "The shadow is long in the morning and evening when the Sun is low, and short around midday when the Sun is high.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.light-shadows.701",
+      "skill": "s3.light-shadows",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A shadow forms when an object blocks light completely. The word for an object that light cannot pass through is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "opaque"
+          ]
+        }
+      ],
+      "hints": [
+        "Light cannot pass through it.",
+        "A wall is one.",
+        "It starts with o."
+      ],
+      "explanation": "An opaque object blocks light, so a dark shadow forms behind it.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

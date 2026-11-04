@@ -66,6 +66,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "m6.transformations.801",
+      "skill": "m6.transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When the point (-2, 3) is translated 5 right and 4 down, it moves to (3, -1).",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Right adds to x.",
+        "Down subtracts from y.",
+        "-2 + 5 and 3 - 4."
+      ],
+      "explanation": "x: -2 + 5 = 3. y: 3 - 4 = -1.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.transformations.802",
+      "skill": "m6.transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Rotating the point (2, 0) 90 degrees anticlockwise about the origin gives (0, -2).",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Anticlockwise from east goes to which direction?",
+        "East turns to north.",
+        "It moves up."
+      ],
+      "explanation": "An anticlockwise quarter turn takes (2, 0) on the positive x-axis up to (0, 2) on the positive y-axis.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

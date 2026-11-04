@@ -66,6 +66,96 @@
       "unit": "litres",
       "type": "numeric",
       "answer": 0.725
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.801",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 4.6 × 100 = 460.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Move the digits two places left.",
+        "Fill the empty place with a zero.",
+        "The 4 moves from ones to hundreds."
+      ],
+      "explanation": "Each digit moves two places to the left: 4.6 × 100 = 460.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.802",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 52 ÷ 1,000 = 0.52.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many places do digits move for 1,000?",
+        "Three places.",
+        "Write 52 as 052 and put the point at the front: 0.052."
+      ],
+      "explanation": "Dividing by 1,000 moves digits three places right, so 52 ÷ 1,000 = 0.052.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.701",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "difficulty": 2,
+      "prompt": "3.4 × 100 = ?",
+      "hints": [
+        "Move the digits to the left.",
+        "Two zeros means two places.",
+        "3.4 becomes 340."
+      ],
+      "explanation": "Multiplying by 100 moves each digit 2 places left, so 3.4 × 100 = 340.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 340,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.702",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "difficulty": 2,
+      "prompt": "5,200 ÷ 1,000 = ?",
+      "hints": [
+        "Each digit moves right.",
+        "Three zeros means three places.",
+        "5,200 becomes 5.2."
+      ],
+      "explanation": "Dividing by 1,000 moves digits 3 places right, so 5,200 ÷ 1,000 = 5.2.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 9,
+      "type": "numeric",
+      "answer": 5.2,
+      "allowDecimal": true
     }
   ]
 }

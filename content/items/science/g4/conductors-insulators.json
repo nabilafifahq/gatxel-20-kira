@@ -1322,6 +1322,183 @@
       "answers": [
         1
       ]
+    },
+    {
+      "id": "s4.conductors-insulators.801",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Metals are good electrical conductors.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What are wires made of?",
+        "Would plastic be better?",
+        "Metals conduct."
+      ],
+      "explanation": "Electricity flows easily through copper, iron and other metals. That is why wires are made of metal.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.802",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Plastic is a good conductor of electricity.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What coats an electric wire?",
+        "Is it safe to touch?",
+        "Plastic is an insulator."
+      ],
+      "explanation": "Plastic is an insulator, so electricity does not flow through it. That is why wires are coated in plastic.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.803",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A metal spoon in hot soup soon gets hot at the handle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which material carries heat well?",
+        "Think of a wooden spoon.",
+        "Metal conducts heat."
+      ],
+      "explanation": "Metal is a good thermal conductor, so heat travels along it quickly from the soup to your hand.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.804",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A wooden handle on a pan is used because wood is a good thermal conductor.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Why do we not burn our hands on the handle?",
+        "A good conductor would get hot.",
+        "Wood is an insulator."
+      ],
+      "explanation": "Wood is a thermal insulator. It does not let heat pass easily, so the handle stays cool to hold.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.701",
+      "skill": "s4.conductors-insulators",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets electricity pass through is a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "conductor",
+            "electrical conductor"
+          ]
+        }
+      ],
+      "hints": [
+        "Metals are good at this.",
+        "The opposite is an insulator.",
+        "It starts with c."
+      ],
+      "explanation": "A conductor lets electricity pass through. Metals are good conductors.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s4.conductors-insulators.702",
+      "skill": "s4.conductors-insulators",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Ella tested materials in a circuit gap. The bulb lit with the copper wire, the iron nail and the aluminium foil. It did not light with the plastic comb, the wooden stick or the rubber.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many materials made the bulb light?",
+          "answer": 3,
+          "tolerance": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What do we call a material that lets electricity pass?",
+          "answers": [
+            "conductor",
+            "a conductor"
+          ]
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which is an insulator?",
+          "options": [
+            {
+              "text": "Copper"
+            },
+            {
+              "text": "Iron"
+            },
+            {
+              "text": "Rubber"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Count the ones that lit the bulb.",
+        "Metals did well.",
+        "Insulators stop electricity."
+      ],
+      "explanation": "Three materials lit the bulb. Materials that let electricity pass are conductors. Rubber is an insulator.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

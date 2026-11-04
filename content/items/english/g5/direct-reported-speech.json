@@ -720,6 +720,212 @@
         "Here becomes there and yesterday becomes the day before."
       ],
       "explanation": "Reported speech changes tense, place and time words."
+    },
+    {
+      "id": "e5.direct-reported-speech.801",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: In direct speech, speech marks go around the words that are spoken.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which words are spoken?",
+        "Speech marks mark them.",
+        "Put marks around them."
+      ],
+      "explanation": "Direct speech uses the exact words, so speech marks show the words said.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.802",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence Tom said, I am hungry needs no speech marks.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which words did Tom say?",
+        "Direct speech needs marks.",
+        "Put them around the spoken words."
+      ],
+      "explanation": "Speech marks are needed around I am hungry because Tom said those words.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.803",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"Mia said that she was tired\" is reported speech.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Are there speech marks?",
+        "It uses that.",
+        "It reports what she said."
+      ],
+      "explanation": "Reported speech tells what was said without the exact words or speech marks.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.804",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Reported speech uses speech marks around the words.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which type uses exact words?",
+        "Direct speech uses marks.",
+        "Reported speech does not."
+      ],
+      "explanation": "Reported speech does not use speech marks because the exact words are not used.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.805",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When direct speech changes to reported speech, pronouns such as I often change to he or she.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Who is speaking?",
+        "The report is from outside.",
+        "I becomes he."
+      ],
+      "explanation": "If Ali says \"I am happy\", the report is Ali said that he was happy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.806",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A question inside speech marks ends with a question mark inside the speech marks.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does the question end?",
+        "Which mark shows a question?",
+        "It goes inside."
+      ],
+      "explanation": "For example, \"Where are you going?\" asked Ella. The question mark stays inside the speech marks.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.807",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A new line is not needed when a different person starts speaking.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a conversation in a story.",
+        "New speaker means new line.",
+        "Change speaker, change line."
+      ],
+      "explanation": "Start a new line each time a different person speaks. It helps the reader see who is talking.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.direct-reported-speech.701",
+      "skill": "e5.direct-reported-speech",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Ali said, \"I am tired.\" Ali said he ___ tired.",
+      "blanks": [
+        {
+          "answers": [
+            "was"
+          ]
+        }
+      ],
+      "hints": [
+        "Reported speech moves back in time.",
+        "Am becomes another form.",
+        "Am becomes was."
+      ],
+      "explanation": "In reported speech, am changes to was.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

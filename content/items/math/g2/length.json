@@ -1,0 +1,57 @@
+{
+  "skill": "m2.length",
+  "items": [
+    {
+      "id": "m2.length.801",
+      "skill": "m2.length",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: There are 100 centimetres in 1 metre.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a metre stick.",
+        "Count in 10s to 100.",
+        "1 m = 100 cm."
+      ],
+      "explanation": "A metre stick is 100 cm long.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.length.802",
+      "skill": "m2.length",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A door is about 2 centimetres tall.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is a door as tall as your finger?",
+        "A door is taller than you.",
+        "Metres are the better unit."
+      ],
+      "explanation": "A door is about 2 metres tall. Centimetres are much shorter.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -1327,6 +1327,134 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.materials-properties.801",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Glass is transparent, so we can see through it.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a window.",
+        "Can you look through it?",
+        "Transparent means see through."
+      ],
+      "explanation": "Transparent means light passes through. That is why windows are made of glass.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.802",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Rubber is a good material for making a metal saucepan.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What happens to rubber in great heat?",
+        "Which material is hard and strong?",
+        "Saucepans are metal."
+      ],
+      "explanation": "Rubber is bendy and would melt or burn on a hot stove. Metals are used for saucepans because they are hard and let heat through.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.803",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A material that is waterproof does not let water pass through it.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a raincoat.",
+        "Does water soak in?",
+        "Waterproof keeps water out."
+      ],
+      "explanation": "Waterproof materials keep water out. A raincoat is made from one so that you stay dry.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.804",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Wood is a better material than plastic for making a see-through bottle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is wood opaque or transparent?",
+        "Which material lets light through?",
+        "Clear plastic is see through."
+      ],
+      "explanation": "You cannot see through wood because it is opaque. Clear plastic is transparent, so you can see what is inside.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.701",
+      "skill": "s3.materials-properties",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets light pass right through is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "transparent"
+          ]
+        }
+      ],
+      "hints": [
+        "You can see clearly through it.",
+        "Clear glass is one.",
+        "It starts with tr."
+      ],
+      "explanation": "Transparent materials let light through so you can see clearly through them.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

@@ -1023,6 +1023,196 @@
         "Add the three similar readings and divide by 3."
       ],
       "explanation": "The 58 s reading is an anomaly. The mean of 31, 29 and 30 is 90 / 3 = 30 s."
+    },
+    {
+      "id": "s5.dissolving.801",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Sugar dissolves in water to make a solution.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you see the sugar afterwards?",
+        "It mixes in.",
+        "Dissolved sugar is in solution."
+      ],
+      "explanation": "The sugar spreads out into very tiny pieces that mix evenly with the water.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.802",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Sand dissolves in water if you stir it long enough.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does sand disappear?",
+        "What happens when you stop stirring?",
+        "Sand is insoluble."
+      ],
+      "explanation": "Sand is insoluble, so it does not dissolve. It stays as grains and settles at the bottom.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.803",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Stirring helps a solid to dissolve faster.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a spoon do?",
+        "Water gets moved around.",
+        "Stirring speeds it up."
+      ],
+      "explanation": "Stirring moves the dissolved parts away from the solid, so fresh water touches it and it dissolves quicker.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.804",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The mass of a solution is less than the mass of the water and the sugar added.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is the sugar still there?",
+        "Mass cannot just vanish.",
+        "The masses add up."
+      ],
+      "explanation": "The sugar is still in the solution, so the mass is the same as the sugar and water together. Dissolving does not make anything disappear.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.dissolving.701",
+      "skill": "s5.dissolving",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The liquid that dissolves a solid is the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "solvent"
+          ]
+        }
+      ],
+      "hints": [
+        "In sugar water, it is the water.",
+        "The solid is the solute.",
+        "It starts with solv."
+      ],
+      "explanation": "The solvent is the liquid that dissolves the solid.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
+    },
+    {
+      "id": "s5.dissolving.702",
+      "skill": "s5.dissolving",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Sam stirred sugar into 100 ml of water at different temperatures until no more would dissolve. At 10 C, 3 spoons dissolved. At 30 C, 5 spoons. At 50 C, 7 spoons. At 70 C, 9 spoons.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many spoons dissolved at 50 C?",
+          "answer": 7,
+          "tolerance": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many more spoons dissolved at 70 C than at 10 C?",
+          "answer": 6,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the pattern?",
+          "options": [
+            {
+              "text": "Warmer water dissolves more sugar"
+            },
+            {
+              "text": "Cooler water dissolves more sugar"
+            },
+            {
+              "text": "Temperature makes no difference"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "What must be kept the same?",
+          "options": [
+            {
+              "text": "The temperature"
+            },
+            {
+              "text": "The spoons dissolved"
+            },
+            {
+              "text": "The volume of water"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Find the 50 C row.",
+        "9 take away 3.",
+        "Look at how the spoons change."
+      ],
+      "explanation": "7 spoons at 50 C. 9 - 3 = 6. Warmer water dissolves more. The volume of water stays the same.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

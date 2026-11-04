@@ -1,0 +1,83 @@
+{
+  "skill": "m1.count-objects",
+  "items": [
+    {
+      "id": "m1.count-objects.801",
+      "skill": "m1.count-objects",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: If you count 12 stars, the last number you say tells how many stars there are.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the number you say at the very end.",
+        "Each star gets one number.",
+        "The last number said is the total."
+      ],
+      "explanation": "The last number you say when you count is the total. Counting 1, 2, 3 up to 12 means there are 12 stars.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.count-objects.802",
+      "skill": "m1.count-objects",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: If you count 6 counters and then count them again in a different order, you get a different total.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does moving the counters add or take away any?",
+        "Nothing is added or taken away.",
+        "The total is the same every time."
+      ],
+      "explanation": "The total stays the same, however you order the counters. Count carefully and you always get 6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.count-objects.803",
+      "skill": "m1.count-objects",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: There are 15 dots in a row. Counting from the left or from the right gives the same total.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try counting from each end in your mind.",
+        "Every dot is still there.",
+        "The total does not change."
+      ],
+      "explanation": "Counting from either end touches every dot once, so you get 15 both times.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

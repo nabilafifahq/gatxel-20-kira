@@ -1,0 +1,83 @@
+{
+  "skill": "m1.odd-even",
+  "items": [
+    {
+      "id": "m1.odd-even.801",
+      "skill": "m1.odd-even",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The number 14 is even.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you make pairs with no one left over?",
+        "Even numbers end in 0, 2, 4, 6 or 8.",
+        "14 ends in 4."
+      ],
+      "explanation": "14 can be shared into two equal groups of 7 with none left. So 14 is even.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.odd-even.802",
+      "skill": "m1.odd-even",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 17 is even.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Make pairs of 17 things.",
+        "Look at the last digit.",
+        "One is left over."
+      ],
+      "explanation": "17 ends in 7. If you make pairs, one is left over, so 17 is odd.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.odd-even.803",
+      "skill": "m1.odd-even",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Every number from 1 to 20 that ends in 3 is odd.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which numbers up to 20 end in 3?",
+        "Test 3 and 13.",
+        "Both leave one over."
+      ],
+      "explanation": "The numbers are 3 and 13. Both have one left over when you make pairs, so both are odd.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

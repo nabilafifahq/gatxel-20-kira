@@ -68,6 +68,110 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "m5.ratio-proportion.801",
+      "skill": "m5.ratio-proportion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If the ratio of red to blue counters is 2 : 3 and there are 10 red, there are 15 blue.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the value of 1 part.",
+        "10 ÷ 2.",
+        "3 × 5."
+      ],
+      "explanation": "2 parts = 10, so 1 part = 5. Blue is 3 parts = 15.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.ratio-proportion.802",
+      "skill": "m5.ratio-proportion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If 3 pens cost Rp 9,000, then 5 pens cost Rp 12,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the price of 1 pen.",
+        "9,000 ÷ 3.",
+        "Multiply by 5."
+      ],
+      "explanation": "1 pen costs 9,000 ÷ 3 = Rp 3,000, so 5 pens cost 5 × 3,000 = Rp 15,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.ratio-proportion.701",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 3,
+      "prompt": "Red to blue is 2 : 3. There are 10 red. How many blue?",
+      "hints": [
+        "10 is 5 times 2.",
+        "Multiply the 3 by 5.",
+        "Both parts scale by the same number."
+      ],
+      "explanation": "Red goes from 2 to 10, so everything multiplies by 5. Blue is 3 × 5 = 15.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 15
+    },
+    {
+      "id": "m5.ratio-proportion.702",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 4,
+      "prompt": "A stall sells es teler. The recipe uses coconut milk and syrup in the ratio 3 : 2. The stall owner uses 15 cups of coconut milk for one big pot.",
+      "hints": [
+        "15 is 5 times 3.",
+        "Add the coconut milk and syrup.",
+        "40 splits into 5 equal parts of 8."
+      ],
+      "explanation": "Scale factor 5: syrup is 2 × 5 = 10 cups. Total 15 + 10 = 25. For 40 cups, each of the 5 parts is 8, so coconut milk is 3 × 8 = 24 cups.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many cups of syrup go into the pot?",
+          "answer": 10
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many cups of mixture are there in total?",
+          "answer": 25
+        },
+        {
+          "type": "numeric",
+          "prompt": "For a party, she wants 40 cups of mixture in the same ratio. How many cups of coconut milk does she need?",
+          "answer": 24
+        }
+      ]
     }
   ]
 }

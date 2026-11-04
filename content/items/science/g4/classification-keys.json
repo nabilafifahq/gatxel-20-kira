@@ -1304,6 +1304,84 @@
         "Choose a feature you can see and check."
       ],
       "explanation": "A good question can be checked by looking, and it splits the leaves into two groups. Smooth or not is clear."
+    },
+    {
+      "id": "s4.classification-keys.801",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A fish and a frog can be put into different groups.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do both have the same skin?",
+        "One has fins and the other legs.",
+        "Different groups."
+      ],
+      "explanation": "Fish live in water all their lives and have fins and scales. Frogs are amphibians with smooth, moist skin and live in water and on land.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.classification-keys.802",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A spider is an insect because it is small.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the legs.",
+        "Do insects have eight legs?",
+        "Spiders have eight legs."
+      ],
+      "explanation": "Insects have six legs. A spider has eight legs, so it is an arachnid. Being small does not decide the group.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.classification-keys.803",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A key is a set of questions that helps you identify a living thing.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a branching set of questions.",
+        "Each answer narrows the choices.",
+        "A key uses questions."
+      ],
+      "explanation": "Each question has a yes or no answer that leads you to the next question until you reach the name.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

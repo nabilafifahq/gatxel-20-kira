@@ -67,6 +67,58 @@
       "explanation": "The numbers are 0.41, 0.42, 0.43, 0.44, 0.45, 0.46, 0.47, 0.48 and 0.49. That is 9 numbers.",
       "type": "numeric",
       "answer": 9
+    },
+    {
+      "id": "m5.compare-decimals.801",
+      "skill": "m5.compare-decimals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The decimal 0.8 is greater than 0.75.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Write 0.8 with two decimal places.",
+        "Compare 80 and 75.",
+        "0.80 is greater."
+      ],
+      "explanation": "0.8 = 0.80 = 80 hundredths. 80 hundredths is more than 75 hundredths.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.compare-decimals.802",
+      "skill": "m5.compare-decimals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The decimal 0.09 is greater than 0.1.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Write 0.1 as 0.10.",
+        "Compare 9 and 10.",
+        "10 hundredths is more."
+      ],
+      "explanation": "0.1 = 0.10, which is 10 hundredths. 0.09 is 9 hundredths, which is less.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

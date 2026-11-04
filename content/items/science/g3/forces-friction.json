@@ -1281,6 +1281,167 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.forces-friction.801",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A force can be a push or a pull on an object.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of pushing a door.",
+        "Pulling a drawer is the same kind of thing.",
+        "Pushes and pulls are forces."
+      ],
+      "explanation": "Forces make things start moving, stop, speed up, slow down or change shape.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.forces-friction.802",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Friction helps things slide faster on rough surfaces.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is it easier to slide on ice or sand?",
+        "More friction means more slowing.",
+        "Rough means more friction."
+      ],
+      "explanation": "Rough surfaces create more friction, which slows moving things down. A smooth, slippery surface has less friction.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.forces-friction.803",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Friction between your shoes and the floor stops you slipping.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Why do shoes have ridges on the soles?",
+        "Walking on ice is hard.",
+        "Friction gives grip."
+      ],
+      "explanation": "Friction grips between the shoe sole and the ground. It helps you to walk without sliding.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.forces-friction.804",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Friction only happens when something is moving fast.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does a slow slide still rub?",
+        "A book on a tilted tray stays still.",
+        "Friction works at all speeds."
+      ],
+      "explanation": "Friction acts whenever two surfaces rub or try to slide against each other, even when slow. It also holds a book on a gentle slope.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.forces-friction.701",
+      "skill": "s3.forces-friction",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A toy car rolled down the same ramp onto three surfaces. It travelled 40 cm on carpet, 90 cm on wood and 120 cm on tiles.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which surface had the most friction?",
+          "options": [
+            {
+              "text": "Wood"
+            },
+            {
+              "text": "Tiles"
+            },
+            {
+              "text": "Carpet"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many cm further did the car go on tiles than on carpet?",
+          "answer": 80,
+          "tolerance": 0,
+          "unit": "cm"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What should stay the same?",
+          "options": [
+            {
+              "text": "The distance"
+            },
+            {
+              "text": "The height of the ramp"
+            },
+            {
+              "text": "The surface"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "More friction stops the car sooner.",
+        "120 take away 40.",
+        "Only the surface changes."
+      ],
+      "explanation": "The car stopped shortest on carpet so carpet has the most friction. 120 - 40 = 80 cm. The ramp height must stay the same.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

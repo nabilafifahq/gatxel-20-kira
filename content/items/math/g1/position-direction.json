@@ -1,0 +1,83 @@
+{
+  "skill": "m1.position-direction",
+  "items": [
+    {
+      "id": "m1.position-direction.801",
+      "skill": "m1.position-direction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: If a cat is below a table, the table is above the cat.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about where each one is.",
+        "The table is higher.",
+        "Above and below go together."
+      ],
+      "explanation": "Below and above are opposites. What is above something has that thing below it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.position-direction.802",
+      "skill": "m1.position-direction",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If a ball is on top of a box, the ball is below the box.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where is the ball?",
+        "Is it higher or lower than the box?",
+        "It is above."
+      ],
+      "explanation": "On top means above. The ball is above the box.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.position-direction.803",
+      "skill": "m1.position-direction",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a line of three children, the child in the middle is between the other two.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw three children in a line.",
+        "Who is in the middle?",
+        "The middle child is between."
+      ],
+      "explanation": "Between means in the middle of two things. The middle child has one on each side.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

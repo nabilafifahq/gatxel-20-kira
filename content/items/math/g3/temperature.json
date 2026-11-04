@@ -1,0 +1,57 @@
+{
+  "skill": "m3.temperature",
+  "items": [
+    {
+      "id": "m3.temperature.801",
+      "skill": "m3.temperature",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Water freezes at 0 degrees Celsius.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of ice.",
+        "Ice forms when it is very cold.",
+        "Freezing point is 0 °C."
+      ],
+      "explanation": "Water turns to ice at 0 °C.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.temperature.802",
+      "skill": "m3.temperature",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Water boils at 50 degrees Celsius.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Boiling water is very hot.",
+        "It is the top of the thermometer scale.",
+        "It boils at 100 °C."
+      ],
+      "explanation": "Water boils at 100 °C. 50 °C is hot, but not hot enough to boil.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

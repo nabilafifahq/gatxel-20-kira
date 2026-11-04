@@ -43,6 +43,58 @@
       "max": 50,
       "step": 5,
       "answer": 35
+    },
+    {
+      "id": "m2.numbers-to-100.801",
+      "skill": "m2.numbers-to-100",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The number 47 is read as forty-seven.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the tens digit first.",
+        "4 tens is forty.",
+        "Forty and seven."
+      ],
+      "explanation": "47 has 4 tens and 7 ones, so it is forty-seven.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.numbers-to-100.802",
+      "skill": "m2.numbers-to-100",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 19 is the same as ninety.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Nineteen ends in teen.",
+        "Ninety is 9 tens.",
+        "19 and 90 are different numbers."
+      ],
+      "explanation": "19 is nineteen, which is 1 ten and 9 ones. Ninety is 90.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

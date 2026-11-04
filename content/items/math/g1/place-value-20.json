@@ -1,0 +1,83 @@
+{
+  "skill": "m1.place-value-20",
+  "items": [
+    {
+      "id": "m1.place-value-20.801",
+      "skill": "m1.place-value-20",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 15 is 1 ten and 5 ones.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 15 into ten and some more.",
+        "Ten and 5 more.",
+        "10 + 5 = 15."
+      ],
+      "explanation": "15 is made of one group of ten and five single ones.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.place-value-20.802",
+      "skill": "m1.place-value-20",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 13 is 1 ten and 2 ones.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Ten and how many more make 13?",
+        "10 + 2 = 12.",
+        "3 ones are needed."
+      ],
+      "explanation": "13 is 1 ten and 3 ones. Ten and 2 would make 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.place-value-20.803",
+      "skill": "m1.place-value-20",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Five ones make one ten.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many cubes are in a tens stick?",
+        "Count a ten in ones.",
+        "It takes 10 ones."
+      ],
+      "explanation": "A ten is 10 ones, not 5. Five ones is only half a ten.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

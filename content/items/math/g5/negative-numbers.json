@@ -68,6 +68,77 @@
       ],
       "type": "numeric",
       "answer": 10000
+    },
+    {
+      "id": "m5.negative-numbers.801",
+      "skill": "m5.negative-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number -7 is less than -3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Picture the number line.",
+        "Which is further left?",
+        "-7 is lower than -3."
+      ],
+      "explanation": "-7 is further from zero on the negative side, so it is smaller.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.negative-numbers.802",
+      "skill": "m5.negative-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Counting up 8 steps from -5 lands on 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the steps to 0 first.",
+        "How many steps are left?",
+        "The answer is 3."
+      ],
+      "explanation": "-5 + 8 = 3. Five steps reach 0 and 3 more reach 3.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.negative-numbers.701",
+      "skill": "m5.negative-numbers",
+      "difficulty": 3,
+      "prompt": "-4 - 3 = ?",
+      "hints": [
+        "Start at -4.",
+        "Moving down 3.",
+        "Count back 3 from -4."
+      ],
+      "explanation": "From -4 count back 3 steps: -5, -6, -7.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": -7,
+      "allowNegative": true
     }
   ]
 }

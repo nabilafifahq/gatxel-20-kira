@@ -1,0 +1,83 @@
+{
+  "skill": "m1.ordinal",
+  "items": [
+    {
+      "id": "m1.ordinal.801",
+      "skill": "m1.ordinal",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word first is written 1st.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which position comes first?",
+        "The number 1 is used.",
+        "1st is first."
+      ],
+      "explanation": "1st means first place. 2nd means second place.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.ordinal.802",
+      "skill": "m1.ordinal",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word 3rd is read as second.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count 1st, 2nd, 3rd.",
+        "Which comes after second?",
+        "3rd is third."
+      ],
+      "explanation": "3rd is read as third. Second is written 2nd.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.ordinal.803",
+      "skill": "m1.ordinal",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a line of 10 children, the 10th child is at the end of the line.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many children are in the line?",
+        "10th is the same number as the count.",
+        "The last place is 10th."
+      ],
+      "explanation": "There are only 10 places, so the 10th is the last one.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

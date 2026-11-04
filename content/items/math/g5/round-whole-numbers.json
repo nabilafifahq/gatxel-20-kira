@@ -65,6 +65,58 @@
       "explanation": "Numbers from 25 to 34 round to 30. That is 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, so 10 numbers.",
       "type": "numeric",
       "answer": 10
+    },
+    {
+      "id": "m5.round-whole-numbers.801",
+      "skill": "m5.round-whole-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 48,650 rounds to 49,000 when rounded to the nearest 1,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the hundreds digit.",
+        "5 or more rounds up.",
+        "48,650 is closer to 49,000 than 48,000."
+      ],
+      "explanation": "The hundreds digit is 6, which is 5 or more, so round up to 49,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.round-whole-numbers.802",
+      "skill": "m5.round-whole-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The number 749,500 rounds to 800,000 when rounded to the nearest 100,000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the digit just right of the hundred thousands.",
+        "That digit is 4.",
+        "4 rounds down."
+      ],
+      "explanation": "The ten-thousands digit is 4, which is less than 5, so round down to 700,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

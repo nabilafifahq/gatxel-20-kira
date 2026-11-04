@@ -110,6 +110,76 @@
           }
         ]
       }
+    },
+    {
+      "id": "m2.shapes-2d.701",
+      "skill": "m2.shapes-2d",
+      "difficulty": 1,
+      "prompt": "How many vertices (corners) does a rectangle have?",
+      "hints": [
+        "Picture a rectangle.",
+        "Count the corners.",
+        "It has 4 sides."
+      ],
+      "explanation": "A rectangle has 4 sides and 4 vertices.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 4
+    },
+    {
+      "id": "m2.shapes-2d.801",
+      "skill": "m2.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A pentagon has 5 sides and 5 vertices.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Penta means five.",
+        "Count the sides.",
+        "5 sides, 5 vertices."
+      ],
+      "explanation": "A pentagon is a 5 sided shape. It also has 5 corners.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.shapes-2d.802",
+      "skill": "m2.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A hexagon has 8 sides.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hex means six.",
+        "Think of a honeycomb cell.",
+        "It has 6 sides."
+      ],
+      "explanation": "A hexagon has 6 sides. An octagon has 8 sides.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

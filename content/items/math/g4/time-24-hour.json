@@ -65,6 +65,84 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "m4.time-24-hour.801",
+      "skill": "m4.time-24-hour",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The time 15:00 is the same as 3 pm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Subtract 12 from hours past 12.",
+        "15 - 12.",
+        "After noon."
+      ],
+      "explanation": "15 - 12 = 3, so 15:00 is 3 pm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-24-hour.802",
+      "skill": "m4.time-24-hour",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The time 8:30 pm is written as 08:30 on a 24-hour clock.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add 12 to pm hours.",
+        "8 + 12.",
+        "It is the evening."
+      ],
+      "explanation": "08:30 is in the morning. 8:30 pm is 8 + 12 = 20, so 20:30.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.time-24-hour.803",
+      "skill": "m4.time-24-hour",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The time 00:15 is 15 minutes after midnight.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is 00:00?",
+        "Add 15 minutes.",
+        "Just after midnight."
+      ],
+      "explanation": "00:00 is midnight, so 00:15 is 15 minutes later.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

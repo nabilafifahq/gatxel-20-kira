@@ -1348,6 +1348,110 @@
         "What does a muffling material do to sound?"
       ],
       "explanation": "Ear defenders absorb sound so less reaches the ear. This protects hearing from very loud noise."
+    },
+    {
+      "id": "s5.sound.801",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Sound is made when something vibrates.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Touch a speaker.",
+        "Do you feel it?",
+        "Vibrations make sound."
+      ],
+      "explanation": "A drum skin vibrates when it is hit, and this makes sound.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.sound.802",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A louder sound has a higher pitch.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does pitch mean?",
+        "Is a loud drum high?",
+        "Loud and high differ."
+      ],
+      "explanation": "Loudness depends on how big the vibrations are. Pitch depends on how fast they are.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.sound.803",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Faster vibrations make a higher pitch.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a short string.",
+        "Fast means high.",
+        "Speed decides pitch."
+      ],
+      "explanation": "More vibrations each second give a higher note.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.sound.804",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Sound can travel through space as there is nothing to stop it.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is space mostly?",
+        "What carries a vibration?",
+        "No particles, no sound."
+      ],
+      "explanation": "Sound needs particles to carry the vibrations, so it cannot travel through the near-empty vacuum of space.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

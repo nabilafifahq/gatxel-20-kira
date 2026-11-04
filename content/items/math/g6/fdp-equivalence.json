@@ -66,6 +66,103 @@
       "allowDecimal": true,
       "type": "numeric",
       "answer": 4.5
+    },
+    {
+      "id": "m6.fdp-equivalence.801",
+      "skill": "m6.fdp-equivalence",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The decimal 0.375 is equal to the fraction 3/8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide 3 by 8.",
+        "Or write 0.375 as 375/1,000.",
+        "Divide top and bottom by 125."
+      ],
+      "explanation": "3 ÷ 8 = 0.375. Also 375/1,000 simplifies to 3/8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.fdp-equivalence.802",
+      "skill": "m6.fdp-equivalence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 2/5 is equal to 25%.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Make the denominator 100.",
+        "5 × 20 = 100, so multiply the top by 20.",
+        "2 × 20."
+      ],
+      "explanation": "2/5 = 40/100 = 40%. 25% is 1/4.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.fdp-equivalence.803",
+      "skill": "m6.fdp-equivalence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 7/20 is equal to 35%.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Make the denominator 100.",
+        "20 × 5 = 100.",
+        "7 × 5."
+      ],
+      "explanation": "7/20 = 35/100 = 35%.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.fdp-equivalence.701",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 3,
+      "prompt": "Write 3/8 as a decimal.",
+      "hints": [
+        "Divide 3 by 8.",
+        "1/8 is 0.125.",
+        "3 × 0.125."
+      ],
+      "explanation": "1/8 = 0.125, so 3/8 = 3 × 0.125 = 0.375.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 0.375,
+      "allowDecimal": true
     }
   ]
 }

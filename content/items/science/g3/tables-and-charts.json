@@ -1447,6 +1447,175 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.tables-and-charts.801",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A bar chart uses bars to show amounts.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do the bars look like?",
+        "Taller means more.",
+        "Bars show how much."
+      ],
+      "explanation": "The longer the bar, the greater the amount. It makes it easy to compare.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.802",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The tallest bar on a bar chart is the smallest amount.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the height.",
+        "Tall means a lot.",
+        "Tallest is the most."
+      ],
+      "explanation": "The tallest bar shows the greatest amount. The shortest bar shows the smallest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.803",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A table is a good way to record results neatly during an investigation.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of rows and columns.",
+        "Why not just write on scrap paper?",
+        "Tables keep results tidy."
+      ],
+      "explanation": "A table puts the results into rows and columns with headings, so they are easy to read and compare later.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.804",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A bar chart with no title and no labels on the axes is easy to read.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do the axes show?",
+        "How would you know the topic?",
+        "Add a title and labels."
+      ],
+      "explanation": "Without a title and labels you cannot tell what the bars show or what the numbers mean. Good charts always have both.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.tables-and-charts.701",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A bar chart has bars of 5, 8 and 3. What is the total?",
+      "answer": 16,
+      "tolerance": 0,
+      "hints": [
+        "Add all three bars.",
+        "5 plus 8 is 13.",
+        "13 plus 3."
+      ],
+      "explanation": "5 plus 8 plus 3 is 16.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s3.tables-and-charts.702",
+      "skill": "s3.tables-and-charts",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "A class voted for a favourite fruit. Apple 6, banana 9, mango 4, orange 5.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many children voted altogether?",
+          "answer": 24,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which fruit was the most popular?",
+          "options": [
+            {
+              "text": "Banana"
+            },
+            {
+              "text": "Apple"
+            },
+            {
+              "text": "Orange"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many more voted for banana than mango?",
+          "answer": 5,
+          "tolerance": 0
+        }
+      ],
+      "hints": [
+        "Add all four numbers.",
+        "Look for the biggest number.",
+        "9 take away 4."
+      ],
+      "explanation": "6 + 9 + 4 + 5 = 24. Banana got 9 votes. 9 - 4 = 5.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

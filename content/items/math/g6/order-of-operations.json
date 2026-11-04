@@ -64,6 +64,76 @@
       "tags": [],
       "type": "numeric",
       "answer": 39
+    },
+    {
+      "id": "m6.order-of-operations.801",
+      "skill": "m6.order-of-operations",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: (3 + 4) × 2 = 14.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which part is done first?",
+        "Do the brackets first.",
+        "7 × 2."
+      ],
+      "explanation": "Brackets first: 3 + 4 = 7. Then 7 × 2 = 14.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.order-of-operations.802",
+      "skill": "m6.order-of-operations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 20 - 6 ÷ 2 = 7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Division comes before subtraction.",
+        "6 ÷ 2 = 3.",
+        "20 - 3."
+      ],
+      "explanation": "Divide first: 6 ÷ 2 = 3. Then 20 - 3 = 17. Doing it left to right gives the wrong answer.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.order-of-operations.701",
+      "skill": "m6.order-of-operations",
+      "difficulty": 3,
+      "prompt": "(6 + 4) × 3 - 5 = ?",
+      "hints": [
+        "Brackets first.",
+        "Then multiply.",
+        "Subtract last."
+      ],
+      "explanation": "(6 + 4) = 10, then 10 × 3 = 30, then 30 - 5 = 25.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 25
     }
   ]
 }

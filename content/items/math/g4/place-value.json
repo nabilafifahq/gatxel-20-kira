@@ -93,6 +93,110 @@
       "explanation": "Thousands 6 (double 3), hundreds 3, tens 0, ones 6 + 3 = 9. The number is 6,309.",
       "type": "numeric",
       "answer": 6309
+    },
+    {
+      "id": "m4.place-value.801",
+      "skill": "m4.place-value",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: In the number 4,372, the digit 3 stands for 300.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Name the place of the digit 3.",
+        "Read the places from the right: ones, tens, hundreds, thousands.",
+        "The 3 is in the hundreds place."
+      ],
+      "explanation": "The 3 is in the hundreds place, so it is worth 3 × 100 = 300.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.place-value.802",
+      "skill": "m4.place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 5,806, the digit 8 stands for 80.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which place is the 8 in?",
+        "Count from the right: 6 is ones, 0 is tens.",
+        "The 8 is in the third place from the right."
+      ],
+      "explanation": "The 8 is in the hundreds place, so it is worth 800, not 80.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.place-value.803",
+      "skill": "m4.place-value",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Multiplying 36 by 100 gives 3,600.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many places do digits move when you multiply by 100?",
+        "Think of 36 hundreds.",
+        "Add two zeros after 36."
+      ],
+      "explanation": "Each digit moves two places to the left, and zeros fill the gap: 36 × 100 = 3,600.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.place-value.804",
+      "skill": "m4.place-value",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Dividing 4,500 by 10 gives 4,050.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Dividing by 10 makes a number ten times smaller.",
+        "Take one zero away from 4,500.",
+        "The answer has only 3 digits."
+      ],
+      "explanation": "Each digit moves one place to the right, so 4,500 ÷ 10 = 450.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "skill": "m3.tally-tables",
+  "items": [
+    {
+      "id": "m3.tally-tables.801",
+      "skill": "m3.tally-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In a frequency table, the frequency tells how many times something happened.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Frequency means how often.",
+        "Count the tally marks.",
+        "It is the total."
+      ],
+      "explanation": "Frequency means how many times. A tally count is written as a number in the frequency column.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.tally-tables.802",
+      "skill": "m3.tally-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Two groups of five and 3 more tally marks show 12.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the groups of five.",
+        "5 + 5 = 10.",
+        "10 + 3 = 13."
+      ],
+      "explanation": "Two groups of five is 10, and 3 more is 13. So the tally shows 13.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

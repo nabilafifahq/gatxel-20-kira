@@ -80,6 +80,58 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "m5.shapes-2d-3d.801",
+      "skill": "m5.shapes-2d-3d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A cube has 12 edges.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the top, bottom and side edges.",
+        "4 + 4 + 4.",
+        "Each is a set of four."
+      ],
+      "explanation": "A cube has 4 edges on top, 4 on the bottom and 4 going up the sides: 12 edges.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.shapes-2d-3d.802",
+      "skill": "m5.shapes-2d-3d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A square-based pyramid has 6 faces.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the base and the sides.",
+        "The base is 1 face.",
+        "4 triangles plus the base."
+      ],
+      "explanation": "It has 1 square base and 4 triangular faces, so 5 faces in total.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -477,6 +477,58 @@
         "It is a single digit."
       ],
       "explanation": "The probabilities of all outcomes add up to 1."
+    },
+    {
+      "id": "m6.probability-events.801",
+      "skill": "m6.probability-events",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If the probability of rain is 0.3, the probability of no rain is 0.7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Probabilities add up to 1.",
+        "1 minus 0.3.",
+        "0.7."
+      ],
+      "explanation": "The probabilities of an event and its opposite add to 1. 1 - 0.3 = 0.7.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.probability-events.802",
+      "skill": "m6.probability-events",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Three outcomes with probabilities 0.2, 0.3 and 0.4 cover all the possible outcomes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the three probabilities.",
+        "Do they make 1?",
+        "The total is 0.9."
+      ],
+      "explanation": "0.2 + 0.3 + 0.4 = 0.9, not 1. Something with probability 0.1 is missing.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -2824,6 +2824,177 @@
         "Age affects both."
       ],
       "explanation": "Age affects both shoe size and reading. A pattern between two things does not prove one causes the other."
+    },
+    {
+      "id": "s6.graphs-evidence.801",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A line graph can show how a measurement changes over time.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is on the bottom axis?",
+        "The line joins points.",
+        "It shows change over time."
+      ],
+      "explanation": "Points are joined by a line, so you can see patterns such as a steady rise.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.graphs-evidence.802",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A line of best fit must pass through every point on the graph.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does measuring ever have tiny errors?",
+        "Is the line drawn to follow the pattern?",
+        "It goes near the points, not through all."
+      ],
+      "explanation": "A line of best fit shows the pattern and passes close to most points. Some points will be a little above or below it because of small errors.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.graphs-evidence.803",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A result that does not fit the pattern is called an anomalous result.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does it fit?",
+        "What should you do?",
+        "Anomalies stand out."
+      ],
+      "explanation": "It may be caused by an error, so scientists check it or repeat the test.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.graphs-evidence.804",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: One test is enough evidence to be sure a conclusion is right.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How can you check?",
+        "Should you repeat it?",
+        "Repeat tests."
+      ],
+      "explanation": "Repeating tests and getting similar results makes the evidence more reliable. One result may be a mistake.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.graphs-evidence.701",
+      "skill": "s6.graphs-evidence",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the mean of 8, 10, 12 and 14?",
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "Add them up first.",
+        "The total is 44.",
+        "Divide 44 by 4."
+      ],
+      "explanation": "8 plus 10 plus 12 plus 14 is 44. 44 divided by 4 is 11.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
+    },
+    {
+      "id": "s6.graphs-evidence.702",
+      "skill": "s6.graphs-evidence",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Hana measured a bean plant every 5 days. Day 0: 2 cm. Day 5: 6 cm. Day 10: 10 cm. Day 15: 14 cm. Day 20: 18 cm.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many cm did it grow every 5 days?",
+          "answer": 4,
+          "tolerance": 0,
+          "unit": "cm"
+        },
+        {
+          "type": "numeric",
+          "prompt": "If the pattern continues, how tall on day 25?",
+          "answer": 22,
+          "tolerance": 0,
+          "unit": "cm"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What does the graph line look like?",
+          "options": [
+            {
+              "text": "A steady rising straight line"
+            },
+            {
+              "text": "A flat line"
+            },
+            {
+              "text": "A line that goes down"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "6 take away 2.",
+        "Add the same growth to 18.",
+        "It rises by the same amount each time."
+      ],
+      "explanation": "It grows 4 cm every 5 days. 18 + 4 = 22 cm. Equal steps make a straight line.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

@@ -419,6 +419,102 @@
         "Put the digits in order."
       ],
       "explanation": "The digits are 1 hundred, 4 tens and 0 ones, so the number is 140."
+    },
+    {
+      "id": "m3.complements-multiples.701",
+      "skill": "m3.complements-multiples",
+      "difficulty": 2,
+      "prompt": "__ + 640 = 1,000",
+      "hints": [
+        "How far is 640 from 1,000?",
+        "640 + 60 = 700.",
+        "Then 700 + 300 = 1,000."
+      ],
+      "explanation": "60 + 300 = 360, so 640 + 360 = 1,000.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 360
+    },
+    {
+      "id": "m3.complements-multiples.801",
+      "skill": "m3.complements-multiples",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 65 + 35 = 100.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add the ones first.",
+        "5 + 5 = 10.",
+        "60 + 30 + 10 = 100."
+      ],
+      "explanation": "Ones: 5 + 5 = 10. Tens: 6 tens + 3 tens + 1 ten carried is 10 tens, which is 100.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.complements-multiples.802",
+      "skill": "m3.complements-multiples",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 700 + 200 makes 1000.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the hundreds.",
+        "7 + 2 = 9.",
+        "That is 900."
+      ],
+      "explanation": "7 hundreds + 2 hundreds = 9 hundreds, which is 900. You need 700 + 300 to make 1000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.complements-multiples.803",
+      "skill": "m3.complements-multiples",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Every multiple of 5 ends in 0 or 5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count in 5s.",
+        "Look at the last digits.",
+        "They are 5 or 0."
+      ],
+      "explanation": "Counting in 5s gives 5, 10, 15, 20, 25 and so on, which always ends in 5 or 0.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

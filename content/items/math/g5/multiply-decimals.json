@@ -66,6 +66,58 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "m5.multiply-decimals.801",
+      "skill": "m5.multiply-decimals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 2.4 × 5 = 12.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 2.4 into 2 and 0.4.",
+        "Multiply each by 5.",
+        "10 + 2."
+      ],
+      "explanation": "2 × 5 = 10 and 0.4 × 5 = 2. 10 + 2 = 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiply-decimals.802",
+      "skill": "m5.multiply-decimals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1.5 × 4 = 5.4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Split 1.5 into 1 and 0.5.",
+        "0.5 × 4 is 2.",
+        "4 + 2."
+      ],
+      "explanation": "1 × 4 = 4 and 0.5 × 4 = 2, so the answer is 6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

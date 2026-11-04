@@ -1171,6 +1171,134 @@
         "Multiply 340 by 6."
       ],
       "explanation": "The light arrives almost at once, so the 6 s is the travel time of the sound. 340 m/s × 6 s = 2040 m."
+    },
+    {
+      "id": "s6.light-seeing.801",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: We see an object when light from it enters our eyes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does the light go?",
+        "Eyes receive light.",
+        "Light reaches the eye."
+      ],
+      "explanation": "Light reflects off objects into our eyes, or comes from a source directly.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.802",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: We see things because our eyes send out light.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do eyes glow?",
+        "What enters the eye?",
+        "Light enters eyes."
+      ],
+      "explanation": "Eyes do not send out light. They only receive the light that comes from or is reflected off objects.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.803",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A mirror reflects light and the angle of reflection equals the angle of incidence.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which angles match?",
+        "Light bounces.",
+        "They are equal."
+      ],
+      "explanation": "Light bounces off at the same angle as it came in.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.804",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Refraction is when light bounces back off a mirror.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which word means bending?",
+        "A straw looks bent in water.",
+        "Refraction bends light."
+      ],
+      "explanation": "Refraction is the bending of light as it passes from one material into another, such as from air into water. Bouncing is reflection.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.701",
+      "skill": "s6.light-seeing",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Light bending as it enters water is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "refraction"
+          ]
+        }
+      ],
+      "hints": [
+        "A straw looks bent in water.",
+        "It starts with ref.",
+        "The word ends in tion."
+      ],
+      "explanation": "Refraction is the bending of light as it passes into another material.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

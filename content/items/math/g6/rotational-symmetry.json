@@ -510,6 +510,84 @@
         "It matches two times in a full turn."
       ],
       "explanation": "A half-turn match means order 2."
+    },
+    {
+      "id": "m6.rotational-symmetry.801",
+      "skill": "m6.rotational-symmetry",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A square has rotational symmetry of order 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Turn it a quarter at a time.",
+        "It looks the same after each quarter turn.",
+        "360 ÷ 90 = 4."
+      ],
+      "explanation": "A square fits onto itself 4 times in one full turn.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.rotational-symmetry.802",
+      "skill": "m6.rotational-symmetry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rectangle that is not a square has rotational symmetry of order 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does a quarter turn fit onto itself?",
+        "A tall rectangle becomes wide.",
+        "It fits after a half turn."
+      ],
+      "explanation": "It looks the same only after a half turn, so its order is 2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.rotational-symmetry.803",
+      "skill": "m6.rotational-symmetry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The letter H has rotational symmetry of order 2.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Turn the H upside down.",
+        "A half turn looks the same.",
+        "Two positions."
+      ],
+      "explanation": "It looks the same after a half turn and a full turn.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

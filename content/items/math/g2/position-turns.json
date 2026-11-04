@@ -1,0 +1,57 @@
+{
+  "skill": "m2.position-turns",
+  "items": [
+    {
+      "id": "m2.position-turns.801",
+      "skill": "m2.position-turns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A half turn is the same as two quarter turns.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do one quarter turn.",
+        "Do another quarter turn.",
+        "Together they make a half turn."
+      ],
+      "explanation": "A quarter turn plus a quarter turn is a half turn.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.position-turns.802",
+      "skill": "m2.position-turns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: After a whole turn you face the opposite way.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How far round is a whole turn?",
+        "Do you end up where you began?",
+        "You face the same way."
+      ],
+      "explanation": "A whole turn takes you all the way round to where you started. A half turn makes you face the opposite way.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

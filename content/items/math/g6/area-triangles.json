@@ -67,6 +67,58 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "m6.area-triangles.801",
+      "skill": "m6.area-triangles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A triangle with base 10 cm and height 6 cm has an area of 30 cm².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply base by height.",
+        "Then halve.",
+        "60 ÷ 2."
+      ],
+      "explanation": "Area = base × height ÷ 2 = 10 × 6 ÷ 2 = 30 cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.area-triangles.802",
+      "skill": "m6.area-triangles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A triangle with base 8 cm and height 5 cm has an area of 40 cm².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A triangle is half a rectangle.",
+        "Halve 40.",
+        "20 cm²."
+      ],
+      "explanation": "8 × 5 = 40 is the area of a rectangle. The triangle is half of that: 20 cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

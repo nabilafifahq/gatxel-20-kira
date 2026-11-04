@@ -51,6 +51,45 @@
       ],
       "type": "numeric",
       "answer": 1200
+    },
+    {
+      "id": "m4.money-rupiah.701",
+      "skill": "m4.money-rupiah",
+      "difficulty": 3,
+      "prompt": "At a school warung, notebooks cost Rp6.500 each and pens cost Rp2.500 each. Sinta buys 3 notebooks and 5 pens. She pays with a Rp50.000 note.",
+      "hints": [
+        "Multiply the price by the number bought.",
+        "Add the two costs.",
+        "Subtract the total from 50.000."
+      ],
+      "explanation": "3 × 6,500 = 19,500. 5 × 2,500 = 12,500. Total 32,000. Change 50,000 - 32,000 = 18,000.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How much do the 3 notebooks cost, in rupiah?",
+          "answer": 19500
+        },
+        {
+          "type": "numeric",
+          "prompt": "How much do the 5 pens cost, in rupiah?",
+          "answer": 12500
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the total cost, in rupiah?",
+          "answer": 32000
+        },
+        {
+          "type": "numeric",
+          "prompt": "How much change does Sinta get, in rupiah?",
+          "answer": 18000
+        }
+      ]
     }
   ]
 }

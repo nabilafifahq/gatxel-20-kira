@@ -1,0 +1,57 @@
+{
+  "skill": "m3.mass-capacity",
+  "items": [
+    {
+      "id": "m3.mass-capacity.801",
+      "skill": "m3.mass-capacity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 2 kilograms is the same as 2000 grams.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many grams in 1 kg?",
+        "Double 1000.",
+        "2000 g."
+      ],
+      "explanation": "1 kg = 1000 g, so 2 kg = 2000 g.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.mass-capacity.802",
+      "skill": "m3.mass-capacity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 3 litres is the same as 300 millilitres.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many ml in 1 litre?",
+        "Multiply by 3.",
+        "3 × 1000 = 3000."
+      ],
+      "explanation": "1 litre is 1000 ml, so 3 litres is 3000 ml.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

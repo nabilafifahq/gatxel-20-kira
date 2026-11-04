@@ -1,0 +1,57 @@
+{
+  "skill": "m2.mass-capacity",
+  "items": [
+    {
+      "id": "m2.mass-capacity.801",
+      "skill": "m2.mass-capacity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 1 kilogram is the same as 1000 grams.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Kilo means 1000.",
+        "Think of a bag of 1000 small paper clips.",
+        "1 kg = 1000 g."
+      ],
+      "explanation": "Kilo means one thousand, so 1 kg = 1000 g.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.mass-capacity.802",
+      "skill": "m2.mass-capacity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1 litre is the same as 100 millilitres.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Milli also means one thousandth.",
+        "Think of 1000.",
+        "1 l = 1000 ml."
+      ],
+      "explanation": "1 litre is 1000 millilitres. 100 millilitres is much less.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

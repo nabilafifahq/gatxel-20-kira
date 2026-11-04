@@ -54,6 +54,58 @@
       "unit": "cm²",
       "type": "numeric",
       "answer": 176
+    },
+    {
+      "id": "m6.area-perimeter.801",
+      "skill": "m6.area-perimeter",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A shape made from a 6 cm by 4 cm rectangle joined to a 3 cm by 2 cm rectangle has an area of 30 cm².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the area of each rectangle.",
+        "Add the areas.",
+        "24 + 6."
+      ],
+      "explanation": "6 × 4 = 24 and 3 × 2 = 6. 24 + 6 = 30 cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.area-perimeter.802",
+      "skill": "m6.area-perimeter",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rectangle with an area of 36 cm² and a width of 4 cm has a length of 8 cm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Divide the area by the width.",
+        "36 ÷ 4.",
+        "Check 4 × 9."
+      ],
+      "explanation": "36 ÷ 4 = 9, so the length is 9 cm. 4 × 8 would only be 32.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

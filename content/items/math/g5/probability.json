@@ -62,6 +62,32 @@
       ],
       "type": "numeric",
       "answer": 4
+    },
+    {
+      "id": "m5.probability.801",
+      "skill": "m5.probability",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: When you roll a fair six-sided dice there are 6 equally likely outcomes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List the faces.",
+        "Is any face more likely?",
+        "Six faces."
+      ],
+      "explanation": "The outcomes are 1, 2, 3, 4, 5 and 6, and each has the same chance.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

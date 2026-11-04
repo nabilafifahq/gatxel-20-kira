@@ -868,6 +868,110 @@
         "Does the word involve speaking or words?"
       ],
       "explanation": "Predict, dictate and dictionary all come from dict. District and dentist do not."
+    },
+    {
+      "id": "e4.word-families.801",
+      "skill": "e4.word-families",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The root word of the word unhappy is happy.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Take off the prefix.",
+        "What is left after un-?",
+        "Happy is still a word."
+      ],
+      "explanation": "The root word is the main part that carries the meaning. Un- is a prefix added to happy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.word-families.802",
+      "skill": "e4.word-families",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The root word of the word carefully is carefull.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take off the suffix -ly first.",
+        "Then take off -ful.",
+        "The root is a short word meaning to look after."
+      ],
+      "explanation": "The root word is care. The suffixes -ful and -ly were added, and one l was dropped from -ful.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.word-families.803",
+      "skill": "e4.word-families",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The words act, actor and action belong to the same word family.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for the shared letters.",
+        "They share the root act.",
+        "Do they share a meaning?"
+      ],
+      "explanation": "Words in a family share a root and a related meaning. These words are all about doing things.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.word-families.804",
+      "skill": "e4.word-families",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The words play and plane are in the same word family because they look similar.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Looking alike is not enough.",
+        "Does plane come from play?",
+        "Check the meanings."
+      ],
+      "explanation": "Words are in a family only if they share a root and a related meaning. Play and plane look alike but the meanings are not connected.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

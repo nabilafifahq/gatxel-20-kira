@@ -36,6 +36,146 @@
       "unit": "m²",
       "type": "numeric",
       "answer": 48
+    },
+    {
+      "id": "m4.perimeter-area.801",
+      "skill": "m4.perimeter-area",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A rectangle 8 cm long and 3 cm wide has an area of 24 cm².",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply length by width.",
+        "8 × 3.",
+        "The unit is square centimetres."
+      ],
+      "explanation": "Area = length × width = 8 × 3 = 24 cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.perimeter-area.802",
+      "skill": "m4.perimeter-area",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A rectangle 8 cm long and 3 cm wide has a perimeter of 24 cm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add all four sides.",
+        "8 + 3 + 8 + 3.",
+        "Do not multiply for perimeter."
+      ],
+      "explanation": "Perimeter = 8 + 3 + 8 + 3 = 22 cm. 24 is its area in cm².",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.perimeter-area.803",
+      "skill": "m4.perimeter-area",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A square with sides of 5 cm has a perimeter of 20 cm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A square has 4 equal sides.",
+        "4 × 5.",
+        "Add 5 + 5 + 5 + 5."
+      ],
+      "explanation": "All four sides are 5 cm. 4 × 5 = 20 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.perimeter-area.804",
+      "skill": "m4.perimeter-area",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A rectangle with area 24 cm² and one side of 4 cm has a perimeter of 24 cm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the other side first.",
+        "Divide the area by 4.",
+        "Then add all four sides."
+      ],
+      "explanation": "The other side is 24 ÷ 4 = 6 cm. Perimeter = 4 + 6 + 4 + 6 = 20 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.perimeter-area.701",
+      "skill": "m4.perimeter-area",
+      "difficulty": 4,
+      "prompt": "The school garden is a rectangle 12 m long and 7 m wide. The school puts a fence round it. Fencing costs Rp15.000 for each metre.",
+      "hints": [
+        "Area = length × width.",
+        "Perimeter = 2 × (length + width).",
+        "Multiply the perimeter by 15.000."
+      ],
+      "explanation": "Area: 12 × 7 = 84 m². Perimeter: 2 × (12 + 7) = 38 m. Cost: 38 × 15,000 = 570,000 rupiah.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the area of the garden, in square metres?",
+          "answer": 84,
+          "unit": "m²"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the perimeter of the garden, in metres?",
+          "answer": 38,
+          "unit": "m"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How much does the fence cost, in rupiah?",
+          "answer": 570000
+        }
+      ]
     }
   ]
 }

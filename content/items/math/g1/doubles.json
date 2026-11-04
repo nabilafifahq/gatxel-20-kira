@@ -1,0 +1,83 @@
+{
+  "skill": "m1.doubles",
+  "items": [
+    {
+      "id": "m1.doubles.801",
+      "skill": "m1.doubles",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Double 4 is 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Double means two of the same.",
+        "4 + 4.",
+        "4 and 4 make 8."
+      ],
+      "explanation": "Double means add the same number twice. 4 + 4 = 8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.doubles.802",
+      "skill": "m1.doubles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Double 6 is 10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add 6 and 6.",
+        "Count on 6 from 6.",
+        "6 + 6 = 12."
+      ],
+      "explanation": "Double 6 is 6 + 6 = 12. 10 is double 5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.doubles.803",
+      "skill": "m1.doubles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 7 + 8 is two more than double 7.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is double 7?",
+        "8 is one bigger than 7.",
+        "14 + 1 = 15."
+      ],
+      "explanation": "Double 7 is 14. 7 + 8 = 15, which is only one more than 14.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "skill": "m1.days-months",
+  "items": [
+    {
+      "id": "m1.days-months.801",
+      "skill": "m1.days-months",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Tuesday comes after Monday.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say the days in order.",
+        "Monday is first in this list.",
+        "Tuesday is next."
+      ],
+      "explanation": "The days go Monday, Tuesday, Wednesday and so on.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.days-months.802",
+      "skill": "m1.days-months",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: There are 10 months in a year.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say the months from January.",
+        "December is the last month.",
+        "There are 12."
+      ],
+      "explanation": "There are 12 months in a year, from January to December.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.days-months.803",
+      "skill": "m1.days-months",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: February comes before January.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say the first three months.",
+        "Which one is first?",
+        "January, then February."
+      ],
+      "explanation": "The months go January, February, March in order. January is first.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

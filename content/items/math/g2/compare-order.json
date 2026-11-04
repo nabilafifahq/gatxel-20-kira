@@ -1,0 +1,57 @@
+{
+  "skill": "m2.compare-order",
+  "items": [
+    {
+      "id": "m2.compare-order.801",
+      "skill": "m2.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 45 is less than 54.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the tens digits.",
+        "4 is less than 5.",
+        "So 45 is smaller."
+      ],
+      "explanation": "Compare the tens first. 4 tens is less than 5 tens, so 45 < 54.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.compare-order.802",
+      "skill": "m2.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 72 is greater than 78.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Tens are the same.",
+        "Compare the ones.",
+        "2 is less than 8."
+      ],
+      "explanation": "Both have 7 tens. Then 2 ones is less than 8 ones, so 72 is less than 78.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

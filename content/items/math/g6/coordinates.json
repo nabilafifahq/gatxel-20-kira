@@ -70,6 +70,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "m6.coordinates.801",
+      "skill": "m6.coordinates",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The point (-3, 4) is in the top-left quadrant.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is x positive or negative?",
+        "Is y positive or negative?",
+        "Left and up."
+      ],
+      "explanation": "The x value is negative, so it is to the left of the y-axis, and y is positive so it is above the x-axis.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.coordinates.802",
+      "skill": "m6.coordinates",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The point (-2, -5) is in the bottom-right quadrant.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Check the sign of x.",
+        "Negative x goes left.",
+        "Left, not right."
+      ],
+      "explanation": "The x value is negative, so it is to the left. The point is in the bottom-left quadrant.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

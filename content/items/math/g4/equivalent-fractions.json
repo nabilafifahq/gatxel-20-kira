@@ -79,6 +79,110 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m4.equivalent-fractions.801",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The fractions 1/2 and 4/8 are equivalent.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply top and bottom by the same number.",
+        "1 × 4 and 2 × 4.",
+        "Both fractions are half of a whole."
+      ],
+      "explanation": "Multiply the top and bottom of 1/2 by 4 to get 4/8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.equivalent-fractions.802",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fractions 2/3 and 4/9 are equivalent.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What did the top 2 get multiplied by?",
+        "The bottom 3 must be multiplied by the same number.",
+        "2/3 = 4/6."
+      ],
+      "explanation": "Doubling the top and bottom of 2/3 gives 4/6, not 4/9. The bottoms were not multiplied by the same number.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.equivalent-fractions.803",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 3/4 is greater than 2/3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find a common denominator.",
+        "Use twelfths.",
+        "9 is more than 8."
+      ],
+      "explanation": "With denominator 12, 3/4 = 9/12 and 2/3 = 8/12. 9/12 is more than 8/12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.equivalent-fractions.804",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 1/8 is bigger than 1/5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about sharing a pizza.",
+        "Which is bigger, a slice from 8 or from 5?",
+        "1/5 is bigger."
+      ],
+      "explanation": "The more parts a whole is cut into, the smaller each part. Eighths are smaller than fifths.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

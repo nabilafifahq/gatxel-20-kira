@@ -843,6 +843,208 @@
           ]
         }
       ]
+    },
+    {
+      "id": "e1.word-endings.801",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: One cat, two cats. We add s to show more than one.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the cats.",
+        "One cat, many ...",
+        "Add s."
+      ],
+      "explanation": "Adding s to many words shows there is more than one.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-endings.802",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The plural of box is boxs.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say the plural out loud.",
+        "Boxs is hard to say.",
+        "Add es."
+      ],
+      "explanation": "Box ends with x, so we add es: boxes.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-endings.803",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: We add es to the word bus to make buses.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Bus ends with s.",
+        "Say buses.",
+        "Add es."
+      ],
+      "explanation": "Words that end in s, x, ch or sh usually add es.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-endings.804",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word jump with ing added is jumpping.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the word need a double letter?",
+        "Jump ends with mp.",
+        "Just add ing."
+      ],
+      "explanation": "Jump with ing is jumping. We do not double the p here.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-endings.805",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Adding ing to the word play makes playing.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add ing to play.",
+        "Say playing.",
+        "Play plus ing is playing."
+      ],
+      "explanation": "Adding ing to a doing word shows it is happening now: playing.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.word-endings.701",
+      "skill": "e1.word-endings",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "One dog, two ___.",
+      "blanks": [
+        {
+          "answers": [
+            "dogs"
+          ]
+        }
+      ],
+      "hints": [
+        "More than one.",
+        "Add an s.",
+        "dog + s"
+      ],
+      "explanation": "To make more than one, we add -s to dog: dogs.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
+    },
+    {
+      "id": "e1.word-endings.702",
+      "skill": "e1.word-endings",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add -ing to jump: ___.",
+      "blanks": [
+        {
+          "answers": [
+            "jumping"
+          ]
+        }
+      ],
+      "hints": [
+        "Keep the word jump.",
+        "Then add ing.",
+        "jump + ing"
+      ],
+      "explanation": "Jump plus -ing makes jumping.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "e1.word-endings.703",
+      "skill": "e1.word-endings",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Add -es: one watch, two ___.",
+      "blanks": [
+        {
+          "answers": [
+            "watches"
+          ]
+        }
+      ],
+      "hints": [
+        "Words ending in ch add es.",
+        "watch + es",
+        "w, a, t, c, h, e, s."
+      ],
+      "explanation": "Words that end in ch take -es to make more than one: watches.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

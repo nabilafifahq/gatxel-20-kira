@@ -18,6 +18,58 @@
         "m": 40
       },
       "stepMinutes": 5
+    },
+    {
+      "id": "m3.time-clock.801",
+      "skill": "m3.time-clock",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: When the minute hand points to 7, it is 35 minutes past the hour.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count in 5s to the 7.",
+        "5, 10, 15, 20, 25, 30, 35.",
+        "7 × 5 = 35."
+      ],
+      "explanation": "Each number on the clock is 5 minutes. 7 × 5 = 35.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.time-clock.802",
+      "skill": "m3.time-clock",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: When the minute hand points to 4, it is 4 minutes past the hour.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Each number is a jump of 5 minutes.",
+        "Count in 5s to the 4.",
+        "It is 20 minutes."
+      ],
+      "explanation": "The minute hand on 4 means 20 minutes past, because 4 × 5 = 20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

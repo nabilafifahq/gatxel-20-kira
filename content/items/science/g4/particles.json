@@ -597,6 +597,139 @@
         "Particles in a liquid touch and move."
       ],
       "explanation": "Liquid particles are close together but can slide past each other."
+    },
+    {
+      "id": "s4.particles.801",
+      "skill": "s4.particles",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The particles in a solid are packed closely together.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Are particles loose in a solid?",
+        "Solids are hard.",
+        "They are packed tight."
+      ],
+      "explanation": "They are held in a regular pattern, so a solid holds its shape.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.particles.802",
+      "skill": "s4.particles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The particles in a gas are close together and cannot move.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does a gas stay in one place?",
+        "Gas spreads out.",
+        "They are far apart."
+      ],
+      "explanation": "Gas particles are far apart and move quickly in all directions, which is why gases spread out.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.particles.803",
+      "skill": "s4.particles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The particles in a liquid can slide past each other.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does a liquid flow?",
+        "Particles move around.",
+        "Liquids flow."
+      ],
+      "explanation": "They are close but not fixed, which is why a liquid flows.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.particles.804",
+      "skill": "s4.particles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: When a solid melts, its particles stop moving.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does heat add energy?",
+        "More energy means more movement.",
+        "They move more."
+      ],
+      "explanation": "Heating makes particles move more. In melting they gain enough energy to slide past each other.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.particles.701",
+      "skill": "s4.particles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In which state are the particles furthest apart?",
+      "options": [
+        {
+          "text": "Gas"
+        },
+        {
+          "text": "Liquid"
+        },
+        {
+          "text": "Solid"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Gases spread out to fill a space.",
+        "Solid particles are packed close.",
+        "Furthest apart means most free."
+      ],
+      "explanation": "Gas particles are far apart and move freely.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

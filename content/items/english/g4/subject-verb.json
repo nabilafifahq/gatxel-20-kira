@@ -1157,6 +1157,162 @@
         "Friends is more than one."
       ],
       "explanation": "I goes with was. My friends is plural, so it goes with were."
+    },
+    {
+      "id": "e4.subject-verb.801",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: In the sentence \"The cat sleeps on the sofa\", the verb matches the subject.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count how many cats there are.",
+        "One subject needs a singular verb.",
+        "Sleeps goes with one cat."
+      ],
+      "explanation": "One cat is a singular subject, so the verb takes s: sleeps.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.subject-verb.802",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"The children plays in the park\" is correct.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is children one or more than one?",
+        "A plural subject uses play.",
+        "Remove the s."
+      ],
+      "explanation": "Children is plural, so the verb should be play: The children play in the park.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.subject-verb.803",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"My friends and I are going to the zoo\" is correct.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the people.",
+        "More than one person.",
+        "Use are with a plural subject."
+      ],
+      "explanation": "My friends and I is more than one person, so we use are.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.subject-verb.804",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"The box of pencils are on the table\" is correct.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the main noun.",
+        "Box is the subject, not pencils.",
+        "One box is."
+      ],
+      "explanation": "The subject is box, which is singular, so the verb is is: The box of pencils is on the table.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.subject-verb.805",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"There are three books on the desk\" is correct.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is there on the desk?",
+        "Three books is plural.",
+        "Plural uses are."
+      ],
+      "explanation": "Books is plural, so the verb is are.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.subject-verb.701",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The dogs ___ barking.",
+      "options": [
+        {
+          "text": "is"
+        },
+        {
+          "text": "are"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Dogs is plural.",
+        "More than one dog.",
+        "Plural uses are."
+      ],
+      "explanation": "Dogs is plural, so we use are.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

@@ -1225,6 +1225,110 @@
         ],
         "alt": "A table of four materials. Material A made the bulb very bright, B made it dim, and C and D left it off."
       }
+    },
+    {
+      "id": "s6.circuits.801",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A cell in a circuit pushes electricity around the loop.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What provides energy?",
+        "Is a battery a cell?",
+        "The cell gives energy."
+      ],
+      "explanation": "The cell provides the energy. A circuit works only if it is complete.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.circuits.802",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Adding more cells to a series circuit makes the bulb dimmer.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do cells give a circuit?",
+        "More push means more or less light?",
+        "More cells make the bulb brighter."
+      ],
+      "explanation": "More cells give more push to the electricity, so the bulb gets brighter, not dimmer.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.circuits.803",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Adding more bulbs in a series circuit makes each bulb dimmer.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How is the energy shared?",
+        "More bulbs in one loop.",
+        "Each bulb is dimmer."
+      ],
+      "explanation": "The energy from the cell is shared between the bulbs, so each one gets less.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.circuits.804",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The circuit symbol for a switch is a circle with a cross.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does the cross circle show?",
+        "Switch has a gap.",
+        "It is a bulb."
+      ],
+      "explanation": "A circle with a cross is the symbol for a lamp (bulb). A switch is drawn as a line with a gap.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

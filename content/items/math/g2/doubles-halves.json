@@ -1,0 +1,57 @@
+{
+  "skill": "m2.doubles-halves",
+  "items": [
+    {
+      "id": "m2.doubles-halves.801",
+      "skill": "m2.doubles-halves",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Double 15 is 30.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Double the tens and double the ones.",
+        "Double 10 is 20.",
+        "Double 5 is 10."
+      ],
+      "explanation": "15 + 15: 10 + 10 = 20, and 5 + 5 = 10. Then 20 + 10 = 30.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.doubles-halves.802",
+      "skill": "m2.doubles-halves",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Half of 50 is 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which number doubled is 50?",
+        "20 + 20 = 40.",
+        "25 + 25 = 50."
+      ],
+      "explanation": "Half of 50 is 25 because 25 + 25 = 50. 20 + 20 is only 40.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

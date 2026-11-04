@@ -1,0 +1,57 @@
+{
+  "skill": "m2.carroll-venn",
+  "items": [
+    {
+      "id": "m2.carroll-venn.801",
+      "skill": "m2.carroll-venn",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a Carroll diagram that sorts numbers into odd and even, the number 6 goes in the even box.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is 6 odd or even?",
+        "Pairs of 6 leave none over.",
+        "It is even."
+      ],
+      "explanation": "6 can be shared into 2 equal groups of 3, so it is even.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.carroll-venn.802",
+      "skill": "m2.carroll-venn",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A number can be in the even circle and the odd circle at the same time.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is 9 even?",
+        "Is 8 odd?",
+        "A number cannot be both."
+      ],
+      "explanation": "A number is either odd or even. It cannot be both, so it can only go in one circle.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

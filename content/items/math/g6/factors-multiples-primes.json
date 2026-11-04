@@ -84,6 +84,84 @@
       "unit": "cm",
       "type": "numeric",
       "answer": 12
+    },
+    {
+      "id": "m6.factors-multiples-primes.801",
+      "skill": "m6.factors-multiples-primes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The prime factorisation of 36 is 2 × 2 × 3 × 3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply the primes together.",
+        "4 × 9.",
+        "Are 2 and 3 prime?"
+      ],
+      "explanation": "2 × 2 × 3 × 3 = 4 × 9 = 36, and 2 and 3 are both prime.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.factors-multiples-primes.802",
+      "skill": "m6.factors-multiples-primes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The highest common factor of 24 and 36 is 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List the factors of both.",
+        "Is 12 in both lists?",
+        "12 is bigger than 6."
+      ],
+      "explanation": "Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24. Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. The biggest in both is 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.factors-multiples-primes.803",
+      "skill": "m6.factors-multiples-primes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The lowest common multiple of 6 and 8 is 24.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List the multiples of each.",
+        "Find the first match.",
+        "It is in both the 6 and 8 times tables."
+      ],
+      "explanation": "Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. The first in both is 24.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

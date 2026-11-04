@@ -71,6 +71,58 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m6.add-subtract.801",
+      "skill": "m6.add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 12.7 + 8.45 = 21.15.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Line up the decimal points.",
+        "12.7 is 12.70.",
+        "Add the hundredths first."
+      ],
+      "explanation": "Write 12.7 as 12.70. 12.70 + 8.45 = 21.15.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.add-subtract.802",
+      "skill": "m6.add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 5,000 - 2,367 = 2,743.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add your answer to 2,367.",
+        "Does 2,743 + 2,367 make 5,000?",
+        "Count up from 2,367 to 2,400, then 5,000."
+      ],
+      "explanation": "5,000 - 2,367 = 2,633. Check: 2,633 + 2,367 = 5,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

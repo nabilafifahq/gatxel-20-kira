@@ -861,6 +861,165 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e1.digraphs.801",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word ship starts with the two letters sh.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say ship slowly.",
+        "The first sound is shhh.",
+        "Look for two letters that make one sound."
+      ],
+      "explanation": "Sh is a digraph: two letters, one sound. Ship starts with sh.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.digraphs.802",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word chip starts with the letters sh.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say the first sound of chip.",
+        "It sounds like the start of cheese.",
+        "Chip begins with ch."
+      ],
+      "explanation": "Chip starts with ch, not sh.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.digraphs.803",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The letters th make one sound in the word thin.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say thin slowly.",
+        "You put your tongue between your teeth.",
+        "Two letters, one sound."
+      ],
+      "explanation": "Th is a digraph, so t and h work together to make one sound.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.digraphs.804",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word king ends with the sound sh.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say king and listen to the end.",
+        "It does not end like fish.",
+        "The last two letters are ng."
+      ],
+      "explanation": "King ends with the sound ng.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.digraphs.805",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word fish has four letters but only three sounds.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the sounds, not the letters.",
+        "Sh is a digraph.",
+        "Letters f, i, s, h but sounds f, i, sh."
+      ],
+      "explanation": "Fish is f-i-sh. Sh is two letters that make one sound, so there are three sounds.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.digraphs.701",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word has the sound sh?",
+      "options": [
+        {
+          "text": "chip"
+        },
+        {
+          "text": "thin"
+        },
+        {
+          "text": "ship"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Say each word slowly.",
+        "Sh is like being quiet.",
+        "Ship starts with sh."
+      ],
+      "explanation": "Ship starts with the digraph sh.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

@@ -23,6 +23,58 @@
           }
         ]
       }
+    },
+    {
+      "id": "m2.charts.801",
+      "skill": "m2.charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The tallest bar in a block graph shows the most.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the heights of bars.",
+        "Taller means more.",
+        "The tallest bar is the most."
+      ],
+      "explanation": "A taller bar means a bigger number, so the tallest shows the most.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.charts.802",
+      "skill": "m2.charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In a pictogram where each picture means 2 children, 4 pictures show 4 children.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does one picture mean?",
+        "Count in 2s.",
+        "4 pictures is 8."
+      ],
+      "explanation": "Each picture is 2 children. 4 pictures show 2 + 2 + 2 + 2 = 8 children.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

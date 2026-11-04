@@ -63,6 +63,102 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m6.angles.801",
+      "skill": "m6.angles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The angles around a point add up to 360 degrees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many degrees are in a full turn?",
+        "Think of a complete circle.",
+        "360."
+      ],
+      "explanation": "A full turn is 360 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.angles.802",
+      "skill": "m6.angles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The angles in a quadrilateral add up to 180 degrees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Draw a diagonal.",
+        "How many triangles do you get?",
+        "Two triangles."
+      ],
+      "explanation": "A quadrilateral can be split into 2 triangles, so its angles add up to 2 × 180 = 360 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.angles.803",
+      "skill": "m6.angles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a triangle with angles of 70 degrees and 50 degrees, the third angle is 60 degrees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Angles in a triangle total 180.",
+        "Add the two known angles.",
+        "180 - 120."
+      ],
+      "explanation": "70 + 50 = 120 and 180 - 120 = 60.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.angles.701",
+      "skill": "m6.angles",
+      "difficulty": 2,
+      "prompt": "Angles on a straight line: 120° and ?°",
+      "hints": [
+        "Angles on a line add to 180°.",
+        "180 - 120.",
+        "What is left?"
+      ],
+      "explanation": "Angles on a straight line total 180°, so 180 - 120 = 60.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 9,
+      "type": "numeric",
+      "answer": 60
     }
   ]
 }
