@@ -13,395 +13,467 @@
     {
       "id": "c1",
       "title": "Whispers After Dark",
-      "text": "The old library in Accra was Ama's favourite place. It smelled of paper and polish, and Mrs Boateng the librarian knew every book by heart. Ama came every afternoon to read.\n\nOn Tuesday, Mrs Boateng looked pale. \"Something strange is happening,\" she whispered. \"When I lock up at night and come back in the morning, I find books on the floor. And last night, the caretaker heard a voice in the empty reading room.\"\n\n\"What did the voice say?\" asked Ama.\n\n\"Shh, quiet please,\" said Mrs Boateng. \"That is exactly what it said.\"\n\nAma's cousin Kwesi dropped his comic. \"A library ghost!\" he cried. Ama grinned. \"Or a mystery,\" she said. \"Tonight, we are going to find out.\"",
+      "text": "The old library in Accra was Ama's favourite place. It smelled of paper and polish, the ceiling fans turned slowly overhead, and Mrs Boateng the librarian knew every book by heart. Ama came every afternoon to read, and she always chose the chair by the tall window.\n\nOn Tuesday, Mrs Boateng looked pale. \"Something strange is happening,\" she whispered. \"When I lock up at night and come back in the morning, I find books on the floor. They always come from the top shelves. And last night, the caretaker heard a voice in the empty reading room.\"\n\nAma stopped with her bag half off her shoulder. \"What did the voice say?\" she asked.\n\nMrs Boateng bent closer. \"Shh, quiet please,\" she said.\n\n\"Sorry,\" whispered Ama. \"But what did it say?\"\n\n\"No, my dear. That is exactly what it said.\"\n\nAma's cousin Kwesi, who was sitting on the floor nearby, dropped his comic. Kwesi believed in everything: aliens, giant snails, and the story that the school cook could see through walls. \"A library ghost!\" he cried. Several people looked up. \"A ghost who wants everyone to be quiet!\"\n\nAma looked up too, at the shadowy top shelves. They were so high that Mrs Boateng needed a ladder to reach them. Why were the fallen books always from up there? Who could reach them in the dark, without a ladder?\n\nShe felt a question begin to itch inside her, the way it did at the start of a good mystery story.\n\n\"Or it could be a mystery,\" she said, and she grinned. \"Tonight, we are going to find out.\"",
       "questions": [
         {
           "id": "q1",
           "prompt": "In which city is the library?",
           "options": [
-            "Kumasi",
-            "Accra",
+            "Cape Coast",
             "Tamale",
-            "Cape Coast"
+            "Kumasi",
+            "Accra"
           ],
-          "answer": 1,
-          "why": "The old library is in Accra."
+          "answer": 3,
+          "why": "The first sentence says the old library is in Accra."
         },
         {
           "id": "q2",
-          "prompt": "What does the library smell of?",
+          "prompt": "Where does Ama always sit in the library?",
           "options": [
-            "Fresh paint and flowers",
-            "Smoke and soap",
-            "Paper and polish",
-            "Fish and spices"
+            "At the desk beside Mrs Boateng",
+            "On the floor next to Kwesi",
+            "In the chair by the tall window",
+            "On the steps of the tall ladder"
           ],
           "answer": 2,
-          "why": "It smelled of paper and polish."
+          "why": "Ama came every afternoon to read, and she always chose the chair by the tall window."
         },
         {
           "id": "q3",
-          "prompt": "What does Mrs Boateng find in the morning?",
+          "prompt": "What did the caretaker hear?",
           "options": [
-            "The windows open",
-            "Food on the tables",
-            "The lights on",
-            "Books on the floor"
+            "A voice in the empty reading room",
+            "A door slamming in the middle of the night",
+            "A clock ringing on the top shelf",
+            "Someone climbing the ladder in the dark"
           ],
-          "answer": 3,
-          "why": "She finds books on the floor."
+          "answer": 0,
+          "why": "Mrs Boateng says the caretaker heard a voice in the empty reading room."
         },
         {
           "id": "q4",
-          "prompt": "What did the caretaker hear?",
+          "prompt": "Why does Ama say \"Sorry\" to Mrs Boateng?",
           "options": [
-            "A song",
-            "A voice in the empty reading room",
-            "A door slam",
-            "A clock ticking"
+            "She has dropped a heavy book on the floor",
+            "She thinks Mrs Boateng is telling her to be quiet",
+            "She has knocked over Kwesi's comic by mistake",
+            "She has arrived later than she usually does"
           ],
           "answer": 1,
-          "why": "He heard a voice in the empty reading room."
+          "why": "Mrs Boateng says, \"Shh, quiet please,\" and Ama takes it as a telling-off. In fact, Mrs Boateng is repeating the words of the voice."
         },
         {
           "id": "q5",
-          "prompt": "What did the voice say?",
+          "prompt": "Which sentence best describes Kwesi?",
           "options": [
-            "\"Welcome to the library\"",
-            "\"Who is there?\"",
-            "\"Shh, quiet please\"",
-            "\"Good morning\""
+            "He only believes what he can prove",
+            "He never reads anything except comics",
+            "He is afraid of the school cook",
+            "He believes almost anything he hears"
           ],
-          "answer": 2,
-          "why": "Mrs Boateng says it said, \"Shh, quiet please.\""
+          "answer": 3,
+          "why": "The text says Kwesi believed in everything: aliens, giant snails, and the story about the cook."
         },
         {
           "id": "q6",
-          "prompt": "What does Kwesi think is in the library?",
+          "prompt": "Where do the fallen books always come from?",
           "options": [
-            "A thief",
-            "A ghost",
-            "A cat",
-            "A robber with a torch"
+            "The caretaker's room",
+            "The table by the window",
+            "The top shelves",
+            "The bottom shelves"
+          ],
+          "answer": 2,
+          "why": "Mrs Boateng says, \"They always come from the top shelves.\""
+        },
+        {
+          "id": "q7",
+          "prompt": "What puzzles Ama about the fallen books?",
+          "options": [
+            "The books are too heavy for one person to lift",
+            "The shelves are too high for anyone to reach without a ladder",
+            "The caretaker has been reading them late at night",
+            "The books are all about ghosts and other frightening things"
           ],
           "answer": 1,
-          "why": "Kwesi cried, \"A library ghost!\""
+          "why": "She notices that Mrs Boateng needs a ladder for those shelves, and she asks who could reach them in the dark without one."
         }
       ]
     },
     {
       "id": "c2",
       "title": "The Stake-Out",
-      "text": "That night, Ama and Kwesi told their parents they were having a sleepover at Mrs Boateng's house next door. Mrs Boateng secretly gave them the library key. \"Be careful,\" she said, \"and do not touch anything.\"\n\nAt ten o'clock, the cousins tiptoed into the dark reading room. They hid behind a big sofa with a torch, a notebook and a packet of biscuits.\n\nThe library was very still. The clock ticked. A tap dripped. Kwesi's stomach growled loudly. \"Shh!\" said Ama.\n\nSuddenly something rustled high above them. Both children froze. Then came a soft, scratchy sound, like someone clearing a throat.",
+      "text": "That evening, Ama and Kwesi had a sleepover at Mrs Boateng's house, next door to the library. Their parents agreed at once, because Mrs Boateng was an old friend of the family. After a supper of jollof rice, she took a big iron key from a hook and held it out.\n\n\"Be careful,\" she said, \"and do not touch anything. I will sit at my window, just across the yard. If you get frightened, flash your torch three times and I will come.\"\n\nAt ten o'clock, the cousins tiptoed into the dark reading room. The room they knew so well looked different at night. The chairs had long shadows, and the globe in the corner looked like a huge bald head. They hid behind a big sofa with a torch, a notebook and a packet of biscuits. Ama wrote the time at the top of a clean page.\n\nThe library was very still. The clock ticked. A tap dripped. Half an hour went by, and Ama's left leg went to sleep. Then Kwesi's stomach growled loudly.\n\n\"Shh!\" said Ama.\n\n\"You sound just like the ghost,\" whispered Kwesi, and they both had to bite their sleeves to stop themselves laughing.\n\nAfter a while, he stopped smiling. \"What if it really is a ghost? What will we do?\"\n\n\"We will ask it what it wants,\" whispered Ama. \"Then we will write it down.\" She sounded braver than she felt.\n\nSuddenly something rustled high above them. Both children froze. A little dust floated down through the moonlight from the window. Then came a soft, scratchy sound, like someone clearing a throat.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "Where did the children say they were going?",
+          "prompt": "Where were the cousins spending the night?",
           "options": [
-            "To a sleepover next door",
-            "To the beach",
-            "To the cinema",
-            "To the market"
+            "At Kwesi's house, across the road from the school",
+            "At Ama's house, on the other side of the city",
+            "At Mrs Boateng's house, next door to the library",
+            "At the caretaker's house, behind the library"
           ],
-          "answer": 0,
-          "why": "They told their parents they were having a sleepover at Mrs Boateng's house next door."
+          "answer": 2,
+          "why": "Ama and Kwesi had a sleepover at Mrs Boateng's house, next door to the library."
         },
         {
           "id": "q2",
-          "prompt": "Who gave the children the key?",
+          "prompt": "What would bring Mrs Boateng to help them?",
           "options": [
-            "The caretaker",
-            "Their parents",
-            "The police",
-            "Mrs Boateng"
+            "A note pushed under her door",
+            "Three flashes of the torch",
+            "A loud shout from the door",
+            "A long ring on the telephone"
           ],
-          "answer": 3,
-          "why": "Mrs Boateng secretly gave them the library key."
+          "answer": 1,
+          "why": "She said, \"If you get frightened, flash your torch three times and I will come.\""
         },
         {
           "id": "q3",
-          "prompt": "At what time did they enter the reading room?",
+          "prompt": "At what time did the cousins go into the reading room?",
           "options": [
-            "Seven o'clock",
-            "Midnight",
             "Ten o'clock",
-            "Six o'clock"
+            "Eight o'clock",
+            "Midnight",
+            "Seven o'clock"
           ],
-          "answer": 2,
-          "why": "At ten o'clock, the cousins tiptoed into the reading room."
+          "answer": 0,
+          "why": "At ten o'clock, the cousins tiptoed into the dark reading room."
         },
         {
           "id": "q4",
-          "prompt": "What did the children bring?",
+          "prompt": "What did the children bring with them?",
           "options": [
-            "A camera and a kite",
-            "A torch, a notebook and biscuits",
-            "A map and a ball",
-            "A ladder and rope"
+            "A camera, a map and a kite",
+            "A ladder, a rope and a net",
+            "A blanket, a clock and a book",
+            "A torch, a notebook and biscuits"
           ],
-          "answer": 1,
-          "why": "They hid with a torch, a notebook and a packet of biscuits."
+          "answer": 3,
+          "why": "They hid behind a big sofa with a torch, a notebook and a packet of biscuits."
         },
         {
           "id": "q5",
-          "prompt": "What made the loud growl?",
+          "prompt": "Why does Kwesi say that Ama sounds just like the ghost?",
           "options": [
-            "A dog",
-            "A ghost",
-            "Kwesi's stomach",
-            "The old door"
+            "She has just said \"Shh!\", as the ghost does",
+            "She is whispering to somebody he cannot see",
+            "She has started to clear her throat loudly",
+            "Her voice has gone very deep and strange"
           ],
-          "answer": 2,
-          "why": "Kwesi's stomach growled loudly."
+          "answer": 0,
+          "why": "Ama says \"Shh!\" when his stomach growls. The voice in chapter one said \"Shh, quiet please\", so Kwesi makes a joke of it."
         },
         {
           "id": "q6",
+          "prompt": "What does \"She sounded braver than she felt\" tell us about Ama?",
+          "options": [
+            "She was angry that Kwesi had stopped smiling",
+            "She was not afraid of anything at all that night",
+            "She knew already that there was no ghost",
+            "She was frightened too, but she did not show it"
+          ],
+          "answer": 3,
+          "why": "Her words sound calm, but the sentence tells us that inside she did not feel so brave."
+        },
+        {
+          "id": "q7",
           "prompt": "Where did the rustling sound come from?",
           "options": [
-            "Under the floor",
+            "Behind the globe",
+            "Under the sofa",
             "High above them",
-            "From the next room",
-            "From the street"
+            "Outside the door"
           ],
-          "answer": 1,
-          "why": "Something rustled high above them."
+          "answer": 2,
+          "why": "Suddenly something rustled high above them, and dust floated down."
         }
       ]
     },
     {
       "id": "c3",
       "title": "Feathers",
-      "text": "Ama slowly raised her torch. The beam travelled up the tall shelves to the very top. There, between two dusty encyclopaedias, sat a pair of round, shining eyes.\n\n\"A ghost?\" whispered Kwesi, hiding his face behind a cushion.\n\n\"No,\" said Ama, and she began to laugh. \"Look at its feathers.\"\n\nIt was a large grey parrot with a bright red tail. It looked down at them and tilted its head. Then it opened its curved beak and said in a perfect, stern voice, \"Shh! Quiet please!\"\n\nThe cousins burst out laughing. They laughed so hard that they had to hold on to each other. \"Our ghost,\" gasped Kwesi, \"is a bird!\"",
+      "text": "Ama slowly raised her torch. Her hand was not quite steady. The beam travelled up the tall shelves, past the atlases and the dictionaries, to the very top. There, between two dusty encyclopaedias, sat a pair of round, shining eyes.\n\nThe eyes blinked.\n\n\"A ghost?\" whispered Kwesi, hiding his face behind a cushion. \"Does it have a face? Tell me if it has no face.\"\n\n\"Look,\" said Ama, and she began to laugh. \"It has feathers.\"\n\nKwesi peeped out, one eye at a time. It was a large grey parrot with a bright red tail. It walked sideways along the shelf, and its claws went tick, tick, tick on the wood. Then it leaned on a thick book with its shoulder, just to see what would happen. The book slid to the edge, tipped over and fell. Thump. A puff of dust rose from the floor.\n\nThe parrot looked down and seemed very pleased.\n\nAma opened her notebook and wrote: Books on the floor. Explained.\n\nThe parrot looked at her and tilted its head. Then it opened its curved beak and said in a perfect, stern voice, \"Shh! Quiet please!\"\n\nIt was Mrs Boateng's voice exactly, with the same little sniff at the end.\n\nThe cousins burst out laughing. They laughed so hard that they had to hold on to each other, and Kwesi slid right off the sofa. \"Our ghost,\" he gasped, \"is a bird!\"\n\nAma wiped her eyes. Then she stopped laughing and looked up again. \"But whose bird?\" she said. \"And how did it get in?\"",
       "questions": [
         {
           "id": "q1",
-          "prompt": "Where did Ama point her torch?",
+          "prompt": "Where did the torch beam find the shining eyes?",
           "options": [
-            "At the floor",
-            "At the door",
-            "At the tall shelves",
-            "At the window"
+            "Behind the sofa next to the two children",
+            "Between two encyclopaedias at the very top",
+            "On the globe in the corner of the room",
+            "Above the door that led to the yard"
           ],
-          "answer": 2,
-          "why": "The beam travelled up the tall shelves."
+          "answer": 1,
+          "why": "There, between two dusty encyclopaedias at the very top, sat a pair of round, shining eyes."
         },
         {
           "id": "q2",
-          "prompt": "What did Ama and Kwesi see between the books?",
+          "prompt": "What did Kwesi do when he first heard about the eyes?",
           "options": [
-            "A bat",
-            "A pair of round, shining eyes",
-            "A pile of letters",
-            "A large spider"
+            "He hid his face behind a cushion",
+            "He climbed up the shelves to look",
+            "He ran to the door and shouted",
+            "He flashed the torch at the window"
           ],
-          "answer": 1,
-          "why": "Between two encyclopaedias sat a pair of round, shining eyes."
+          "answer": 0,
+          "why": "Kwesi whispered, \"A ghost?\", hiding his face behind a cushion."
         },
         {
           "id": "q3",
-          "prompt": "What did Kwesi do when he was scared?",
-          "options": [
-            "He ran away",
-            "He turned off the torch",
-            "He hid his face behind a cushion",
-            "He climbed the shelf"
-          ],
-          "answer": 2,
-          "why": "Kwesi hid his face behind a cushion."
-        },
-        {
-          "id": "q4",
           "prompt": "What kind of creature was the \"ghost\"?",
           "options": [
-            "A grey parrot",
-            "A white owl",
-            "A black cat",
-            "A green frog"
+            "A white owl with a yellow beak",
+            "A brown bat with large ears",
+            "A grey parrot with a red tail",
+            "A black cat with green eyes"
           ],
-          "answer": 0,
+          "answer": 2,
           "why": "It was a large grey parrot with a bright red tail."
         },
         {
-          "id": "q5",
-          "prompt": "What colour was the parrot's tail?",
+          "id": "q4",
+          "prompt": "How did the parrot make the book fall?",
           "options": [
-            "Blue",
-            "Yellow",
-            "Black",
-            "Bright red"
+            "It flapped its wings hard against the shelf",
+            "It pulled the book with its curved beak",
+            "It dropped the book from high in the air",
+            "It leaned on the book with its shoulder"
           ],
           "answer": 3,
-          "why": "The parrot had a bright red tail."
+          "why": "It leaned on a thick book with its shoulder. The book slid to the edge, tipped over and fell."
+        },
+        {
+          "id": "q5",
+          "prompt": "Why does Ama write \"Explained\" in her notebook?",
+          "options": [
+            "She has just seen how the books get onto the floor",
+            "Mrs Boateng has told her what the noise was",
+            "She has finished writing out the whole of the story",
+            "She wants to show the parrot her neat handwriting"
+          ],
+          "answer": 0,
+          "why": "She watches the parrot push a book off the shelf, and then she writes: Books on the floor. Explained."
         },
         {
           "id": "q6",
-          "prompt": "How did the cousins react when they saw the parrot?",
+          "prompt": "How did the children know the parrot had copied Mrs Boateng?",
           "options": [
-            "They ran away",
-            "They burst out laughing",
-            "They screamed for help",
-            "They called Mrs Boateng"
+            "It said that she had taught it to talk",
+            "It had her stern voice and her little sniff",
+            "It was carrying her reading glasses",
+            "It was sitting on her favourite chair"
           ],
           "answer": 1,
-          "why": "The cousins burst out laughing and held on to each other."
+          "why": "It was Mrs Boateng's voice exactly, with the same little sniff at the end."
+        },
+        {
+          "id": "q7",
+          "prompt": "Which two parts of the mystery does the parrot explain in this chapter?",
+          "options": [
+            "The long shadows and the strange smell",
+            "The ticking clock and the dripping tap",
+            "The fallen books and the voice in the empty room",
+            "The missing key and the open window"
+          ],
+          "answer": 2,
+          "why": "It pushes a book off the shelf, and it speaks in Mrs Boateng's voice, saying what the caretaker heard."
+        },
+        {
+          "id": "q8",
+          "prompt": "What does Ama still want to find out at the end of the chapter?",
+          "options": [
+            "What kinds of books the bird likes",
+            "Why the bird has such a bright tail",
+            "How long the bird can stay awake",
+            "Who owns the bird and how it got in"
+          ],
+          "answer": 3,
+          "why": "She says, \"But whose bird? And how did it get in?\""
         }
       ]
     },
     {
       "id": "c4",
       "title": "The Professor",
-      "text": "Ama made a gentle clucking sound and held out a biscuit. The parrot hopped down the shelf, one step at a time, and took the biscuit from her fingers.\n\n\"He must be someone's pet,\" said Ama. Around his leg was a thin metal ring. On it was a tiny label: Professor, 14 Mango Street.\n\n\"Mrs Boateng says that Mr Darko lives on Mango Street,\" said Kwesi. \"He has a pet parrot, and last week it escaped through a window.\"\n\n\"Poor Professor,\" said Ama. \"He must have flown into the library. It is quiet and warm, and he has been listening to Mrs Boateng every day. That is why he sounds just like her.\"\n\nThe parrot sat on Ama's shoulder and began to eat his biscuit.",
+      "text": "Ama flashed her torch three times at the window. Then she made a gentle clucking sound and held out a biscuit. The parrot looked at it with one eye. It looked again with the other eye. Then it hopped down the shelves, one step at a time, and took the biscuit from her fingers.\n\n\"He must be someone's pet,\" said Ama. \"A wild bird would not do that.\" Around his leg was a thin metal ring. On it was a tiny label: Professor, 14 Mango Street.\n\nThe door creaked, and Mrs Boateng came in with a lamp. She stared at the parrot. The parrot stared at her. \"Shh! Quiet please!\" it said.\n\nHer mouth fell open. \"Do I really sound like that?\"\n\n\"Exactly,\" said Kwesi.\n\nShe read the label and gave a small cry. \"Mr Darko lives on Mango Street! He has a pet parrot, and last week it escaped through a window. He asked me to put up a notice about it.\" She turned to the board by the door, and there it was, in her own neat writing. \"It has been up for a whole week, in the same room as the bird!\"\n\n\"Poor Professor,\" said Ama. She worked it out aloud. \"He must have flown in through that little high window, the one that you leave open for the air. It is quiet and warm here, and he has been listening to you every day. That is why he sounds just like you.\"\n\n\"But why push the books?\" asked Mrs Boateng.\n\nKwesi shrugged. \"He is bored. I would push books too, if I lived on a shelf.\"\n\nThe parrot sat on Ama's shoulder and began to eat his biscuit, dropping crumbs down her neck.",
       "questions": [
         {
           "id": "q1",
           "prompt": "How did Ama get the parrot to come down?",
           "options": [
-            "She shouted",
             "She held out a biscuit",
-            "She turned on a light",
-            "She used a net"
+            "She shouted up at him",
+            "She turned on the lights",
+            "She climbed up with a net"
           ],
-          "answer": 1,
-          "why": "She held out a biscuit and the parrot hopped down."
+          "answer": 0,
+          "why": "She made a gentle clucking sound and held out a biscuit, and he hopped down."
         },
         {
           "id": "q2",
-          "prompt": "What was around the parrot's leg?",
+          "prompt": "Why did Ama think the parrot was somebody's pet?",
           "options": [
-            "A piece of string",
-            "A thin metal ring with a label",
-            "A red ribbon",
-            "Nothing"
+            "He could fly in and out through the little high window",
+            "He was much too fat to be living in the forest",
+            "He had a very long and very beautiful red tail",
+            "He took food from her fingers, and a wild bird would not"
           ],
-          "answer": 1,
-          "why": "Around his leg was a thin metal ring with a tiny label."
+          "answer": 3,
+          "why": "After he took the biscuit, she said, \"He must be someone's pet. A wild bird would not do that.\""
         },
         {
           "id": "q3",
-          "prompt": "What name was on the label?",
+          "prompt": "What was written on the label?",
           "options": [
-            "Biscuit",
-            "Parrot",
-            "Professor",
-            "Darko"
+            "Darko, 14 Library Road",
+            "Professor, Accra Library",
+            "Professor, 14 Mango Street",
+            "Mango, 14 Darko Street"
           ],
           "answer": 2,
-          "why": "The label said: Professor, 14 Mango Street."
+          "why": "On the ring was a tiny label: Professor, 14 Mango Street."
         },
         {
           "id": "q4",
-          "prompt": "Who is Mr Darko?",
+          "prompt": "Why did Mrs Boateng come into the reading room?",
           "options": [
-            "The caretaker",
-            "A teacher",
-            "The owner of the parrot",
-            "The mayor"
+            "She had forgotten her book on the desk that afternoon",
+            "She had seen the three flashes of the torch",
+            "She had come to feed the bird as she did each night",
+            "She had heard the children laughing from her bed"
           ],
-          "answer": 2,
-          "why": "Mr Darko lives on Mango Street and has a pet parrot."
+          "answer": 1,
+          "why": "In chapter two she promised to come if the torch flashed three times. Ama flashes it, and then Mrs Boateng arrives."
         },
         {
           "id": "q5",
-          "prompt": "How did the parrot get into the library?",
+          "prompt": "Why was the notice on the board so funny?",
           "options": [
-            "It escaped through a window and flew in",
-            "Someone carried it in",
-            "It was born there",
-            "It followed Ama"
+            "It asked about a lost parrot that was in the same room",
+            "It had been pinned upside down near the door",
+            "It was written in very big and very untidy letters",
+            "It offered a large prize for a very small bird"
           ],
           "answer": 0,
-          "why": "The parrot escaped through a window and probably flew into the library."
+          "why": "The notice about the missing parrot had been up for a week, in the same room as the bird."
         },
         {
           "id": "q6",
-          "prompt": "Why does the parrot sound just like Mrs Boateng?",
+          "prompt": "How did Professor get into the library?",
           "options": [
-            "They are related",
-            "He has been listening to her every day",
-            "She taught him in a class",
-            "Parrots cannot sound different"
+            "In a box of books carried in by the caretaker",
+            "Through a little high window left open for the air",
+            "On Ama's shoulder when she came in that night",
+            "Through the front door when it was being locked"
           ],
           "answer": 1,
-          "why": "He has been listening to Mrs Boateng every day."
+          "why": "Ama works out that he must have flown in through the little high window that is left open for the air."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why does Professor sound just like Mrs Boateng?",
+          "options": [
+            "Mr Darko has a voice that is just like hers",
+            "She gave him lessons when the library was shut",
+            "Parrots can only copy the voices of librarians",
+            "He has been listening to her every day"
+          ],
+          "answer": 3,
+          "why": "Ama says he has been listening to her every day, and that is why he sounds just like her."
         }
       ]
     },
     {
       "id": "c5",
       "title": "Case Closed",
-      "text": "The next morning, Ama and Kwesi carried Professor to Mr Darko's house. The old man opened the door and gasped. Then he cried happy tears. \"My Professor! I looked for you everywhere!\"\n\nThe parrot flapped his wings and said, \"Hello, hello! Shh, quiet please!\" Everyone laughed.\n\nMr Darko thanked the children and promised to bring Mrs Boateng a basket of mangoes. Then he looked at the ring on the parrot's leg. \"I will add my phone number to this label,\" he said, \"in case he ever flies away again.\"\n\nThat afternoon, the library was calm. Mrs Boateng whispered a thank you to Ama and Kwesi. High on the shelf, one small feather was left behind, and Ama kept it as a souvenir.",
+      "text": "The next morning, Ama and Kwesi carried Professor to Mr Darko's house. He rode on Ama's shoulder and said \"Shh!\" to a goat, two taxis and a woman selling oranges.\n\nAn empty cage hung on Mr Darko's porch with its little door wide open. Under it was a saucer of fresh seeds. The old man came out, saw the parrot and gasped. Then he cried happy tears. \"My Professor! I looked for you everywhere!\"\n\nThe parrot flapped his wings and said, \"Hello, hello! Shh, quiet please!\" Everyone laughed, though Mr Darko looked puzzled. \"Where did he learn that?\" he asked. \"He only ever said hello.\"\n\n\"At the library,\" said Ama. \"He has been studying.\"\n\nMr Darko thanked the children and promised to bring Mrs Boateng a basket of mangoes. Then he looked at the ring on the parrot's leg. \"I will add my phone number to this label,\" he said, \"in case he ever flies away again.\"\n\nThat afternoon, the library was calm. All the books stayed on their shelves. Mrs Boateng whispered a thank you to Ama and Kwesi and took down her notice. Then she looked around the silent room and sighed. \"It is rather too quiet now,\" she said.\n\n\"Shh, quiet please,\" said Kwesi in a stern voice, with a little sniff at the end. Mrs Boateng laughed so loudly that everyone looked up.\n\nHigh on the shelf, one small feather was left behind. Ama climbed the ladder and brought it down as a souvenir. She pressed it into her notebook, and under it she wrote: The Library Ghost. Case closed.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "Where did Ama and Kwesi take the parrot?",
+          "prompt": "Who did Professor say \"Shh!\" to on the way to Mr Darko's house?",
           "options": [
-            "To Mrs Boateng's house",
-            "To the police station",
-            "To Mr Darko's house",
-            "Back to the library"
+            "A hen, two teachers and a boy eating rice",
+            "A goat, two taxis and a woman selling oranges",
+            "A dog, two buses and a man selling mangoes",
+            "A cat, two bicycles and a child with a kite"
           ],
-          "answer": 2,
-          "why": "They carried Professor to Mr Darko's house."
+          "answer": 1,
+          "why": "He rode on Ama's shoulder and said \"Shh!\" to a goat, two taxis and a woman selling oranges."
         },
         {
           "id": "q2",
-          "prompt": "How did Mr Darko feel when he saw the parrot?",
+          "prompt": "What do the open cage and fresh seeds suggest about Mr Darko?",
           "options": [
-            "Angry",
-            "Bored",
-            "Very happy",
-            "Scared"
+            "He was still hoping that his parrot would come home",
+            "He was tired of looking after a noisy parrot",
+            "He was keeping the seeds for wild birds",
+            "He had decided to get a new and different pet"
           ],
-          "answer": 2,
-          "why": "He cried happy tears."
+          "answer": 0,
+          "why": "The cage door was left open, and the seeds were fresh. Together with his words, \"I looked for you everywhere\", they show that he had not given up."
         },
         {
           "id": "q3",
-          "prompt": "What did Professor say?",
+          "prompt": "What did Professor use to say before he went to the library?",
           "options": [
-            "\"Goodbye, goodbye\"",
-            "\"Hello, hello! Shh, quiet please!\"",
-            "\"Thank you\"",
-            "\"Where is Ama?\""
+            "Only his own name",
+            "Only quiet please",
+            "Only hello",
+            "Only goodbye"
           ],
-          "answer": 1,
-          "why": "The parrot said, \"Hello, hello! Shh, quiet please!\""
+          "answer": 2,
+          "why": "Mr Darko says, \"He only ever said hello.\""
         },
         {
           "id": "q4",
-          "prompt": "What did Mr Darko promise Mrs Boateng?",
+          "prompt": "What did Mr Darko promise to give Mrs Boateng?",
           "options": [
-            "A basket of mangoes",
-            "A new parrot",
+            "A young parrot",
+            "A large cake",
             "A box of books",
-            "A big cake"
+            "A basket of mangoes"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "He promised to bring Mrs Boateng a basket of mangoes."
         },
         {
           "id": "q5",
-          "prompt": "What will Mr Darko add to the label?",
+          "prompt": "Why will Mr Darko add his phone number to the label?",
           "options": [
-            "A picture",
-            "A new name",
-            "A key",
-            "His phone number"
+            "So that Mrs Boateng can phone him about mangoes",
+            "So that Professor can learn to say the number",
+            "So that anyone who finds Professor can call him",
+            "So that the library can send him more notices"
           ],
-          "answer": 3,
-          "why": "He will add his phone number to the label."
+          "answer": 2,
+          "why": "He says he will add it \"in case he ever flies away again\". A finder could then call him at once."
         },
         {
           "id": "q6",
-          "prompt": "What did Ama keep as a souvenir?",
+          "prompt": "What does Mrs Boateng mean by \"It is rather too quiet now\"?",
           "options": [
-            "The ring",
-            "A small feather",
-            "A biscuit",
-            "The label"
+            "She is worried that another ghost has arrived",
+            "She misses the fuss that Professor caused",
+            "She wants people to start talking in the library",
+            "She thinks the ceiling fans have stopped working"
           ],
           "answer": 1,
-          "why": "One small feather was left behind, and Ama kept it as a souvenir."
+          "why": "She looks around the silent room and sighs, and then she laughs when Kwesi copies the parrot. So she misses the excitement a little."
+        },
+        {
+          "id": "q7",
+          "prompt": "What did Ama keep as a souvenir?",
+          "options": [
+            "A small feather",
+            "The metal ring",
+            "The notice from the board",
+            "A half-eaten biscuit"
+          ],
+          "answer": 0,
+          "why": "One small feather was left behind, and Ama brought it down as a souvenir."
         }
       ]
     }
