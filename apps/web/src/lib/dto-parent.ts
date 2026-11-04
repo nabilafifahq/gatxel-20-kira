@@ -1,5 +1,6 @@
 import type { AvatarName, DayPresetId, DayRulesDTO, Subject, WeekSummaryDTO } from './dto'
 import type { ArenaTutorDTO, XpTrackDTO } from './dto-arena'
+import type { ParentPlacementDTO } from './dto-placement'
 
 /**
  * Dashboard orang tua (/keluarga). Teks untuk orang tua dalam bahasa Indonesia. Semua data dibaca lewat
@@ -86,6 +87,7 @@ export type ParentChildDTO = {
   weakSkills: { subject: Subject; title: string; note: string }[]
   fixIt: { open: number; cleared: number; bySkill: { title: string; subject: Subject; count: number }[] }
   arena: ArenaTutorDTO | null
+  placement: ParentPlacementDTO
   week: WeekSummaryDTO
   attempts: { id: string; date: string; title: string; subject: Subject; score: string; minutes: number; href: string }[]
   work: ParentWorkDTO[]

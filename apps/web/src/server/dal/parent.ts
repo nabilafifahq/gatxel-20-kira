@@ -21,6 +21,7 @@ import { dayRulesFor } from './learner-rules'
 import { loadLearner, markerFor, streakFor, streakDTO, totalXp, type LearnerRow } from './learner-core'
 import { yourAnswerText } from './learner-results'
 import { openMistakes } from './mistake-book'
+import { parentPlacement } from './placement'
 import { topSkills } from './mistake-logic'
 import { weekSummaryDTO } from './week-summary'
 
@@ -284,6 +285,7 @@ export async function parentChildDTO(actor: Actor, learnerId: string): Promise<P
       weakSkills: weak,
       fixIt: await fixItSummary(tx, learnerId),
       arena: await arenaTutorDTO(tx, learnerId, learner.grade),
+      placement: await parentPlacement(tx, learner),
       week: await weekSummaryDTO(tx, learnerId, weekStart(today), { today }),
       attempts,
       work: await workFor(tx, learnerId),

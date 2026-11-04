@@ -33,6 +33,7 @@ import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
 import { isRestDay, loadLearner, markerFor, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
 import { dayRulesFor } from './learner-rules'
+import { placementStartGrade } from './placement-grade'
 
 const { quest, attempt, planSlot, planWeek, reviewCard, paper, response } = tables
 
@@ -202,8 +203,9 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
 }
 
 /** Pilih skill otomatis untuk satu mapel bila tutor belum merencanakan. */
-export function autoSkill(learner: LearnerRow, subject: Subject, states: Awaited<ReturnType<typeof skillStates>>, seedKey: string) {
-  const list = skillsFor(subject, learner.grade).filter((s) => s.strand !== 'Oly')
+/** `grade`: kelas titik awal dari tes penempatan; kosong berarti kelas anak. */
+export function autoSkill(learner: LearnerRow, subject: Subject, states: Awaited<ReturnType<typeof skillStates>>, seedKey: string, grade: number = learner.grade) {
+  const list = skillsFor(subject, grade).filter((s) => s.strand !== 'Oly')
   const progress = list.map((s) => ({
     id: s.id,
     order: s.order,
@@ -349,7 +351,7 @@ export async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: Learner
   }
   let skillId = q.skillId
   if (!skillId && (q.session === 'paper' || q.session === 'tes' || q.session === 'latihan')) {
-    skillId = autoSkill(learner, q.subject as Subject, await skillStates(tx, learner.userId), `${learner.userId}:${q.date}:${q.subject}`)?.id ?? null
+    skillId = autoSkill(learner, q.subject as Subject, await skillStates(tx, learner.userId), `${learner.userId}:${q.date}:${q.subject}`, await placementStartGrade(tx, learner, q.subject as Subject))?.id ?? null
   }
   const plan = await planAttempt(
     tx,
@@ -624,7 +626,7 @@ export async function syncDay(tx: Tx, ctx: OrgContext, learner: LearnerRow, date
   }
   let states: Awaited<ReturnType<typeof skillStates>> | null = null
   const pickSkill = async (subject: Subject) =>
-    skillBySubject.get(subject) ?? autoSkill(learner, subject, (states ??= await skillStates(tx, learner.userId)), `${learner.userId}:${date}:${subject}`)?.id ?? null
+    skillBySubject.get(subject) ?? autoSkill(learner, subject, (states ??= await skillStates(tx, learner.userId)), `${learner.userId}:${date}:${subject}`, await placementStartGrade(tx, learner, subject))?.id ?? null
   const latihanRefs = new Map<Subject, Set<string>>()
   const refsFor = async (subject: Subject) => {
     let s = latihanRefs.get(subject)

@@ -17,6 +17,7 @@ import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
 import { FamilyShell } from '@/components/family/FamilyShell'
 import { WeekSummary } from '@/components/family/WeekSummary'
+import { PlacementSection } from './PlacementSection'
 import { AvatarPicker } from '@/screens/console/LearnersScreen'
 import {
   parentAddOptionalAction,
@@ -163,6 +164,12 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
           </details>
         ))}
       </Section>
+
+      {data.placement.enabled ? (
+        <Section id="penempatan" title="Tes penempatan" hint="Titik awal belajar per mata pelajaran">
+          <PlacementSection data={data.placement} learnerId={c.id} name={c.name} />
+        </Section>
+      ) : null}
 
       <Section id="ulang" title="Perlu diulang dan Buku Salah" hint={`${data.fixIt.open} soal menunggu diperbaiki`}>
         {data.weakSkills.length === 0 && data.fixIt.open === 0 ? (

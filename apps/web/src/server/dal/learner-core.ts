@@ -38,7 +38,7 @@ import { notFound } from '../errors'
 import { awardArenaBadges } from './arena-badges'
 import { gradeOfSkill, subjectOfSkill } from './content'
 
-const { learnerProfile, skillState, reviewCard: reviewCardT, xpEvent, dayRecord, restDay, badgeAward, response, attempt, quest } = tables
+const { learnerProfile, skillState, reviewCard: reviewCardT, xpEvent, dayRecord, restDay, badgeAward, response, attempt, quest, placementRun } = tables
 
 export type LearnerRow = typeof learnerProfile.$inferSelect
 
@@ -339,6 +339,15 @@ export async function recentSeen(tx: Tx, learnerId: string, days = 3650): Promis
     .groupBy(response.itemRef)
   const out = new Map<string, number>()
   for (const r of rows) out.set(r.ref, Math.floor((Date.now() - new Date(r.at).getTime()) / 86400000))
+  // Soal tes penempatan juga dihitung sudah dilihat, supaya tidak muncul lagi di sesi harian (migrasi 0020).
+  const runs = await tx
+    .select({ answers: placementRun.answers, finishedAt: placementRun.finishedAt, startedAt: placementRun.startedAt, createdAt: placementRun.createdAt })
+    .from(placementRun)
+    .where(and(eq(placementRun.learnerId, learnerId), gte(placementRun.createdAt, since)))
+  for (const run of runs) {
+    const days = Math.floor((Date.now() - (run.finishedAt ?? run.startedAt ?? run.createdAt).getTime()) / 86400000)
+    for (const a of (run.answers as { ref?: string }[]) ?? []) if (a.ref && !(out.get(a.ref) !== undefined && out.get(a.ref)! <= days)) out.set(a.ref, days)
+  }
   return out
 }
 
