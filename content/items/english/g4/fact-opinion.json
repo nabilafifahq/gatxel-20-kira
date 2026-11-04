@@ -1162,6 +1162,164 @@
         "Deciding comes last."
       ],
       "explanation": "First read, then ask whether it can be checked, then check it, and finally decide."
+    },
+    {
+      "id": "e4.fact-opinion.901",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence from the story is a fact?",
+      "passage": "e4.p.the-lighthouse-keepers-lamp",
+      "options": [
+        {
+          "text": "The lighthouse was tall and white and stood on a rocky coast."
+        },
+        {
+          "text": "This is the most important job in the world."
+        },
+        {
+          "text": "The lighthouse is boring."
+        },
+        {
+          "text": "Nobody ever looks at it."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you check the sentence by looking?",
+        "Most important is a judgement.",
+        "Boring is what someone feels."
+      ],
+      "explanation": "The lighthouse's colour and place can be checked, so it is a fact. The other lines are opinions or feelings.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e4.fact-opinion.902",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Dani's statement \"This is the most important job in the world\" is a fact.",
+      "passage": "e4.p.the-lighthouse-keepers-lamp",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can everyone prove it?",
+        "Most important is a judgement.",
+        "Opinions use words like best or most."
+      ],
+      "explanation": "It is Dani's opinion. Different people might disagree about which job is most important.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e4.fact-opinion.951",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is a fact?",
+      "passage": "e4.p.mangrove-forests",
+      "options": [
+        {
+          "text": "Everyone should love mangroves."
+        },
+        {
+          "text": "Planting a mangrove tree is one of the best things a community can do."
+        },
+        {
+          "text": "Indonesia has more mangrove forest than any other country."
+        },
+        {
+          "text": "Mangroves are the prettiest trees."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Can this be checked?",
+        "Words like best and prettiest signal opinions.",
+        "Look for numbers or measurements."
+      ],
+      "explanation": "The amount of mangrove forest in each country can be measured and checked. The other sentences are opinions.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e4.fact-opinion.952",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The final sentence, which begins \"In my opinion\", is a fact.",
+      "passage": "e4.p.mangrove-forests",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the first three words.",
+        "Can everyone prove that it is the best thing?",
+        "Facts can be checked."
+      ],
+      "explanation": "It starts with In my opinion and uses the word best, so it shows what the writer thinks.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e4.fact-opinion.953",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word in the final sentence shows it is an opinion?",
+      "passage": "e4.p.mangrove-forests",
+      "options": [
+        {
+          "text": "community"
+        },
+        {
+          "text": "coast"
+        },
+        {
+          "text": "best"
+        },
+        {
+          "text": "tree"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which word compares?",
+        "Which word cannot be measured?",
+        "Superlatives often show opinion."
+      ],
+      "explanation": "Best is a judgement. Different people may have different ideas about what is best.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
     }
   ]
 }

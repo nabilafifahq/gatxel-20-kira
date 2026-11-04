@@ -1455,6 +1455,380 @@
         "Find the word that compares cats with other pets."
       ],
       "explanation": "Best (and clearly) show the writer's opinion, because they cannot be proved."
+    },
+    {
+      "id": "e5.retrieval-inference.901",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How long had the monsoon lasted?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "three days"
+        },
+        {
+          "text": "one week"
+        },
+        {
+          "text": "three months"
+        },
+        {
+          "text": "three weeks"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the first sentence.",
+        "The time is given as a number and a unit.",
+        "It is longer than a few days."
+      ],
+      "explanation": "The story begins by saying the monsoon had lasted for three weeks.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.902",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why did Wayan want to cross the bridge?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "He wanted to fish."
+        },
+        {
+          "text": "He wanted to see the river."
+        },
+        {
+          "text": "His sister told him to."
+        },
+        {
+          "text": "He had a test at school that day."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "What did he say to Ketut?",
+        "Read the lines after We will go home.",
+        "School matters to him."
+      ],
+      "explanation": "He said the test was today and that missing it would mean failing the term.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.903",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does the simile \"creaked like an old door\" suggest about the bridge?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "It was new and strong."
+        },
+        {
+          "text": "It was painted."
+        },
+        {
+          "text": "It was very quiet."
+        },
+        {
+          "text": "It was old and unsafe."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "What sound does an old door make?",
+        "Is a creaking noise a good sign?",
+        "Think about what the sound warns."
+      ],
+      "explanation": "An old door creaks when it is worn, so the comparison suggests the bridge was old, weak and unsafe.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.904",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What caused the bridge to lurch?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "The wind blew hard."
+        },
+        {
+          "text": "A boat hit it."
+        },
+        {
+          "text": "Wayan jumped."
+        },
+        {
+          "text": "A large log crashed into the support."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the paragraph starting Halfway across.",
+        "Branches were mentioned in the first paragraph.",
+        "Look for what hit the bridge."
+      ],
+      "explanation": "The story says a large log crashed into the support and the whole bridge lurched.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.905",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How did Ketut feel when she hugged Wayan so tightly?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "bored"
+        },
+        {
+          "text": "jealous"
+        },
+        {
+          "text": "sleepy"
+        },
+        {
+          "text": "relieved and frightened for him"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "What does a very tight hug suggest?",
+        "She had been shouting from the bank.",
+        "She nearly lost her brother."
+      ],
+      "explanation": "She hugged him so tightly that he could hardly breathe, which shows how worried she had been and how relieved she was.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.906",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What did Ketut mean by \"bravery needs good sense as well\"?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "Sense is more important than school."
+        },
+        {
+          "text": "Brave people never need help."
+        },
+        {
+          "text": "Being brave is not enough if you do not think about danger."
+        },
+        {
+          "text": "Only older people can be brave."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "She is correcting his word foolish.",
+        "Which two things does she put together?",
+        "She wants him to think before acting."
+      ],
+      "explanation": "She said Wayan was brave but crossing a broken bridge was foolish, so brave actions must also be sensible.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.907",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did the teacher say the test could wait?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "The school was closed for holidays."
+        },
+        {
+          "text": "The test was easy."
+        },
+        {
+          "text": "She thought the children's safety mattered more."
+        },
+        {
+          "text": "She forgot about it."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read the teacher's words.",
+        "Who matters more, according to her?",
+        "She cares about the children."
+      ],
+      "explanation": "The teacher said the two of you matter more, meaning their safety was more important than the test.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.951",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "About how many hours of sleep do children aged ten to thirteen need?",
+      "passage": "e5.p.should-schools-start-later",
+      "options": [
+        {
+          "text": "nine to eleven"
+        },
+        {
+          "text": "seven to eight"
+        },
+        {
+          "text": "five to six"
+        },
+        {
+          "text": "twelve to fourteen"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the second paragraph.",
+        "The text gives a range of two numbers.",
+        "It is more than eight."
+      ],
+      "explanation": "The text says about nine to eleven hours each night.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.952",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is a problem with starting school later?",
+      "passage": "e5.p.should-schools-start-later",
+      "options": [
+        {
+          "text": "There would be fewer subjects."
+        },
+        {
+          "text": "Teachers would be tired."
+        },
+        {
+          "text": "Parents who work early may be unable to drop off their children."
+        },
+        {
+          "text": "Children would sleep too much."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read The case against.",
+        "The problem concerns families.",
+        "Look for the word parents."
+      ],
+      "explanation": "The text says many parents begin work early and cannot drop their children off later.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.953",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why might afternoon lessons be a problem in hot countries?",
+      "passage": "e5.p.should-schools-start-later",
+      "options": [
+        {
+          "text": "Afternoons can be uncomfortably warm."
+        },
+        {
+          "text": "The sun sets early."
+        },
+        {
+          "text": "Lessons are longer."
+        },
+        {
+          "text": "Children are hungry."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find hot countries.",
+        "Think about heat.",
+        "Which time of day is cooler?"
+      ],
+      "explanation": "The text says that in hot countries afternoons can be uncomfortably warm, so mornings are better for lessons.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.954",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is the suggested compromise in What can be done?",
+      "passage": "e5.p.should-schools-start-later",
+      "options": [
+        {
+          "text": "Close schools on Fridays."
+        },
+        {
+          "text": "Stop teaching mathematics."
+        },
+        {
+          "text": "Keep the start time but go to bed earlier, with screens off an hour before sleep."
+        },
+        {
+          "text": "End school at noon."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A compromise is a middle way.",
+        "Read the section called What can be done?",
+        "There are two ideas about sleep and timetable."
+      ],
+      "explanation": "The text suggests children go to bed earlier and families turn off screens an hour before sleep, with hard subjects at mid-morning.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
     }
   ]
 }

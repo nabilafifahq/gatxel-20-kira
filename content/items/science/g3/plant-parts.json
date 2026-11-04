@@ -1941,6 +1941,110 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.plant-parts.801",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The roots of a plant hold it in the soil.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what stops a tree from toppling in the wind.",
+        "Which part of a plant is under the ground?",
+        "Roots anchor the plant in the soil."
+      ],
+      "explanation": "Roots grow down into the soil and act like anchors, so the plant does not fall over or blow away.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.plant-parts.802",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The leaves of a plant take in water from the soil.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which part is in the soil, the roots or the leaves?",
+        "Leaves are usually up in the light.",
+        "Water enters through the roots."
+      ],
+      "explanation": "Roots take in water from the soil. Leaves are where the plant makes its food using light.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.plant-parts.803",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The stem carries water and food to different parts of a plant.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Stems hold leaves and flowers up.",
+        "Think of the stem as the plant's pipe.",
+        "It carries water and food."
+      ],
+      "explanation": "The stem has tiny tubes inside. They carry water up from the roots and food around the plant. It also holds the plant upright.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.plant-parts.804",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The main job of a flower is to hold the plant in the ground.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do flowers turn into after a time?",
+        "Which part is below the ground?",
+        "Flowers help make seeds."
+      ],
+      "explanation": "Roots hold the plant in the ground. A flower helps the plant make seeds, so that new plants can grow.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

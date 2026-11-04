@@ -1236,6 +1236,110 @@
         "Think about how much food one hawk needs."
       ],
       "explanation": "Each animal needs to eat many of the living things before it, so the numbers get smaller towards the end of the chain."
+    },
+    {
+      "id": "s4.food-chains.801",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A food chain always starts with a plant.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which living things make their own food?",
+        "What gets eaten first?",
+        "Plants are at the start."
+      ],
+      "explanation": "Plants make their own food using light, so they are the first link. Animals then eat plants or each other.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.food-chains.802",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In a food chain, an arrow points from the animal to the thing that it eats.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is the arrow showing?",
+        "Does energy go to the eater?",
+        "Arrows point to the eater."
+      ],
+      "explanation": "Arrows show the way energy goes, so they point from the food to the animal that eats it. In grass, then rabbit, the arrow goes from grass to rabbit.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.food-chains.803",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A predator is an animal that hunts and eats other animals.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What do we call the hunted animal?",
+        "Hunters are predators.",
+        "Predators hunt prey."
+      ],
+      "explanation": "A hawk is a predator and the mouse it hunts is its prey.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.food-chains.804",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rabbit that eats grass is a producer.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does a rabbit make its own food?",
+        "Who eats the grass?",
+        "Rabbits are consumers."
+      ],
+      "explanation": "Producers make their own food, like grass. A rabbit eats grass, so it is a consumer, specifically a herbivore.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

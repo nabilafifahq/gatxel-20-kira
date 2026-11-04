@@ -39,11 +39,56 @@
       "explanation": "This spoon is made of wood. Wood comes from trees and is hard and strong."
     },
     {
-      "id": "s1.materials.002", "skill": "s1.materials", "type": "match", "difficulty": 1,
+      "id": "s1.materials.002",
+      "skill": "s1.materials",
+      "type": "match",
+      "difficulty": 1,
       "prompt": "Match each object to the material it is made of.",
-      "figure": { "kind": "icons", "items": [{ "icon": "glass", "label": "window" }, { "icon": "book", "label": "book" }, { "icon": "sock", "label": "sock" }, { "icon": "nail", "label": "nail" }], "alt": "Four objects: a window, a book, a sock and a nail." },
-      "pairs": [["window", "glass"], ["book", "paper"], ["sock", "fabric"], ["nail", "metal"]],
-      "hints": ["Think about how each object feels.", "Do the ones you know first.", "Start with the window. What material can you see through?"],
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "glass",
+            "label": "window"
+          },
+          {
+            "icon": "book",
+            "label": "book"
+          },
+          {
+            "icon": "sock",
+            "label": "sock"
+          },
+          {
+            "icon": "nail",
+            "label": "nail"
+          }
+        ],
+        "alt": "Four objects: a window, a book, a sock and a nail."
+      },
+      "pairs": [
+        [
+          "window",
+          "glass"
+        ],
+        [
+          "book",
+          "paper"
+        ],
+        [
+          "sock",
+          "fabric"
+        ],
+        [
+          "nail",
+          "metal"
+        ]
+      ],
+      "hints": [
+        "Think about how each object feels.",
+        "Do the ones you know first.",
+        "Start with the window. What material can you see through?"
+      ],
       "explanation": "A window is made of glass, a book of paper, a sock of fabric and a nail of metal."
     },
     {
@@ -90,22 +135,50 @@
       "explanation": "Keys, nails and paperclips are made of metal. The bottle, the bag and the toy bricks are made of plastic."
     },
     {
-      "id": "s1.materials.004", "skill": "s1.materials", "type": "mcq", "difficulty": 2,
+      "id": "s1.materials.004",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Which object is made of fabric?",
       "options": [
-        { "text": "a brick", "why": "A brick is made of baked clay." },
-        { "text": "a cup", "why": "Cups are often made of plastic or glass." },
-        { "text": "a T-shirt" }
+        {
+          "text": "a brick",
+          "why": "A brick is made of baked clay."
+        },
+        {
+          "text": "a cup",
+          "why": "Cups are often made of plastic or glass."
+        },
+        {
+          "text": "a T-shirt"
+        }
       ],
       "answer": 2,
-      "hints": ["Fabric is soft and bendy, like cloth.", "Which object can you wear?", "Look at your own clothes. What are they made of?"],
+      "hints": [
+        "Fabric is soft and bendy, like cloth.",
+        "Which object can you wear?",
+        "Look at your own clothes. What are they made of?"
+      ],
       "explanation": "A T-shirt is made of fabric. Fabric is soft and bends easily, so it is good for clothes."
     },
     {
-      "id": "s1.materials.005", "skill": "s1.materials", "type": "text", "difficulty": 2,
+      "id": "s1.materials.005",
+      "skill": "s1.materials",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Windows are made of ___ so we can see through them.",
-      "blanks": [{ "answers": ["glass"] }],
-      "hints": ["Think about what you look through at home.", "This material is see-through and smooth.", "It can break if a ball hits it."],
+      "blanks": [
+        {
+          "answers": [
+            "glass"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what you look through at home.",
+        "This material is see-through and smooth.",
+        "It can break if a ball hits it."
+      ],
       "explanation": "Windows are made of glass. Glass is see-through, so light comes in and we can see outside."
     },
     {
@@ -139,44 +212,108 @@
       ]
     },
     {
-      "id": "s1.materials.007", "skill": "s1.materials", "type": "multi", "difficulty": 3,
+      "id": "s1.materials.007",
+      "skill": "s1.materials",
+      "type": "multi",
+      "difficulty": 3,
       "prompt": "Choose all the things made of paper.",
       "options": [
-        { "text": "a book" },
-        { "text": "a window", "why": "Windows are made of glass." },
-        { "text": "a newspaper" },
-        { "text": "a nail", "why": "Nails are made of metal." },
-        { "text": "a birthday card" }
+        {
+          "text": "a book"
+        },
+        {
+          "text": "a window",
+          "why": "Windows are made of glass."
+        },
+        {
+          "text": "a newspaper"
+        },
+        {
+          "text": "a nail",
+          "why": "Nails are made of metal."
+        },
+        {
+          "text": "a birthday card"
+        }
       ],
-      "answers": [0, 2, 4],
-      "hints": ["Paper is thin and is made from trees.", "Think about what you can write or draw on.", "Start with the book. What are its pages made of?"],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Paper is thin and is made from trees.",
+        "Think about what you can write or draw on.",
+        "Start with the book. What are its pages made of?"
+      ],
       "explanation": "Books, newspapers and birthday cards are made of paper. Windows are glass and nails are metal."
     },
     {
-      "id": "s1.materials.008", "skill": "s1.materials", "type": "mcq", "difficulty": 3,
+      "id": "s1.materials.008",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Rina's ball is bouncy and bendy. What is it most likely made of?",
-      "figure": { "kind": "icons", "items": [{ "icon": "ball", "label": "bouncy ball" }], "alt": "A bouncy ball." },
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ball",
+            "label": "bouncy ball"
+          }
+        ],
+        "alt": "A bouncy ball."
+      },
       "options": [
-        { "text": "glass", "why": "Glass is hard and can break when it is dropped." },
-        { "text": "stone", "why": "A stone ball is heavy and hard. It does not bounce well." },
-        { "text": "rubber" }
+        {
+          "text": "glass",
+          "why": "Glass is hard and can break when it is dropped."
+        },
+        {
+          "text": "stone",
+          "why": "A stone ball is heavy and hard. It does not bounce well."
+        },
+        {
+          "text": "rubber"
+        }
       ],
       "answer": 2,
-      "hints": ["Think about which material is bendy and bouncy.", "Bicycle tyres are made of this material too.", "Squeeze each one in your mind. Which one squashes and springs back?"],
+      "hints": [
+        "Think about which material is bendy and bouncy.",
+        "Bicycle tyres are made of this material too.",
+        "Squeeze each one in your mind. Which one squashes and springs back?"
+      ],
       "explanation": "Bouncy balls are usually made of rubber. Rubber squashes when it hits the floor and springs back."
     },
     {
-      "id": "s1.materials.009", "skill": "s1.materials", "type": "mcq", "difficulty": 4,
+      "id": "s1.materials.009",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which object is made of more than one material?",
       "options": [
-        { "text": "a glass marble", "why": "A marble is made of glass only." },
-        { "text": "a pencil with an eraser" },
-        { "text": "a metal nail", "why": "A nail is made of metal only." }
+        {
+          "text": "a glass marble",
+          "why": "A marble is made of glass only."
+        },
+        {
+          "text": "a pencil with an eraser"
+        },
+        {
+          "text": "a metal nail",
+          "why": "A nail is made of metal only."
+        }
       ],
       "answer": 1,
-      "hints": ["Look for an object with different parts.", "Think about each part of the object. Is it the same material?", "Picture a pencil. What is the eraser made of? What is the outside made of?"],
+      "hints": [
+        "Look for an object with different parts.",
+        "Think about each part of the object. Is it the same material?",
+        "Picture a pencil. What is the eraser made of? What is the outside made of?"
+      ],
       "explanation": "A pencil with an eraser has wood on the outside, a grey writing part in the middle and a rubber eraser at the end.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s1.materials.010",
@@ -219,31 +356,79 @@
       ]
     },
     {
-      "id": "s1.materials.011", "skill": "s1.materials", "type": "mcq", "difficulty": 4,
+      "id": "s1.materials.011",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which two objects are made of the same material?",
       "options": [
-        { "text": "a book and a sock", "why": "A book is paper. A sock is fabric." },
-        { "text": "a window and a brick", "why": "A window is glass. A brick is baked clay." },
-        { "text": "a key and a nail" }
+        {
+          "text": "a book and a sock",
+          "why": "A book is paper. A sock is fabric."
+        },
+        {
+          "text": "a window and a brick",
+          "why": "A window is glass. A brick is baked clay."
+        },
+        {
+          "text": "a key and a nail"
+        }
       ],
       "answer": 2,
-      "hints": ["Name the material of each object.", "Look for two objects with the same material name.", "Start with the key. What is it made of?"],
+      "hints": [
+        "Name the material of each object.",
+        "Look for two objects with the same material name.",
+        "Start with the key. What is it made of?"
+      ],
       "explanation": "A key and a nail are both made of metal. The other pairs are made of two different materials.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
-      "id": "s1.materials.012", "skill": "s1.materials", "type": "mcq", "difficulty": 5,
+      "id": "s1.materials.012",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Some rubber comes from the sap of rubber trees. Is this rubber natural?",
-      "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "rubber tree" }, { "icon": "rubber-band", "label": "rubber band" }], "alt": "A rubber tree and a rubber band." },
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "tree",
+            "label": "rubber tree"
+          },
+          {
+            "icon": "rubber-band",
+            "label": "rubber band"
+          }
+        ],
+        "alt": "A rubber tree and a rubber band."
+      },
       "options": [
-        { "text": "Yes, because it comes from a plant." },
-        { "text": "No, because it is bendy.", "why": "Being bendy does not tell us where a material comes from." },
-        { "text": "No, because it is made in a shop.", "why": "Shops sell rubber things. The rubber itself came from trees." }
+        {
+          "text": "Yes, because it comes from a plant."
+        },
+        {
+          "text": "No, because it is bendy.",
+          "why": "Being bendy does not tell us where a material comes from."
+        },
+        {
+          "text": "No, because it is made in a shop.",
+          "why": "Shops sell rubber things. The rubber itself came from trees."
+        }
       ],
       "answer": 0,
-      "hints": ["Natural materials come from plants, animals or the ground.", "Where does this rubber come from?", "Think about the tree in the picture."],
+      "hints": [
+        "Natural materials come from plants, animals or the ground.",
+        "Where does this rubber come from?",
+        "Think about the tree in the picture."
+      ],
       "explanation": "Rubber from rubber trees is a natural material because it comes from a plant. Indonesia grows many rubber trees.",
-      "tags": ["iksc", "ksnr"]
+      "tags": [
+        "iksc",
+        "ksnr"
+      ]
     },
     {
       "id": "s1.materials.013",
@@ -1400,6 +1585,136 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s1.materials.801",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A spoon can be made of metal.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What shiny material is used for spoons?",
+        "Metal spoons are strong.",
+        "Metal is a material."
+      ],
+      "explanation": "Many spoons are made of metal. Some are made of wood or plastic.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s1.materials.802",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A window is usually made of wood.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you see through wood?",
+        "Windows let light in.",
+        "Glass is used for windows."
+      ],
+      "explanation": "Windows are usually made of glass, so we can see through them.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s1.materials.803",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A rubber ball is made of rubber.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What bouncy material is it?",
+        "Rubber can bounce.",
+        "Rubber balls bounce."
+      ],
+      "explanation": "Rubber is stretchy and bouncy, so it is good for balls.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s1.materials.804",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A pencil case is made of glass.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Would glass be safe in your bag?",
+        "It would break.",
+        "Pencil cases are soft or plastic."
+      ],
+      "explanation": "Pencil cases are made of cloth or plastic. Glass would break in your bag.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s1.materials.805",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Wood comes from trees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where do wooden tables come from?",
+        "Think of tree trunks.",
+        "Trees give us wood."
+      ],
+      "explanation": "Wood is a natural material that comes from trees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

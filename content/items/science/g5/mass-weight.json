@@ -1192,6 +1192,110 @@
         "Newtons go with forces."
       ],
       "explanation": "Mass is in kilograms, weight is a force measured in newtons, and a forcemeter measures weight. Mass does not change on the Moon."
+    },
+    {
+      "id": "s5.mass-weight.801",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Mass is measured in kilograms.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does a kitchen scale show?",
+        "It is not newtons.",
+        "Kilograms measure mass."
+      ],
+      "explanation": "Mass tells how much matter is in an object, and kilograms (kg) are the unit.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.mass-weight.802",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Weight is measured in kilograms.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What force is weight?",
+        "Which unit is for forces?",
+        "Newtons measure weight."
+      ],
+      "explanation": "Weight is a force, so it is measured in newtons. Kilograms measure mass.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.mass-weight.803",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: An astronaut has less weight on the Moon than on Earth.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which pulls less, the Moon or Earth?",
+        "Weight depends on gravity.",
+        "Mass stays the same."
+      ],
+      "explanation": "The Moon has weaker gravity, so it pulls with less force, but the astronaut's mass stays the same.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s5.mass-weight.804",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: If you go to the Moon, your mass becomes less.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do you lose any matter?",
+        "What changes, mass or weight?",
+        "Mass stays constant."
+      ],
+      "explanation": "Mass is the amount of matter in you and does not change with place. Only weight changes with gravity.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

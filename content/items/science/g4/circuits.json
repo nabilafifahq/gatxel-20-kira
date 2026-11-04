@@ -1354,6 +1354,110 @@
         "The loop keeps going on and off."
       ],
       "explanation": "A loose contact keeps making and breaking the loop. When the loop breaks, the light goes out for a moment."
+    },
+    {
+      "id": "s4.circuits.801",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A bulb will light only if the circuit is a complete loop.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What happens if a wire is out?",
+        "Think of a loop.",
+        "Gaps stop the flow."
+      ],
+      "explanation": "Electricity can only flow when there is a closed path from the cell through the wires and bulb and back. A gap stops it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.circuits.802",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Closing a switch breaks the circuit.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is the bulb on when the switch is closed?",
+        "Closed means joined.",
+        "Closing completes the circuit."
+      ],
+      "explanation": "Closing a switch completes the circuit, so electricity can flow. Opening the switch makes a gap.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.circuits.803",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A switch turns a circuit on or off by closing or opening a gap.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where is the gap?",
+        "A bridge opens and closes.",
+        "It adds or removes a gap."
+      ],
+      "explanation": "The switch is a movable bridge. When it touches both sides the circuit is complete and when it moves away there is a gap.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.circuits.804",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A bulb will light if it is connected to a battery with just one wire.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many ends does a cell have?",
+        "Where would the current return?",
+        "It needs a full loop."
+      ],
+      "explanation": "The bulb needs a complete loop with two connections to the cell. One wire leaves a gap, so no electricity flows.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

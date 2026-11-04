@@ -1270,6 +1270,110 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.fair-tests.801",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A ruler is used to measure the length of a pencil.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which tool has numbers along an edge?",
+        "You measure length with it.",
+        "It is marked in centimetres."
+      ],
+      "explanation": "A ruler has a scale in centimetres that shows how long something is.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.fair-tests.802",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A measuring jug is the best tool for finding how long a table is.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does a jug hold?",
+        "Which tool measures length?",
+        "Jugs measure volume."
+      ],
+      "explanation": "A measuring jug measures how much liquid there is. A ruler or tape measure is used for length.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.fair-tests.803",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a fair test, you change only one thing and keep the rest the same.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Why do you keep the other things the same?",
+        "What if two things changed at once?",
+        "Only one change at a time."
+      ],
+      "explanation": "If you change two things you cannot tell which one caused the result. Keeping everything else the same makes the test fair.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.fair-tests.804",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The unit for measuring the time a ball takes to roll is the metre.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is time the same as length?",
+        "Which unit goes with a stopwatch?",
+        "Seconds measure time."
+      ],
+      "explanation": "Time is measured in seconds, minutes or hours. A metre is a unit of length.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

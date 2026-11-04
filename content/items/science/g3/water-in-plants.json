@@ -1571,6 +1571,110 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.water-in-plants.801",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A white flower left in coloured water can slowly change colour.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does the water go after it enters the stem?",
+        "Petals are at the top of the stem.",
+        "Water moves up the stem."
+      ],
+      "explanation": "Water travels up the stem into the petals. The coloured water goes with it, so the petals slowly take on the colour.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.water-in-plants.802",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Water moves down from the leaves to the roots.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which part of the plant takes in water?",
+        "Water travels against the way it falls.",
+        "The direction is roots, stem, leaves."
+      ],
+      "explanation": "Water enters at the roots and moves up the stem to the leaves. Some leaves lose water to the air.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.water-in-plants.803",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A celery stick in coloured water shows how water travels up a stem.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Celery is a stem.",
+        "What would you see in the stem after some hours?",
+        "The colour shows the path."
+      ],
+      "explanation": "The coloured water climbs through the tiny tubes in the celery, so you can see the path water takes inside a stem.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.water-in-plants.804",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Plants can only get water if it rains straight onto their leaves.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where are the roots?",
+        "Do plants in pots have rain on their leaves?",
+        "Roots take in water from the soil."
+      ],
+      "explanation": "Most plants take in water through their roots from the soil. Rain soaks into the soil and the roots take it up.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -1294,6 +1294,108 @@
         "reading"
       ],
       "expectedSeconds": 70
+    },
+    {
+      "id": "e5.summarising-structure.901",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence best summarises the story?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "A river floods and a village moves away."
+        },
+        {
+          "text": "Two children win a prize."
+        },
+        {
+          "text": "A boy takes a risky journey, learns that safety matters more than a test, and the village rebuilds the bridge."
+        },
+        {
+          "text": "A teacher builds a bridge."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A summary includes the main events only.",
+        "Which option has the beginning, the problem and the end?",
+        "Check that every part is true."
+      ],
+      "explanation": "It covers the key events: the risk, the danger, the lesson and the rebuilding.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.902",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is the purpose of the first paragraph?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "To give instructions."
+        },
+        {
+          "text": "To introduce the teacher."
+        },
+        {
+          "text": "To set the scene and introduce the danger of the flooded river."
+        },
+        {
+          "text": "To describe Wayan's bedroom."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "What is described in this paragraph?",
+        "The setting comes first.",
+        "Look at the strong word monster."
+      ],
+      "explanation": "It describes the flooded river with words such as roaring monster, so the reader understands the danger.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.903",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The story ends with Wayan having \"learned something no test could measure\". What does this suggest?",
+      "passage": "e5.p.the-river-crossing",
+      "options": [
+        {
+          "text": "Tests are bad."
+        },
+        {
+          "text": "He gained wisdom that cannot be given a score."
+        },
+        {
+          "text": "He did not like school."
+        },
+        {
+          "text": "He failed the test."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What had he learned?",
+        "Think about the bridge and the teacher.",
+        "Some learning is not marked."
+      ],
+      "explanation": "The phrase suggests a lesson about safety and good sense, which is not graded in a test.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
     }
   ]
 }

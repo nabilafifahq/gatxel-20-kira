@@ -972,6 +972,203 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e1.story-order.901",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What happened first?",
+      "passage": "e1.p.mina-and-the-kitten",
+      "options": [
+        {
+          "text": "Mina carried the kitten home."
+        },
+        {
+          "text": "Mina heard a sound."
+        },
+        {
+          "text": "Mina's mum spoke."
+        },
+        {
+          "text": "The kitten slept."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the first event in the story.",
+        "Mina was walking before she found anything.",
+        "She heard something."
+      ],
+      "explanation": "Mina heard a sound first. After that she found the kitten.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e1.story-order.902",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What happened just after Mina gave the kitten some water?",
+      "passage": "e1.p.mina-and-the-kitten",
+      "options": [
+        {
+          "text": "She heard the sound."
+        },
+        {
+          "text": "She carried it home."
+        },
+        {
+          "text": "She went to school."
+        },
+        {
+          "text": "She went to sleep."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Read the paragraphs about water.",
+        "What did she not want to do?",
+        "She did not want to leave the kitten."
+      ],
+      "explanation": "After the kitten drank, Mina picked it up and carried it home.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e1.story-order.903",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What do you think Mina and her mum will do next?",
+      "passage": "e1.p.mina-and-the-kitten",
+      "options": [
+        {
+          "text": "sell the kitten"
+        },
+        {
+          "text": "send the kitten away"
+        },
+        {
+          "text": "try to find the kitten's home"
+        },
+        {
+          "text": "forget about the kitten"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read what Mum said.",
+        "They will look after the kitten until ...",
+        "They will find its home."
+      ],
+      "explanation": "Mum said they can look after it until they find its home, so they will try to find its owner.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e1.story-order.904",
+      "skill": "e1.story-order",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "At the end of the story, the kitten was warm and ___. Which word is missing?",
+      "passage": "e1.p.mina-and-the-kitten",
+      "blanks": [
+        {
+          "answers": [
+            "safe"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Look at the last paragraph.",
+        "The kitten was warm and ...",
+        "The word starts with s."
+      ],
+      "explanation": "The story says the kitten was warm and safe.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e1.story-order.951",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do bees do first before honey is made?",
+      "passage": "e1.p.busy-bees",
+      "options": [
+        {
+          "text": "They fly to the beach."
+        },
+        {
+          "text": "They eat bread."
+        },
+        {
+          "text": "They drink nectar from flowers."
+        },
+        {
+          "text": "They sting people."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Where does honey start?",
+        "Nectar comes before honey.",
+        "They drink it from flowers."
+      ],
+      "explanation": "Bees visit flowers and drink nectar. Then they take it to the hive to make honey.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e1.story-order.952",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Put the steps in the right order. 1 Bees visit flowers. 2 Bees make honey. 3 Bees take nectar to the hive. Which order is right?",
+      "passage": "e1.p.busy-bees",
+      "options": [
+        {
+          "text": "2, 1, 3"
+        },
+        {
+          "text": "3, 2, 1"
+        },
+        {
+          "text": "1, 2, 3"
+        },
+        {
+          "text": "1, 3, 2"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Where do bees make honey?",
+        "Honey is made after the nectar reaches the hive.",
+        "Start with the flowers."
+      ],
+      "explanation": "First bees visit flowers, then they take the nectar to the hive, and then they make honey.",
+      "tags": [
+        "reading",
+        "long-passage"
+      ],
+      "expectedSeconds": 90
     }
   ]
 }

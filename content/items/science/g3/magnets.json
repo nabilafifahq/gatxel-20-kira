@@ -1375,6 +1375,136 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.magnets.801",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A magnet can pick up a steel paper clip.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is steel magnetic?",
+        "Think of a fridge magnet.",
+        "Iron and steel are magnetic."
+      ],
+      "explanation": "Steel contains iron, which is a magnetic material. A magnet attracts it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.802",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A magnet attracts all metals.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Are all metals the same?",
+        "A copper coin does not stick.",
+        "Only a few metals are magnetic."
+      ],
+      "explanation": "Only some metals are magnetic, such as iron and steel. Copper, aluminium and gold are not attracted.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.803",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Two north poles of a magnet push each other away.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Like poles are the same pole.",
+        "What happens when two the same meet?",
+        "Same poles repel."
+      ],
+      "explanation": "Like poles repel, so two north poles push apart. Unlike poles attract.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.804",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A wooden spoon is attracted to a magnet because wood is a strong material.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is wood made of iron?",
+        "Strength is not the same as magnetic.",
+        "Wood is not magnetic."
+      ],
+      "explanation": "Wood is not a magnetic material. A material must contain iron, nickel or cobalt to be attracted.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.805",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A magnet's pull is strongest at its poles.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where do paper clips gather on a bar magnet?",
+        "Look at the ends.",
+        "The ends are the poles."
+      ],
+      "explanation": "The poles are at the ends of a bar magnet. Most of the pull is there, so paper clips cluster at the ends.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

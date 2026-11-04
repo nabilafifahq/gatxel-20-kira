@@ -1086,6 +1086,84 @@
         "An animal that eats both needs both kinds."
       ],
       "explanation": "Skull C has pointed canines for meat and flat molars for plants, so that animal ate both."
+    },
+    {
+      "id": "s4.teeth.801",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Incisors are the sharp, flat teeth at the front that cut food.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which teeth are at the very front?",
+        "They cut and slice.",
+        "Incisors cut."
+      ],
+      "explanation": "Incisors work like scissors to bite off pieces of food, such as an apple.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.teeth.802",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Molars are the pointed teeth used for tearing meat.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which teeth are flat and wide?",
+        "Canines are the pointy ones.",
+        "Molars grind."
+      ],
+      "explanation": "Canines are the pointed teeth for tearing. Molars are wide and flat at the back and are used for grinding food.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s4.teeth.803",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Brushing your teeth twice a day helps to stop tooth decay.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What stays on teeth after meals?",
+        "Acid damages the enamel.",
+        "Brushing removes plaque."
+      ],
+      "explanation": "Brushing removes plaque and sugar left on teeth. Plaque bacteria make acid that makes holes, called decay.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

@@ -1511,6 +1511,110 @@
         "ksnr",
         "reasoning"
       ]
+    },
+    {
+      "id": "s3.food-groups.801",
+      "skill": "s3.food-groups",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Fruit and vegetables help to keep your body healthy.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do you eat fruit and vegetables?",
+        "They are plants.",
+        "Vitamins come from them."
+      ],
+      "explanation": "They give vitamins and minerals that help your body fight illness and work well.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.food-groups.802",
+      "skill": "s3.food-groups",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Rice and bread are rich in protein, which helps your body to build muscles.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which group gives energy?",
+        "Rice and bread are starchy foods.",
+        "They are carbohydrates."
+      ],
+      "explanation": "Rice and bread are rich in carbohydrates, which give you energy. Meat, fish, eggs and beans are rich in protein.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.food-groups.803",
+      "skill": "s3.food-groups",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Milk and cheese give calcium, which helps to build strong bones and teeth.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does your body get calcium?",
+        "Think of dairy foods.",
+        "Calcium is good for bones."
+      ],
+      "explanation": "Dairy foods are a good source of calcium. Calcium is a mineral that makes bones and teeth hard.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s3.food-groups.804",
+      "skill": "s3.food-groups",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Fats are a food group you should never eat.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do you need any fat at all?",
+        "Think about a small amount.",
+        "A little is useful."
+      ],
+      "explanation": "Your body needs a small amount of fat for energy and to keep warm. It is only too much fat that is unhealthy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

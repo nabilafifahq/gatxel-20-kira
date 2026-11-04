@@ -1520,6 +1520,110 @@
         "What do you want from the key at the end?"
       ],
       "explanation": "Each key question has two answers, uses features anyone can check, and ends with the name of the living thing."
+    },
+    {
+      "id": "s6.classification-keys.801",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A branching key uses questions to sort living things into groups.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does each question do?",
+        "Think of a tree with branches.",
+        "Questions make branches."
+      ],
+      "explanation": "Each question splits the group into two paths, so you eventually identify the organism.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.classification-keys.802",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The questions in a good key can have answers that are a matter of opinion.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can everybody agree on the answer?",
+        "Is pretty measurable?",
+        "Use features you can check."
+      ],
+      "explanation": "Key questions must have clear yes or no answers, such as has wings, not opinions like pretty.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.classification-keys.803",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A key question like Does it have six legs? can help to identify insects.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many legs does an insect have?",
+        "Spiders have eight.",
+        "Six legs is a feature."
+      ],
+      "explanation": "Insects have six legs, so the answer divides insects from other arthropods like spiders.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "s6.classification-keys.804",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The first question in a key should only fit one living thing.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is the start of the key?",
+        "Do keys begin narrow or wide?",
+        "First questions are broad."
+      ],
+      "explanation": "The first question splits the whole group into two big sets. Questions get narrower along the way.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }
