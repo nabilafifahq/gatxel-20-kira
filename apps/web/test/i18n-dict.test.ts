@@ -12,6 +12,15 @@ import { en, id } from '@/lib/i18n/dict'
 
 type Node = string | ((...args: never[]) => string) | { [key: string]: Node }
 
+/** Parameter teks atau angka: coba angka dulu, lalu teks bila fungsi memanggil metode string. */
+function callSample(fn: (...args: never[]) => string, sample: number): string {
+  try {
+    return fn(...(Array.from({ length: fn.length }, () => sample) as never[]))
+  } catch {
+    return fn(...(Array.from({ length: fn.length }, () => String(sample)) as never[]))
+  }
+}
+
 /** Semua daun kamus: [jalur, nilai teks]. Fungsi dipanggil dengan angka dan nama contoh. */
 function leaves(node: Node, path = ''): { path: string; text: string; arity: number | null }[] {
   if (typeof node === 'string') return [{ path, text: node, arity: null }]
@@ -19,8 +28,7 @@ function leaves(node: Node, path = ''): { path: string; text: string; arity: num
     const out: { path: string; text: string; arity: number | null }[] = []
     // Nilai 1 dan 3 mengenai kedua cabang jamak bahasa Inggris. Parameter teks tetap sah sebagai angka di template.
     for (const sample of [1, 3]) {
-      const args = Array.from({ length: node.length }, () => sample) as never[]
-      out.push({ path, text: node(...args), arity: node.length })
+      out.push({ path, text: callSample(node, sample), arity: node.length })
     }
     return out
   }
