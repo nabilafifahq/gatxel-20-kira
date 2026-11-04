@@ -498,7 +498,9 @@ export async function finishChapter(tx: Tx, learnerId: string, n: number): Promi
   const done = cleanStoryDone(world.progress.storyDone)
   if (!done.includes(n)) await saveWorld(tx, learnerId, { progress: { ...world.progress, storyDone: [...done, n] } })
   const fresh = await syncCards(tx, learnerId)
-  return { cards: fresh.map((c) => cardMini(c.id)).filter((c): c is CardMiniDTO => c !== null) }
+  // Kartu kenangan bab ini tampil lebih dulu bila bersamaan dengan kartu tonggak lain.
+  const cards = fresh.map((c) => cardMini(c.id)).filter((c): c is CardMiniDTO => c !== null)
+  return { cards: cards.sort((a, b) => Number(b.id.startsWith('st-')) - Number(a.id.startsWith('st-'))) }
 }
 
 function cardMini(id: string): CardMiniDTO | null {

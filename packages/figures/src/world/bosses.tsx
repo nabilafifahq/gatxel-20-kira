@@ -71,7 +71,7 @@ function Mumblewump({ hurt }: { hurt: boolean }): ReactNode {
       <g className="kw-egg">
         <g {...line}>
           {bumps.map((i) => (
-            <circle key={i} cx={48 + 27 * Math.cos((i * Math.PI) / 6)} cy={56 + 27 * Math.sin((i * Math.PI) / 6)} r="9" fill={LILAC} />
+            <circle key={i} cx={(48 + 27 * Math.cos((i * Math.PI) / 6)).toFixed(2)} cy={(56 + 27 * Math.sin((i * Math.PI) / 6)).toFixed(2)} r="9" fill={LILAC} />
           ))}
         </g>
         <circle cx="48" cy="56" r="27" fill={LILAC} />
