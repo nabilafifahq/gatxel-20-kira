@@ -46,7 +46,7 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
     })
   return (
     <section aria-label={`${s.chapter(chapter.n)}: ${chapter.title}`} className="flex flex-col gap-3.5">
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-3">
         <Button variant="quiet" size="M" icon="arrow-left" onClick={() => onClose([])}>
           {s.allChapters}
         </Button>
@@ -82,16 +82,16 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap items-center gap-3">
-        <Button variant="secondary" icon="arrow-left" onClick={() => go(-1)} disabled={i === 0}>
-          {s.back}
+      <div className="flex items-center gap-3">
+        <Button variant="secondary" icon="arrow-left" aria-label={s.back} onClick={() => go(-1)} disabled={i === 0} className="flex-none max-sm:px-3">
+          <span className="max-sm:sr-only">{s.back}</span>
         </Button>
         {end ? (
-          <Button className="ml-auto" iconAfter="check" onClick={finish} disabled={busy}>
+          <Button className="ml-auto min-w-0 max-sm:flex-1" iconAfter="check" onClick={finish} disabled={busy}>
             {s.finish}
           </Button>
         ) : (
-          <Button className="ml-auto" iconAfter="arrow-right" onClick={() => go(1)}>
+          <Button className="ml-auto min-w-0 max-sm:flex-1" iconAfter="arrow-right" onClick={() => go(1)}>
             {s.turn}
           </Button>
         )}
