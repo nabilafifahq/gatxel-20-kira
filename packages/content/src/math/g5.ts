@@ -982,8 +982,12 @@ const decimalPlaceValue: Generator = {
           ],
         })
       }
-      const dp = rng.pick([1, 2])
-      const u = dp === 1 ? rng.int(1, 9) : rng.pick([rng.int(1, 9), rng.int(11, 99)])
+      const dp0 = rng.pick([1, 2])
+      const u0 = dp0 === 1 ? rng.int(1, 9) : rng.pick([rng.int(1, 9), rng.int(11, 99)])
+      // 0.50 tampil sebagai 0.5, jadi 5/10 harus diterima dan penjelasannya bicara persepuluhan.
+      const trailing = dp0 === 2 && u0 % 10 === 0
+      const dp = trailing ? 1 : dp0
+      const u = trailing ? u0 / 10 : u0
       const n = dec(u, dp)
       const f = { n: u, d: 10 ** dp }
       return textItem({
@@ -5181,6 +5185,8 @@ const shapes2d3d: Generator = {
         if (c <= b) c = b + 1
         if (c >= a + b) b = c - a + 1
         sides = rng.shuffle([a, b, c])
+        // 6, 8, 10 juga siku-siku, jadi "scalene" bukan satu-satunya opsi benar.
+        if (a * a + b * b === c * c) c += 1
       }
       const names = ['equilateral', 'isosceles', 'scalene']
       if (kind === 3) {
