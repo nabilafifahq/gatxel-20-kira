@@ -148,7 +148,7 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
             {
               fig: FIGURES.login,
               title: 'Buka Kira dan masuk',
-              body: 'Masuk dengan email dan password Ayah/Bunda. Di halaman Keluarga tekan Daftarkan perangkat ini, pilih anak, lalu simpan. Sejak itu perangkat menampilkan pilihan nama anak dan PIN gambar.',
+              body: 'Masuk dengan email dan password Ayah/Bunda. Di halaman Keluarga tekan Daftarkan perangkat ini, pilih anak, lalu tekan Daftarkan. Sejak itu perangkat menampilkan pilihan nama anak dan PIN gambar.',
             },
           ].map((s, i) => (
             <div key={s.title} className="flex items-start gap-4 rounded-card bg-surface p-5 shadow-soft sm:items-center sm:gap-5">
