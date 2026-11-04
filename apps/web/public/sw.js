@@ -14,10 +14,10 @@
  *   dipakai lebih dulu (akses yang dicabut tidak bertahan); simpanan hanya dipakai saat internet putus. Simpanan
  *   ini dihapus bersama simpanan halaman saat learner berganti.
  */
-const VERSION = 'kira-v2'
+const VERSION = 'kira-v1'
 const STATIC_CACHE = `${VERSION}-static`
 const PAGE_CACHE = `${VERSION}-pages`
-const AUDIO_CACHE = `${VERSION}-audio`
+const AUDIO_CACHE = `${VERSION}-audio-k1` // k1 = versi suara; klip suara lama di kira-v1-audio dibuang saat aktivasi
 const MEDIA_CACHE = `${VERSION}-media`
 const OFFLINE_URL = '/offline.html'
 const MAX_PAGES = 60
@@ -76,7 +76,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => !k.startsWith(`${VERSION}-`)).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => !k.startsWith(`${VERSION}-`) || k === `${VERSION}-audio`).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   )
 })
