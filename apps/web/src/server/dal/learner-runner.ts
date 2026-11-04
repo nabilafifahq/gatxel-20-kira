@@ -452,7 +452,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
   if (a.kind === 'quest') {
     if (isRetry) {
       // Ulang sesi: percobaan pertama tetap resmi untuk streak dan laporan, ulangan memberi 25 persen XP.
-      const gained = sessionCompletionXp({ session: session ?? 'latihan', perfect, retry: true })
+      const gained = answeredAny ? sessionCompletionXp({ session: session ?? 'latihan', perfect, retry: true }) : 0
       await grantXp(tx, ctx, learnerId, gained, 'quest-retry', a.id, date)
       xp += gained
     } else if (q && q.status !== 'done') {
