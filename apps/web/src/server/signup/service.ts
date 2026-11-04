@@ -8,7 +8,9 @@ import { log } from '../log'
 import { NOTICE_VERSION, TERMS_VERSION } from '../auth/accounts'
 import { randomToken, sha256hex } from '../auth/crypto'
 import { hashSecret, passwordProblem, verifySecret } from '../auth/password'
-import { queuePublicMail, simpleEmail } from '../dal/outbox'
+import { signupExistingEmail, signupVerifyEmail, waitlistConfirmEmail, waitlistWelcomeEmail } from '@kira/core/email-templates'
+import { queuePublicMail } from '../dal/outbox'
+import { emailIdentity } from '../email'
 import { emailSendAllowed } from '../auth/ratelimit'
 import { checkEmail, emailKey } from './email-policy'
 
@@ -48,26 +50,14 @@ async function emailTaken(emailNorm: string, emailLower: string): Promise<boolea
 
 async function sendVerification(to: string, token: string): Promise<void> {
   if (!emailSendAllowed('verify', to)) return
-  const mail = simpleEmail({
-    title: 'Satu langkah lagi untuk membuka Kira',
-    lines: ['Terima kasih sudah mendaftar. Tekan tombol di bawah untuk memastikan email ini milikmu. Setelah itu keluarga Kira kamu langsung dibuat dan kamu bisa menambahkan anak.', 'Tautan berlaku 24 jam dan hanya bisa dipakai sekali.'],
-    buttonLabel: 'Konfirmasi email',
-    buttonUrl: verifyUrl(token),
-    footer: 'Kalau kamu tidak mendaftar di Kira, abaikan email ini. Tidak ada akun yang dibuat tanpa konfirmasi.',
-  })
-  await queuePublicMail({ to, subject: 'Konfirmasi email untuk Kira', ...mail, kind: 'signup-verify' })
+  const mail = signupVerifyEmail(emailIdentity(), { url: verifyUrl(token) })
+  await queuePublicMail({ to, ...mail, kind: 'signup-verify' })
 }
 
 async function sendAlreadyHaveAccount(to: string): Promise<void> {
   if (!emailSendAllowed('verify', to)) return
-  const mail = simpleEmail({
-    title: 'Email ini sudah punya akun Kira',
-    lines: ['Ada yang mendaftar di Kira memakai email ini, tetapi akunnya sudah ada.', 'Kalau itu kamu, masuk saja. Lupa password? Pakai Lupa password di halaman masuk.'],
-    buttonLabel: 'Masuk ke Kira',
-    buttonUrl: `${origin()}/masuk`,
-    footer: 'Kalau bukan kamu yang mendaftar, abaikan email ini. Tidak ada yang berubah di akunmu.',
-  })
-  await queuePublicMail({ to, subject: 'Email ini sudah punya akun Kira', ...mail, kind: 'signup-existing' })
+  const mail = signupExistingEmail(emailIdentity(), { loginUrl: `${origin()}/masuk` })
+  await queuePublicMail({ to, ...mail, kind: 'signup-existing' })
 }
 
 /**
@@ -171,26 +161,11 @@ export async function signupTokenValid(token: string): Promise<boolean> {
 
 function waitlistMail(kind: 'confirm' | 'welcome', to: string, token: string) {
   if (kind === 'confirm' && !emailSendAllowed('waitlist', to)) return Promise.resolve()
-  const mail = simpleEmail(
-    kind === 'confirm'
-      ? {
-          title: 'Konfirmasi: kabari saya saat kursi Kira dibuka',
-          lines: ['Seseorang, semoga kamu, meminta dikabari saat kursi beta Kira dibuka lagi.', 'Tekan tombol di bawah untuk mengonfirmasi. Tanpa konfirmasi kami tidak mengirim kabar apa pun.'],
-          buttonLabel: 'Ya, kabari saya',
-          buttonUrl: `${origin()}/kabar/konfirmasi/${token}`,
-          footer: 'Kalau bukan kamu, abaikan email ini atau berhenti lewat tautan di bawah.',
-          footerLink: { label: 'Berhenti berlangganan', url: unsubscribeUrl(token) },
-        }
-      : {
-          title: 'Kamu ada di daftar tunggu Kira',
-          lines: ['Terima kasih. Kami akan mengirim email saat kursi beta dibuka lagi.', 'Kami hanya mengirim kabar yang berkaitan dengan kursi dan perkembangan Kira, dan tidak membagikan alamatmu ke pihak lain.'],
-          footer: 'Kamu bisa berhenti kapan saja lewat tautan di bawah.',
-          footerLink: { label: 'Berhenti berlangganan', url: unsubscribeUrl(token) },
-        },
-  )
+  const id = emailIdentity()
+  const unsub = unsubscribeUrl(token)
+  const mail = kind === 'confirm' ? waitlistConfirmEmail(id, { url: `${origin()}/kabar/konfirmasi/${token}`, unsubscribeUrl: unsub }) : waitlistWelcomeEmail(id, { unsubscribeUrl: unsub })
   return queuePublicMail({
     to,
-    subject: kind === 'confirm' ? 'Konfirmasi daftar tunggu Kira' : 'Kamu ada di daftar tunggu Kira',
     ...mail,
     kind: kind === 'confirm' ? 'waitlist-confirm' : 'waitlist-welcome',
     listUnsubscribe: unsubscribeApiUrl(token),
