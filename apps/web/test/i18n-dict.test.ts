@@ -52,6 +52,7 @@ describe('kamus antarmuka anak', () => {
   })
 
   it('tanpa em dash dan en dash', () => {
+    // gtx-ignore-next-line dash
     for (const { path, text } of [...EN, ...ID]) expect(text, path).not.toMatch(/[–—]/)
   })
 
