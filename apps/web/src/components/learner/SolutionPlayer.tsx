@@ -31,13 +31,28 @@ function dwellMs(step: SolutionStep | undefined): number {
   return Math.max(3200, step.say.length * 70 + (step.anim ? 1200 : 0))
 }
 
+/** Posisi sorotan di teks. Angka tidak boleh menempel pada angka lain, misalnya 3 di dalam 34 atau Rp3 di dalam Rp3.500. */
+function findMark(text: string, m: string): number {
+  if (!/\d/.test(m)) return text.indexOf(m)
+  for (let at = text.indexOf(m); at >= 0; at = text.indexOf(m, at + 1)) {
+    const before = text.slice(Math.max(0, at - 2), at)
+    const after = text.slice(at + m.length, at + m.length + 2)
+    const startsDigit = /^\d/.test(m)
+    const endsDigit = /\d$/.test(m)
+    if (startsDigit && (/\d$/.test(before) || /\d[.,]$/.test(before))) continue
+    if (endsDigit && /^(\d|[.,]\d)/.test(after)) continue
+    return at
+  }
+  return -1
+}
+
 /** Kalimat soal dengan bagian `mark` disorot. Sorotan hanya tampil bila langkah memintanya. */
 function MarkedPrompt({ prompt, marks, reduced, lang }: { prompt: string; marks: readonly string[]; reduced: boolean; lang: string }): ReactElement {
   const spans: { text: string; hit: boolean }[] = []
   let rest = prompt
-  const wanted = [...marks].sort((a, b) => prompt.indexOf(a) - prompt.indexOf(b))
+  const wanted = [...marks].sort((a, b) => findMark(prompt, a) - findMark(prompt, b))
   for (const m of wanted) {
-    const at = rest.indexOf(m)
+    const at = findMark(rest, m)
     if (at < 0) continue
     if (at > 0) spans.push({ text: rest.slice(0, at), hit: false })
     spans.push({ text: m, hit: true })
