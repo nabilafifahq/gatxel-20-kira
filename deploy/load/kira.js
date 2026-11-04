@@ -1,7 +1,7 @@
 // Skenario beban Kira (k6). Pemakaian: lihat deploy/load/README.md dan docs/laporan-beban.md.
 //   SCENARIO = mixed | latihan | tes | paper | today | audio | qm | quiz | parent | signin | pin | signup | spike
 //   STAGE    = smoke | 100 | 300 | 500 | 1000 | soak   (jumlah VU puncak; soak = 100 VU selama SOAK_MIN menit)
-//   THINK    = faktor waktu berpikir (bawaan 1)
+//   THINK    = faktor waktu berpikir (bawaan 1); HOLD = detik di puncak (bawaan 180)
 // Satu VU adalah satu anak yang sedang aktif (atau satu orang tua). Staging saja, bukan produksi.
 import http from 'k6/http'
 import { SharedArray } from 'k6/data'
@@ -54,8 +54,9 @@ function stageOptions() {
     return { executor: 'ramping-vus', startVUs: 0, stages: [{ duration: '60s', target: 100 }, { duration: `${SOAK_MIN}m`, target: 100 }, { duration: '30s', target: 0 }], gracefulRampDown: '30s', gracefulStop: '60s' }
   }
   const peak = peakOf[STAGE] ?? Number(STAGE)
-  const hold = STAGE === 'smoke' ? 30 : 180
-  return { executor: 'ramping-vus', startVUs: 0, stages: ramp(peak, STAGE === 'smoke' ? 10 : 60, hold), gracefulRampDown: '30s', gracefulStop: '60s' }
+  const hold = Number(__ENV.HOLD || (STAGE === 'smoke' ? 30 : 180))
+  const rampS = Math.min(STAGE === 'smoke' ? 10 : 60, hold)
+  return { executor: 'ramping-vus', startVUs: 0, stages: ramp(peak, rampS, hold), gracefulRampDown: '30s', gracefulStop: '60s' }
 }
 
 export const options = {

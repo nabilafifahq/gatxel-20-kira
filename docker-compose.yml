@@ -144,7 +144,7 @@ services:
       # Lewat PgBouncer (mode transaksi): tanpa pernyataan prepared. TLS ke Postgres dilakukan PgBouncer.
       DATABASE_URL_APP: postgres://kira_app:${KIRA_APP_PASSWORD}@pgbouncer:6432/kira
       DATABASE_URL_AUTH: postgres://kira_auth:${KIRA_AUTH_PASSWORD}@pgbouncer:6432/kira
-      KIRA_DB_PREPARE: "off"
+      KIRA_DB_PREPARE: ${KIRA_DB_PREPARE:-off}
       KIRA_POOL_APP: ${KIRA_POOL_APP:-12}
       KIRA_POOL_AUTH: ${KIRA_POOL_AUTH:-6}
       KIRA_VALKEY_URL: redis://:${KIRA_VALKEY_PASSWORD:-${KIRA_INTERNAL_TOKEN}}@valkey:6379
@@ -189,6 +189,7 @@ services:
       KIRA_AUTH_PASSWORD: ${KIRA_AUTH_PASSWORD}
       PGB_POOL_APP: ${PGB_POOL_APP:-30}
       PGB_POOL_AUTH: ${PGB_POOL_AUTH:-15}
+      PGB_MAX_PREPARED: ${PGB_MAX_PREPARED:-0}
     volumes:
       - ./deploy/pgbouncer/entrypoint.sh:/entrypoint.sh:ro
       - *ca-mount

@@ -20,6 +20,7 @@ const project = arg('project', 'kirastg')
 const envFile = arg('env', 'C:/kw4/stg/env.staging')
 const name = arg('name', `${scenario}-${stage}`)
 const soakMin = arg('soak-min', '30')
+const hold = arg('hold', '180')
 const outDir = join(here, 'out', name)
 mkdirSync(outDir, { recursive: true })
 
@@ -74,7 +75,7 @@ const sampler = sampleLoop()
 
 // --- k6 ---
 const composeArgs = ['compose', '-p', project, '--env-file', envFile, '--profile', 'loadtest', '--profile', 'loadrun', 'run', '--rm', '-T',
-  '-e', `SCENARIO=${scenario}`, '-e', `STAGE=${stage}`, '-e', `THINK=${think}`, '-e', `SOAK_MIN=${soakMin}`,
+  '-e', `SCENARIO=${scenario}`, '-e', `STAGE=${stage}`, '-e', `THINK=${think}`, '-e', `SOAK_MIN=${soakMin}`, '-e', `HOLD=${hold}`,
   'k6', 'run', `--summary-export=/out/${name}/summary.json`, '/load/kira.js']
 console.log('docker', composeArgs.join(' '))
 const started = Date.now()
@@ -147,6 +148,8 @@ const result = {
   rps: trend('http_reqs')?.rate ?? 0,
   overall: dur ? { p50: dur.med, p95: dur['p(95)'], p99: dur['p(99)'], max: dur.max } : null,
   httpFailRate: rate('http_req_failed'),
+  bytesReceived: trend('data_received')?.count ?? 0,
+  downMbps: ((trend('data_received')?.rate ?? 0) * 8) / 1e6,
   bizOkRate: rate('kira_business_ok'),
   vusMax: trend('vus_max')?.max ?? trend('vus')?.max ?? null,
   endpoints: rows,
@@ -162,6 +165,8 @@ const lines = []
 lines.push(`### ${name}: ${scenario}, ${stage === 'soak' ? `soak ${soakMin} menit` : stage + ' VU'}, think ${think}`)
 lines.push('')
 lines.push(`Durasi ${result.seconds} detik, ${result.requests} permintaan (${f(result.rps, 1)} per detik), galat HTTP ${f((result.httpFailRate ?? 0) * 100, 2)}%, transaksi bisnis berhasil ${f((result.bizOkRate ?? 1) * 100, 2)}%. Semua endpoint: p50 ${f(result.overall?.p50)} ms, p95 ${f(result.overall?.p95)} ms, p99 ${f(result.overall?.p99)} ms.`)
+lines.push('')
+lines.push(`Data keluar dari proxy: ${f(result.bytesReceived / 1e6, 1)} MB, rata-rata ${f(result.downMbps, 2)} Mbps (batas unggah rumah sekitar 29 Mbps).`)
 lines.push('')
 lines.push('| Endpoint | Jumlah | p50 ms | p95 ms | p99 ms | Galat HTTP | Bisnis OK |')
 lines.push('|---|---:|---:|---:|---:|---:|---:|')

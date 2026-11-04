@@ -35,6 +35,10 @@
 		flush_interval -1
 		header_up X-Forwarded-For {client_ip}
 		header_up X-Real-IP {client_ip}
+		# Aplikasi memberi no-transform supaya Cloudflare tidak mengubah isi halaman, tetapi Caddy tidak mau memampatkan
+		# respons bertanda itu. Tanda dilepas di sini agar HTML (sekitar 100 KB, jadi 15 KB bila dimampatkan) dikirim
+		# terkompresi lewat unggahan rumah, lalu dipasang lagi sebelum respons keluar (lihat header >Cache-Control di bawah).
+		header_down Cache-Control ", no-transform" ""
 		transport http {
 			dial_timeout 2s
 			response_header_timeout 90s
@@ -46,6 +50,7 @@
 
 :8080 {
 	encode zstd gzip
+	header >Cache-Control "^no-store, max-age=0$" "no-store, no-transform, max-age=0"
 
 	# /api/internal hanya untuk worker lewat jaringan internal (http://web:3000), tidak pernah lewat proxy ini.
 	@internal path /api/internal /api/internal/*

@@ -38,7 +38,8 @@ server_tls_ca_file = /certs/ca.crt
 server_tls_protocols = secure
 client_tls_sslmode = disable
 ignore_startup_parameters = extra_float_digits,options
-max_prepared_statements = 0
+# Pernyataan prepared tingkat protokol (PgBouncer 1.21 ke atas). 0 = mati; isi bersama KIRA_DB_PREPARE=on di web.
+max_prepared_statements = ${PGB_MAX_PREPARED:-0}
 log_connections = 0
 log_disconnections = 0
 log_pooler_errors = 1
