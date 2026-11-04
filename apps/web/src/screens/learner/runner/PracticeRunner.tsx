@@ -21,7 +21,7 @@ import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { comboLevel } from '@/components/learner/ComboStars'
 import { RunnerCorner } from '@/components/learner/RunnerCorner'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
-import { useSpeech } from '@/components/learner/speech'
+import { stopSpeech, useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
@@ -225,6 +225,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
 
   const check = useCallback(async () => {
     if (!item || !st || st.phase !== 'answer' || !isAnswerComplete(item, st.value)) return
+    // Bacaan soal berhenti sebelum bunyi benar atau salah, supaya tidak bertumpuk.
+    stopSpeech()
     if (isManualType(item.type)) {
       void send(index, st)
       patch(index, { phase: 'sent', first: st.first ?? 'answered' })
@@ -441,7 +443,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         <footer className="sticky bottom-0 z-10 -mx-4 flex h-21 items-center gap-3 bg-bg px-4 md:-mx-8 md:h-24 md:px-8 lg:static lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:px-0">
           {hints.length > 0 ? <HintButton total={hints.length} opened={st.hintsUsed} onOpen={openHint} disabled={!answering} compact={narrow} /> : null}
           {englishArea === 'listening' ? null : (
-            <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+            <ReadAloudButton key={item.ref} text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
           )}
           {selfSend ? null : (
             <Button
