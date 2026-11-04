@@ -37,13 +37,21 @@ function csvRows(text: string): Record<string, string>[] {
   for (let i = 0; i < text.length; i++) {
     const c = text[i]!
     if (q) {
-      if (c === '"' && text[i + 1] === '"') (cell += '"'), i++
-      else if (c === '"') q = false
+      if (c === '"' && text[i + 1] === '"') {
+        cell += '"'
+        i++
+      } else if (c === '"') q = false
       else cell += c
     } else if (c === '"') q = true
-    else if (c === ',') (cur.push(cell), (cell = ''))
-    else if (c === '\n') (cur.push(cell), rows.push(cur), (cur = []), (cell = ''))
-    else if (c !== '\r') cell += c
+    else if (c === ',') {
+      cur.push(cell)
+      cell = ''
+    } else if (c === '\n') {
+      cur.push(cell)
+      rows.push(cur)
+      cur = []
+      cell = ''
+    } else if (c !== '\r') cell += c
   }
   const head = rows.shift() ?? []
   return rows.filter((r) => r.length === head.length).map((r) => Object.fromEntries(head.map((h, i) => [h, r[i]!])))
