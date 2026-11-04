@@ -144,9 +144,9 @@ export function SignupClient({
         <p className="m-0 text-body text-fg-muted">
           {bare ? 'Untuk orang tua. Setelah email dikonfirmasi, Anda menambahkan anak dan bisa mulai hari ini.' : `Untuk orang tua. Tersisa ${seatsLeft} kursi. Setelah email dikonfirmasi, Anda menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.`}
         </p>
+        <RequiredNote className="mt-1" />
       </div>
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
-        <RequiredNote />
         <TextField
           name="name"
           required

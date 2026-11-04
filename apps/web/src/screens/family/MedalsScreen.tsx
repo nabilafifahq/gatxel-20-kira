@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react'
 import type { ActionResult, ConsoleShell } from '@/lib/dto'
 import type { MedalDTO } from '@/lib/dto-world'
 import { Button } from '@/components/console/Button'
+import { RequiredMark, RequiredNote } from '@/components/console/Field'
 import { FamilyShell } from '@/components/family/FamilyShell'
 
 /**
@@ -55,9 +56,13 @@ function Child({ child, actions }: { child: MedalsData['children'][number]; acti
           </li>
         ))}
       </ul>
+      <RequiredNote />
       <form onSubmit={(e) => void submit(e)} className="flex flex-wrap items-end gap-3">
         <label className="flex min-w-[220px] flex-1 flex-col gap-1 text-small font-bold">
-          Nama lomba
+          <span>
+            Nama lomba
+            <RequiredMark />
+          </span>
           <input value={title} onChange={(e) => setTitle(e.target.value)} maxLength={80} required className="h-11 rounded-control border border-border bg-surface px-3 text-body font-normal" />
         </label>
         <label className="flex flex-col gap-1 text-small font-bold">
@@ -71,7 +76,10 @@ function Child({ child, actions }: { child: MedalsData['children'][number]; acti
           </select>
         </label>
         <label className="flex flex-col gap-1 text-small font-bold">
-          Tanggal
+          <span>
+            Tanggal
+            <RequiredMark />
+          </span>
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required className="h-11 rounded-control border border-border bg-surface px-3 text-body font-normal" />
         </label>
         <Button type="submit" loading={busy}>
