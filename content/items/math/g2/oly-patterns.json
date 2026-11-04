@@ -414,10 +414,7 @@
             "op": "÷",
             "b": 2,
             "r": 9
-          },
-          "mark": [
-            "2"
-          ]
+          }
         },
         {
           "say": "Count all the triangles.",
@@ -608,10 +605,7 @@
             "op": "+",
             "b": 8,
             "r": 13
-          },
-          "mark": [
-            "8"
-          ]
+          }
         },
         {
           "say": "Find the 8th number.",
@@ -622,10 +616,7 @@
             "op": "+",
             "b": 13,
             "r": 21
-          },
-          "mark": [
-            "8"
-          ]
+          }
         }
       ],
       "tags": [
@@ -848,10 +839,7 @@
               }
             ],
             "total": 11
-          },
-          "mark": [
-            "10"
-          ]
+          }
         },
         {
           "say": "Check by listing.",
@@ -1354,7 +1342,7 @@
       "id": "m2.oly-patterns.017",
       "skill": "m2.oly-patterns",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Look at the pattern. Each number is double the one before. What number goes in the box?",
       "figure": {
         "kind": "sequence",
@@ -1409,8 +1397,8 @@
         "ikmc",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-patterns.018",
@@ -1548,7 +1536,7 @@
       "id": "m2.oly-patterns.020",
       "skill": "m2.oly-patterns",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "The pattern goes up 2, then down 1, again and again. What number goes in the box?",
       "figure": {
         "kind": "sequence",
@@ -1600,14 +1588,14 @@
         "olympiad",
         "kmnr"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-patterns.021",
       "skill": "m2.oly-patterns",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Each number is the sum of the two before it. What number goes in the box?",
       "figure": {
         "kind": "sequence",
@@ -1679,8 +1667,8 @@
         "ikmc",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-patterns.022",
@@ -2137,7 +2125,7 @@
       "id": "m2.oly-patterns.029",
       "skill": "m2.oly-patterns",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "The numbers go +3, +1, +3, +1 and so on. What number goes in the box?",
       "figure": {
         "kind": "sequence",
@@ -2187,8 +2175,8 @@
         "olympiad",
         "kmnr"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-patterns.030",
@@ -2271,7 +2259,7 @@
       "hints": [
         "Find the sums one by one.",
         "The sums are 3, 6, 10 ... They grow by 3, 4, 5 ...",
-        "Keep going to the 8th sum."
+        "Keep going until you have added the 8."
       ],
       "explanation": "The sums are 3, 6, 10, 15, 21, 28 and 36. The jumps are +3, +4, +5, +6, +7 and +8. The last one is 36.",
       "solution": [
@@ -4764,19 +4752,19 @@
       "answer": 2,
       "hints": [
         "A hook that is turned round can still be put exactly on the first hook.",
-        "The top bar and the stem must meet at the same corner.",
+        "Turn the first hook a quarter turn in your mind. Where do the bar and the stem go?",
         "In the first hook the stem is on the left and the bar is on the top."
       ],
-      "explanation": "When a shape is turned, it stays the same way round. The stem still hangs on the left of the bar when you turn it. Only one of the hooks can be turned back onto the first one.",
+      "explanation": "A turned shape can be put exactly on the first hook, but a flipped one cannot. Turn the first hook a quarter turn clockwise: the bar moves to the right and the stem moves along the top. Only the hook with its bar on the right matches. The other three are flipped over.",
       "solution": [
         {
-          "say": "When a shape is turned, it stays the same way round."
+          "say": "A turned shape can be put exactly on the first hook, but a flipped one cannot."
         },
         {
-          "say": "The stem still hangs on the left of the bar when you turn it."
+          "say": "Turn the first hook a quarter turn clockwise: the bar moves to the right and the stem moves along the top."
         },
         {
-          "say": "Only one of the hooks can be turned back onto the first one."
+          "say": "Only the hook with its bar on the right matches. The other three are flipped over."
         }
       ],
       "tags": [

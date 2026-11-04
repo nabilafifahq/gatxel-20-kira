@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { dateId } from '@/components/console/format'
 import { FAMILY_ROUTES, PUBLIC_ROUTES } from '@/components/console/routes'
@@ -28,7 +29,7 @@ const TOC = [
   { id: 'k-hukum', label: '12. Hukum dan sengketa' },
 ]
 
-export function TermsPage({ data }: TermsPageProps) {
+export function TermsPage({ data, account }: TermsPageProps & { account?: ReactNode }) {
   const { entity, meta } = data
   const contact = entity.phone ? `email ${entity.email}, telepon ${entity.phone}` : `email ${entity.email}`
   return (
@@ -42,7 +43,8 @@ export function TermsPage({ data }: TermsPageProps) {
         </>
       }
       toc={TOC}
-      footerNote={`${entity.name}, ${entity.address}`}
+      footerNote={`Pengelola: ${entity.name}`}
+      account={account}
     >
       <LegalSection id="k-pengelola" title="1. Pengelola">
         <p className="m-0">

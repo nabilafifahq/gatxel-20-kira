@@ -3,7 +3,7 @@ import { and, eq, inArray, ne, sql } from 'drizzle-orm'
 import { jakartaDate, type IsoDate, type SessionType } from '@kira/core'
 import { STRAND_NAMES } from '@kira/content'
 import { tables } from '@kira/db'
-import type { Subject } from '@/lib/dto'
+import type { PlanChangeResult, Subject } from '@/lib/dto'
 import type { ParentSkillChangeResult, ParentSkillOptionsDTO } from '@/lib/dto-parent'
 import type { Actor } from '../auth/actor'
 import { withFamilyAdmin, type ParentScope } from '../auth/parent'
@@ -14,7 +14,7 @@ import { setSessionSkillTx } from './console-planner'
 import { poolForSkill, skill, skillsFor } from './content'
 import { loadLearner, type LearnerRow } from './learner-core'
 import { isFeatureOnTx } from './learner-features'
-import { questStarted } from './learner-session'
+import { ensureTodayQuests, questStarted } from './learner-session'
 import { groupSkillOptions, sessionName, sessionState, skillChangeView, type SkillSession } from './session-skill-logic'
 
 /**
@@ -91,6 +91,24 @@ async function allowedSkills(tx: Tx, orgId: string, learner: LearnerRow, subject
 
 function blockedError(note: string | null) {
   return note ? conflict(note) : invalid('Hanya Latihan dan Tes yang berisi satu pelajaran, jadi hanya sesi itu yang bisa diganti.')
+}
+
+/**
+ * Siapkan sesi hari ini sebelum anak membuka Today, sama seperti yang terjadi saat Today dibuka, supaya orang tua bisa
+ * mengganti pelajaran lebih dulu. Hanya anak yang sudah aktif (sudah ada persetujuan). Streak tidak berubah: hari yang
+ * belum selesai tetap dihitung sama, dengan atau tanpa sesi yang sudah dibuat.
+ */
+export async function parentPrepareToday(actor: Actor, input: { learnerId: string }): Promise<PlanChangeResult> {
+  return withFamilyAdmin(actor, async (tx, scope) => {
+    await scope.assertParentOf(input.learnerId)
+    const learner = await loadLearner(tx, input.learnerId)
+    if (!learner.active) throw conflict(`${learner.name} belum aktif. Beri persetujuan di halaman Privasi dulu.`)
+    const quests = await scope.elevate(() => ensureTodayQuests(tx, scope.ctx, learner, jakartaDate()))
+    const created = quests.filter((q) => q.kind !== 'bonus').length
+    if (created === 0) throw conflict('Tidak ada sesi untuk disiapkan. Hari ini hari istirahat, atau semua mapel sedang dimatikan.')
+    await auditTx(tx, scope.ctx, 'parent.today.prepared', learner.userId, { sessions: created })
+    return { today: true, published: false, created, removed: 0, regenerated: 0, kept: 0 }
+  })
 }
 
 export async function parentSkillOptions(actor: Actor, input: { questId: string }): Promise<ParentSkillOptionsDTO> {

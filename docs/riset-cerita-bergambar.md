@@ -30,8 +30,8 @@ Dicatat dari hasil pencarian saja, halamannya tidak terbaca penuh: [Reading Rock
 4. **Tanya, balik, jawab.** Pertanyaan dan jawaban tidak pernah di halaman yang sama. Contoh: "How many stars can you count?" dijawab setelah halaman dibalik, dan anak bisa menghitung sendiri di gambar.
 5. **Tunjukkan.** Lelah di gunung ditulis sebagai sepatu, tas, dan kelopak mata yang berat. Kata "sad" dan "brave" tidak dipakai untuk menjelaskan perasaan Kira.
 6. **Halaman tenang.** Bab 6 dan bab 8 punya halaman sangat pendek ("Nothing.") supaya puncaknya terasa.
-7. **Gambar menambah cerita.** Tikus kecil Pip ada di hampir setiap gambar dan tidak disebut oleh teks sampai bab terakhir. Pembaca yang melihatnya merasa pintar. Cahaya Lumi membesar seiring buku yang pulang.
-8. **Kalimat pendek.** Kebanyakan halaman 1 sampai 3 kalimat, tiap kalimat paling banyak sekitar 12 kata. Diuji di `packages/core/src/world/world.test.ts`.
+7. **Gambar menambah cerita.** Tikus kecil Pip ada di setiap gambar dan tidak disebut oleh teks sampai bab terakhir. Posisinya dijaga kode supaya selalu masuk jendela gambar, karena bab 8 berkata "She is in every picture". Pembaca yang melihatnya merasa pintar. Cahaya Lumi membesar seiring buku yang pulang.
+8. **Kalimat pendek.** Rata-rata 4,3 kata per kalimat dan paling panjang 18 kata. Satu halaman paling banyak 36 kata. Satu bab 152 sampai 284 kata, di bawah batas 500 kata dari Alice Y. Chen. Batasnya diuji di `packages/core/test/world.test.ts`.
 9. **Kata en-GB.** Colour, harbour, borrow, librarian. Sesekali satu kata kaya (flour, glitter, scrap) yang bisa diketuk di kamus.
 10. **Akhir bab yang membuat penasaran.** Setiap bab memberi satu sobekan surat dan satu pertanyaan. Tidak ada hitung mundur, tidak ada ancaman, tidak ada yang hilang bila anak baru kembali beberapa minggu kemudian.
 
@@ -40,3 +40,56 @@ Satu saran sengaja tidak dipakai: Lesley Gibbes menyarankan batas waktu supaya c
 ## Gambar
 
 Keputusan: hanya SVG buatan Kira di `packages/figures`. Tidak ada aset luar yang dipakai, jadi tidak ada lisensi yang perlu dijaga. CC0 dan domain publik tetap boleh untuk masa depan, sedangkan CC BY-SA ditolak karena syarat berbagi serupa dan CC BY-NC ditolak karena melarang penggunaan komersial. Efek suara yang sudah ada memakai paket CC0 dari Kenney, tercatat di `LICENSE-sounds.txt`.
+
+## Bentuk cerita setelah disunting
+
+Delapan bab, 106 halaman, 1.494 kata. Kira datang untuk meminjam buku, perpustakaan gelap, dan selembar surat bergigitan menyuruhnya membawa pulang enam buku besar. Setiap bab memberi satu sobekan surat yang menjadi teka-teki: suara kecil apa yang bisa membangunkan Lampu Besar? Petunjuknya makin dekat ("softer than the sea", "warmer than a coat"), dan bab 6 menunjukkannya lewat gambar sebelum bab 7 mengatakannya. Di bab 8 lampu bangun karena semua orang membaca keras-keras, lalu penulis surat terungkap: Pip, tikus pustakawan yang sejak bab 1 ada di gambar. Cerita berakhir melingkar: Kira akhirnya meminjam buku.
+
+Alasan kembali selalu rasa ingin tahu: sobekan surat berikutnya, satu pertanyaan "Lumi wonders" yang semua jawabannya benar, dan di akhir ajakan mencari Pip di semua gambar. Bab yang belum terbuka tidak dikirim ke browser, dan bab yang sudah terbuka tidak pernah tertutup lagi.
+
+## Ekonomi bintang
+
+Semua harga ada di `packages/core/src/world/prices.ts`. Angkanya dijaga oleh tes "ekonomi bintang" di `packages/core/test/world.test.ts`.
+
+Pendapatan menurut aturan yang ada:
+
+| Hari | Rincian | Bintang |
+| --- | --- | --- |
+| Tenang | 3 sesi Latihan wajib (preset Seimbang), masing-masing 3 | 9 |
+| Biasa | Hari tenang, 1 sesi sempurna (+2), 1 bab Reading (+2), 1 Drill (+2) | 15 |
+| Paling tinggi | 3 sesi sempurna (15), Reading (2+1+1), Drill (2+1+1) | 23 |
+
+Kemenangan bos pertama tiap minggu menambah 10. Satu minggu biasa dengan 6 hari belajar: 15 x 6 + 10 = 100 bintang. Satu minggu tenang dengan 5 hari belajar: 9 x 5 = 45 bintang.
+
+Masalah sebelum penyesuaian: seluruh isi toko hanya 237 bintang, jadi habis dalam kurang dari 3 minggu biasa, sedangkan anak dengan hari tenang (9 bintang) belum bisa membeli apa pun pada hari pertama karena barang termurah 10 bintang.
+
+| Barang | Harga lama | Harga baru | Kelas |
+| --- | --- | --- | --- |
+| Latar Sky, Meadow | 10 | 8 | Hari pertama |
+| Pita teman (Bow) | 12 | 9 | Hari pertama |
+| Party hat, Bandana | 15 | 15 | Minggu pertama |
+| Latar Sunset | 15 | 20 | Minggu pertama |
+| Round glasses | 15 | 25 | Minggu pertama |
+| Flower crown | 20 | 35 | Minggu pertama |
+| Latar Candy | 20 | 40 | Minggu pertama |
+| Latar Ocean | 20 | 45 | Minggu pertama |
+| Little crown | 25 | 60 | Tujuan panjang |
+| Star ring | 30 | 70 | Tujuan panjang |
+| Lily pond | 30 | 80 | Tujuan panjang |
+| Moon ring (baru) | | 100 | Tujuan panjang |
+| Crown ring (baru) | | 150 | Tujuan panjang |
+
+Hasilnya, 15 barang seharga 680 bintang:
+
+- Hari pertama: telur menetas di 5 bintang, dan hari tenang pun cukup untuk Bow, Sky, atau Meadow.
+- Hari biasa: 15 bintang cukup untuk Bow dan 3 camilan, atau langsung Party hat.
+- Seluruh toko: sekitar 7 minggu biasa, atau 15 minggu tenang. Camilan (2 sampai 5 bintang) tetap jadi pengeluaran kecil harian di luar hitungan ini.
+- Barang termahal (150) setara 10 hari biasa, jadi tetap terasa sebagai tujuan.
+
+Hadiah set album tidak dijual, jadi tidak ikut hitungan. Bintang tidak pernah berkurang karena libur, dan tidak ada barang dengan batas waktu.
+
+## Album kartu
+
+121 kartu dalam 14 set: 41 common, 39 rare, 32 epic, 9 legendary. Empat set langka (kartu bos, kenangan cerita, klub buku, tonggak) berisi 39 kartu yang hanya didapat dari tonggak: menang lawan bos, selesai bab, selesai buku, streak terbaik, jumlah sesi, jumlah bintang. Tidak ada undian dan tidak ada yang dibeli. Tonggak terjauh, streak terbaik 100 hari, membuat album mustahil selesai dalam hitungan hari. Syarat buku dan penguasaan skill sudah dicek terhadap isi konten: 18 buku di Ruang Baca, dan paling sedikit 12 skill Science, 22 skill Math, dan 17 skill English per kelas, jadi setiap kartu benar-benar bisa didapat.
+
+Kartu dari mapel atau fitur yang dimatikan orang tua tidak dihitung, supaya angka di album tetap jujur.

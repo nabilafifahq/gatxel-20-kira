@@ -21,7 +21,7 @@ Perubahan dari 0.2: palet enam warna (Kira Lilac, Soft Lavender, Butter Yellow, 
 - Runner: teks soal besar dan tenang; elemen lain mengalah.
 - Hasil: skor Baloo 2 64px dengan bintang.
 - Konsol tutor: daftar Perlu perhatian di paling atas.
-**Explicitly not this:** gradien, glassmorphism, tema gelap, warna di luar palet, emoji sebagai ikon atau navigasi, easing memantul, titik berdenyut, ikon api untuk streak, hati atau nyawa, maskot burung hijau, konfeti di setiap jawaban benar, suara yang tidak bisa dimatikan, bayangan lebih dari satu jenis, kartu yang memakai bayangan dan garis sekaligus.
+**Explicitly not this:** gradien di luar panel utama halaman depan (lihat bagian 4), glassmorphism, tema gelap, warna di luar palet, emoji sebagai ikon atau navigasi, easing memantul, titik berdenyut, ikon api untuk streak, hati atau nyawa, maskot burung hijau, konfeti di setiap jawaban benar, suara yang tidak bisa dimatikan, bayangan lebih dari satu jenis, kartu yang memakai bayangan dan garis sekaligus.
 
 ## 3. Type
 
@@ -89,7 +89,9 @@ Pasangan kontras (rasio dihitung dari nilai di atas):
 | Cloud White di atas Kira Lilac | 2,29:1 | Jangan untuk teks |
 | Soft Lavender di atas Cloud White | 1,27:1 | Hanya pemisah, bukan batas kontrol |
 
-Aturan warna: Kira Lilac adalah warna utama merek. Butter Yellow dan Sky Blue hanya aksen, tidak pernah untuk teks. Semua teks, ikon, dan garis kontrol memakai Deep Grape. Status selalu memakai warna, ikon, dan teks sekaligus. Mapel: Math Sky Blue, English Kira Lilac, Science Butter Yellow, selalu dengan ikon dan nama mapel. Not yet memakai ikon, garis putus, dan kalimat penyemangat, tanpa merah. Tanpa gradien, glassmorphism, tema gelap, atau warna di luar palet.
+Aturan warna: Kira Lilac adalah warna utama merek. Butter Yellow dan Sky Blue hanya aksen, tidak pernah untuk teks. Semua teks, ikon, dan garis kontrol memakai Deep Grape. Status selalu memakai warna, ikon, dan teks sekaligus. Mapel: Math Sky Blue, English Kira Lilac, Science Butter Yellow, selalu dengan ikon dan nama mapel. Not yet memakai ikon, garis putus, dan kalimat penyemangat, tanpa merah. Tanpa gradien di luar panel utama halaman depan, tanpa glassmorphism, tema gelap, atau warna di luar palet.
+
+Gradien merek, permintaan pemilik November 2026, hanya untuk panel utama halaman depan dan layar masuk yang sama: `--gradient-brand` dari `--color-hero-start` #5A3BB0 lewat `--color-hero-mid` #7A4FD6 ke `--color-hero-end` #3D6FC2, kelas `bg-gradient-brand`. Teks di atasnya putih: rasio 7,82:1, 5,36:1, dan 4,94:1, dijaga `apps/web/test/gradient-contrast.test.ts`. Ini juga satu-satunya tempat teks putih di atas warna selain Deep Grape.
 
 Tiga jalur XP: XP Belajar Butter Yellow, XP Hitung Cepat (Quick Maths) Kira Lilac, XP Pengetahuan (Quiz Arena) Sky Blue. Keduanya dibedakan oleh ikon (bolt dan globe), label, dan angka level, tidak pernah oleh warna saja. Kontras dan jarak warna dijaga oleh `packages/figures/test/arena-tokens.test.ts`.
 
@@ -123,7 +125,7 @@ Dark mode: tidak di v1. Setiap tema tambahan menggandakan uji kontras.
 Ritme: 8 di dalam baris, 16 antarblok, 24 di dalam kartu, 48 antarbagian layar.
 Elevation: satu bayangan saja, `--shadow-soft`. Pilih bayangan atau garis, tidak keduanya. Kartu: putih, bayangan, tanpa garis. Panel: Soft Lavender, tanpa bayangan dan garis. Garis 1px Soft Lavender hanya untuk pemisah dan tabel. Tombol, input, dan ubin jawaban bergaris 2px Deep Grape; terpilih memakai isi Lilac, garis 3px, dan tanda centang.
 Fokus: outline 3px Deep Grape berjarak 3px; input menambah lingkar Lilac. Elemen fokus tidak tertutup header lengket (`scroll-margin-top` sama dengan tinggi header).
-Tombol: primary Lilac dengan teks Grape 20px tebal dan garis 2px Grape; secondary Lavender; accent Butter Yellow; ghost bergaris bawah; danger putih dengan garis dan teks merah (layar dewasa saja). Tinggi 56px di layar learner, 48px di konsol. State: hover naik 1px, pressed turun 2px, disabled Lavender dengan teks Grape 55 persen.
+Tombol: primary Lilac dengan teks Grape 20px tebal dan garis 2px Grape; secondary Lavender; accent Butter Yellow; ghost bergaris bawah; danger putih dengan garis dan teks merah (layar dewasa saja). Tinggi 56px di layar learner, 48px di konsol. State: hover naik 1px, pressed mengecil 3 persen (kelas `kira-press` dan aturan global, mati saat reduced motion), disabled Lavender dengan teks Grape 55 persen.
 
 ## 6. Motion
 
@@ -236,6 +238,14 @@ Every data region ships: loading, empty, partial, error, success.
 Khusus runner: offline, sinkron tertunda, sisa waktu 1 menit, waktu habis.
 
 Keadaan memuat memakai `Skeleton` (`components/ui/Skeleton.tsx`, blok Soft Lavender yang bernapas lewat opacity) lewat `loading.tsx` per kelompok rute, dengan ukuran yang sama dengan isi supaya tidak ada lompatan tata letak. Keadaan kosong di layar learner memakai `EmptyState` dengan maskot `KiraStar` (mata datar, mulut kecil); layar dewasa memakai kartu putih tanpa maskot.
+
+## 6c. Sentuhan seperti iOS
+
+Berlaku di komponen bersama, tidak per halaman. Tekan mengecil 3 persen lewat `--ease-kira`. Lembar bawah di HP: setiap `Dialog` (`kira-sheet`) menempel di bawah layar di bawah 640px dengan pegangan kecil, tepi aman, dan gerak naik; di layar lebar tetap di tengah. Kontrol segmen `SegmentedControl` (`components/ui`) dengan penanda yang bergeser, panah kiri dan kanan untuk keyboard. Tepi aman `pt-safe` dan `pb-safe`, viewport `cover`. Reduced motion: tanpa skala, tanpa geser, hanya memudar 120ms.
+
+## 6d. Kerangka situs
+
+`SiteHeader` (logo ke beranda, Panduan, Bantuan, Masuk atau menu akun) dan `SiteFooter` (Panduan, Bantuan, Privasi, Syarat, teks kredit pemilik, tautan kecil Partner with Gatxel) ada di `components/ui`, dipakai `PublicFrame`, `FamilyShell`, dan `LearnerFrame`. Footer mengikuti isi, tidak menempel di layar. Area learner memakai footer tanpa tautan keluar (aturan 5). Runner dan sesi berwaktu layar penuh tidak memakai footer.
 
 ## 11. Responsive floor
 

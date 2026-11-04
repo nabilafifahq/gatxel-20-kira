@@ -15,6 +15,9 @@ import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useAction } from '@/components/console/useAction'
 import { FamilyShell } from '@/components/family/FamilyShell'
+import { FirstRunChecklist } from '@/components/family/FirstRunChecklist'
+import type { ChecklistItem } from '@/server/dal/onboarding'
+import { UiIcon } from '@/components/ui/icons'
 import { AVATARS, AvatarPicker } from '@/screens/console/LearnersScreen'
 import { parentAddChildAction } from '@/server/actions/parent'
 import { UiLangChoice } from '@/components/family/UiLangChoice'
@@ -101,11 +104,21 @@ export function ChildCard({ c }: { c: ParentChildCard }) {
       <ButtonLink href={c.href} variant="primary" className="h-12 w-full">
         Lihat {c.name}
       </ButtonLink>
+      <div className="grid gap-2 sm:grid-cols-2">
+        <Link href={`${c.href}#atur`} className="kira-press flex min-h-12 items-center gap-2 rounded-control bg-lavender px-4 font-bold text-fg no-underline hover:text-fg">
+          <UiIcon name="pencil" size={20} />
+          Pengaturan {c.name}
+        </Link>
+        <Link href={`${c.href}#fitur`} className="kira-press flex min-h-12 items-center gap-2 rounded-control bg-lavender px-4 font-bold text-fg no-underline hover:text-fg">
+          <UiIcon name="list" size={20} />
+          Mapel dan fitur
+        </Link>
+      </div>
     </article>
   )
 }
 
-export function ParentHomeClient({ shell, data }: { shell: ConsoleShell; data: ParentHomeDTO }) {
+export function ParentHomeClient({ shell, data, checklist = null, owner = false }: { shell: ConsoleShell; data: ParentHomeDTO; checklist?: ChecklistItem[] | null; /** Orang tua yang memiliki keluarganya: bisa membuka ulang langkah persiapan. */ owner?: boolean }) {
   const router = useRouter()
   const [addOpen, setAddOpen] = useState(false)
   const [deviceOpen, setDeviceOpen] = useState(false)
@@ -117,6 +130,8 @@ export function ParentHomeClient({ shell, data }: { shell: ConsoleShell; data: P
         <h1 className="m-0 text-h2 font-bold">Halo, {data.parentName}</h1>
         <p className="m-0 text-body text-fg-muted">Ini kabar belajar anak-anak di {data.familyName} hari ini.</p>
       </div>
+
+      {checklist ? <FirstRunChecklist items={checklist} /> : null}
 
       {data.children.length === 0 ? (
         <section aria-labelledby="kosong" className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-5">
@@ -149,6 +164,11 @@ export function ParentHomeClient({ shell, data }: { shell: ConsoleShell; data: P
           <Button variant="secondary" className="h-12" onClick={() => setDeviceOpen(true)} disabled={data.children.length === 0}>
             Daftarkan perangkat ini
           </Button>
+          {owner && data.children.length > 0 ? (
+            <ButtonLink href="/mulai?langkah=3" variant="secondary" className="h-12">
+              Cara anak masuk
+            </ButtonLink>
+          ) : null}
           {data.apk.available ? (
             <ButtonLink href="/api/apk" variant="secondary" className="h-12" external>
               Unduh aplikasi tablet{data.apk.size ? ` (${data.apk.size})` : ''}
@@ -162,6 +182,7 @@ export function ParentHomeClient({ shell, data }: { shell: ConsoleShell; data: P
           <ButtonLink href="/keluarga/piala" variant="secondary" className="h-12">
             Medali lomba anak
           </ButtonLink>
+          <ButtonLink href="/panduan" variant="secondary" className="h-12">Panduan orang tua</ButtonLink>
         </div>
       </section>
 

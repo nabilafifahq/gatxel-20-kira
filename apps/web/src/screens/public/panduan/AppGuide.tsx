@@ -15,7 +15,7 @@ export type AppGuideProps = {
 /** Gambar HP sederhana dengan isi layar yang menjelaskan satu langkah. Hiasan: langkahnya ada di teks. */
 function PhoneFigure({ children, label }: { children: React.ReactNode; label: string }) {
   return (
-    <svg viewBox="0 0 120 200" width="120" height="200" role="img" aria-label={label} className="flex-none">
+    <svg viewBox="0 0 120 200" width="120" height="200" role="img" aria-label={label} className="h-auto w-[72px] flex-none sm:w-[120px]">
       <rect x="6" y="4" width="108" height="192" rx="18" className="fill-surface stroke-fg" strokeWidth="3" />
       <rect x="46" y="11" width="28" height="4" rx="2" className="fill-lavender" />
       {children}
@@ -88,10 +88,10 @@ function DownloadCard({ who, apk }: Pick<AppGuideProps, 'who' | 'apk'>) {
         <>
           <p className="m-0">Aplikasi Android bisa diunduh setelah Ayah/Bunda masuk ke akun Kira. Belum punya akun? Daftar dulu, gratis selama beta.</p>
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href="/masuk?next=/panduan/aplikasi" variant="primary">
+            <ButtonLink href="/masuk?next=/panduan/aplikasi" variant="primary" prefetch={false}>
               Masuk untuk mengunduh
             </ButtonLink>
-            <ButtonLink href="/daftar" variant="secondary">
+            <ButtonLink href="/daftar" variant="secondary" prefetch={false}>
               Daftar kursi beta
             </ButtonLink>
           </div>
@@ -151,7 +151,7 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
               body: 'Masuk dengan email dan password Ayah/Bunda. Di halaman Keluarga tekan Daftarkan perangkat ini, pilih anak, lalu simpan. Sejak itu perangkat menampilkan pilihan nama anak dan PIN gambar.',
             },
           ].map((s, i) => (
-            <div key={s.title} className="flex items-center gap-5 rounded-card bg-surface p-5 shadow-soft max-sm:flex-col max-sm:items-start">
+            <div key={s.title} className="flex items-start gap-4 rounded-card bg-surface p-5 shadow-soft sm:items-center sm:gap-5">
               {s.fig}
               <div className="flex min-w-0 flex-col gap-1">
                 <h3 className="m-0 text-h3 font-semibold">
@@ -196,7 +196,7 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
             Tanpa memasang apa pun
           </h2>
           <p className="m-0">
-            Aplikasi tidak wajib. Kira juga berjalan di browser Android dan di komputer. Langkah sesudah masuk ada di <Link href="/panduan#mulai">Mulai dalam 5 menit</Link>.
+            Aplikasi tidak wajib. Kira juga berjalan di browser Android dan di komputer. Langkah sesudah masuk ada di <Link href="/panduan#mulai" prefetch={false}>Mulai dalam 5 menit</Link>. Ada kendala saat memasang? Tulis di <Link href="/feedback" prefetch={false}>halaman bantuan</Link>.
           </p>
         </section>
       </div>

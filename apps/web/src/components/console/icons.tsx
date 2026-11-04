@@ -1,4 +1,5 @@
 import type { ReactElement, ReactNode } from 'react'
+import { ICON_STROKE } from '@/components/ui/icons'
 
 /**
  * Ikon garis 24 x 24 untuk konsol, halaman orang tua, dan halaman publik.
@@ -341,7 +342,7 @@ export type ConsoleIconName = keyof typeof P
 export function ConsoleIcon({
   name,
   size = 20,
-  strokeWidth = 2,
+  strokeWidth,
   className,
   label,
 }: {
@@ -359,7 +360,7 @@ export function ConsoleIcon({
       viewBox="0 0 24 24"
       fill={filled ? 'currentColor' : 'none'}
       stroke={filled ? 'none' : 'currentColor'}
-      strokeWidth={strokeWidth}
+      strokeWidth={strokeWidth === undefined || strokeWidth <= 2.5 ? ICON_STROKE : strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className ? `flex-none ${className}` : 'flex-none'}

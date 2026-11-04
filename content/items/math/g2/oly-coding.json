@@ -337,14 +337,14 @@
       "options": [
         {
           "text": "YOP",
-          "why": "This moves the letters forward, but we need to go back."
+          "why": "X comes from W, not from Y. Go back one letter each time."
         },
         {
           "text": "WIN"
         },
         {
           "text": "WON",
-          "why": "O comes from N, not from O."
+          "why": "J comes from I, not from O."
         },
         {
           "text": "WAN",
@@ -433,7 +433,7 @@
       "id": "m2.oly-coding.008",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "In a code, a circle is 1. A triangle is 3 and a square is 4. What is the total of the shapes below?",
       "figure": {
         "kind": "shapes",
@@ -497,14 +497,14 @@
         "ikmc",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.009",
       "skill": "m2.oly-coding",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "In a code, A = 2, B = 4, C = 6 and D = 8. The codes go up by 2. What is the total code of the word BAD?",
       "answer": 14,
       "tolerance": 0,
@@ -526,8 +526,8 @@
         "olympiad",
         "kmnr"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.010",
@@ -664,7 +664,7 @@
       "id": "m2.oly-coding.012",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "A cell has a column letter and a row number. Read the cells A3, B1 and A1 in order. Which word do they spell?",
       "figure": {
         "kind": "table",
@@ -737,14 +737,14 @@
         "ikmc",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.013",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "A cell has a column letter and a row number. Which cells spell MAP in order?",
       "figure": {
         "kind": "table",
@@ -817,8 +817,8 @@
         "sasmo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.014",
@@ -961,7 +961,7 @@
         },
         {
           "text": "D",
-          "why": "Count the U steps again. There are 2."
+          "why": "Count the R steps again. There are 3."
         }
       ],
       "answer": 0,
@@ -998,7 +998,7 @@
       "skill": "m2.oly-coding",
       "type": "mcq",
       "difficulty": 4,
-      "prompt": "The robot starts at S and must reach F. Which program takes it there?",
+      "prompt": "The robot starts at S and must reach F. R means right and U means up. Which program takes it there?",
       "figure": {
         "kind": "coordinates",
         "size": 6,
@@ -1131,7 +1131,7 @@
       "skill": "m2.oly-coding",
       "type": "mcq",
       "difficulty": 5,
-      "prompt": "A robot starts at S. It repeats the pair R U three times. Where does it stop?",
+      "prompt": "A robot starts at S. R means right and U means up. It repeats the pair R U three times. Where does it stop?",
       "figure": {
         "kind": "coordinates",
         "size": 6,
@@ -1363,7 +1363,7 @@
       "id": "m2.oly-coding.023",
       "skill": "m2.oly-coding",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "In a code a dot is 1 and a dash is 3. The code is dot, dash, dot, dot, dash. What is the total?",
       "answer": 9,
       "tolerance": 0,
@@ -1390,10 +1390,7 @@
               }
             ],
             "total": 9
-          },
-          "mark": [
-            "3"
-          ]
+          }
         }
       ],
       "tags": [
@@ -1401,8 +1398,8 @@
         "kmnr",
         "seamo"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.024",
@@ -1424,7 +1421,7 @@
         },
         {
           "text": "OPTS",
-          "why": "The last two letters should be S and T."
+          "why": "The first letter should be P, the last letter of STOP."
         },
         {
           "text": "STOP",
@@ -1575,10 +1572,10 @@
           "4",
           "6",
           "9",
-          "10"
+          "8"
         ],
         "style": "boxes",
-        "alt": "Five numbers: 2, 4, 6, 9 and 10."
+        "alt": "Five numbers: 2, 4, 6, 9 and 8."
       },
       "options": [
         {
@@ -1597,8 +1594,8 @@
           "text": "9"
         },
         {
-          "text": "10",
-          "why": "10 is even, like most of the others."
+          "text": "8",
+          "why": "8 is even, like most of the others."
         }
       ],
       "answer": 3,
@@ -1607,10 +1604,10 @@
         "Are the numbers odd or even?",
         "Four of them are even."
       ],
-      "explanation": "2, 4, 6 and 10 are even numbers. 9 is odd, so it is the odd one out.",
+      "explanation": "2, 4, 6 and 8 are even numbers. 9 is odd, so it is the odd one out.",
       "solution": [
         {
-          "say": "2, 4, 6 and 10 are even numbers."
+          "say": "2, 4, 6 and 8 are even numbers."
         },
         {
           "say": "9 is odd, so it is the odd one out."
@@ -1654,7 +1651,7 @@
       "answer": 2,
       "hints": [
         "Think about what each thing is.",
-        "Four of them grow on trees as fruits.",
+        "Four of them are fruits.",
         "Which one is a vegetable?"
       ],
       "explanation": "Apple, banana, mango and pear are fruits. A carrot is a vegetable, so it is the odd one out.",
@@ -1866,7 +1863,7 @@
       "id": "m2.oly-coding.032",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Which sum has a different answer from the others?",
       "options": [
         {
@@ -1910,14 +1907,14 @@
         "sasmo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.033",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Which one has a different value from the others?",
       "options": [
         {
@@ -1961,8 +1958,8 @@
         "seamo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.034",
@@ -2068,7 +2065,7 @@
       "id": "m2.oly-coding.036",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Which shape is the odd one out?",
       "figure": {
         "kind": "shapes",
@@ -2132,14 +2129,14 @@
         "ikmc",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.037",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Four of these solids have only flat faces. Which one does not?",
       "figure": {
         "kind": "shapes",
@@ -2204,8 +2201,8 @@
         "sasmo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.038",
@@ -2530,8 +2527,8 @@
           "text": "Bat"
         },
         {
-          "text": "Penguin",
-          "why": "A penguin is a bird."
+          "text": "Parrot",
+          "why": "A parrot is a bird."
         }
       ],
       "answer": 3,
@@ -2540,10 +2537,10 @@
         "Birds have feathers.",
         "Which animal has fur and gives milk to its babies?"
       ],
-      "explanation": "A hen, a duck, an owl and a penguin are birds with feathers. A bat is a mammal, so it is the odd one out.",
+      "explanation": "A hen, a duck, an owl and a parrot are birds with feathers. A bat is a mammal, so it is the odd one out.",
       "solution": [
         {
-          "say": "A hen, a duck, an owl and a penguin are birds with feathers."
+          "say": "A hen, a duck, an owl and a parrot are birds with feathers."
         },
         {
           "say": "A bat is a mammal, so it is the odd one out."
@@ -2561,7 +2558,7 @@
       "id": "m2.oly-coding.041",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Which number word has a different number of letters from the others?",
       "options": [
         {
@@ -2605,14 +2602,14 @@
         "sasmo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.042",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Which shape has a different number of corners from the others?",
       "figure": {
         "kind": "shapes",
@@ -2676,8 +2673,8 @@
         "ikmc",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.043",
@@ -2809,7 +2806,7 @@
       "id": "m2.oly-coding.045",
       "skill": "m2.oly-coding",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Which sum has a different answer from the others?",
       "options": [
         {
@@ -2852,8 +2849,8 @@
         "kmnr",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-coding.046",
@@ -2864,23 +2861,23 @@
       "figure": {
         "kind": "sequence",
         "items": [
-          "8",
           "12",
+          "16",
           "18",
           "20",
           "24"
         ],
         "style": "boxes",
-        "alt": "Five numbers: 8, 12, 18, 20 and 24."
+        "alt": "Five numbers: 12, 16, 18, 20 and 24."
       },
       "options": [
         {
-          "text": "8",
-          "why": "8 is in the 4 times table."
-        },
-        {
           "text": "12",
           "why": "12 is in the 4 times table."
+        },
+        {
+          "text": "16",
+          "why": "16 is in the 4 times table."
         },
         {
           "text": "18"
@@ -2900,10 +2897,10 @@
         "Which of the numbers are in the 4 times table?",
         "Check 20 and 24, then 18."
       ],
-      "explanation": "8, 12, 20 and 24 are in the 4 times table. 18 is not, so it is the odd one out.",
+      "explanation": "12, 16, 20 and 24 are in the 4 times table. 18 is not, so it is the odd one out.",
       "solution": [
         {
-          "say": "8, 12, 20 and 24 are in the 4 times table."
+          "say": "12, 16, 20 and 24 are in the 4 times table."
         },
         {
           "say": "18 is not, so it is the odd one out."

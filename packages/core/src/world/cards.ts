@@ -122,7 +122,7 @@ export const CARDS: readonly CardDef[] = [
   { id: 'bk-3', set: 'books', name: 'Reed Reader', rarity: 'rare', art: 'icon:paper', req: { kind: 'book', count: 3 }, fact: 'Before paper was common, people in ancient Egypt wrote on papyrus, made from a tall water plant.' },
   { id: 'bk-5', set: 'books', name: 'Fingertip Reader', rarity: 'epic', art: 'icon:hand', req: { kind: 'book', count: 5 }, fact: 'Braille lets people read with their fingertips. Louis Braille created it when he was still a teenager.' },
   { id: 'bk-10', set: 'books', name: 'Library Friend', rarity: 'epic', art: 'icon:bag', req: { kind: 'book', count: 10 }, fact: 'The ancient Library of Alexandria in Egypt was one of the greatest libraries of its time.' },
-  { id: 'bk-20', set: 'books', name: 'Grand Reader', rarity: 'legendary', art: 'icon:school', req: { kind: 'book', count: 20 }, fact: 'World Book Day is held by UNESCO on 23 April each year, to celebrate reading around the world.' },
+  { id: 'bk-15', set: 'books', name: 'Grand Reader', rarity: 'legendary', art: 'icon:school', req: { kind: 'book', count: 15 }, fact: 'World Book Day is held by UNESCO on 23 April each year, to celebrate reading around the world.' },
 
   // Tonggak: dihitung dari yang terbaik, jadi tidak pernah hilang.
   { id: 'ms-3', set: 'milestones', name: 'Little Flame', rarity: 'rare', art: 'icon:candle', req: { kind: 'streak', days: 3 }, fact: 'A candle burns because melted wax climbs the wick and turns into a gas that catches fire.' },
@@ -217,28 +217,28 @@ export const CARDS: readonly CardDef[] = [
   // Ilmuwan
   { id: 'sc-darwin', set: 'scientists', name: 'Charles Darwin', rarity: 'common', art: 'icon:turtle', req: m('science', 1), fact: 'Charles Darwin sailed on a ship called the Beagle and studied many animals and plants, including those on the Galapagos Islands.' },
   { id: 'sc-newton', set: 'scientists', name: 'Isaac Newton', rarity: 'common', art: 'icon:apple', req: m('science', 3), fact: 'Isaac Newton explained gravity, the pull that makes things fall down. A famous story says an apple helped him think about it.' },
-  { id: 'sc-anning', set: 'scientists', name: 'Mary Anning', rarity: 'common', art: 'icon:fossil', req: m('science', 5), fact: 'Mary Anning found amazing fossils on the beaches of Lyme Regis in England, starting when she was still a child.' },
-  { id: 'sc-galileo', set: 'scientists', name: 'Galileo Galilei', rarity: 'rare', art: 'icon:moon', req: m('science', 8), fact: 'In 1610 Galileo used a telescope to see four moons moving around Jupiter.' },
-  { id: 'sc-haytham', set: 'scientists', name: 'Ibn al-Haytham', rarity: 'rare', art: 'icon:eye', req: m('science', 12), fact: 'About 1,000 years ago, Ibn al-Haytham showed that we see because light travels into our eyes.' },
-  { id: 'sc-goodall', set: 'scientists', name: 'Jane Goodall', rarity: 'rare', art: 'icon:monkey', req: m('science', 16), fact: 'Jane Goodall spent many years watching chimpanzees in Tanzania. She saw them making and using tools.' },
-  { id: 'sc-curie', set: 'scientists', name: 'Marie Curie', rarity: 'epic', art: 'icon:bottle', req: m('science', 22), fact: 'Marie Curie studied radioactivity. She won two Nobel Prizes, one in physics and one in chemistry.' },
-  { id: 'sc-einstein', set: 'scientists', name: 'Albert Einstein', rarity: 'epic', art: 'icon:clock', req: m('science', 30), fact: 'Albert Einstein is famous for his ideas about space, time and light. He won a Nobel Prize for physics.' },
+  { id: 'sc-anning', set: 'scientists', name: 'Mary Anning', rarity: 'common', art: 'icon:fossil', req: m('science', 4), fact: 'Mary Anning found amazing fossils on the beaches of Lyme Regis in England, starting when she was still a child.' },
+  { id: 'sc-galileo', set: 'scientists', name: 'Galileo Galilei', rarity: 'rare', art: 'icon:moon', req: m('science', 6), fact: 'In 1610 Galileo used a telescope to see four moons moving around Jupiter.' },
+  { id: 'sc-haytham', set: 'scientists', name: 'Ibn al-Haytham', rarity: 'rare', art: 'icon:eye', req: m('science', 8), fact: 'About 1,000 years ago, Ibn al-Haytham showed that we see because light travels into our eyes.' },
+  { id: 'sc-goodall', set: 'scientists', name: 'Jane Goodall', rarity: 'rare', art: 'icon:monkey', req: m('science', 9), fact: 'Jane Goodall spent many years watching chimpanzees in Tanzania. She saw them making and using tools.' },
+  { id: 'sc-curie', set: 'scientists', name: 'Marie Curie', rarity: 'epic', art: 'icon:bottle', req: m('science', 10), fact: 'Marie Curie studied radioactivity. She won two Nobel Prizes, one in physics and one in chemistry.' },
+  { id: 'sc-einstein', set: 'scientists', name: 'Albert Einstein', rarity: 'epic', art: 'icon:clock', req: m('science', 12), fact: 'Albert Einstein is famous for his ideas about space, time and light. He won a Nobel Prize for physics.' },
 
   // Tokoh angka
   { id: 'nm-euclid', set: 'numbers', name: 'Euclid', rarity: 'common', art: 'icon:triangle', req: m('math', 1), fact: 'Euclid wrote a famous book about shapes called the Elements, more than 2,000 years ago.' },
   { id: 'nm-hypatia', set: 'numbers', name: 'Hypatia', rarity: 'common', art: 'icon:star', req: m('math', 3), fact: 'Hypatia taught maths and astronomy in Alexandria, Egypt, about 1,600 years ago.' },
   { id: 'nm-aryabhata', set: 'numbers', name: 'Aryabhata', rarity: 'common', art: 'icon:circle', req: m('math', 6), fact: 'Aryabhata was an Indian mathematician who lived about 1,500 years ago. He found a very close value for pi.' },
   { id: 'nm-khwarizmi', set: 'numbers', name: 'Al-Khwarizmi', rarity: 'rare', art: 'icon:book', req: m('math', 10), fact: 'Al-Khwarizmi lived in Baghdad about 1,200 years ago. The word algebra comes from the title of his book.' },
-  { id: 'nm-lovelace', set: 'numbers', name: 'Ada Lovelace', rarity: 'rare', art: 'icon:key', req: m('math', 16), fact: 'In the 1840s Ada Lovelace wrote notes about a calculating machine. Many people call her the first computer programmer.' },
-  { id: 'nm-johnson', set: 'numbers', name: 'Katherine Johnson', rarity: 'epic', art: 'icon:planet', req: m('math', 24), fact: 'Katherine Johnson worked out flight paths for NASA’s early space flights, often by hand.' },
+  { id: 'nm-lovelace', set: 'numbers', name: 'Ada Lovelace', rarity: 'rare', art: 'icon:key', req: m('math', 15), fact: 'In the 1840s Ada Lovelace wrote notes about a calculating machine. Many people call her the first computer programmer.' },
+  { id: 'nm-johnson', set: 'numbers', name: 'Katherine Johnson', rarity: 'epic', art: 'icon:planet', req: m('math', 20), fact: 'Katherine Johnson worked out flight paths for NASA’s early space flights, often by hand.' },
 
   // Kata
   { id: 'wd-alphabet', set: 'words', name: 'Alphabet', rarity: 'common', art: 'icon:paper', req: m('english', 1), fact: 'The word alphabet comes from alpha and beta, the first two letters of the Greek alphabet.' },
   { id: 'wd-pencil', set: 'words', name: 'Pencil', rarity: 'common', art: 'icon:pencil', req: m('english', 3), fact: 'The word pencil comes from a Latin word that means little tail.' },
   { id: 'wd-umbrella', set: 'words', name: 'Umbrella', rarity: 'common', art: 'icon:umbrella', req: m('english', 6), fact: 'The word umbrella comes from umbra, the Latin word for shade.' },
   { id: 'wd-rubber', set: 'words', name: 'Rubber', rarity: 'rare', art: 'icon:eraser', req: m('english', 10), fact: 'In 1770 Joseph Priestley noticed that this bouncy stuff could rub out pencil marks. That is how rubber got its name.' },
-  { id: 'wd-orangutan', set: 'words', name: 'Orangutan', rarity: 'rare', art: 'icon:tree', req: m('english', 16), fact: 'Orangutan comes from the Malay words orang and hutan, which together mean person of the forest.' },
-  { id: 'wd-bookworm', set: 'words', name: 'Bookworm', rarity: 'epic', art: 'icon:worm', req: m('english', 24), fact: 'A bookworm is a person who loves reading. Real bookworms are small insects that nibble old books.' },
+  { id: 'wd-orangutan', set: 'words', name: 'Orangutan', rarity: 'rare', art: 'icon:tree', req: m('english', 13), fact: 'Orangutan comes from the Malay words orang and hutan, which together mean person of the forest.' },
+  { id: 'wd-bookworm', set: 'words', name: 'Bookworm', rarity: 'epic', art: 'icon:worm', req: m('english', 16), fact: 'A bookworm is a person who loves reading. Real bookworms are small insects that nibble old books.' },
 ]
 
 export const CARD_COUNT = CARDS.length

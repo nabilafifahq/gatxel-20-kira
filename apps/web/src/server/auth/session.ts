@@ -42,7 +42,11 @@ let flusher: NodeJS.Timeout | null = null
 
 const cacheKey = (id: string) => `sess:${id}`
 
+/** KIRA_TODAY_CACHE=off (CI e2e, yang mengubah database langsung) mematikan juga cache sesi. */
+const cacheOff = () => process.env.KIRA_TODAY_CACHE === 'off'
+
 async function cacheGet(id: string): Promise<CachedSession | null> {
+  if (cacheOff()) return null
   const raw = await kvGet(cacheKey(id))
   if (raw) {
     try {
@@ -58,6 +62,7 @@ async function cacheGet(id: string): Promise<CachedSession | null> {
 }
 
 async function cachePut(id: string, v: CachedSession): Promise<void> {
+  if (cacheOff()) return
   local.set(id, { at: Date.now(), v })
   if (local.size > 5000) local.clear()
   await kvSet(cacheKey(id), JSON.stringify(v), CACHE_TTL_S)

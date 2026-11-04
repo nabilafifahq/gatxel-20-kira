@@ -314,6 +314,33 @@ describe.skipIf(!ready)('ganti pelajaran oleh orang tua', () => {
     expect((await owner`select count(*)::int as n from audit_log where action = 'parent.session.skill' and target = ${a2}`)[0]!.n).toBe(0)
   })
 
+  it('siapkan hari ini sebelum anak membuka Today: sesi ada, bisa diganti, dan anak mendapat pilihan itu', async () => {
+    const kid = randomUUID()
+    await owner`insert into learner_profile (user_id, org_id, name, grade, active, screen_limit_min, rest_weekdays, started_on) values (${kid}, ${orgB}, 'Anak Baru', 3, true, 90, '{}', ${today})`
+    await owner`insert into auth.user_account (id, org_id, kind, role, email, name) values (${kid}, ${orgB}, 'learner', 'learner', null, 'Anak Baru')`
+    await owner`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgB}, ${gB}, ${kid})`
+    await owner`insert into day_rules (learner_id, org_id, preset) values (${kid}, ${orgB}, 'seimbang')`
+    expect((await R.parentChildDTO(PB(), kid)).today.sessions).toEqual([])
+
+    await expect(P.parentPrepareToday(PA(), { learnerId: kid })).rejects.toMatchObject(forbid)
+    expect((await owner`select count(*)::int as n from quest where learner_id = ${kid}`)[0]!.n).toBe(0)
+
+    await owner`update learner_profile set active = false where user_id = ${kid}`
+    await expect(P.parentPrepareToday(PB(), { learnerId: kid })).rejects.toMatchObject({ code: 'conflict' })
+    expect((await owner`select count(*)::int as n from quest where learner_id = ${kid}`)[0]!.n).toBe(0)
+    await owner`update learner_profile set active = true where user_id = ${kid}`
+
+    const r = await P.parentPrepareToday(PB(), { learnerId: kid })
+    expect(r).toMatchObject({ today: true, created: 9 })
+    const lat = await questOf(kid, 'math', 'latihan')
+    const opts = await P.parentSkillOptions(PB(), { questId: lat.id as string })
+    const pick = opts.topics.flatMap((t) => t.skills).find((s) => s.id !== lat.skill_id)!
+    await P.parentChangeSessionSkill(PB(), { questId: lat.id as string, skillId: pick.id })
+    await openToday(kid, orgB)
+    expect(await questOf(kid, 'math', 'latihan')).toMatchObject({ id: lat.id, skill_id: pick.id, kind: 'daily' })
+    expect(await dayRecord(kid)).toMatchObject({ quests_required: 3, quests_done: 0 })
+  })
+
   it('tutor keluarga lama: pintu orang tua tertutup, dan alur Rencana mengganti pelajaran hari ini dengan penjaga yang sama', async () => {
     const q = await questOf(a3, 'math', 'latihan')
     await expect(P.parentChangeSessionSkill(TA(), { questId: q.id as string, skillId: NEW_SKILL })).rejects.toMatchObject({ code: 'forbidden' })

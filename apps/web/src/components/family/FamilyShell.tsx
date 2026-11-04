@@ -1,17 +1,19 @@
 'use client'
 
-import { KiraLogo } from '@/components/ui/KiraStar'
+import { AccountMenu } from '@/components/ui/AccountMenu'
+import { SiteFooter } from '@/components/ui/SiteFooter'
+import { SiteHeader } from '@/components/ui/SiteHeader'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import type { ConsoleShell } from '@/lib/dto'
 import { cx } from '@/components/console/cx'
 import { ConsoleIcon } from '@/components/console/icons'
-import { CONSOLE_ROUTES, FAMILY_ROUTES, PUBLIC_ROUTES } from '@/components/console/routes'
+import { CONSOLE_ROUTES, FAMILY_ROUTES } from '@/components/console/routes'
 import { ToastProvider } from '@/components/console/Toast'
 
 /**
  * Kerangka halaman orang tua (papan RingkasanMinggu, PrivasiKeluarga): dirancang untuk HP,
- * header 60px, isi selebar 640px di layar lebar, dua tujuan utama (Ringkasan, Privasi).
+ * header situs dengan menu akun, navigasi keluarga, isi selebar 640px di layar lebar, footer situs di bawah isi.
  */
 export function FamilyShell({
   shell,
@@ -43,17 +45,17 @@ export function FamilyShell({
         >
           Langsung ke isi
         </a>
-        <header className="sticky top-0 z-30 border-b border-divider bg-surface">
-          <div className="mx-auto flex h-[60px] max-w-[720px] items-center gap-2.5 px-4">
-            <KiraLogo size={32} />
-            <span className="text-small text-fg-muted">Laporan keluarga</span>
-            {learnerName ? (
-              <span className="ml-auto inline-flex items-center gap-2 text-small font-bold">
-                <ConsoleIcon name="learners" size={18} />
-                {learnerName}
-              </span>
-            ) : null}
-          </div>
+        <SiteHeader
+          brandHref={FAMILY_ROUTES.home}
+          inner="max-w-[720px]"
+          account={<AccountMenu name={shell.userName} detail={shell.orgName} links={[{ href: FAMILY_ROUTES.home, label: 'Anak saya' }, { href: FAMILY_ROUTES.privacy, label: 'Privasi keluarga' }]} signOutHref={CONSOLE_ROUTES.signOut} />}
+        >
+          {learnerName ? (
+            <p className="mx-auto m-0 flex max-w-[720px] items-center gap-2 px-4 pb-1 text-small font-bold">
+              <ConsoleIcon name="learners" size={18} />
+              {learnerName}
+            </p>
+          ) : null}
           <nav aria-label="Halaman keluarga" className="mx-auto flex max-w-[720px] gap-1 overflow-x-auto px-2">
             {nav.map((n) => {
               const on = n.key === active
@@ -78,23 +80,11 @@ export function FamilyShell({
               </Link>
             ) : null}
           </nav>
-        </header>
+        </SiteHeader>
         <main id="isi" className="mx-auto flex w-full max-w-[720px] flex-1 flex-col gap-[22px] px-4 pt-5 pb-8">
           {children}
         </main>
-        <footer className="mx-auto flex w-full max-w-[720px] flex-wrap items-center gap-x-5 gap-y-2 border-t border-divider px-4 py-5 text-small">
-          <span className="text-fg-muted">
-            {shell.userName}, {shell.orgName}
-          </span>
-          <Link href={PUBLIC_ROUTES.privacyNotice}>Kebijakan Privasi</Link>
-          <Link href={PUBLIC_ROUTES.terms}>Syarat dan Ketentuan</Link>
-          <form method="post" action={CONSOLE_ROUTES.signOut} className="ml-auto">
-            <button type="submit" className="inline-flex h-11 cursor-pointer items-center gap-1.5 border-0 bg-transparent p-0 text-small font-bold text-fg underline underline-offset-3">
-              <ConsoleIcon name="logout" size={16} />
-              Keluar
-            </button>
-          </form>
-        </footer>
+        <SiteFooter />
       </div>
     </ToastProvider>
   )

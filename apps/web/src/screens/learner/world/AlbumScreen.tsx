@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type ReactElement } from 'react'
+import { useRef, useState, type ReactElement } from 'react'
 import type { AlbumDTO, CardDTO } from '@/lib/dto-world'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -36,6 +36,7 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
   const firstNew = data.sets.find((s) => s.cards.some((c) => c.isNew))?.id
   const [setId, setSetId] = useState(firstNew ?? data.sets[0]?.id ?? '')
   const current = data.sets.find((s) => s.id === setId) ?? data.sets[0]
+  const shelf = useRef<HTMLElement>(null)
   const pick = (c: CardDTO) => {
     playSfx(c.owned ? (c.rarity === 'common' ? 'tap' : 'badge') : 'tap')
     setOpen(c)
@@ -50,6 +51,8 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
           onClick={() => {
             playSfx('tap')
             setSetId(s.id)
+            // Di HP kartu ada jauh di bawah daftar set, jadi layar ikut turun ke set yang dipilih.
+            requestAnimationFrame(() => shelf.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
           }}
           className={cx('flex min-h-14 w-full cursor-pointer flex-col gap-1.5 rounded-card border-2 p-3 text-left', s.id === current?.id ? 'border-fg bg-knowledge-50' : 'border-border bg-surface hover:border-fg')}
         >
@@ -76,7 +79,7 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
       <section aria-label={a.byRarity} className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {data.rarities.map((r) => (
           <div key={r.rarity} className="flex flex-col gap-1.5 rounded-card border-2 border-divider bg-surface p-3">
-            <span className="flex items-baseline justify-between gap-2">
+            <span className="flex flex-wrap items-baseline justify-between gap-x-2">
               <RarityMark rarity={r.rarity} />
               <span className="text-small font-bold tabular-nums">
                 {r.owned}/{r.total}
@@ -97,7 +100,7 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
         <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">{learnSets.map(tile)}</ul>
       </section>
       {current ? (
-        <section aria-label={a.setLabel(setText(current).name)} className="flex flex-col gap-3 rounded-card border-2 border-divider bg-surface p-3.5 md:p-5">
+        <section ref={shelf} aria-label={a.setLabel(setText(current).name)} className="flex scroll-mt-4 flex-col gap-3 rounded-card border-2 border-divider bg-surface p-3.5 md:p-5">
           <div className="flex flex-col gap-1">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <h2 className="m-0 text-h2 font-bold">{setText(current).name}</h2>

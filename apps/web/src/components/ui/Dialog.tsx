@@ -121,7 +121,8 @@ export function Dialog({
         if (dismissible && e.target === e.currentTarget) onCloseRef.current()
       }}
       className={cx(
-        'm-auto max-h-[calc(100svh-32px)] overflow-visible border-0 bg-transparent p-0 text-fg',
+        'kira-sheet m-auto max-h-[calc(100svh-32px)] overflow-visible border-0 bg-transparent p-0 text-fg',
+        size === 'full' && 'kira-sheet-full',
         WIDTH[size],
         className,
       )}
@@ -129,7 +130,7 @@ export function Dialog({
       {open ? (
         <div
           className={cx(
-            'flex max-h-[calc(100svh-32px)] flex-col gap-4 overflow-y-auto rounded-xl bg-surface shadow-soft',
+            'kira-sheet-body flex max-h-[calc(100svh-32px)] flex-col gap-4 overflow-y-auto overscroll-contain rounded-xl bg-surface shadow-soft',
             tone === 'learner' ? 'p-6 sm:p-8' : 'p-6',
             size === 'full' && 'h-full',
             align === 'center' && 'items-center text-center',

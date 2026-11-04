@@ -3,6 +3,7 @@ import { FamilyShell } from '@/components/family/FamilyShell'
 import { FamilyHomeScreen } from '@/screens/family/FamilyHomeScreen'
 import { pageActor } from '@/server/auth/actor'
 import { familyHomeDTO } from '@/server/dal/family'
+import { markFirstReportSeen } from '@/server/dal/onboarding'
 import { load } from '@/server/page'
 import { spDate, spUuid, type SearchParams } from '@/server/params'
 
@@ -24,5 +25,6 @@ export default async function FamilyHomePage({ searchParams }: { searchParams: P
       </FamilyShell>
     )
   }
+  await markFirstReportSeen(actor)
   return <FamilyHomeScreen data={home} />
 }

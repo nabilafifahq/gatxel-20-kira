@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
 }
 
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#fffcf5' }
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#fffcf5' }
 
 export default async function LearnerRootLayout({ children }: { children: React.ReactNode }) {
   const lang = await getLang()

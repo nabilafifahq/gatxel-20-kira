@@ -14,7 +14,7 @@ function legalEnv(name: string): string | null {
 
 function entity() {
   return {
-    name: legalEnv('KIRA_LEGAL_NAME') ?? 'Pengelola Kira (isi KIRA_LEGAL_NAME di .env)',
+    name: legalEnv('KIRA_LEGAL_NAME') ?? 'Gatxel',
     address: legalEnv('KIRA_LEGAL_ADDRESS') ?? 'Alamat pengelola belum diisi (KIRA_LEGAL_ADDRESS)',
     email: legalEnv('KIRA_LEGAL_EMAIL') ?? 'email-pengelola@belum-diisi.invalid',
     phone: legalEnv('KIRA_LEGAL_PHONE'),

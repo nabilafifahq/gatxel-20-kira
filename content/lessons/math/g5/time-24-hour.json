@@ -14,11 +14,11 @@
       }
     },
     {
-      "say": "For times after midday, add 12 to the hour. 7:15 pm becomes 19:15.",
+      "say": "From 1 pm onwards, add 12 to the hour. 7:15 pm becomes 19:15.",
       "show": "7 + 12 = 19"
     },
     {
-      "say": "Morning times keep their hour, with a zero in front if needed. 9:05 am is 09:05.",
+      "say": "Morning times from 1 am keep their hour, with a zero in front if needed. 9:05 am is 09:05.",
       "show": "9:05 am = 09:05"
     },
     {
@@ -70,7 +70,7 @@
       "prompt": "What is 8:30 pm on the 24-hour clock?",
       "hints": [
         "Afternoon and evening times are pm times.",
-        "For a pm time, add 12 to the hour.",
+        "For a pm time from 1 pm onwards, add 12 to the hour.",
         "The minutes stay the same."
       ],
       "explanation": "8 + 12 = 20, so 8:30 pm is 20:30.",
@@ -88,7 +88,7 @@
         },
         {
           "text": "08:30",
-          "why": "08:30 is in the morning. Add 12 to the hour for pm times."
+          "why": "08:30 is in the morning. Add 12 to the hour for 8:30 pm."
         }
       ],
       "answer": 2
