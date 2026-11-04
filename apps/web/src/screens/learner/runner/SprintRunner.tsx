@@ -177,7 +177,7 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
           <section aria-label="Question" className="relative flex w-full max-w-[760px] flex-col gap-6 rounded-card bg-surface shadow-soft p-5 md:flex-row md:items-center md:p-8">
             <div className="flex-1">
               {item.type === 'numeric' && !item.figure ? (
-                <p lang={item.lang} aria-live="polite" className="m-0 text-center font-display text-display font-semibold tabular-nums">
+                <p lang={item.lang} aria-live="polite" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
                   {item.prompt}
                 </p>
               ) : (

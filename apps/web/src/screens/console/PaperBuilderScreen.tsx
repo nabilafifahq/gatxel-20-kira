@@ -12,7 +12,7 @@ import { ConfirmDialog, Dialog } from '@/components/console/Dialog'
 import { ActionError, EmptyState, InlineAlert } from '@/components/console/Feedback'
 import { Checkbox, RadioGroup, Select, TextField } from '@/components/console/Field'
 import { FilterChips } from '@/components/console/FilterChips'
-import { dateId, SUBJECT_BG, SUBJECT_BORDER, SUBJECT_LABEL, SUBJECT_TEXT, SUBJECTS } from '@/components/console/format'
+import { dateId, SUBJECT_BORDER, SUBJECT_LABEL, SUBJECT_TEXT, SUBJECTS } from '@/components/console/format'
 import { ConsoleIcon } from '@/components/console/icons'
 import { Pill } from '@/components/console/Layout'
 import { CONSOLE_ROUTES, PRINT_ROUTES } from '@/components/console/routes'
@@ -490,7 +490,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
             <ol className="m-0 flex list-none flex-col gap-2 p-0">
               {chosen.map((it, i) => (
                 <li key={it.ref} className="flex items-start gap-3 rounded-control border border-divider px-3 py-2.5">
-                  <span className={cx('inline-flex h-7 min-w-8 flex-none items-center justify-center rounded-pill px-2 text-small font-bold text-white tabular', SUBJECT_BG[it.subject])}>
+                  <span className={cx('inline-flex h-7 min-w-8 flex-none items-center justify-center rounded-pill px-2 text-small font-bold text-white tabular', 'bg-fg')}>
                     {i + 1}
                   </span>
                   <div className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -680,7 +680,7 @@ function MiniSheet({ subject, code, title, minutes, items }: { subject: Subject;
         <span className="text-h3 text-fg-muted">{minutes} minutes. Write your answers clearly.</span>
         {items.map((it, i) => (
           <div key={it.ref} className="flex items-start gap-4">
-            <span className={cx('inline-flex h-10 min-w-12 flex-none items-center justify-center rounded-pill px-3 text-h3 font-bold text-white', SUBJECT_BG[subject])}>{i + 1}</span>
+            <span className={cx('inline-flex h-10 min-w-12 flex-none items-center justify-center rounded-pill px-3 text-h3 font-bold text-white', 'bg-fg')}>{i + 1}</span>
             <span className="font-reading text-h2">{it.promptPreview}</span>
           </div>
         ))}

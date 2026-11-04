@@ -36,7 +36,7 @@ function sleep(ms: number): Promise<void> {
 function Prompt({ prompt, shown, flashIndex, flashing }: { prompt: QmPrompt; shown: boolean; flashIndex: number; flashing: boolean }): ReactElement {
   if (prompt.kind === 'arith') {
     return (
-      <p lang="en-GB" aria-live="polite" className="m-0 text-center font-display text-display font-semibold tabular-nums">
+      <p lang="en-GB" aria-live="polite" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
         {prompt.text}
       </p>
     )
@@ -47,7 +47,7 @@ function Prompt({ prompt, shown, flashIndex, flashing }: { prompt: QmPrompt; sho
     return (
       <div className="flex min-h-40 flex-col items-center justify-center gap-2 text-center">
         {flashing ? (
-          <p key={flashIndex} aria-hidden="true" className="kira-flash m-0 font-display text-[120px] leading-none font-semibold tabular-nums">
+          <p key={flashIndex} aria-hidden="true" className="kira-flash m-0 font-numbers text-[120px] leading-none font-semibold tabular-nums">
             {text}
           </p>
         ) : shown ? (
@@ -400,7 +400,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                 {prompt.kind === 'bead-read' ? <Soroban digits={prompt.digits} labels showValues={prompt.rods === 1} /> : null}
                 {prompt.kind === 'bead-set' ? (
                   <div className="flex w-full flex-col items-center gap-3">
-                    <p lang="en-GB" className="m-0 text-center font-display text-display font-semibold tabular-nums">
+                    <p lang="en-GB" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
                       Show {prompt.target}
                     </p>
                     <Soroban digits={beads} onChange={setBeads} labels showValues={prompt.rods === 1} disabled={Boolean(feedback) || busy} />

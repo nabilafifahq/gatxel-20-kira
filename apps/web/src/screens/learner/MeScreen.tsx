@@ -167,7 +167,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
         <div className="flex w-full items-center gap-5 rounded-card bg-surface shadow-soft px-6 py-3.5 lg:ml-auto lg:w-auto">
           <div className="flex flex-col">
             <span className="text-body font-semibold text-fg-muted">Level</span>
-            <span className="font-display text-display leading-none font-semibold tabular-nums">{data.level}</span>
+            <span className="font-numbers text-display leading-none font-semibold tabular-nums">{data.level}</span>
           </div>
           <div className="flex min-w-0 flex-1 flex-col gap-2 lg:w-65 lg:flex-none">
             <span role="img" aria-label={xpLine} className="flex h-3 overflow-hidden rounded-control bg-divider">

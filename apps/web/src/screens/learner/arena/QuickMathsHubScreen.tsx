@@ -107,7 +107,7 @@ function StatsCard({ stats }: { stats: QmStatsDTO }): ReactElement {
         ].map(([k, v]) => (
           <div key={k} className="flex flex-col rounded-control bg-mental-50 px-3 py-2">
             <dt className="text-body text-fg-muted">{k}</dt>
-            <dd className="m-0 font-display text-h1 leading-tight font-semibold tabular-nums">{v}</dd>
+            <dd className="m-0 font-numbers text-h1 leading-tight font-semibold tabular-nums">{v}</dd>
           </div>
         ))}
       </dl>

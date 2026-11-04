@@ -80,7 +80,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               aria-current={on ? 'page' : undefined}
               className={cx(
                 'relative flex min-h-16 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 px-1 py-1.5 text-center text-small leading-tight no-underline',
-                on ? 'border-fg bg-lilac font-extrabold text-fg' : 'border-transparent font-bold text-fg hover:bg-lavender',
+                on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg hover:bg-lavender',
               )}
             >
               <UiIcon name={n.icon} size={26} />
@@ -103,7 +103,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               aria-current={on ? 'page' : undefined}
               className={cx(
                 'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 no-underline',
-                on ? 'border-fg bg-lilac font-extrabold text-fg' : 'border-transparent font-bold text-fg',
+                on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg',
               )}
             >
               <UiIcon name={n.icon} size={24} />

@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from 'react'
 import type { AvatarName } from '../spec'
-import { ENGLISH, ENGLISH_50, INK, MATH, MATH_50, MUTED, REVIEW, SCIENCE, SCIENCE_50, STAR, WARN, WARN_50, WHITE } from '../palette'
+import { ENGLISH, ENGLISH_50, INK, MATH, MATH_50, MUTED, REVIEW, SCIENCE, SCIENCE_50, STAR, WARN, WHITE } from '../palette'
 
 /**
  * Avatar hewan 64 x 64: lencana putih bergaris tinta dengan wajah hewan.
@@ -32,11 +32,11 @@ function eyes(y: number, left = 24, right = 40, r = 2.5): ReactElement {
 
 const fox = badge(
   <>
-    <path d="M15 13l13 10-12 8z" fill={WARN} />
-    <path d="M49 13L36 23l12 8z" fill={WARN} />
-    <path d="M17.5 17.5l7 5.4-6.5 4.3z" fill={WARN_50} stroke="none" />
-    <path d="M46.5 17.5l-7 5.4 6.5 4.3z" fill={WARN_50} stroke="none" />
-    <path d="M11 30l21-10 21 10-21 24z" fill={WARN} />
+    <path d="M15 13l13 10-12 8z" fill={STAR} />
+    <path d="M49 13L36 23l12 8z" fill={STAR} />
+    <path d="M17.5 17.5l7 5.4-6.5 4.3z" fill={ENGLISH} stroke="none" />
+    <path d="M46.5 17.5l-7 5.4 6.5 4.3z" fill={ENGLISH} stroke="none" />
+    <path d="M11 30l21-10 21 10-21 24z" fill={STAR} />
     <path d="M18 35l14 19 14-19-14 5z" fill={WHITE} />
     {eyes(31)}
     <path d="M29 47h6l-3 4z" fill={INK} />
@@ -45,15 +45,15 @@ const fox = badge(
 
 const cat = badge(
   <>
-    <path d="M14 31 L17 11 L29 19.5 Z" fill={STAR} />
-    <path d="M50 31 L47 11 L35 19.5 Z" fill={STAR} />
+    <path d="M14 31 L17 11 L29 19.5 Z" fill={ENGLISH} />
+    <path d="M50 31 L47 11 L35 19.5 Z" fill={ENGLISH} />
     <path d="M18.5 24 L19.6 15.8 L25 19.8 Z" fill={ENGLISH_50} stroke="none" />
     <path d="M45.5 24 L44.4 15.8 L39 19.8 Z" fill={ENGLISH_50} stroke="none" />
-    <path d="M12 35 C12 25 20 18.5 32 18.5 C44 18.5 52 25 52 35 C52 45.5 43 52.5 32 52.5 C21 52.5 12 45.5 12 35 Z" fill={STAR} />
-    <path d="M32 19.5 L32 24.5 M26.5 20.5 L27.8 24.5 M37.5 20.5 L36.2 24.5" stroke={WARN} strokeWidth={2.2} />
+    <path d="M12 35 C12 25 20 18.5 32 18.5 C44 18.5 52 25 52 35 C52 45.5 43 52.5 32 52.5 C21 52.5 12 45.5 12 35 Z" fill={ENGLISH} />
+    <path d="M32 19.5 L32 24.5 M26.5 20.5 L27.8 24.5 M37.5 20.5 L36.2 24.5" stroke={INK} strokeWidth={2.2} />
     <path d="M23.5 42 C23.5 38.5 27.5 37 32 38.8 C36.5 37 40.5 38.5 40.5 42 C40.5 45.5 36.5 47.3 32 45.8 C27.5 47.3 23.5 45.5 23.5 42 Z" fill={WHITE} />
     {eyes(32.5)}
-    <path d="M29.8 38.6 L34.2 38.6 L32 41 Z" fill={ENGLISH} strokeWidth={1.5} />
+    <path d="M29.8 38.6 L34.2 38.6 L32 41 Z" fill={INK} strokeWidth={1.5} />
     <path d="M32 41 L32 42.8 M32 42.8 C31 44.3 29 44.3 28 43.2 M32 42.8 C33 44.3 35 44.3 36 43.2" strokeWidth={1.5} />
     <path d="M7.5 38.5 L18 40 M8 44 L18 42.5 M56.5 38.5 L46 40 M56 44 L46 42.5" strokeWidth={1.5} />
   </>,
@@ -75,12 +75,12 @@ const owl = badge(
 
 const bear = badge(
   <>
-    <circle cx="18" cy="19.5" r="6.5" fill={ENGLISH} />
-    <circle cx="46" cy="19.5" r="6.5" fill={ENGLISH} />
-    <circle cx="18" cy="19.5" r="3.2" fill={WARN_50} stroke="none" />
-    <circle cx="46" cy="19.5" r="3.2" fill={WARN_50} stroke="none" />
-    <path d="M11 35.5 C11 23.5 20 16.5 32 16.5 C44 16.5 53 23.5 53 35.5 C53 46.5 44 53.5 32 53.5 C20 53.5 11 46.5 11 35.5 Z" fill={ENGLISH} />
-    <ellipse cx="32" cy="42.5" rx="9.5" ry="7.5" fill={WARN_50} />
+    <circle cx="18" cy="19.5" r="6.5" fill={ENGLISH_50} />
+    <circle cx="46" cy="19.5" r="6.5" fill={ENGLISH_50} />
+    <circle cx="18" cy="19.5" r="3.2" fill={WHITE} stroke="none" />
+    <circle cx="46" cy="19.5" r="3.2" fill={WHITE} stroke="none" />
+    <path d="M11 35.5 C11 23.5 20 16.5 32 16.5 C44 16.5 53 23.5 53 35.5 C53 46.5 44 53.5 32 53.5 C20 53.5 11 46.5 11 35.5 Z" fill={ENGLISH_50} />
+    <ellipse cx="32" cy="42.5" rx="9.5" ry="7.5" fill={WHITE} />
     {eyes(32)}
     <ellipse cx="32" cy="39" rx="3.4" ry="2.4" fill={INK} stroke="none" />
     <path d="M32 41 L32 44 M28.5 45 C30 46.6 34 46.6 35.5 45" strokeWidth={1.8} />

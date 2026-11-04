@@ -130,12 +130,12 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
   const limitMin = data.timeLimitSec ? Math.round(data.timeLimitSec / 60) : null
   const timeLine = esmo ? (
     <>
-      <span className="font-display text-h1 font-semibold tabular-nums">{usedMin}</span>
+      <span className="font-numbers text-h1 font-semibold tabular-nums">{usedMin}</span>
       <span className="text-body font-semibold">{limitMin ? `of ${limitMin} minutes` : usedMin === 1 ? 'minute' : 'minutes'}</span>
     </>
   ) : (
     <>
-      <span className="font-display text-h1 font-semibold tabular-nums">{minutesSeconds(data.timeUsedSec)}</span>
+      <span className="font-numbers text-h1 font-semibold tabular-nums">{minutesSeconds(data.timeUsedSec)}</span>
       <span className="text-body font-semibold">{data.timeLimitSec ? `of ${minutesSeconds(data.timeLimitSec)}` : 'time used'}</span>
     </>
   )
@@ -160,7 +160,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
             {data.scoreLabel}
           </span>
           <div className="flex items-baseline gap-3">
-            <span className="font-display text-display font-semibold tabular-nums">
+            <span className="font-numbers text-display font-semibold tabular-nums">
               <CountUp value={esmo && data.scaled ? data.scaled.value : data.scoreValue} />
             </span>
             <span className="text-body-lg text-fg-muted">out of {esmo ? 100 : data.scoreMax}</span>

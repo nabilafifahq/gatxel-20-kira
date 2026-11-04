@@ -73,7 +73,7 @@ function SkillCard({ s, subject, selected, onSelect }: { s: MapSkillDTO; subject
         {locked ? <UiIcon name="lock" size={20} className="ml-auto" /> : null}
       </span>
       {s.isToday ? (
-        <span className={cx('absolute -top-3.5 right-2 inline-flex h-7 items-center rounded-pill px-2.5 text-body font-bold text-white', style.solid)}>Today</span>
+        <span className={cx('absolute -top-3.5 right-2 inline-flex h-7 items-center rounded-pill px-2.5 text-body font-bold text-white', 'bg-fg')}>Today</span>
       ) : s.state === 'review' ? (
         <span className="absolute -top-3.5 right-2 inline-flex h-7 items-center rounded-pill bg-warn px-2.5 text-body font-bold text-white">Review</span>
       ) : null}
@@ -90,7 +90,6 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
   const selIndex = flat.findIndex((s) => s.id === selectedId)
   const sel = flat[selIndex >= 0 ? selIndex : 0] ?? null
   const previous = selIndex > 0 ? (flat[selIndex - 1] ?? null) : null
-  const style = SUBJECT_STYLE[subject]
 
   const pickSubject = (s: Subject) => {
     setSubject(s)
@@ -134,7 +133,7 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
             {current.chapters.map((c, ci) => (
               <section key={c.title} aria-label={`Chapter ${ci + 1}, ${c.title}`} className="flex min-w-0 flex-col gap-3">
                 <div className="flex min-h-11 items-start gap-2">
-                  <span className={cx('inline-flex h-7 w-7 flex-none items-center justify-center rounded-pill text-body font-bold text-white', style.solid)}>{ci + 1}</span>
+                  <span className={cx('inline-flex h-7 w-7 flex-none items-center justify-center rounded-pill text-body font-bold text-white', 'bg-fg')}>{ci + 1}</span>
                   <h2 className="m-0 text-body leading-5.5 font-bold">{c.title}</h2>
                 </div>
                 {c.skills.map((s) => (

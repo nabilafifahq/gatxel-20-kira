@@ -241,7 +241,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                 ) : null}
               </div>
               {part.step.show ? (
-                <span className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-display text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
+                <span className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-numbers text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
                   {part.step.show}
                 </span>
               ) : null}
@@ -311,7 +311,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                     <span
                       className={cx(
                         'inline-flex h-7.5 w-7.5 flex-none items-center justify-center rounded-pill border-2 text-body font-bold',
-                        done ? cx(style.solid, 'border-transparent text-white') : current ? 'border-fg bg-surface text-fg' : 'border-border bg-surface text-fg-muted',
+                        done ? cx('bg-fg', 'border-transparent text-white') : current ? 'border-fg bg-surface text-fg' : 'border-border bg-surface text-fg-muted',
                       )}
                     >
                       {done ? <UiIcon name="check" size={16} strokeWidth={3} /> : p.kind === 'check' ? <UiIcon name="question" size={16} /> : i + 1}

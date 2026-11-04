@@ -199,7 +199,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
                   </span>
                 </div>
                 <div className="ml-auto flex items-baseline gap-1 md:gap-2">
-                  <span className="font-display text-h1 font-semibold tabular-nums">{data.nextCompetition.daysToGo}</span>
+                  <span className="font-numbers text-h1 font-semibold tabular-nums">{data.nextCompetition.daysToGo}</span>
                   <span className="text-body font-semibold">
                     {data.nextCompetition.daysToGo === 1 ? 'day' : 'days'}
                     <span className="hidden md:inline"> to go</span>

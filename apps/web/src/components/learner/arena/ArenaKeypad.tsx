@@ -101,7 +101,7 @@ export function ArenaKeypad({
             : 'border-3 border-fg bg-surface'
   return (
     <div className={cx('flex w-full max-w-[360px] flex-col gap-2.5', className)}>
-      <output id={outputId} aria-live="polite" aria-label={label} className={cx('flex h-18 items-center justify-end rounded-control px-5 font-display text-display leading-none font-semibold tabular-nums', frame)}>
+      <output id={outputId} aria-live="polite" aria-label={label} className={cx('flex h-18 items-center justify-end rounded-control px-5 font-numbers text-display leading-none font-semibold tabular-nums', frame)}>
         {value === '' ? <span className="text-border">?</span> : value}
       </output>
       <div className="grid grid-cols-3 gap-2.5">

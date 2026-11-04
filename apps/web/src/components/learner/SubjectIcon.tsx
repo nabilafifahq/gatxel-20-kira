@@ -42,15 +42,15 @@ export function SubjectIcon({
           <path d="M16 9v18" className="stroke-fg" />
           <path
             d="M8.5 12.5c1.8 0 3.3.3 4.5.9M8.5 16.5c1.8 0 3.3.3 4.5.9M19 13.4c1.2-.6 2.7-.9 4.5-.9M19 17.4c1.2-.6 2.7-.9 4.5-.9"
-            className="stroke-english"
+            className="stroke-fg"
             strokeLinecap="round"
           />
         </g>
       ) : subject === 'science' ? (
         <g strokeWidth={sw} fill="none">
           <path d="M7 25C6 15 12 7 26 6c.5 13-6.5 20-19 19z" className={cx('stroke-fg', pale ?? 'fill-science-50')} strokeLinejoin="round" />
-          <path d="M7 25c4-6 8-10 14-13" className="stroke-science" strokeLinecap="round" />
-          <path d="M12.5 19.5l-.6-4.6M16.2 16.3l4 .1" className="stroke-science" strokeLinecap="round" />
+          <path d="M7 25c4-6 8-10 14-13" className="stroke-fg" strokeLinecap="round" />
+          <path d="M12.5 19.5l-.6-4.6M16.2 16.3l4 .1" className="stroke-fg" strokeLinecap="round" />
         </g>
       ) : (
         <g strokeWidth={sw} className="stroke-fg">

@@ -254,7 +254,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
           <UiIcon name="stop" size={48} />
         </button>
         <span className="inline-flex items-baseline gap-2.5">
-          <span className="font-display text-h1 font-semibold tabular-nums">{formatClock(secs)}</span>
+          <span className="font-numbers text-h1 font-semibold tabular-nums">{formatClock(secs)}</span>
           <span className="text-body font-semibold text-fg-muted">of {formatClock(maxSec)}</span>
         </span>
         <p className="m-0 text-body-lg font-bold">Recording. Tap the square to stop.</p>

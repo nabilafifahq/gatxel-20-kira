@@ -652,3 +652,24 @@
     display: none !important;
   }
 }
+
+/* Kerangka pemuatan: napas lewat opacity saja. */
+@keyframes kira-skeleton {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+@layer components {
+  .kira-skeleton {
+    animation: kira-skeleton 1.6s ease-in-out infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kira-skeleton {
+    animation: none !important;
+  }
+}

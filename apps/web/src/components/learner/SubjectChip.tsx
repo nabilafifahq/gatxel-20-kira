@@ -30,8 +30,8 @@ export function SubjectChip({
   const s = SIZES[size]
   const style = SUBJECT_STYLE[subject]
   return (
-    <span className={cx('inline-flex flex-none items-center rounded-pill text-fg whitespace-nowrap', s.box, style.solid, style.border, className)}>
-      <SubjectIcon subject={subject} size={s.icon} />
+    <span className={cx('inline-flex flex-none items-center rounded-pill bg-surface text-fg whitespace-nowrap', s.box, style.border, className)}>
+      <SubjectIcon subject={subject} size={s.icon - 4} className={cx('box-content rounded-pill p-0.5', style.solid)} />
       {label ?? SUBJECT_NAME[subject]}
     </span>
   )

@@ -67,7 +67,7 @@ export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; a
           {card.example ? (
             <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
               {card.example.map((e) => (
-                <li key={e} className="rounded-control border-2 border-fg bg-mental-50 px-4 py-2 font-display text-h2 font-semibold tabular-nums">
+                <li key={e} className="rounded-control border-2 border-fg bg-mental-50 px-4 py-2 font-numbers text-h2 font-semibold tabular-nums">
                   {e}
                 </li>
               ))}

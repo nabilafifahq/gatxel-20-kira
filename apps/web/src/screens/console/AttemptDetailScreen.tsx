@@ -130,7 +130,7 @@ export function AttemptDetailScreen({ data }: AttemptDetailScreenProps) {
         <div className="flex flex-wrap items-start gap-x-10 gap-y-5">
           <div className="flex flex-col gap-1">
             <span className="text-small font-semibold text-fg-muted">Skor</span>
-            <span className="font-display text-h1 leading-10 font-semibold tabular">{a.score}</span>
+            <span className="font-numbers text-h1 leading-10 font-semibold tabular">{a.score}</span>
           </div>
           <KeyValues
             className="min-w-0 flex-[1_1_300px]"

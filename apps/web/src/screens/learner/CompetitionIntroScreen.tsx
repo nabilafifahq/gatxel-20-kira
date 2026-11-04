@@ -101,7 +101,7 @@ export function CompetitionIntroScreen({
           </div>
           <div className="inline-flex h-14 items-center gap-2.5 rounded-control border-2 border-border bg-surface px-4.5">
             <UiIcon name="clock" size={24} />
-            <span className="font-display text-h1 font-semibold tabular-nums">{data.timeLimitSec > 0 ? formatClock(data.timeLimitSec) : 'No clock'}</span>
+            <span className="font-numbers text-h1 font-semibold tabular-nums">{data.timeLimitSec > 0 ? formatClock(data.timeLimitSec) : 'No clock'}</span>
           </div>
           <p className="m-0 text-body-lg">
             {data.questionCount} questions.{' '}

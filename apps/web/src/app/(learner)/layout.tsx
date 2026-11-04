@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
 }
 
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#f5f8fc' }
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#fffcf5' }
 
 export default function LearnerRootLayout({ children }: { children: React.ReactNode }) {
   return (

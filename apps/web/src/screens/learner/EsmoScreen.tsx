@@ -96,7 +96,7 @@ function SubjectColumn({ col, actions }: { col: Column; actions: EsmoActions }):
                   on ? cx('border-4', style.border, style.tint) : p.status === 'in-progress' ? cx('border-2 bg-surface', style.border) : 'border-2 border-border bg-surface hover:border-fg',
                 )}
               >
-                <span className="font-display text-h1 font-semibold tabular-nums">{p.num}</span>
+                <span className="font-numbers text-h1 font-semibold tabular-nums">{p.num}</span>
                 {p.status === 'done' ? (
                   <span className="inline-flex items-center gap-1 text-body font-bold tabular-nums">
                     <UiIcon name="check" size={16} strokeWidth={3} className="text-success" />
@@ -162,7 +162,7 @@ export function EsmoScreen({ data, actions, backHref = LEARNER_ROUTES.today }: {
             </div>
             {data.daysToGo !== null ? (
               <div className="flex items-baseline gap-2 border-l border-divider pl-3.5">
-                <span className="font-display text-h1 font-semibold tabular-nums">{data.daysToGo}</span>
+                <span className="font-numbers text-h1 font-semibold tabular-nums">{data.daysToGo}</span>
                 <span className="text-body font-semibold">{data.daysToGo === 1 ? 'day to go' : 'days to go'}</span>
               </div>
             ) : null}

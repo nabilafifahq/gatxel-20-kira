@@ -128,7 +128,7 @@ export function StreakCount({ current, layout = 'stack', className }: { current:
   }
   return (
     <div className={cx('flex', layout === 'stack' ? 'flex-col items-start' : 'items-baseline gap-1.5', className)}>
-      <span className="font-display text-h1 font-semibold tabular-nums">{current}</span>
+      <span className="font-numbers text-h1 font-semibold tabular-nums">{current}</span>
       <span className="text-body font-bold">day streak</span>
     </div>
   )

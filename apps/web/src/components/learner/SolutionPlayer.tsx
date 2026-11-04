@@ -103,9 +103,9 @@ export function SolutionPlayer({
               <Figure spec={(current.figure ?? fallbackFigure) as FigureSpec} />
             </div>
           ) : null}
-          {current.show ? <div className="text-center font-display text-h1 font-semibold tabular-nums">{current.show}</div> : null}
+          {current.show ? <div className="text-center font-numbers text-h1 font-semibold tabular-nums">{current.show}</div> : null}
           {!current.figure && !fallbackFigure && !current.show ? (
-            <div aria-hidden="true" className="font-display text-display font-semibold text-border tabular-nums">
+            <div aria-hidden="true" className="font-numbers text-display font-semibold text-border tabular-nums">
               {step + 1}
             </div>
           ) : null}

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { Dialog } from '@/components/ui/Dialog'
 import { UiIcon } from '@/components/ui/icons'
+import { KiraStar } from '@/components/ui/KiraStar'
 import { SolutionPlayer } from './SolutionPlayer'
 import { XpPill } from './XpPill'
 
@@ -78,7 +79,8 @@ export function FeedbackSheet({
           <UiIcon name={good ? 'check' : 'not-yet'} size={28} />
         </span>
         <h2 className="m-0 font-display text-h1 font-semibold">{title}</h2>
-        {kind === 'correct' && xp > 0 ? <XpPill xp={xp} className="ml-auto" /> : null}
+        <KiraStar size={56} mood={good ? 'happy' : 'calm'} className="ml-auto max-sm:hidden" />
+        {kind === 'correct' && xp > 0 ? <XpPill xp={xp} className="max-sm:ml-auto" /> : null}
       </div>
 
       {kind === 'correct' && (hintsUsed > 0 || secondTry) ? (

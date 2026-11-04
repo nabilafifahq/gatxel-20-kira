@@ -26,7 +26,7 @@ export function NumberPill({ n, subject, className }: { n: number | string; subj
   return (
     <span
       className={cx(
-        'inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-body-lg font-bold text-white tabular-nums',
+        'inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-h3 font-bold text-fg tabular-nums',
         SUBJECT_STYLE[subject].solid,
         className,
       )}

@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from 'react'
 import { cx } from './cx'
+import { KiraStar } from './KiraStar'
 
 /**
  * Keadaan kosong (papan EmptyState). Judul menyebut apa yang kosong, isi menyebut
@@ -40,7 +41,7 @@ export function EmptyState({
         className,
       )}
     >
-      {art ? <div aria-hidden="true" className="text-border">{art}</div> : null}
+      {art ? <div aria-hidden="true" className="text-border">{art}</div> : learner ? <KiraStar size={72} mood="calm" /> : null}
       {filters && filters.length > 0 ? (
         <ul aria-label={learner ? 'Filters' : 'Filter aktif'} className="m-0 flex list-none flex-wrap justify-center gap-1.5 p-0">
           {filters.map((f) => (

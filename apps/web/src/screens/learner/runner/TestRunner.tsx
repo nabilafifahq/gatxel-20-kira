@@ -247,7 +247,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
                   className={cx(
                     'relative cursor-pointer rounded-control p-0 font-bold tabular-nums',
                     many ? 'h-11 w-11 text-body' : 'h-12 w-12 text-body-lg',
-                    done ? cx(style.solid, 'text-white') : 'bg-surface text-fg',
+                    done ? cx('bg-fg', 'text-white') : 'bg-surface text-fg',
                     now ? 'border-3 border-fg' : done ? cx('border-2', style.border) : 'border-2 border-border',
                   )}
                 >
