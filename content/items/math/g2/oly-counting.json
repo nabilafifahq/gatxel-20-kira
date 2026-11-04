@@ -868,28 +868,25 @@
       "id": "m2.oly-counting.016",
       "skill": "m2.oly-counting",
       "type": "numeric",
-      "difficulty": 3,
-      "prompt": "Four friends meet. Each friend shakes hands once with each of the others. How many handshakes are there?",
-      "answer": 6,
+      "difficulty": 2,
+      "prompt": "Three friends meet. Each friend shakes hands once with each of the others. How many handshakes are there?",
+      "answer": 3,
       "tolerance": 0,
       "hints": [
-        "Call the friends A, B, C and D.",
-        "A shakes hands with 3 friends.",
+        "Call the friends A, B and C.",
+        "A shakes hands with 2 friends.",
         "B has already shaken hands with A. Count B's new handshakes."
       ],
-      "explanation": "A shakes hands with 3 friends. B shakes with 2 new friends. C shakes with 1 new friend. That makes 3 + 2 + 1 = 6 handshakes.",
+      "explanation": "A shakes hands with 2 friends. B shakes with 1 new friend, and C has met both already. That makes 2 + 1 = 3 handshakes.",
       "solution": [
         {
-          "say": "A shakes hands with 3 friends."
+          "say": "A shakes hands with 2 friends."
         },
         {
-          "say": "B shakes with 2 new friends."
+          "say": "B shakes with 1 new friend. C has met both already."
         },
         {
-          "say": "C shakes with 1 new friend."
-        },
-        {
-          "say": "That makes 3 + 2 + 1 = 6 handshakes."
+          "say": "That makes 2 + 1 = 3 handshakes."
         }
       ],
       "tags": [
