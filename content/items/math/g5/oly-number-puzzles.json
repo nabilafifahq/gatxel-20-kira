@@ -740,7 +740,38 @@
           "why": "This is the price after the rise only. The price then goes down."
         }
       ],
-      "answer": 1
+      "answer": 1,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the final price?"
+          ]
+        },
+        {
+          "say": "After the rise the price is 60.000."
+        },
+        {
+          "say": "A fall of 20% of 60.000 is 12.000."
+        },
+        {
+          "say": "60.000 - 12.000 = 48.000.",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "-",
+            "b": 12,
+            "r": 48
+          }
+        },
+        {
+          "say": "Not Rp40.000. You took 20% off 50.000 twice. The decrease is 20% of the new, higher price."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "B. Rp48.000"
+        }
+      ]
     },
     {
       "id": "m5.oly-number-puzzles.013",
