@@ -60,6 +60,7 @@ export function PrivacyNoticePage({ data }: PrivacyNoticePageProps) {
           </li>
           <li>Lalu lintas ke Kira lewat pusat data Cloudflare, sebagian di luar Indonesia, lalu diteruskan lewat Cloudflare Tunnel ke server di rumah Pengelola.</li>
           <li>Persetujuan bisa ditarik kapan saja dari halaman Privasi keluarga. Pemrosesan berhenti paling lambat 3 x 24 jam.</li>
+          <li>Selama beta publik, tidak ada data anak dari keluarga yang mendaftar sendiri yang dikirim ke layanan kecerdasan buatan.</li>
           <li>Kira tidak memuat iklan dan tidak menjual data.</li>
         </ul>
       </section>

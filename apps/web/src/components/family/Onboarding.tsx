@@ -30,7 +30,7 @@ const AVATAR_LABEL: Record<AvatarName, string> = {
 }
 
 const PURPOSES: { id: OnboardingPurpose; label: string; description: string }[] = [
-  { id: 'learning', label: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Perlu dicentang supaya anak bisa masuk.' },
+  { id: 'learning', label: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare, termasuk pusat data di luar Indonesia. Perlu dicentang supaya anak bisa masuk.' },
   { id: 'progress-email', label: 'Laporan mingguan lewat email', description: 'Ringkasan belajar seminggu sekali ke email kamu.' },
   { id: 'audio', label: 'Rekaman suara', description: 'Menyimpan rekaman latihan berbicara. Disimpan 90 hari.' },
   { id: 'photo', label: 'Foto dan gambar jawaban', description: 'Menyimpan foto jawaban di kertas. Disimpan 90 hari.' },
