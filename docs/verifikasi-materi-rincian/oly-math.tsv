@@ -22,3 +22,12 @@ all	0	fact	content/coach/english.json e-ww-c	parents told to add -ed to run, whi
 all	0	fact	content/coach/science.json s-be-b	nobody eats decomposers (false, many animals eat fungi) => why decomposers matter for soil and plants	minor
 all	0	fact	content/coach/math.json m-gg-c	which shape has the smallest perimeter for area 24 (a circle would beat every rectangle) => which rectangle	minor
 all	0	lang	content/coach/english.json e-wc-a	kirim sisanya secara lisan => ucapkan	minor
+all	0	open	packages/content/src/walkthrough.ts	derived steps split inside numbers (176 written items plus generators) and show an authored option letter on shuffled options (4,621 items). Tested patch in usulan-perbaikan-walkthrough.diff, needs the integrator because app code was out of scope	serious
+all	0	open	packages/content/src/knowledge/data/nature.ts and culture.ts	Quiz Arena facts read, none false. Two small wordings left because the file is code: toward should be towards in the gravity card, Ha Long Bay has about 2,000 islands where the card says thousands	minor
+all	0	open	derived steps for choice items with picture options	11 shuffled items whose options are pictures still show a bare letter after the patch	minor
+math	1-5	step	m1.oly-word-puzzles.014, m3.oly-counting.007, m3.oly-money.004, m3.oly-money.007, m3.oly-number-puzzles.006, m3.oly-word-problems.009, m4.oly-number-puzzles.002, m5.oly-geometry.006, m5.oly-geometry.007	highlight lit a digit inside a bigger number, such as 2 in 25 m or Rp3 in Rp3.500 => highlight names the right words	minor
+math	2	amb	m2.oly-coding.040	Bat keyed, but Penguin is the only one that cannot fly => Penguin replaced by Parrot	serious
+math	2	amb	m2.oly-esmo.013	Persegi keyed, but Persegi panjang also true of a square => replaced by Segi lima	serious
+science	6	fact	s6.photosynthesis.021	table showed a bean in the dark at 3 cm, real seedlings in the dark grow tall and pale => table counts new leaves	serious
+english	6	fact	e6.p.sea-turtle-journeys, e6.p.bamboo-wonder-grass	one hatchling in a thousand and as strong as steel were not certain figures => a few hatchlings, very hard to snap	minor
+all	0	open	apps/web/src/components/learner/SolutionPlayer.tsx	the highlight takes the first match, so 3 lights inside 34 on about 30 items and generators. Tested helper is in usulan-perbaikan-walkthrough.diff	minor
