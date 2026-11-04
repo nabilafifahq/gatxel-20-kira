@@ -64,19 +64,9 @@ export async function clipFile(key: string, scope: ClipScope): Promise<ClipFile 
   }
 }
 
-/**
- * Klip publik yang sudah pernah terlihat di proses ini. Nama berkas adalah hash versi suara, peran, dan teks, jadi isinya tidak
- * berubah. Folder data lewat bind mount Windows dan satu stat bisa puluhan milidetik, sedangkan satu anak punya ratusan klip per hari.
- */
-const knownPublic = new Set<string>()
-const KNOWN_PUBLIC_MAX = 200_000
-
 /** Klip ada di folder publik. */
 export async function clipExists(key: string): Promise<boolean> {
-  if (knownPublic.has(key)) return true
-  const found = (await clipFile(key, { kind: 'public' })) !== null
-  if (found && knownPublic.size < KNOWN_PUBLIC_MAX) knownPublic.add(key)
-  return found
+  return (await clipFile(key, { kind: 'public' })) !== null
 }
 
 /** Klip ada untuk org ini: publik, atau milik org itu. */
