@@ -1,100 +1,198 @@
 # Laporan beban Kira
 
-Dibuat Rabu 4 November 2026 malam, cabang `pilot/kapasitas`. Semua angka di sini dari staging (project `kirastg`) di PC server yang sama dengan produksi, pada kode cabang ini, dan **harus dibaca sebagai batas bawah**: pada jam yang sama agen lain sedang membangun image dan menjalankan tes di PC yang sama, dan generator beban (k6) ikut makan CPU di mesin yang sama. Uji akhir dijalankan integrator setelah semua cabang digabung dan PC tenang. Cara menjalankan ulang: `docs/pasang-windows.md` bagian 16.
+Uji akhir sebelum pembukaan pukul 06.00 WIB, Kamis 5 November 2026, dijalankan antara 03.17 dan 04.38 WIB di cabang `pilot/beban`. Semua angka dari staging (project `kirastg`, 4 replika web, seperti produksi) di PC server yang sama. Database dan keluarga di staging fiktif. Bagian "Uji sebelumnya" di akhir berasal dari 4 November malam.
 
-## 1. Kesimpulan
+## Ringkasan untuk pemilik
 
-| Pertanyaan | Jawaban jujur |
-|---|---|
-| Aman untuk 100 keluarga di pilot? | Ya, dengan jarak aman besar. Pada 300 anak aktif bersamaan (tiga kali target, dengan waktu berpikir anak) tidak ada galat, p95 177 ms dan p99 453 ms di dalam PC. |
-| Aman untuk lonjakan? | Ya sampai yang diuji: dari 0 ke 500 anak dalam 30 detik tanpa galat, p99 564 ms. Today (yang membuat sesi hari itu untuk anak yang baru masuk) paling lambat: p99 1,2 detik. |
-| Batas jujur | Sekitar 500 anak aktif bersamaan (93 permintaan per detik) masih sehat (p99 672 ms). Pada 1000 anak aktif bersamaan, PC ini bertahan tanpa galat tetapi lambat (p95 1,4 detik, p99 2,1 detik), dan pada percobaan dengan PC sedang dipakai agen lain mulai ada galat (0,08 persen) dan p99 11 detik. Penghambatnya CPU PC (web, Postgres, proxy, dan k6 bersama-sama melewati 12 thread), bukan memori, sambungan database, atau unggahan internet. |
-| Waktu nyata untuk pengguna | Tambahkan 0,35 sampai 0,45 detik per permintaan lewat Cloudflare (diukur lebih dulu di `docs/rencana-pilot-publik.md`). Angka di bawah belum termasuk itu. |
-| Unggahan rumah (sekitar 29 Mbps) | Bukan batas. Dengan kompresi di proxy dan berkas statis serta klip suara disajikan Cloudflare, 500 anak aktif memakai sekitar 9 Mbps dari proxy. |
-| Gangguan | Valkey mati 25 detik, satu replika web dimatikan paksa 45 detik, dan PgBouncer di-restart selama beban 300 anak: 0,17 persen transaksi gagal, p99 naik ke 1,8 detik lalu pulih sendiri. |
+**Apa arti 100 kursi.** 100 keluarga, masing-masing paling banyak 5 anak. Yang membebani server adalah anak yang aktif pada saat yang sama, dan itu biasanya jauh lebih sedikit dari jumlah anak terdaftar. Pada 100 anak aktif bersamaan: tidak ada galat, Today p95 219 ms, simpan jawaban p95 62 ms (target 800 ms). Pada 500 anak aktif bersamaan: tidak ada galat, Today p95 242 ms, simpan jawaban p95 41 ms. Dari sisi server, 100 keluarga aman.
 
-## 2. Cara uji
+**Apa arti 1000.** Pada 1000 anak aktif bersamaan PC ini tetap melayani tanpa galat, tetapi lambat: Today p95 5,1 detik dan simpan jawaban p95 967 ms, keduanya lewat target. Jadi batas jujur PC ini: target terpenuhi pada 500, gagal pada 1000. Titik di antara keduanya tidak diukur. Unggahan rumah juga mulai habis di sini: puncak 52 Mbps melawan sekitar 29 Mbps bila klip suara tidak disimpan Cloudflare.
 
-- **Lingkungan:** Windows 11, 12 thread, 63 GB RAM, VM Docker Desktop 31 GB, NVMe. Staging: 1 proxy Caddy, 4 replika web, PgBouncer, Valkey, Postgres 17 dengan penyetelan di `docker-compose.yml`, worker dengan `AI_PROVIDER=none`. Database staging terpisah dari produksi.
-- **Generator:** k6 dalam kontainer di jaringan staging, menembak proxy langsung (tanpa Cloudflare). Satu VU adalah satu anak aktif dengan waktu berpikir 4 sampai 12 detik per soal, atau satu orang tua. Data: 500 keluarga, 1000 anak, dibuat ulang sebelum tiap tahap supaya setiap anak mulai dari hari yang segar.
-- **Alur:** campuran (`mixed`) yang meniru hari ramai: 50 persen sesi harian (buka Today, mulai sesi, jawab setiap soal dengan jeda, kumpul, lihat hasil, ambil klip suara), 12 persen ronde Quick Maths, 8 persen Quiz, 10 persen hanya Today, 10 persen dasbor orang tua, 5 persen masuk PIN, 5 persen masuk password. Server Action dipanggil sungguhan (simpan jawaban, kumpul, mulai ronde).
-- **Tahap:** naik 60 detik, tahan 180 detik, turun 30 detik. Lonjakan: 0 ke 500 VU dalam 30 detik, tahan 120 detik.
-- **Pengukuran:** p50, p95, p99 dan galat dari k6 per endpoint; CPU, RAM, dan sambungan dicuplik tiap 5 detik dari `docker stats`, `pg_stat_activity`, dan `SHOW POOLS`. CPU 100 persen berarti satu inti penuh.
-- **Galat** dihitung dua cara: galat HTTP (respons gagal) dan transaksi bisnis (Server Action yang menjawab `ok:false`).
+**Apakah RTX 5070 Ti sanggup?** Ya, karena kartu itu tidak dipakai saat anak belajar. Suara anak adalah berkas MP3 yang sudah direkam dan disajikan dari disk. Selama semua uji, pemakaian GPU rata-rata di bawah 1 persen (paling tinggi 9 persen, sekali, saat Chrome agen lain juga berjalan; penyebabnya tidak dipastikan) dan memori GPU tetap sekitar 2,8 GB. Yang menentukan batas adalah CPU 12 thread dan unggahan rumah. Satu syarat: `kira-tts-1` harus tetap mati (sudah ada di `CUTOVER.md`). Bila anak menekan tombol baca pada soal yang klipnya belum ada, sistem memang mencoba memanggil layanan suara (lihat bagian 3).
 
-## 3. Hasil per tahap (4 replika web, kecuali dicatat)
+**Batas kursi.** 151 percobaan daftar dalam 2 menit dengan batas 100: tepat 100 kursi terisi. Tidak ada kursi ke-101.
 
-| Uji | Permintaan/detik | p50 | p95 | p99 | Galat HTTP | Transaksi bisnis OK | CPU web | CPU db | RAM web | Sambungan PG puncak |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 100 anak | 19 | 48 ms | 172 ms | 401 ms | 0,00% | 100% | 114% | 47% | 1420 MiB | 21 |
-| 300 anak | 56 | 42 ms | 177 ms | 453 ms | 0,00% | 100% | 175% | 68% | 1466 MiB | 31 |
-| 500 anak | 93 | 72 ms | 343 ms | 672 ms | 0,00% | 100% | 356% | 163% | 1522 MiB | 45 |
-| 1000 anak | 173 | 93 ms | 1406 ms | 2138 ms | 0,00% | 100% | 315% | 223% | 1645 MiB | 49 |
-| Lonjakan 0 ke 500 dalam 30 detik | 92 | 54 ms | 284 ms | 564 ms | 0,00% | 100% | 300% | 222% | 1665 MiB | 50 |
-| 1000 anak, 6 replika, PC sedang dipakai agen lain | 146 | 305 ms | 4129 ms | 11639 ms | 0,08% | 99,81% | 587% | 318% | 2460 MiB | 63 |
-| 500 anak, prepared statements di PgBouncer dinyalakan | 92 | 70 ms | 295 ms | 733 ms | 0,00% | 100% | 308% | 190% | 1534 MiB | 43 |
-| 300 anak dengan gangguan (bagian 6) | 54 | 96 ms | 749 ms | 1802 ms | 0,01% | 99,83% | 294% | 165% | 1462 MiB | 52 |
+**Dua masalah besar yang ditemukan dan sudah diperbaiki malam ini:**
 
-### Per endpoint pada 500 anak
+1. **Situs bisa mati total.** Pada percobaan pertama 1000 anak, 70,93 persen permintaan gagal dan seluruh situs menjawab "no upstreams" selama uji berjalan. Penyebabnya: beberapa fungsi meminta sambungan database kedua sambil memegang yang pertama, sampai semua sambungan saling menunggu. Sekarang sudah diperbaiki, dan pada 1000 anak galatnya 0,00 persen.
+2. **Setiap anak mengunduh seluruh suara hari itu saat pertama membuka aplikasi.** Di peramban sungguhan: 303 klip, 5,0 MB, tanpa menekan apa pun. Sekarang hanya klip soal yang tampil dan soal berikutnya: 12 klip, 120 KB di soal pertama. Konsekuensinya saat internet putus: soal yang klipnya sudah diambil tetap berbunyi, soal lain menulis pesan bahwa suara gagal dimuat dan tidak berbunyi, karena suara perangkat sudah dihapus untuk anak.
 
-(p50 / p95 / p99 dalam ms, 4 replika.)
+**Yang tidak diuji** (bagian 7): jalur lewat Cloudflare, unggahan dan Wi-Fi rumah yang sebenarnya, SMTP sungguhan, lonjakan 0 ke 500 dalam 30 detik, soak 15 menit, dan 300 anak pada kode akhir.
 
-| Endpoint | Jumlah | p50 | p95 | p99 | Galat HTTP |
-|---|---:|---:|---:|---:|---:|
-| Simpan jawaban (Server Action) | 9927 | 83 | 290 | 416 | 0,00% |
-| Klip suara `/tts/<hash>.mp3` (dari disk oleh proxy) | 2150 | 25 | 162 | 529 | 0,00% |
-| Today | 1276 | 337 | 1038 | 1570 | 0,00% |
-| Halaman sesi `/run/<id>` | 1075 | 76 | 230 | 338 | 0,00% |
-| Kumpul sesi (Server Action) | 911 | 228 | 621 | 919 | 0,00% |
-| Dasbor orang tua | 180 | 102 | 378 | 454 | 0,00% |
-| Masuk PIN | 110 | 164 | 417 | 549 | 0,00% |
-| Masuk password | 98 | 144 | 526 | 691 | 0,00% |
+## 1. Hasil per tahap
 
-Tabel lengkap per endpoint untuk setiap tahap ditulis `deploy/load/run.mjs` ke `deploy/load/out/<nama>/result.md` (tidak masuk git). Pada 1000 anak p95 naik rata hampir semua endpoint (1,2 sampai 1,7 detik) karena antrean CPU, bukan satu endpoint tertentu; klip suara dari disk tetap p95 57 ms.
+Satu anak aktif adalah satu pengguna virtual k6 dengan waktu berpikir 4 sampai 12 detik per soal. Target: Today dan simpan jawaban di bawah 800 ms pada p95, galat di bawah 0,5 persen.
 
-## 4. Per skenario (100 anak, tahan 60 detik)
+| Anak aktif | Kode | Galat HTTP | Today p95 | Simpan jawaban p95 | Target |
+|---:|---|---:|---:|---:|---|
+| 100 | Perbaikan sambungan dan pemeriksaan klip, semua klip diunduh di muka | 0,00% | 219 ms | 62 ms | Tercapai |
+| 300 | Perbaikan sambungan, semua klip diunduh di muka, sebelum perbaikan pemeriksaan klip | 0,00% | 1874 ms | 531 ms | Today gagal |
+| 500 | Perbaikan sambungan dan pemeriksaan klip, semua klip diunduh di muka | 0,00% | 3296 ms | 5191 ms | Gagal |
+| **500** | **Kode akhir, klip per soal** | **0,00%** | **242 ms** | **41 ms** | **Tercapai** |
+| 1000 | Sebelum perbaikan apa pun | 70,93% | 59967 ms | 59155 ms | Situs mati |
+| **1000** | **Kode akhir, klip per soal** | **0,00%** | **5123 ms** | **967 ms** | **Gagal, tanpa galat** |
 
-| Skenario | Permintaan/detik | p50 | p95 | p99 | Galat HTTP | Bisnis OK | CPU web | RAM web |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Today | 10,9 | 35 ms | 260 ms | 430 ms | 0,00% | 0,00% | 138% | 1329 MiB |
-| Klip suara | 143,9 | 15 ms | 327 ms | 504 ms | 0,00% | 0,00% | 15% | 1328 MiB |
-| Masuk PIN | 20,7 | 70 ms | 357 ms | 860 ms | 0,00% | 100,00% | 291% | 1373 MiB |
-| Masuk password | 16,9 | 55 ms | 324 ms | 1101 ms | 0,00% | 100,00% | 163% | 1403 MiB |
-| Dasbor orang tua | 4,4 | 32 ms | 83 ms | 149 ms | 0,00% | 0,00% | 59% | 1387 MiB |
-| Ronde Quick Maths | 22,5 | 58 ms | 287 ms | 1000 ms | 0,00% | 100,00% | 150% | 1414 MiB |
-| Ronde Quiz | 18,8 | 58 ms | 147 ms | 226 ms | 0,00% | 100,00% | 164% | 1415 MiB |
-| Sesi Latihan penuh | 14,5 | 90 ms | 297 ms | 596 ms | 0,00% | 100,00% | 77% | 1383 MiB |
-| Tes dengan batas waktu (Latihan dikerjakan dulu tanpa jeda) | 27,7 | 77 ms | 226 ms | 347 ms | 0,00% | 100,00% | 187% | 1444 MiB |
-| Paper (Latihan dikerjakan dulu tanpa jeda) | 20,2 | 45 ms | 205 ms | 409 ms | 0,00% | 100,00% | 70% | 1443 MiB |
+Baris tebal adalah keadaan yang akan dipasang. 100 anak tidak diulang pada kode akhir; beban klipnya saat diukur lebih berat daripada kode akhir. 300 anak juga tidak diulang karena waktunya habis, jadi angka 300 di atas lebih buruk dari yang akan dialami, tetapi tidak ada angka akhirnya.
 
-Endpoint utama per skenario (p50 / p95 / p99):
+Rincian lengkap (CPU puncak: 100 persen sama dengan satu inti; RAM total empat replika web):
 
-- **Today**: heartbeat 900x p50 16 / p95 67 / p99 102 ms; today 900x p50 61 / p95 348 / p99 480 ms
-- **Klip suara**: audio_clip 21900x p50 15 / p95 327 / p99 504 ms
-- **Masuk PIN**: pin 1605x p50 120 / p95 461 / p99 1531 ms; pin_page 1605x p50 37 / p95 125 / p99 322 ms
-- **Masuk password**: login 1330x p50 115 / p95 463 / p99 1551 ms; login_page 1330x p50 21 / p95 93 / p99 300 ms
-- **Dasbor orang tua**: parent_dashboard 600x p50 34 / p95 86 / p99 155 ms; parent_privacy 181x p50 27 / p95 78 / p99 115 ms
-- **Ronde Quick Maths**: qm_answer 3354x p50 54 / p95 256 / p99 884 ms; qm_page 368x p50 67 / p95 426 / p99 1145 ms; qm_start 184x p50 80 / p95 480 / p99 2134 ms; qm_finish 136x p50 144 / p95 261 / p99 396 ms
-- **Ronde Quiz**: quiz_answer 2372x p50 57 / p95 129 / p99 219 ms; quiz_page 492x p50 51 / p95 110 / p99 165 ms; quiz_start 246x p50 59 / p95 129 / p99 166 ms; quiz_finish 209x p50 129 / p95 232 / p99 286 ms
-- **Sesi Latihan penuh**: save_answer 1426x p50 85 / p95 220 / p99 309 ms; audio_clip 324x p50 142 / p95 665 / p99 902 ms; today 162x p50 143 / p95 346 / p99 475 ms; run_page 162x p50 78 / p95 213 / p99 302 ms; heartbeat 162x p50 50 / p95 141 / p99 234 ms; quest_intro 162x p50 63 / p95 139 / p99 215 ms
-- **Tes dengan batas waktu (Latihan dikerjakan dulu tanpa jeda)**: save_answer 1547x p50 63 / p95 148 / p99 187 ms; audio_clip 396x p50 81 / p95 347 / p99 523 ms; today 371x p50 137 / p95 274 / p99 326 ms; heartbeat 279x p50 38 / p95 116 / p99 168 ms; run_page 198x p50 80 / p95 173 / p99 218 ms; quest_intro 198x p50 60 / p95 117 / p99 143 ms
-- **Paper (Latihan dikerjakan dulu tanpa jeda)**: save_answer 1815x p50 40 / p95 158 / p99 279 ms; audio_clip 476x p50 34 / p95 325 / p99 901 ms; today 238x p50 105 / p95 226 / p99 376 ms; run_page 238x p50 51 / p95 163 / p99 251 ms; quest_intro 238x p50 41 / p95 90 / p99 113 ms; heartbeat 238x p50 30 / p95 113 / p99 207 ms
+| Uji | Permintaan per detik | p50 ms | p95 ms | p99 ms | Galat HTTP | Transaksi berhasil | Today p95 ms | Simpan jawaban p95 ms | CPU puncak web/db/proxy | RAM web MiB | Sambungan Postgres | Hit Valkey | Mbps keluar rata-rata/puncak |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 100 anak, semua klip di muka | 142 | 6 | 26 | 77 | 0,00% | 100,00% | 219 | 62 | 89/65/63% | 1842 | 48, antre 0 | 72% | 18/64 |
+| 300 anak, semua klip di muka, sebelum perbaikan klip | 343 | 60 | 161 | 1260 | 0,00% | 100,00% | 1874 | 531 | 300/113/170% | 1894 | 42, antre 18 | 74% | 43/76 |
+| 500 anak, semua klip di muka | 535 | 206 | 874 | 2300 | 0,00% | 100,00% | 3296 | 5191 | 286/128/323% | 1925 | 48, antre 16 | 70% | 69/111 |
+| 1000 anak, sebelum perbaikan saling tunggu | 116 | 3009 | 3049 | 59967 | 70,93% | 1,42% | 59967 | 59155 | 269/73/152% | 1403 | 55, antre 18 | 7% | 5/92 |
+| 500 anak | 130 | 12 | 54 | 165 | 0,00% | 100,00% | 242 | 41 | 225/148/34% | 1922 | 45, antre 0 | 74% | 14/24 |
+| 1000 anak | 257 | 20 | 1159 | 3550 | 0,00% | 100,00% | 5123 | 967 | 353/243/74% | 2026 | 45, antre 18 | 73% | 29/52 |
 
-Catatan: kolom Bisnis OK 0,00 persen pada skenario yang hanya membaca halaman (Today, klip suara, dasbor) berarti tidak ada Server Action yang dihitung, bukan kegagalan. Satu cuplikan `docker stats` pada skenario PIN menunjuk 1313 persen CPU web; itu meleset (cuplikan lain pada uji yang sama paling tinggi 291 persen), jadi tabel memakai 291 persen. Pada skenario Tes dan Paper, Latihan mapel itu dikerjakan lebih dulu tanpa jeda (Tes terkunci sebelum Latihan selesai); permintaan persiapan itu ikut dalam hitungan permintaan per detik tetapi ditandai `prep_` dan tidak ada di daftar endpoint.
+Sambungan Postgres adalah total puncak; "antre" adalah klien yang menunggu di PgBouncer. Mbps adalah data keluar dari proxy tanpa overhead Tunnel, dengan kompresi gzip seperti Cloudflare ke origin.
 
+### Per endpoint
 
-## 5. Soak
+(p50/p95/p99 dalam ms. Kolom 100 anak sebelum klip per soal, kolom 500 dan 1000 kode akhir.)
 
-Opsi 30 menit ada (`--stage soak --soak-min 30`). Malam ini dijalankan **12 menit** pada 100 anak (campuran, 850 detik termasuk naik dan turun), karena batas waktu malam ini:
+| Endpoint | 100 anak p50/p95/p99 | 500 anak p50/p95/p99 | 1000 anak p50/p95/p99 | Galat HTTP terburuk |
+|---|---:|---:|---:|---:|
+| Today | 70/219/554 | 70/242/408 | 232/5123/6362 | 0,00% |
+| Simpan jawaban | 19/62/82 | 19/41/66 | 47/967/1904 | 0,00% |
+| Kumpul sesi | 31/71/101 | 32/68/103 | 68/309/566 | 0,00% |
+| Halaman sesi | 19/44/58 | 22/45/64 | 56/3647/5286 | 0,00% |
+| Status suara | 47/238/382 | 4/7/11 | 7/22/44 | 0,00% |
+| Klip suara | 6/16/35 | 8/16/23 | 13/38/111 | 0,00% |
+| Berkas kamus | 18/30/36 | 19/35/45 | 36/88/112 | 0,00% |
+| Practice hub | 23/60/103 | 23/46/59 | 64/4364/5418 | 0,00% |
+| Mulai latihan bebas | 18/42/92 | 21/42/95 | 60/1456/1912 | 0,00% |
+| Dek kartu | 19/65/71 | 20/41/62 | 62/2853/4275 | 0,00% |
+| Selesai kartu | 32/108/135 | 33/57/110 | 127/2918/3611 | 0,00% |
+| Bab Ruang Baca | 18/32/38 | 20/42/55 | 58/3121/4857 | 0,00% |
+| Simpan tempat baca | 14/54/90 | 14/31/52 | 36/2270/3541 | 0,00% |
+| Simpan kata kamus | 13/22/36 | 13/34/45 | 36/1674/3374 | 0,00% |
+| Kira World (dompet) | 35/90/104 | 39/95/123 | 156/4722/5427 | 0,00% |
+| Toko | 21/65/103 | 22/46/61 | 79/2933/5054 | 0,00% |
+| Beli di toko | 32/104/146 | 31/67/101 | 140/5564/6675 | 0,00% |
+| Album | 41/90/120 | 42/88/131 | 160/3121/4014 | 0,00% |
+| Mulai bos | 35/41/45 | 37/70/90 | 110/3161/3869 | 0,00% |
+| Giliran bos | 19/47/87 | 19/37/50 | 55/1412/1865 | 0,00% |
+| Selesai bos | 30/56/61 | 32/66/73 | 83/394/755 | 0,00% |
+| Tes penempatan | 28/41/44 | 29/59/69 | 86/3616/5161 | 0,00% |
+| Jawab penempatan | 22/75/118 | 22/47/73 | 68/2108/3455 | 0,00% |
+| Dasbor orang tua | 37/187/250 | 39/86/139 | 161/1823/2263 | 0,00% |
+| Halaman anak | 58/116/127 | 59/114/212 | 278/1826/2192 | 0,00% |
+| Ubah saklar orang tua | 80/200/267 | 91/192/227 | 361/3832/4425 | 0,00% |
+| Kirim /feedback | 11/38/43 | 11/15/16 | 32/1500/1821 | 0,00% |
+| Daftar | 966/986/990 | 958/1002/1004 | 984/3480/3740 | 0,00% |
+| Verifikasi | 32/33/33 | 33/44/48 | 92/1811/2102 | 0,00% |
+| Tambah anak | 55/68/69 | 57/88/103 | 241/3507/3943 | 0,00% |
+| Masuk PIN | 42/58/58 | 32/51/62 | 87/1507/2022 | 0,00% |
+| Masuk password | 35/55/59 | 36/44/46 | 129/1287/1994 | 0,00% |
+| Jawab Quick Maths | 11/42/69 | 11/24/38 | 30/964/1777 | 0,00% |
+| Jawab Quiz | 11/39/73 | 12/25/45 | 33/1301/1850 | 0,00% |
+| Heartbeat | 8/24/44 | 8/16/29 | 13/1002/1838 | 0,00% |
 
-- 19.958 permintaan, 23,8 per detik, galat HTTP 0,00 persen, transaksi bisnis 100 persen.
-- p50 26 ms, p95 130 ms, p99 242 ms. Today p95 197 ms, simpan jawaban p95 105 ms, kumpul sesi p95 311 ms.
-- RAM total empat replika web: 1388 MiB pada menit pertama, 1448 pada menit ke-4, 1464 pada menit ke-8, 1463 pada menit ke-12 (mendatar, tidak ada tanda kebocoran dalam 12 menit). Sambungan Postgres 18 sampai 23, tidak merayap naik. PgBouncer tidak pernah punya klien yang menunggu.
-- Data keluar dari proxy 245 MB, rata-rata 2,3 Mbps.
+Daftar selalu sekitar 1 detik karena `evenTime(900)` sengaja menyamakan waktu jawab. Semua fungsi baru masuk campuran `mixed` dan berjalan tanpa galat. Bobot per iterasi: sesi hari ini 38 persen, Quick Maths 8, Quiz 5, hanya Today 8, Practice hub 6, kartu 5, Ruang Baca dan kamus 6, tes penempatan 3, Kira World 7, bos 3, dasbor orang tua 3, orang tua mengubah saklar 3, /feedback 1, daftar dan verifikasi 1, PIN 2, password 1.
 
-Soak 30 menit penuh, dan soak lebih lama pada 300 anak, belum dijalankan.
+## 2. Titik patah
 
-## 6. Gangguan
+Dijalankan sebelum klip per soal, jadi semua klip masih lewat origin, dengan 1500 keluarga fiktif. Anak tangga 75 detik: 25 detik naik, 50 detik tahan.
+
+| VU | p50 ms | p95 ms | p99 ms | Galat HTTP | Today p95 ms | Simpan jawaban p95 ms |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1000 | 269 | 3786 | 17100 | 0,00% | 23335 | 7866 |
+| 1500 | 627 | 4285 | 10277 | 0,00% | 16689 | 6060 |
+| 2000 | 758 | 6789 | 17502 | 0,00% | 22334 | 8543 |
+| 2500 | 963 | 8242 | 19319 | 0,00% | 25642 | 9756 |
+| 3000 | 1188 | 10664 | 28247 | 0,00% | 38213 | 14555 |
+
+Galat tidak pernah lewat 1 persen sampai 3000 VU, jadi titik patah menurut galat tidak tercapai. Angka ini terdengar lebih baik dari kenyataan: k6 menunggu jawaban sampai 60 detik, sehingga server yang kelebihan beban terlihat sebagai antrean, tidak sebagai galat. Anak sungguhan akan menyerah jauh sebelum itu. Batas yang berguna adalah waktu tunggu, dan itu sudah lewat pada 1000. Uji ini tidak diulang pada kode akhir.
+
+Penyetelan lewat konfigurasi tidak dicoba malam ini karena waktu habis oleh dua perbaikan di atas, dan tampaknya tidak akan banyak menolong: pada 1000 anak CPU web 353 persen (empat replika hampir penuh), Postgres 243 persen, seluruh PC rata-rata 84 persen. Enam replika sudah dicoba 4 November dan lebih buruk. Mendorong 1000 ke target butuh CPU lebih banyak atau profil Today, yang paling berat.
+
+## 3. Suara
+
+- **Klip sungguhan:** 57.237 berkas (sekitar 1,6 GB, versi `piper-lessac-medium`) disalin dari `C:\kw4\tts-piper\tts` (sumber hanya dibaca) ke data staging, dengan `served-version.txt`. Salinan sudah dihapus. Klip p95 16 ms pada 500 anak dan 38 ms pada 1000 anak.
+- **GPU:** dicuplik tiap 5 detik dengan `nvidia-smi` di semua uji. Rata-rata 0,1 sampai 0,4 persen. Puncak tertinggi 9 persen pada uji 100 anak; Chrome agen lain berjalan pada saat itu, tetapi penyebabnya tidak dipastikan. Memori 2,8 GB tetap, tanpa proses TTS. `kira-tts-1` diam.
+- **Permintaan suara langsung:** `TTS_URL` di staging menunjuk penjaga kecil yang mencatat setiap permintaan. Semua uji k6: 0 permintaan. Tetapi k6 tidak pernah memanggil `/api/tts/request`. Di peramban sungguhan, menekan tombol baca pada soal yang klipnya belum ada (kemungkinan soal Matematika buatan generator) mengantrekan job `tts.clip`, dan worker memanggil `GET /health` ke layanan suara. Penjaga menjawab 503 dan job selesai dalam 26 ms. Jadi bila `kira-tts-1` menyala, tombol anak bisa sampai ke GPU. Bila mati, job dilewati.
+- **Soal tanpa klip:** anak melihat "Suara soal ini belum siap. Lewati dulu dan lanjutkan." dan tidak ada bunyi. Berapa banyak soal buatan generator yang tidak punya klip belum dihitung.
+- **Saat internet putus (peramban sungguhan):** soal berikutnya yang sudah dipramuat tetap berbunyi. Klip yang belum tersimpan memberi "Suaranya gagal dimuat. Periksa sambungan lalu coba lagi." Sesudah muat ulang saat offline tombolnya tetap ada dan pesannya sama. Belum dicoba di peramban: soal dengar sungguhan (memakai kode tombol yang sama), dan maju ke soal yang belum pernah dipramuat.
+
+Byte sesi pertama di peramban sungguhan (Chromium tanpa layar, sampai soal pertama, dua anak berbeda pada seed berbeda; soal berikutnya tidak terukur karena skrip berhenti di soal pertama):
+
+| | Sebelum | Sesudah |
+|---|---:|---:|
+| Klip suara | 303 klip, 5,0 MB | 12 klip, 120 KB |
+| Aset statis (sekali per perangkat) | 1,2 MB | 1,2 MB |
+| Kamus (sekali per perangkat) | 154 KB | 154 KB |
+| Halaman dan API | 187 KB | 171 KB |
+| Total | 6,5 MB | 1,6 MB |
+
+Jumlah per soal sesudah perubahan (sekitar 6 klip) diambil dari angka ini dan dipakai skenario k6.
+
+## 4. Batas kursi
+
+`KIRA_BETA_SEATS=100`, 150 kedatangan dalam 120 detik, tabel kursi dikosongkan dulu. Tiap pendaftar: buka halaman, daftar, ambil tautan dari Mailpit, verifikasi, tambah anak pertama.
+
+| Hasil | Jumlah |
+|---|---:|
+| Percobaan daftar | 151 |
+| Ditolak saat daftar karena penuh, masuk daftar tunggu | 47 |
+| Sempat menerima email, ditolak saat verifikasi karena penuh | 4 |
+| Verifikasi berhasil | 100 |
+| Baris `auth.beta_seat` di database | **100** |
+| Menambah anak pertama | 100 |
+| Galat HTTP | 0,00% |
+
+Empat orang menerima tautan lalu mendapat jawaban penuh saat membukanya. Itu sesuai aturan kursi (kursi diambil saat verifikasi), dan orang tua perlu tahu kemungkinan ini. Verifikasi p95 36 ms. HaveIBeenPwned dan Turnstile mati di staging, dan surat masuk Mailpit.
+
+## 5. Unggahan rumah
+
+Dihitung dari byte terukur per anak per menit, rata-rata seluruh campuran. Klip di k6 memakai kunci acak (rata-rata 24,7 KB), sedangkan klip soal pertama di peramban sekitar 10 KB, jadi batas atas di bawah kemungkinan lebih tinggi dari kenyataan. Tanpa overhead Tunnel.
+
+| | Per anak per menit | 100 anak aktif | 1000 anak aktif |
+|---|---:|---:|---:|
+| Halaman dan API (selalu lewat rumah) | 93 sampai 142 KB | 1,2 sampai 1,9 Mbps | 12 sampai 19 Mbps |
+| Klip, bila Cloudflare belum menyimpan | 110 sampai 280 KB | 1,5 sampai 3,7 Mbps | 15 sampai 37 Mbps |
+| **Total tanpa cache klip** | | **sekitar 3 sampai 6 Mbps** | **sekitar 27 sampai 56 Mbps** |
+| **Total bila Cloudflare menyimpan klip** | | **sekitar 2 Mbps** | **sekitar 12 sampai 19 Mbps** |
+
+Pembanding terukur dari proxy: 500 anak rata-rata 14 Mbps, puncak 24 Mbps; 1000 anak rata-rata 29 Mbps, puncak 52 Mbps. Sebelum klip per soal, 100 anak sudah mencapai puncak 64 Mbps.
+
+**Apakah Cloudflare bisa menyimpan klip?** Dari sisi origin, bisa: `/tts/<kunci>.mp3` dijawab `Cache-Control: public, max-age=31536000, immutable`, tanpa `Set-Cookie`, dan `.mp3` termasuk ekstensi yang disimpan Cloudflare secara bawaan. Ini belum terbukti lewat Cloudflare sungguhan. Periksa setelah pindah: minta satu klip dua kali di `kira.gatxel.com` dan lihat `cf-cache-status: HIT`. Total semua klip sekitar 1,4 GB, jadi paling banyak sebesar itu yang pernah keluar lewat rumah. `/dict/*.json` juga bertanda immutable, tetapi `.json` tidak disimpan Cloudflare secara bawaan; 154 KB per perangkat sekali, dan tidak mendesak.
+
+Untuk 100 keluarga, unggahan 29 Mbps cukup, dengan atau tanpa cache klip. Untuk 1000 anak aktif, cache klip menjadi syarat.
+
+## 6. Perbaikan malam ini
+
+| Commit | Masalah | Bukti | Perbaikan |
+|---|---|---|---|
+| `76497456` | Sambungan kedua diminta saat transaksi terbuka (Today pada setiap kunjungan, pembuatan sesi, tes penempatan, alat peraga, tambah anak). Semua sambungan saling menunggu sampai diputus 60 detik kemudian. | 34 sambungan `idle in transaction` selama 45 sampai 60 detik; 70,93% galat pada 1000 anak. | Dibaca lewat `tx` yang sama. Akun dan PIN anak dibuat sebelum transaksi. Penjaga `server/tx-guard.ts`: melempar di tes, mencatat di produksi. Tes database tidak pernah memicu lemparan ini. |
+| `76497456` | Satu kali macet menjadi situs mati: cek sehat proxy menyentuh database, jadi semua replika keluar sekaligus. | "no upstreams" ribuan kali, padahal CPU web 0 persen. | Cek sehat proxy `/api/health?scope=live` tanpa database, dua kali gagal baru keluar, status 503 tidak dihitung. Transaksi web menganggur diputus setelah 15 detik; worker dan cadangan tetap 60 detik. Setelah perbaikan: 0 "no upstreams" di semua uji. |
+| `32eddc05` | `/api/tts/today` memeriksa sekitar 283 berkas sambil memegang transaksi. | p50 6 detik pada 300 anak. | Di luar transaksi; kemudian dihapus bersama daftar klip pada baris berikut. |
+| `d3dfe443`, `cf2a40e3` | Peramban mengunduh seluruh klip hari itu di muka. | 303 klip, 5,0 MB di peramban sungguhan. | Klip soal ini dan soal berikutnya saja. Status suara terakhir diingat untuk offline. Tombol suara menulis alasan bila klip gagal. Status suara kini p95 7 ms pada 500 anak. |
+
+Sambungan kedua pada pool auth di dalam transaksi tetap ada (`learnerUiPrefs`, bahasa anak) dan hanya dicatat. Pool itu tidak bisa ikut saling menunggu, karena pemegang sambungan auth tidak pernah meminta sambungan app. Pemindaian kode berdasarkan nama fungsi, jadi yang terlewat akan muncul di log dengan pesan "sambungan kedua diminta saat transaksi terbuka". Selama uji akhir hanya baris auth yang muncul.
+
+## 7. Batas uji ini
+
+- **Satu PC.** k6, web, Postgres, dan proxy bersaing di 12 thread yang sama. Di produksi k6 tidak ada, jadi bagian CPU itu (28 sampai 141 persen satu inti) bebas.
+- **Jalur dalam, tanpa Cloudflare.** Latensi Cloudflare (sebelumnya terukur 0,35 sampai 0,45 detik per permintaan), cache tepi, batas Tunnel, dan https tidak ikut.
+- **Unggahan rumah (sekitar 29 Mbps) dan Wi-Fi tidak dilalui.** Bagian 5 adalah perhitungan.
+- **Pengukuran pendek.** 500 dan 1000 pada kode akhir hanya 60 detik tahan, sudah termasuk pembuatan sesi pertama hari itu untuk semua anak, yang terberat. Uji 1000 akhir dimulai tepat sesudah tes database selesai dan saat PC lebih sibuk (CPU PC rata-rata 84 persen) dibanding uji 500 (57 persen), jadi perbandingan keduanya tidak sepenuhnya setara.
+- **Tidak dijalankan karena waktu:** lonjakan 0 ke 500 dalam 30 detik, soak 15 menit, 300 anak pada kode akhir, dan uji batas pada kode akhir. Pendaftaran di uji kursi berjalan pada image sebelum klip per soal; kode kursinya tidak berubah.
+- **Bukan pengguna sungguhan.** k6 tidak menjalankan JavaScript halaman. Byte statis dan klip diukur terpisah di peramban. Mailpit dan seed menulis data fiktif. HaveIBeenPwned mati dan email tidak keluar.
+
+## 8. Keadaan PC saat uji
+
+Bukan PC yang tenang. Tercatat tiap 30 detik: Steam memakai 85 sampai 100 persen satu inti sepanjang malam (bukan kerja Kira, tidak disentuh), `dllhost` sampai 100 persen, `chrome-headless-shell` agen lain sampai 150 persen, tumpukan `kiraqa` (11 kontainer) dan Postgres agen lain. Kontainer selain staging memuncak 28 sampai 355 persen satu inti. CPU seluruh PC rata-rata: 54 persen pada 100 anak, 91 persen pada 300, 57 persen pada 500 akhir, 84 persen pada 1000 akhir, 99 persen pada uji batas. Uji ini tidak menyentuh kontainer produksi. Kontainer produksi baru terlihat menyala sejak sekitar 04.36 (pindah ke susunan baru), jadi uji 500 akhir sebagian berjalan bersamaan dengan itu, dan angka 355 persen di atas ikut memuatnya. Stack staging dan volumenya dihapus pukul 04.38.
+
+## 9. Mengulang
+
+Lihat `docs/pasang-windows.md` bagian 16 dan `deploy/load/README.md`.
+
+# Uji sebelumnya (4 November malam, cabang `pilot/kapasitas`)
+
+Bagian di bawah berasal dari kode dan klip palsu waktu itu. Angka latensinya sudah digantikan bagian di atas. Temuan dan uji gangguannya tetap berlaku.
+
+## Gangguan
 
 Selama beban 300 anak: Valkey dimatikan 25 detik, replika web nomor 2 dimatikan paksa (`docker kill`) 45 detik, lalu PgBouncer di-restart (dua kali, karena tumpang tindih dengan pemulihan replika).
 
@@ -104,7 +202,7 @@ Selama beban 300 anak: Valkey dimatikan 25 detik, replika web nomor 2 dimatikan 
 - Replika mati: Caddy menandainya tidak sehat (cek aktif tiap 5 detik, pasif setelah 3 kegagalan) dan memindahkan permintaan; sebagian permintaan yang sedang berjalan di replika itu gagal.
 - PgBouncer restart: sambungan dibuat ulang oleh pool postgres.js; permintaan yang sedang berjalan gagal, yang berikutnya berhasil.
 
-## 7. Hambatan yang ditemukan dan perbaikan
+## Hambatan yang ditemukan dan perbaikan
 
 | Temuan | Bukti | Perbaikan |
 |---|---|---|
@@ -126,7 +224,7 @@ Percobaan yang **tidak** memberi hasil dan tidak dipakai:
 
 Yang belum dikerjakan: profil CPU Node untuk mencari fungsi terberat di Today dan simpan jawaban (pada 500 anak: sekitar 38 ms CPU Node dan 17 ms CPU Postgres per permintaan, dihitung dari CPU puncak dibagi permintaan per detik rata-rata; sekitar 14 round trip SQL per simpan jawaban); itulah tempat berikutnya untuk mendorong batas 500 ke atas.
 
-## 8. Uji konkurensi
+## Uji konkurensi
 
 `apps/web/test/concurrency.db.test.ts` (6 tes, Postgres sungguhan, transaksi paralel):
 
@@ -140,10 +238,3 @@ Yang belum dikerjakan: profil CPU Node untuk mencari fungsi terberat di Today da
 | 8 pendaftaran bersamaan dengan satu email (huruf besar dan kecil) | Tepat satu akun (indeks unik `lower(email)`). Layanan pendaftaran (cabang akun) belum ada di cabang ini; tes ini mengunci aturan di database. Skenario k6 `signup` menguji alurnya setelah digabung. |
 
 Tes lain: `apps/web/test/limiter.test.ts` (pembatas tanpa Valkey), `apps/web/test/kv.test.ts` (klien Valkey, jalan bila `KIRA_TEST_VALKEY_URL` diisi), `packages/db/test/sourcing-orgs.test.ts` (daftar org sourcing).
-
-## 9. Tidak diuji atau belum
-
-- **Pendaftaran dan verifikasi massal** (skenario `signup`, Mailpit): kodenya ada di cabang akun, belum di cabang ini. Skenario sudah ditulis menurut `signUpAction`, `verifySignupAction`, dan tautan `/daftar/konfirmasi/<token>`, tetapi belum pernah dijalankan.
-- **Lewat Cloudflare:** semua uji di dalam PC. Latensi 0,35 sampai 0,45 detik per permintaan, cache tepi, dan batas Tunnel tidak ikut.
-- **Suara Qwen di GPU** berjalan bersamaan dengan beban web: tidak ikut; di staging TTS mati dan klip suara berupa berkas palsu yang disajikan proxy.
-- **Uji akhir** pada PC yang tenang setelah semua cabang digabung, termasuk 1000 anak dan soak 30 menit penuh.
