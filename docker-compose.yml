@@ -104,11 +104,18 @@ services:
       KIRA_BACKUP_DIR: /backups
       KIRA_BACKUP_LABEL: ${KIRA_HOST_BACKUPS:-./backups}
       KIRA_MAX_LEARNERS: ${KIRA_MAX_LEARNERS:-10}
-      KIRA_MCP: ${KIRA_MCP:-on}
+      KIRA_MCP: ${KIRA_MCP:-off}
+      # Pendaftaran publik (pilot)
+      KIRA_BETA_SEATS: ${KIRA_BETA_SEATS:-100}
+      KIRA_MAX_LEARNERS_PER_FAMILY: ${KIRA_MAX_LEARNERS_PER_FAMILY:-5}
+      KIRA_CURRICULUM_CLAIM: ${KIRA_CURRICULUM_CLAIM:-}
+      KIRA_TURNSTILE_SITE_KEY: ${KIRA_TURNSTILE_SITE_KEY:-}
+      KIRA_TURNSTILE_SECRET: ${KIRA_TURNSTILE_SECRET:-}
+      KIRA_ACCESS_LOG: ${KIRA_ACCESS_LOG:-on}
       KIRA_HIBP: ${KIRA_HIBP:-on}
       SMTP_URL: ${SMTP_URL:-}
       SMTP_FROM: ${SMTP_FROM:-}
-      AI_PROVIDER: ${AI_PROVIDER:-claude-code}
+      AI_PROVIDER: ${AI_PROVIDER:-none}
       AI_MONTHLY_JOB_LIMIT: ${AI_MONTHLY_JOB_LIMIT:-400}
       KIRA_LEGAL_NAME: ${KIRA_LEGAL_NAME:-}
       KIRA_LEGAL_ADDRESS: ${KIRA_LEGAL_ADDRESS:-}
@@ -116,6 +123,9 @@ services:
       KIRA_LEGAL_PHONE: ${KIRA_LEGAL_PHONE:-}
       KIRA_LEGAL_COURT: ${KIRA_LEGAL_COURT:-}
       KIRA_LEGAL_EFFECTIVE: ${KIRA_LEGAL_EFFECTIVE:-}
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "5" }
     ports:
       - "127.0.0.1:3000:3000"
     volumes:
@@ -142,12 +152,15 @@ services:
       PGSSLROOTCERT: /certs/ca.crt
       KIRA_DATA_DIR: /data
       KIRA_INTERNAL_URL: http://web:3000
+      KIRA_ORIGIN: ${KIRA_ORIGIN:-}
+      KIRA_BETA_SEATS: ${KIRA_BETA_SEATS:-100}
+      KIRA_MAX_LEARNERS_PER_FAMILY: ${KIRA_MAX_LEARNERS_PER_FAMILY:-5}
       KIRA_INTERNAL_TOKEN: ${KIRA_INTERNAL_TOKEN}
       KIRA_CONTENT_DIR: /app/content
       TTS_URL: ${TTS_URL:-}
       SMTP_URL: ${SMTP_URL:-}
       SMTP_FROM: ${SMTP_FROM:-}
-      AI_PROVIDER: ${AI_PROVIDER:-claude-code}
+      AI_PROVIDER: ${AI_PROVIDER:-none}
       CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
       CLAUDE_MODEL_AUTHOR: ${CLAUDE_MODEL_AUTHOR:-claude-sonnet-5-5}
       CLAUDE_MODEL_FAST: ${CLAUDE_MODEL_FAST:-claude-haiku-5-5}
@@ -171,8 +184,14 @@ services:
       DATABASE_URL_OWNER: postgres://kira_owner:${KIRA_OWNER_PASSWORD}@db:5432/kira
       BACKUP_KEEP_DAILY: ${BACKUP_KEEP_DAILY:-14}
       BACKUP_KEEP_WEEKLY: ${BACKUP_KEEP_WEEKLY:-8}
+      BACKUP_HOURLY: ${BACKUP_HOURLY:-on}
+      BACKUP_KEEP_HOURLY: ${BACKUP_KEEP_HOURLY:-48}
+      BACKUP_KEEP_OFFSITE: ${BACKUP_KEEP_OFFSITE:-72}
+      BACKUP_PASSPHRASE: ${BACKUP_PASSPHRASE:-}
     volumes:
       - ./deploy/backup/backup.sh:/backup.sh:ro
+      - ./deploy/backup/restore-test.sh:/restore-test.sh:ro
+      - ${KIRA_BACKUP_OFFSITE_DIR:-./backups-offsite}:/offsite
       - *ca-mount
       - ${KIRA_HOST_BACKUPS:-./backups}:/backups
     networks: [internal]
