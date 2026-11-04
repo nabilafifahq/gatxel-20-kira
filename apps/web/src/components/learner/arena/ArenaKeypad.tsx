@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import { applyKey, type KeypadKey } from '@/components/learner/NumericKeypad'
 import type { ArenaTone } from './tone'
 
@@ -19,7 +20,7 @@ export function ArenaKeypad({
   disabled = false,
   feedback = null,
   maxLength = 6,
-  label = 'Your answer',
+  label,
   tone = 'hitung',
   className,
 }: {
@@ -33,6 +34,7 @@ export function ArenaKeypad({
   tone?: ArenaTone
   className?: string
 }): ReactElement {
+  const t = useT().arena.keypad
   const outputId = useId()
   const valueRef = useRef(value)
   const changeRef = useRef(onChange)
@@ -101,13 +103,13 @@ export function ArenaKeypad({
             : 'border-3 border-fg bg-surface'
   return (
     <div className={cx('flex w-full max-w-[360px] flex-col gap-2.5', className)}>
-      <output id={outputId} aria-live="polite" aria-label={label} className={cx('flex h-18 items-center justify-end rounded-control px-5 font-numbers text-display leading-none font-semibold tabular-nums', frame)}>
+      <output id={outputId} aria-live="polite" aria-label={label ?? t.answer} className={cx('flex h-18 items-center justify-end rounded-control px-5 font-numbers text-display leading-none font-semibold tabular-nums', frame)}>
         {value === '' ? <span className="text-border">?</span> : value}
       </output>
       <div className="grid grid-cols-3 gap-2.5">
         {KEYS.map((k) => (
-          <button key={k} type="button" disabled={disabled} aria-label={k === 'clear' ? 'Clear' : k === 'del' ? 'Delete' : k} onClick={() => press(k)} className={keyBase}>
-            {k === 'del' ? <UiIcon name="backspace" size={28} /> : k === 'clear' ? <span className="text-body font-bold">Clear</span> : k}
+          <button key={k} type="button" disabled={disabled} aria-label={k === 'clear' ? t.clearAria : k === 'del' ? t.del : k} onClick={() => press(k)} className={keyBase}>
+            {k === 'del' ? <UiIcon name="backspace" size={28} /> : k === 'clear' ? <span className="text-body font-bold">{t.clear}</span> : k}
           </button>
         ))}
       </div>

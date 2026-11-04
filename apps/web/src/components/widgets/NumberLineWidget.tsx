@@ -3,6 +3,7 @@
 import { useRef, type KeyboardEvent, type PointerEvent, type ReactElement } from 'react'
 import { IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { asPosition } from './answers'
 import type { WidgetProps } from './types'
 
@@ -35,6 +36,7 @@ export function NumberLineWidget({ item, value, onChange, disabled = false, feed
   const pos = asPosition(value)
   const svgRef = useRef<SVGSVGElement>(null)
   const locked = disabled || !!feedback
+  const t = useT()
   const count = Math.round((max - min) / step)
   const labelEvery = count <= 12 ? 1 : count <= 24 ? 2 : count <= 60 ? 5 : 10
   const xOf = (v: number) => PAD + ((v - min) / (max - min || 1)) * (W - PAD * 2)
@@ -70,15 +72,15 @@ export function NumberLineWidget({ item, value, onChange, disabled = false, feed
 
   return (
     <div className="flex w-full flex-col gap-3">
-      <p className="m-0 text-body font-semibold text-fg-muted">Tap the line to put the marker on the number.</p>
+      <p className="m-0 text-body font-semibold text-fg-muted">{t.widgets.numberLine.tapLine}</p>
       <div
         role="slider"
         tabIndex={locked ? -1 : 0}
-        aria-label="Marker on the number line"
+        aria-label={t.widgets.numberLine.marker}
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={pos ?? undefined}
-        aria-valuetext={pos === null ? 'No number chosen yet' : fmt(pos)}
+        aria-valuetext={pos === null ? t.widgets.numberLine.noNumber : fmt(pos)}
         aria-disabled={locked || undefined}
         onKeyDown={onKey}
         className="rounded-control border-2 border-border bg-surface px-2 py-3"
@@ -115,11 +117,11 @@ export function NumberLineWidget({ item, value, onChange, disabled = false, feed
         </svg>
       </div>
       <div className="flex items-center gap-3">
-        <IconButton icon="minus" label="Move left" disabled={locked} onClick={() => set((pos ?? min + step) - step)} />
+        <IconButton icon="minus" label={t.widgets.numberLine.moveLeft} disabled={locked} onClick={() => set((pos ?? min + step) - step)} />
         <output aria-live="polite" className="min-w-24 flex-1 text-center font-reading text-h1 tabular-nums">
           {pos === null ? '' : fmt(pos)}
         </output>
-        <IconButton icon="plus" label="Move right" disabled={locked} onClick={() => set(pos === null ? min : pos + step)} />
+        <IconButton icon="plus" label={t.widgets.numberLine.moveRight} disabled={locked} onClick={() => set(pos === null ? min : pos + step)} />
       </div>
     </div>
   )

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState, type ReactElement } from 'react'
 import type { ActionResult } from '@/lib/dto'
 import type { PlacementAnswerResultDTO, PlacementEntryDTO, PlacementStepDTO } from '@/lib/dto-placement'
+import { useT } from '@/lib/i18n/client'
 import { Button, ButtonLink } from '@/components/ui/Button'
 import { UiIcon } from '@/components/ui/icons'
 import { Mascot } from '@/components/learner/Mascot'
@@ -26,8 +27,6 @@ export type PlacementActions = {
   skip(input: { subject: PlacementStepDTO['subject'] }): Promise<ActionResult<{ redirectTo: string }>>
 }
 
-const SUBJECT_WORD = { math: 'Math', english: 'English', science: 'Science' } as const
-
 function Frame({ jenjang, children }: { jenjang: string; children: React.ReactNode }): ReactElement {
   return (
     <div data-jenjang={jenjang} className="flex min-h-svh flex-col items-center bg-bg px-4 py-8 text-fg md:px-8 md:py-12">
@@ -37,6 +36,8 @@ function Frame({ jenjang, children }: { jenjang: string; children: React.ReactNo
 }
 
 export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; actions: PlacementActions }): ReactElement {
+  const t = useT()
+  const copy = t.lessons.placement
   const router = useRouter()
   const [step, setStep] = useState<PlacementStepDTO | null>(entry.kind === 'step' ? entry.step : null)
   const [intro, setIntro] = useState(entry.kind === 'step' && entry.step.number === 1)
@@ -50,9 +51,9 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
     return (
       <Frame jenjang={entry.jenjang}>
         <Mascot name={entry.avatar} size={96} />
-        <h1 className="m-0 font-display text-h1 font-semibold">Nothing to do here</h1>
-        <p className="m-0 text-body-lg text-fg-muted">Your starting point is set. Head back to Today whenever you are ready.</p>
-        <ButtonLink href="/today">Go to Today</ButtonLink>
+        <h1 className="m-0 font-display text-h1 font-semibold">{copy.nothingTitle}</h1>
+        <p className="m-0 text-body-lg text-fg-muted">{copy.nothingNote}</p>
+        <ButtonLink href="/today">{copy.goToToday}</ButtonLink>
       </Frame>
     )
   }
@@ -61,20 +62,20 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
     return (
       <Frame jenjang={entry.jenjang}>
         <Mascot name={entry.avatar} size={96} />
-        <h1 className="m-0 font-display text-h1 font-semibold">Pick a subject to start</h1>
-        <p className="m-0 text-body-lg text-fg-muted">Each one takes about 5 minutes. You can do them on different days.</p>
+        <h1 className="m-0 font-display text-h1 font-semibold">{copy.pickTitle}</h1>
+        <p className="m-0 text-body-lg text-fg-muted">{copy.pickNote}</p>
         <ul className="m-0 flex list-none flex-col gap-3 p-0">
           {entry.subjects.map((s) => (
             <li key={s.subject}>
               <ButtonLink href={`/placement?subject=${s.subject}`} variant="secondary" className="w-full justify-between">
-                <SubjectChip subject={s.subject} size="S" label={s.label} />
-                <span className="text-body text-fg-muted">{s.status === 'in_progress' ? 'Carry on' : 'Start'}</span>
+                <SubjectChip subject={s.subject} size="S" label={t.common.subject[s.subject]} />
+                <span className="text-body text-fg-muted">{s.status === 'in_progress' ? copy.carryOn : t.common.start}</span>
               </ButtonLink>
             </li>
           ))}
         </ul>
         <Link href="/today" className="inline-flex h-11 items-center self-start text-body font-bold">
-          Back to Today
+          {t.lessons.backToToday}
         </Link>
       </Frame>
     )
@@ -84,22 +85,22 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
     return (
       <Frame jenjang={done.jenjang}>
         <Mascot name={done.avatar} mood="celebrate" size={112} />
-        <h1 className="m-0 font-display text-h1 font-semibold">All done, thank you!</h1>
+        <h1 className="m-0 font-display text-h1 font-semibold">{copy.doneTitle}</h1>
         <p className="m-0 text-body-lg text-fg-muted">
-          Kira now knows where to start in {done.subjectLabel}. There is nothing to pass or fail, and your sessions will fit you better.
+          {copy.doneNote(t.common.subject[done.subject])}
         </p>
         {done.nextSubject ? (
           <ButtonLink href={`/placement?subject=${done.nextSubject}`} iconAfter="arrow-right">
-            Next: {SUBJECT_WORD[done.nextSubject]}
+            {copy.nextSubject(t.common.subject[done.nextSubject])}
           </ButtonLink>
         ) : (
           <ButtonLink href="/today" iconAfter="arrow-right">
-            Go to Today
+            {copy.goToToday}
           </ButtonLink>
         )}
         {done.nextSubject ? (
           <Link href="/today" className="inline-flex h-11 items-center self-start text-body font-bold">
-            Back to Today
+            {t.lessons.backToToday}
           </Link>
         ) : null}
       </Frame>
@@ -122,14 +123,14 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
     return (
       <Frame jenjang={step.jenjang}>
         <Mascot name={step.avatar} size={112} />
-        <SubjectChip subject={step.subject} size="S" label={`${step.subjectLabel} starting point`} />
-        <h1 className="m-0 font-display text-h1 font-semibold">Let us find your starting point</h1>
-        <p className="m-0 text-body-lg">This helps Kira pick the right questions for you.</p>
+        <SubjectChip subject={step.subject} size="S" label={copy.chip(t.common.subject[step.subject])} />
+        <h1 className="m-0 font-display text-h1 font-semibold">{copy.introTitle}</h1>
+        <p className="m-0 text-body-lg">{copy.introNote}</p>
         <ul className="m-0 flex list-none flex-col gap-2 p-0 text-body-lg text-fg-muted">
-          <li>About 10 questions and about 5 minutes.</li>
-          <li>No timer and no score. Nobody passes or fails.</li>
-          <li>If you are not sure, tap I&apos;m not sure. That is fine.</li>
-          <li>You can stop and carry on later.</li>
+          <li>{copy.introLength}</li>
+          <li>{copy.introNoScore}</li>
+          <li>{copy.introUnsure}</li>
+          <li>{copy.introStop}</li>
         </ul>
         {error ? (
           <p role="alert" className="m-0 text-body font-semibold">
@@ -138,13 +139,13 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
         ) : null}
         <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button onClick={() => (playSfx('tap'), setIntro(false))} iconAfter="arrow-right">
-            Start
+            {t.common.start}
           </Button>
           <ButtonLink href="/today" variant="quiet">
-            Not now
+            {copy.notNow}
           </ButtonLink>
           <Button variant="quiet" size="M" loading={busy} onClick={() => void skipTest()} className="sm:ml-auto">
-            Skip this test
+            {copy.skipTest}
           </Button>
         </div>
       </Frame>
@@ -163,7 +164,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
     try {
       const r = await actions.answer({ runId: step.runId, ref: item.ref, ...(unsure ? {} : { answer: value }), unsure })
       if (!r.ok) {
-        setError("That did not save. Check your connection and tap again, your place is kept.")
+        setError(copy.notSaved)
         return
       }
       if (r.data.done) setDone(r.data)
@@ -172,7 +173,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
         setValue(null)
       }
     } catch {
-      setError("That did not save. Check your connection and tap again, your place is kept.")
+      setError(copy.notSaved)
     } finally {
       setBusy(false)
     }
@@ -180,18 +181,18 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
 
   return (
     <div data-jenjang={step.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
-      <header className="flex items-center gap-3 px-4 py-3 md:px-8">
-        <SubjectChip subject={step.subject} size="S" label={`${step.subjectLabel} starting point`} />
-        <div role="img" aria-label="Rough progress" className="flex h-2.5 min-w-0 flex-1 overflow-hidden rounded-pill bg-divider">
+      <header className="flex flex-wrap items-center gap-3 px-4 py-3 md:px-8">
+        <SubjectChip subject={step.subject} size="S" label={copy.chip(t.common.subject[step.subject])} />
+        <div role="img" aria-label={copy.progress} className="flex h-2.5 min-w-0 flex-1 overflow-hidden rounded-pill bg-divider">
           <span className="bg-fg transition-[width] duration-300 motion-reduce:transition-none" style={{ width: `${progress}%` }} />
         </div>
         <Link href="/today" className="inline-flex h-11 flex-none items-center gap-1 px-2 text-body font-bold">
           <UiIcon name="close" size={20} />
-          Stop for now
+          {copy.stopForNow}
         </Link>
       </header>
       <main className="mx-auto grid w-full max-w-[1100px] flex-1 grid-cols-1 gap-4 px-4 pb-4 md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
-        <section aria-label="Question" className="rounded-card border border-divider bg-surface p-4 md:p-8">
+        <section aria-label={copy.question} className="rounded-card border border-divider bg-surface p-4 md:p-8">
           <QuestionView
             key={item.ref}
             item={item}
@@ -201,7 +202,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
             answer={{ value, onChange: (v) => !busy && setValue(v), disabled: busy, feedback: null }}
           />
         </section>
-        <section aria-label="Your answer" className="flex flex-col items-center justify-center gap-3.5 py-1">
+        <section aria-label={copy.yourAnswer} className="flex flex-col items-center justify-center gap-3.5 py-1">
           <Widget item={item} value={value} onChange={(v) => !busy && setValue(v)} disabled={busy} feedback={null} subject={step.subject} />
         </section>
       </main>
@@ -213,10 +214,10 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
       <footer className="sticky bottom-0 z-10 flex items-center gap-3 bg-bg px-4 py-3 md:px-8">
         <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={step.subject} showNote={false} />
         <Button variant="secondary" onClick={() => void submit(true)} disabled={busy} className="ml-auto">
-          I&apos;m not sure
+          {copy.notSure}
         </Button>
         <Button onClick={() => void submit(false)} disabled={!complete || busy} loading={busy} iconAfter="arrow-right">
-          Next
+          {t.common.next}
         </Button>
       </footer>
     </div>

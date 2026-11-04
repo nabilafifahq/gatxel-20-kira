@@ -7,6 +7,8 @@ import { TOPIC_IDS, type KAnswer } from '@kira/content/knowledge'
 import type { AccessoryId } from '@kira/core'
 import type { ActionResult } from '@/lib/dto'
 import type { QmAnswerResult, QmResultDTO, QmStartInput, QuizAnswerResult, QuizResultDTO, QuizStartInput } from '@/lib/dto-arena'
+import { dictFor, tOf } from '@/lib/i18n'
+import { getT } from '@/lib/i18n/server'
 import { inOrg } from '../db'
 import { orgCtx, requireLearner } from '../auth/actor'
 import { runAction } from '../errors'
@@ -20,6 +22,16 @@ import { applyAccessory, assertAccessoryEarned } from '../dal/arena-tracks'
  * menyentuh ronde milik learner itu (kepemilikan dicek di loadSession dan RLS). Jawaban selalu diperiksa
  * di server dari seed; client tidak pernah menerima kunci jawaban mode berwaktu.
  */
+
+/** runAction untuk anak: pesan umum dari errors.ts dan batas laju mengikuti bahasa tampilan. */
+async function runChild<T>(context: string, fn: () => Promise<T>): Promise<ActionResult<T>> {
+  const res = await runAction(context, fn, 'en-GB')
+  if (res.ok) return res
+  const en = dictFor('en').arena.errors
+  if (res.message !== en.generic && res.message !== en.badInput && res.message !== en.slowDown) return res
+  const t = (await getT()).arena.errors
+  return { ...res, message: res.message === en.generic ? t.generic : res.message === en.badInput ? t.badInput : t.slowDown }
+}
 
 const roundId = z.string().uuid()
 const startQm = z
@@ -40,71 +52,66 @@ const startQm = z
   .strict()
 
 export async function startQmAction(input: QmStartInput): Promise<ActionResult<{ redirectTo: string }>> {
-  return runAction(
+  return runChild(
     'startQm',
     async () => {
       const actor = await requireLearner()
       const data = startQm.parse(input)
-      const { roundId: id } = await inOrg(orgCtx(actor), (tx) => startQmRound(tx, orgCtx(actor), actor.userId, data))
+      const { roundId: id } = await inOrg(orgCtx(actor), (tx) => startQmRound(tx, orgCtx(actor), actor.userId, data, tOf(actor)))
       return { redirectTo: `/quick-maths/play/${id}` }
     },
-    'en-GB',
   )
 }
 
 const answerQm = z.object({ roundId, index: z.number().int().min(0).max(999), answer: z.number().int().min(0).max(9_999_999).nullable(), ms: z.number().min(0).max(3_600_000) }).strict()
 
 export async function answerQmAction(input: { roundId: string; index: number; answer: number | null; ms: number }): Promise<ActionResult<QmAnswerResult>> {
-  return runAction(
+  return runChild(
     'answerQm',
     async () => {
       const actor = await requireLearner()
       await throttleIp('arena-answer', 600, actor.userId)
       const data = answerQm.parse(input)
-      return inOrg(orgCtx(actor), (tx) => answerQmRound(tx, actor.userId, data))
+      return inOrg(orgCtx(actor), (tx) => answerQmRound(tx, actor.userId, data, tOf(actor)))
     },
-    'en-GB',
   )
 }
 
 const hintQm = z.object({ roundId, index: z.number().int().min(0).max(999) }).strict()
 
 export async function hintQmAction(input: { roundId: string; index: number }): Promise<ActionResult<{ title: string; steps: string[] }>> {
-  return runAction(
+  return runChild(
     'hintQm',
     async () => {
       const actor = await requireLearner()
       const data = hintQm.parse(input)
-      return inOrg(orgCtx(actor), (tx) => hintQmRound(tx, actor.userId, data))
+      return inOrg(orgCtx(actor), (tx) => hintQmRound(tx, actor.userId, data, tOf(actor)))
     },
-    'en-GB',
   )
 }
 
 export async function finishQmAction(id: string): Promise<ActionResult<QmResultDTO>> {
-  return runAction(
+  return runChild(
     'finishQm',
     async () => {
       const actor = await requireLearner()
       const rid = roundId.parse(id)
-      return inOrg(orgCtx(actor), (tx) => finishQmRound(tx, orgCtx(actor), actor.userId, rid))
+      return inOrg(orgCtx(actor), (tx) => finishQmRound(tx, orgCtx(actor), actor.userId, rid, tOf(actor)))
     },
-    'en-GB',
   )
 }
 
 const startQuiz = z.object({ topic: z.union([z.enum(TOPIC_IDS), z.literal('mix')]), mode: z.enum(['learn', 'quiz', 'speed']), variant: z.literal('map').optional() }).strict()
 
 export async function startQuizAction(input: QuizStartInput): Promise<ActionResult<{ redirectTo: string }>> {
-  return runAction(
+  return runChild(
     'startQuiz',
     async () => {
       const actor = await requireLearner()
       const data = startQuiz.parse(input)
-      const { roundId: id } = await inOrg(orgCtx(actor), (tx) => startQuizRound(tx, orgCtx(actor), actor.userId, data))
+      const { roundId: id } = await inOrg(orgCtx(actor), (tx) => startQuizRound(tx, orgCtx(actor), actor.userId, data, tOf(actor)))
       return { redirectTo: `/quiz-arena/play/${id}` }
     },
-    'en-GB',
   )
 }
 
@@ -118,42 +125,39 @@ const answerQuiz = z
   .strict()
 
 export async function answerQuizAction(input: { roundId: string; index: number; answer: KAnswer | null; ms: number }): Promise<ActionResult<QuizAnswerResult>> {
-  return runAction(
+  return runChild(
     'answerQuiz',
     async () => {
       const actor = await requireLearner()
       await throttleIp('arena-answer', 600, actor.userId)
       const data = answerQuiz.parse(input)
-      return inOrg(orgCtx(actor), (tx) => answerQuizRound(tx, actor.userId, data))
+      return inOrg(orgCtx(actor), (tx) => answerQuizRound(tx, actor.userId, data, tOf(actor)))
     },
-    'en-GB',
   )
 }
 
 export async function finishQuizAction(id: string): Promise<ActionResult<QuizResultDTO>> {
-  return runAction(
+  return runChild(
     'finishQuiz',
     async () => {
       const actor = await requireLearner()
       const rid = roundId.parse(id)
-      return inOrg(orgCtx(actor), (tx) => finishQuizRound(tx, orgCtx(actor), actor.userId, rid))
+      return inOrg(orgCtx(actor), (tx) => finishQuizRound(tx, orgCtx(actor), actor.userId, rid, tOf(actor)))
     },
-    'en-GB',
   )
 }
 
 const accessory = z.union([z.enum(ACCESSORY_IDS), z.null()])
 
 export async function changeAccessoryAction(value: AccessoryId | null): Promise<ActionResult> {
-  return runAction(
+  return runChild(
     'changeAccessory',
     async () => {
       const actor = await requireLearner()
       const data = accessory.parse(value)
-      await inOrg(orgCtx(actor), (tx) => assertAccessoryEarned(tx, actor.userId, data))
+      await inOrg(orgCtx(actor), (tx) => assertAccessoryEarned(tx, actor.userId, data, tOf(actor)))
       await inOrg(systemCtx(actor.orgId), (tx) => applyAccessory(tx, actor.userId, data))
       return undefined
     },
-    'en-GB',
   )
 }

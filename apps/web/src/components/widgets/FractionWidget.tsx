@@ -3,6 +3,7 @@
 import { useState, type KeyboardEvent, type ReactElement } from 'react'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { asShaded } from './answers'
 import type { WidgetProps } from './types'
 
@@ -38,6 +39,7 @@ export function FractionWidget({ item, value, onChange, disabled = false, feedba
   const count = asShaded(value)
   const [set, setSet] = useState<Set<number>>(() => new Set(Array.from({ length: count ?? 0 }, (_, k) => k)))
   const locked = disabled || !!feedback
+  const t = useT()
   // Nilai dari luar berubah (misalnya Try again): samakan arsiran.
   const current = set.size === (count ?? 0) ? set : new Set(Array.from({ length: count ?? 0 }, (_, k) => k))
   if (current !== set) setSet(current)
@@ -62,7 +64,7 @@ export function FractionWidget({ item, value, onChange, disabled = false, feedba
     role: 'button',
     tabIndex: locked ? -1 : 0,
     'aria-pressed': current.has(k),
-    'aria-label': `Part ${k + 1} of ${parts}${current.has(k) ? ', shaded' : ''}`,
+    'aria-label': `${t.widgets.shared.part(k + 1, parts)}${current.has(k) ? t.widgets.shared.ariaShaded : ''}`,
     onClick: () => toggle(k),
     onKeyDown: (e: KeyboardEvent<SVGElement>) => onKey(e, k),
     className: cx(current.has(k) ? fill : 'fill-surface', 'stroke-fg', !locked && 'cursor-pointer'),
@@ -104,19 +106,19 @@ export function FractionWidget({ item, value, onChange, disabled = false, feedba
 
   return (
     <div className="flex w-full flex-col items-center gap-4">
-      <p className="m-0 self-start text-body font-semibold text-fg-muted">Tap the parts to shade them.</p>
-      <div role="group" aria-label={`Shape cut into ${parts} equal parts`} className="flex w-full justify-center">
+      <p className="m-0 self-start text-body font-semibold text-fg-muted">{t.widgets.fraction.tapToShade}</p>
+      <div role="group" aria-label={t.widgets.fraction.shapeAria(parts)} className="flex w-full justify-center">
         {svg}
       </div>
       <div className="flex w-full items-center justify-between gap-3">
         <output aria-live="polite" className="text-body-lg font-bold tabular-nums">
-          {current.size} of {parts} parts shaded
+          {t.widgets.fraction.shadedCount(current.size, parts)}
         </output>
         <Button variant="secondary" size="M" disabled={locked || current.size === 0} onClick={() => {
           setSet(new Set())
           onChange({ shaded: 0 })
         }}>
-          Clear
+          {t.widgets.shared.clear}
         </Button>
       </div>
     </div>

@@ -4,6 +4,8 @@ import { createRng, formatDateId, jakartaDate, weekday } from '@kira/core'
 import { tables } from '@kira/db'
 import type { Subject } from '@/lib/dto'
 import type { FixItDTO, MistakeReportDTO } from '@/lib/dto-paper'
+import { dictFor } from '@/lib/i18n'
+import { getT } from '@/lib/i18n/server'
 import type { Actor } from '../auth/actor'
 import { orgCtx } from '../auth/actor'
 import type { OrgContext, Tx } from '../db'
@@ -138,7 +140,7 @@ export async function startFixItSession(tx: Tx, ctx: OrgContext, learnerId: stri
   const mistakes = await openMistakes(tx, learnerId)
   const resolved = await resolveItems(tx, mistakes.map((m) => m.ref))
   const usable = mistakes.filter((m) => resolved.has(m.ref))
-  if (usable.length === 0) throw invalid('Nothing to fix yet.')
+  if (usable.length === 0) throw invalid((await getT()).lessons.errors.nothingToFix)
   const rng = createRng(`${learnerId}:${today}:fix-it`)
   const picked = pickRedoItems(usable, REDO_SIZE, (xs) => rng.shuffle(xs))
   const redoItems: AttemptItem[] = picked.map((m, i) => ({ ref: m.ref, section: 'core', position: i + 1, difficulty: resolved.get(m.ref)!.difficulty }))
@@ -146,9 +148,11 @@ export async function startFixItSession(tx: Tx, ctx: OrgContext, learnerId: stri
   const bySubject = new Map<Subject, number>()
   for (const m of picked) bySubject.set(m.subject, (bySubject.get(m.subject) ?? 0) + 1)
   const subject = [...bySubject.entries()].sort((a, b) => b[1] - a[1])[0]![0]
+  // Judul sesi ikut bahasa anak. Di luar request (tes DB) tetap Inggris.
+  const { title } = (await getT().catch(() => dictFor('en'))).lessons.fixIt
   const [row] = await tx
     .insert(attempt)
-    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject, title: 'Fix-it Book', refId: `${REDO_REF_PREFIX}:${today}`, items })
+    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject, title, refId: `${REDO_REF_PREFIX}:${today}`, items })
     .returning({ id: attempt.id })
   return row!.id
 }

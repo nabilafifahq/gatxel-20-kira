@@ -8,6 +8,7 @@ import { kvConfigured, kvDel, kvGet, kvSet } from '../kv'
 import { log } from '../log'
 import { clearCookie, readCookie, SESSION_ABSOLUTE_MS, SESSION_COOKIE, SESSION_IDLE_MS, writeCookie } from './cookies'
 import { randomToken, sha256hex } from './crypto'
+import type { UiLang } from '@/lib/i18n/lang'
 
 const { session, userAccount, device } = tables
 
@@ -21,6 +22,10 @@ export type SessionInfo = {
   email: string | null
   deviceId: string | null
   createdAt: Date
+  /** Bahasa tampilan anak, ikut terbaca bersama sesi supaya tidak ada query tambahan. Opsional hanya untuk fixture tes. */
+  uiLang?: UiLang
+  /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
+  uiLangSwitch?: boolean
 }
 
 /**
@@ -117,6 +122,8 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
       role: userAccount.role,
       name: userAccount.name,
       email: userAccount.email,
+      uiLang: userAccount.uiLang,
+      uiLangSwitch: userAccount.uiLangSwitch,
     })
     .from(session)
     .innerJoin(userAccount, eq(session.userId, userAccount.id))
@@ -149,6 +156,8 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
     email: row.email,
     deviceId: row.deviceId,
     createdAt: row.createdAt,
+    uiLang: row.uiLang,
+    uiLangSwitch: row.uiLangSwitch,
   }
   await cachePut(id, { info: { ...info, createdAt: info.createdAt.toISOString() }, expiresAt: row.expiresAt.getTime(), lastSeenAt: Math.max(row.lastSeenAt.getTime(), now) })
   return info

@@ -22,6 +22,8 @@ import { placementStartGrade } from './placement-grade'
 import { resolveItems } from './content'
 import { saveFeaturesTx } from './learner-features'
 import type { FeatureMap } from '@kira/core/features'
+import type { UiLang } from '@/lib/i18n/lang'
+import { setLearnerUiPrefs } from '../auth/accounts'
 
 /**
  * Aksi orang tua atas anaknya. Setiap fungsi memeriksa guardian_link lebih dulu (`ownChild`), lalu memakai
@@ -176,7 +178,13 @@ export async function parentEditChild(actor: Actor, input: { learnerId: string; 
  * Tambah anak oleh orang tua sendiri. Satu implementasi dengan onboarding (/mulai): batas per keluarga
  * KIRA_MAX_LEARNERS_PER_FAMILY, kunci per org, preset Seimbang, dan anak aktif setelah persetujuan di halaman Privasi.
  */
-export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[] }): Promise<{ learnerId: string }> {
+/** Bahasa tampilan anak dan izin anak menggantinya sendiri. Sesi anak membacanya lagi di request berikutnya. */
+export async function parentSaveUiLang(actor: Actor, input: { learnerId: string; uiLang: UiLang; uiLangSwitch: boolean }): Promise<void> {
+  await ownChild(actor, input.learnerId, 'uilang', { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch }, async () => undefined)
+  await setLearnerUiPrefs(input.learnerId, actor.orgId, { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch })
+}
+
+export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang }): Promise<{ learnerId: string }> {
   return { learnerId: await addChild(actor, input) }
 }
 

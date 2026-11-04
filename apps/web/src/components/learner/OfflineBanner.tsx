@@ -3,6 +3,7 @@
 import type { ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import { useDeviceWord } from './hooks'
 
 /**
@@ -24,18 +25,19 @@ export function OfflineBanner({
   variant?: 'pill' | 'banner'
   className?: string
 }): ReactElement {
-  const device = useDeviceWord()
-  const answers = pendingCount === 1 ? '1 answer' : `${pendingCount} answers`
+  const t = useT()
+  const device = t.shell.device[useDeviceWord()]
+  const answers = t.shell.offline.answers(pendingCount)
   const icon = state === 'offline' ? 'offline' : state === 'pending' ? 'cloud-sync' : 'cloud-check'
-  const short = state === 'offline' ? 'Offline' : state === 'pending' ? `Sending ${pendingCount}` : 'Saved'
+  const short = state === 'offline' ? t.shell.offline.short : state === 'pending' ? t.shell.offline.sendingShort(pendingCount) : t.shell.offline.savedShort
   const long =
     state === 'offline'
       ? pendingCount > 0
-        ? `Offline. ${answers} saved on this ${device}.`
-        : `Offline. Answers stay on this ${device}.`
+        ? t.shell.offline.savedOnDevice(answers, device)
+        : t.shell.offline.stayOnDevice(device)
       : state === 'pending'
-        ? `Sending ${answers}.`
-        : 'All answers are saved.'
+        ? t.shell.offline.sending(answers)
+        : t.shell.offline.allSaved
   if (variant === 'pill') {
     return (
       <span

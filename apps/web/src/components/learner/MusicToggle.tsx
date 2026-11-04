@@ -2,6 +2,7 @@
 
 import type { ReactElement } from 'react'
 import { Button } from '@/components/ui/Button'
+import { useT } from '@/lib/i18n/client'
 import { useMusicOn } from './music'
 import { playSfx, useTutorSoundPolicy } from './sfx'
 
@@ -10,6 +11,7 @@ import { playSfx, useTutorSoundPolicy } from './sfx'
  * suara, tombol dinonaktifkan dan menjelaskan alasannya lewat teks.
  */
 export function MusicToggle({ className }: { className?: string }): ReactElement {
+  const t = useT()
   const [on, setOn] = useMusicOn()
   const policy = useTutorSoundPolicy()
   const blocked = !policy.music
@@ -23,10 +25,10 @@ export function MusicToggle({ className }: { className?: string }): ReactElement
       disabled={blocked}
       aria-label={
         blocked
-          ? 'Music is turned off by your tutor.'
+          ? t.shell.sound.musicBlockedLabel
           : on
-            ? 'Music is on. Turn it off.'
-            : 'Music is off. Turn it on.'
+            ? t.shell.sound.musicOnLabel
+            : t.shell.sound.musicOffLabel
       }
       className={className}
       onClick={() => {
@@ -34,7 +36,7 @@ export function MusicToggle({ className }: { className?: string }): ReactElement
         if (!on) playSfx('tap')
       }}
     >
-      {blocked ? 'Music off by tutor' : on ? 'Music on' : 'Music off'}
+      {blocked ? t.shell.sound.musicBlocked : on ? t.shell.sound.musicOn : t.shell.sound.musicOff}
     </Button>
   )
 }

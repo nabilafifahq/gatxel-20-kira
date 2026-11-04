@@ -10,7 +10,7 @@ export async function GET(req: Request) {
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return seeOther('/')
   try {
-    const id = await inOrg(orgCtx(actor), (tx) => startReviewSession(tx, orgCtx(actor), actor.userId))
+    const id = await inOrg(orgCtx(actor), (tx) => startReviewSession(tx, orgCtx(actor), actor.userId, actor.uiLang))
     return seeOther(`/run/${id}`)
   } catch {
     return seeOther('/review')

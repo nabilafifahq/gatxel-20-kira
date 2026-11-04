@@ -6,6 +6,7 @@ import { Avatar, Icon, type IconName } from '@kira/figures'
 import type { ActionResult, AvatarName } from '@/lib/dto'
 import type { CollectionDTO } from '@/lib/dto-motion'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { playSfx } from './sfx'
 
 /**
@@ -26,6 +27,7 @@ export function ChestCollection({
   background: string | null
   equip?: (input: { kind: 'accessory' | 'background'; id: string | null }) => Promise<ActionResult>
 }): ReactElement {
+  const t = useT()
   const router = useRouter()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -44,7 +46,7 @@ export function ChestCollection({
     if (res && res.ok) {
       playSfx('tap')
       router.refresh()
-    } else setError(res && !res.ok ? res.message : 'That did not save. Check the internet and try again.')
+    } else setError(res && !res.ok ? res.message : t.shell.chest.notSaved)
   }
 
   const cell =
@@ -56,17 +58,17 @@ export function ChestCollection({
     >
       <div className="flex flex-wrap items-baseline gap-x-4">
         <h2 id="me-chest" className="m-0 text-h2 font-bold">
-          Chest collection
+          {t.shell.chest.collection}
         </h2>
         <span className="text-body font-semibold text-fg-muted tabular-nums">
-          {earnedCount} of {total} earned
+          {t.shell.chest.earnedCount(earnedCount, total)}
         </span>
       </div>
       <p className="m-0 text-body-lg text-fg-muted">
-        Open your daily chest after your sessions to earn something new.
+        {t.shell.chest.collectionLine}
       </p>
 
-      <h3 className="m-0 text-h3 font-bold">Stickers</h3>
+      <h3 className="m-0 text-h3 font-bold">{t.shell.chest.stickers}</h3>
       <ul className="m-0 grid list-none grid-cols-3 gap-3 p-0 sm:grid-cols-4 lg:grid-cols-6">
         {collection.stickers.map((s) => (
           <li
@@ -79,13 +81,13 @@ export function ChestCollection({
               <span aria-hidden="true" className="h-14 w-14 rounded-pill bg-divider" />
             )}
             <span className={cx('text-small font-semibold', !s.owned && 'text-fg-muted')}>
-              {s.owned ? s.label : 'Not earned yet'}
+              {s.owned ? s.label : t.shell.chest.notEarnedYet}
             </span>
           </li>
         ))}
       </ul>
 
-      <h3 className="m-0 text-h3 font-bold">Avatar backgrounds</h3>
+      <h3 className="m-0 text-h3 font-bold">{t.shell.chest.backgrounds}</h3>
       <ul className="m-0 grid list-none grid-cols-3 gap-3 p-0 sm:grid-cols-4 lg:grid-cols-6">
         {collection.backgrounds.map((b) => (
           <li key={b.id}>
@@ -110,14 +112,14 @@ export function ChestCollection({
                 <span aria-hidden="true" className="h-14 w-14 rounded-pill bg-divider" />
               )}
               <span className={cx('text-small font-semibold', !b.owned && 'text-fg-muted')}>
-                {b.owned ? `${b.label}${b.equipped ? ', worn' : ''}` : 'Not earned yet'}
+                {b.owned ? `${b.label}${b.equipped ? t.shell.chest.worn : ''}` : t.shell.chest.notEarnedYet}
               </span>
             </button>
           </li>
         ))}
       </ul>
 
-      <h3 className="m-0 text-h3 font-bold">Chest accessories</h3>
+      <h3 className="m-0 text-h3 font-bold">{t.shell.chest.accessories}</h3>
       <ul className="m-0 grid list-none grid-cols-3 gap-3 p-0 sm:grid-cols-4 lg:grid-cols-6">
         {collection.accessories.map((a) => (
           <li key={a.id}>
@@ -142,7 +144,7 @@ export function ChestCollection({
                 <span aria-hidden="true" className="h-14 w-14 rounded-pill bg-divider" />
               )}
               <span className={cx('text-small font-semibold', !a.owned && 'text-fg-muted')}>
-                {a.owned ? `${a.label}${a.equipped ? ', worn' : ''}` : 'Not earned yet'}
+                {a.owned ? `${a.label}${a.equipped ? t.shell.chest.worn : ''}` : t.shell.chest.notEarnedYet}
               </span>
             </button>
           </li>

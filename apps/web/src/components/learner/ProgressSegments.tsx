@@ -1,7 +1,10 @@
+'use client'
+
 import type { ReactElement } from 'react'
 import type { QuestSubject, SegmentState } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import { SUBJECT_STYLE } from './subject'
 
 /**
@@ -9,14 +12,6 @@ import { SUBJECT_STYLE } from './subject'
  * warna, ikon kecil, dan aria-label per segmen; penghitung teks ada di samping.
  * Segmen `answered` (mode tanpa umpan balik) memakai warna mapel tanpa ikon.
  */
-
-const WORD: Record<SegmentState, string> = {
-  correct: 'correct',
-  'not-yet': 'not yet',
-  current: 'now',
-  todo: 'not done',
-  answered: 'answered',
-}
 
 const RING: Record<QuestSubject, string> = {
   math: 'border-fg',
@@ -39,6 +34,7 @@ export function ProgressSegments({
   size?: 'L' | 'S'
   className?: string
 }): ReactElement {
+  const t = useT().runner.segments
   const style = SUBJECT_STYLE[subject]
   const many = segments.length > 20
   return (
@@ -49,7 +45,7 @@ export function ProgressSegments({
       {segments.map((s, i) => (
         <li
           key={i}
-          aria-label={`Question ${i + 1}, ${WORD[s]}`}
+          aria-label={t.item(i + 1, t.words[s])}
           aria-current={s === 'current' ? 'step' : undefined}
           className={cx(
             'flex min-w-0 flex-1 items-center justify-center rounded-control text-white',

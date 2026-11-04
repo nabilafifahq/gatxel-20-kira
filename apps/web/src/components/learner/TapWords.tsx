@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom'
 import { DICT_CLIP_STYLE, DICT_POS_LABEL, lookupWord, normaliseWord, splitWords, type DictFile, type WordHit } from '@kira/core/dictionary'
 import { Button, IconButton } from '@/components/ui/Button'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import { useDictionaryContext } from './DictionaryProvider'
 import { dictionaryIfLoaded, loadDictionaryOnce } from './dictionary-store'
 import { ReadAloudButton } from './ReadAloudButton'
@@ -100,6 +101,7 @@ export function TapWords({ text, enabled = true, className }: { text: string; en
 }
 
 function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): ReactElement | null {
+  const t = useT()
   const ctx = useDictionaryContext()
   const ref = useRef<HTMLDivElement>(null)
   const titleId = useId()
@@ -132,7 +134,8 @@ function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): Re
   }, [onClose, open.opener])
 
   if (typeof document === 'undefined') return null
-  const pos = hit.entry.p ? (DICT_POS_LABEL[hit.entry.p] ?? null) : null
+  const posLabel = hit.entry.p ? (DICT_POS_LABEL[hit.entry.p] ?? null) : null
+  const pos = posLabel ? t.reading.dictionary.pos(posLabel) : null
   return createPortal(
     <div
       ref={ref}
@@ -149,13 +152,17 @@ function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): Re
           </h2>
           {open.surface !== hit.lemma || pos ? (
             <p className="m-0 text-body text-fg-muted">
-              {open.surface !== hit.lemma ? <span lang="en-GB">from {hit.lemma}</span> : null}
+              {open.surface !== hit.lemma ? (
+                <>
+                  {t.reading.dictionary.from} <span lang="en-GB">{hit.lemma}</span>
+                </>
+              ) : null}
               {open.surface !== hit.lemma && pos ? ', ' : null}
               {pos}
             </p>
           ) : null}
         </div>
-        <IconButton icon="close" label="Close" size="M" variant="quiet" onClick={onClose} />
+        <IconButton icon="close" label={t.common.close} size="M" variant="quiet" onClick={onClose} />
       </div>
       <p lang="id" className="m-0 text-body-lg font-bold">
         {hit.entry.i.join(', ')}
@@ -168,7 +175,7 @@ function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): Re
         {saved ? (
           <span className="inline-flex h-14 items-center gap-2 text-body-lg font-bold">
             <UiIcon name="check" size={22} />
-            Saved
+            {t.reading.dictionary.saved}
           </span>
         ) : (
           <Button
@@ -185,13 +192,13 @@ function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): Re
               else setFailed(true)
             }}
           >
-            Save
+            {t.common.save}
           </Button>
         )}
       </div>
       {failed ? (
         <p role="status" className="m-0 text-body text-danger">
-          Could not save. Try again.
+          {t.reading.dictionary.saveFailed}
         </p>
       ) : null}
     </div>,

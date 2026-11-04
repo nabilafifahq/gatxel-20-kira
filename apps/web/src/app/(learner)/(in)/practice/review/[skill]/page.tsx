@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getT } from '@/lib/i18n/server'
 import { notFound } from 'next/navigation'
 import { LessonReviewScreen } from '@/screens/learner/LessonReviewScreen'
 import { inOrg } from '@/server/db'
@@ -7,7 +8,9 @@ import { reviewDTO } from '@/server/dal/lesson-review'
 import { load } from '@/server/page'
 
 export const dynamic = 'force-dynamic'
-export const metadata: Metadata = { title: 'Quick review' }
+export async function generateMetadata(): Promise<Metadata> {
+  return { title: (await getT()).shell.titles.quickReview }
+}
 
 export default async function ReviewPage({ params }: { params: Promise<{ skill: string }> }) {
   const actor = await pageActor(['learner'])

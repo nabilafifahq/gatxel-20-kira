@@ -18,6 +18,7 @@ import {
   weekView,
   weekCompleteCount,
   weekdayNameEn,
+  weekdayNameId,
   answerXp,
   retryXp,
   DEFAULT_REQUIRED_SESSIONS,
@@ -33,6 +34,7 @@ import {
 import { tables } from '@kira/db'
 import type { Item } from '@kira/content'
 import type { Jenjang, LearnerShell, StreakDTO, AvatarName } from '@/lib/dto'
+import type { UiLang } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
 import { awardArenaBadges } from './arena-badges'
@@ -119,7 +121,7 @@ export async function streakFor(tx: Tx, learner: LearnerRow, today: IsoDate) {
   return result
 }
 
-export async function streakDTO(tx: Tx, learner: LearnerRow, today: IsoDate): Promise<StreakDTO> {
+export async function streakDTO(tx: Tx, learner: LearnerRow, today: IsoDate, lang: UiLang = 'en'): Promise<StreakDTO> {
   const result = await streakFor(tx, learner, today)
   const week = weekView(result, today, learner.restWeekdays)
   return {
@@ -127,7 +129,7 @@ export async function streakDTO(tx: Tx, learner: LearnerRow, today: IsoDate): Pr
     freezes: result.freezes,
     weekDone: weekCompleteCount(week),
     week: week.map((d) => {
-      const long = weekdayNameEn(d.date)
+      const long = lang === 'id' ? weekdayNameId(d.date) : weekdayNameEn(d.date)
       return { date: d.date, label: DAY_LETTER[long] ?? long.slice(0, 3), longLabel: long, status: d.status, isToday: d.isToday }
     }),
   }

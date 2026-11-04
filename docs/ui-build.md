@@ -55,7 +55,7 @@ Desain menyebut Syakira sebagai contoh. Di kode, nama selalu dari DTO.
 
 ## 5. Teks
 
-- Learner en-GB, singkat, hangat, kata kerja di depan: Check, Next, Show me how, Try again. Jawaban salah selalu "Not yet".
+- Learner dua bahasa lewat kamus `apps/web/src/lib/i18n/dict` (Indonesia sapaan kamu, nada guru yang hangat). Teks Inggris en-GB, singkat, hangat, kata kerja di depan: Check, Next, Show me how, Try again. Jawaban salah selalu "Not yet".
 - Konsol dan orang tua Bahasa Indonesia tanpa kata ganti bila bisa, tombol kata kerja di depan: Simpan rencana, Kirim laporan.
 - Tanpa em dash dan en dash. Tanpa kosakata terlarang GTX. Tanpa bingkai antitesis. Pesan error menyebut apa yang terjadi, apa yang harus dilakukan, dan kode referensi.
 

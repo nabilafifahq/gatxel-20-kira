@@ -8,6 +8,7 @@ import type { AvatarName, Subject } from '@/lib/dto'
 import type { ParentChildCard, ParentChildDTO, ParentChildStatus, ParentHomeDTO, ParentResultDTO, ParentSessionDTO, ParentSkillDTO, ParentWorkDTO } from '@/lib/dto-parent'
 import type { Actor } from '../auth/actor'
 import { withFamilyAdmin, type ParentScope } from '../auth/parent'
+import { learnerUiPrefs } from '../auth/accounts'
 import type { Tx } from '../db'
 import { env } from '../env'
 import { notFound } from '../errors'
@@ -298,6 +299,7 @@ export async function parentChildDTO(actor: Actor, learnerId: string): Promise<P
     const [o] = await tx.select({ name: org.name }).from(org).where(eq(org.id, actor.orgId)).limit(1)
     const attempts = (await recentAttempts(tx, learnerId)).map((a) => ({ ...a, href: `/keluarga/anak/${learnerId}/hasil/${a.id}` }))
     const streak = await streakFor(tx, learner, today)
+    const prefs = (await learnerUiPrefs([learnerId], actor.orgId)).get(learnerId)
     return {
       parentName: actor.name,
       familyName: o?.name ?? 'Keluarga',
@@ -317,6 +319,8 @@ export async function parentChildDTO(actor: Actor, learnerId: string): Promise<P
         restWeekdays: [...learner.restWeekdays].sort((a, b) => a - b),
         soundEnabled: learner.soundEnabled,
         musicEnabled: learner.musicEnabled,
+        uiLang: prefs?.uiLang ?? 'id',
+        uiLangSwitch: prefs?.uiLangSwitch ?? false,
         dayPreset: preset,
         features: await featureMapFor(tx, learnerId),
         dayRules: rules as never,

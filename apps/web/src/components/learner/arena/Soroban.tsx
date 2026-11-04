@@ -3,6 +3,7 @@
 import type { KeyboardEvent, ReactElement } from 'react'
 import { beadsOfDigit } from '@kira/core'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Sempoa virtual. Satu manik atas (nilai 5) dan empat manik bawah (nilai 1) per batang, satu angka per batang.
@@ -17,8 +18,6 @@ const BEAM = 62
 const BEAD_RX = 19
 const BEAD_RY = 9.5
 const GAP = 20
-
-const PLACE = ['ones', 'tens', 'hundreds']
 
 function heavenY(active: boolean): number {
   return active ? BEAM - 3 - BEAD_RY - 1 : TOP + BEAD_RY + 4
@@ -50,6 +49,7 @@ export function Soroban({
   disabled?: boolean
   className?: string
 }): ReactElement {
+  const t = useT().arena.soroban
   const rods = digits.length
   const width = rods * ROD_W + 20
   const height = BOTTOM + 8 + (labels ? 22 : 0)
@@ -73,7 +73,7 @@ export function Soroban({
     <svg
       viewBox={`0 0 ${width} ${height}`}
       role="img"
-      aria-label={`Soroban with ${rods} ${rods === 1 ? 'rod' : 'rods'}`}
+      aria-label={t.aria(rods)}
       className={cx('h-auto w-full max-w-[360px] flex-none', className)}
       style={{ maxWidth: Math.max(200, width * 2.6) }}
     >
@@ -81,14 +81,14 @@ export function Soroban({
       {digits.map((d, i) => {
         const cx0 = 10 + i * ROD_W + ROD_W / 2
         const b = beadsOfDigit(d)
-        const place = PLACE[rods - 1 - i] ?? ''
+        const place = t.place[rods - 1 - i] ?? ''
         return (
           <g key={i}>
             <line x1={cx0} y1={TOP} x2={cx0} y2={BOTTOM} className="stroke-fg" strokeWidth="3" />
             {hidden ? null : (
               <>
                 <g
-                  {...(interactive ? { role: 'button', tabIndex: 0, 'aria-label': `Upper bead, ${place} rod, ${b.heaven ? 'down' : 'up'}`, onClick: () => set(i, { heaven: b.heaven ? 0 : 1, earth: b.earth }), onKeyDown: (e: KeyboardEvent) => key(e, () => set(i, { heaven: b.heaven ? 0 : 1, earth: b.earth })) } : { 'aria-hidden': true })}
+                  {...(interactive ? { role: 'button', tabIndex: 0, 'aria-label': t.upper(place, b.heaven), onClick: () => set(i, { heaven: b.heaven ? 0 : 1, earth: b.earth }), onKeyDown: (e: KeyboardEvent) => key(e, () => set(i, { heaven: b.heaven ? 0 : 1, earth: b.earth })) } : { 'aria-hidden': true })}
                   className={interactive ? 'cursor-pointer outline-offset-2 focus-visible:outline-3 focus-visible:outline-fg' : undefined}
                 >
                   <rect x={cx0 - ROD_W / 2 + 4} y={heavenY(b.heaven === 1) - 15} width={ROD_W - 8} height="30" fill="transparent" />
@@ -101,7 +101,7 @@ export function Soroban({
                   return (
                     <g
                       key={k}
-                      {...(interactive ? { role: 'button', tabIndex: 0, 'aria-label': `Lower bead ${k}, ${place} rod, ${active ? 'up' : 'down'}`, onClick: () => set(i, { heaven: b.heaven, earth: next }), onKeyDown: (e: KeyboardEvent) => key(e, () => set(i, { heaven: b.heaven, earth: next })) } : { 'aria-hidden': true })}
+                      {...(interactive ? { role: 'button', tabIndex: 0, 'aria-label': t.lower(k, place, active), onClick: () => set(i, { heaven: b.heaven, earth: next }), onKeyDown: (e: KeyboardEvent) => key(e, () => set(i, { heaven: b.heaven, earth: next })) } : { 'aria-hidden': true })}
                       className={interactive ? 'cursor-pointer outline-offset-2 focus-visible:outline-3 focus-visible:outline-fg' : undefined}
                     >
                       <rect x={cx0 - ROD_W / 2 + 4} y={earthY(k, active) - 10} width={ROD_W - 8} height="20" fill="transparent" />

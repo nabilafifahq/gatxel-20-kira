@@ -22,8 +22,8 @@ export default async function TodayPage() {
   const { data, urls } = await load(() =>
     cachedToday(actor, jakartaDate(), () =>
       inOrg(orgCtx(actor), async (tx) => {
-        const today = await todayDTO(tx, orgCtx(actor), actor.userId)
-        const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today) }
+        const today = await todayDTO(tx, orgCtx(actor), actor.userId, actor.uiLang)
+        const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today, undefined, actor.uiLang) }
         return { data, urls: await offlineUrlsForToday(tx, actor.userId) }
       }),
     ),

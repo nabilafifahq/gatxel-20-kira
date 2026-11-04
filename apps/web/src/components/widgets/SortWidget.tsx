@@ -4,6 +4,7 @@ import { useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asGroups } from './answers'
 import type { WidgetProps } from './types'
 
@@ -21,6 +22,7 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
   const style = SUBJECT_STYLE[subject]
   const locked = disabled || !!feedback
   const key = item.key?.type === 'sort' ? item.key.groupsOf : null
+  const t = useT()
 
   const assign = (card: number, g: number) => {
     const next = groups.slice()
@@ -46,7 +48,7 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
         type="button"
         disabled={locked}
         aria-pressed={isPicked}
-        aria-label={`${c.text}${ok === true ? ', right group' : ok === false ? ', not yet' : ''}`}
+        aria-label={`${c.text}${ok === true ? t.widgets.sort.ariaRightGroup : ok === false ? t.widgets.shared.ariaNotYet : ''}`}
         onClick={() => tapCard(c.i)}
         className={cx(
           'inline-flex min-h-14 items-center gap-2 rounded-control px-4 py-2 font-reading text-h3 font-bold text-fg transition-transform duration-150 ease-kira',
@@ -61,7 +63,7 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
         )}
       >
         {ok === true ? <UiIcon name="check" size={18} className="text-success" /> : ok === false ? <UiIcon name="not-yet" size={18} className="text-warn" /> : null}
-        {c.text}
+        <span lang={item.lang}>{c.text}</span>
       </button>
     )
   }
@@ -69,9 +71,9 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
   return (
     <div className="flex w-full flex-col gap-3" onKeyDown={(e) => e.key === 'Escape' && setPicked(null)}>
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {locked ? 'Your groups' : picked !== null ? `Picked: ${pickedText}. Now tap its group.` : 'Tap a card, then tap its group.'}
+        {locked ? t.widgets.sort.yourGroups : picked !== null ? t.widgets.sort.picked(pickedText) : t.widgets.sort.tapCard}
       </p>
-      <section aria-label="Cards to sort" className="flex min-h-18 flex-wrap items-start gap-2.5 rounded-control border-2 border-dashed border-divider bg-bg p-3">
+      <section aria-label={t.widgets.sort.cardsToSort} className="flex min-h-18 flex-wrap items-start gap-2.5 rounded-control border-2 border-dashed border-divider bg-bg p-3">
         {unsorted.length > 0 ? (
           unsorted.map(cardButton)
         ) : picked !== null && !locked ? (
@@ -81,10 +83,10 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
             className="inline-flex h-14 cursor-pointer items-center gap-2 rounded-control border-2 border-border bg-surface px-4 text-body-lg font-bold"
           >
             <UiIcon name="undo" size={20} />
-            Put it back here
+            {t.widgets.sort.putBackHere}
           </button>
         ) : (
-          <span className="self-center text-body text-fg-muted">All cards are in a group.</span>
+          <span className="self-center text-body text-fg-muted">{t.widgets.sort.allInGroup}</span>
         )}
       </section>
       <div className={cx('grid gap-3', groupNames.length >= 3 ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-2')}>
@@ -106,13 +108,13 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
                 type="button"
                 disabled={locked || picked === null}
                 onClick={() => picked !== null && assign(picked, g)}
-                aria-label={picked !== null ? `Put ${pickedText} in ${name}` : `${name}, ${inside.length} cards`}
+                aria-label={picked !== null ? t.widgets.sort.putIn(pickedText, name) : t.widgets.sort.groupCount(name, inside.length)}
                 className={cx(
                   'flex min-h-11 items-center justify-between gap-2 rounded-control px-2 text-left text-body-lg font-bold',
                   target ? 'cursor-pointer' : 'cursor-default',
                 )}
               >
-                <span>{name}</span>
+                <span lang={item.lang}>{name}</span>
                 {target ? <UiIcon name="arrow-down" size={20} /> : <span className="text-body font-semibold text-fg-muted tabular-nums">{inside.length}</span>}
               </button>
               <div className="flex flex-wrap gap-2">{inside.map(cardButton)}</div>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type KeyboardEvent, type ReactElement } fr
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asCells } from './answers'
 import type { WidgetProps } from './types'
 
@@ -17,6 +18,7 @@ export function GridWidget({ item, value, onChange, disabled = false, feedback =
   const grid = item.grid
   const [active, setActive] = useState<number | null>(null)
   const cellsRef = useRef<number[]>([])
+  const t = useT()
   const n = (grid?.size ?? 0) ** 2
   const given0 = grid?.given ?? []
   // Sel awal selalu ikut di jawaban, supaya server bisa memeriksa kotak yang utuh.
@@ -70,9 +72,9 @@ export function GridWidget({ item, value, onChange, disabled = false, feedback =
   return (
     <div className="flex w-full flex-col items-center gap-4" onKeyDown={onKeyDown}>
       <p className="m-0 self-start text-body font-semibold text-fg-muted" aria-live="polite">
-        {locked ? 'Your puzzle' : 'Tap an empty box, then tap a number.'}
+        {locked ? t.widgets.grid.yourPuzzle : t.widgets.grid.tapBox}
       </p>
-      <div role="group" aria-label="Puzzle grid" className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${size}, 56px)` }}>
+      <div role="group" aria-label={t.widgets.grid.gridAria} className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${size}, 56px)` }}>
         {cells.slice(0, n).map((v, i) => {
           const r = Math.floor(i / size)
           const c = i % size
@@ -84,10 +86,10 @@ export function GridWidget({ item, value, onChange, disabled = false, feedback =
             'flex h-14 w-14 items-center justify-center rounded-control border-2 font-reading text-h2 font-bold tabular-nums',
             boxBorder(r, c),
           )
-          const name = `Row ${r + 1}, column ${c + 1}`
+          const name = t.widgets.grid.cell(r + 1, c + 1)
           if (given) {
             return (
-              <div key={i} role="img" aria-label={`${name}: ${grid.given[i]}, given`} className={cx(common, 'border-divider bg-bg')}>
+              <div key={i} role="img" aria-label={t.widgets.grid.given(name, grid.given[i] ?? 0)} className={cx(common, 'border-divider bg-bg')}>
                 {grid.given[i]}
               </div>
             )
@@ -97,7 +99,7 @@ export function GridWidget({ item, value, onChange, disabled = false, feedback =
               key={i}
               type="button"
               disabled={locked}
-              aria-label={`${name}: ${v === 0 ? 'empty' : v}${wrong ? ', not yet' : right ? ', right' : ''}`}
+              aria-label={`${name}: ${v === 0 ? t.widgets.shared.empty : v}${wrong ? t.widgets.shared.ariaNotYet : right ? t.widgets.shared.ariaRight : ''}`}
               aria-pressed={isActive}
               onClick={() => setActive(i)}
               className={cx(
@@ -113,7 +115,7 @@ export function GridWidget({ item, value, onChange, disabled = false, feedback =
         })}
       </div>
       {!locked ? (
-        <div role="group" aria-label="Numbers" className="flex max-w-[420px] flex-wrap justify-center gap-1.5">
+        <div role="group" aria-label={t.widgets.shared.numbers} className="flex max-w-[420px] flex-wrap justify-center gap-1.5">
           {grid.values.map((v) => (
             <button
               key={v}
@@ -126,12 +128,12 @@ export function GridWidget({ item, value, onChange, disabled = false, feedback =
           ))}
           <button
             type="button"
-            aria-label="Erase"
+            aria-label={t.widgets.grid.erase}
             onClick={() => put(0)}
             className="flex h-14 min-w-14 cursor-pointer items-center justify-center gap-1 rounded-control border-2 border-border bg-surface px-3 text-body-lg font-bold hover:border-fg active:scale-97"
           >
             <UiIcon name="eraser" size={22} />
-            Erase
+            {t.widgets.grid.erase}
           </button>
         </div>
       ) : null}

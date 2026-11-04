@@ -14,9 +14,9 @@ export const dynamic = 'force-dynamic'
 export default async function MePage() {
   const actor = await pageActor(['learner'])
   const data = await load(() =>
-    inOrg(orgCtx(actor), async (tx) => ({ ...(await meDTO(tx, actor.userId)), collection: await collectionDTO(tx, actor.userId) })),
+    inOrg(orgCtx(actor), async (tx) => ({ ...(await meDTO(tx, actor.userId, actor.uiLang)), collection: await collectionDTO(tx, actor.userId, actor.uiLang) })),
   )
   await inOrg(orgCtx(actor), (tx) => markBadgesSeen(tx, actor.userId))
   const myWords = await isFeatureOn(actor.userId, 'dictionary')
-  return <MeScreen myWords={myWords} data={data} actions={{ changeAvatar: changeAvatarAction, changeAccessory: changeAccessoryAction, equipChest: equipChestRewardAction }} />
+  return <MeScreen myWords={myWords} langSwitch={Boolean(actor.uiLangSwitch)} data={data} actions={{ changeAvatar: changeAvatarAction, changeAccessory: changeAccessoryAction, equipChest: equipChestRewardAction }} />
 }

@@ -7,6 +7,7 @@ import { tables } from '@kira/db'
 import { findContentDir } from '@kira/content/load'
 import { loadFlashcards, type Deck, type Flashcard } from '@kira/content/flashcards'
 import type { LearnerShell } from '@/lib/dto'
+import { getT } from '@/lib/i18n/server'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { featureMapFor } from './learner-features'
@@ -33,7 +34,7 @@ export type CardsHubDTO = { shell: LearnerShell; mode: 'cards' | 'vocab'; decks:
 export type CardSessionDTO = {
   shell: LearnerShell
   mode: 'cards' | 'vocab'
-  deck: { id: string; title: string; subject: string; backLang: 'en-GB' | 'id' }
+  deck: { id: string; title: string; subject: string; backLang: 'en-GB' | 'id'; personal: boolean }
   /** Kartu sesi ini: yang jatuh tempo dulu, lalu yang baru. */
   cards: CardDTO[]
   /** Semua kartu dek, untuk pilihan jawaban Vocab drill. */
@@ -48,11 +49,11 @@ async function resolveDeck(tx: Tx, learnerId: string, grade: number, deckId: str
   if (deckId === PERSONAL_DECK_ID) {
     const features = await featureMapFor(tx, learnerId)
     const p = effectiveOn(features, 'dictionary') ? await personalDeckFor(tx, learnerId) : null
-    if (!p || p.cards.length === 0) throw notFound('Dek ini belum ada.')
+    if (!p || p.cards.length === 0) throw notFound((await getT()).reading.errors.noDeck)
     return { id: PERSONAL_DECK_ID, title: p.title, subject: 'english', grade, cards: p.cards, backLang: p.backLang, personal: true }
   }
   const d = decks().find((x) => x.id === deckId)
-  if (!d) throw notFound('Dek ini belum ada.')
+  if (!d) throw notFound((await getT()).reading.errors.noDeck)
   return { id: d.id, title: d.title, subject: d.subject, grade: d.grade, cards: d.cards, backLang: 'en-GB', personal: false }
 }
 
@@ -107,7 +108,7 @@ export async function cardSessionDTO(tx: Tx, learnerId: string, deckId: string, 
   return {
     shell: await learnerShell(tx, learner),
     mode,
-    deck: { id: d.id, title: d.title, subject: d.subject, backLang: d.backLang },
+    deck: { id: d.id, title: d.title, subject: d.subject, backLang: d.backLang, personal: d.personal },
     cards,
     pool: d.cards.map((c) => ({ id: c.id, front: c.front, back: c.back })),
   }
@@ -123,7 +124,7 @@ export const finishSchema = z
 /** Simpan hasil satu putaran kartu: jadwal FSRS per kartu dan sedikit XP (dibatasi per hari). Tidak menyentuh streak. */
 export async function finishCards(tx: Tx, ctx: OrgContext, learnerId: string, raw: unknown): Promise<{ xp: number; knew: number; total: number }> {
   const input = finishSchema.safeParse(raw)
-  if (!input.success) throw invalid('Hasil kartu tidak valid.')
+  if (!input.success) throw invalid((await getT()).reading.errors.badResults)
   const learner = await loadLearner(tx, learnerId)
   const d = await resolveDeck(tx, learnerId, learner.grade, input.data.deckId)
   const valid = new Set(d.cards.map((c) => c.id))
@@ -131,7 +132,7 @@ export async function finishCards(tx: Tx, ctx: OrgContext, learnerId: string, ra
   const now = new Date()
   let knew = 0
   for (const r of input.data.results) {
-    if (!valid.has(r.cardId) || seen.has(r.cardId)) throw invalid('Kartu tidak dikenal.')
+    if (!valid.has(r.cardId) || seen.has(r.cardId)) throw invalid((await getT()).reading.errors.unknownCard)
     seen.add(r.cardId)
     const [row] = await tx
       .select()

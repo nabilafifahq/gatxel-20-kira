@@ -17,6 +17,7 @@ import {
   parentSaveFeatures,
   parentSaveLimits,
   parentSaveSound,
+  parentSaveUiLang,
   parentSetQuestionCount,
   parentSetSessionRequired,
   parentUnlock,
@@ -168,6 +169,16 @@ export async function parentEditChildAction(input: unknown): Promise<ActionResul
     await parentEditChild(actor, data)
     refresh()
     return undefined
+  })
+}
+
+export async function parentSaveUiLangAction(input: unknown): Promise<ActionResult<null>> {
+  return runAction('parentSaveUiLang', async () => {
+    const actor = await requireParent()
+    const data = S.uiLang.parse(input)
+    await parentSaveUiLang(actor, data)
+    after(null)
+    return null
   })
 }
 
