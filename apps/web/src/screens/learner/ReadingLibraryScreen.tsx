@@ -140,6 +140,9 @@ export function ReadingLibraryScreen({ data }: { data: ReadingLibraryDTO }): Rea
             </Chip>
           ))}
         </div>
+        <details className="flex flex-col gap-3">
+          <summary className="inline-flex min-h-11 cursor-pointer items-center text-body font-bold">More filters</summary>
+          <div className="flex flex-col gap-3 pt-2">
         <div role="group" aria-label="Kind of book" className="flex flex-wrap gap-2">
           <Chip on={kind === 'all'} onClick={() => setKind('all')}>
             Stories and facts
@@ -171,6 +174,8 @@ export function ReadingLibraryScreen({ data }: { data: ReadingLibraryDTO }): Rea
             </Chip>
           ))}
         </div>
+          </div>
+        </details>
         {shown.length === 0 ? (
           <p className="m-0 rounded-control border-2 border-dashed border-border px-4 py-3 text-body text-fg-muted">No books match. Try another level or genre.</p>
         ) : (

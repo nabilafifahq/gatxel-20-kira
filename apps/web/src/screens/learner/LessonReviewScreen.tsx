@@ -16,7 +16,14 @@ export function LessonReviewListScreen({ data }: { data: ReviewListDTO }): React
       <Link href="/practice" className="w-fit text-body font-bold text-fg underline underline-offset-3">
         Back to practice
       </Link>
-      {data.groups.length === 0 ? <p className="m-0 text-body-lg text-fg-muted">Finish a lesson on the Map and it will show up here.</p> : null}
+      {data.groups.length === 0 ? (
+        <div className="flex flex-col items-start gap-3">
+          <p className="m-0 text-body-lg text-fg-muted">Finish a lesson on the Map and it will show up here.</p>
+          <ButtonLink href="/map" iconAfter="arrow-right">
+            Open the Map
+          </ButtonLink>
+        </div>
+      ) : null}
       {data.groups.map((g) => (
         <section key={g.subject} aria-labelledby={`rv-${g.subject}`} className="flex flex-col gap-3">
           <h2 id={`rv-${g.subject}`} className="m-0 text-h2 font-bold">
