@@ -42,7 +42,15 @@
         },
         {
           "say": "Count on in sevens.",
-          "show": "77, 84, 91"
+          "show": "77, 84, 91",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "77",
+              "84",
+              "91"
+            ]
+          }
         },
         {
           "say": "Only 84 is a choice.",
@@ -94,7 +102,18 @@
       "solution": [
         {
           "say": "The jumps are 1, 2, 3, and so on.",
-          "show": "1, 2, 4, 7, 11, 16"
+          "show": "1, 2, 4, 7, 11, 16",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "4",
+              "7",
+              "11",
+              "16"
+            ]
+          }
         },
         {
           "say": "From the 1st to the 10th number there are 9 jumps.",
@@ -102,11 +121,31 @@
         },
         {
           "say": "Add to the first number.",
-          "show": "1 + 45 = 46"
+          "show": "1 + 45 = 46",
+          "anim": {
+            "k": "combine",
+            "a": 1,
+            "op": "+",
+            "b": 45,
+            "r": 46
+          },
+          "mark": [
+            "1"
+          ]
         },
         {
           "say": "Check by listing.",
-          "show": "16, 22, 29, 37, 46"
+          "show": "16, 22, 29, 37, 46",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "16",
+              "22",
+              "29",
+              "37",
+              "46"
+            ]
+          }
         }
       ],
       "tags": [
@@ -188,11 +227,32 @@
         },
         {
           "say": "Row 6.",
-          "show": "31, 33, 35, 37, 39, 41"
+          "show": "31, 33, 35, 37, 39, 41",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "31",
+              "33",
+              "35",
+              "37",
+              "39",
+              "41"
+            ]
+          }
         },
         {
           "say": "Add by pairing: 31 + 41, 33 + 39, 35 + 37.",
-          "show": "72 × 3 = 216"
+          "show": "72 × 3 = 216",
+          "anim": {
+            "k": "combine",
+            "a": 72,
+            "op": "×",
+            "b": 3,
+            "r": 216
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -372,11 +432,27 @@
         },
         {
           "say": "Next jump.",
-          "show": "30 + 12 = 42"
+          "show": "30 + 12 = 42",
+          "anim": {
+            "k": "line",
+            "min": 27,
+            "max": 45,
+            "start": 30,
+            "jumps": [
+              12
+            ]
+          }
         },
         {
           "say": "Another view.",
-          "show": "1×2, 2×3, 3×4, 4×5, 5×6, 6×7 = 42"
+          "show": "1×2, 2×3, 3×4, 4×5, 5×6, 6×7 = 42",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 7,
+            "r": 42
+          }
         }
       ],
       "tags": [
@@ -411,11 +487,29 @@
         },
         {
           "say": "Matchsticks after the first column.",
-          "show": "52 - 7 = 45"
+          "show": "52 - 7 = 45",
+          "anim": {
+            "k": "combine",
+            "a": 52,
+            "op": "-",
+            "b": 7,
+            "r": 45
+          },
+          "mark": [
+            "52",
+            "7"
+          ]
         },
         {
           "say": "New columns.",
-          "show": "45 ÷ 5 = 9"
+          "show": "45 ÷ 5 = 9",
+          "anim": {
+            "k": "combine",
+            "a": 45,
+            "op": "÷",
+            "b": 5,
+            "r": 9
+          }
         },
         {
           "say": "Squares.",
@@ -444,7 +538,14 @@
       "solution": [
         {
           "say": "Days from 1 January to 1 March.",
-          "show": "31 + 28 = 59"
+          "show": "31 + 28 = 59",
+          "anim": {
+            "k": "combine",
+            "a": 31,
+            "op": "+",
+            "b": 28,
+            "r": 59
+          }
         },
         {
           "say": "Weeks and days.",
@@ -456,7 +557,15 @@
         },
         {
           "say": "Fridays in March.",
-          "show": "2, 9, 16"
+          "show": "2, 9, 16",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "9",
+              "16"
+            ]
+          }
         }
       ],
       "tags": [
@@ -483,7 +592,40 @@
       "points": 3,
       "expectedSeconds": 150,
       "type": "numeric",
-      "answer": 22
+      "answer": 22,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What number comes next?"
+          ]
+        },
+        {
+          "say": "The jumps are 1, 2, 3, 4 and 5, so the next jump is 6."
+        },
+        {
+          "say": "16 + 6 = 22.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 16
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 22
+          },
+          "mark": [
+            "16"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "22"
+        }
+      ]
     },
     {
       "id": "m4.oly-patterns.011",
@@ -584,7 +726,43 @@
       "points": 5,
       "expectedSeconds": 210,
       "type": "numeric",
-      "answer": 171
+      "answer": 171,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the sum of the first 50 digits?"
+          ]
+        },
+        {
+          "say": "Each full group of six digits adds up to 21."
+        },
+        {
+          "say": "There are 8 full groups (48 digits), which give 168."
+        },
+        {
+          "say": "The next two digits are 1 and 2, so 168 + 3 = 171.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 168
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 171
+          },
+          "mark": [
+            "3"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "171"
+        }
+      ]
     },
     {
       "id": "m4.oly-patterns.015",

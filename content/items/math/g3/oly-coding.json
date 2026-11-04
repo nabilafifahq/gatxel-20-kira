@@ -440,7 +440,23 @@
           "say": "The right light is off: 0."
         },
         {
-          "say": "The number is 4 + 2 = 6."
+          "say": "The number is 4 + 2 = 6.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 2
+              }
+            ],
+            "total": 6
+          },
+          "mark": [
+            "4",
+            "2"
+          ]
         }
       ],
       "tags": [

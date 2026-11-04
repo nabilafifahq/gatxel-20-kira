@@ -1,4 +1,4 @@
-import { animResult, applyOp, numbersIn, parseEquation, type Anim } from './anim'
+import { animResult, applyOp, findEquation, numbersIn, parseEquation, type Anim } from './anim'
 import { answerText } from './check'
 import type { Item, SolutionStep } from './schema'
 
@@ -41,22 +41,29 @@ function tokenIn(prompt: string, n: number): string | null {
   return null
 }
 
-type Eq = { a: number; op: '+' | '-' | '×' | '÷'; b: number; r: number }
+/** Rupiah sebagaimana tertulis di prompt, mis. Rp5.000. */
+function rupiahIn(prompt: string, n: number): string | null {
+  const tok = `Rp${n.toLocaleString('id-ID')}`
+  return prompt.includes(tok) ? tok : null
+}
+
+type Eq = { a: number; op: '+' | '-' | '×' | '÷'; b: number; r: number; cur?: 'Rp' }
 
 function barFor(eq: Eq): Anim | null {
   const { a, op, b, r } = eq
+  const cur = eq.cur ? { cur: eq.cur } : {}
   if (![a, b, r].every((x) => x > 0 && Number.isFinite(x))) return null
   switch (op) {
     case '+':
-      return { k: 'bar', parts: [{ v: a }, { v: b }], total: r }
+      return { k: 'bar', parts: [{ v: a }, { v: b }], total: r, ...cur }
     case '-':
-      return { k: 'bar', parts: [{ v: b }, { v: r, q: true }], total: a }
+      return { k: 'bar', parts: [{ v: b }, { v: r, q: true }], total: a, ...cur }
     case '×':
       if (b < 2 || b > 8 || !Number.isInteger(b)) return null
-      return { k: 'bar', parts: Array.from({ length: b }, () => ({ v: a })), total: r }
+      return { k: 'bar', parts: Array.from({ length: b }, () => ({ v: a })), total: r, ...cur }
     case '÷':
       if (b < 2 || b > 8 || !Number.isInteger(b)) return null
-      return { k: 'bar', parts: Array.from({ length: b }, (_, i) => ({ v: r, ...(i === 0 ? { q: true } : {}) })), total: a }
+      return { k: 'bar', parts: Array.from({ length: b }, (_, i) => ({ v: r, ...(i === 0 ? { q: true } : {}) })), total: a, ...cur }
   }
 }
 
@@ -83,9 +90,9 @@ export function animateSteps(item: Item, steps: readonly SolutionStep[]): Soluti
         return out
       }
     }
-    const eq = step.show ? parseEquation(step.show) : null
+    const eq = (step.show ? (parseEquation(step.show) ?? findEquation(step.show)) : null) ?? findEquation(step.say)
     if (eq && Math.abs(applyOp(eq.a, eq.op, eq.b) - eq.r) < 1e-9) {
-      const marks = [eq.a, eq.b].map((n) => tokenIn(item.prompt, n)).filter((t): t is string => t !== null)
+      const marks = [eq.a, eq.b].map((n) => (eq.cur ? rupiahIn(item.prompt, n) : tokenIn(item.prompt, n))).filter((t): t is string => t !== null)
       if (marks.length > 0 && !out.mark) out.mark = [...new Set(marks)].slice(0, 3)
       const isFinal = answer !== null && Math.abs(eq.r - answer) < 1e-9
       if (word && isFinal && !barDone) {
@@ -104,7 +111,7 @@ export function animateSteps(item: Item, steps: readonly SolutionStep[]): Soluti
           return out
         }
       }
-      out.anim = { k: 'combine', a: eq.a, op: eq.op, b: eq.b, r: eq.r }
+      out.anim = { k: 'combine', a: eq.a, op: eq.op, b: eq.b, r: eq.r, ...(eq.cur ? { cur: eq.cur } : {}) }
       return out
     }
     // Deret bilangan: "3, 4, 5, 6".
@@ -180,7 +187,7 @@ export function withWalkthrough<T extends Item>(item: T): T {
     const full = { ...item, solution }
     // Langkah yang tidak menyebut jawabannya (misalnya pecahan belum disederhanakan) ditutup dengan kunci.
     if (solutionReaches(full) === false && solution.length < 8) {
-      let key = ''
+      let key: string
       try {
         key = answerText(item)
       } catch {

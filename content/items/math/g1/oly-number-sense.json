@@ -216,7 +216,17 @@
           "say": "To get from 10 to 17 we add 7."
         },
         {
-          "say": "So 10 + 7 = 17."
+          "say": "So 10 + 7 = 17.",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "+",
+            "b": 7,
+            "r": 17
+          },
+          "mark": [
+            "10"
+          ]
         }
       ],
       "tags": [
@@ -291,10 +301,37 @@
           "say": "The opposite of adding 3 is taking away 3."
         },
         {
-          "say": "10 - 3 = 7."
+          "say": "10 - 3 = 7.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 7,
+                "q": true
+              }
+            ],
+            "total": 10
+          },
+          "mark": [
+            "10",
+            "3"
+          ]
         },
         {
-          "say": "Check: 7 + 3 = 10."
+          "say": "Check: 7 + 3 = 10.",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 3,
+            "r": 10
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [

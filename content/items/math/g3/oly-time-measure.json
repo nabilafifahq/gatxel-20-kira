@@ -167,7 +167,17 @@
       "explanation": "3 weeks are 3 x 7 = 21 days. With 4 more days, it is 25 days.",
       "solution": [
         {
-          "say": "3 weeks are 3 x 7 = 21 days."
+          "say": "3 weeks are 3 x 7 = 21 days.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 7,
+            "r": 21
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "With 4 more days, it is 25 days."
@@ -203,7 +213,19 @@
           "say": "From 10:48 to 11:05 is 17 minutes."
         },
         {
-          "say": "In all, 60 + 17 = 77 minutes."
+          "say": "In all, 60 + 17 = 77 minutes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 60
+              },
+              {
+                "v": 17
+              }
+            ],
+            "total": 77
+          }
         }
       ],
       "tags": [
@@ -237,7 +259,19 @@
           "say": "Half an hour is 30 minutes."
         },
         {
-          "say": "In all, 120 + 30 = 150 minutes."
+          "say": "In all, 120 + 30 = 150 minutes.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 120
+              },
+              {
+                "v": 30
+              }
+            ],
+            "total": 150
+          }
         }
       ],
       "tags": [
@@ -270,7 +304,19 @@
           "say": "1 m 80 cm is 180 cm."
         },
         {
-          "say": "In all, 235 + 180 = 415 cm."
+          "say": "In all, 235 + 180 = 415 cm.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 235
+              },
+              {
+                "v": 180
+              }
+            ],
+            "total": 415
+          }
         }
       ],
       "tags": [
@@ -297,10 +343,30 @@
       "explanation": "The jug holds 2 x 1000 = 2000 ml. 2000 / 250 = 8, so 8 glasses can be filled.",
       "solution": [
         {
-          "say": "The jug holds 2 x 1000 = 2000 ml."
+          "say": "The jug holds 2 x 1000 = 2000 ml.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 1000,
+            "r": 2000
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
-          "say": "2000 / 250 = 8, so 8 glasses can be filled."
+          "say": "2000 / 250 = 8, so 8 glasses can be filled.",
+          "anim": {
+            "k": "combine",
+            "a": 2000,
+            "op": "÷",
+            "b": 250,
+            "r": 8
+          },
+          "mark": [
+            "250"
+          ]
         }
       ],
       "tags": [
@@ -328,13 +394,45 @@
       "explanation": "3 bags weigh 3 x 2 = 6 kg, which is 6000 g. 5 packs weigh 5 x 500 = 2500 g. In all, 6000 + 2500 = 8500 g.",
       "solution": [
         {
-          "say": "3 bags weigh 3 x 2 = 6 kg, which is 6000 g."
+          "say": "3 bags weigh 3 x 2 = 6 kg, which is 6000 g.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 2,
+            "r": 6
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
-          "say": "5 packs weigh 5 x 500 = 2500 g."
+          "say": "5 packs weigh 5 x 500 = 2500 g.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 500,
+            "r": 2500
+          },
+          "mark": [
+            "500"
+          ]
         },
         {
-          "say": "In all, 6000 + 2500 = 8500 g."
+          "say": "In all, 6000 + 2500 = 8500 g.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6000
+              },
+              {
+                "v": 2500
+              }
+            ],
+            "total": 8500
+          }
         }
       ],
       "tags": [
@@ -392,7 +490,14 @@
           "say": "The pencil starts at 4 cm and ends at 11 cm."
         },
         {
-          "say": "Its length is 11 - 4 = 7 cm."
+          "say": "Its length is 11 - 4 = 7 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 11,
+            "op": "-",
+            "b": 4,
+            "r": 7
+          }
         }
       ],
       "tags": [

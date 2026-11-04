@@ -219,7 +219,16 @@
       "solution": [
         {
           "say": "Find how much each staircase grows.",
-          "show": "1, 3, 6, 10"
+          "show": "1, 3, 6, 10",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "3",
+              "6",
+              "10"
+            ]
+          }
         },
         {
           "say": "The jumps are 2, 3 and 4. Each jump is 1 more than the one before.",
@@ -227,7 +236,20 @@
         },
         {
           "say": "The next jump is 5.",
-          "show": "10 + 5 = 15"
+          "show": "10 + 5 = 15",
+          "anim": {
+            "k": "line",
+            "min": 8,
+            "max": 17,
+            "start": 10,
+            "jumps": [
+              5
+            ]
+          },
+          "mark": [
+            "10",
+            "5"
+          ]
         },
         {
           "say": "You can also see it as a new column of 5 blocks for the new step."
@@ -290,7 +312,17 @@
         },
         {
           "say": "Lanjutkan sampai baris ke-5.",
-          "show": "2, 4, 6, 8, 10"
+          "show": "2, 4, 6, 8, 10",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "4",
+              "6",
+              "8",
+              "10"
+            ]
+          }
         },
         {
           "say": "Baris ke-5 berisi 10 jeruk."
@@ -388,11 +420,29 @@
       "solution": [
         {
           "say": "The frog jumps 3 each time, so it lands on the numbers you say when you count in 3s.",
-          "show": "0, 3, 6, 9"
+          "show": "0, 3, 6, 9",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "0",
+              "3",
+              "6",
+              "9"
+            ]
+          }
         },
         {
           "say": "Keep going.",
-          "show": "9, 12, 15, 18"
+          "show": "9, 12, 15, 18",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "9",
+              "12",
+              "15",
+              "18"
+            ]
+          }
         },
         {
           "say": "15 is on the list. 10, 14 and 17 are not.",
@@ -435,7 +485,17 @@
       "solution": [
         {
           "say": "Write the jump between each pair of numbers.",
-          "show": "1, 2, 4, 7, 11"
+          "show": "1, 2, 4, 7, 11",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "4",
+              "7",
+              "11"
+            ]
+          }
         },
         {
           "say": "The jumps are +1, +2, +3, +4.",
@@ -443,11 +503,29 @@
         },
         {
           "say": "The next jump is +5.",
-          "show": "11 + 5 = 16"
+          "show": "11 + 5 = 16",
+          "anim": {
+            "k": "line",
+            "min": 9,
+            "max": 18,
+            "start": 11,
+            "jumps": [
+              5
+            ]
+          }
         },
         {
           "say": "Check: the jump after that is +6.",
-          "show": "16 + 6 = 22"
+          "show": "16 + 6 = 22",
+          "anim": {
+            "k": "line",
+            "min": 14,
+            "max": 24,
+            "start": 16,
+            "jumps": [
+              6
+            ]
+          }
         }
       ],
       "tags": [
@@ -548,15 +626,49 @@
       "solution": [
         {
           "say": "Each new square needs 3 more sticks because one side is shared.",
-          "show": "4, 7, 10"
+          "show": "4, 7, 10",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "4",
+              "7",
+              "10"
+            ]
+          }
         },
         {
           "say": "Add 3 for the 4th square.",
-          "show": "10 + 3 = 13"
+          "show": "10 + 3 = 13",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "+",
+            "b": 3,
+            "r": 13
+          },
+          "mark": [
+            "10",
+            "3"
+          ]
         },
         {
           "say": "Add 3 again for the 5th square.",
-          "show": "13 + 3 = 16"
+          "show": "13 + 3 = 16",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 13
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 16
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -644,7 +756,14 @@
           "say": "The numbers go up by 2 each time."
         },
         {
-          "say": "After 6 comes 6 + 2 = 8."
+          "say": "After 6 comes 6 + 2 = 8.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 2,
+            "r": 8
+          }
         }
       ],
       "tags": [
@@ -684,7 +803,14 @@
           "say": "The numbers go down by 2 each time."
         },
         {
-          "say": "After 6 comes 6 - 2 = 4."
+          "say": "After 6 comes 6 - 2 = 4.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "-",
+            "b": 2,
+            "r": 4
+          }
         }
       ],
       "tags": [
@@ -837,7 +963,14 @@
           "say": "The jumps are +1, +2 and +3, so the next jump is +4."
         },
         {
-          "say": "7 + 4 = 11."
+          "say": "7 + 4 = 11.",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 4,
+            "r": 11
+          }
         }
       ],
       "tags": [

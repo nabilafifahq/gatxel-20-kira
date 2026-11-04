@@ -1104,7 +1104,19 @@
           "say": "The robot goes right 3 steps (from 1 to 4) and up 4 steps (from 1 to 5)."
         },
         {
-          "say": "That is 3 + 4 = 7 commands."
+          "say": "That is 3 + 4 = 7 commands.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 7
+          }
         }
       ],
       "tags": [
@@ -1256,10 +1268,30 @@
       "explanation": "Three Q steps take away 3, so 10 - 3 = 7. Four P steps add 4 x 2 = 8, so 7 + 8 = 15.",
       "solution": [
         {
-          "say": "Three Q steps take away 3, so 10 - 3 = 7."
+          "say": "Three Q steps take away 3, so 10 - 3 = 7.",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "-",
+            "b": 3,
+            "r": 7
+          },
+          "mark": [
+            "10"
+          ]
         },
         {
-          "say": "Four P steps add 4 x 2 = 8, so 7 + 8 = 15."
+          "say": "Four P steps add 4 x 2 = 8, so 7 + 8 = 15.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 2,
+            "r": 8
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -1346,7 +1378,22 @@
           "say": "There are 3 dots, worth 3 in all, and 2 dashes, worth 6 in all."
         },
         {
-          "say": "The total is 3 + 6 = 9."
+          "say": "The total is 3 + 6 = 9.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 9
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [

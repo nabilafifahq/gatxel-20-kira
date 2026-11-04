@@ -70,7 +70,17 @@
           "say": "13 ones is 1 ten and 3 ones."
         },
         {
-          "say": "So we have 4 + 1 = 5 tens and 3 ones."
+          "say": "So we have 4 + 1 = 5 tens and 3 ones.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 1,
+            "r": 5
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "The number is 53."
@@ -194,7 +204,20 @@
         },
         {
           "say": "Find the difference.",
-          "show": "852 - 258 = 594"
+          "show": "852 - 258 = 594",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 258
+              },
+              {
+                "v": 594,
+                "q": true
+              }
+            ],
+            "total": 852
+          }
         }
       ],
       "tags": [
@@ -224,7 +247,23 @@
           "say": "Swapping 83 gives 38."
         },
         {
-          "say": "The new number is 83 - 38 = 45 smaller."
+          "say": "The new number is 83 - 38 = 45 smaller.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 38
+              },
+              {
+                "v": 45,
+                "q": true
+              }
+            ],
+            "total": 83
+          },
+          "mark": [
+            "83"
+          ]
         }
       ],
       "tags": [
@@ -383,7 +422,14 @@
           "say": "The tens place has a 1 in 10 to 19, so that is 10."
         },
         {
-          "say": "In all, 3 + 10 = 13."
+          "say": "In all, 3 + 10 = 13.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 10,
+            "r": 13
+          }
         }
       ],
       "tags": [
@@ -510,7 +556,18 @@
       "explanation": "The tens and ones digits add up to 15 - 2 = 13. Two numbers that are 1 apart and add up to 13 are 6 and 7. The ones digit is the bigger one, so the number is 267.",
       "solution": [
         {
-          "say": "The tens and ones digits add up to 15 - 2 = 13."
+          "say": "The tens and ones digits add up to 15 - 2 = 13.",
+          "anim": {
+            "k": "combine",
+            "a": 15,
+            "op": "-",
+            "b": 2,
+            "r": 13
+          },
+          "mark": [
+            "15",
+            "2"
+          ]
         },
         {
           "say": "Two numbers that are 1 apart and add up to 13 are 6 and 7."
@@ -544,13 +601,46 @@
       "explanation": "Ani has 30 + 2 = 32 beads. Ben has 20 + 15 = 35 beads. Ben has 35 - 32 = 3 more.",
       "solution": [
         {
-          "say": "Ani has 30 + 2 = 32 beads."
+          "say": "Ani has 30 + 2 = 32 beads.",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "+",
+            "b": 2,
+            "r": 32
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
-          "say": "Ben has 20 + 15 = 35 beads."
+          "say": "Ben has 20 + 15 = 35 beads.",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "+",
+            "b": 15,
+            "r": 35
+          },
+          "mark": [
+            "15"
+          ]
         },
         {
-          "say": "Ben has 35 - 32 = 3 more."
+          "say": "Ben has 35 - 32 = 3 more.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 32
+              },
+              {
+                "v": 3,
+                "q": true
+              }
+            ],
+            "total": 35
+          }
         }
       ],
       "tags": [
@@ -778,7 +868,23 @@
           "say": "The next number with 3 equal digits after 297 is 333."
         },
         {
-          "say": "So we add 333 - 297 = 36."
+          "say": "So we add 333 - 297 = 36.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 297
+              },
+              {
+                "v": 36,
+                "q": true
+              }
+            ],
+            "total": 333
+          },
+          "mark": [
+            "297"
+          ]
         }
       ],
       "tags": [
@@ -827,7 +933,14 @@
           "say": "Numbers with digit sum 11 are 29, 38, 47, 56 and so on."
         },
         {
-          "say": "Swapping 47 gives 74, and 74 - 47 = 27."
+          "say": "Swapping 47 gives 74, and 74 - 47 = 27.",
+          "anim": {
+            "k": "combine",
+            "a": 74,
+            "op": "-",
+            "b": 47,
+            "r": 27
+          }
         },
         {
           "say": "So the number is 47."
@@ -1125,7 +1238,14 @@
       "explanation": "25 + 36 = 61, 40 + 19 = 59, 33 + 30 = 63, 28 + 34 = 62 and 31 + 29 = 60. The biggest is 33 + 30.",
       "solution": [
         {
-          "say": "25 + 36 = 61, 40 + 19 = 59, 33 + 30 = 63, 28 + 34 = 62 and 31 + 29 = 60."
+          "say": "25 + 36 = 61, 40 + 19 = 59, 33 + 30 = 63, 28 + 34 = 62 and 31 + 29 = 60.",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "+",
+            "b": 36,
+            "r": 61
+          }
         },
         {
           "say": "The biggest is 33 + 30."
@@ -1471,7 +1591,14 @@
           "say": "Only 29 + 31 has two odd numbers."
         },
         {
-          "say": "29 + 31 = 60, which is even."
+          "say": "29 + 31 = 60, which is even.",
+          "anim": {
+            "k": "combine",
+            "a": 29,
+            "op": "+",
+            "b": 31,
+            "r": 60
+          }
         }
       ],
       "tags": [
@@ -1911,7 +2038,14 @@
           "say": "Only 3 x 7 has two odd numbers."
         },
         {
-          "say": "3 x 7 = 21, which is odd."
+          "say": "3 x 7 = 21, which is odd.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 7,
+            "r": 21
+          }
         }
       ],
       "tags": [

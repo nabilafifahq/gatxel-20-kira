@@ -65,8 +65,10 @@ export function describeAnim(a: Anim): string {
   }
 }
 
+const money = (n: number, cur?: 'Rp') => (cur ? `Rp${n.toLocaleString('id-ID')}` : fmt(n))
+
 function Combine({ a, t, tone }: { a: Extract<Anim, { k: 'combine' }>; t: number; tone: Tone }): ReactElement {
-  const parts = [fmt(a.a), a.op, fmt(a.b), '=', fmt(a.r)]
+  const parts = [money(a.a, a.cur), a.op, money(a.b, a.cur), '=', money(a.r, a.cur)]
   const chars = parts.reduce((n, s) => n + s.length, 0) + 3
   const fs = clamp(330 / (chars * 0.62), 20, 46)
   const gap = fs * 0.4
@@ -131,7 +133,6 @@ function Column({ a, t, tone }: { a: Extract<Anim, { k: 'column' }>; t: number; 
   const visible = a.upTo ?? rs.length
   const ca = a.op === '+' ? carries(a.a, a.b) : []
   const shown = visible === 0 ? 0 : t * visible
-  const digitAt = (s: string, fromRight: number) => s[s.length - 1 - fromRight] ?? ''
   const active = visible === 0 ? -1 : Math.min(visible - 1, Math.floor(shown))
   const rowA = 56
   const rowB = 98
@@ -188,7 +189,7 @@ function Bar({ a, t, tone }: { a: Extract<Anim, { k: 'bar' }>; t: number; tone: 
   const y = 78
   const h = 48
   const braceP = ease(seg(t, 0, 0.2))
-  const totalLabel = `${fmt(a.total)}${a.unit ? ` ${a.unit}` : ''}`
+  const totalLabel = `${money(a.total, a.cur)}${a.unit ? ` ${a.unit}` : ''}`
   const partsView = a.parts.map((p, i) => {
     const w = widths[i]!
     const x = acc
@@ -203,7 +204,7 @@ function Bar({ a, t, tone }: { a: Extract<Anim, { k: 'bar' }>; t: number; tone: 
       <g key={i}>
         <rect x={x} y={y} width={w * grow} height={h} rx={6} className={`${p.q ? 'fill-star' : i % 2 === 0 ? tone.tint : tone.tint} stroke-fg`} strokeWidth={2.5} strokeDasharray={p.q && solved < 0.5 ? '6 4' : undefined} />
         <text x={x + w / 2} y={y + h / 2 + 8} textAnchor="middle" fontSize={w < 44 ? 14 : 22} className="fill-fg font-display font-bold" opacity={labelP}>
-          {showValue ? fmt(p.v) : '?'}
+          {showValue ? money(p.v, a.cur) : '?'}
         </text>
         {p.label ? (
           <text x={x + w / 2} y={y + h + 22} textAnchor="middle" fontSize={13} className="fill-fg-muted font-semibold" opacity={labelP}>

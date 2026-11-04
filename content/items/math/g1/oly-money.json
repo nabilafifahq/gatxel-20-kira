@@ -189,7 +189,15 @@
       "explanation": "Rp500 + Rp200 = Rp700. The other choices make Rp600, Rp400 and Rp1.000.",
       "solution": [
         {
-          "say": "Rp500 + Rp200 = Rp700."
+          "say": "Rp500 + Rp200 = Rp700.",
+          "anim": {
+            "k": "combine",
+            "a": 500,
+            "op": "+",
+            "b": 200,
+            "r": 700,
+            "cur": "Rp"
+          }
         },
         {
           "say": "The other choices make Rp600, Rp400 and Rp1.000."
@@ -257,7 +265,39 @@
         "kmnr"
       ],
       "points": 4,
-      "expectedSeconds": 120
+      "expectedSeconds": 120,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rupiah do they cost together?"
+          ]
+        },
+        {
+          "say": "Together they cost Rp500 + Rp200 = Rp700.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 500
+              },
+              {
+                "v": 200
+              }
+            ],
+            "total": 700,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp500",
+            "Rp200"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "700 rupiah"
+        }
+      ]
     },
     {
       "id": "m1.oly-money.009",

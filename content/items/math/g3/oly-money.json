@@ -76,10 +76,38 @@
       "explanation": "3 books cost 3 x 7.500 = Rp22.500. The change is 50.000 - 22.500 = Rp27.500.",
       "solution": [
         {
-          "say": "3 books cost 3 x 7.500 = Rp22.500."
+          "say": "3 books cost 3 x 7.500 = Rp22.500.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 7500,
+            "r": 22500,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp7.500"
+          ]
         },
         {
-          "say": "The change is 50.000 - 22.500 = Rp27.500."
+          "say": "The change is 50.000 - 22.500 = Rp27.500.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 22500
+              },
+              {
+                "v": 27500,
+                "q": true
+              }
+            ],
+            "total": 50000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp50.000"
+          ]
         }
       ],
       "tags": [
@@ -106,13 +134,49 @@
       "explanation": "4 notebooks cost 4 x 3.500 = Rp14.000. 3 pens cost 3 x 2.000 = Rp6.000. In all, she pays 14.000 + 6.000 = Rp20.000.",
       "solution": [
         {
-          "say": "4 notebooks cost 4 x 3.500 = Rp14.000."
+          "say": "4 notebooks cost 4 x 3.500 = Rp14.000.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 3500,
+            "r": 14000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp3.500"
+          ]
         },
         {
-          "say": "3 pens cost 3 x 2.000 = Rp6.000."
+          "say": "3 pens cost 3 x 2.000 = Rp6.000.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 2000,
+            "r": 6000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp3",
+            "Rp2.000"
+          ]
         },
         {
-          "say": "In all, she pays 14.000 + 6.000 = Rp20.000."
+          "say": "In all, she pays 14.000 + 6.000 = Rp20.000.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 14000
+              },
+              {
+                "v": 6000
+              }
+            ],
+            "total": 20000,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -140,7 +204,18 @@
       "explanation": "Each friend pays 18.000 / 3 = Rp6.000. Ana has paid Rp5.000, so she must pay Rp1.000 more.",
       "solution": [
         {
-          "say": "Each friend pays 18.000 / 3 = Rp6.000."
+          "say": "Each friend pays 18.000 / 3 = Rp6.000.",
+          "anim": {
+            "k": "combine",
+            "a": 18000,
+            "op": "÷",
+            "b": 3,
+            "r": 6000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp18.000"
+          ]
         },
         {
           "say": "Ana has paid Rp5.000, so she must pay Rp1.000 more."
@@ -173,7 +248,19 @@
           "say": "Two weeks make Rp5.000."
         },
         {
-          "say": "Rp15.000 is 3 times Rp5.000, so it takes 3 x 2 = 6 weeks."
+          "say": "Rp15.000 is 3 times Rp5.000, so it takes 3 x 2 = 6 weeks.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 6
+          }
         }
       ],
       "tags": [
@@ -206,7 +293,19 @@
           "say": "There are 2 groups, so you pay for 4 pens."
         },
         {
-          "say": "4 x 4.000 = Rp16.000."
+          "say": "4 x 4.000 = Rp16.000.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 4000,
+            "r": 16000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp4",
+            "Rp4.000"
+          ]
         }
       ],
       "tags": [
@@ -282,13 +381,44 @@
       "explanation": "Take away the extra: 75.000 - 15.000 = 60.000. The trousers cost 60.000 / 2 = Rp30.000. The shirt costs 30.000 + 15.000 = Rp45.000.",
       "solution": [
         {
-          "say": "Take away the extra: 75.000 - 15.000 = 60.000."
+          "say": "Take away the extra: 75.000 - 15.000 = 60.000.",
+          "anim": {
+            "k": "combine",
+            "a": 75,
+            "op": "-",
+            "b": 15,
+            "r": 60
+          }
         },
         {
-          "say": "The trousers cost 60.000 / 2 = Rp30.000."
+          "say": "The trousers cost 60.000 / 2 = Rp30.000.",
+          "anim": {
+            "k": "combine",
+            "a": 60000,
+            "op": "÷",
+            "b": 2,
+            "r": 30000,
+            "cur": "Rp"
+          }
         },
         {
-          "say": "The shirt costs 30.000 + 15.000 = Rp45.000."
+          "say": "The shirt costs 30.000 + 15.000 = Rp45.000.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 30000
+              },
+              {
+                "v": 15000
+              }
+            ],
+            "total": 45000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp15.000"
+          ]
         }
       ],
       "tags": [

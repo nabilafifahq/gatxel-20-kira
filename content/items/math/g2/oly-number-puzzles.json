@@ -38,11 +38,32 @@
       "solution": [
         {
           "say": "Rambutans to share.",
-          "show": "23 - 3 = 20"
+          "show": "23 - 3 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 23,
+            "op": "-",
+            "b": 3,
+            "r": 20
+          },
+          "mark": [
+            "23",
+            "3"
+          ]
         },
         {
           "say": "Share between 4 children.",
-          "show": "20 ÷ 4 = 5"
+          "show": "20 ÷ 4 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "÷",
+            "b": 4,
+            "r": 5
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Check.",
@@ -102,7 +123,14 @@
         },
         {
           "say": "Check the sum.",
-          "show": "34 + 42 = 76"
+          "show": "34 + 42 = 76",
+          "anim": {
+            "k": "combine",
+            "a": 34,
+            "op": "+",
+            "b": 42,
+            "r": 76
+          }
         }
       ],
       "tags": [
@@ -164,11 +192,33 @@
       "solution": [
         {
           "say": "Start with all 6 coins as Rp200.",
-          "show": "6 × Rp200 = Rp1.200"
+          "show": "6 × Rp200 = Rp1.200",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 200,
+            "r": 1200,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp200"
+          ]
         },
         {
           "say": "Rp900 is still missing.",
-          "show": "Rp2.100 - Rp1.200 = Rp900"
+          "show": "Rp2.100 - Rp1.200 = Rp900",
+          "anim": {
+            "k": "combine",
+            "a": 2100,
+            "op": "-",
+            "b": 1200,
+            "r": 900,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2.100"
+          ]
         },
         {
           "say": "Each swap from Rp200 to Rp500 adds Rp300. Three swaps add Rp900.",
@@ -176,7 +226,15 @@
         },
         {
           "say": "Check: 3 coins of Rp500 and 3 coins of Rp200.",
-          "show": "Rp1.500 + Rp600 = Rp2.100"
+          "show": "Rp1.500 + Rp600 = Rp2.100",
+          "anim": {
+            "k": "combine",
+            "a": 1500,
+            "op": "+",
+            "b": 600,
+            "r": 2100,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -252,7 +310,14 @@
         },
         {
           "say": "Check.",
-          "show": "45 - 5 = 40"
+          "show": "45 - 5 = 40",
+          "anim": {
+            "k": "combine",
+            "a": 45,
+            "op": "-",
+            "b": 5,
+            "r": 40
+          }
         }
       ],
       "tags": [
@@ -296,11 +361,29 @@
       "solution": [
         {
           "say": "Undo add 6.",
-          "show": "20 - 6 = 14"
+          "show": "20 - 6 = 14",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "-",
+            "b": 6,
+            "r": 14
+          },
+          "mark": [
+            "20",
+            "6"
+          ]
         },
         {
           "say": "Undo double.",
-          "show": "14 ÷ 2 = 7"
+          "show": "14 ÷ 2 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 14,
+            "op": "÷",
+            "b": 2,
+            "r": 7
+          }
         },
         {
           "say": "Check.",
@@ -396,18 +479,53 @@
       "solution": [
         {
           "say": "Take away the difference.",
-          "show": "20 - 4 = 16"
+          "show": "20 - 4 = 16",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "-",
+            "b": 4,
+            "r": 16
+          },
+          "mark": [
+            "20",
+            "4"
+          ]
         },
         {
           "say": "Share equally.",
-          "show": "16 ÷ 2 = 8 (smaller)"
+          "show": "16 ÷ 2 = 8 (smaller)",
+          "anim": {
+            "k": "combine",
+            "a": 16,
+            "op": "÷",
+            "b": 2,
+            "r": 8
+          }
         },
         {
           "say": "Add the difference back.",
-          "show": "8 + 4 = 12 (bigger)"
+          "show": "8 + 4 = 12 (bigger)",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 4,
+            "r": 12
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
-          "say": "Check: 12 + 8 = 20 and 12 - 8 = 4."
+          "say": "Check: 12 + 8 = 20 and 12 - 8 = 4.",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 8,
+            "r": 20
+          }
         }
       ],
       "tags": [
@@ -432,15 +550,48 @@
       "solution": [
         {
           "say": "Try numbers. Ana has 10. After giving 3 she has 7.",
-          "show": "10 - 3 = 7"
+          "show": "10 - 3 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "-",
+            "b": 3,
+            "r": 7
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "Ben must end with 7 too, so he had 4.",
-          "show": "7 - 3 = 4"
+          "show": "7 - 3 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "-",
+            "b": 3,
+            "r": 4
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "The difference now.",
-          "show": "10 - 4 = 6"
+          "show": "10 - 4 = 6",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 6,
+                "q": true
+              }
+            ],
+            "total": 10
+          }
         },
         {
           "say": "Any numbers that work give 6, because Ana loses 3 and Ben gains 3."
@@ -482,7 +633,20 @@
         },
         {
           "say": "The corners are counted twice, so they make the extra.",
-          "show": "30 - 21 = 9"
+          "show": "30 - 21 = 9",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 21
+              },
+              {
+                "v": 9,
+                "q": true
+              }
+            ],
+            "total": 30
+          }
         },
         {
           "say": "Example: corners 1, 3 and 5 with 6, 2 and 4 in the middles.",
@@ -540,11 +704,31 @@
       "solution": [
         {
           "say": "Jumlah permen.",
-          "show": "12 + 12 = 24"
+          "show": "12 + 12 = 24",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 12,
+            "r": 24
+          },
+          "mark": [
+            "12"
+          ]
         },
         {
           "say": "Bagi sama banyak kepada 6 anak.",
-          "show": "24 ÷ 6 = 4"
+          "show": "24 ÷ 6 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 6,
+            "r": 4
+          },
+          "mark": [
+            "6"
+          ]
         },
         {
           "say": "Periksa.",
@@ -628,15 +812,48 @@
       "solution": [
         {
           "say": "Harga beras.",
-          "show": "Rp12.000 + Rp12.000 = Rp24.000"
+          "show": "Rp12.000 + Rp12.000 = Rp24.000",
+          "anim": {
+            "k": "combine",
+            "a": 12000,
+            "op": "+",
+            "b": 12000,
+            "r": 24000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp12.000"
+          ]
         },
         {
           "say": "Tambah harga kecap.",
-          "show": "Rp24.000 + Rp8.000 = Rp32.000"
+          "show": "Rp24.000 + Rp8.000 = Rp32.000",
+          "anim": {
+            "k": "combine",
+            "a": 24000,
+            "op": "+",
+            "b": 8000,
+            "r": 32000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp8.000"
+          ]
         },
         {
           "say": "Kembalian.",
-          "show": "Rp50.000 - Rp32.000 = Rp18.000"
+          "show": "Rp50.000 - Rp32.000 = Rp18.000",
+          "anim": {
+            "k": "combine",
+            "a": 50000,
+            "op": "-",
+            "b": 32000,
+            "r": 18000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp50.000"
+          ]
         }
       ],
       "tags": [
@@ -710,19 +927,54 @@
       "solution": [
         {
           "say": "Ambil selisih umur.",
-          "show": "17 - 5 = 12"
+          "show": "17 - 5 = 12",
+          "anim": {
+            "k": "combine",
+            "a": 17,
+            "op": "-",
+            "b": 5,
+            "r": 12
+          },
+          "mark": [
+            "17",
+            "5"
+          ]
         },
         {
           "say": "Bagi dua.",
-          "show": "12 ÷ 2 = 6 (Adik)"
+          "show": "12 ÷ 2 = 6 (Adik)",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "÷",
+            "b": 2,
+            "r": 6
+          }
         },
         {
           "say": "Umur Kakak.",
-          "show": "6 + 5 = 11"
+          "show": "6 + 5 = 11",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 5,
+            "r": 11
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "Periksa.",
-          "show": "6 + 11 = 17"
+          "show": "6 + 11 = 17",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 11,
+            "r": 17
+          }
         }
       ],
       "tags": [
@@ -791,11 +1043,32 @@
         },
         {
           "say": "Middle shelf.",
-          "show": "8 + 5 = 13"
+          "show": "8 + 5 = 13",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 5,
+            "r": 13
+          },
+          "mark": [
+            "8",
+            "5"
+          ]
         },
         {
           "say": "Bottom shelf.",
-          "show": "13 - 2 = 11"
+          "show": "13 - 2 = 11",
+          "anim": {
+            "k": "combine",
+            "a": 13,
+            "op": "-",
+            "b": 2,
+            "r": 11
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "Total.",
@@ -841,7 +1114,18 @@
       "solution": [
         {
           "say": "Price of 2 papayas.",
-          "show": "Rp6.000 + Rp6.000 = Rp12.000"
+          "show": "Rp6.000 + Rp6.000 = Rp12.000",
+          "anim": {
+            "k": "combine",
+            "a": 6000,
+            "op": "+",
+            "b": 6000,
+            "r": 12000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp6.000"
+          ]
         },
         {
           "say": "3 mangoes cost the same.",
@@ -849,7 +1133,15 @@
         },
         {
           "say": "One mango.",
-          "show": "Rp12.000 ÷ 3 = Rp4.000"
+          "show": "Rp12.000 ÷ 3 = Rp4.000",
+          "anim": {
+            "k": "combine",
+            "a": 12000,
+            "op": "÷",
+            "b": 3,
+            "r": 4000,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -888,7 +1180,14 @@
         },
         {
           "say": "Try numbers near half of 25.",
-          "show": "12 + 13 = 25"
+          "show": "12 + 13 = 25",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 13,
+            "r": 25
+          }
         },
         {
           "say": "The smaller number is on the left.",

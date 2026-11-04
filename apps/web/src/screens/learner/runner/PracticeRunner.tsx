@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactElement } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactElement } from 'react'
 import { checkAnswer } from '@kira/content/check'
 import { TTS_EXAMINER_INTRO } from '@kira/core/tts'
 import { answerXp } from '@kira/core'
@@ -144,7 +144,6 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
     return () => {
       alive = false
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revealedPos])
 
   const tryOneLikeIt = useCallback(async () => {

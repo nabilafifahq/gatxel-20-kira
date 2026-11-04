@@ -16,7 +16,7 @@ const num = z.number().finite()
 const short = (max: number) => z.string().trim().min(1).max(max)
 
 export const animSchema = z.discriminatedUnion('k', [
-  z.object({ k: z.literal('combine'), a: num, op: z.enum(['+', '-', '×', '÷']), b: num, r: num }).strict(),
+  z.object({ k: z.literal('combine'), a: num, op: z.enum(['+', '-', '×', '÷']), b: num, r: num, cur: z.literal('Rp').optional() }).strict(),
   z.object({ k: z.literal('column'), op: z.enum(['+', '-', '×']), a: z.number().int().min(0).max(999999), b: z.number().int().min(0).max(999999), r: z.number().int().min(0).max(99999999), upTo: z.number().int().min(0).max(9).optional() }).strict(),
   z
     .object({
@@ -24,6 +24,7 @@ export const animSchema = z.discriminatedUnion('k', [
       parts: z.array(z.object({ v: num, q: z.boolean().optional(), label: short(24).optional() }).strict()).min(2).max(10),
       total: num,
       unit: short(20).optional(),
+      cur: z.literal('Rp').optional(),
     })
     .strict(),
   z.object({ k: z.literal('line'), min: num, max: num, start: num, jumps: z.array(num).min(1).max(8) }).strict(),
@@ -90,8 +91,12 @@ export function toNumber(s: string): number {
 }
 
 /** Persamaan sederhana "a op b = r". Null bila bentuknya lain. */
-export function parseEquation(text: string): { a: number; op: '+' | '-' | '×' | '÷'; b: number; r: number } | null {
-  const m = EQ.exec(text.trim())
+export function parseEquation(text: string): { a: number; op: '+' | '-' | '×' | '÷'; b: number; r: number; cur?: 'Rp' } | null {
+  let src = text.trim()
+  const cur = /\bRp\s?\d/.test(src)
+  // Rupiah memakai titik ribuan gaya Indonesia: Rp5.000 - Rp3.500 = Rp1.500.
+  if (cur) src = src.replace(/Rp\s?/g, '').replace(/(\d)\.(?=\d{3}(?!\d))/g, '$1')
+  const m = EQ.exec(src)
   if (!m) return null
   const raw = m[2]!
   const op = raw === '+' ? '+' : raw === '-' || raw === '−' ? '-' : raw === '×' || raw === 'x' || raw === '*' ? '×' : '÷'
@@ -99,7 +104,18 @@ export function parseEquation(text: string): { a: number; op: '+' | '-' | '×' |
   const b = toNumber(m[3]!)
   const r = toNumber(m[4]!)
   if (![a, b, r].every(Number.isFinite)) return null
-  return { a, op, b, r }
+  return { a, op, b, r, ...(cur ? { cur: 'Rp' as const } : {}) }
+}
+
+const EQ_FIND = /((?:Rp\s?)?-?\d[\d.,]*)\s*([+\-−×÷x*/])\s*((?:Rp\s?)?-?\d[\d.,]*)\s*=\s*((?:Rp\s?)?-?\d[\d.,]*)/
+
+/** Persamaan "a op b = r" yang tertanam di kalimat, mis. "Her change is 5.000 - 3.500 = Rp1.500.". */
+export function findEquation(text: string): ReturnType<typeof parseEquation> {
+  const m = EQ_FIND.exec(text)
+  if (!m) return null
+  const clean = m[0].replace(/[.,]+$/, '')
+  // Titik ribuan hanya dibaca bila ada Rp; angka biasa tetap desimal.
+  return parseEquation(clean)
 }
 
 /** Hasil akhir yang ditunjukkan gerakan, bila ada. */

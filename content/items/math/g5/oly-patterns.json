@@ -51,11 +51,31 @@
       "solution": [
         {
           "say": "Compare with square numbers.",
-          "show": "1, 4, 9, 16, 25"
+          "show": "1, 4, 9, 16, 25",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "4",
+              "9",
+              "16",
+              "25"
+            ]
+          }
         },
         {
           "say": "Each number is one more.",
-          "show": "2, 5, 10, 17, 26"
+          "show": "2, 5, 10, 17, 26",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "5",
+              "10",
+              "17",
+              "26"
+            ]
+          }
         },
         {
           "say": "10th number.",
@@ -197,7 +217,14 @@
         },
         {
           "say": "Row 12 has 23 numbers. The middle one is the 12th.",
-          "show": "122 + 11 = 133"
+          "show": "122 + 11 = 133",
+          "anim": {
+            "k": "combine",
+            "a": 122,
+            "op": "+",
+            "b": 11,
+            "r": 133
+          }
         },
         {
           "say": "Check: halfway between 122 and 144.",
@@ -278,15 +305,45 @@
       "solution": [
         {
           "say": "Distance from the first to the last.",
-          "show": "699 - 13 = 686"
+          "show": "699 - 13 = 686",
+          "anim": {
+            "k": "combine",
+            "a": 699,
+            "op": "-",
+            "b": 13,
+            "r": 686
+          },
+          "mark": [
+            "699",
+            "13"
+          ]
         },
         {
           "say": "Jumps of 7.",
-          "show": "686 ÷ 7 = 98"
+          "show": "686 ÷ 7 = 98",
+          "anim": {
+            "k": "combine",
+            "a": 686,
+            "op": "÷",
+            "b": 7,
+            "r": 98
+          }
         },
         {
           "say": "Numbers = jumps + 1.",
-          "show": "98 + 1 = 99"
+          "show": "98 + 1 = 99",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 98
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 99
+          }
         }
       ],
       "tags": [
@@ -328,7 +385,17 @@
       "solution": [
         {
           "say": "1st bounce.",
-          "show": "160 ÷ 2 = 80 cm"
+          "show": "160 ÷ 2 = 80 cm",
+          "anim": {
+            "k": "combine",
+            "a": 160,
+            "op": "÷",
+            "b": 2,
+            "r": 80
+          },
+          "mark": [
+            "160"
+          ]
         },
         {
           "say": "2nd bounce.",
@@ -373,7 +440,17 @@
         },
         {
           "say": "Pairs make 21.",
-          "show": "10 × 21 = 210"
+          "show": "10 × 21 = 210",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "×",
+            "b": 21,
+            "r": 210
+          },
+          "mark": [
+            "10"
+          ]
         }
       ],
       "tags": [
@@ -406,7 +483,16 @@
         },
         {
           "say": "The 4th digit of the block.",
-          "show": "1, 4, 2, 8"
+          "show": "1, 4, 2, 8",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "4",
+              "2",
+              "8"
+            ]
+          }
         },
         {
           "say": "So the digit is 8.",
@@ -443,7 +529,27 @@
         },
         {
           "say": "Every third number is even.",
-          "show": "30 ÷ 3 = 10"
+          "show": "30 ÷ 3 = 10",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10,
+                "q": true
+              },
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 30
+          },
+          "mark": [
+            "30",
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -576,7 +682,48 @@
           "why": "The jumps are odd numbers: 3, 5, 7, 9. 40 is even."
         }
       ],
-      "answer": 3
+      "answer": 3,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How much bigger is the 20th square number than the 19th?"
+          ]
+        },
+        {
+          "say": "The jumps between square numbers are 3, 5, 7, ..."
+        },
+        {
+          "say": "The 20th square is 400 and the 19th is 361, and 400 - 361 = 39.",
+          "anim": {
+            "k": "combine",
+            "a": 400,
+            "op": "-",
+            "b": 361,
+            "r": 39
+          }
+        },
+        {
+          "say": "Not 19. The jump is bigger than the position number. Check 16 - 9 = 7 for the jump to the 4th square.",
+          "anim": {
+            "k": "line",
+            "min": 4,
+            "max": 19,
+            "start": 16,
+            "jumps": [
+              -9
+            ]
+          },
+          "mark": [
+            "16",
+            "9"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "D. 39"
+        }
+      ]
     },
     {
       "id": "m5.oly-patterns.013",
@@ -678,7 +825,43 @@
       "points": 5,
       "expectedSeconds": 210,
       "type": "numeric",
-      "answer": 454
+      "answer": 454,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the sum of the first 100 digits after the decimal"
+          ]
+        },
+        {
+          "say": "One block 285714 adds to 27."
+        },
+        {
+          "say": "16 blocks give 432."
+        },
+        {
+          "say": "The next four digits are 2, 8, 5, 7 which add to 22."
+        },
+        {
+          "say": "432 + 22 = 454.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 432
+              },
+              {
+                "v": 22
+              }
+            ],
+            "total": 454
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "454"
+        }
+      ]
     },
     {
       "id": "m5.oly-patterns.017",

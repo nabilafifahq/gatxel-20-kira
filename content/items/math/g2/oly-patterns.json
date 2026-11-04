@@ -150,11 +150,27 @@
       "solution": [
         {
           "say": "Double each day.",
-          "show": "1, 2, 4, 8"
+          "show": "1, 2, 4, 8",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "4",
+              "8"
+            ]
+          }
         },
         {
           "say": "Keep going to day 6.",
-          "show": "8 + 8 = 16, 16 + 16 = 32"
+          "show": "8 + 8 = 16, 16 + 16 = 32",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 8,
+            "r": 16
+          }
         },
         {
           "say": "Day 6 has 32 leaves.",
@@ -376,19 +392,60 @@
       "solution": [
         {
           "say": "The first triangle uses 3 sticks.",
-          "show": "21 - 3 = 18 left"
+          "show": "21 - 3 = 18 left",
+          "anim": {
+            "k": "combine",
+            "a": 21,
+            "op": "-",
+            "b": 3,
+            "r": 18
+          },
+          "mark": [
+            "21",
+            "3"
+          ]
         },
         {
           "say": "Each new triangle adds 2 sticks. Half of 18 is 9.",
-          "show": "18 ÷ 2 = 9 more triangles"
+          "show": "18 ÷ 2 = 9 more triangles",
+          "anim": {
+            "k": "combine",
+            "a": 18,
+            "op": "÷",
+            "b": 2,
+            "r": 9
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "Count all the triangles.",
-          "show": "1 + 9 = 10"
+          "show": "1 + 9 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 1,
+            "op": "+",
+            "b": 9,
+            "r": 10
+          },
+          "mark": [
+            "1"
+          ]
         },
         {
           "say": "Check: 3 sticks plus 9 lots of 2 sticks.",
-          "show": "3 + 18 = 21"
+          "show": "3 + 18 = 21",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 18,
+            "r": 21
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -445,15 +502,38 @@
       "solution": [
         {
           "say": "Find the jump.",
-          "show": "3 + 4 = 7, 7 + 4 = 11"
+          "show": "3 + 4 = 7, 7 + 4 = 11",
+          "anim": {
+            "k": "line",
+            "min": 2,
+            "max": 8,
+            "start": 3,
+            "jumps": [
+              4
+            ]
+          }
         },
         {
           "say": "Add 4 to 11.",
-          "show": "11 + 4 = 15"
+          "show": "11 + 4 = 15",
+          "anim": {
+            "k": "combine",
+            "a": 11,
+            "op": "+",
+            "b": 4,
+            "r": 15
+          }
         },
         {
           "say": "Check: 15 + 4 = 19.",
-          "show": "15 + 4 = 19"
+          "show": "15 + 4 = 19",
+          "anim": {
+            "k": "combine",
+            "a": 15,
+            "op": "+",
+            "b": 4,
+            "r": 19
+          }
         }
       ],
       "tags": [
@@ -510,15 +590,42 @@
       "solution": [
         {
           "say": "Check the rule with the numbers given.",
-          "show": "1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8"
+          "show": "1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 1,
+            "op": "+",
+            "b": 2,
+            "r": 3
+          }
         },
         {
           "say": "Find the 7th number.",
-          "show": "5 + 8 = 13"
+          "show": "5 + 8 = 13",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 8,
+            "r": 13
+          },
+          "mark": [
+            "8"
+          ]
         },
         {
           "say": "Find the 8th number.",
-          "show": "8 + 13 = 21"
+          "show": "8 + 13 = 21",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 13,
+            "r": 21
+          },
+          "mark": [
+            "8"
+          ]
         }
       ],
       "tags": [
@@ -633,11 +740,36 @@
         },
         {
           "say": "Double 23.",
-          "show": "23 + 23 = 46"
+          "show": "23 + 23 = 46",
+          "anim": {
+            "k": "combine",
+            "a": 23,
+            "op": "+",
+            "b": 23,
+            "r": 46
+          },
+          "mark": [
+            "23"
+          ]
         },
         {
           "say": "Add 1.",
-          "show": "46 + 1 = 47"
+          "show": "46 + 1 = 47",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 46
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 47
+          },
+          "mark": [
+            "1"
+          ]
         }
       ],
       "tags": [
@@ -675,19 +807,71 @@
       "solution": [
         {
           "say": "The distance from 4 to 34.",
-          "show": "34 - 4 = 30"
+          "show": "34 - 4 = 30",
+          "anim": {
+            "k": "combine",
+            "a": 34,
+            "op": "-",
+            "b": 4,
+            "r": 30
+          },
+          "mark": [
+            "34",
+            "4"
+          ]
         },
         {
           "say": "Jumps of 3 in 30.",
-          "show": "30 ÷ 3 = 10 jumps"
+          "show": "30 ÷ 3 = 10 jumps",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "÷",
+            "b": 3,
+            "r": 10
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "10 jumps join 11 numbers, like 10 gaps between 11 fence posts.",
-          "show": "10 + 1 = 11"
+          "show": "10 + 1 = 11",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 11
+          },
+          "mark": [
+            "10"
+          ]
         },
         {
           "say": "Check by listing.",
-          "show": "4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34"
+          "show": "4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "4",
+              "7",
+              "10",
+              "13",
+              "16",
+              "19",
+              "22",
+              "25",
+              "28",
+              "31",
+              "34"
+            ]
+          }
         }
       ],
       "tags": [
@@ -747,7 +931,22 @@
         },
         {
           "say": "Hitung loncat 2 sampai 10 rumah.",
-          "show": "2, 4, 6, 8, 10, 12, 14, 16, 18, 20"
+          "show": "2, 4, 6, 8, 10, 12, 14, 16, 18, 20",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "4",
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16",
+              "18",
+              "20"
+            ]
+          }
         },
         {
           "say": "Rumah ke-10 bernomor 20."
@@ -915,7 +1114,17 @@
       "solution": [
         {
           "say": "Write the number of jars in each row.",
-          "show": "1, 2, 3, 4, 5"
+          "show": "1, 2, 3, 4, 5",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ]
+          }
         },
         {
           "say": "Add them. Pairs that make 5 help: 1 + 4 and 2 + 3.",
@@ -1039,11 +1248,29 @@
         },
         {
           "say": "Each jump is double the last one.",
-          "show": "8 + 8 = 16"
+          "show": "8 + 8 = 16",
+          "anim": {
+            "k": "line",
+            "min": 6,
+            "max": 18,
+            "start": 8,
+            "jumps": [
+              8
+            ]
+          }
         },
         {
           "say": "Add the next jump.",
-          "show": "17 + 16 = 33"
+          "show": "17 + 16 = 33",
+          "anim": {
+            "k": "line",
+            "min": 13,
+            "max": 37,
+            "start": 17,
+            "jumps": [
+              16
+            ]
+          }
         },
         {
           "say": "Another way: double the number and take away 1.",
@@ -1240,7 +1467,14 @@
           "say": "The next jump is +5."
         },
         {
-          "say": "So 12 + 5 = 17."
+          "say": "So 12 + 5 = 17.",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 5,
+            "r": 17
+          }
         }
       ],
       "tags": [
@@ -1286,7 +1520,20 @@
           "say": "The next jump down is 7."
         },
         {
-          "say": "So 73 - 7 = 66."
+          "say": "So 73 - 7 = 66.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7
+              },
+              {
+                "v": 66,
+                "q": true
+              }
+            ],
+            "total": 73
+          }
         }
       ],
       "tags": [
@@ -1330,7 +1577,23 @@
           "say": "The pattern is +2, -1, +2, -1, +2 and then -1."
         },
         {
-          "say": "So 6 - 1 = 5."
+          "say": "So 6 - 1 = 5.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 1
+              },
+              {
+                "v": 5,
+                "q": true
+              }
+            ],
+            "total": 6
+          },
+          "mark": [
+            "1"
+          ]
         }
       ],
       "tags": [
@@ -1390,10 +1653,24 @@
       "explanation": "1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5 and 3 + 5 = 8. The next number is 5 + 8 = 13.",
       "solution": [
         {
-          "say": "1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5 and 3 + 5 = 8."
+          "say": "1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5 and 3 + 5 = 8.",
+          "anim": {
+            "k": "combine",
+            "a": 1,
+            "op": "+",
+            "b": 1,
+            "r": 2
+          }
         },
         {
-          "say": "The next number is 5 + 8 = 13."
+          "say": "The next number is 5 + 8 = 13.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 8,
+            "r": 13
+          }
         }
       ],
       "tags": [
@@ -1436,10 +1713,24 @@
           "say": "The numbers go up by 7 each time."
         },
         {
-          "say": "After 14 comes 14 + 7 = 21."
+          "say": "After 14 comes 14 + 7 = 21.",
+          "anim": {
+            "k": "combine",
+            "a": 14,
+            "op": "+",
+            "b": 7,
+            "r": 21
+          }
         },
         {
-          "say": "Check: 21 + 7 = 28."
+          "say": "Check: 21 + 7 = 28.",
+          "anim": {
+            "k": "combine",
+            "a": 21,
+            "op": "+",
+            "b": 7,
+            "r": 28
+          }
         }
       ],
       "tags": [
@@ -1555,7 +1846,17 @@
           "say": "Every number in the pattern is 4 plus a multiple of 3."
         },
         {
-          "say": "40 - 4 = 36, and 36 is a multiple of 3."
+          "say": "40 - 4 = 36, and 36 is a multiple of 3.",
+          "anim": {
+            "k": "combine",
+            "a": 40,
+            "op": "-",
+            "b": 4,
+            "r": 36
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "The others do not work."
@@ -1601,11 +1902,33 @@
         },
         {
           "say": "The 10th row is 9 rows after the 1st.",
-          "show": "9 x 2 = 18"
+          "show": "9 x 2 = 18",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 2,
+            "r": 18
+          }
         },
         {
           "say": "Add to the first row.",
-          "show": "1 + 18 = 19"
+          "show": "1 + 18 = 19",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 1
+              },
+              {
+                "v": 18
+              }
+            ],
+            "total": 19
+          },
+          "mark": [
+            "1"
+          ]
         }
       ],
       "tags": [
@@ -1699,10 +2022,29 @@
           "say": "Out goes up by 2 each time In goes up by 1."
         },
         {
-          "say": "From In 4 to In 10 is 6 steps, so Out goes up by 6 x 2 = 12."
+          "say": "From In 4 to In 10 is 6 steps, so Out goes up by 6 x 2 = 12.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 2,
+            "r": 12
+          }
         },
         {
-          "say": "That gives 9 + 12 = 21."
+          "say": "That gives 9 + 12 = 21.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9
+              },
+              {
+                "v": 12
+              }
+            ],
+            "total": 21
+          }
         }
       ],
       "tags": [
@@ -1823,7 +2165,22 @@
           "say": "The jumps are +3, +1, +3, +1 and then +3."
         },
         {
-          "say": "So 10 + 3 = 13."
+          "say": "So 10 + 3 = 13.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 13
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -1864,7 +2221,14 @@
           "say": "The numbers go down by 5 each time."
         },
         {
-          "say": "45 - 5 = 40, and 40 - 5 = 35."
+          "say": "45 - 5 = 40, and 40 - 5 = 35.",
+          "anim": {
+            "k": "combine",
+            "a": 45,
+            "op": "-",
+            "b": 5,
+            "r": 40
+          }
         }
       ],
       "tags": [
@@ -1951,7 +2315,18 @@
           "say": "They are 1 x 11, 2 x 11, 3 x 11 and so on."
         },
         {
-          "say": "The 9th number is 9 x 11 = 99."
+          "say": "The 9th number is 9 x 11 = 99.",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 11,
+            "r": 99
+          },
+          "mark": [
+            "9",
+            "11"
+          ]
         }
       ],
       "tags": [
@@ -1979,11 +2354,29 @@
       "solution": [
         {
           "say": "The group that repeats has 6 numbers.",
-          "show": "1, 2, 3, 4, 3, 2"
+          "show": "1, 2, 3, 4, 3, 2",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "3",
+              "2"
+            ]
+          }
         },
         {
           "say": "Two groups use 12 numbers.",
-          "show": "6 + 6 = 12"
+          "show": "6 + 6 = 12",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 6,
+            "r": 12
+          }
         },
         {
           "say": "The 13th is 1 and the 14th is 2.",
@@ -2502,7 +2895,19 @@
           "say": "Letters 19 and 20 are A and B."
         },
         {
-          "say": "So there are 6 + 1 = 7 letters B."
+          "say": "So there are 6 + 1 = 7 letters B.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 7
+          }
         }
       ],
       "tags": [
