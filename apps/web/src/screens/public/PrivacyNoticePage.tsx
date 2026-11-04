@@ -70,8 +70,9 @@ export function PrivacyNoticePage({ data }: PrivacyNoticePageProps) {
           ini pihak tersebut disebut Pengelola.
         </p>
         <p className="m-0">
-          Kira dipakai oleh satu keluarga: pemilik akun keluarga yang juga tutor, Orang Tua, dan anak sebagai learner. Pengelola tidak wajib menunjuk petugas
-          pelindungan data menurut Pasal 53 UU PDP, sehingga semua permintaan ditangani langsung oleh Pengelola.
+          Kira dipakai oleh banyak keluarga. Setiap keluarga punya ruang data sendiri yang terpisah: orang tua pemilik keluarga, anak sebagai learner, dan, pada
+          keluarga tertentu, tutor. Satu keluarga tidak bisa membaca atau mengubah data keluarga lain. Pengelola tidak wajib menunjuk petugas pelindungan data
+          menurut Pasal 53 UU PDP, sehingga semua permintaan ditangani langsung oleh Pengelola.
         </p>
       </LegalSection>
 

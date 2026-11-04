@@ -17,14 +17,15 @@ const TOC = [
   { id: 'k-pengelola', label: '1. Pengelola' },
   { id: 'k-layanan', label: '2. Layanan Kira' },
   { id: 'k-pengguna', label: '3. Siapa yang boleh memakai' },
-  { id: 'k-setuju', label: '4. Cara ketentuan berlaku' },
-  { id: 'k-larangan', label: '5. Yang tidak boleh dilakukan' },
-  { id: 'k-konten', label: '6. Soal dan hak cipta' },
-  { id: 'k-tanggung', label: '7. Tanggung jawab Pengelola' },
-  { id: 'k-lapor', label: '8. Melaporkan masalah' },
-  { id: 'k-berhenti', label: '9. Berhenti memakai Kira' },
-  { id: 'k-ubah', label: '10. Perubahan ketentuan' },
-  { id: 'k-hukum', label: '11. Hukum dan sengketa' },
+  { id: 'k-beta', label: '4. Beta dan kursi' },
+  { id: 'k-setuju', label: '5. Cara ketentuan berlaku' },
+  { id: 'k-larangan', label: '6. Yang tidak boleh dilakukan' },
+  { id: 'k-konten', label: '7. Soal dan hak cipta' },
+  { id: 'k-tanggung', label: '8. Tanggung jawab Pengelola' },
+  { id: 'k-lapor', label: '9. Melaporkan masalah' },
+  { id: 'k-berhenti', label: '10. Berhenti memakai Kira' },
+  { id: 'k-ubah', label: '11. Perubahan ketentuan' },
+  { id: 'k-hukum', label: '12. Hukum dan sengketa' },
 ]
 
 export function TermsPage({ data }: TermsPageProps) {
@@ -51,8 +52,8 @@ export function TermsPage({ data }: TermsPageProps) {
 
       <LegalSection id="k-layanan" title="2. Layanan Kira">
         <p className="m-0">
-          Kira menyediakan latihan harian Math, English, dan Science untuk anak kelas 1 sampai 6 kurikulum Cambridge Primary, tes berwaktu, simulasi lomba,
-          pembahasan soal, dan laporan mingguan untuk Orang Tua. Kira tidak memungut biaya dan tidak memuat iklan.
+          Kira menyediakan latihan harian Math, English, dan Science untuk anak kelas 1 sampai 6, tes berwaktu, simulasi lomba,
+          pembahasan soal, dan laporan mingguan untuk Orang Tua. Selama beta Kira tidak memungut biaya dan tidak memuat iklan. Kira tidak diselenggarakan, disahkan, atau didukung oleh Cambridge.
         </p>
         <p className="m-0">
           Kira tidak berafiliasi dengan penyelenggara ESMO, IKMC, SASMO, KMNR, KSNR, atau lomba lain. Preset simulasi disusun dari petunjuk teknis yang tersedia,
@@ -70,14 +71,25 @@ export function TermsPage({ data }: TermsPageProps) {
         </p>
       </LegalSection>
 
-      <LegalSection id="k-setuju" title="4. Cara ketentuan ini berlaku">
+      <LegalSection id="k-beta" title="4. Beta dan kursi">
+        <p className="m-0">
+          Kira berada dalam beta dengan jumlah kursi terbatas. Satu alamat email hanya bisa punya satu akun keluarga, dan kursi terpakai saat email dikonfirmasi.
+          Pendaftaran yang tidak dikonfirmasi dalam 24 jam dihapus otomatis. Fitur bisa berubah, dan Pengelola dapat membuka atau menutup kursi kapan saja.
+        </p>
+        <p className="m-0">
+          Orang tua yang mendaftar memiliki satu keluarga dan menambahkan anak sendiri, paling banyak lima anak per keluarga. Pengelola tidak mengirim kabar kursi
+          kepada alamat yang tidak mencentang persetujuan daftar tunggu, dan setiap email kabar memuat tautan untuk berhenti berlangganan.
+        </p>
+      </LegalSection>
+
+      <LegalSection id="k-setuju" title="5. Cara ketentuan ini berlaku">
         <p className="m-0">
           Ketentuan ini berlaku saat orang dewasa mencentang kotak persetujuan Syarat dan Ketentuan ketika membuat akun. Kotak itu kosong saat dibuka dan terpisah
           dari persetujuan pemrosesan data. Kira mencatat ID akun, waktu, alamat IP, dan versi ketentuan yang disetujui.
         </p>
       </LegalSection>
 
-      <LegalSection id="k-larangan" title="5. Yang tidak boleh dilakukan">
+      <LegalSection id="k-larangan" title="6. Yang tidak boleh dilakukan">
         <ul className="m-0 flex list-disc flex-col gap-1.5 pl-[22px]">
           <li>Memakai akun keluarga untuk anak dari keluarga lain.</li>
           <li>Membagikan password, passkey, atau PIN gambar kepada orang di luar keluarga.</li>
@@ -86,28 +98,28 @@ export function TermsPage({ data }: TermsPageProps) {
         </ul>
       </LegalSection>
 
-      <LegalSection id="k-konten" title="6. Soal dan hak cipta">
+      <LegalSection id="k-konten" title="7. Soal dan hak cipta">
         <p className="m-0">
           Soal buatan Kira, ilustrasi, dan desain aplikasi adalah milik Pengelola. Paket soal resmi lomba tetap milik penyelenggaranya. Paket itu hanya dipakai
           untuk latihan pribadi di akun keluarga dan tidak ikut diekspor.
         </p>
       </LegalSection>
 
-      <LegalSection id="k-tanggung" title="7. Tanggung jawab Pengelola">
+      <LegalSection id="k-tanggung" title="8. Tanggung jawab Pengelola">
         <p className="m-0">
           Pengelola bertanggung jawab menjalankan layanan seperti dijelaskan di bagian 2. Kalau soal atau kunci jawaban ternyata salah, Pengelola memperbaikinya
           dan menilai ulang semua attempt yang terdampak.
         </p>
       </LegalSection>
 
-      <LegalSection id="k-lapor" title="8. Melaporkan masalah">
+      <LegalSection id="k-lapor" title="9. Melaporkan masalah">
         <p className="m-0">
           Soal yang salah, konten yang tidak pantas untuk anak, penyalahgunaan akun, atau keluhan lain dilaporkan ke {entity.email}. Setiap laporan mendapat kode
           referensi dan ditanggapi paling lambat {data.reportResponseWorkdays} hari kerja.
         </p>
       </LegalSection>
 
-      <LegalSection id="k-berhenti" title="9. Berhenti memakai Kira">
+      <LegalSection id="k-berhenti" title="10. Berhenti memakai Kira">
         <p className="m-0">
           Pemilik akun dan Orang Tua bisa berhenti kapan saja dan menghapus akun dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>.
           Pengelola bisa menangguhkan akun yang melanggar bagian 5 setelah memberi tahu pemilik akun beserta alasannya, dan akun dibuka lagi setelah pelanggaran
@@ -115,7 +127,7 @@ export function TermsPage({ data }: TermsPageProps) {
         </p>
       </LegalSection>
 
-      <LegalSection id="k-ubah" title="10. Perubahan ketentuan">
+      <LegalSection id="k-ubah" title="11. Perubahan ketentuan">
         <p className="m-0">
           Perubahan ketentuan dikirim ke email pemilik akun dan Orang Tua paling lambat 14 hari sebelum berlaku, bersama tanggal berlakunya. Pemilik akun yang
           tidak setuju bisa menghentikan dan menghapus akun sebelum tanggal itu. Versi baru meminta persetujuan ulang lewat kotak centang saat masuk pertama kali
@@ -123,7 +135,7 @@ export function TermsPage({ data }: TermsPageProps) {
         </p>
       </LegalSection>
 
-      <LegalSection id="k-hukum" title="11. Hukum dan penyelesaian sengketa">
+      <LegalSection id="k-hukum" title="12. Hukum dan penyelesaian sengketa">
         <p className="m-0">
           Ketentuan ini tunduk pada hukum Republik Indonesia. Sengketa diselesaikan lebih dulu dengan musyawarah. Kalau musyawarah tidak berhasil, pengguna bisa
           menempuh Badan Penyelesaian Sengketa Konsumen atau Pengadilan Negeri {entity.courtCity}.

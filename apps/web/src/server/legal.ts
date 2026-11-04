@@ -25,7 +25,7 @@ function entity() {
 export function privacyNoticeData(): PrivacyNoticeData {
   return {
     entity: entity(),
-    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-14' },
+    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-04' },
     storageLocation: 'komputer server di rumah pengelola di Indonesia, di folder data yang dicadangkan setiap hari',
     purposes: [
       { title: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare (Cloudflare Tunnel), termasuk pusat data di luar Indonesia. Wajib untuk memakai Kira.' },
@@ -41,11 +41,13 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { data: 'Rincian ronde arena', detail: 'Soal, jawaban, dan waktu tiap ronde Quick Maths dan Quiz Arena', purpose: 'Rekor, statistik, dan laporan', basis: 'Persetujuan orang tua', retention: '90 hari; setelah itu hanya ringkasan rekor dan jumlah ronde yang disimpan, selama akun aktif' },
       { data: 'Rekaman suara dan gambar jawaban', detail: 'Berkas audio dan gambar', purpose: 'Penilaian oleh tutor', basis: 'Persetujuan khusus orang tua', retention: '90 hari setelah diunggah' },
       { data: 'Log keamanan', detail: 'Waktu masuk, percobaan gagal, hash alamat IP, catatan audit', purpose: 'Mencegah dan menyelidiki penyalahgunaan', basis: 'Kepentingan sah dan kewajiban hukum', retention: 'Percobaan masuk 30 hari, catatan audit 12 bulan' },
-      { data: 'Email keluar', detail: 'Alamat tujuan dan isi laporan', purpose: 'Pengiriman laporan dan undangan', basis: 'Persetujuan', retention: '90 hari' },
+      { data: 'Pendaftaran yang belum dikonfirmasi', detail: 'Nama orang tua, email, hash password, hash alamat IP', purpose: 'Memastikan email milik pendaftar sebelum akun dibuat', basis: 'Persetujuan', retention: '24 jam, lalu dihapus otomatis' },
+      { data: 'Daftar tunggu kabar', detail: 'Alamat email, waktu persetujuan, status konfirmasi dan berhenti berlangganan', purpose: 'Mengabari saat kursi beta dibuka lagi', basis: 'Persetujuan', retention: 'Sampai berhenti berlangganan, lalu dihapus dalam 30 hari; konfirmasi yang tidak diklik dihapus dalam 14 hari' },
+      { data: 'Email keluar', detail: 'Alamat tujuan dan isi email (laporan, undangan, konfirmasi pendaftaran, kabar kursi)', purpose: 'Pengiriman laporan, undangan, konfirmasi, dan kabar', basis: 'Persetujuan', retention: '90 hari' },
       { data: 'Cadangan database', detail: 'Salinan seluruh data di atas', purpose: 'Pemulihan bila server rusak', basis: 'Kepentingan sah', retention: '14 cadangan harian dan 8 cadangan mingguan, paling lama 8 minggu' },
     ],
     recipients: [
-      { name: 'Cloudflare, Inc. (Cloudflare Tunnel, jalur HTTPS ke server)', data: 'Alamat IP dan metadata koneksi. Isi halaman dan jawaban ikut lewat saat diteruskan ke server, tanpa disimpan (Kira meminta Cloudflare tidak menyimpannya)', location: 'Pusat data Cloudflare di banyak negara, sebagian di luar Indonesia', abroad: true },
+      { name: 'Cloudflare, Inc. (Cloudflare Tunnel, jalur HTTPS ke server; dan Turnstile di halaman daftar dan masuk bila diaktifkan)', data: 'Alamat IP dan metadata koneksi. Isi halaman dan jawaban ikut lewat saat diteruskan ke server, tanpa disimpan (Kira meminta Cloudflare tidak menyimpannya)', location: 'Pusat data Cloudflare di banyak negara, sebagian di luar Indonesia', abroad: true },
       { name: 'Anthropic PBC (Claude), hanya bila Bantuan AI disetujui', data: 'Teks soal, jawaban, dan foto jawaban tanpa nama atau identitas anak', location: 'Amerika Serikat', abroad: true },
       { name: 'Penyedia email yang diatur pengelola, bila laporan email disetujui', data: 'Email orang tua dan isi ringkasan mingguan', location: 'Mengikuti penyedia yang dipilih pengelola', abroad: true },
       { name: 'Have I Been Pwned (cek kebocoran password)', data: 'Lima karakter awal hash password, tanpa email atau nama', location: 'Australia', abroad: true },
@@ -58,7 +60,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
 export function termsData(): TermsData {
   return {
     entity: entity(),
-    meta: { version: TERMS_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-12' },
+    meta: { version: TERMS_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-04' },
     reportResponseWorkdays: 3,
   }
 }
