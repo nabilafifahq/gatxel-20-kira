@@ -302,7 +302,7 @@ const placeValue: Generator = {
         hints: [`Find the digit ${d} in ${n}.`, 'From the right, the columns are ones, tens and hundreds.', `The ${d} is in the ${PLACES[pos]} column.`],
         explanation: `In ${n}, the ${d} is in the ${PLACES[pos]} column, so it is worth ${fmt(value)}.`,
         solution: [
-          { say: `Write ${n} in a place value chart.`, figure: { kind: 'table', head: ['H', 'T', 'O'], rows: [ds.map(String)], alt: `Place value chart: ${ds[0]} hundreds, ${ds[1]} tens, ${ds[2]} ones.` } },
+          { say: `Write ${n} in a place value chart.`, figure: { kind: 'table', head: ['H', 'T', 'O'], rows: [ds.map(String)], alt: `Place value chart: ${H(ds[0]!)}, ${T(ds[1]!)}, ${O(ds[2]!)}.` } },
           { say: `The ${d} is in the ${PLACES[pos]} column.`, show: `${d === 1 ? `1 ${PLACE1[pos]}` : `${d} ${PLACES[pos]}`} = ${fmt(value)}` },
         ],
       }
