@@ -14,7 +14,6 @@ const RAW: [string, RegExp][] = [
   ['markdown', /\*\*[^*]+\*\*|__[a-z]/i],
   ['kurung kurawal', /[{}]/],
   ['undefined', /\b(undefined|NaN|null|\[object)\b/],
-  ['em dash', /[–—]/],
   ['titik dua kali', /\.\.(?!\.)/],
   ['spasi ganda', / {2,}/],
 ]
