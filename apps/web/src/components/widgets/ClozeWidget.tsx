@@ -48,7 +48,7 @@ function GapSelect({
         disabled={disabled}
         onChange={(e) => onPick(e.target.value)}
         className={cx(
-          'h-14 min-w-28 max-w-full rounded-control border-2 bg-surface px-3 font-reading text-h3 font-bold outline-offset-2',
+          'h-14 min-w-28 max-w-56 rounded-control border-2 bg-surface px-3 font-reading text-h3 font-bold outline-offset-2 md:max-w-full',
           state === 'correct' ? 'border-3 border-success bg-success-50' : state === 'not-yet' ? 'border-3 border-warn' : disabled ? 'border-divider bg-bg' : cx('cursor-pointer border-border hover:border-fg', SUBJECT_FOCUS[subject]),
         )}
       >
@@ -76,7 +76,7 @@ export function ClozePrompt({ item, value, onChange, disabled = false, feedback 
     onChange(next.every((x) => x === '') ? null : { texts: next })
   }
   return (
-    <p id={id} lang={item.lang} className={cx('text-question m-0 leading-[3.6rem]', className)}>
+    <p id={id} lang={item.lang} className={cx('text-question m-0 min-w-0 flex-1 leading-[3.6rem]', className)}>
       {parts.map((part, i) => (
         <span key={i}>
           {part}
