@@ -92,6 +92,8 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
   const router = useRouter()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<{ message: string; reference: string } | null>(null)
+  // Batas layar habis bukan kesalahan: pesan istirahat yang tenang, tanpa kotak merah dan kode rujukan.
+  const [onBreak, setOnBreak] = useState(false)
   const again = async () => {
     if (!data.again) return
     setBusy(true)
@@ -99,6 +101,7 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
     try {
       const res = await actions.start(data.again)
       if (res.ok) router.push(res.data.redirectTo)
+      else if (res.message === dict.breakTime) setOnBreak(true)
       else setError({ message: res.message, reference: res.reference })
     } catch {
       setError({ message: dict.errors.yourNextRoundNet, reference: 'KRA-QM-NET' })
@@ -129,8 +132,9 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
       ))}
       <RewardPanel reward={result.reward} track="hitung" shell={data.shell} />
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
+      {onBreak ? <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface p-4 text-body-lg font-bold">{dict.breakTime}</p> : null}
       <div className="flex flex-wrap justify-center gap-3">
-        {data.again ? (
+        {data.again && !onBreak ? (
           <Button iconAfter="replay" loading={busy} onClick={() => void again()}>
             {dict.round.playAgain}
           </Button>
