@@ -1,9 +1,9 @@
 import { expect, test, type Page } from '@playwright/test'
-import { closeDb, db, expectNoSeriousA11y, GUARDIAN, jakartaToday, learnerId, loginAdult, mcqItems, noHorizontalScroll, pinLogin, registerTablet, seedOrgId, waitForPath, watchErrors } from './helpers'
+import { closeDb, createPracticeAttempt, db, expectNoSeriousA11y, GUARDIAN, jakartaToday, learnerId, loginAdult, mcqItems, noHorizontalScroll, pinLogin, registerTablet, seedOrgId, watchErrors } from './helpers'
 
 /**
  * Bahasa tampilan anak: antarmuka Indonesia, soal tetap Inggris, dan pengaturan orang tua.
- * Data contoh memakai tampilan Inggris; tes ini mengganti Aisha lalu mengembalikannya.
+ * Data contoh memakai tampilan Inggris; tes ini mengganti Aisha dan Raka lalu mengembalikannya.
  */
 
 async function setUiLang(name: 'Aisha' | 'Raka', lang: 'id' | 'en', allowSwitch = false): Promise<string> {
@@ -18,9 +18,7 @@ async function resetToday(id: string): Promise<void> {
   await db()`delete from quest where learner_id = ${id} and date = ${jakartaToday()}`
 }
 
-async function htmlLangOf(page: Page): Promise<string | null> {
-  return page.locator('html').getAttribute('lang')
-}
+const htmlLangOf = (page: Page) => page.locator('html').getAttribute('lang')
 
 test.afterAll(async () => {
   await setUiLang('Aisha', 'en')
@@ -46,29 +44,30 @@ test('anak berbahasa Indonesia melihat Today dan sesi dalam bahasa Indonesia, so
   await expectNoSeriousA11y(page, 'Hari ini')
   await noHorizontalScroll(page)
 
-  // Sesi dengan soal yang diketahui: instruksi Indonesia, isi soal Inggris dan bertanda lang.
-  const items = mcqItems('e', 3)
+  // Sesi dengan soal yang diketahui: tombol Indonesia, isi soal Inggris dan bertanda lang untuk pembaca layar.
+  const items = mcqItems('e2.', 2) as unknown as { id: string; difficulty: number; prompt: string }[]
+  expect(items.length).toBe(2)
+  const attempt = await createPracticeAttempt('Aisha', items)
   await page.setViewportSize({ width: 375, height: 800 })
-  const skill = (await db()`select coalesce(max(id::text), '') as x from org limit 1`)[0]
-  expect(skill).toBeTruthy()
-  await page.goto('/practice')
-  await expect(page.getByRole('heading', { level: 1 })).not.toHaveText(/Free practice/)
-  const tile = page.locator('section[aria-labelledby="pr-english"] a').first()
-  await tile.click()
-  await waitForPath(page, (p) => p.startsWith('/run/'))
+  await page.goto(`/run/${attempt}`)
+  expect(await htmlLangOf(page)).toBe('id')
   await expect(page.getByRole('button', { name: 'Periksa' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Check', exact: true })).toHaveCount(0)
-  // Prompt berasal dari konten berbahasa Inggris dan ditandai lang en-GB untuk pembaca layar.
-  const prompt = page.locator('[data-item-prompt]').first()
-  await expect(prompt).toHaveAttribute('lang', 'en-GB')
-  await expect(prompt).toHaveText(/\b(the|a|is|are|which|what|choose|word)\b/i)
+  const prompt = page.locator('main [lang="en-GB"]').getByText(items[0]!.prompt, { exact: false }).first()
+  await expect(prompt).toBeVisible()
   await noHorizontalScroll(page)
-  expect(items.length).toBeGreaterThan(0)
+  await expectNoSeriousA11y(page, 'sesi Indonesia')
+
+  // Jawab: kata umpan balik Indonesia.
+  await page.locator('main [lang="en-GB"] button, main button[lang="en-GB"], main button:has([lang="en-GB"])').first().click()
+  await page.getByRole('button', { name: 'Periksa' }).click()
+  await expect(page.getByText(/Betul|Benar|Hebat|Belum tepat/).first()).toBeVisible()
+  await expect(page.getByText('Not yet', { exact: true })).toHaveCount(0)
   expect(errors.filter((e) => !e.includes('favicon'))).toEqual([])
 })
 
-test('layar pilih anak dan PIN mengikuti bahasa anak di tablet itu', async ({ page }) => {
-  const id = await setUiLang('Aisha', 'id')
+test('layar pilih anak mengikuti bahasa anak di tablet itu', async ({ page }) => {
+  await setUiLang('Aisha', 'id')
   await registerTablet(page, ['Aisha'])
   await page.goto('/')
   expect(await htmlLangOf(page)).toBe('id')
@@ -77,7 +76,6 @@ test('layar pilih anak dan PIN mengikuti bahasa anak di tablet itu', async ({ pa
   await page.goto('/')
   expect(await htmlLangOf(page)).toBe('en-GB')
   await expect(page.getByRole('link', { name: /^Aisha, Grade 2/ })).toBeVisible()
-  expect(id).toBeTruthy()
 })
 
 test('anak baru memakai bahasa Indonesia dari awal, keluarga lama tetap Inggris', async () => {
@@ -88,7 +86,7 @@ test('anak baru memakai bahasa Indonesia dari awal, keluarga lama tetap Inggris'
   expect(String(dflt!.column_default)).toContain('id')
 })
 
-test('orang tua mengganti bahasa tampilan anak, dan anak melihat hasilnya', async ({ page, context }) => {
+test('orang tua mengganti bahasa tampilan anak, dan tombol bahasa anak hanya muncul bila diizinkan', async ({ page, context }) => {
   const errors = watchErrors(page)
   const id = await setUiLang('Raka', 'en')
   await loginAdult(page, GUARDIAN, `/keluarga/anak/${id}`)
@@ -107,7 +105,7 @@ test('orang tua mengganti bahasa tampilan anak, dan anak melihat hasilnya', asyn
   await page.getByText('Pengaturan', { exact: true }).click()
   await expect(page.getByRole('group', { name: 'Bahasa tampilan anak' }).getByRole('radio', { name: 'Bahasa Indonesia' })).toBeChecked()
 
-  // Tombol bahasa anak hanya muncul bila diizinkan.
+  // Belum diizinkan: tombol tidak ada. Sudah diizinkan: anak bisa mengganti sendiri.
   await context.clearCookies()
   await setUiLang('Raka', 'en')
   await registerTablet(page, ['Raka'])
@@ -116,8 +114,7 @@ test('orang tua mengganti bahasa tampilan anak, dan anak melihat hasilnya', asyn
   await expect(page.getByRole('group', { name: 'Language' })).toHaveCount(0)
   await setUiLang('Raka', 'en', true)
   await page.goto('/me')
-  const sw = page.getByRole('group', { name: 'Language' })
-  await sw.getByRole('button', { name: 'Bahasa Indonesia' }).click()
+  await page.getByRole('group', { name: 'Language' }).getByRole('button', { name: 'Bahasa Indonesia' }).click()
   await expect.poll(() => htmlLangOf(page)).toBe('id')
-  await expect(page.getByRole('group', { name: 'Bahasa' })).toBeVisible()
+  await expect(page.getByRole('group', { name: 'Bahasa', exact: true })).toBeVisible()
 })
