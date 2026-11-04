@@ -4,7 +4,7 @@
 # Satu image untuk GPU NVIDIA dan CPU. Roda torch memakai indeks CUDA 12.8 (cocok untuk RTX 50xx, Blackwell)
 # secara default; di mesin tanpa GPU image yang sama berjalan di CPU. Untuk image CPU yang lebih kecil:
 #   TTS_TORCH_INDEX=https://download.pytorch.org/whl/cpu
-FROM python:3.12-slim-bookworm
+FROM python:3.15-slim-bookworm
 
 ARG TORCH_INDEX=https://download.pytorch.org/whl/cu128
 ENV PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1 PYTHONUNBUFFERED=1 HF_HOME=/models TOKENIZERS_PARALLELISM=false
