@@ -238,7 +238,7 @@ export function todayFixture(state: string): TodayDTO {
     case 'all-done': {
       const groups = [group(math, ['done', 'done', 'done']), group(english, ['done', 'done', 'done'], ['10 of 10', '8 of 8', '6 of 8']), group(science, ['done', 'done', 'done'], ['8 of 10', '5 of 8', '4 of 8'])]
       const extras = [EXTRA_REVIEW, EXTRA_SIM]
-      return { ...base, subline: 'All 9 sessions are done. Extra sessions are open if you want them.', variant: 'all-done', streak: STREAK_ALL, groups, extras, activeQuestId: null, progress: progress(groups, extras), minutesToday: 96 }
+      return { ...base, subline: 'All 9 sessions are done. Optional sessions are open if you want them.', variant: 'all-done', streak: STREAK_ALL, groups, extras, activeQuestId: null, progress: progress(groups, extras), minutesToday: 96 }
     }
     case 'rest-day':
       return { ...base, dateLabel: 'Sunday 11 October', headline: "Sunday's sessions", subline: 'Today is a rest day. Your streak is safe.', variant: 'rest-day', streak: STREAK_REST, groups: [], extras: [], activeQuestId: null, progress: { done: 0, total: 0, extraDone: 0, extraTotal: 0 }, nextCompetition: { name: 'KMNR', daysToGo: 39 }, minutesToday: 0 }

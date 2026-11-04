@@ -67,6 +67,8 @@ await sql.begin(async (tx) => {
     (${aishaId}, ${orgId}, 'Aisha', 'fox', 2, true),
     (${rakaId}, ${orgId}, 'Raka', 'cat', 4, true)`
   await tx`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgId}, ${mamaId}, ${aishaId}), (${orgId}, ${mamaId}, ${rakaId})`
+  // Data contoh memakai hari Penuh (9 sesi wajib) supaya tes e2e lama tetap berlaku; learner baru memakai Seimbang.
+  await tx`insert into day_rules (learner_id, org_id, preset) values (${aishaId}, ${orgId}, 'penuh'), (${rakaId}, ${orgId}, 'penuh')`
   for (const learner of [aishaId, rakaId]) {
     for (const purpose of ['learning', 'progress-email', 'audio', 'photo', 'ai-drafts']) {
       await tx`insert into consent_event (org_id, learner_id, guardian_id, recorded_by, purpose, granted, notice_version, method)

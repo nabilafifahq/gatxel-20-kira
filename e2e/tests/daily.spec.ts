@@ -5,7 +5,7 @@ test.afterAll(closeDb)
 
 /**
  * Struktur harian baru: 9 sesi wajib per hari (Practice, Test, Paper untuk tiap mapel), Test terkunci sampai
- * Practice mapel itu selesai dan berhitung mundur, sesi opsional di "Extra today", Hari ringan, dan Try again.
+ * Practice mapel itu selesai dan berhitung mundur, sesi opsional di "Optional today", Hari ringan, dan Try again.
  */
 
 function mondayOf(date: string): string {
@@ -135,7 +135,7 @@ test('Try again: percobaan pertama tetap resmi dan ulangan membuka soal baru', a
   await expect(page.getByRole('button', { name: 'Continue your retry' })).toBeVisible()
 })
 
-test('sesi opsional dari tutor tampil di Extra today dan tidak menambah sesi wajib', async ({ page }) => {
+test('sesi opsional dari tutor tampil di Optional today dan tidak menambah sesi wajib', async ({ page }) => {
   const { lid, org, today } = await resetToday()
   const week = await publishedWeek(org, lid, today)
   await db()`delete from plan_slot where learner_id = ${lid} and date = ${today}`
@@ -146,12 +146,12 @@ test('sesi opsional dari tutor tampil di Extra today dan tidak menambah sesi waj
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')
   await expect(page.getByText('0 of 9 sessions done')).toBeVisible()
-  const extra = page.getByRole('region', { name: 'Extra today' })
+  const extra = page.getByRole('region', { name: 'Optional today' })
   await expect(extra).toBeVisible()
   await expect(extra.getByText('Review cards')).toBeVisible()
   await expect(extra.getByText('English listening')).toBeVisible()
   await expect(extra.getByText('Optional, and your streak does not change.')).toBeVisible()
-  await expectNoSeriousA11y(page, 'Today dengan Extra today')
+  await expectNoSeriousA11y(page, 'Today dengan Optional today')
   const [dr] = await db()`select quests_required from day_record where learner_id = ${lid} and date = ${today}`
   expect(dr!.quests_required).toBe(9)
   await db()`delete from plan_slot where learner_id = ${lid} and date = ${today}`
