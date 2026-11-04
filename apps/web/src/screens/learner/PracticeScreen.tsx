@@ -12,7 +12,7 @@ import { LearnerFrame, LearnerHeader } from '@/components/learner/LearnerHeader'
  * waktu, dan gaya soal di bar atas. Tidak ada streak atau tenggat di sini; XP datang dari jawaban.
  */
 
-const SECTION_ICON: Record<string, UiIconName> = { math: 'plus', mental: 'bolt', olympiad: 'trophy', science: 'globe', english: 'book', cards: 'cards' }
+const SECTION_ICON: Record<string, UiIconName> = { math: 'plus', mental: 'bolt', olympiad: 'trophy', science: 'globe', english: 'book', cards: 'cards', review: 'book' }
 
 function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: string }): ReactElement {
   return (

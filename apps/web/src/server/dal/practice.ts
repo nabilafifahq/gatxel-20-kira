@@ -12,6 +12,7 @@ import { content, skillsFor, strandName, type PoolCandidate } from './content'
 import { featureMapFor } from './learner-features'
 import { learnerShell, loadLearner } from './learner-core'
 import { buildQuestItems } from './learner-session'
+import { guardPracticeRefs } from './practice-guard'
 
 const { attempt } = tables
 
@@ -125,6 +126,7 @@ export function buildSections(grade: number, features: FeatureMap): PracticeSect
   if (on('flashcards')) cards.push(link('cards', 'Flashcards', 'Flip, say it, and come back later', '/practice/cards'))
   if (cards.length) sections.push({ id: 'cards', title: 'Cards and words', hint: 'Short rounds, easy to start.', tiles: cards })
 
+  sections.push({ id: 'review', title: 'Quick review', hint: 'Refresh a lesson you finished.', tiles: [link('review', 'Finished lessons', 'Key steps, then 3 questions', '/practice/review')] })
   return sections
 }
 
@@ -218,7 +220,7 @@ export async function startFreePractice(tx: Tx, ctx: OrgContext, learnerId: stri
     return styleOf(c.ref) === input.style
   }
 
-  const items = await buildQuestItems(tx, ctx, learner, {
+  const built = await buildQuestItems(tx, ctx, learner, {
     skillId: skills[0]!,
     extraSkills: skills.slice(1),
     subject: input.subject,
@@ -229,6 +231,8 @@ export async function startFreePractice(tx: Tx, ctx: OrgContext, learnerId: stri
     length: input.n,
     accept,
   })
+  const allowed = new Set(await guardPracticeRefs(tx, learnerId, built.map((b) => b.ref)))
+  const items = built.filter((b) => allowed.has(b.ref)).map((b, i) => ({ ...b, position: i + 1 }))
   if (items.length < MIN_ITEMS) return { reason: 'few' }
   const timeLimitS = input.timed === '1' ? items.length * SECONDS_PER_QUESTION : null
   const [row] = await tx
