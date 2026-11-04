@@ -48,8 +48,8 @@ async function emailTaken(emailNorm: string, emailLower: string): Promise<boolea
   return Boolean(rows[0])
 }
 
+/** Pemanggil sudah mengecek batas email sebelum memutar token, supaya tautan lama tidak mati tanpa email baru. */
 async function sendVerification(to: string, token: string): Promise<void> {
-  if (!emailSendAllowed('verify', to)) return
   const mail = signupVerifyEmail(emailIdentity(), { url: verifyUrl(token) })
   await queuePublicMail({ to, ...mail, kind: 'signup-verify' })
 }
@@ -85,6 +85,8 @@ export async function startSignup(input: { name: string; email: string; password
   const now = new Date()
   const existing = (await authDb().select({ lastSentAt: signup.lastSentAt }).from(signup).where(eq(signup.emailNorm, verdict.key)).limit(1))[0]
   if (existing && now.getTime() - existing.lastSentAt.getTime() < RESEND_GAP_MS) return
+  // Cek batas email sebelum menimpa pendaftar: tanpa email baru, tautan lama harus tetap berlaku.
+  if (!emailSendAllowed('verify', verdict.email)) return
   await authDb()
     .insert(signup)
     .values({

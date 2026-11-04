@@ -111,6 +111,33 @@ describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
     expect(await count(owner`select count(*)::int as n from public_mail where kind = 'signup-verify' and to_addr = ${email}`)).toBe(before + 1)
   })
 
+  it('batas email habis saat daftar ulang: tautan terakhir di kotak masuk tetap berlaku', async () => {
+    const email = `batas.${run}@gmail.com`
+    for (let i = 0; i < 6; i++) {
+      await svc.startSignup({ name: 'Ibu Batas', email, password: PASSWORD, consent: true, ipHash: 'x' })
+      await owner`update auth.signup set last_sent_at = now() - interval '2 minutes' where email_norm = ${`batas${run}@gmail.com`}`
+    }
+    expect(await count(owner`select count(*)::int as n from public_mail where kind = 'signup-verify' and to_addr = ${email}`)).toBe(5)
+    const token = tokenOf((await mailTo(email, 'signup-verify'))!.text as string, '/daftar/konfirmasi/')
+    expect((await svc.verifySignup(token)).status).toBe('ok')
+  })
+
+  it('kirim ulang sampai batas email: setiap token baru benar-benar terkirim', async () => {
+    const email = `ulang.${run}@gmail.com`
+    const backdate = () => owner`update auth.signup set last_sent_at = now() - interval '2 minutes' where email_norm = ${`ulang${run}@gmail.com`}`
+    for (let i = 0; i < 2; i++) {
+      await svc.startSignup({ name: 'Ibu Ulang', email, password: PASSWORD, consent: true, ipHash: 'x' })
+      await backdate()
+    }
+    for (let i = 0; i < 3; i++) {
+      await svc.resendVerification(email)
+      await backdate()
+    }
+    expect(await count(owner`select count(*)::int as n from public_mail where kind = 'signup-verify' and to_addr = ${email}`)).toBe(5)
+    const token = tokenOf((await mailTo(email, 'signup-verify'))!.text as string, '/daftar/konfirmasi/')
+    expect((await svc.verifySignup(token)).status).toBe('ok')
+  })
+
   it('email sekali pakai ditolak dengan pesan ramah, persetujuan wajib', async () => {
     await expect(svc.startSignup({ name: 'Ibu', email: `x${run}@tmailor.com`, password: PASSWORD, consent: true, ipHash: 'x' })).rejects.toThrow(/sementara/)
     await expect(svc.startSignup({ name: 'Ibu', email: `x${run}@gmail.com`, password: PASSWORD, consent: false, ipHash: 'x' })).rejects.toThrow(/persetujuan/)
