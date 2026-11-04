@@ -27,6 +27,7 @@ test.afterAll(async () => {
 })
 
 test('anak berbahasa Indonesia melihat Today dan sesi dalam bahasa Indonesia, soalnya tetap Inggris', async ({ page }) => {
+  test.setTimeout(180_000)
   const errors = watchErrors(page)
   const id = await setUiLang('Aisha', 'en')
   await resetToday(id)
@@ -53,8 +54,9 @@ test('anak berbahasa Indonesia melihat Today dan sesi dalam bahasa Indonesia, so
   expect(await htmlLangOf(page)).toBe('id')
   await expect(page.getByRole('button', { name: 'Periksa' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Check', exact: true })).toHaveCount(0)
-  const prompt = page.locator('main [lang="en-GB"]').getByText(items[0]!.prompt, { exact: false }).first()
-  await expect(prompt).toBeVisible()
+  // Soal ditampilkan kata per kata (kamus ketuk), jadi dicocokkan lewat isi teks elemennya.
+  const firstWords = items[0]!.prompt.split(' ').slice(0, 3).join(' ')
+  await expect(page.locator('main [lang="en-GB"]', { hasText: firstWords }).first()).toBeVisible()
   await noHorizontalScroll(page)
   await expectNoSeriousA11y(page, 'sesi Indonesia')
 

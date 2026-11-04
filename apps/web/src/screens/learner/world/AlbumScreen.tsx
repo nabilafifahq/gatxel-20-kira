@@ -10,6 +10,10 @@ import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { playSfx } from '@/components/learner/sfx'
 import { CollectCard, RarityMark, WorldTabs } from '@/components/learner/world/parts'
+import { CARD_SETS } from '@kira/core'
+import type { Dict } from '@/lib/i18n'
+import { useT } from '@/lib/i18n/client'
+import { cardHintOf, setTextOf } from '@/lib/i18n/world-text'
 
 function Meter({ value, label }: { value: number; label?: string }): ReactElement {
   return (
@@ -19,12 +23,15 @@ function Meter({ value, label }: { value: number; label?: string }): ReactElemen
   )
 }
 
-function countText(c: CardDTO): string | null {
+function countText(c: CardDTO, t: Dict): string | null {
   if (!c.count) return null
-  return c.count.unit === 'percent' ? `${c.count.have}% of ${c.count.need}%` : `${c.count.have} of ${c.count.need}`
+  return c.count.unit === 'percent' ? t.world.album.countPercent(c.count.have, c.count.need) : t.world.album.countOf(c.count.have, c.count.need)
 }
 
 export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
+  const t = useT()
+  const a = t.world.album
+  const setText = (s: AlbumDTO['sets'][number]) => setTextOf(t, s, CARD_SETS.find((x) => x.id === s.id)?.reward)
   const [open, setOpen] = useState<CardDTO | null>(null)
   const firstNew = data.sets.find((s) => s.cards.some((c) => c.isNew))?.id
   const [setId, setSetId] = useState(firstNew ?? data.sets[0]?.id ?? '')
@@ -50,7 +57,7 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
           className={cx('flex min-h-14 w-full cursor-pointer flex-col gap-1.5 rounded-card border-2 p-3 text-left', s.id === current?.id ? 'border-fg bg-knowledge-50' : 'border-border bg-surface hover:border-fg')}
         >
           <span className="flex items-baseline justify-between gap-2">
-            <span className="min-w-0 text-body font-bold">{s.name}</span>
+            <span className="min-w-0 text-body font-bold">{setText(s).name}</span>
             <span className="flex-none text-small font-bold tabular-nums">
               {have}/{s.cards.length}
             </span>
@@ -65,13 +72,11 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
   return (
     <LearnerFrame shell={data.shell} current="world" className="flex flex-col gap-4 md:gap-5">
       <header className="flex flex-col gap-1">
-        <h1 className="m-0 text-h1 font-bold">Card album</h1>
-        <p className="m-0 text-body-lg text-fg-muted">
-          {data.owned} of {data.total} cards. Every card is earned by learning, so there is no luck and nothing to pay for.
-        </p>
+        <h1 className="m-0 text-h1 font-bold">{a.title}</h1>
+        <p className="m-0 text-body-lg text-fg-muted">{a.intro(data.owned, data.total)}</p>
       </header>
       <WorldTabs current="cards" />
-      <section aria-label="Cards by rarity" className="grid grid-cols-2 gap-3 md:grid-cols-4">
+      <section aria-label={a.byRarity} className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {data.rarities.map((r) => (
           <div key={r.rarity} className="flex flex-col gap-1.5 rounded-card border-2 border-divider bg-surface p-3">
             <span className="flex flex-wrap items-baseline justify-between gap-x-2">
@@ -85,39 +90,39 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
         ))}
       </section>
       {rareSets.length > 0 ? (
-        <section aria-label="Rare sets" className="flex flex-col gap-2">
-          <h2 className="m-0 text-h3 font-bold">Rare sets for big moments</h2>
+        <section aria-label={a.rareSets} className="flex flex-col gap-2">
+          <h2 className="m-0 text-h3 font-bold">{a.rareSetsTitle}</h2>
           <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">{rareSets.map(tile)}</ul>
         </section>
       ) : null}
-      <section aria-label="Learning sets" className="flex flex-col gap-2">
-        <h2 className="m-0 text-h3 font-bold">Sets you earn by learning</h2>
+      <section aria-label={a.learningSets} className="flex flex-col gap-2">
+        <h2 className="m-0 text-h3 font-bold">{a.learningSetsTitle}</h2>
         <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">{learnSets.map(tile)}</ul>
       </section>
       {current ? (
-        <section ref={shelf} aria-label={`${current.name} set`} className="flex scroll-mt-4 flex-col gap-3 rounded-card border-2 border-divider bg-surface p-3.5 md:p-5">
+        <section ref={shelf} aria-label={a.setLabel(setText(current).name)} className="flex scroll-mt-4 flex-col gap-3 rounded-card border-2 border-divider bg-surface p-3.5 md:p-5">
           <div className="flex flex-col gap-1">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h2 className="m-0 text-h2 font-bold">{current.name}</h2>
+              <h2 className="m-0 text-h2 font-bold">{setText(current).name}</h2>
               <span className="text-body font-bold tabular-nums">
                 {current.cards.filter((c) => c.owned).length} / {current.cards.length}
               </span>
             </div>
             <p className="m-0 text-body text-fg-muted">
-              {current.blurb} {current.earnedBy}.
+              {setText(current).blurb} {setText(current).earnedBy}.
             </p>
             {current.complete ? (
               <span className="inline-flex w-fit items-center gap-1 rounded-pill bg-success-50 px-3 py-1 text-small font-bold text-success">
-                <UiIcon name="check" size={14} strokeWidth={3} /> Set complete: {current.reward} earned
+                <UiIcon name="check" size={14} strokeWidth={3} /> {a.setComplete(setText(current).reward)}
               </span>
             ) : (
-              <span className="text-small text-fg-muted">Reward for the full set: {current.reward}</span>
+              <span className="text-small text-fg-muted">{a.setReward(setText(current).reward)}</span>
             )}
           </div>
           <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">
             {current.cards.map((c) => (
               <li key={c.id} className="flex flex-col gap-1.5">
-                <button type="button" onClick={() => pick(c)} aria-label={c.owned ? `${c.name}, ${c.rarity} card number ${c.no}` : `Card number ${c.no}, not earned yet`} className="cursor-pointer border-0 bg-transparent p-0 text-left">
+                <button type="button" onClick={() => pick(c)} aria-label={c.owned ? a.cardLabel(c.name, a.rarityWord[c.rarity], c.no) : a.cardLabelNotEarned(c.no)} className="cursor-pointer border-0 bg-transparent p-0 text-left">
                   <span className={c.owned && c.isNew ? 'kw-flip block' : 'block'}>
                     <CollectCard card={c} total={data.total} back={!c.owned} />
                   </span>
@@ -126,19 +131,19 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
                   <div className="flex flex-col gap-1">
                     <Meter value={c.progress} />
                     <span className="text-small text-fg-muted">
-                      {c.hint}
-                      {countText(c) ? ` (${countText(c)})` : ''}
+                      {cardHintOf(t, c.id, c.hint)}
+                      {countText(c, t) ? ` (${countText(c, t)})` : ''}
                     </span>
                   </div>
                 ) : c.isNew ? (
-                  <span className="text-small font-bold text-success">New!</span>
+                  <span className="text-small font-bold text-success">{a.isNew}</span>
                 ) : null}
               </li>
             ))}
           </ul>
         </section>
       ) : null}
-      <Dialog open={open !== null} onClose={() => setOpen(null)} title={open?.owned ? open.name : 'Not earned yet'} size="md" footer={<Button onClick={() => setOpen(null)}>Close</Button>}>
+      <Dialog open={open !== null} onClose={() => setOpen(null)} title={open?.owned ? open.name : a.notEarned} size="md" footer={<Button onClick={() => setOpen(null)}>{t.world.story.close}</Button>}>
         {open ? (
           <div className="flex flex-col items-center gap-3.5">
             <div className="w-56 max-w-full">
@@ -147,11 +152,11 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
             {open.owned && open.fact ? (
               <>
                 <RarityMark rarity={open.rarity} />
-                <p className="m-0 text-center text-body-lg">{open.fact}</p>
+                <p lang="en-GB" className="m-0 text-center text-body-lg">{open.fact}</p>
                 <ReadAloudButton text={`${open.name}. ${open.fact}`} subject="science" />
               </>
             ) : (
-              <p className="m-0 text-center text-body-lg">How to earn it: {open.hint}.</p>
+              <p className="m-0 text-center text-body-lg">{a.howToEarn(cardHintOf(t, open.id, open.hint))}</p>
             )}
           </div>
         ) : null}

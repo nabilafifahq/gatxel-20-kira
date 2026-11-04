@@ -15,19 +15,21 @@ import { playSfx } from '@/components/learner/sfx'
 import { TapWords } from '@/components/learner/TapWords'
 import { CollectCard, RarityMark, WorldTabs } from '@/components/learner/world/parts'
 import { finishChapterAction } from '@/server/actions/world'
+import { useT } from '@/lib/i18n/client'
 
 type Chapter = StoryDTO['chapters'][number]
 
 /** Sobekan surat. Tampil saat bab selesai dan di surat yang makin lengkap. */
 function ScrapLine({ text, n }: { text: string; n: number }): ReactElement {
   return (
-    <li className="rounded-control border-2 border-fg bg-surface px-3.5 py-2 font-reading text-body-lg" style={{ rotate: `${n % 2 === 0 ? 0.6 : -0.6}deg` }}>
+    <li lang="en-GB" className="rounded-control border-2 border-fg bg-surface px-3.5 py-2 font-reading text-body-lg" style={{ rotate: `${n % 2 === 0 ? 0.6 : -0.6}deg` }}>
       {text}
     </li>
   )
 }
 
 function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned: CardMiniDTO[]) => void; last: boolean }): ReactElement {
+  const s = useT().world.story
   const [i, setI] = useState(0)
   const [busy, start] = useTransition()
   const page = chapter.pages[i]!
@@ -43,13 +45,13 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
       onClose(res.ok ? (res.data?.cards ?? []) : [])
     })
   return (
-    <section aria-label={`Chapter ${chapter.n}: ${chapter.title}`} className="flex flex-col gap-3.5">
+    <section aria-label={`${s.chapter(chapter.n)}: ${chapter.title}`} className="flex flex-col gap-3.5">
       <div className="flex items-center gap-3">
         <Button variant="quiet" size="M" icon="arrow-left" onClick={() => onClose([])}>
-          All chapters
+          {s.allChapters}
         </Button>
         <h2 className="m-0 min-w-0 flex-1 text-h3 font-bold">
-          Chapter {chapter.n}: {chapter.title}
+          {s.chapter(chapter.n)}: <span lang="en-GB">{chapter.title}</span>
         </h2>
       </div>
       <div className="kw-animate overflow-hidden rounded-card border-2 border-fg bg-surface">
@@ -64,33 +66,33 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
             pip={page.pip}
             kira={page.kira}
             show={page.show}
-            title={`Picture for page ${i + 1}`}
+            title={s.picture(i + 1)}
             className="h-full w-full"
           />
         </div>
         <div className="flex flex-col gap-3 border-t-2 border-fg p-4 md:p-5">
-          <p key={`t${i}`} className="kira-fade-in m-0 min-h-[4.5rem] font-reading text-h3 leading-relaxed">
+          <p key={`t${i}`} lang="en-GB" className="kira-fade-in m-0 min-h-[4.5rem] font-reading text-h3 leading-relaxed">
             <TapWords text={page.text} />
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <ReadAloudButton text={page.text} subject="english" style="narrator" />
             <span className="ml-auto text-small font-bold tabular-nums" aria-live="polite">
-              Page {i + 1} of {chapter.pages.length}
+              {s.page(i + 1, chapter.pages.length)}
             </span>
           </div>
         </div>
       </div>
       <div className="flex items-center gap-3">
         <Button variant="secondary" icon="arrow-left" onClick={() => go(-1)} disabled={i === 0}>
-          Back
+          {s.back}
         </Button>
         {end ? (
           <Button className="ml-auto" iconAfter="check" onClick={finish} disabled={busy}>
-            Finish chapter
+            {s.finish}
           </Button>
         ) : (
           <Button className="ml-auto" iconAfter="arrow-right" onClick={() => go(1)}>
-            Turn the page
+            {s.turn}
           </Button>
         )}
       </div>
@@ -98,19 +100,19 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
         <div className="kira-fade-in flex flex-col gap-3 rounded-card border-2 border-dashed border-border bg-surface p-4">
           {chapter.scrap ? (
             <div className="flex flex-col gap-1.5">
-              <strong className="text-body">A new scrap of the note</strong>
+              <strong className="text-body">{s.newScrap}</strong>
               <ul className="m-0 list-none p-0">
                 <ScrapLine text={chapter.scrap} n={chapter.n} />
               </ul>
             </div>
           ) : null}
           <p className="m-0 text-body-lg">
-            <strong>Lumi wonders: </strong>
-            {chapter.wonder}
+            <strong>{s.lumiWonders}</strong>
+            <span lang="en-GB">{chapter.wonder}</span>
           </p>
           <p className="m-0 text-body-lg">
-            <strong>{last ? 'One last thing: ' : 'Next time: '}</strong>
-            {chapter.tease}
+            <strong>{last ? s.oneLast : s.nextTime}</strong>
+            <span lang="en-GB">{chapter.tease}</span>
           </p>
         </div>
       ) : null}
@@ -119,6 +121,7 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
 }
 
 export function StoryScreen({ data }: { data: StoryDTO }): ReactElement {
+  const s = useT().world.story
   const router = useRouter()
   const [reading, setReading] = useState<number | null>(null)
   const [earned, setEarned] = useState<CardMiniDTO[]>([])
@@ -135,10 +138,8 @@ export function StoryScreen({ data }: { data: StoryDTO }): ReactElement {
   return (
     <LearnerFrame shell={data.shell} current="world" className="flex flex-col gap-4 md:gap-5">
       <header className="flex flex-col gap-1">
-        <h1 className="m-0 text-h1 font-bold">{data.title}</h1>
-        <p className="m-0 text-body-lg text-fg-muted">
-          A new chapter opens each week you study on {data.goalDays} days. This week: {Math.min(data.thisWeekDays, data.goalDays)} of {data.goalDays} days.
-        </p>
+        <h1 lang="en-GB" className="m-0 text-h1 font-bold">{data.title}</h1>
+        <p className="m-0 text-body-lg text-fg-muted">{s.intro(data.goalDays, Math.min(data.thisWeekDays, data.goalDays))}</p>
       </header>
       <WorldTabs current="story" />
       {chapter ? (
@@ -154,8 +155,8 @@ export function StoryScreen({ data }: { data: StoryDTO }): ReactElement {
                       {c.done ? <UiIcon name="check" size={22} strokeWidth={3} /> : c.n}
                     </span>
                     <span className="flex min-w-0 flex-1 flex-col">
-                      <span className="text-body-lg font-bold">{c.title}</span>
-                      <span className="text-small text-fg-muted">{c.done ? 'Read it again and look closely' : `${c.pages.length} pages with pictures and voice`}</span>
+                      <span lang="en-GB" className="text-body-lg font-bold">{c.title}</span>
+                      <span className="text-small text-fg-muted">{c.done ? s.readAgain : s.pagesLine(c.pages.length)}</span>
                     </span>
                     <UiIcon name="arrow-right" size={22} />
                   </button>
@@ -163,8 +164,8 @@ export function StoryScreen({ data }: { data: StoryDTO }): ReactElement {
                   <div className="flex min-h-14 w-full items-center gap-3.5 rounded-card border-2 border-dashed border-border bg-surface p-3.5">
                     <span className="flex h-12 w-12 flex-none items-center justify-center rounded-pill bg-divider text-h3 font-bold text-fg-muted">{c.n}</span>
                     <span className="flex min-w-0 flex-1 flex-col">
-                      <span className="text-body-lg font-bold text-fg-muted">Chapter {c.n}</span>
-                      <span className="text-small text-fg-muted">Opens when you finish a weekly goal</span>
+                      <span className="text-body-lg font-bold text-fg-muted">{s.chapter(c.n)}</span>
+                      <span className="text-small text-fg-muted">{s.closedLine}</span>
                     </span>
                     <UiIcon name="lock" size={20} className="text-fg-muted" />
                   </div>
@@ -174,15 +175,15 @@ export function StoryScreen({ data }: { data: StoryDTO }): ReactElement {
           </ol>
           {data.open < data.chapters.length ? (
             <p className="m-0 text-body text-fg-muted">
-              <strong>Next up: </strong>
-              {data.chapters[data.open - 1]?.tease}
+              <strong>{s.nextUp}</strong>
+              <span lang="en-GB">{data.chapters[data.open - 1]?.tease}</span>
             </p>
           ) : null}
-          <section aria-label="The torn note" className="flex flex-col gap-3 rounded-card border-2 border-divider bg-surface p-4 md:p-5">
+          <section aria-label={s.tornNote} className="flex flex-col gap-3 rounded-card border-2 border-divider bg-surface p-4 md:p-5">
             <div className="flex flex-wrap items-baseline gap-x-3">
-              <h2 className="m-0 text-h2 font-bold">The torn note</h2>
+              <h2 className="m-0 text-h2 font-bold">{s.tornNote}</h2>
               <span className="text-body font-bold tabular-nums">
-                {found.length} of {data.chapters.length} scraps
+                {s.scraps(found.length, data.chapters.length)}
               </span>
             </div>
             {found.length > 0 ? (
@@ -192,19 +193,19 @@ export function StoryScreen({ data }: { data: StoryDTO }): ReactElement {
                 ))}
               </ul>
             ) : (
-              <p className="m-0 text-body-lg text-fg-muted">Finish a chapter to find the first scrap. Who wrote this note?</p>
+              <p className="m-0 text-body-lg text-fg-muted">{s.firstScrap}</p>
             )}
           </section>
         </>
       )}
-      <Dialog open={earned.length > 0} onClose={() => setEarned([])} title="A new card!" size="md" footer={<Button onClick={() => setEarned([])}>Close</Button>}>
+      <Dialog open={earned.length > 0} onClose={() => setEarned([])} title={s.newCard} size="md" footer={<Button onClick={() => setEarned([])}>{s.close}</Button>}>
         {earned[0] ? (
           <div className="flex flex-col items-center gap-3">
             <div className="kw-flip w-56 max-w-full">
               <CollectCard card={{ ...earned[0], tone: 'knowledge' }} total={CARD_COUNT} big />
             </div>
             <RarityMark rarity={earned[0].rarity} />
-            {earned[0].fact ? <p className="m-0 text-center text-body-lg">{earned[0].fact}</p> : null}
+            {earned[0].fact ? <p lang="en-GB" className="m-0 text-center text-body-lg">{earned[0].fact}</p> : null}
           </div>
         ) : null}
       </Dialog>

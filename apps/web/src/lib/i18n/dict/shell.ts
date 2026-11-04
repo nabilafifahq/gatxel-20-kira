@@ -716,7 +716,7 @@ const id: typeof en = {
     accessories: 'Aksesori',
     accessoriesLine: 'Dapatkan aksesori dengan mencapai level di Belajar, Hitung Cepat, dan Kuis.',
     noAccessory: 'Tanpa aksesori',
-    worldLine: 'Temanmu, Toko Bintang, album kartu, cerita, Robot Teka-Teki, dan trofi.',
+    worldLine: 'Temanmu, Toko Bintang, album kartu, cerita, tantangan bos, dan trofi.',
     openWorld: 'Buka Dunia Kira',
     badges: 'Lencana',
     noBadgesTitle: 'Lencanamu akan muncul di sini.',
