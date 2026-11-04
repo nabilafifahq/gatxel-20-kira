@@ -58,3 +58,36 @@ Klaim dalam draf yang diganti sebelum selesai karena tidak bisa dipastikan: lama
 ## Catatan untuk penggabungan
 
 Teks berubah, jadi klip suara buku perlu dibuat: 1.218 klip baru dari total 2.101 klip unik. Id buku, bab, dan soal tetap, jadi kemajuan membaca yang tersimpan tetap sah.
+
+## Pemeriksa kedua
+
+Agen terpisah membaca 12 buku kelas 3 sampai 6. Setiap soal dijawab dari teks lewat skrip yang menyembunyikan `answer` dan `why`, jawabannya dicatat dulu, baru dibandingkan dengan kunci.
+
+- Soal diperiksa: 501.
+- Jawaban yang berbeda dari kunci: 0.
+- Kunci diubah: 0. Id buku, bab, dan soal juga tidak berubah.
+- Fakta diperbaiki: 3.
+- Suntingan lain: 33, yaitu 18 kalimat teks, 1 judul bab, 5 kalimat soal, 4 pilihan jawaban, dan 5 penjelasan yang ikut menyesuaikan.
+
+Fakta yang diperbaiki:
+
+1. `g3-volcano-islands` c1: Merapi berada di perbatasan Jawa Tengah dan Yogyakarta, jadi "in Central Java" diganti "on the island of Java".
+2. `g3-volcano-islands` c1: lava tidak selalu mendingin menjadi batu hitam, lava Merapi cenderung abu-abu, jadi "black" diganti "dark", termasuk di satu pengecoh c2 q5.
+3. `g6-salsabila-sparkling-sea` c5: sel sea sparkle bisa sampai sekitar 2 mm, jadi "cannot see one without a microscope" diganti "need a microscope to see one clearly".
+
+Logika cerita dan dialog yang dibetulkan:
+
+- `g4-rafi-long-boat`: dari Senin dan Sabtu tidak mungkin tersisa sepuluh hari dari 21 hari. Kini mereka mulai esok harinya dan menguji perahu sehari setelah selesai, jadi hitungannya pas. "We can do all our ideas" bertentangan dengan kayu baru yang batal dipakai, dan lelucon akhir Dodi tidak jelas maksudnya. Keduanya ditulis ulang.
+- `g6-chidi-thirteenth-hour` c5: Ngozi "first time in a fortnight" tidak cocok, sebab jam baru dipakai sekitar sepuluh hari. Kini "in days".
+- `g4-ama-library-whisper` c3: Kwesi jatuh dari sofa, padahal mereka bersembunyi di belakang sofa.
+- `g6-salsabila-sparkling-sea`: "no ghost" dihapus karena tidak ada yang menyebut hantu, kano yang harus dekat dermaga tidak lagi "far away", dan judul c6 "Keeping the Secret" menjadi "Keeping the Sea Clean" karena tidak ada rahasia di bab itu.
+- `g5-kirana-mangrove-map`: tabel pasang tidak lagi dipasang tetangga tanpa alasan, dan kalimat Opa di akhir dirapikan.
+
+Batas pemeriksaan kedua:
+
+- Angka 0 belum membuktikan semua soal kuat. Sebagian besar soal bersifat literal dan pengecohnya mudah disingkirkan, jadi kecocokan memang mudah dicapai. Pengecoh yang agak konyol hanya diganti bila janggal saat dibacakan, sisanya dibiarkan.
+- Pemeriksa adalah agen terpisah dengan model yang sama dengan penulis, jadi salah tafsir yang sama bisa lolos. Pembaca manusia tetap berguna.
+- Fakta dinilai dari pengetahuan pemeriksa, tanpa membuka sumber daring pada putaran ini.
+- Dialog di semua buku tidak memakai bentuk singkat seperti "don't". Ini tampak sebagai gaya seragam sejak kelas 1, jadi tidak diubah, walau kadang terdengar kaku.
+
+Teks berubah di 20 kalimat dan 1 judul, jadi pembuatan klip suara buku perlu dijalankan setelah komit ini.
