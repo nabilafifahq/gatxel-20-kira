@@ -67,16 +67,16 @@ export function QuestStamp({ stop, size = 'L' }: { stop: QuestStopDTO; size?: St
       )
     case 'in-progress':
       return (
-        <span className={cx(box, 'border-3 bg-surface', style.border)}>
+        <span className={cx(box, 'border-3', style.border, style.solid)}>
           <SubjectIcon subject={stop.subject} size={34} className={iconClass(size, 'h-7 w-7', 'h-8.5 w-8.5', 'h-7 w-7 md:h-8.5 md:w-8.5')} />
-          <span className={cx('flex h-1.5 w-9 overflow-hidden rounded-control bg-divider md:w-11', bonus && 'border border-fg')}>
-            <span className={style.bar} style={{ width: `${progressPct(stop)}%` }} />
+          <span className={cx('flex h-1.5 w-9 overflow-hidden rounded-control bg-surface md:w-11', bonus && 'border border-fg')}>
+            <span className="bg-fg" style={{ width: `${progressPct(stop)}%` }} />
           </span>
         </span>
       )
     default:
       return (
-        <span className={cx(box, 'border-3 bg-surface', style.border)}>
+        <span className={cx(box, 'border-3', style.border, style.solid)}>
           <SubjectIcon subject={stop.subject} size={40} className={iconClass(size, 'h-8 w-8', 'h-10 w-10', 'h-8 w-8 md:h-10 md:w-10')} />
         </span>
       )
@@ -140,15 +140,15 @@ export function QuestStopBig({ stop, headingLevel = 2 }: { stop: QuestStopDTO; h
   return (
     <div className="relative flex items-start gap-4 md:gap-8">
       <span className="flex w-28 flex-none justify-center md:w-36">
-        <span className={cx('flex h-28 w-28 flex-col items-center justify-center gap-2.5 rounded-card border-4 bg-surface md:h-36 md:w-36', style.border)}>
+        <span className={cx('flex h-28 w-28 flex-col items-center justify-center gap-2.5 rounded-card border-4 md:h-36 md:w-36', style.border, style.solid)}>
           <SubjectIcon subject={stop.subject} size={72} className="h-14 w-14 md:h-18 md:w-18" />
           {showBar ? (
             <span
               role="img"
               aria-label={`${stop.answered} of ${stop.total} done`}
-              className={cx('flex h-2 w-16 overflow-hidden rounded-control bg-divider md:h-2.5 md:w-22', bonus && 'border border-fg')}
+              className={cx('flex h-2 w-16 overflow-hidden rounded-control bg-surface md:h-2.5 md:w-22', bonus && 'border border-fg')}
             >
-              <span className={style.bar} style={{ width: `${progressPct(stop)}%` }} />
+              <span className="bg-fg" style={{ width: `${progressPct(stop)}%` }} />
             </span>
           ) : null}
         </span>

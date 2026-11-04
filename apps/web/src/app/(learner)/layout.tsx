@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import '../globals.css'
+import { FontPreload } from '@/components/ui/FontPreload'
 
 export const metadata: Metadata = {
   title: { default: 'Kira', template: '%s, Kira' },
@@ -13,6 +14,9 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, them
 export default function LearnerRootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" data-area="learner">
+      <head>
+        <FontPreload />
+      </head>
       <body className="font-body text-fg bg-bg">{children}</body>
     </html>
   )
