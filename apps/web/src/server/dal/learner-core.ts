@@ -38,6 +38,8 @@ import { notFound } from '../errors'
 import { awardArenaBadges } from './arena-badges'
 import { gradeOfSkill, subjectOfSkill } from './content'
 
+import { featureMapFor } from './learner-features'
+
 const { learnerProfile, skillState, reviewCard: reviewCardT, xpEvent, dayRecord, restDay, badgeAward, response, attempt, quest } = tables
 
 export type LearnerRow = typeof learnerProfile.$inferSelect
@@ -78,6 +80,7 @@ export async function learnerShell(tx: Tx, learner: LearnerRow, today: IsoDate =
     jenjang: jenjangOf(learner.grade),
     showReview: learner.reviewEnabled,
     dueReviewCount: learner.reviewEnabled ? await dueReviewCount(tx, learner.userId, today) : 0,
+    features: await featureMapFor(tx, learner.userId),
   }
 }
 
