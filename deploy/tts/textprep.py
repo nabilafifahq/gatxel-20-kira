@@ -41,8 +41,17 @@ def _power(m: "re.Match[str]") -> str:
     return " to the power of " + m.group(1).translate(_SUPERSCRIPT)
 
 
+SUPERSCRIPT = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789")
+
+
+def _power(m: "re.Match[str]") -> str:
+    digits = m.group(0).translate(SUPERSCRIPT)
+    return {"2": " squared", "3": " cubed"}.get(digits, f" to the power of {digits}")
+
+
 def prepare_text(text: str) -> str:
     t = " ".join(text.split())
+    t = re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹]+", _power, t)  # 15² = 15 squared, 2²⁰²⁶ = 2 to the power of 2026
     t = re.sub(r"(?<=\d)([\u2070\u00b9\u00b2\u00b3\u2074-\u2079]+)", _power, t)
     t = re.sub(r"\bRp\.?\s*(\d[\d.,]*)", _rupiah, t)
     t = re.sub(r"\s\+\s", " plus ", t)

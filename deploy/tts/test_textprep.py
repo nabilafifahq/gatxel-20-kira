@@ -12,6 +12,11 @@ class PrepareText(unittest.TestCase):
         self.assertEqual(prepare_text("It is Rp1.000."), "It is 1000 rupiah.")
         self.assertEqual(prepare_text("Rp500 + Rp200 = Rp700"), "500 rupiah plus 200 rupiah equals 700 rupiah")
 
+    def test_superscripts(self) -> None:
+        self.assertEqual(prepare_text("15² = 225"), "15 squared equals 225")
+        self.assertEqual(prepare_text("2²⁰²⁶ + 1"), "2 to the power of 2026 plus 1")
+        self.assertEqual(prepare_text("10,000 m²"), "10,000 metres squared")
+
     def test_fractions(self) -> None:
         self.assertEqual(prepare_text("Shade 3/4 of it."), "Shade 3 quarters of it.")
         self.assertEqual(prepare_text("Eat 1/2 an apple."), "Eat one half an apple.")

@@ -232,7 +232,7 @@ const stored = {}
 function clipPrecache(w) {
   const r = http.get(BASE + '/api/tts/today', { headers: headers(w.cookie), tags: { name: 'tts_today' } })
   if (r.status !== 200) return
-  let urls = []
+  let urls
   try {
     urls = r.json('urls') || []
   } catch {

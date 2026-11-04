@@ -44,6 +44,20 @@ export function sessionCompletionXp(input: { session: string; perfect: boolean; 
   return input.retry ? retryXp(base) : base
 }
 
+/**
+ * Bonus selesai sesi di luar sesi harian (Latihan Bebas, ulasan, simulasi, paper). Butuh paling sedikit satu jawaban benar,
+ * jadi 0 benar tidak memberi XP. Jawaban yang masih menunggu dinilai belum tentu salah, jadi tetap dihitung.
+ */
+export function freeSessionDoneXp(input: { kind: string; correct: number; pending: number }): number {
+  if (input.correct <= 0 && input.pending <= 0) return 0
+  return input.kind === 'review' ? 10 : 20
+}
+
+/** Sesi dihitung untuk streak dan hadiah bila paling sedikit separuh soalnya dijawab. */
+export function sessionAnswersNeeded(total: number): number {
+  return Math.ceil(Math.max(0, total) / 2)
+}
+
 export function xpForLevel(level: number): number {
   const l = Math.max(1, Math.floor(level))
   return 50 * (l - 1) * l

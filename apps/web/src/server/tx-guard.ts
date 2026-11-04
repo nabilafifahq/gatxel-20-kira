@@ -1,5 +1,4 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
-import { log } from './log'
 
 /**
  * Penjaga transaksi bersarang. Meminta sambungan kedua dari pool saat transaksi terbuka membuat pool saling menunggu:
@@ -15,7 +14,8 @@ const held = new AsyncLocalStorage<true>()
 type Report = (message: string, meta: { pool: string; where: string }) => void
 
 const seen = new Set<string>()
-let report: Report = (message, meta) => log.warn(message, meta)
+// eslint-disable-next-line no-console -- penjaga transaksi melapor lewat log JSON satu baris, tanpa memakai server/log
+let report: Report = (message, meta) => console.warn(JSON.stringify({ level: 'warn', msg: message, ...meta }))
 
 export function setTxGuardReporter(fn: Report): void {
   report = fn

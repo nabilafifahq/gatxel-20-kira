@@ -35,10 +35,12 @@ export function LearnerRuntime({ screenLimitMin }: { screenLimitMin: number }) {
         if (!res.ok) return
         const body = (await res.json()) as { minutes: number; limit: number }
         if (!stopped && body.minutes >= body.limit && !limitShown) {
-          setLimitShown(true)
           const path = window.location.pathname
-          // Ronde yang sedang jalan (runner dan arena) tidak diputus; ronde baru ditolak server bila batas habis.
-          if (!path.startsWith('/run/') && !path.includes('/play/')) router.push('/today/done')
+          // Ronde yang sedang jalan (runner dan arena) tidak diputus dan layar hasilnya tetap terbaca; ronde baru ditolak server
+          // bila batas habis. Layar istirahat muncul pada detak berikutnya setelah anak keluar dari sana.
+          if (path.startsWith('/run/') || path.includes('/play/') || path.startsWith('/results/') || path.startsWith('/world/boss/result/')) return
+          setLimitShown(true)
+          router.push('/today/done')
         }
       } catch {
         // offline: diam

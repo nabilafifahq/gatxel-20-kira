@@ -92,6 +92,8 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
   const router = useRouter()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<{ message: string; reference: string } | null>(null)
+  // Batas layar habis bukan kesalahan: pesan istirahat yang tenang, tanpa kotak merah dan kode rujukan.
+  const [onBreak, setOnBreak] = useState(false)
   const again = async () => {
     if (!data.again) return
     setBusy(true)
@@ -99,6 +101,7 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
     try {
       const res = await actions.start(data.again)
       if (res.ok) router.push(res.data.redirectTo)
+      else if (res.message === dict.breakTime) setOnBreak(true)
       else setError({ message: res.message, reference: res.reference })
     } catch {
       setError({ message: dict.errors.yourNextRoundNet, reference: 'KRA-QM-NET' })
@@ -129,8 +132,9 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
       ))}
       <RewardPanel reward={result.reward} track="hitung" shell={data.shell} />
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
+      {onBreak ? <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface p-4 text-body-lg font-bold">{dict.breakTime}</p> : null}
       <div className="flex flex-wrap justify-center gap-3">
-        {data.again ? (
+        {data.again && !onBreak ? (
           <Button iconAfter="replay" loading={busy} onClick={() => void again()}>
             {dict.round.playAgain}
           </Button>
@@ -355,8 +359,18 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
           beforeLeave={() => chain.current.catch(() => undefined)}
         />
         <div className="flex min-w-0 flex-1 flex-col">
-          <span className="truncate text-body-lg font-bold">{data.mission ? play.missionTitle(data.mission.title) : data.title}</span>
-          <span className="truncate text-body text-fg-muted">{progress ?? data.subtitle}</span>
+          <span className="text-body font-bold leading-tight max-md:line-clamp-2 md:truncate md:text-body-lg">{data.mission ? play.missionTitle(data.mission.title) : data.title}</span>
+          {(timed || stopwatch) && !result ? (
+            <>
+              <span className="truncate text-body text-fg-muted max-md:hidden">{progress ?? data.subtitle}</span>
+              <span className="inline-flex items-center gap-1.5 text-body font-bold tabular-nums md:hidden">
+                <UiIcon name="check-circle" size={18} className="text-success" />
+                {t.round.right(right)}
+              </span>
+            </>
+          ) : (
+            <span className="truncate text-body text-fg-muted">{progress ?? data.subtitle}</span>
+          )}
         </div>
         {syncState ? (
           <span className="hidden md:inline-flex">
@@ -364,7 +378,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
           </span>
         ) : null}
         {(timed || stopwatch) && !result ? (
-          <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums">
+          <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums max-md:hidden">
             <UiIcon name="check-circle" size={24} className="text-success" />
             {t.round.right(right)}
           </span>

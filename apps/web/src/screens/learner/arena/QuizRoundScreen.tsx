@@ -126,12 +126,15 @@ function ResultView({ data, result, actions }: { data: QuizRoundDTO; result: Qui
   const router = useRouter()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<{ message: string; reference: string } | null>(null)
+  // Batas layar habis bukan kesalahan: pesan istirahat yang tenang, tanpa kotak merah dan kode rujukan.
+  const [onBreak, setOnBreak] = useState(false)
   const run = async (mode: 'learn' | 'quiz' | 'speed') => {
     setBusy(true)
     setError(null)
     try {
       const res = await actions.start({ topic: data.topic, mode })
       if (res.ok) router.push(res.data.redirectTo)
+      else if (res.message === dict.breakTime) setOnBreak(true)
       else setError({ message: res.message, reference: res.reference })
     } catch {
       setError({ message: dict.errors.nextRoundNet, reference: 'KRA-QZ-NET' })
@@ -150,10 +153,13 @@ function ResultView({ data, result, actions }: { data: QuizRoundDTO; result: Qui
       ))}
       <RewardPanel reward={result.reward} track="pengetahuan" shell={data.shell} />
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
+      {onBreak ? <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface p-4 text-body-lg font-bold">{dict.breakTime}</p> : null}
       <div className="flex flex-wrap justify-center gap-3">
-        <Button iconAfter={data.mode === 'learn' ? 'arrow-right' : 'replay'} loading={busy} onClick={() => void run(data.mode === 'learn' ? 'quiz' : data.mode)}>
-          {data.mode === 'learn' ? t.tryQuiz : dict.round.playAgain}
-        </Button>
+        {onBreak ? null : (
+          <Button iconAfter={data.mode === 'learn' ? 'arrow-right' : 'replay'} loading={busy} onClick={() => void run(data.mode === 'learn' ? 'quiz' : data.mode)}>
+            {data.mode === 'learn' ? t.tryQuiz : dict.round.playAgain}
+          </Button>
+        )}
         <ButtonLink href={result.nextHref} variant="secondary" iconAfter="arrow-right">
           {data.topic === 'mix' ? t.backArena : t.backTopic}
         </ButtonLink>

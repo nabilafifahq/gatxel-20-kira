@@ -5,15 +5,20 @@
  *
  * Syarat (semuanya harus terpenuhi, kalau tidak penunjuk tidak diubah dan anak tetap mendengar versi lama):
  *   1. manifest-<versi>.jsonl ada (ditulis oleh pnpm tts:generate untuk versi itu) dan SETIAP klipnya ada di <data-dir>/tts.
- *   2. Laporan check_clips.py memuat klip-klip itu dan tingkat lulusnya >= --min-pass (bawaan 0,99).
+ *   2. SETIAP soal dengar (listen) dan eja (spell) di konten saat ini punya SEMUA klipnya (teks dengar dan opsi). Tanpa suara dan
+ *      tanpa klip, soal itu tidak bisa dijawab (ListenButton), jadi ini gerbang keras 100%, dihitung dari konten checkout ini:
+ *      jalankan di kepala pilot/gabung terbaru.
+ *   3. Laporan check_clips.py memuat klip-klip itu dan tingkat lulusnya >= --min-pass (bawaan 0,99).
  * Penunjuk: <data-dir>/tts/served-version.txt. Web membacanya tiap 5 detik dan memberi tahu browser lewat /api/tts/today,
  * sehingga semua perangkat berpindah suara bersama-sama, tanpa suara campuran di antara pertanyaan.
  */
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
+import { findContentDir, loadContent } from '@kira/content/load'
+import { itemSpeechClips } from '@kira/content/speech'
 import { isVoiceVersion } from '@kira/core/tts'
-import { hasClip, readServedVersion, ttsRoot, writeServedVersion } from '../src/tts/store'
+import { clipKey, hasClip, readServedVersion, ttsRoot, writeServedVersion } from '../src/tts/store'
 
 const { values } = parseArgs({
   options: {
@@ -64,6 +69,20 @@ const manifest = (await readFile(join(ttsRoot(dataDir), `manifest-${version}.jso
 const missing: string[] = []
 for (const m of manifest) if (!(await hasClip(dataDir, m.key))) missing.push(m.key)
 if (missing.length > 0) throw new Error(`${missing.length} dari ${manifest.length} klip belum ada (contoh ${missing[0]}). Jalankan pnpm tts:generate dulu.`)
+
+// Gerbang keras: kelengkapan 100% untuk soal dengar dan eja pada konten yang sekarang.
+{
+  const { index } = loadContent(findContentDir())
+  let items = 0
+  const gaps: string[] = []
+  for (const item of index.items.values()) {
+    if ((item.type !== 'listen' && item.type !== 'spell') || item.lang !== 'en-GB') continue
+    items++
+    for (const c of itemSpeechClips(item)) if (!(await hasClip(dataDir, clipKey(c.text, c.style, version)))) gaps.push(`${item.id}: ${c.text.slice(0, 50)}`)
+  }
+  console.log(`soal dengar dan eja: ${items}, klip yang belum ada: ${gaps.length}`)
+  if (gaps.length > 0) throw new Error(`Soal dengar atau eja tanpa klip (contoh ${gaps.slice(0, 3).join(' | ')}). Jalankan pnpm tts:generate pada konten terbaru.`)
+}
 
 const byKey = new Map(csvRows(await readFile(values.report, 'utf8')).map((r) => [r.key!, r]))
 const checked = manifest.filter((m) => byKey.has(m.key))

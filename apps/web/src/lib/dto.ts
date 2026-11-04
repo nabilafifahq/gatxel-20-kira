@@ -224,7 +224,7 @@ export type RemedialLessonDTO = { title: string; steps: SolutionStep[] }
 export type RunnerActions = {
   saveAnswer(p: AnswerPayload): Promise<ActionResult<AnswerResult>>
   submitAttempt(attemptId: string, clientId: string): Promise<ActionResult<{ redirectTo: string }>>
-  reportProblem(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string }): Promise<ActionResult<{ reference: string }>>
+  reportProblem(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string; screen?: 'practice' | 'test' }): Promise<ActionResult<{ reference: string }>>
   /** Putaran perbaikan di Latihan (tidak ada di mode berwaktu). */
   remedialLesson?(input: { attemptId: string; position: number }): Promise<ActionResult<{ lesson: RemedialLessonDTO | null }>>
   addRemedialItem?(input: { attemptId: string; position: number }): Promise<ActionResult<{ item: RunnerItem | null }>>
@@ -249,6 +249,8 @@ export type XpBarDTO = {
 
 export type ResultsDTO = {
   shell: LearnerShell
+  /** Sesi harian yang kurang dari separuh soalnya dijawab: belum selesai, dan yang dibutuhkan ditampilkan ke anak. */
+  notCounted?: { answered: number; need: number; total: number }
   /** Siapa yang melihat jawaban tulis, bicara, gambar, dan foto: tutor, atau orang dewasa di rumah bila keluarga tanpa tutor. */
   marker?: 'tutor' | 'grownup'
   attemptId: string

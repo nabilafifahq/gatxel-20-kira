@@ -39,7 +39,7 @@ const AVATAR_LABEL: Record<AvatarName, string> = {
 
 const PURPOSES: { id: OnboardingPurpose; label: string; description: string }[] = [
   { id: 'learning', label: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare, termasuk pusat data di luar Indonesia. Perlu dicentang supaya anak bisa masuk.' },
-  { id: 'progress-email', label: 'Laporan mingguan lewat email', description: 'Ringkasan belajar seminggu sekali ke email kamu.' },
+  { id: 'progress-email', label: 'Laporan mingguan lewat email', description: 'Ringkasan belajar seminggu sekali ke email Anda.' },
   { id: 'audio', label: 'Rekaman suara', description: 'Menyimpan rekaman latihan berbicara. Disimpan 90 hari.' },
   { id: 'photo', label: 'Foto dan gambar jawaban', description: 'Menyimpan foto jawaban di kertas. Disimpan 90 hari.' },
 ]
@@ -162,7 +162,7 @@ function StepChildren({ state, pins, onPin }: { state: OnboardingState; pins: Re
         </Button>
       ) : null}
       {!canAdd ? (
-        <InlineAlert tone="info" title={`Kamu sudah menambahkan ${state.max} anak, batas satu keluarga.`}>
+        <InlineAlert tone="info" title={`Anda sudah menambahkan ${state.max} anak, batas satu keluarga.`}>
           Butuh menukar? Hapus akun salah satu anak lewat halaman Privasi keluarga.
         </InlineAlert>
       ) : null}
@@ -369,7 +369,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
             <Avatar name={c.avatar} size={44} className="flex-none" />
             <div className="flex min-w-0 flex-1 flex-col">
               <span className="text-body font-bold">{c.name}</span>
-              {pins[c.id] ? <PinPreview name={c.name} pin={pins[c.id]!} /> : <span className="text-small">PIN gambar yang kamu pilih saat menambah {c.name}.</span>}
+              {pins[c.id] ? <PinPreview name={c.name} pin={pins[c.id]!} /> : <span className="text-small">PIN gambar yang Anda pilih saat menambah {c.name}.</span>}
               {!c.active ? <span className="text-small font-bold">Belum bisa masuk: izin belajar belum diberikan.</span> : null}
             </div>
             <Link href={`${FAMILY_ROUTES.child(c.id)}#atur`} className="kira-press inline-flex min-h-11 flex-none items-center text-small font-bold">
@@ -385,7 +385,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
         </Button>
         {copied === 'copied' ? <p role="status" className="m-0 text-small font-bold">Tersalin. Tempel di pesan ke pasangan atau pengasuh.</p> : null}
         {copied === 'shared' ? <p role="status" className="m-0 text-small font-bold">Terbagikan.</p> : null}
-        {copied === 'failed' ? <p role="status" className="m-0 text-small font-bold">Belum bisa menyalin di perangkat ini. Kamu bisa membacakan langkah di atas.</p> : null}
+        {copied === 'failed' ? <p role="status" className="m-0 text-small font-bold">Belum bisa menyalin di perangkat ini. Anda bisa membacakan langkah di atas.</p> : null}
         <p className="m-0 text-small text-fg-muted">
           Mau memasang aplikasinya? <Link href="/panduan/aplikasi" prefetch={false}>Lihat cara memasang aplikasi Kira</Link>.
         </p>
@@ -405,7 +405,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
         <Button variant="primary" disabled={activeIds.length === 0} loading={open.pending} onClick={openForChild} className="h-12 w-full">
           Mulai belajar sebagai anak
         </Button>
-        <p className="m-0 text-small text-fg-muted">Perangkat ini menjadi perangkat anak, dan kamu keluar dari akun orang tua di sini. Masuk lagi kapan saja dari perangkatmu sendiri.</p>
+        <p className="m-0 text-small text-fg-muted">Perangkat ini menjadi perangkat anak, dan Anda keluar dari akun orang tua di sini. Masuk lagi kapan saja dari perangkat Anda sendiri.</p>
         <ButtonLink href={FAMILY_ROUTES.home} variant="secondary" className="h-12 w-full">
           Buka dashboard
         </ButtonLink>

@@ -62,7 +62,7 @@ const en = {
     tapPicture: 'Tap your picture.',
     noLearners: 'No learners on this tablet yet.',
     learnersOn: (device: string) => `Learners on ${device}`,
-    doneLabel: (name: string) => `${name}, done for today`,
+    doneLabel: (name: string, grade: number) => `${name}, Grade ${grade}, done for today`,
     doneForToday: 'Done for today',
     backTomorrow: 'Back tomorrow',
     cardLabel: (name: string, grade: number) => `${name}, Grade ${grade}`,
@@ -146,6 +146,11 @@ const en = {
     retry: 'Try again',
     home: 'Back to Today',
     code: 'Code for a grown-up',
+  },
+
+  notFound: {
+    title: 'This page is not here',
+    body: 'That is okay. Your stars and answers are safe. Let us go back to Today.',
   },
 
   navUi: {
@@ -522,7 +527,7 @@ const id: typeof en = {
     tapPicture: 'Ketuk gambarmu.',
     noLearners: 'Belum ada anak di tablet ini.',
     learnersOn: (device) => `Anak di ${device}`,
-    doneLabel: (name) => `${name}, sudah selesai hari ini`,
+    doneLabel: (name, grade) => `${name}, Kelas ${grade}, sudah selesai hari ini`,
     doneForToday: 'Selesai hari ini',
     backTomorrow: 'Sampai besok',
     cardLabel: (name, grade) => `${name}, Kelas ${grade}`,
@@ -605,6 +610,11 @@ const id: typeof en = {
     retry: 'Coba lagi',
     home: 'Kembali ke Hari ini',
     code: 'Kode untuk orang dewasa',
+  },
+
+  notFound: {
+    title: 'Halaman ini tidak ada di sini',
+    body: 'Tidak apa-apa. Bintang dan jawabanmu tetap aman. Yuk, kembali ke Hari ini.',
   },
 
   navUi: {

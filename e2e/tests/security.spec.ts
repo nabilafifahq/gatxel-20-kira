@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, createPracticeAttempt, internalStatuses, mcqItems, pinLogin, registerTablet } from './helpers'
+import { closeDb, createPracticeAttempt, internalClosed, mcqItems, pinLogin, registerTablet } from './helpers'
 
 test.afterAll(closeDb)
 
@@ -27,11 +27,10 @@ test('endpoint API menolak permintaan tanpa sesi atau token', async ({ request }
   expect((await request.get('/api/apk')).status()).toBe(401)
   expect((await request.post('/api/heartbeat')).status()).toBeGreaterThanOrEqual(400)
   expect((await request.post('/api/sync', { data: { answers: [], submits: [] } })).status()).toBeGreaterThanOrEqual(400)
-  const closed = await internalStatuses(request)
   const internal = await request.post('/api/internal/weekly-report', { data: {} })
-  expect(closed).toContain(internal.status())
+  expect(await internalClosed(internal), `status ${internal.status()}`).toBe(true)
   const wrongToken = await request.post('/api/internal/weekly-report', { data: {}, headers: { Authorization: 'Bearer salah-salah-salah-salah-salah-salah' } })
-  expect(closed).toContain(wrongToken.status())
+  expect(await internalClosed(wrongToken), `status ${wrongToken.status()}`).toBe(true)
   const mcp = await request.post('/api/mcp', { data: { jsonrpc: '2.0', id: 1, method: 'tools/list' } })
   expect([401, 404]).toContain(mcp.status())
 })

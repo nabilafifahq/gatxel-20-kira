@@ -1,3 +1,4 @@
+import { WHATSAPP_HELP_URL } from '@/lib/support'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { dateId } from '@/components/console/format'
@@ -127,7 +128,7 @@ export function TermsPage({ data, account }: TermsPageProps & { account?: ReactN
 
       <LegalSection id="k-berhenti" title="10. Berhenti memakai Kira">
         <p className="m-0">
-          Pemilik akun dan Orang Tua bisa berhenti kapan saja. Akun dan data anak dihapus sendiri dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>. Untuk menghapus akun orang tua, kirim permintaan ke {entity.email}.
+          Pemilik akun dan Orang Tua bisa berhenti kapan saja. Akun dan data anak dihapus sendiri dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>. Untuk menghapus seluruh keluarga, termasuk akun orang tua, kirim permintaan lewat <Link href="/feedback">halaman Bantuan</Link> atau <a href={WHATSAPP_HELP_URL}>WhatsApp</a>. Permintaan ditanggapi paling lambat 3 x 24 jam, dan akun orang tua dihapus paling lambat 30 hari setelah permintaan.
           Pengelola bisa menangguhkan akun yang melanggar bagian 6 setelah memberi tahu pemilik akun beserta alasannya, dan akun dibuka lagi setelah pelanggaran
           dihentikan.
         </p>

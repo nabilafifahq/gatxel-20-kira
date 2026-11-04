@@ -70,7 +70,7 @@ export function ExitControl({
 const REASONS = ['wrong-answer', 'confusing', 'picture', 'other'] as const
 
 /** Tombol bendera kecil untuk melaporkan masalah soal ke tutor. */
-export function ReportControl({ itemRef, reportProblem, className }: { itemRef: string; reportProblem: RunnerActions['reportProblem']; className?: string }): ReactElement {
+export function ReportControl({ itemRef, reportProblem, screen, className }: { itemRef: string; reportProblem: RunnerActions['reportProblem']; screen: 'practice' | 'test'; className?: string }): ReactElement {
   const [open, setOpen] = useState(false)
   const [reason, setReason] = useState<(typeof REASONS)[number]>('wrong-answer')
   const [note, setNote] = useState('')
@@ -89,11 +89,11 @@ export function ReportControl({ itemRef, reportProblem, className }: { itemRef: 
     setBusy(true)
     setError(null)
     try {
-      const res = await reportProblem({ itemRef, reason, note: note.trim().slice(0, 300) })
+      const res = await reportProblem({ itemRef, reason, note: note.trim().slice(0, 300), screen })
       if (res.ok) {
         setOpen(false)
         setNote('')
-        toast({ kind: 'success', title: t.thanks, reference: res.data.reference })
+        toast({ kind: 'success', title: t.thanks })
       } else {
         setError({ message: res.message, reference: res.reference })
       }

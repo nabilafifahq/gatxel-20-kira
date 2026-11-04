@@ -48,6 +48,7 @@ export function HeroPanel({ seats, claim }: { seats: { total: number; left: numb
           </li>
         ))}
       </ul>
+      <p className="relative m-0 text-small font-bold md:text-body">Gratis selama masa beta</p>
       <p className="relative m-0 text-small font-bold md:text-body" aria-live="polite">
         {seats.full ? 'Kursi beta sudah penuh.' : `Beta terbatas. Tersisa ${seats.left} dari ${seats.total} kursi.`}
       </p>

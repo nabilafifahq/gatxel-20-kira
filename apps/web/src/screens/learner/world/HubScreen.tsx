@@ -44,8 +44,8 @@ export function HubScreen({ data }: { data: WorldHubDTO }): ReactElement {
       <Link href="/world/friend" prefetch={false} className="kw-animate flex items-center gap-4 rounded-card border-2 border-fg bg-science-50 p-4 text-fg no-underline">
         {data.pet ? <PetArt kind={data.pet.kind as PetArtKind} stage={data.pet.stage} costume={data.pet.costume} size={110} /> : <EggArt cracked={data.petState === 'ready'} size={110} />}
         <span className="flex min-w-0 flex-1 flex-col gap-1">
-          <span className="text-h2 font-bold">{data.pet ? data.pet.name : data.petState === 'ready' ? h.eggReady : h.mysteryEgg}</span>
-          <span className="text-body-lg">
+          <span className="text-h2 font-bold break-words">{data.pet ? data.pet.name : data.petState === 'ready' ? h.eggReady : h.mysteryEgg}</span>
+          <span className="text-body-lg break-words">
             {data.pet ? data.pet.greeting : data.petState === 'ready' ? h.tapToHatch : h.earnToHatch(data.hatchAt)}
           </span>
         </span>

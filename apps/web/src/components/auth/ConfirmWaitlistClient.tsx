@@ -15,7 +15,7 @@ export function ConfirmWaitlistClient({ token }: { token: string }) {
   return (
     <AuthCard labelledBy="kk-judul">
       <h1 id="kk-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
-        {done === true ? 'Kamu masuk daftar tunggu' : done === false ? 'Tautan ini tidak berlaku' : 'Kabari saya saat kursi dibuka'}
+        {done === true ? 'Anda masuk daftar tunggu' : done === false ? 'Tautan ini tidak berlaku' : 'Kabari saya saat kursi dibuka'}
       </h1>
       {done === null ? (
         <>
@@ -40,7 +40,7 @@ export function ConfirmWaitlistClient({ token }: { token: string }) {
       ) : done ? (
         <p className="m-0 text-body text-fg-muted">Terima kasih. Kami kirim email saat kursi dibuka lagi. Setiap email punya tautan untuk berhenti.</p>
       ) : (
-        <p className="m-0 text-body text-fg-muted">Tautan konfirmasi salah atau kamu sudah berhenti berlangganan. Kamu bisa mendaftar lagi dari halaman depan.</p>
+        <p className="m-0 text-body text-fg-muted">Tautan konfirmasi salah atau Anda sudah berhenti berlangganan. Anda bisa mendaftar lagi dari halaman depan.</p>
       )}
       <Link href="/" className="font-bold">
         Ke halaman depan

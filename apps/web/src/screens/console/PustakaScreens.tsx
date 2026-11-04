@@ -78,7 +78,7 @@ export function PaperLibraryScreen({ data }: { data: PaperLibraryDTO }) {
       <Card as="section" aria-label="Paper gaya lomba buatan Kira" className="flex flex-col gap-3">
         <h2 className="m-0 text-h3 font-bold">{ORIGIN_LABEL['kira-made']}</h2>
         <p className="m-0 text-body text-fg-muted">
-          Dipakai saat pustaka tipis atau semua bagian sudah dikerjakan. Dirakit dari soal olimpiade yang sudah ada dan draf AI yang sudah kamu setujui di Studio AI. Selalu diberi label di layar Syakira sebagai latihan buatan Kira, bukan paper asli.
+          Dipakai saat pustaka tipis atau semua bagian sudah dikerjakan. Dirakit dari soal olimpiade yang sudah ada dan draf AI yang sudah Anda setujui di Studio AI. Selalu diberi label di layar Syakira sebagai latihan buatan Kira, bukan paper asli.
         </p>
         {data.learner ? (
           <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
@@ -416,7 +416,7 @@ export function SourcesScreen({ data, actions }: { data: SourcesDTO; actions: So
       description="Daftar bank soal yang dikenal Kira. Setiap Minggu dini hari worker mengambil soal baru dari sumber otomatis, membuang yang dobel, memetakan ke skill dan kelas, lalu mengecek kunci jawaban."
     >
       <InlineAlert tone="info" title="Aturan sumber.">
-        Hanya lisensi terbuka dan unduhan gratis resmi yang diambil otomatis. Paper berbayar diunggah manual lewat Impor. Soal dengan kunci dari sumber yang sama dengan jawaban AI langsung masuk Bank soal; yang kuncinya buatan AI atau beda masuk antrean Studio AI untuk kamu setujui. Paper resmi tinggal di server keluarga dan tidak masuk repo.
+        Hanya lisensi terbuka dan unduhan gratis resmi yang diambil otomatis. Paper berbayar diunggah manual lewat Impor. Soal dengan kunci dari sumber yang sama dengan jawaban AI langsung masuk Bank soal; yang kuncinya buatan AI atau beda masuk antrean Studio AI untuk Anda setujui. Paper resmi tinggal di server keluarga dan tidak masuk repo.
       </InlineAlert>
       {data.weekly.lastRun ? (
         <p className="m-0 text-small text-fg-muted">
