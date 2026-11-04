@@ -11,7 +11,10 @@ import { localFailure, orgCtx, requireActor, requireLearner } from '../auth/acto
 import { getDevice, touchDevice } from '../auth/device'
 import { checkPin } from '../auth/pin'
 import { endCurrentSession, startSession } from '../auth/session'
-import { throttleIp } from '../auth/ratelimit'
+import { clientIp, throttleIp } from '../auth/ratelimit'
+import { ipHash } from '../auth/crypto'
+import { forwardProblemReport } from '../dal/support'
+import { log } from '../log'
 import { learnerOrgFor, setLearnerAvatar } from '../dal/learner-entry'
 import { answerPayloadSchema, saveAnswer, submitAttempt } from '../dal/learner-runner'
 import { completeLesson } from '../dal/learner-explore'
@@ -106,6 +109,13 @@ export async function reportProblemAction(input: { itemRef: string; reason: 'wro
           reference,
         }),
       )
+      // Laporan sudah tersimpan: gagal meneruskan ke kotak bantuan tidak boleh menggagalkan laporan anak.
+      try {
+        await throttleIp('problem-report-forward', 6, actor.userId)
+        await forwardProblemReport({ orgId: actor.orgId, reference, itemRef: data.itemRef, reason: data.reason, note: data.note, ipHash: ipHash(await clientIp()) })
+      } catch (e) {
+        log.warn('laporan soal tidak diteruskan ke kotak bantuan', { reference, error: e })
+      }
       return { reference }
     },
     'en-GB',

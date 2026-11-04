@@ -1,9 +1,12 @@
 import 'server-only'
-import { sql } from 'drizzle-orm'
+import { and, eq, isNull, sql } from 'drizzle-orm'
 import { supportConfirmEmail, supportTicketEmail } from '@kira/core/email-templates'
 import { tables } from '@kira/db'
 import { formatDateId, jakartaClock, jakartaDate } from '@kira/core/time'
-import { appDb } from '../db'
+import { systemCtx } from '../audit'
+import { appVersion } from '../app-version'
+import { appDb, inOrg } from '../db'
+import { newTicketReference } from '../support-file'
 import { emailIdentity, supportAddresses } from '../email'
 import { roleLabel, SUPPORT_CATEGORIES, type SupportCategoryId } from '@/lib/support'
 
@@ -88,4 +91,43 @@ export async function createSupportTicket(t: NewSupportTicket): Promise<{ mailed
     await tx.execute(sql`select pg_notify('kira_mail', 'public')`)
   })
   return { mailedTeam: team.length > 0 }
+}
+
+const REPORT_REASON: Record<string, string> = {
+  'wrong-answer': 'Jawabannya salah',
+  confusing: 'Soalnya membingungkan',
+  picture: 'Masalah pada gambar',
+  other: 'Lainnya',
+}
+
+/**
+ * Laporan soal dari anak dibaca di konsol tutor. Keluarga tanpa tutor tidak punya konsol, jadi laporannya diteruskan
+ * ke kotak bantuan tim. Keluarga bertutor tidak berubah. Pesan tidak memuat nama anak; pengirimnya email orang tua.
+ */
+export async function forwardProblemReport(input: { orgId: string; reference: string; itemRef: string; reason: string; note: string; ipHash: string }): Promise<boolean> {
+  const members = await inOrg(systemCtx(input.orgId), (tx) =>
+    tx
+      .select({ id: tables.memberProfile.userId, role: tables.memberProfile.role, email: tables.memberProfile.email })
+      .from(tables.memberProfile)
+      .where(and(eq(tables.memberProfile.orgId, input.orgId), isNull(tables.memberProfile.removedAt))),
+  )
+  if (members.some((m) => m.role === 'tutor')) return false
+  const parent = members.find((m) => m.role === 'guardian' && m.email)
+  if (!parent?.email) return false
+  await createSupportTicket({
+    reference: newTicketReference(),
+    category: 'koreksi',
+    subject: `Laporan soal dari anak: ${input.itemRef}`.slice(0, 120),
+    message: [`Soal: ${input.itemRef}`, `Alasan: ${REPORT_REASON[input.reason] ?? input.reason}`, `Catatan anak: ${input.note.trim() || 'tidak ada'}`, `Kode laporan: ${input.reference}`].join('\n'),
+    senderEmail: parent.email,
+    account: { id: parent.id, role: 'guardian' },
+    userAgent: '',
+    screen: '',
+    appVersion: appVersion(),
+    pageFrom: '',
+    ipHash: input.ipHash,
+    attachment: null,
+    sendConfirmation: false,
+  })
+  return true
 }
