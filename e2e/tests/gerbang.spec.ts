@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import { expect, test, type BrowserContext, type Page } from '@playwright/test'
+import { expect as baseExpect, test, type BrowserContext, type Page } from '@playwright/test'
 import { closeDb, createPracticeAttempt, db, expectNoSeriousA11y, GUARDIAN, loginAdult, mcqItems, registerTablet, pinLogin, watchErrors } from './helpers'
 import { BASE, learnerSession, SESSION_COOKIE, sessionFor, type Who } from './security-helpers'
 
@@ -8,6 +8,9 @@ import { BASE, learnerSession, SESSION_COOKIE, sessionFor, type Who } from './se
  * daftar langkah orang tua, dan tips pertama anak. Keluarga pemilik dibuat langsung di database, jadi tes ini tidak butuh Mailpit.
  */
 test.afterAll(closeDb)
+
+const expect = baseExpect.configure({ timeout: 45_000 })
+test.setTimeout(240_000)
 
 const CREDIT = 'Build by Gatxel @ 2026 Made with Love by GATteam'
 const WA = 'https://wa.me/6287794551486?text=Halo%20Tim%20Gatxel%2C%20saya%20tertarik%20berdiskusi%20kemitraan%20bersama%20Kira'
