@@ -138,6 +138,16 @@ const en = {
   },
   logoLabel: 'Kira, Today',
 
+  routeError: {
+    chunkTitle: 'Kira has something new for you',
+    title: 'Oops, this page got stuck',
+    chunkBody: 'Tap the button to carry on. Your stars and answers are safe.',
+    body: 'Your stars and answers are safe. Try again, or go back to Today.',
+    retry: 'Try again',
+    home: 'Back to Today',
+    code: 'Code for a grown-up',
+  },
+
   navUi: {
     main: 'Main',
     more: 'More',
@@ -586,6 +596,16 @@ const id: typeof en = {
     stepOf: (n, total) => `Tips ${n} dari ${total}`,
   },
   logoLabel: 'Kira, Hari ini',
+
+  routeError: {
+    chunkTitle: 'Kira punya yang baru untukmu',
+    title: 'Aduh, halaman ini tersangkut',
+    chunkBody: 'Ketuk tombolnya untuk lanjut. Bintang dan jawabanmu tetap aman.',
+    body: 'Bintang dan jawabanmu tetap aman. Coba lagi, atau kembali ke Hari ini.',
+    retry: 'Coba lagi',
+    home: 'Kembali ke Hari ini',
+    code: 'Kode untuk orang dewasa',
+  },
 
   navUi: {
     main: 'Utama',
