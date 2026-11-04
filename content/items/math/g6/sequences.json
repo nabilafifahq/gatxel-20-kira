@@ -1,0 +1,52 @@
+{
+  "skill": "m6.sequences",
+  "items": [
+    {
+      "id": "m6.sequences.001",
+      "skill": "m6.sequences",
+      "difficulty": 3,
+      "prompt": "The rule for a pattern is: term = 4 × position + 3. What is the 25th term?",
+      "hints": [
+        "Replace the position with 25.",
+        "4 × 25 first.",
+        "Then add 3."
+      ],
+      "explanation": "4 × 25 = 100, and 100 + 3 = 103.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 103
+    },
+    {
+      "id": "m6.sequences.002",
+      "skill": "m6.sequences",
+      "difficulty": 4,
+      "prompt": "Sekar saves Rp5.000 in week 1. Each week after that she saves Rp2.000 more than the week before. How many rupiah has she saved altogether after 6 weeks?",
+      "hints": [
+        "Write out the amount for each week.",
+        "The weeks are Rp5.000, Rp7.000, Rp9.000 and so on.",
+        "Add the six amounts."
+      ],
+      "explanation": "She saves 5, 7, 9, 11, 13 and 15 thousand rupiah. Their sum is 60 thousand, which is Rp60.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 60000
+    },
+    {
+      "id": "m6.sequences.003",
+      "skill": "m6.sequences",
+      "difficulty": 5,
+      "prompt": "The sequence 3, 10, 17, 24, ... goes up by 7 each time. What is the first term that is greater than 200?",
+      "hints": [
+        "The rule is 7 × position − 4.",
+        "Solve 7 × n − 4 > 200.",
+        "Find the first whole position n that works, then use the rule."
+      ],
+      "explanation": "The rule is 7n − 4. We need 7n > 204, so n = 30 (7 × 29 = 203 is too small). The 30th term is 7 × 30 − 4 = 206.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 206
+    }
+  ]
+}

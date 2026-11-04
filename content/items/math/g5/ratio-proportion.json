@@ -1,0 +1,73 @@
+{
+  "skill": "m5.ratio-proportion",
+  "items": [
+    {
+      "id": "m5.ratio-proportion.001",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 3,
+      "prompt": "A recipe for sweet tea uses 2 spoons of sugar for every 5 cups of tea. How many spoons of sugar are needed for 35 cups of tea?",
+      "hints": [
+        "Find how many groups of 5 cups are in 35 cups.",
+        "35 ÷ 5 = 7 groups.",
+        "Each group needs 2 spoons."
+      ],
+      "explanation": "35 cups is 7 groups of 5 cups. Each group needs 2 spoons, so 7 × 2 = 14 spoons.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 14
+    },
+    {
+      "id": "m5.ratio-proportion.002",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 4,
+      "prompt": "Blue and white paint are mixed in the ratio 3 : 5 to make 40 litres. How many more litres of white paint than blue paint are used?",
+      "hints": [
+        "The ratio has 3 + 5 parts altogether.",
+        "Find the litres in one part.",
+        "The difference is 2 parts."
+      ],
+      "explanation": "3 + 5 = 8 parts, so one part is 40 ÷ 8 = 5 litres. White is 25 litres, blue is 15 litres, and the difference is 10 litres.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 10
+    },
+    {
+      "id": "m5.ratio-proportion.003",
+      "skill": "m5.ratio-proportion",
+      "difficulty": 3,
+      "prompt": "Ali and Bea share Rp84.000 in the ratio 4 : 3. How much does Bea get?",
+      "hints": [
+        "Add the parts of the ratio first.",
+        "4 + 3 = 7 equal parts.",
+        "Find one part, then multiply by Bea's 3 parts."
+      ],
+      "explanation": "4 + 3 = 7 parts. One part is 84,000 ÷ 7 = 12,000. Bea gets 3 × 12,000 = Rp36.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rp36.000"
+        },
+        {
+          "text": "Rp48.000",
+          "why": "This is Ali's share. Bea has the smaller part."
+        },
+        {
+          "text": "Rp21.000",
+          "why": "This is one quarter of the money. Bea has 3 of the 7 parts."
+        },
+        {
+          "text": "Rp12.000",
+          "why": "This is one part. Bea has 3 parts."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

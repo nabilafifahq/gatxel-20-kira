@@ -1,0 +1,79 @@
+{
+  "skill": "m5.compare-fractions",
+  "items": [
+    {
+      "id": "m5.compare-fractions.001",
+      "skill": "m5.compare-fractions",
+      "difficulty": 3,
+      "prompt": "Which of these fractions is the greatest?",
+      "hints": [
+        "Compare using a common denominator or by changing to decimals.",
+        "Try twelfths, or think about how far each fraction is from 1.",
+        "The fraction missing the least from 1 is the greatest."
+      ],
+      "explanation": "3/4 = 0.75, 5/8 = 0.625, 7/10 = 0.7 and 2/3 is about 0.67. The greatest is 3/4.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "5/8",
+          "why": "5/8 is 0.625, which is less than 3/4."
+        },
+        {
+          "text": "3/4"
+        },
+        {
+          "text": "7/10",
+          "why": "7/10 is 0.7, which is less than 3/4."
+        },
+        {
+          "text": "2/3",
+          "why": "2/3 is about 0.67, which is less than 3/4."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.compare-fractions.002",
+      "skill": "m5.compare-fractions",
+      "difficulty": 4,
+      "prompt": "Kofi has 29/6 metres of cloth. Write this as a mixed number, like 2 1/2.",
+      "hints": [
+        "Find how many whole 6/6 fit into 29/6.",
+        "6 × 4 = 24, which is less than 29.",
+        "29 - 24 is the number of sixths left."
+      ],
+      "explanation": "29 ÷ 6 = 4 remainder 5, so 29/6 = 4 5/6.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "4 5/6",
+            "4 and 5/6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.compare-fractions.003",
+      "skill": "m5.compare-fractions",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put these numbers in order, from the smallest to the largest.",
+      "items": [
+        "1 1/2",
+        "1 3/5",
+        "5/3",
+        "7/4"
+      ],
+      "hints": [
+        "Change the improper fractions to mixed numbers.",
+        "5/3 = 1 2/3 and 7/4 = 1 3/4.",
+        "Compare the fraction parts: 1/2, 3/5, 2/3 and 3/4."
+      ],
+      "explanation": "As decimals they are 1.5, 1.6, about 1.67 and 1.75. So the order is 1 1/2, 1 3/5, 5/3, 7/4."
+    }
+  ]
+}

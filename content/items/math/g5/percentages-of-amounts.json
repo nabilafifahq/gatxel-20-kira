@@ -1,0 +1,73 @@
+{
+  "skill": "m5.percentages-of-amounts",
+  "items": [
+    {
+      "id": "m5.percentages-of-amounts.001",
+      "skill": "m5.percentages-of-amounts",
+      "difficulty": 3,
+      "prompt": "A school bag costs Rp240.000. The shop adds a 15% fee for printing a name on it. How much is the fee, in rupiah?",
+      "hints": [
+        "Find 10% first.",
+        "10% of Rp240.000 is Rp24.000.",
+        "15% is 10% plus half of 10%."
+      ],
+      "explanation": "10% is 24,000 and 5% is 12,000. 15% = 24,000 + 12,000 = 36,000, so the fee is Rp36.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 36000
+    },
+    {
+      "id": "m5.percentages-of-amounts.002",
+      "skill": "m5.percentages-of-amounts",
+      "difficulty": 5,
+      "prompt": "A jacket costs Rp350.000. It is reduced by 20%. In the last week of the sale the new price is reduced by a further 10%. What is the final price, in rupiah?",
+      "hints": [
+        "Find the price after the first reduction.",
+        "20% off means paying 80% of the price.",
+        "Then take 10% off that price, not off Rp350.000."
+      ],
+      "explanation": "80% of 350,000 is 280,000. 10% of 280,000 is 28,000. 280,000 - 28,000 = 252,000, so the final price is Rp252.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 252000
+    },
+    {
+      "id": "m5.percentages-of-amounts.003",
+      "skill": "m5.percentages-of-amounts",
+      "difficulty": 3,
+      "prompt": "A phone costs Rp1.500.000. Its price goes up by 10%. What is the new price?",
+      "hints": [
+        "Find 10% of Rp1.500.000 first.",
+        "10% is one tenth.",
+        "Add the increase to the old price."
+      ],
+      "explanation": "10% of 1,500,000 is 150,000. The new price is 1,500,000 + 150,000 = Rp1.650.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rp1.510.000",
+          "why": "You added 10 instead of 10%. 10% of Rp1.500.000 is much more than 10."
+        },
+        {
+          "text": "Rp1.350.000",
+          "why": "You took 10% off. The price went up, so it should be bigger."
+        },
+        {
+          "text": "Rp150.000",
+          "why": "This is the increase only. The new price is the old price plus the increase."
+        },
+        {
+          "text": "Rp1.650.000"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

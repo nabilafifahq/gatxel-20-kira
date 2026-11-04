@@ -466,6 +466,232 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-logic.010",
+      "skill": "m6.oly-logic",
+      "difficulty": 3,
+      "prompt": "A dark drawer has 8 black, 6 white and 4 grey socks. You take socks out without looking. How many must you take to be sure of two socks of the same colour?",
+      "hints": [
+        "Think about the worst luck you could have.",
+        "The worst case is to pick a different colour each time.",
+        "There are 3 colours, so 3 socks could all be different."
+      ],
+      "explanation": "In the worst case the first three socks are black, white and grey. The 4th sock must match one of them, so 4 socks.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "2",
+          "why": "Two socks could be of different colours."
+        },
+        {
+          "text": "3",
+          "why": "The three socks could be one of each colour."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "9",
+          "why": "This would guarantee more than a pair. You only need one more than the colours."
+        },
+        {
+          "text": "10",
+          "why": "This is half the socks, which is far more than needed."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.oly-logic.011",
+      "skill": "m6.oly-logic",
+      "difficulty": 3,
+      "prompt": "In a queue for the canteen, Bayu is 7th from the front and 12th from the back. How many people are in the queue?",
+      "hints": [
+        "Draw the queue and mark Bayu.",
+        "There are 6 people in front of Bayu and 11 behind him.",
+        "Do not forget Bayu himself."
+      ],
+      "explanation": "6 people are in front of Bayu and 11 are behind. Counting Bayu too, 6 + 11 + 1 = 18 people.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 18
+    },
+    {
+      "id": "m6.oly-logic.012",
+      "skill": "m6.oly-logic",
+      "difficulty": 4,
+      "prompt": "Ines is 12 years old. Her mother is 3 times as old as Ines. In how many years will her mother be exactly twice as old as Ines?",
+      "hints": [
+        "Find the mother's age now.",
+        "Mother is 36. In x years: 36 + x and 12 + x.",
+        "The difference in their ages never changes. It is 24."
+      ],
+      "explanation": "The age difference stays 24. When the mother is twice as old as Ines, Ines must be 24, so that is 12 years later.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m6.oly-logic.013",
+      "skill": "m6.oly-logic",
+      "difficulty": 4,
+      "prompt": "There are 12 months in a year. What is the smallest number of pupils that makes sure at least 5 of them have a birthday in the same month?",
+      "hints": [
+        "Think of the worst case first.",
+        "Each month could have just 4 pupils without 5 sharing.",
+        "12 months with 4 pupils each is how many pupils?"
+      ],
+      "explanation": "In the worst case each of the 12 months has exactly 4 pupils, which is 48 pupils. One more pupil makes 5 in some month, so 49.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 49
+    },
+    {
+      "id": "m6.oly-logic.014",
+      "skill": "m6.oly-logic",
+      "difficulty": 4,
+      "prompt": "A watch loses 5 minutes in every real hour. It is set right at noon. When the watch shows 11:00 at night, how many real hours have passed since noon?",
+      "hints": [
+        "In 1 real hour the watch moves forward only 55 minutes.",
+        "The watch has moved 11 hours = 660 minutes.",
+        "How many lots of 55 minutes are in 660 minutes?"
+      ],
+      "explanation": "The watch moves 55 minutes each real hour. 660 ÷ 55 = 12, so 12 real hours have passed. It is midnight.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m6.oly-logic.015",
+      "skill": "m6.oly-logic",
+      "difficulty": 4,
+      "prompt": "Two runners start together at the same line of a circular track. Ayu takes 4 minutes per lap and Budi takes 6 minutes per lap. They both run for 60 minutes. How many times are they together at the start line after the start, including the end?",
+      "hints": [
+        "They are together when both have finished whole laps.",
+        "Find the smallest time when this happens again.",
+        "The lowest common multiple of 4 and 6 is 12 minutes."
+      ],
+      "explanation": "They meet at the line every 12 minutes: at 12, 24, 36, 48 and 60 minutes. That is 5 times.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 5
+    },
+    {
+      "id": "m6.oly-logic.016",
+      "skill": "m6.oly-logic",
+      "difficulty": 5,
+      "prompt": "Five children speak in turn. The first says, \"Exactly 1 of us is lying.\" The second says, \"Exactly 2 of us are lying.\" The third says 3, the fourth says 4 and the fifth says 5. How many of the five children tell the truth?",
+      "hints": [
+        "No two statements can both be true. Why?",
+        "So at most one child tells the truth.",
+        "Test: could 0 children tell the truth? Then 5 are lying."
+      ],
+      "explanation": "Each child names a different number, so at most one is right. If none were right, 5 would be lying and the fifth child would be right, which is a contradiction. So exactly 1 child tells the truth (the one who says 4).",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0",
+          "why": "If nobody told the truth, all 5 would be lying, and the fifth child would then be right. That is a contradiction."
+        },
+        {
+          "text": "1"
+        },
+        {
+          "text": "2",
+          "why": "The statements all say different numbers, so two of them cannot both be true."
+        },
+        {
+          "text": "3",
+          "why": "The statements all say different numbers, so three of them cannot be true together."
+        },
+        {
+          "text": "4",
+          "why": "The statements all say different numbers, so at most one can be true."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.oly-logic.017",
+      "skill": "m6.oly-logic",
+      "difficulty": 5,
+      "prompt": "In a dark box there are gloves of 3 colours. For each colour there are 4 left-hand gloves and 4 right-hand gloves. How many gloves must be taken out to be sure of having a left glove and a right glove of the same colour?",
+      "hints": [
+        "Think of the worst luck you could have.",
+        "The worst case is taking only left-hand gloves.",
+        "How many left-hand gloves are there in total?"
+      ],
+      "explanation": "In the worst case you take all 3 × 4 = 12 left-hand gloves and have no pair. The 13th glove must be a right-hand one, which matches a colour you already hold. So 13.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "4",
+          "why": "Four gloves could all be left-hand gloves."
+        },
+        {
+          "text": "7",
+          "why": "You could still have only left-hand gloves, as there are 12 of them."
+        },
+        {
+          "text": "12",
+          "why": "You could take all 12 left-hand gloves and still not have a pair."
+        },
+        {
+          "text": "13"
+        },
+        {
+          "text": "24",
+          "why": "That is all the gloves, which is far more than needed."
+        }
+      ],
+      "answer": 3
     }
   ]
 }

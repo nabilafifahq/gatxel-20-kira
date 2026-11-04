@@ -1,0 +1,59 @@
+{
+  "skill": "m6.ratio-proportion",
+  "items": [
+    {
+      "id": "m6.ratio-proportion.001",
+      "skill": "m6.ratio-proportion",
+      "difficulty": 3,
+      "prompt": "Rangga, Putri and Joko share Rp360.000 in the ratio 2 : 3 : 4. How many rupiah does the biggest share get?",
+      "hints": [
+        "Add the parts of the ratio.",
+        "2 + 3 + 4 = 9 parts.",
+        "One part is 360.000 ÷ 9. The biggest share has 4 parts."
+      ],
+      "explanation": "There are 9 parts and one part is Rp40.000. The biggest share is 4 × 40.000 = Rp160.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 160000
+    },
+    {
+      "id": "m6.ratio-proportion.002",
+      "skill": "m6.ratio-proportion",
+      "difficulty": 4,
+      "prompt": "On a map, 1 cm stands for 500 m. Two towns are 4.6 cm apart on the map. How many kilometres apart are the towns in real life?",
+      "hints": [
+        "Find the real distance in metres first.",
+        "4.6 × 500 = 2,300 m.",
+        "Change metres to kilometres."
+      ],
+      "explanation": "4.6 × 500 m = 2,300 m. That is 2.3 km.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "km",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 2.3
+    },
+    {
+      "id": "m6.ratio-proportion.003",
+      "skill": "m6.ratio-proportion",
+      "difficulty": 5,
+      "prompt": "In a club the ratio of boys to girls is 4 : 5. There are 12 more girls than boys. How many members are in the club?",
+      "hints": [
+        "The difference between the ratio parts is 5 − 4 = 1 part.",
+        "That 1 part stands for 12 children.",
+        "There are 4 + 5 = 9 parts in all."
+      ],
+      "explanation": "One part is 12 children. The club has 9 parts, so 9 × 12 = 108 members.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 108
+    }
+  ]
+}

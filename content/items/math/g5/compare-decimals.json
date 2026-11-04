@@ -1,0 +1,72 @@
+{
+  "skill": "m5.compare-decimals",
+  "items": [
+    {
+      "id": "m5.compare-decimals.001",
+      "skill": "m5.compare-decimals",
+      "difficulty": 3,
+      "prompt": "Four runners finish a race in these times: Dewi 12.4 s, Bayu 12.04 s, Amara 12.39 s, Leo 12.9 s. Who finished first?",
+      "hints": [
+        "The fastest runner has the smallest time.",
+        "The whole number parts are all 12. Compare the tenths.",
+        "12.04 has 0 tenths."
+      ],
+      "explanation": "All times have 12 seconds. Bayu has 0 tenths, which is less than 3 or 4 or 9 tenths, so 12.04 is the smallest and Bayu is first.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Dewi",
+          "why": "12.4 is more than 12.39 and more than 12.04. A longer time is slower."
+        },
+        {
+          "text": "Bayu"
+        },
+        {
+          "text": "Amara",
+          "why": "12.39 is not the smallest. Compare tenths: 12.04 has 0 tenths."
+        },
+        {
+          "text": "Leo",
+          "why": "12.9 is the biggest time, so Leo is the slowest."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.compare-decimals.002",
+      "skill": "m5.compare-decimals",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put these numbers in order, from the smallest to the largest.",
+      "items": [
+        "0.06",
+        "0.59",
+        "0.6",
+        "0.609"
+      ],
+      "hints": [
+        "Write each number with three decimal places.",
+        "0.6 can be written as 0.600.",
+        "Compare the tenths, then the hundredths, then the thousandths."
+      ],
+      "explanation": "With three places: 0.060, 0.590, 0.600 and 0.609. So the order is 0.06, 0.59, 0.6, 0.609."
+    },
+    {
+      "id": "m5.compare-decimals.003",
+      "skill": "m5.compare-decimals",
+      "difficulty": 4,
+      "prompt": "How many numbers with two decimal places are between 0.4 and 0.5? Do not count 0.4 or 0.5.",
+      "hints": [
+        "Write 0.4 as 0.40 and 0.5 as 0.50.",
+        "The first number after 0.40 is 0.41.",
+        "Count 0.41 up to 0.49."
+      ],
+      "explanation": "The numbers are 0.41, 0.42, 0.43, 0.44, 0.45, 0.46, 0.47, 0.48 and 0.49. That is 9 numbers.",
+      "type": "numeric",
+      "answer": 9
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "skill": "m5.time-24-hour",
+  "items": [
+    {
+      "id": "m5.time-24-hour.001",
+      "skill": "m5.time-24-hour",
+      "difficulty": 3,
+      "prompt": "A bus leaves at 13.45. The journey takes 3 hours 50 minutes. At what time does it arrive? Write it in 24-hour time, like 09.30.",
+      "hints": [
+        "Add the hours first.",
+        "13.45 + 3 hours is 16.45.",
+        "Then add 50 minutes, going past the hour."
+      ],
+      "explanation": "13.45 + 3 hours = 16.45. 16.45 + 50 minutes = 17.35.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "17.35",
+            "17:35",
+            "1735"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.time-24-hour.002",
+      "skill": "m5.time-24-hour",
+      "difficulty": 4,
+      "prompt": "A film starts at 19.50 and finishes at 22.05. How many minutes does the film last?",
+      "hints": [
+        "Count on to the next whole hour first.",
+        "19.50 to 20.00 is 10 minutes.",
+        "Then count from 20.00 to 22.05."
+      ],
+      "explanation": "19.50 to 20.00 is 10 minutes. 20.00 to 22.00 is 120 minutes. 22.00 to 22.05 is 5 minutes. The total is 135 minutes.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "minutes",
+      "type": "numeric",
+      "answer": 135
+    },
+    {
+      "id": "m5.time-24-hour.003",
+      "skill": "m5.time-24-hour",
+      "difficulty": 4,
+      "prompt": "A ferry leaves at 07.40 and then every 50 minutes. At what time does the fourth ferry leave?",
+      "hints": [
+        "The fourth ferry comes after three gaps of 50 minutes.",
+        "Three gaps are 150 minutes.",
+        "150 minutes is 2 hours 30 minutes."
+      ],
+      "explanation": "The ferries leave at 07.40, 08.30, 09.20 and 10.10. The fourth ferry leaves at 10.10.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "10.00",
+          "why": "That is 140 minutes after the first ferry. Three gaps of 50 minutes are 150 minutes."
+        },
+        {
+          "text": "10.10"
+        },
+        {
+          "text": "09.20",
+          "why": "This is the third ferry, not the fourth."
+        },
+        {
+          "text": "11.00",
+          "why": "That is 200 minutes after the first ferry, which is the fifth ferry."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

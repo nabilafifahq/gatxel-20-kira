@@ -1,0 +1,73 @@
+{
+  "skill": "m5.fractions-decimals-percentages",
+  "items": [
+    {
+      "id": "m5.fractions-decimals-percentages.001",
+      "skill": "m5.fractions-decimals-percentages",
+      "difficulty": 3,
+      "prompt": "Which fraction is equal to 0.35?",
+      "hints": [
+        "0.35 is 35 hundredths.",
+        "Write 35/100 as a fraction.",
+        "Divide the top and bottom by 5."
+      ],
+      "explanation": "0.35 = 35/100. Dividing both numbers by 5 gives 7/20.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "3/5",
+          "why": "3/5 is 0.6, not 0.35."
+        },
+        {
+          "text": "35/10",
+          "why": "35/10 is 3.5, which is ten times too big."
+        },
+        {
+          "text": "7/20"
+        },
+        {
+          "text": "1/35",
+          "why": "1/35 is a very small fraction, about 0.03."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.fractions-decimals-percentages.002",
+      "skill": "m5.fractions-decimals-percentages",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put these amounts in order, from the smallest to the largest.",
+      "items": [
+        "35%",
+        "3/8",
+        "0.4",
+        "45%"
+      ],
+      "hints": [
+        "Change every amount to a decimal.",
+        "3/8 means 3 ÷ 8, and 35% is 0.35.",
+        "Compare 0.35, 0.375, 0.4 and 0.45."
+      ],
+      "explanation": "35% = 0.35, 3/8 = 0.375, 0.4 and 45% = 0.45. So the order is 35%, 3/8, 0.4, 45%."
+    },
+    {
+      "id": "m5.fractions-decimals-percentages.003",
+      "skill": "m5.fractions-decimals-percentages",
+      "difficulty": 4,
+      "prompt": "In a quiz, Wulan gets 33 out of 40 questions right. What percentage is that?",
+      "hints": [
+        "Write the score as a fraction.",
+        "33/40 can be changed to a fraction out of 100.",
+        "Divide 33 by 40, then multiply by 100."
+      ],
+      "explanation": "33 ÷ 40 = 0.825. 0.825 × 100 = 82.5, so Wulan got 82.5%.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "%",
+      "type": "numeric",
+      "answer": 82.5
+    }
+  ]
+}

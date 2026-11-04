@@ -1,0 +1,72 @@
+{
+  "skill": "m5.add-subtract-decimals",
+  "items": [
+    {
+      "id": "m5.add-subtract-decimals.001",
+      "skill": "m5.add-subtract-decimals",
+      "difficulty": 3,
+      "prompt": "Kofi buys 12.75 kg of rice, 8.6 kg of sugar and 0.45 kg of salt. What is the total mass, in kg?",
+      "hints": [
+        "Write each amount with two decimal places.",
+        "8.6 is 8.60.",
+        "Line up the decimal points and add in columns."
+      ],
+      "explanation": "12.75 + 8.60 + 0.45 = 21.80, which is 21.8 kg.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "kg",
+      "type": "numeric",
+      "answer": 21.8
+    },
+    {
+      "id": "m5.add-subtract-decimals.002",
+      "skill": "m5.add-subtract-decimals",
+      "difficulty": 4,
+      "prompt": "A rope is 10 m long. Hadi cuts off 3.45 m for a swing and 2.8 m for a fence. How long is the piece that is left, in metres?",
+      "hints": [
+        "Find the total length cut off first.",
+        "3.45 + 2.80 is the length cut.",
+        "Take that total from 10."
+      ],
+      "explanation": "3.45 + 2.80 = 6.25 m cut off. 10 - 6.25 = 3.75 m left.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "type": "numeric",
+      "answer": 3.75
+    },
+    {
+      "id": "m5.add-subtract-decimals.003",
+      "skill": "m5.add-subtract-decimals",
+      "difficulty": 3,
+      "prompt": "Hadi works out 4.5 + 3.25 and writes 3.70. What is the correct answer?",
+      "hints": [
+        "Write 4.5 as 4.50.",
+        "Line up the decimal points.",
+        "Add the hundredths, then the tenths, then the ones."
+      ],
+      "explanation": "4.50 + 3.25 = 7.75. Lining up the decimal points makes sure we add tenths to tenths.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "7.75"
+        },
+        {
+          "text": "3.70",
+          "why": "The digits were not lined up by place value. 4.5 is 4.50, not 4.05."
+        },
+        {
+          "text": "7.30",
+          "why": "You added 4 + 3 and 5 + 25 as if 25 were 25 tenths. Line up the decimal points."
+        },
+        {
+          "text": "7.7",
+          "why": "The hundredths digit 5 from 3.25 was left out."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

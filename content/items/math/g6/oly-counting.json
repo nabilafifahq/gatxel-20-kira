@@ -420,6 +420,232 @@
         "timo"
       ],
       "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-counting.010",
+      "skill": "m6.oly-counting",
+      "difficulty": 3,
+      "prompt": "Dewi has 4 shirts, 3 skirts and 2 hats. An outfit is one shirt, one skirt and one hat. How many different outfits can she make?",
+      "hints": [
+        "For each shirt, count the skirts.",
+        "4 shirts and 3 skirts make 12 pairs.",
+        "Each pair can have 2 different hats."
+      ],
+      "explanation": "Multiply the choices: 4 × 3 × 2 = 24 outfits.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "9",
+          "why": "You added 4 + 3 + 2. Outfits are made by choosing one of each, so multiply."
+        },
+        {
+          "text": "12",
+          "why": "You multiplied only two of the numbers. A hat is chosen too."
+        },
+        {
+          "text": "18",
+          "why": "Check the multiplying: 4 × 3 × 2."
+        },
+        {
+          "text": "24"
+        },
+        {
+          "text": "48",
+          "why": "This is 4 × 3 × 2 × 2. The hat count is only counted once."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m6.oly-counting.011",
+      "skill": "m6.oly-counting",
+      "difficulty": 3,
+      "prompt": "A pizza shop has 5 toppings: cheese, onion, tomato, corn and mushroom. A customer picks exactly 2 different toppings. How many different pairs of toppings can be picked?",
+      "hints": [
+        "List the pairs that start with cheese.",
+        "Cheese goes with 4 other toppings.",
+        "Onion has 3 new partners, because onion and cheese is already counted."
+      ],
+      "explanation": "The pairs are 4 + 3 + 2 + 1 = 10. Each pair is counted once because the order does not matter.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 10
+    },
+    {
+      "id": "m6.oly-counting.012",
+      "skill": "m6.oly-counting",
+      "difficulty": 4,
+      "prompt": "How many even 3-digit numbers can be made using only the digits 1, 2, 3, 4 and 5, if no digit is used twice in a number?",
+      "hints": [
+        "Choose the last digit first. It must be even.",
+        "The last digit can be 2 or 4.",
+        "Then choose the first digit from the 4 left, and the middle from the 3 left."
+      ],
+      "explanation": "The last digit has 2 choices, the first digit has 4 choices left, and the middle digit has 3. So 2 × 4 × 3 = 24 numbers.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "12",
+          "why": "You may have counted only the numbers ending in 2, or have left a place out."
+        },
+        {
+          "text": "18",
+          "why": "Check the count of digits for each place. The last digit has 2 choices, then 4, then 3."
+        },
+        {
+          "text": "24"
+        },
+        {
+          "text": "30",
+          "why": "The first digit has 4 choices after the last digit is chosen, not 5."
+        },
+        {
+          "text": "60",
+          "why": "This counts all 3-digit numbers with no repeated digit, not only the even ones."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.oly-counting.013",
+      "skill": "m6.oly-counting",
+      "difficulty": 4,
+      "prompt": "A grid has 3 rows and 4 columns of small squares. How many rectangles of all sizes (squares count as rectangles) can be found in the grid?",
+      "hints": [
+        "A rectangle is decided by choosing its left and right sides and its top and bottom sides.",
+        "There are 5 vertical lines and 4 horizontal lines.",
+        "Choose 2 of the 5 vertical lines, and 2 of the 4 horizontal lines."
+      ],
+      "explanation": "Choosing 2 of 5 vertical lines gives 10 ways. Choosing 2 of 4 horizontal lines gives 6 ways. So there are 10 × 6 = 60 rectangles.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 60
+    },
+    {
+      "id": "m6.oly-counting.014",
+      "skill": "m6.oly-counting",
+      "difficulty": 4,
+      "prompt": "How many 3-digit numbers have digits that add up to 5?",
+      "hints": [
+        "The first digit is at least 1.",
+        "List by the first digit: 1, 2, 3, 4 or 5.",
+        "If the first digit is 1, the other two digits add up to 4."
+      ],
+      "explanation": "First digit 1: the other two add to 4, which gives 5 numbers. First digit 2: add to 3, giving 4 numbers. First digit 3: 3 numbers. First digit 4: 2 numbers. First digit 5: 1 number. 5 + 4 + 3 + 2 + 1 = 15.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 15
+    },
+    {
+      "id": "m6.oly-counting.015",
+      "skill": "m6.oly-counting",
+      "difficulty": 5,
+      "prompt": "Five friends sit in a row of five chairs. Ali and Bima must sit next to each other. In how many different ways can the five friends sit?",
+      "hints": [
+        "Treat Ali and Bima as one block.",
+        "Now there are 4 things to arrange: the block and 3 friends.",
+        "Do not forget that Ali and Bima can swap places inside the block."
+      ],
+      "explanation": "With the pair as one block, 4 things can be arranged in 4 × 3 × 2 × 1 = 24 ways. Ali and Bima can swap, so 24 × 2 = 48 ways.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "24",
+          "why": "You treated Ali and Bima as one block but forgot they can swap places."
+        },
+        {
+          "text": "48"
+        },
+        {
+          "text": "60",
+          "why": "This is 5 × 4 × 3, not a count of full seating plans."
+        },
+        {
+          "text": "96",
+          "why": "This counts the swaps twice. The block of two can be arranged in only 2 ways."
+        },
+        {
+          "text": "120",
+          "why": "This is all the seating plans, with no limit on Ali and Bima."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.oly-counting.016",
+      "skill": "m6.oly-counting",
+      "difficulty": 5,
+      "prompt": "Amara pays exactly Rp10.000 using only Rp1.000, Rp2.000 and Rp5.000 notes. She may use as many of each kind as she likes, and the order does not matter. In how many different ways can she pay?",
+      "hints": [
+        "Count by the number of Rp5.000 notes: 0, 1 or 2.",
+        "With 2 notes of Rp5.000, there is only 1 way.",
+        "With 1 note of Rp5.000, pay Rp5.000 using Rp1.000 and Rp2.000 notes. With none, pay Rp10.000."
+      ],
+      "explanation": "Two Rp5.000 notes: 1 way. One Rp5.000 note, then Rp5.000 left with Rp1.000 and Rp2.000: 0, 1 or 2 notes of Rp2.000 gives 3 ways. With no Rp5.000 note: 0 to 5 notes of Rp2.000 gives 6 ways. Total 1 + 3 + 6 = 10.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 10
+    },
+    {
+      "id": "m6.oly-counting.017",
+      "skill": "m6.oly-counting",
+      "difficulty": 4,
+      "prompt": "How many diagonals does a polygon with 7 sides have? (A diagonal joins two corners that are not next to each other.)",
+      "hints": [
+        "From one corner, count the other corners it can join with a diagonal.",
+        "It cannot join itself or the 2 next to it.",
+        "Each diagonal is counted from both of its ends."
+      ],
+      "explanation": "Each of the 7 corners joins to 4 corners by a diagonal, so 7 × 4 = 28. Each diagonal is counted twice, so 28 ÷ 2 = 14.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 14
     }
   ]
 }

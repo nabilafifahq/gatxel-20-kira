@@ -1,0 +1,59 @@
+{
+  "skill": "m6.area-perimeter",
+  "items": [
+    {
+      "id": "m6.area-perimeter.001",
+      "skill": "m6.area-perimeter",
+      "difficulty": 3,
+      "prompt": "An L-shaped garden is made by cutting a 5 m by 3 m rectangle out of one corner of a 12 m by 8 m rectangle. What is the area of the garden in square metres?",
+      "hints": [
+        "Find the area of the big rectangle first.",
+        "12 × 8 = 96.",
+        "Take away the corner that was cut out."
+      ],
+      "explanation": "The big rectangle is 12 × 8 = 96. The corner is 5 × 3 = 15. The garden is 96 − 15 = 81 square metres.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m²",
+      "type": "numeric",
+      "answer": 81
+    },
+    {
+      "id": "m6.area-perimeter.002",
+      "skill": "m6.area-perimeter",
+      "difficulty": 4,
+      "prompt": "Look at the same garden again: a 12 m by 8 m rectangle with a 5 m by 3 m rectangle cut from one corner. What is the perimeter of the garden in metres?",
+      "hints": [
+        "Draw the shape and mark all its sides.",
+        "Cutting a corner adds new edges, but it also removes edges.",
+        "The new edges are as long as the edges they replace."
+      ],
+      "explanation": "Cutting out a corner keeps the perimeter the same, because the two new edges are as long as the two edges they replace. So the perimeter is 2 × (12 + 8) = 40 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "type": "numeric",
+      "answer": 40
+    },
+    {
+      "id": "m6.area-perimeter.003",
+      "skill": "m6.area-perimeter",
+      "difficulty": 4,
+      "prompt": "A rectangle has a perimeter of 54 cm and a length of 16 cm. What is its area in square centimetres?",
+      "hints": [
+        "Half the perimeter is length plus width.",
+        "54 ÷ 2 = 27, so width = 27 − 16.",
+        "Multiply the length by the width."
+      ],
+      "explanation": "Length plus width is 27 cm, so the width is 27 − 16 = 11 cm. The area is 16 × 11 = 176 cm².",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm²",
+      "type": "numeric",
+      "answer": 176
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "skill": "m6.time-timetables",
+  "items": [
+    {
+      "id": "m6.time-timetables.001",
+      "skill": "m6.time-timetables",
+      "difficulty": 3,
+      "prompt": "A film starts at 14:25 and lasts 2 hours 50 minutes. At what time does it finish? Use the 24-hour clock, like 09:05.",
+      "hints": [
+        "Add the 2 hours first.",
+        "14:25 plus 2 hours is 16:25.",
+        "Now add 50 minutes. Remember 60 minutes make an hour."
+      ],
+      "explanation": "14:25 + 2 h = 16:25. Adding 50 minutes goes to 17:15.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "17:15",
+            "17.15",
+            "5:15 pm",
+            "5.15 pm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.time-timetables.002",
+      "skill": "m6.time-timetables",
+      "difficulty": 4,
+      "prompt": "Bayu in Jakarta phones his friend Amara in London at 20:30 Jakarta time. London is 7 hours behind Jakarta. What time is it in London? Use the 24-hour clock.",
+      "hints": [
+        "Behind means the clock shows an earlier time.",
+        "Take 7 hours away from 20:30.",
+        "20:30 minus 7 hours."
+      ],
+      "explanation": "20:30 minus 7 hours is 13:30 in London.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "13:30",
+            "13.30",
+            "1:30 pm",
+            "1.30 pm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.time-timetables.003",
+      "skill": "m6.time-timetables",
+      "difficulty": 4,
+      "prompt": "A train leaves at 09:48 and arrives at 13:15. How many minutes does the journey take?",
+      "hints": [
+        "Count to the next whole hour first.",
+        "From 09:48 to 10:00 is 12 minutes.",
+        "Then from 10:00 to 13:15 is 3 hours 15 minutes."
+      ],
+      "explanation": "12 min + 3 h 15 min = 3 h 27 min, which is 3 × 60 + 27 = 207 minutes.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "min",
+      "type": "numeric",
+      "answer": 207
+    }
+  ]
+}

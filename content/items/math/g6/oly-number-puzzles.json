@@ -425,6 +425,232 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-number-puzzles.010",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 3,
+      "prompt": "The mean of five numbers is 12. One of the numbers, 20, is taken away. What is the mean of the four numbers left?",
+      "hints": [
+        "Find the total of the five numbers.",
+        "5 × 12 = 60.",
+        "Take away 20, then share the rest between 4 numbers."
+      ],
+      "explanation": "The total is 5 × 12 = 60. Without 20 the total is 40. The mean of four numbers is 40 ÷ 4 = 10.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "4",
+          "why": "You subtracted 20 from the mean. Find the total first."
+        },
+        {
+          "text": "8",
+          "why": "You divided 20 by something, but the total must be found first."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "12",
+          "why": "The mean changes when one number is taken away."
+        },
+        {
+          "text": "15",
+          "why": "You divided 60 by 4 without taking the 20 away first."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.oly-number-puzzles.011",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "A shirt costs Rp80.000. The price goes up by 25%. A week later the new price goes down by 20%. What is the final price in rupiah?",
+      "hints": [
+        "Find the price after the 25% rise.",
+        "25% of Rp80.000 is Rp20.000, so the price is Rp100.000.",
+        "Now take 20% of Rp100.000 away."
+      ],
+      "explanation": "After the rise the price is Rp100.000. A fall of 20% takes off Rp20.000, so the price is Rp80.000, the same as the start.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 80000
+    },
+    {
+      "id": "m6.oly-number-puzzles.012",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "Nabil counts his marbles in groups of 6 and has 5 left. Counting in groups of 5 leaves 4. He has more than 20 marbles. What is the smallest number of marbles he could have?",
+      "hints": [
+        "The number is 1 less than a multiple of 6 and 1 less than a multiple of 5.",
+        "So add 1 to the number.",
+        "The number plus 1 is a multiple of 30."
+      ],
+      "explanation": "Adding 1 makes the number a multiple of both 6 and 5, so a multiple of 30. The smallest number over 20 is 30 − 1 = 29.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "24",
+          "why": "24 leaves 4 when divided by 5 but 0 when divided by 6."
+        },
+        {
+          "text": "29"
+        },
+        {
+          "text": "34",
+          "why": "34 leaves 4 when divided by 5, but 4 when divided by 6."
+        },
+        {
+          "text": "35",
+          "why": "35 leaves 5 when divided by 6, but 0 when divided by 5."
+        },
+        {
+          "text": "59",
+          "why": "This works, but it is not the smallest. Check smaller numbers."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.oly-number-puzzles.013",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "A 2-digit number is equal to 6 times the sum of its digits. What is the number?",
+      "hints": [
+        "Write the number as 10a + b.",
+        "Then 10a + b = 6a + 6b.",
+        "This simplifies to 4a = 5b."
+      ],
+      "explanation": "10a + b = 6(a + b) gives 4a = 5b. The only 2-digit solution is a = 5 and b = 4, so the number is 54. Check: 6 × (5 + 4) = 54.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 54
+    },
+    {
+      "id": "m6.oly-number-puzzles.014",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 5,
+      "prompt": "Work out 50 × (1/(1 × 2) + 1/(2 × 3) + 1/(3 × 4) + ... + 1/(49 × 50)).",
+      "hints": [
+        "Write 1/(1 × 2) as 1 − 1/2.",
+        "1/(2 × 3) = 1/2 − 1/3.",
+        "Most terms cancel when you add them."
+      ],
+      "explanation": "Each term 1/(n × (n + 1)) equals 1/n − 1/(n + 1). When added, the middle terms cancel and leave 1 − 1/50 = 49/50. Then 50 × 49/50 = 49.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "1",
+          "why": "The sum itself is less than 1. Remember to multiply by 50."
+        },
+        {
+          "text": "25",
+          "why": "This is half of 50. The sum is nearly 1, not 1/2."
+        },
+        {
+          "text": "49"
+        },
+        {
+          "text": "50",
+          "why": "The sum is just under 1, so the answer is just under 50."
+        },
+        {
+          "text": "98",
+          "why": "The sum is less than 1, so the result cannot be more than 50."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.oly-number-puzzles.015",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 5,
+      "prompt": "The number 50! means 50 × 49 × 48 × ... × 2 × 1. How many zeros are at the end of 50! ?",
+      "hints": [
+        "A zero at the end comes from a factor of 10 = 2 × 5.",
+        "There are more factors of 2 than of 5, so count the 5s.",
+        "Multiples of 25 give two 5s."
+      ],
+      "explanation": "Count factors of 5: there are 10 multiples of 5 up to 50, and 2 of them (25 and 50) have an extra 5. That is 10 + 2 = 12 fives, and plenty of 2s. So there are 12 zeros.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m6.oly-number-puzzles.016",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 4,
+      "prompt": "Joko and Putri have money in the ratio 3 : 5. If Putri gives Rp15.000 to Joko, they will have the same amount. How many rupiah do they have altogether?",
+      "hints": [
+        "The ratio 3 : 5 means 3 parts and 5 parts.",
+        "The difference is 2 parts, and Putri gives away half of the difference.",
+        "Half the difference is Rp15.000, so 1 part is Rp15.000."
+      ],
+      "explanation": "The difference is 2 parts. Giving Rp15.000 makes them equal, so half of the difference is 15.000 and 1 part is 15.000. Altogether 8 parts, which is 8 × 15.000 = Rp120.000.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 120000
+    },
+    {
+      "id": "m6.oly-number-puzzles.017",
+      "skill": "m6.oly-number-puzzles",
+      "difficulty": 5,
+      "prompt": "What is the smallest whole number above 1 that leaves remainder 1 when divided by 2, 3, 4, 5 and 6, and can be divided exactly by 7?",
+      "hints": [
+        "A number leaving remainder 1 is 1 more than a multiple of 60.",
+        "The lowest common multiple of 2, 3, 4, 5 and 6 is 60.",
+        "Check 61, 121, 181, 241, 301 for division by 7."
+      ],
+      "explanation": "The number has the form 60k + 1. Trying k = 1, 2, 3, 4, 5 gives 61, 121, 181, 241, 301. Only 301 = 7 × 43 is divisible by 7.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 301
     }
   ]
 }
