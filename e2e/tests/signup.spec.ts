@@ -1,0 +1,187 @@
+import { randomBytes } from 'node:crypto'
+import { expect, test, type Page } from '@playwright/test'
+import { closeDb, db } from './helpers'
+
+/**
+ * Pendaftaran publik end to end dengan Mailpit (SMTP lokal). Dilewati bila MAILPIT_URL tidak diisi
+ * (misalnya http://127.0.0.1:8025), karena CI belum menyediakan Mailpit.
+ */
+const MAILPIT = process.env.MAILPIT_URL
+test.skip(!MAILPIT, 'MAILPIT_URL belum diisi')
+test.afterAll(closeDb)
+
+const run = randomBytes(4).toString('hex')
+const PASSWORD = 'kalimat-panjang-yang-mudah-diingat-2026'
+
+type Mail = { Text: string; Subject: string; To: { Address: string }[] }
+
+async function mailTo(address: string, subjectPart: string): Promise<Mail> {
+  for (let i = 0; i < 40; i++) {
+    const list = (await (await fetch(`${MAILPIT}/api/v1/search?query=${encodeURIComponent(`to:${address}`)}`)).json()) as { messages: { ID: string; Subject: string }[] }
+    const hit = list.messages.find((m) => m.Subject.includes(subjectPart))
+    if (hit) return (await (await fetch(`${MAILPIT}/api/v1/message/${hit.ID}`)).json()) as Mail
+    await new Promise((r) => setTimeout(r, 500))
+  }
+  throw new Error(`Email "${subjectPart}" untuk ${address} tidak masuk Mailpit`)
+}
+
+const linkIn = (mail: Mail, path: string): string => {
+  const m = mail.Text.match(new RegExp(`https?://[^\\s]+${path}[^\\s]*`))
+  if (!m) throw new Error(`Tautan ${path} tidak ada di email`)
+  return m[0]
+}
+
+async function fillSignup(page: Page, email: string) {
+  await page.goto('/daftar')
+  await page.getByLabel('Nama orang tua').fill('Ibu Uji Daftar')
+  await page.getByLabel('Email', { exact: true }).fill(email)
+  await page.getByLabel('Password', { exact: true }).fill(PASSWORD)
+  await page.getByRole('checkbox', { name: /Saya setuju/ }).check()
+  await page.getByRole('button', { name: 'Daftar', exact: true }).click()
+}
+
+async function seatsFree(): Promise<number> {
+  const [row] = await db()`select count(*)::int as n from auth.beta_seat`
+  return 100 - (row!.n as number)
+}
+
+test.describe('pendaftaran orang tua', () => {
+  test.describe.configure({ mode: 'serial' })
+  const email = `kira.uji.${run}@gmail.com`
+
+  test.afterAll(async () => {
+    const orgs = await db()`select org_id from auth.beta_seat where email_norm like ${`%${run}%`}`
+    for (const o of orgs) {
+      await db()`delete from auth.user_account where org_id = ${o.org_id}`
+      await db()`delete from org where id = ${o.org_id}`
+    }
+    await db()`delete from auth.beta_seat where email_norm like ${`%${run}%`}`
+    await db()`delete from auth.signup where email_norm like ${`%${run}%`}`
+    await db()`delete from auth.waitlist where email_norm like ${`%${run}%`}`
+  })
+
+  test('halaman depan publik tampil di / untuk pengunjung baru', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Belajar sedikit tiap hari')
+    await expect(page.getByText(/Tersisa \d+ dari \d+ kursi/).first()).toBeVisible()
+    for (const href of ['/panduan', '/panduan/anak', '/privasi', '/ketentuan']) await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible()
+    await expect(page.getByText(/Cambridge/)).toHaveCount(0)
+  })
+
+  test('email sekali pakai ditolak dengan pesan ramah', async ({ page }) => {
+    await page.goto('/daftar')
+    await page.getByLabel('Nama orang tua').fill('Ibu Uji')
+    await page.getByLabel('Email', { exact: true }).fill(`uji${run}@tmailor.com`)
+    await page.getByLabel('Password', { exact: true }).fill(PASSWORD)
+    await page.getByRole('checkbox', { name: /Saya setuju/ }).check()
+    await page.getByRole('button', { name: 'Daftar', exact: true }).click()
+    await expect(page.getByText(/Alamat email sementara belum bisa dipakai/)).toBeVisible()
+  })
+
+  test('daftar, konfirmasi email, tambah anak, dan buka Kira untuk anak', async ({ page, context }) => {
+    const before = await seatsFree()
+    await fillSignup(page, email)
+    await expect(page.getByRole('heading', { name: 'Cek email kamu' })).toBeVisible()
+
+    // Belum dikonfirmasi: tidak bisa masuk, dengan pesan ramah dan tombol kirim ulang.
+    const other = await context.newPage()
+    await other.goto('/masuk')
+    await other.getByLabel('Email', { exact: true }).first().fill(email)
+    await other.getByLabel('Password', { exact: true }).fill(PASSWORD)
+    await other.getByRole('button', { name: 'Masuk', exact: true }).click()
+    await expect(other.getByText(/belum dikonfirmasi/)).toBeVisible()
+    await other.close()
+
+    const mail = await mailTo(email, 'Konfirmasi email')
+    const link = linkIn(mail, '/daftar/konfirmasi/')
+    // Membuka tautan saja tidak memakai token atau kursi.
+    await page.goto(link)
+    expect(await seatsFree()).toBe(before)
+    await page.getByRole('button', { name: 'Konfirmasi email' }).click()
+    await expect(page).toHaveURL(/\/mulai$/)
+    expect(await seatsFree()).toBe(before - 1)
+
+    // Tautan sekali pakai.
+    await page.context().clearCookies()
+    await page.goto(link)
+    await expect(page.getByRole('heading', { name: 'Tautan ini sudah tidak berlaku' })).toBeVisible()
+    await page.goto('/masuk')
+    await page.getByLabel('Email', { exact: true }).first().fill(email)
+    await page.getByLabel('Password', { exact: true }).fill(PASSWORD)
+    await page.getByRole('button', { name: 'Masuk', exact: true }).click()
+    await expect(page).toHaveURL(/\/keluarga|\/mulai/)
+    await page.goto('/mulai')
+
+    await page.getByLabel('Nama panggilan').fill('Nara')
+    for (const p of ['Matahari', 'Bulan', 'Bintang', 'Kucing']) await page.getByRole('button', { name: p, exact: true }).click()
+    await page.getByRole('button', { name: 'Tambahkan anak' }).click()
+    await expect(page.getByText('Nara', { exact: true }).first()).toBeVisible()
+
+    // Tidak ada persetujuan yang tercentang dari awal.
+    const boxes = page.getByRole('form', { name: 'Izin data untuk Nara' }).getByRole('checkbox')
+    for (let i = 0; i < (await boxes.count()); i++) await expect(boxes.nth(i)).not.toBeChecked()
+    await expect(page.getByRole('button', { name: 'Buka Kira untuk anak di perangkat ini' })).toBeDisabled()
+    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
+    await page.getByRole('button', { name: 'Simpan izin' }).click()
+    await expect(page.getByText('Nara sudah bisa belajar di Kira.')).toBeVisible()
+    await page.getByRole('button', { name: 'Buka Kira untuk anak di perangkat ini' }).click()
+    await expect(page).toHaveURL(/\/$/)
+    await expect(page.getByText('Nara').first()).toBeVisible()
+  })
+
+  test('lupa password mengirim tautan dan jawabannya sama untuk email yang tidak dikenal', async ({ page }) => {
+    await page.goto('/masuk')
+    await page.getByRole('button', { name: 'Lupa password?' }).click()
+    await page.getByLabel('Email', { exact: true }).fill(email)
+    await page.getByRole('button', { name: 'Kirim link' }).click()
+    const known = await page.getByText(/Bila ada akun Kira/).textContent()
+    const mail = await mailTo(email, 'Atur ulang password')
+    await page.goto(linkIn(mail, '/reset/'))
+    await page.getByLabel(/Password baru|Password/).first().fill('password-baru-yang-panjang-2026')
+    await page.getByRole('button', { name: /Simpan|Atur ulang/ }).first().click()
+    await expect(page).toHaveURL(/\/masuk\?notice=reset-done/)
+
+    await page.getByRole('button', { name: 'Lupa password?' }).click()
+    await page.getByLabel('Email', { exact: true }).fill(`tidak.ada.${run}@gmail.com`)
+    await page.getByRole('button', { name: 'Kirim link' }).click()
+    expect(await page.getByText(/Bila ada akun Kira/).textContent()).toBe(known?.replace(email, `tidak.ada.${run}@gmail.com`) ?? known)
+  })
+
+  test('kursi penuh: pendaftaran berganti ke daftar tunggu dan berhenti berlangganan bekerja', async ({ page }) => {
+    const wl = `kira.tunggu.${run}@gmail.com`
+    const [seat] = await db()`select count(*)::int as n from auth.beta_seat`
+    const need = 100 - (seat!.n as number)
+    const fake: string[] = []
+    for (let i = 0; i < need; i++) {
+      const id = crypto.randomUUID()
+      fake.push(id)
+      await db()`insert into auth.beta_seat (org_id, user_id, email_norm) values (${id}, ${id}, ${`penuh${i}.${run}@x.test`})`
+    }
+    try {
+      await page.goto('/')
+      await expect(page.getByText('Kursi beta sudah penuh.').first()).toBeVisible()
+      await page.goto('/daftar')
+      await expect(page.getByRole('heading', { name: 'Kursi beta sudah penuh' })).toBeVisible()
+      const consent = page.getByRole('checkbox', { name: /Kabari saya/ })
+      await expect(consent).not.toBeChecked()
+      await page.getByLabel('Email', { exact: true }).fill(wl)
+      await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click()
+      await expect(page.getByText('Centang persetujuan supaya kami boleh mengirim kabar.')).toBeVisible()
+      await consent.check()
+      await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click()
+      await expect(page.getByText(`Cek email ${wl}.`)).toBeVisible()
+
+      const confirmMail = await mailTo(wl, 'Konfirmasi daftar tunggu')
+      await page.goto(linkIn(confirmMail, '/kabar/konfirmasi/'))
+      await page.getByRole('button', { name: 'Ya, kabari saya' }).click()
+      await expect(page.getByRole('heading', { name: 'Kamu masuk daftar tunggu' })).toBeVisible()
+      const welcome = await mailTo(wl, 'Kamu ada di daftar tunggu')
+      await page.goto(linkIn(welcome, '/kabar/berhenti/'))
+      await expect(page.getByRole('heading', { name: 'Kamu sudah berhenti berlangganan' })).toBeVisible()
+      const [row] = await db()`select unsubscribed_at from auth.waitlist where email = ${wl}`
+      expect(row!.unsubscribed_at).not.toBeNull()
+    } finally {
+      for (const id of fake) await db()`delete from auth.beta_seat where org_id = ${id}`
+    }
+  })
+})
