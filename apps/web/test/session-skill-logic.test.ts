@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { groupSkillOptions, joinId, skillChangeTargets, type SkillSession } from '../src/server/dal/session-skill-logic'
+import { groupSkillOptions, joinId, sessionName, sessionState, skillChangeTargets, skillChangeView, type SkillSession } from '../src/server/dal/session-skill-logic'
 
 /** Ganti pelajaran: sesi mana yang kena, dan daftar pilihan per topik. */
 
@@ -45,6 +45,28 @@ describe('skillChangeTargets', () => {
     expect(ids(skillChangeTargets(lat, [lat, s('e', { subject: 'english', session: 'tes' })]))).toEqual(['l'])
     const started = s('l2', { state: 'in-progress' })
     expect(skillChangeTargets(started, [started, s('e', { subject: 'english', session: 'tes' })]).blocked).toBe('no-next')
+  })
+})
+
+describe('skillChangeView', () => {
+  it('pesan untuk orang tua per keadaan sesi', () => {
+    const tes = s('t', { session: 'tes' })
+    expect(skillChangeView(s('l'), [s('l'), tes], sessionName)).toMatchObject({ canChange: true, note: null, appliesTo: 'Latihan Math dan Tes Math' })
+    const running = s('l', { state: 'in-progress' })
+    const v = skillChangeView(running, [running, tes], sessionName)
+    expect(v).toMatchObject({ canChange: true, appliesTo: 'Tes Math' })
+    expect(v.note).toContain('tetap berjalan')
+    expect(v.note).toContain('mulai Tes Math')
+    expect(skillChangeView(running, [running], sessionName)).toMatchObject({ canChange: false, appliesTo: null })
+    expect(skillChangeView(s('l', { state: 'done' }), [], sessionName).note).toContain('Sudah selesai')
+    expect(skillChangeView(s('p', { session: 'paper' }), [], sessionName)).toMatchObject({ canChange: false, note: null })
+  })
+
+  it('jawaban yang sudah masuk berarti sedang dikerjakan, walau status quest masih ready', () => {
+    expect(sessionState('ready', 0)).toBe('ready')
+    expect(sessionState('ready', 1)).toBe('in-progress')
+    expect(sessionState('in_progress', 0)).toBe('in-progress')
+    expect(sessionState('done', 3)).toBe('done')
   })
 })
 

@@ -29,6 +29,18 @@ import { groupSkillOptions, sessionName, sessionState, skillChangeView, type Ski
 
 const { quest, response } = tables
 
+/** Jumlah jawaban per attempt: status quest tetap ready sampai selesai, jadi sesi berjalan terlihat dari jawabannya. */
+export async function answeredByAttempt(tx: Tx, attemptIds: readonly (string | null)[]): Promise<Map<string, number>> {
+  const ids = attemptIds.filter((id): id is string => id !== null)
+  if (ids.length === 0) return new Map()
+  const rows = await tx
+    .select({ attemptId: response.attemptId, n: sql<number>`count(*)::int` })
+    .from(response)
+    .where(inArray(response.attemptId, ids))
+    .groupBy(response.attemptId)
+  return new Map(rows.map((r) => [r.attemptId, r.n]))
+}
+
 async function daySessions(tx: Tx, learnerId: string, date: IsoDate): Promise<(SkillSession & { slotId: string | null })[]> {
   const rows = await tx
     .select({
@@ -40,11 +52,12 @@ async function daySessions(tx: Tx, learnerId: string, date: IsoDate): Promise<(S
       skillId: quest.skillId,
       status: quest.status,
       slotId: quest.planSlotId,
-      answered: sql<number>`(select count(*)::int from ${response} where ${response.attemptId} = ${quest.attemptId})`,
+      attemptId: quest.attemptId,
     })
     .from(quest)
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
-  return rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, r.answered), slotId: r.slotId }))
+  const answered = await answeredByAttempt(tx, rows.map((r) => r.attemptId))
+  return rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, answered.get(r.attemptId ?? '') ?? 0), slotId: r.slotId }))
 }
 
 /** Sesi hari ini yang dituju, hanya bila anaknya tertaut ke orang tua ini. */

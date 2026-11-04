@@ -25,6 +25,7 @@ import { yourAnswerText } from './learner-results'
 import { openMistakes } from './mistake-book'
 import { parentPlacement } from './placement'
 import { topSkills } from './mistake-logic'
+import { answeredByAttempt } from './parent-skill-change'
 import { sessionName, sessionState, skillChangeView, type SkillSession } from './session-skill-logic'
 import { weekSummaryDTO } from './week-summary'
 
@@ -173,13 +174,13 @@ async function todaySessions(tx: Tx, learnerId: string, date: IsoDate): Promise<
       scaled: attempt.scoreScaled,
       aStatus: attempt.status,
       count: sql<number | null>`case when ${attempt.items} is null then null else jsonb_array_length(${attempt.items}) end`,
-      answered: sql<number>`(select count(*)::int from ${response} where ${response.attemptId} = ${quest.attemptId})`,
     })
     .from(quest)
     .leftJoin(attempt, eq(attempt.id, quest.attemptId))
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
   const order = (s: string) => ['latihan', 'tes', 'paper'].indexOf(s)
-  const plans: SkillSession[] = rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, r.answered) }))
+  const answered = await answeredByAttempt(tx, rows.map((r) => r.attemptId))
+  const plans: SkillSession[] = rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, answered.get(r.attemptId ?? '') ?? 0) }))
   return rows
     .sort((a, b) => Number(b.kind === 'daily') - Number(a.kind === 'daily') || SUBJECT_ORDER.indexOf(a.subject as Subject) - SUBJECT_ORDER.indexOf(b.subject as Subject) || order(a.session) - order(b.session) || a.seq - b.seq)
     .map((r) => {
