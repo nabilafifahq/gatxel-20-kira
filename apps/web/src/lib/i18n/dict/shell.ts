@@ -123,6 +123,31 @@ const en = {
     me: 'Me',
   } as Record<LearnerNavKey, string>,
   navPhone: {} as Partial<Record<string, string>>,
+  /** Walkthrough pertama anak di Today: paling banyak tiga tip pendek. */
+  firstRun: {
+    region: 'Quick tips',
+    tips: [
+      { icon: 'play', title: 'Start with the big stop', body: "The biggest stop on your path is today's first session. Tap it to begin." },
+      { icon: 'star', title: 'Earn stars as you go', body: 'Finish a session to earn stars and XP. A wrong answer is fine. Have another go.' },
+      { icon: 'speaker', title: 'Listen and look around', body: 'Tap the speaker to hear a question. Map, Review, and Me are in the menu.' },
+    ],
+    next: 'Next',
+    done: "Let's start",
+    skip: 'Skip tips',
+    stepOf: (n: number, total: number) => `Tip ${n} of ${total}`,
+  },
+  logoLabel: 'Kira, Today',
+
+  routeError: {
+    chunkTitle: 'Kira has something new for you',
+    title: 'Oops, this page got stuck',
+    chunkBody: 'Tap the button to carry on. Your stars and answers are safe.',
+    body: 'Your stars and answers are safe. Try again, or go back to Today.',
+    retry: 'Try again',
+    home: 'Back to Today',
+    code: 'Code for a grown-up',
+  },
+
   navUi: {
     main: 'Main',
     more: 'More',
@@ -558,6 +583,30 @@ const id: typeof en = {
     me: 'Aku',
   },
   navPhone: { review: 'Ulas' } as Partial<Record<string, string>>,
+  firstRun: {
+    region: 'Tips singkat',
+    tips: [
+      { icon: 'play', title: 'Mulai dari yang besar', body: 'Titik paling besar di jalurmu adalah sesi pertama hari ini. Ketuk untuk mulai.' },
+      { icon: 'star', title: 'Kumpulkan bintang', body: 'Selesaikan sesi untuk mendapat bintang dan XP. Jawaban yang belum tepat tidak apa-apa. Coba lagi saja.' },
+      { icon: 'speaker', title: 'Dengarkan dan lihat-lihat', body: 'Ketuk tombol suara untuk mendengar soal. Peta, Ulas lagi, dan Aku ada di menu.' },
+    ],
+    next: 'Lanjut',
+    done: 'Ayo mulai',
+    skip: 'Lewati tips',
+    stepOf: (n, total) => `Tips ${n} dari ${total}`,
+  },
+  logoLabel: 'Kira, Hari ini',
+
+  routeError: {
+    chunkTitle: 'Kira punya yang baru untukmu',
+    title: 'Aduh, halaman ini tersangkut',
+    chunkBody: 'Ketuk tombolnya untuk lanjut. Bintang dan jawabanmu tetap aman.',
+    body: 'Bintang dan jawabanmu tetap aman. Coba lagi, atau kembali ke Hari ini.',
+    retry: 'Coba lagi',
+    home: 'Kembali ke Hari ini',
+    code: 'Kode untuk orang dewasa',
+  },
+
   navUi: {
     main: 'Utama',
     more: 'Menu',

@@ -2,19 +2,10 @@
 
 import { useEffect, type ReactElement } from 'react'
 import { KiraStar } from '@/components/ui/KiraStar'
+import { useT } from '@/lib/i18n/client'
 import { CHUNK_RELOAD_KEY, isChunkError, mayAutoReload } from './route-error-logic'
 
 const COPY = {
-  learner: {
-    chunkTitle: 'Kira has something new for you',
-    title: 'Oops, this page got stuck',
-    chunkBody: 'Tap the button to carry on. Your stars and answers are safe.',
-    body: 'Your stars and answers are safe. Try again, or go back to Today.',
-    retry: 'Try again',
-    home: 'Back to Today',
-    homeHref: '/today',
-    code: 'Code for a grown-up',
-  },
   family: {
     chunkTitle: 'Kira baru saja diperbarui',
     title: 'Halaman ini gagal dimuat',
@@ -32,9 +23,11 @@ const COPY = {
  * galat lain menampilkan tombol coba lagi. Tautan keluar memakai <a> supaya navigasi penuh, karena router klien
  * mungkin yang sedang rusak.
  */
-export function RouteError({ error, reset, area }: { error: Error & { digest?: string }; reset: () => void; area: keyof typeof COPY }): ReactElement {
+export function RouteError({ error, reset, area }: { error: Error & { digest?: string }; reset: () => void; area: 'learner' | 'family' }): ReactElement {
   const chunk = isChunkError(error)
-  const t = COPY[area]
+  // Area anak mengikuti bahasa tampilannya; provider ada di layout akar learner.
+  const child = useT().shell.routeError
+  const t = area === 'learner' ? { ...child, homeHref: '/today' } : COPY.family
 
   useEffect(() => {
     if (!chunk) return

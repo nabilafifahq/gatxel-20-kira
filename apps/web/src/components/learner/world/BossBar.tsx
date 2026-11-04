@@ -56,7 +56,7 @@ export function BossBar({ bossId, right, wrong, total }: { bossId: string; right
         ) : null}
         <div className="flex items-baseline justify-between gap-2 text-small font-bold">
           <span className="min-w-0 truncate">{def.name}</span>
-          <span className="flex-none tabular-nums">{t.world.boss.energy(pct)}</span>
+          <span className="flex-none tabular-nums">{t.world.boss.energyShort(pct)}</span>
         </div>
         <div role="progressbar" aria-label={t.world.boss.energyOf(def.name)} aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} className="flex h-4 gap-0.5 overflow-hidden rounded-pill border-2 border-fg bg-divider">
           {Array.from({ length: hitsToWin }, (_, i) => (

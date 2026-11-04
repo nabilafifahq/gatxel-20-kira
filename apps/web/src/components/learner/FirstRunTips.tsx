@@ -4,13 +4,14 @@ import { useEffect, useRef, useState, type ReactElement } from 'react'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
 import { KiraStar } from '@/components/ui/KiraStar'
 import { markFirstRunAction } from '@/server/actions/first-run'
-import { FIRST_RUN_COPY as T } from './first-run-copy'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Walkthrough pertama anak di Today: kartu kecil, bukan dialog, jadi halaman di belakangnya tetap bisa diketuk.
  * Dicatat di server begitu tampil, supaya hanya muncul sekali per anak, di perangkat mana pun.
  */
 export function FirstRunTips(): ReactElement | null {
+  const T = useT().shell.firstRun
   const [i, setI] = useState(0)
   const [open, setOpen] = useState(true)
   const marked = useRef(false)

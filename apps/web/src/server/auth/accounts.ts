@@ -14,7 +14,7 @@ import { ACCOUNT_LOCK_AFTER, clientIp, emailSendAllowed, escalatingDelay, recent
 import { ipPrefix } from '@/lib/access-log'
 import { log } from '../log'
 import { randomToken, safeEqual, sha256hex } from './crypto'
-import { revokeUserSessions } from './session'
+import { invalidateUserSessions, revokeUserSessions } from './session'
 import { setPin } from './pin'
 import { emailKey } from '../signup/email-policy'
 import type { UiLang } from '@/lib/i18n/lang'
@@ -282,6 +282,7 @@ export async function setLearnerUiPrefs(userId: string, orgId: string, prefs: { 
     .update(userAccount)
     .set(prefs)
     .where(and(eq(userAccount.id, userId), eq(userAccount.orgId, orgId), eq(userAccount.kind, 'learner')))
+  await invalidateUserSessions(userId)
 }
 
 export async function renameUser(userId: string, orgId: string, name: string): Promise<void> {

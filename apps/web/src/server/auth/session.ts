@@ -206,6 +206,12 @@ export async function revokeUserSessions(userId: string, exceptSessionId?: strin
   await invalidateSessions(rows.map((r) => r.id))
 }
 
+/** Hapus cache semua sesi satu pengguna (pilihan bahasa berubah): sesinya tetap berlaku, nilainya dibaca ulang. */
+export async function invalidateUserSessions(userId: string): Promise<void> {
+  const rows = await authDb().select({ id: session.id }).from(session).where(and(eq(session.userId, userId), isNull(session.revokedAt)))
+  await invalidateSessions(rows.map((r) => r.id))
+}
+
 /** Hapus cache semua sesi learner di satu perangkat (perangkat dicabut atau daftar learner berubah). */
 export async function invalidateDeviceSessions(deviceId: string): Promise<void> {
   const rows = await authDb().select({ id: session.id }).from(session).where(and(eq(session.deviceId, deviceId), isNull(session.revokedAt)))

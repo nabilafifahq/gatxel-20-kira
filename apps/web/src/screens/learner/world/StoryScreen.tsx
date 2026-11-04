@@ -82,7 +82,7 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <Button variant="secondary" icon="arrow-left" onClick={() => go(-1)} disabled={i === 0}>
           {s.back}
         </Button>
