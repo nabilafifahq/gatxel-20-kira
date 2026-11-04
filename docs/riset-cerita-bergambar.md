@@ -25,10 +25,10 @@ Dicatat dari hasil pencarian saja, halamannya tidak terbaca penuh: [Reading Rock
 ## Aturan menulis yang kami ambil
 
 1. **Masalah sebesar anak.** Kira hanya ingin meminjam buku pada hari buku. Taruhannya tidak pernah lebih besar dari perpustakaan kecil di bukit.
-2. **Tiga kali coba.** Setiap bab punya dua atau tiga percobaan gagal, lalu satu cara yang berhasil karena Kira berhenti dan memperhatikan.
+2. **Tiga kali coba.** Bab 2, 3, 4, 5, dan 7 punya dua atau tiga percobaan gagal, lalu satu cara yang berhasil, biasanya karena Kira berhenti dan memperhatikan. Bab 1 adalah pembukaan, bab 6 titik terendah, dan bab 8 puncaknya.
 3. **Pengulangan yang berubah.** Refrein berganti menurut bab: "One step at a time", "One star", "One log", "One page", "One wave", "One boot", "One stripe", lalu kembali ke "One page at a time" di akhir.
 4. **Tanya, balik, jawab.** Pertanyaan dan jawaban tidak pernah di halaman yang sama. Contoh: "How many stars can you count?" dijawab setelah halaman dibalik, dan anak bisa menghitung sendiri di gambar.
-5. **Tunjukkan.** Lelah di gunung ditulis sebagai sepatu, tas, dan kelopak mata yang berat. Kata "sad" dan "brave" tidak dipakai untuk menjelaskan perasaan Kira.
+5. **Tunjukkan.** Lelah di gunung ditulis sebagai sepatu, tas, dan kelopak mata yang berat. Teks tidak pernah menyebut Kira sedih, takut, atau lelah.
 6. **Halaman tenang.** Bab 6 dan bab 8 punya halaman sangat pendek ("Nothing.") supaya puncaknya terasa.
 7. **Gambar menambah cerita.** Tikus kecil Pip ada di setiap gambar dan tidak disebut oleh teks sampai bab terakhir. Posisinya dijaga kode supaya selalu masuk jendela gambar, karena bab 8 berkata "She is in every picture". Pembaca yang melihatnya merasa pintar. Cahaya Lumi membesar seiring buku yang pulang.
 8. **Kalimat pendek.** Rata-rata 4,3 kata per kalimat dan paling panjang 18 kata. Satu halaman paling banyak 36 kata. Satu bab 152 sampai 284 kata, di bawah batas 500 kata dari Alice Y. Chen. Batasnya diuji di `packages/core/test/world.test.ts`.
@@ -61,7 +61,7 @@ Pendapatan menurut aturan yang ada:
 
 Kemenangan bos pertama tiap minggu menambah 10. Satu minggu biasa dengan 6 hari belajar: 15 x 6 + 10 = 100 bintang. Satu minggu tenang dengan 5 hari belajar: 9 x 5 = 45 bintang.
 
-Masalah sebelum penyesuaian: seluruh isi toko hanya 237 bintang, jadi habis dalam kurang dari 3 minggu biasa, sedangkan anak dengan hari tenang (9 bintang) belum bisa membeli apa pun pada hari pertama karena barang termurah 10 bintang.
+Masalah sebelum penyesuaian: seluruh isi toko hanya 237 bintang, jadi habis dalam kurang dari 3 minggu biasa, sedangkan anak dengan hari tenang (9 bintang) belum bisa membeli barang toko pada hari pertama karena yang termurah 10 bintang. Hanya camilan yang terjangkau.
 
 | Barang | Harga lama | Harga baru | Kelas |
 | --- | --- | --- | --- |

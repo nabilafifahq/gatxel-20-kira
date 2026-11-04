@@ -14,7 +14,8 @@ export async function GET(req: Request) {
   if (!actor || actor.role !== 'learner') return seeOther('/')
   if (!(await isFeatureOn(actor.userId, 'kira-world'))) return seeOther('/today')
   try {
-    const parsed = z.object({ b: z.string().min(1).max(40).regex(/^[a-z0-9-]+$/) }).strict().safeParse(Object.fromEntries(new URL(req.url).searchParams))
+    // Hanya `b` yang dibaca: navigasi Link menambah parameter `_rsc`, jadi seluruh query tidak bisa diperiksa ketat.
+    const parsed = z.object({ b: z.string().min(1).max(40).regex(/^[a-z0-9-]+$/) }).strict().safeParse({ b: new URL(req.url).searchParams.get('b') })
     if (!parsed.success) return seeOther('/world/boss')
     const id = await inOrg(orgCtx(actor), (tx) => startBossSession(tx, orgCtx(actor), actor.userId, parsed.data.b))
     return seeOther(`/run/${id}`)
