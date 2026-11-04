@@ -2411,7 +2411,7 @@ const moneyRupiah4: Generator = {
       const na = rng.int(2, 3)
       const nb = rng.int(1, 2)
       const total = na * a.p + nb * b.p
-      const paid = [100000, 150000, 200000].find((v) => v >= total + 1000)!
+      const paid = [100000, 150000, 200000, 250000].find((v) => v >= total + 1000)!
       return {
         type: 'numeric',
         prompt: `${name} buys ${na} ${a.many} and ${nb === 1 ? art(b.one) : `${nb} ${b.many}`}. ${name} pays with ${rp(paid)}. How much change does ${name} get?`,
