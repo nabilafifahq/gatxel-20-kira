@@ -99,6 +99,11 @@ export function CardsHubScreen({ data }: { data: CardsHubDTO }): ReactElement {
 type Result = { cardId: string; knew: boolean }
 type Dir = 'word-to-meaning' | 'meaning-to-word' | 'spell'
 
+/** Arti tanpa contoh kalimat: contohnya memuat kata yang sedang ditanyakan. */
+function meaningOnly(back: string): string {
+  return back.replace(/s*Example:[sS]*$/, '').trim()
+}
+
 function shuffleStable<T>(list: T[], seed: number): T[] {
   const a = [...list]
   let s = seed || 1
@@ -180,8 +185,8 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
   const options = useMemo(() => {
     if (!card || !vocab || dir === 'spell') return []
     const meaningToWord = dir === 'meaning-to-word'
-    const correct = meaningToWord ? card.front : card.back
-    const others = session.pool.filter((p) => p.id !== card.id).map((p) => (meaningToWord ? p.front : p.back))
+    const correct = meaningToWord ? card.front : meaningOnly(card.back)
+    const others = session.pool.filter((p) => p.id !== card.id).map((p) => (meaningToWord ? p.front : meaningOnly(p.back)))
     const uniq = [...new Set(others)].filter((o) => o !== correct)
     return shuffleStable([correct, ...shuffleStable(uniq, i + 7).slice(0, 3)], i + 31)
   }, [card, vocab, dir, session.pool, i])
@@ -220,11 +225,11 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
         >
           <span
             className={cx(
-              'relative block min-h-64 w-full transition-transform duration-500 ease-kira [transform-style:preserve-3d] motion-reduce:transition-none',
+              'grid min-h-64 w-full transition-transform duration-500 ease-kira [transform-style:preserve-3d] motion-reduce:transition-none',
               flipped ? '[transform:rotateY(180deg)]' : '',
             )}
           >
-            <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-card border-2 border-border bg-surface p-6 text-center [backface-visibility:hidden]" aria-hidden={flipped}>
+            <span className="flex flex-col items-center justify-center gap-3 rounded-card border-2 border-border bg-surface p-6 text-center [grid-area:1/1] [backface-visibility:hidden]" aria-hidden={flipped}>
               {card.figure ? (
                 <span className="block w-full max-w-[260px]">
                   <Figure spec={card.figure} />
@@ -233,13 +238,13 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
               <span className="text-h1 font-bold break-words">{card.front}</span>
               <span className="text-body text-fg-muted">Tap to flip</span>
             </span>
-            <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-card border-2 border-fg bg-bg p-6 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]" aria-hidden={!flipped}>
-              <span className="text-h2 font-bold break-words">{card.back}</span>
+            <span className="flex flex-col items-center justify-center gap-3 rounded-card border-2 border-fg bg-bg p-6 text-center [grid-area:1/1] [backface-visibility:hidden] [transform:rotateY(180deg)]" aria-hidden={!flipped}>
+              <span className={cx('font-bold break-words whitespace-pre-line', card.back.length > 60 ? 'text-h3' : 'text-h2')}>{card.back}</span>
             </span>
           </span>
         </button>
         <div className="flex flex-wrap gap-3">
-          <ReadAloudButton text={flipped && backLang === 'en-GB' ? card.back : (card.say ?? card.front)} subject="english" showNote={false} />
+          <ReadAloudButton text={flipped && backLang === 'en-GB' ? (card.say ?? card.back) : card.front} subject="english" showNote={false} />
         </div>
         {flipped ? (
           <div className="flex flex-wrap gap-3">
@@ -259,8 +264,7 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
 
   // Vocab drill
   const meaningToWord = dir === 'meaning-to-word'
-  const prompt = dir === 'word-to-meaning' ? card.front : card.back
-  const answer = dir === 'word-to-meaning' ? card.back : card.front
+  const answer = dir === 'word-to-meaning' ? meaningOnly(card.back) : card.front
   const spelling = dir === 'spell'
   const answered = picked !== null
   const right = answered && picked === answer
@@ -289,8 +293,8 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
       {progress}
       <div className="flex flex-col gap-3 rounded-card border-2 border-border bg-surface p-6">
         <p className="m-0 text-body text-fg-muted">{spelling ? 'Type the word for this meaning.' : meaningToWord ? 'Which word means this?' : 'What does this word mean?'}</p>
-        <p className="m-0 text-h1 font-bold break-words">{spelling || meaningToWord ? card.back : prompt}</p>
-        {!meaningToWord && !spelling ? <ReadAloudButton text={card.say ?? card.front} subject="english" showNote={false} /> : null}
+        {spelling || meaningToWord ? <p className="m-0 text-h3 font-bold break-words whitespace-pre-line">{meaningOnly(card.back)}</p> : <p className="m-0 text-h1 font-bold break-words">{card.front}</p>}
+        {!meaningToWord && !spelling ? <ReadAloudButton text={card.front} subject="english" showNote={false} /> : null}
       </div>
       {spelling ? (
         <form
@@ -326,7 +330,7 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
                   disabled={answered}
                   onClick={() => setPicked(o)}
                   className={cx(
-                    'flex min-h-14 w-full items-center rounded-control border-2 px-4 py-2 text-left text-body-lg font-semibold',
+                    'flex min-h-14 w-full items-center rounded-control border-2 px-4 py-2 text-left text-body-lg font-semibold whitespace-pre-line',
                     answered && isRight ? 'border-fg bg-bg' : 'border-border bg-surface',
                     answered && picked === o && !isRight ? 'border-dashed' : '',
                   )}
