@@ -150,7 +150,12 @@ export type QuestIntroDTO = {
 
 export type RunnerMode = 'belajar' | 'latihan' | 'kilat' | 'tes' | 'simulasi' | 'review'
 
-export type RunnerItem = ClientItem & { position: number; section: 'warmup' | 'core' | 'challenge' | 'sprint' }
+export type RunnerItem = ClientItem & {
+  position: number
+  section: 'warmup' | 'core' | 'challenge' | 'sprint'
+  /** Soal saudara dari putaran perbaikan: nomor soal yang salah. */
+  remedialOf?: number
+}
 
 export type SavedResponse = {
   position: number
@@ -207,10 +212,15 @@ export type AnswerResult = {
   /** Untuk mode tanpa umpan balik, status disembunyikan menjadi 'answered'. */
 }
 
+export type RemedialLessonDTO = { title: string; steps: SolutionStep[] }
+
 export type RunnerActions = {
   saveAnswer(p: AnswerPayload): Promise<ActionResult<AnswerResult>>
   submitAttempt(attemptId: string, clientId: string): Promise<ActionResult<{ redirectTo: string }>>
   reportProblem(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string }): Promise<ActionResult<{ reference: string }>>
+  /** Putaran perbaikan di Latihan (tidak ada di mode berwaktu). */
+  remedialLesson?(input: { attemptId: string; position: number }): Promise<ActionResult<{ lesson: RemedialLessonDTO | null }>>
+  addRemedialItem?(input: { attemptId: string; position: number }): Promise<ActionResult<{ item: RunnerItem | null }>>
 }
 
 // ---------------------------------------------------------------------------

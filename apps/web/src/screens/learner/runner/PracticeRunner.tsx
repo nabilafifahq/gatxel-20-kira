@@ -5,8 +5,9 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactElement } 
 import { checkAnswer } from '@kira/content/check'
 import { TTS_EXAMINER_INTRO } from '@kira/core/tts'
 import { answerXp } from '@kira/core'
-import type { RunnerActions, RunnerDTO, RunnerItem, SegmentState } from '@/lib/dto'
+import type { RemedialLessonDTO, RunnerActions, RunnerDTO, RunnerItem, SegmentState } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/ui/Button'
+import type { FigureSpec } from '@kira/figures'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { FeedbackSheet } from '@/components/learner/FeedbackSheet'
@@ -48,6 +49,9 @@ type QState = {
   startedAt: number
 }
 
+type Rem = { watched: boolean; lessonDone: boolean; lesson: RemedialLessonDTO | null | undefined; loading: boolean; failed: boolean }
+const NO_REM: Rem = { watched: false, lessonDone: false, lesson: undefined, loading: false, failed: false }
+
 const DONE: Phase[] = ['correct', 'revealed', 'sent', 'skipped', 'answered']
 
 function initState(data: RunnerDTO, items: RunnerItem[]): QState[] {
@@ -73,10 +77,12 @@ function initState(data: RunnerDTO, items: RunnerItem[]): QState[] {
 
 export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; actions: RunnerActions; onUpload?: RunnerUpload }): ReactElement {
   const router = useRouter()
-  const items = useMemo(() => sortedItems(data), [data])
-  const [states, setStates] = useState<QState[]>(() => initState(data, items))
+  const [items, setItems] = useState<RunnerItem[]>(() => sortedItems(data))
+  const [states, setStates] = useState<QState[]>(() => initState(data, sortedItems(data)))
+  // Putaran perbaikan (hanya Latihan): per nomor soal yang salah.
+  const [rem, setRem] = useState<Record<number, Rem>>({})
   const [index, setIndex] = useState(() => {
-    const st = initState(data, items)
+    const st = initState(data, sortedItems(data))
     const first = st.findIndex((s) => !DONE.includes(s.phase))
     return first >= 0 ? first : Math.max(0, items.length - 1)
   })
@@ -114,6 +120,58 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const patch = useCallback((i: number, p: Partial<QState>) => {
     setStates((list) => list.map((s, k) => (k === i ? { ...s, ...p } : s)))
   }, [])
+
+  const remedialOn = Boolean(actions.remedialLesson && actions.addRemedialItem) && data.allowRetry && data.kind !== 'lesson-check'
+  const patchRem = useCallback((position: number, p: Partial<Rem>) => {
+    setRem((m) => ({ ...m, [position]: { ...(m[position] ?? NO_REM), ...p } }))
+  }, [])
+
+  // Putaran perbaikan: begitu soal terbuka kuncinya karena salah, jawaban disimpan dulu lalu pelajaran dimuat.
+  const revealedPos = remedialOn && item && st?.phase === 'revealed' && item.remedialOf === undefined && !isManualType(item.type) ? item.position : null
+  useEffect(() => {
+    if (revealedPos === null || !actions.remedialLesson) return
+    let alive = true
+    patchRem(revealedPos, { loading: true })
+    void (async () => {
+      await queue.flush(3000)
+      try {
+        const res = await actions.remedialLesson!({ attemptId: data.attemptId, position: revealedPos })
+        if (alive) patchRem(revealedPos, { loading: false, lesson: res.ok ? res.data.lesson : null, failed: !res.ok })
+      } catch {
+        if (alive) patchRem(revealedPos, { loading: false, lesson: null, failed: true })
+      }
+    })()
+    return () => {
+      alive = false
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealedPos])
+
+  const tryOneLikeIt = useCallback(async () => {
+    if (!actions.addRemedialItem || !item) return
+    const pos = item.position
+    patchRem(pos, { loading: true })
+    try {
+      await queue.flush(3000)
+      const res = await actions.addRemedialItem({ attemptId: data.attemptId, position: pos })
+      patchRem(pos, { loading: false })
+      if (!res.ok || !res.data.item) {
+        patchRem(pos, { failed: true })
+        return
+      }
+      const sib = res.data.item
+      playSfx('tap')
+      if (items.some((x) => x.position === sib.position)) {
+        setIndex(items.findIndex((x) => x.position === sib.position))
+        return
+      }
+      setItems((list) => [...list.slice(0, index + 1), sib, ...list.slice(index + 1)])
+      setStates((list) => [...list.slice(0, index + 1), { value: null, attemptNo: 1, hintsUsed: 0, phase: 'answer', first: null, xp: 0, startedAt: Date.now() }, ...list.slice(index + 1)])
+      setIndex(index + 1)
+    } catch {
+      patchRem(pos, { loading: false, failed: true })
+    }
+  }, [actions, data.attemptId, index, item, items, patchRem, queue])
 
   // Waktu mulai soal di-reset saat soal tampil.
   useEffect(() => {
@@ -386,6 +444,24 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               showHintLabel={`Show hint ${st.hintsUsed + 1}`}
               savedLine={savedLine}
               className="max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0"
+              prompt={item.prompt}
+              figure={item.figure as FigureSpec | undefined}
+              fixItNote={st.phase === 'revealed' && item.remedialOf !== undefined}
+              remedial={
+                revealedPos !== null
+                  ? {
+                      watched: rem[item.position]?.watched ?? false,
+                      lessonDone: rem[item.position]?.lessonDone ?? false,
+                      lesson: rem[item.position]?.lesson,
+                      loading: rem[item.position]?.loading ?? false,
+                      canTry: !(rem[item.position]?.failed ?? false),
+                      onWatched: () => patchRem(item.position, { watched: true }),
+                      onLessonOpen: () => undefined,
+                      onLessonDone: () => patchRem(item.position, { lessonDone: true }),
+                      onTry: () => void tryOneLikeIt(),
+                    }
+                  : undefined
+              }
               primary={
                 st.phase === 'not-yet'
                   ? {
