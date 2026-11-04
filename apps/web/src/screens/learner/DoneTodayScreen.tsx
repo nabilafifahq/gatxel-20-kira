@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 import type { DoneTodayDTO } from '@/lib/dto'
 import { ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -106,6 +107,7 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
           Back to Today
         </ButtonLink>
       </footer>
+      <SiteFooter area="learner" />
     </div>
   )
 }

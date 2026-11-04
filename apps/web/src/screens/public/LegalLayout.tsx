@@ -12,6 +12,7 @@ export function LegalLayout({
   meta,
   toc,
   footerNote,
+  account,
   children,
 }: {
   current: 'privacy' | 'terms'
@@ -20,6 +21,8 @@ export function LegalLayout({
   meta: ReactNode
   toc: { id: string; label: string }[]
   footerNote: string
+  /** Menu akun untuk yang sudah masuk (server/site-account). */
+  account?: ReactNode
   children: ReactNode
 }) {
   return (
@@ -27,6 +30,7 @@ export function LegalLayout({
       current={current}
       center={false}
       footerNote={footerNote}
+      headerAction={account}
     >
       {/* HP: judul, daftar isi, isi. Layar lebar: daftar isi di kolom kiri, judul dan isi di kanan. */}
       <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,320px)_minmax(0,760px)]">
@@ -42,7 +46,7 @@ export function LegalLayout({
         >
           <span className="pb-1.5 text-small font-bold text-fg-muted">Daftar isi</span>
           {toc.map((t) => (
-            <a key={t.id} href={`#${t.id}`} className="py-1.5 text-body font-semibold">
+            <a key={t.id} href={`#${t.id}`} className="flex min-h-11 items-center py-1 text-body font-semibold">
               {t.label}
             </a>
           ))}

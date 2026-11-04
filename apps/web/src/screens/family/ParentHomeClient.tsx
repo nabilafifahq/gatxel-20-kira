@@ -107,7 +107,7 @@ export function ChildCard({ c }: { c: ParentChildCard }) {
           <UiIcon name="pencil" size={20} />
           Pengaturan {c.name}
         </Link>
-        <Link href={`${c.href}#atur`} className="kira-press flex min-h-12 items-center gap-2 rounded-control bg-lavender px-4 font-bold text-fg no-underline hover:text-fg">
+        <Link href={`${c.href}#fitur`} className="kira-press flex min-h-12 items-center gap-2 rounded-control bg-lavender px-4 font-bold text-fg no-underline hover:text-fg">
           <UiIcon name="list" size={20} />
           Mapel dan fitur
         </Link>

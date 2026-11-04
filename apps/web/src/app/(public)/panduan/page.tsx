@@ -2,15 +2,17 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GuideLayout, GuideSection } from '@/screens/public/GuideLayout'
 import { privacyNoticeData } from '@/server/legal'
+import { siteAccount } from '@/server/site-account'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Panduan orang tua' }
 
 /** Panduan orang tua: dari pendaftaran sampai membaca ringkasan mingguan. */
-export default function ParentGuidePage() {
+export default async function ParentGuidePage() {
   const contact = privacyNoticeData().entity.email
   return (
     <GuideLayout
+      account={await siteAccount()}
       title="Panduan orang tua"
       intro="Dari daftar sampai anak mulai belajar, biasanya cukup beberapa menit. Panduan ini menjelaskan setiap langkah dengan contoh."
       other={{ href: '/panduan/anak', label: 'Panduan untuk anak' }}

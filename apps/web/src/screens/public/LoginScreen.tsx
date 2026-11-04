@@ -190,7 +190,7 @@ function LoginForm({
           value={password}
           error={errors.password}
           labelAside={
-            <button type="button" onClick={onForgot} className="cursor-pointer border-0 bg-transparent p-0 text-small font-semibold text-accent underline underline-offset-3 hover:text-fg">
+            <button type="button" onClick={onForgot} className="-my-3 inline-flex min-h-11 cursor-pointer items-center border-0 bg-transparent p-0 text-small font-semibold text-accent underline underline-offset-3 hover:text-fg">
               Lupa password?
             </button>
           }

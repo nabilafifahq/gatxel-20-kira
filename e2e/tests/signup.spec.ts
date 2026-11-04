@@ -62,10 +62,12 @@ test.describe('pendaftaran orang tua', () => {
 
   test('halaman depan publik tampil di / untuk pengunjung baru', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Belajar sedikit tiap hari')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('trusted')
     await expect(page.getByText(/Tersisa \d+ dari \d+ kursi/).first()).toBeVisible()
     for (const href of ['/panduan', '/panduan/anak', '/privasi', '/ketentuan']) await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible()
-    await expect(page.getByText(/Cambridge/)).toHaveCount(0)
+    // Hanya kalimat yang diizinkan: tanpa klaim resmi, bersertifikat, atau didukung.
+    await expect(page.getByText(/Cambridge/).first()).toHaveText(/mengacu pada kerangka Cambridge Primary/)
+    await expect(page.getByText(/resmi|bersertifikat|didukung|official|certified|endorsed/i)).toHaveCount(0)
   })
 
   test('email sekali pakai ditolak dengan pesan ramah', async ({ page }) => {
@@ -119,17 +121,16 @@ test.describe('pendaftaran orang tua', () => {
 
     await page.getByLabel('Nama panggilan').fill('Nara')
     for (const p of ['Matahari', 'Bulan', 'Bintang', 'Kucing']) await page.getByRole('button', { name: p, exact: true }).click()
+    // Tidak ada persetujuan yang tercentang dari awal.
+    await page.getByText('Izin tambahan, boleh nanti').click()
+    const boxes = page.getByRole('form', { name: 'Tambah anak' }).getByRole('checkbox')
+    for (let i = 0; i < (await boxes.count()); i++) await expect(boxes.nth(i)).not.toBeChecked()
+    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()
     await expect(page.getByText('Nara', { exact: true }).first()).toBeVisible()
-
-    // Tidak ada persetujuan yang tercentang dari awal.
-    const boxes = page.getByRole('form', { name: 'Izin data untuk Nara' }).getByRole('checkbox')
-    for (let i = 0; i < (await boxes.count()); i++) await expect(boxes.nth(i)).not.toBeChecked()
-    await expect(page.getByRole('button', { name: 'Buka Kira untuk anak di perangkat ini' })).toBeDisabled()
-    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
-    await page.getByRole('button', { name: 'Simpan izin' }).click()
-    await expect(page.getByText('Nara sudah bisa belajar di Kira.')).toBeVisible()
-    await page.getByRole('button', { name: 'Buka Kira untuk anak di perangkat ini' }).click()
+    await page.getByRole('link', { name: 'Lanjut pilih jalur' }).click()
+    await page.getByRole('button', { name: 'Pakai jalur rekomendasi' }).click()
+    await page.getByRole('button', { name: 'Mulai belajar sebagai anak' }).click()
     await expect(page).toHaveURL(/\/$/)
     await expect(page.getByText('Nara').first()).toBeVisible()
   })

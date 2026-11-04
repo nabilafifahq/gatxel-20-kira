@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState, type ReactElement } from 'react'
 import { Avatar, Icon } from '@kira/figures'
@@ -220,6 +221,7 @@ export function PinScreen({
           </div>
         )}
       </main>
+      <SiteFooter area="learner" />
     </div>
   )
 }

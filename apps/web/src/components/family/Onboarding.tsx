@@ -124,7 +124,7 @@ function StepChildren({ state, pins, onPin }: { state: OnboardingState; pins: Re
         <h1 id="langkah-1" className="m-0 text-h1 font-bold max-sm:text-h2">
           {first ? `Selamat datang, ${state.parentName.split(' ')[0]}` : 'Anak yang belajar di Kira'}
         </h1>
-        <p className="m-0 text-body-lg text-fg-muted">{first ? 'Tiga langkah pendek, lalu anak bisa mulai. Siapa yang akan belajar?' : 'Tambah anak lain, atau lanjut memilih jalur belajar.'}</p>
+        <p className="m-0 text-body-lg text-fg-muted">{first ? 'Tiga langkah pendek, lalu anak bisa mulai.' : 'Tambah anak lain, atau lanjut memilih jalur belajar.'}</p>
       </header>
       {state.children.map((c) => (
         <div key={c.id} className="flex flex-col gap-3">
@@ -170,6 +170,15 @@ function StepChildren({ state, pins, onPin }: { state: OnboardingState; pins: Re
   )
 }
 
+function BackLink({ href, label }: { href: string; label: string }) {
+  return (
+    <Link href={href} className="kira-press inline-flex min-h-11 items-center gap-1 self-start font-bold">
+      <UiIcon name="arrow-left" size={18} />
+      {label}
+    </Link>
+  )
+}
+
 function PinPreview({ name, pin }: { name: string; pin: PinPicture[] }) {
   return (
     <div className="mt-1 flex flex-wrap items-center gap-1">
@@ -198,6 +207,7 @@ function StepPath({ state }: { state: OnboardingState }) {
   return (
     <section aria-labelledby="langkah-2" className="flex flex-col gap-5">
       <header className="flex flex-col gap-2">
+        <BackLink href={stepHref(1)} label="Kembali ke tambah anak" />
         <h1 id="langkah-2" className="m-0 text-h1 font-bold max-sm:text-h2">
           Pilih jalur belajar
         </h1>
@@ -254,10 +264,7 @@ function StepCustom({ child, all }: { child: OnboardingChild; all: OnboardingChi
   return (
     <section aria-labelledby="langkah-2-atur" className="flex flex-col gap-5">
       <header className="flex flex-col gap-2">
-        <Link href={stepHref(2)} className="kira-press inline-flex min-h-11 items-center gap-1 self-start font-bold">
-          <UiIcon name="arrow-left" size={18} />
-          Kembali ke pilihan jalur
-        </Link>
+        <BackLink href={stepHref(2)} label="Kembali ke pilihan jalur" />
         <h1 id="langkah-2-atur" className="m-0 text-h1 font-bold max-sm:text-h2">
           Atur sendiri untuk {child.name}
         </h1>
@@ -322,6 +329,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
   return (
     <section aria-labelledby="langkah-3" className="flex flex-col gap-5">
       <header className="flex flex-col gap-2">
+        <BackLink href={stepHref(2)} label="Kembali ke pilihan jalur" />
         <h1 id="langkah-3" className="m-0 text-h1 font-bold max-sm:text-h2">
           Cara anak masuk
         </h1>
@@ -484,7 +492,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
 
   return (
     <form onSubmit={submit} noValidate aria-label="Tambah anak" className="flex flex-col gap-5 rounded-card bg-surface p-5 shadow-soft">
-      <h3 className="m-0 text-h3 font-bold">{first ? 'Siapa yang akan belajar?' : 'Tambah anak lain'}</h3>
+      <h2 className="m-0 text-h3 font-bold">{first ? 'Siapa yang akan belajar?' : 'Tambah anak lain'}</h2>
       <TextField
         label="Nama panggilan"
         hint="Nama yang tampil di layar anak. Tidak perlu nama lengkap."

@@ -61,7 +61,7 @@ describe('jalur rekomendasi', () => {
         const line = recommendationSummary('Alya', grade)
         expect(line).toContain('Alya')
         for (const s of ['Math', 'English', 'Science']) expect(line).toContain(s)
-        expect(line).not.toMatch(/[–—]/)
+        expect(line).not.toMatch(new RegExp(`[${String.fromCodePoint(0x2013, 0x2014)}]`))
       })
     })
   }

@@ -23,5 +23,5 @@ export default async function StartPage({ searchParams }: { searchParams: Promis
   const step = resolveStep(state.children, spString(sp, 'langkah', 2))
   const anak = spUuid(sp, 'anak')
   const custom = step === 2 && anak ? (state.children.find((c) => c.id === anak) ?? null) : null
-  return <Onboarding key={custom ? custom.id : step} state={state} step={step} customChild={custom} />
+  return <Onboarding state={state} step={step} customChild={custom} />
 }

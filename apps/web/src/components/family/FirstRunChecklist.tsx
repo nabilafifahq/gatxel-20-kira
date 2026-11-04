@@ -33,11 +33,11 @@ export function FirstRunChecklist({ items }: { items: ChecklistItem[] }): ReactE
             <li key={i.key}>
               <Link
                 href={c.href}
-                className={cx('kira-press flex min-h-14 items-center gap-3 rounded-control bg-surface px-3 py-2 text-fg no-underline hover:text-fg')}
+                className="kira-press flex min-h-14 items-center gap-3 rounded-control bg-surface px-3 py-2 text-fg no-underline hover:text-fg"
               >
                 <span className="flex-none">{icon}</span>
                 <span className="flex min-w-0 flex-1 flex-col">
-                  <span className={cx('text-body font-bold', i.done && 'line-through decoration-2')}>
+                  <span className={cx('text-body', i.done ? 'font-semibold' : 'font-bold')}>
                     {c.label}
                     <span className="visually-hidden">{i.done ? ', selesai' : ', belum'}</span>
                   </span>

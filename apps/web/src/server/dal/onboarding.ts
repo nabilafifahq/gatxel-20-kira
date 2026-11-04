@@ -12,7 +12,7 @@ import { conflict, forbidden, invalid } from '../errors'
 import { latestConsents, syncLearnerActive, type ConsentPurposeId } from './consent'
 import { applyDefaultPreset } from './default-preset'
 import { setConsentTx } from './privacy'
-import { featureMapFor, saveFeaturesTx } from './learner-features'
+import { featureMapFor, saveFeatureMap, saveFeaturesTx } from './learner-features'
 import type { FeatureMap } from '@kira/core/features'
 import { recommendationFor, type SetupPath } from '@kira/core/recommendation'
 
@@ -79,6 +79,8 @@ export async function addChild(actor: Actor, input: { name: string; grade: numbe
     await scope.elevate(async () => {
       await tx.insert(guardianLink).values({ orgId: actor.orgId, guardianId: actor.userId, learnerId })
       await applyDefaultPreset(tx, ctx, learnerId)
+      // Anak baru langsung memakai jalur rekomendasi. Orang tua yang pergi sebelum memilih tetap mendapat isi yang masuk akal.
+      await saveFeatureMap(tx, actor.orgId, learnerId, recommendationFor(input.grade).features)
     })
     await auditTx(tx, ctx, 'guardian.linked', learnerId, { guardianId: actor.userId, via: 'onboarding' })
     return learnerId

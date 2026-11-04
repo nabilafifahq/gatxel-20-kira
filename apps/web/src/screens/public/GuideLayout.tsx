@@ -3,14 +3,14 @@ import type { ReactNode } from 'react'
 import { PublicFrame } from './PublicFrame'
 
 /** Kerangka halaman panduan publik: judul, pengantar, dan bagian bernomor. Teks biasa, tanpa gambar. */
-export function GuideLayout({ title, intro, other, children }: { title: string; intro: string; other: { href: string; label: string }; children: ReactNode }) {
+export function GuideLayout({ title, intro, other, account, children }: { title: string; intro: string; other: { href: string; label: string }; account?: ReactNode; children: ReactNode }) {
   return (
-    <PublicFrame center={false} brandHref="/">
+    <PublicFrame center={false} brandHref="/" headerAction={account}>
       <article className="mx-auto flex w-full max-w-[720px] flex-col gap-8">
         <header className="flex flex-col gap-3">
           <h1 className="m-0 text-h1 font-bold max-sm:text-h2">{title}</h1>
           <p className="m-0 text-body-lg text-fg-muted">{intro}</p>
-          <Link href={other.href} className="font-bold">
+          <Link href={other.href} className="inline-flex min-h-11 items-center self-start font-bold">
             {other.label}
           </Link>
         </header>

@@ -75,8 +75,8 @@ export function AuthGateway({
       <SiteHeader
         inner="max-w-none"
         account={
-          <button type="button" onClick={() => setMode('login')} className={SIGN_IN_CLASS}>
-            Masuk
+          <button type="button" onClick={() => setMode(mode === 'login' ? 'signup' : 'login')} className={SIGN_IN_CLASS}>
+            {mode === 'login' ? signupLabel : 'Masuk'}
           </button>
         }
       />

@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
+import { siteAccount } from '@/server/site-account'
 import { GuideLayout, GuideSection } from '@/screens/public/GuideLayout'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Panduan untuk anak' }
 
 /** Panduan singkat untuk anak, dibaca bersama orang tua. Kalimat pendek, satu langkah per bagian. */
-export default function KidsGuidePage() {
+export default async function KidsGuidePage() {
   return (
     <GuideLayout
+      account={await siteAccount()}
       title="Panduan untuk anak"
       intro="Halo! Ini cara belajar di Kira. Baca bersama Mama atau Papa kalau perlu."
       other={{ href: '/panduan', label: 'Panduan orang tua' }}

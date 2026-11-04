@@ -49,9 +49,11 @@ function Section({ id, title, hint, open, children }: { id: string; title: strin
   const ref = useRef<HTMLDetailsElement>(null)
   // Tautan "Pengaturan" dan "Mapel dan fitur" dari beranda membuka bagian ini langsung.
   useEffect(() => {
-    if (window.location.hash === `#${id}` && ref.current) {
+    const hash = window.location.hash
+    const target = hash === `#${id}` ? ref.current : hash && /^#[a-z-]+$/.test(hash) ? ref.current?.querySelector(hash) : null
+    if (target && ref.current) {
       ref.current.open = true
-      ref.current.scrollIntoView({ block: 'start' })
+      target.scrollIntoView({ block: 'start' })
     }
   }, [id])
   return (
@@ -240,7 +242,7 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
       </Section>
 
       <Section id="atur" title="Pengaturan" hint="Aturan hari, waktu layar, suara, PIN, dan profil">
-        <h3 className="m-0 text-body font-bold">Fitur yang dipakai</h3>
+        <h3 id="fitur" className="m-0 text-body font-bold">Fitur yang dipakai</h3>
         <p className="m-0 text-small text-fg-muted">Matikan mapel atau fitur yang belum dipakai {c.name}. Mapel yang dimatikan tidak muncul di hari belajar dan tidak dihitung untuk streak.</p>
         <FeatureChecklist learnerId={c.id} name={c.name} initial={data.controls.features} />
         <h3 className="m-0 border-t border-divider pt-4 text-body font-bold">Aturan hari</h3>

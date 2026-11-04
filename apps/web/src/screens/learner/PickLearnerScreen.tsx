@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 import type { ReactElement } from 'react'
 import { Avatar } from '@kira/figures'
 import type { PickLearnerDTO } from '@/lib/dto'
@@ -88,6 +89,7 @@ export function PickLearnerScreen({
         </ul>
         <p className="m-0 max-w-[480px] text-center text-body text-fg-muted">Everyone has their own stars, streak and secret pictures.</p>
       </main>
+      <SiteFooter area="learner" />
     </div>
   )
 }

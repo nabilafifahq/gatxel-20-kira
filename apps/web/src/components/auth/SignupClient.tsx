@@ -124,7 +124,7 @@ export function SignupClient({
           Daftar kursi beta
         </H>
         <p className="m-0 text-body text-fg-muted">
-          Untuk orang tua. Tersisa {seatsLeft} kursi. Setelah email dikonfirmasi, kamu menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.
+          {bare ? 'Untuk orang tua. Setelah email dikonfirmasi, kamu menambahkan anak dan bisa mulai hari ini.' : `Untuk orang tua. Tersisa ${seatsLeft} kursi. Setelah email dikonfirmasi, kamu menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.`}
         </p>
       </div>
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
@@ -164,7 +164,7 @@ export function SignupClient({
           size="L"
           value={password}
           error={errors.password}
-          hint="Paling sedikit 15 karakter. Kalimat panjang yang mudah kamu ingat lebih baik daripada kata acak."
+          hint="Paling sedikit 15 karakter. Kalimat panjang yang mudah diingat paling baik."
           onChange={(e) => {
             setPassword(e.target.value)
             if (errors.password) setErrors((x) => ({ ...x, password: undefined }))
