@@ -207,7 +207,7 @@ Cabang `pilot/aman2`, dari `pilot/gabung` commit `d244a7c`. Sebelum selesai, `pi
 | Kritis | 0 | |
 | Tinggi | 0 | |
 | Sedang | 8 | Semua diperbaiki dan diuji ulang |
-| Rendah | 14 | Diperbaiki dan diuji ulang, kecuali R2 (sebagian) dan R13 (dibiarkan) |
+| Rendah | 15 | Diperbaiki dan diuji ulang, kecuali R2 (sebagian) dan R13 (dibiarkan) |
 | Terbuka, perlu keputusan pemilik | 11 | Lihat bagian "Yang masih terbuka" |
 
 Tidak ditemukan kebocoran data antar keluarga, naik peran, injeksi SQL, atau XSS tersimpan. Kesimpulan ini berlaku untuk jalur yang diuji di bawah, dan belum tentu berlaku untuk jalur yang tidak diuji.
@@ -365,7 +365,7 @@ Tiga nilai `.env` produksi yang perlu dipastikan: `KIRA_VALKEY_PASSWORD` terisi 
 ### Hasil tes pada kode akhir
 
 - `pnpm lint`: lulus. `pnpm typecheck`: lulus. `pnpm test`: 1.966 lulus, 3 gagal (tiga kegagalan jalur Windows yang sudah dikenal), 9 dilewati.
-- Tes database (`--project db --project web-db`) di Postgres sekali pakai: 252 dari 252 lulus, termasuk 13 tes baru di `uji-tembus.db.test.ts`.
+- Tes database (`--project db --project web-db`) di Postgres sekali pakai: 252 dari 252 lulus, termasuk 14 tes baru di `uji-tembus.db.test.ts`.
 - E2E `security-input` dan `security-access` pada image akhir: 48 dari 48 lulus, termasuk browser sungguhan yang memutar klip soal dengar dan eja lalu dinilai 2 dari 2.
 - E2E `security.spec`, `timed`, `placement`, dan `english` lulus satu commit sebelum akhir. `world.spec` gagal di pemeriksaan kontras warna (`color-contrast`) pada layar bos dan album, jadi langkah sesudahnya di tes itu tidak berjalan. Kontras itu berasal dari layar yang sudah ada dan tidak disentuh perbaikan ini, tetapi perlu dibetulkan sebelum tes itu bisa lulus.
 - Layar bos tanpa kunci hanya diuji tampil di browser. Penilaian servernya diuji di tes database.
