@@ -66,6 +66,8 @@ await sql.begin(async (tx) => {
   await tx`insert into learner_profile (user_id, org_id, name, avatar, grade, active) values
     (${aishaId}, ${orgId}, 'Aisha', 'fox', 2, true),
     (${rakaId}, ${orgId}, 'Raka', 'cat', 4, true)`
+  // Akun contoh sudah melewati onboarding dan walkthrough pertama.
+  await tx`update learner_profile set setup_path = 'custom', first_run_done_at = now() where org_id = ${orgId}`
   await tx`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgId}, ${mamaId}, ${aishaId}), (${orgId}, ${mamaId}, ${rakaId})`
   // Data contoh memakai hari Penuh (9 sesi wajib) supaya tes e2e lama tetap berlaku; learner baru memakai Seimbang.
   await tx`insert into day_rules (learner_id, org_id, preset) values (${aishaId}, ${orgId}, 'penuh'), (${rakaId}, ${orgId}, 'penuh')`

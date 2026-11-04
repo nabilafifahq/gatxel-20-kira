@@ -240,6 +240,8 @@ export const memberProfile = pgTable(
     name: text('name').notNull(),
     role: text('role', { enum: ['tutor', 'guardian'] }).notNull(),
     email: text('email').notNull(),
+    /** Laporan minggu pertama sudah dibuka, untuk daftar langkah di beranda keluarga (migrasi 0027). */
+    firstReportSeenAt: ts('first_report_seen_at'),
     createdAt: createdAt(),
     removedAt: ts('removed_at'),
   },
@@ -269,6 +271,10 @@ export const learnerProfile = pgTable(
     startedOn: date('started_on'),
     /** Streak dihitung mulai tanggal ini (diisi saat tutor mengatur ulang streak, migrasi 0013). Kosong berarti sejak started_on. */
     streakSince: date('streak_since'),
+    /** Jalur yang dipilih orang tua saat onboarding: recommended, custom, skipped. Kosong berarti belum memilih (migrasi 0027). */
+    setupPath: text('setup_path', { enum: ['recommended', 'custom', 'skipped'] }),
+    /** Walkthrough pertama anak sudah tampil atau dilewati (migrasi 0027). */
+    firstRunDoneAt: ts('first_run_done_at'),
     createdAt: createdAt(),
     updatedAt: ts('updated_at').notNull().defaultNow(),
     deletedAt: ts('deleted_at'),
