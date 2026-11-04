@@ -13,7 +13,7 @@ import { getSession } from './auth/session'
 const TTL_S = 30
 const LOCAL_TTL_MS = 5000
 
-type Entry = { v: string; lv: string; ov: string; date: string }
+type Entry = { v: string; lv: string; ov: string; date: string; lang?: string }
 const local = new Map<string, { at: number; e: Entry }>()
 const localVer = new Map<string, number>()
 
@@ -30,10 +30,10 @@ async function versions(learnerId: string, orgId: string): Promise<{ lv: string;
 }
 
 /** KIRA_TODAY_CACHE=off mematikan cache (CI e2e mengubah database langsung di luar Server Action). */
-export async function cachedToday<T>(who: { userId: string; orgId: string }, date: string, compute: () => Promise<T>): Promise<T> {
+export async function cachedToday<T>(who: { userId: string; orgId: string; uiLang?: string }, date: string, compute: () => Promise<T>): Promise<T> {
   if (process.env.KIRA_TODAY_CACHE === 'off') return compute()
   const { lv, ov, cached } = await versions(who.userId, who.orgId)
-  const valid = (e: Entry) => e.lv === lv && e.ov === ov && e.date === date
+  const valid = (e: Entry) => e.lv === lv && e.ov === ov && e.date === date && e.lang === who.uiLang
   if (cached) {
     try {
       const e = JSON.parse(cached) as Entry
@@ -46,7 +46,7 @@ export async function cachedToday<T>(who: { userId: string; orgId: string }, dat
     if (l && Date.now() - l.at < LOCAL_TTL_MS && valid(l.e)) return JSON.parse(l.e.v) as T
   }
   const data = await compute()
-  const entry: Entry = { v: JSON.stringify(data), lv, ov, date }
+  const entry: Entry = { v: JSON.stringify(data), lv, ov, date, lang: who.uiLang }
   if (kvConfigured()) await kvSet(keyOf(who.userId), JSON.stringify(entry), TTL_S)
   else {
     local.set(who.userId, { at: Date.now(), e: entry })

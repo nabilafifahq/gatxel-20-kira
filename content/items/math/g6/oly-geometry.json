@@ -737,16 +737,16 @@
         },
         {
           "say": "The hour hand has moved 4.5 hours, which is 4.5 × 30 = 135°.",
-          "mark": [
-            "30"
-          ],
           "anim": {
             "k": "combine",
             "a": 4.5,
             "op": "×",
             "b": 30,
             "r": 135
-          }
+          },
+          "mark": [
+            "30"
+          ]
         },
         {
           "say": "The difference is 45°."

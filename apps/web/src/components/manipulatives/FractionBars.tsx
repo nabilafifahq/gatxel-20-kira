@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
 import { compareFractions, DEFAULT_SPLITS, type BarState } from '@kira/content/manip'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
@@ -101,7 +101,7 @@ export function FractionBars({
                 ))}
               </div>
             ) : null}
-            <div role="group" aria-label={t.widgets.fractionBars.barCutAria(i + 1, bar.den)} className={cx('flex h-16 w-full overflow-hidden rounded-control border-3', ring)}>
+            <div role="group" aria-label={t.widgets.fractionBars.barCutAria(i + 1, bar.den)} style={{ '--den': bar.den, '--cols': bar.den >= 8 ? Math.ceil(bar.den / 2) : bar.den } as CSSProperties} className={cx('grid w-full gap-0.5 overflow-hidden rounded-control border-3 bg-fg [grid-template-columns:repeat(var(--cols),minmax(0,1fr))] sm:[grid-template-columns:repeat(var(--den),minmax(0,1fr))]', ring)}>
               {Array.from({ length: bar.den }, (_, k) => {
                 const on = k < bar.shaded
                 return (
@@ -113,7 +113,7 @@ export function FractionBars({
                     disabled={rowLocked}
                     onClick={() => shadeTo(i, k)}
                     className={cx(
-                      'relative min-w-0 flex-1 cursor-pointer border-0 border-l-2 border-fg p-0 first:border-l-0 disabled:cursor-default',
+                      'relative min-h-16 min-w-0 cursor-pointer border-0 p-0 disabled:cursor-default',
                       on ? (feedback === 'correct' ? 'bg-success' : feedback === 'not-yet' ? 'bg-warn' : TINT[i % TINT.length]) : 'bg-surface enabled:hover:bg-bg',
                     )}
                   >

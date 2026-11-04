@@ -49,7 +49,6 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
   const [captcha, setCaptcha] = useState<string | null>(null)
   const [captchaKey, setCaptchaKey] = useState(0)
   const [meta, setMeta] = useState({ userAgent: '', screen: '', when: '', from: fromPath })
-  const fileInput = useRef<HTMLInputElement>(null)
   const doneHeading = useRef<HTMLHeadingElement>(null)
 
   // Nilai ini hanya ada di browser. Waktu kirim yang sah dihitung ulang di server.
@@ -107,7 +106,8 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
     e.preventDefault()
     if (pending) return
     setFailure(null)
-    const problems = { ...validate(), ...(errors.attachment ? { attachment: errors.attachment } : {}) }
+    // Berkas yang ditolak server tetap menahan pengiriman sampai diganti atau dihapus. Pilihan yang ditolak di browser tidak ikut terkirim.
+    const problems = { ...validate(), ...(file && errors.attachment ? { attachment: errors.attachment } : {}) }
     setErrors(problems)
     const first = Object.keys(problems).find((k) => problems[k as keyof Errors])
     if (first) {
@@ -318,11 +318,20 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
             <span className="min-w-0 flex-1 text-body break-words">
               {file.name} <span className="text-small text-fg-muted">({kb(file.size)})</span>
             </span>
-            <IconButton icon="x" label="Hapus lampiran" variant="quiet" onClick={() => setFile(null)} />
+            <IconButton
+              icon="x"
+              label="Hapus lampiran"
+              variant="quiet"
+              onClick={() => {
+                setFile(null)
+                clear('attachment')
+                setFailure(null)
+              }}
+            />
           </div>
         ) : (
           <label className={cx('flex min-h-14 cursor-pointer items-center gap-3 rounded-control border-2 border-dashed px-4 py-2 font-semibold transition-colors duration-150 ease-kira hover:bg-lavender/50 motion-reduce:transition-none has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-fg', errors.attachment ? 'border-danger' : 'border-fg')}>
-            <input ref={fileInput} type="file" name="attachment" accept={ATTACHMENT_ACCEPT} aria-labelledby="lampiran-label" onChange={chooseFile} className="sr-only" />
+            <input type="file" name="attachment" accept={ATTACHMENT_ACCEPT} aria-labelledby="lampiran-label" onChange={chooseFile} className="sr-only" />
             <ConsoleIcon name="upload" size={22} />
             <span className="flex min-w-0 flex-1 flex-col">
               <span>Pilih berkas</span>
