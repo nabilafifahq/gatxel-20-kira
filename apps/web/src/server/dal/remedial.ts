@@ -3,7 +3,7 @@ import { eq } from 'drizzle-orm'
 import { modeAllowsHints, modeShowsFeedback, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
 import type { SolutionStep } from '@kira/content/schema'
-import type { Item } from '@kira/content'
+import { clashKeys, type Item } from '@kira/content'
 import type { RunnerItem } from '@/lib/dto'
 import type { Tx } from '../db'
 import { invalid, notFound } from '../errors'
@@ -69,10 +69,25 @@ export async function addRemedialItem(tx: Tx, learnerId: string, orgId: string, 
   const wrong = (await resolveItems(tx, [slot.ref])).get(slot.ref)
   if (!wrong) return null
   const pool = await poolForSkill(tx, orgId, wrong.skill, { allowManual: false })
-  const ref = pickSibling({ wrong, pool, takenRefs: new Set(all.map((i) => i.ref)), seed: `${a.id}:${position}:remedial` })
-  if (!ref) return null
-  const item = (await resolveItems(tx, [ref])).get(ref)
-  if (!item) return null
+  // Penjaga soal kembar pusat: soal serupa tidak boleh tampil sama atau berpola operan sama dengan soal yang sudah ada di sesi.
+  const present = await resolveItems(tx, all.map((i) => i.ref))
+  const taken = new Set<string>()
+  for (const it of present.values()) for (const k of clashKeys(it)) taken.add(k)
+  const takenRefs = new Set(all.map((i) => i.ref))
+  let ref: string | null = null
+  let item: Item | undefined
+  for (let tries = 0; tries < 8; tries++) {
+    const r = pickSibling({ wrong, pool, takenRefs, seed: `${a.id}:${position}:remedial:${tries}` })
+    if (!r) break
+    const it = (await resolveItems(tx, [r])).get(r)
+    if (it && !clashKeys(it).some((k) => taken.has(k))) {
+      ref = r
+      item = it
+      break
+    }
+    takenRefs.add(r)
+  }
+  if (!ref || !item) return null
   const entry: AttemptItem = { ref, section: 'core', position: Math.max(...all.map((i) => i.position)) + 1, difficulty: item.difficulty, remedialOf: position }
   await tx.update(attempt).set({ items: [...all, entry] }).where(eq(attempt.id, a.id))
   return render(entry, item)
