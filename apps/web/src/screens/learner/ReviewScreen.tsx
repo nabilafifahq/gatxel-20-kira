@@ -27,7 +27,7 @@ const STATUS_WORD: Record<ReviewQuestionDTO['status'], string> = {
   correct: 'correct',
   wrong: 'not yet',
   blank: 'no answer',
-  pending: 'waiting for your tutor',
+  pending: 'waiting to be looked at',
 }
 
 /** Pisahkan "B. 4" menjadi huruf dan teks. Huruf mengikuti urutan opsi di layar. */
@@ -117,7 +117,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
         <div className="flex min-w-0 flex-1 flex-col gap-3.5">
           <div className="flex flex-col gap-2.5">
             {manual ? (
-              <p className="m-0 text-body-lg">{q.status === 'pending' ? 'Your tutor has not marked this one yet.' : 'Your tutor marked this one.'}</p>
+              <p className="m-0 text-body-lg">{data.marker === 'grownup' ? (q.status === 'pending' ? 'Your grown-up can look at this one. It does not change your score.' : 'Your grown-up looked at this one.') : q.status === 'pending' ? 'Your tutor has not marked this one yet.' : 'Your tutor marked this one.'}</p>
             ) : (
               <>
                 <AnswerRow label="Your answer" answer={yours} tone={ok ? 'correct' : 'not-yet'} badge={ok ? 'correct' : 'not-yet'} />
@@ -127,7 +127,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
           </div>
           {q.tutorFeedback ? (
             <div className="flex flex-col gap-1 rounded-control border-2 border-fg bg-surface px-4 py-3">
-              <h3 className="m-0 text-body-lg font-bold">From your tutor</h3>
+              <h3 className="m-0 text-body-lg font-bold">{data.marker === 'grownup' ? 'From your grown-up' : 'From your tutor'}</h3>
               <p className="m-0 font-reading text-body-lg">{q.tutorFeedback}</p>
             </div>
           ) : null}

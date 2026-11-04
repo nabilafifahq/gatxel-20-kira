@@ -352,3 +352,13 @@ export async function badgesOf(tx: Tx, learnerId: string) {
 }
 
 export { BADGES }
+
+/**
+ * Siapa yang melihat jawaban tulis, bicara, gambar, dan foto. Keluarga tanpa tutor: orang dewasa di rumah,
+ * dengan kalimat yang ramah dan tidak pernah menunggu selamanya. Skor dan streak tidak menunggu penilaian itu.
+ */
+export async function markerFor(tx: Tx): Promise<'tutor' | 'grownup'> {
+  const r = await tx.execute(sql`select app_family_has_tutor() as t`)
+  const row = (r as unknown as { t: boolean }[])[0]
+  return row?.t === false ? 'grownup' : 'tutor'
+}

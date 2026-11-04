@@ -230,6 +230,8 @@ export type XpBarDTO = {
 
 export type ResultsDTO = {
   shell: LearnerShell
+  /** Siapa yang melihat jawaban tulis, bicara, gambar, dan foto: tutor, atau orang dewasa di rumah bila keluarga tanpa tutor. */
+  marker?: 'tutor' | 'grownup'
   attemptId: string
   subject: Subject
   title: string
@@ -290,6 +292,7 @@ export type ReviewQuestionDTO = {
 
 export type ReviewDTO = {
   shell: LearnerShell
+  marker?: 'tutor' | 'grownup'
   attemptId: string
   title: string
   subject: Subject

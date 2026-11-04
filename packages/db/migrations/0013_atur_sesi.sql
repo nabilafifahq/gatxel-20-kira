@@ -48,3 +48,14 @@ UPDATE plan_slot SET base = true WHERE required AND kind = 'quest';
 
 -- Atur ulang streak: hari sebelum tanggal ini tidak dihitung lagi. Kosong berarti sejak started_on.
 ALTER TABLE learner_profile ADD COLUMN IF NOT EXISTS streak_since date;
+--> statement-breakpoint
+
+-- Keluarga tanpa tutor (pendaftaran publik): soal tulis, bicara, gambar, dan foto tidak menunggu tutor, orang
+-- tua boleh melihat dan menilainya. Anak tidak boleh membaca member_profile, jadi pemeriksaannya lewat fungsi ini.
+CREATE OR REPLACE FUNCTION app_family_has_tutor() RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public AS $$
+  SELECT EXISTS (SELECT 1 FROM member_profile WHERE org_id = app_org_id() AND role = 'tutor' AND removed_at IS NULL)
+$$;
+--> statement-breakpoint
+REVOKE ALL ON FUNCTION app_family_has_tutor() FROM PUBLIC;
+--> statement-breakpoint
+GRANT EXECUTE ON FUNCTION app_family_has_tutor() TO kira_app, kira_worker;
