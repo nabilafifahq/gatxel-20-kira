@@ -429,6 +429,18 @@ const en = {
 
   ui: { loading: 'Loading', filters: 'Filters' },
   tryAgainFailed: 'Could not start another try. Check the internet and try once more.',
+
+  /** Tips pertama anak di Today (FirstRunTips). Paling banyak tiga, kalimat pendek. */
+  firstRun: {
+    region: 'Quick tips',
+    start: { title: 'Start with the big stop', body: "The biggest stop on your path is today's first session. Tap it to begin." },
+    stars: { title: 'Earn stars as you go', body: 'Finish a session to earn stars and XP. A wrong answer is fine. Have another go.' },
+    listen: { title: 'Listen and look around', body: 'Tap the speaker to hear a question. Map, Review, and Me are in the menu.' },
+    next: 'Next',
+    done: "Let's start",
+    skip: 'Skip tips',
+    stepOf: (n: number, total: number) => `Tip ${n} of ${total}`,
+  },
 }
 
 const id: typeof en = {
@@ -947,6 +959,17 @@ const id: typeof en = {
 
   ui: { loading: 'Memuat', filters: 'Filter' },
   tryAgainFailed: 'Belum bisa mencoba lagi. Periksa internet, lalu coba sekali lagi.',
+
+  firstRun: {
+    region: 'Tips singkat',
+    start: { title: 'Mulai dari perhentian besar', body: 'Perhentian paling besar di jalurmu adalah sesi pertama hari ini. Ketuk untuk mulai.' },
+    stars: { title: 'Kumpulkan bintang', body: 'Selesaikan sesi untuk mendapat bintang dan XP. Salah itu biasa. Coba lagi, ya.' },
+    listen: { title: 'Dengarkan dan lihat-lihat', body: 'Ketuk ikon suara untuk mendengar soal. Peta, Ulas lagi, dan Aku ada di menu.' },
+    next: 'Lanjut',
+    done: 'Ayo mulai',
+    skip: 'Lewati tips',
+    stepOf: (n, total) => `Tip ${n} dari ${total}`,
+  },
 }
 
 export const shell = { en, id }
