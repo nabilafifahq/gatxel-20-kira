@@ -178,8 +178,9 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   const sk = skill(input.skillId)
   const allowManual = input.allowManual ?? (input.style === 'test' ? false : sk ? MANUAL_STRANDS.has(sk.strand) : false)
   const manipulatives = await isFeatureOn(learner.userId, 'manipulatives')
-  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, manipulatives, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
-  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false, manipulatives }))]
+  const playableOnly = input.style === 'test'
+  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, manipulatives, playableOnly, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
+  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false, manipulatives, playableOnly }))]
   if (input.accept) pool = pool.filter(input.accept)
   const seen = await recentSeen(tx, learner.userId)
   const states = await skillStates(tx, learner.userId)

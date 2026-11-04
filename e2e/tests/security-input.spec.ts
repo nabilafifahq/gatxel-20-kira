@@ -362,14 +362,26 @@ test.describe('uji tembus 5 November', () => {
     }
   })
 
-  test('tantangan bos: kunci dan pembahasan tidak ada di halaman runner', async () => {
+  test('tantangan bos: kunci dan pembahasan tidak ada di halaman runner', async ({ browser }) => {
     const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
     const ctx = await api(kid)
-    const start = await ctx.get('/world/boss/start', { maxRedirects: 0 })
+    const start = await ctx.get('/world/boss/start?b=robot', { maxRedirects: 0 })
     const location = start.headers().location ?? ''
     test.skip(!location.includes('/run/'), 'Bank soal seed terlalu kecil untuk tantangan bos')
     const body = (await (await ctx.get(location)).text()).replace(/\\"/g, '"')
     for (const field of ['"key":', '"reveal":', '"explanation":', '"whyWrong":', '"hasSolution":']) expect(body, field).not.toContain(field)
+    // Tanpa kunci di perangkat, jawaban tetap dinilai server lewat layar yang sama.
+    const attemptId = location.split('/').pop()!
+    const context = await browser.newContext({ baseURL: BASE, extraHTTPHeaders: { Cookie: `${SESSION_COOKIE}=${kid.token}` } })
+    const page = await context.newPage()
+    await page.goto(location)
+    const options = page.getByRole('group', { name: 'Answers' }).getByRole('button')
+    await expect(options.first()).toBeVisible()
+    await options.first().click()
+    await page.getByRole('button', { name: /^Check/ }).click()
+    await expect.poll(async () => (await db()`select status from response where attempt_id = ${attemptId} order by answered_at desc limit 1`)[0]?.status, { timeout: 20_000 }).toMatch(/^(correct|wrong)$/)
+    await expect(page.getByRole('button', { name: /^Check/ })).toHaveCount(0)
+    await context.close()
   })
 
   test('rute mulai sesi dibatasi 60 per menit per anak', async () => {

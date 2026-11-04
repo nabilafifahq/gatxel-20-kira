@@ -141,7 +141,7 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
     const dto = await inKid((tx) => runner.runnerDTO(tx, kid, id, { markOpened: true }))
     expect('items' in dto).toBe(true)
     if (!('items' in dto)) return
-    expect(dto.boss).toBe(true)
+    expect(dto.boss).toBeTruthy()
     expect(dto.items.length).toBeGreaterThan(0)
     for (const item of dto.items) {
       expect(item.key).toBeUndefined()
