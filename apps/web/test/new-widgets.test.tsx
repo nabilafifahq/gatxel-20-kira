@@ -94,7 +94,7 @@ describe('speakableText never reads the hidden text', () => {
   })
 })
 
-describe('speakableClipParts (klip suara Qwen)', () => {
+describe('speakableClipParts (klip suara klip)', () => {
   it('never include the hidden listen text or the spelling word', () => {
     const l = speakableClipParts(present(listen))
     expect(l.join(' ')).toContain('Which animal did you hear?')

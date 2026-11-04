@@ -1,6 +1,11 @@
-# torch dipasang terpisah di Dockerfile (indeks CUDA atau CPU). qwen-tts menarik transformers dan sisanya.
-qwen-tts
+# torch dipasang terpisah di Dockerfile (indeks CUDA atau CPU). Kokoro-82M (Apache-2.0) menarik misaki dan sisanya.
+kokoro>=0.9.4
+misaki[en]>=0.9.4
 soundfile
 numpy
 huggingface_hub
 nvidia-ml-py
+# Pemeriksa kualitas (check_clips.py): transkripsi Whisper di GPU dan analisis nada.
+piper-tts
+faster-whisper
+librosa

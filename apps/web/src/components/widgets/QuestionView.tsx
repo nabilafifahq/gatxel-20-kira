@@ -2,7 +2,7 @@
 
 import { useId, useState, type ReactElement, type ReactNode } from 'react'
 import type { ClientItem } from '@kira/content/present'
-import { styleForPassageKind } from '@kira/core/tts'
+import { passageClipPlan } from '@kira/core/tts'
 import type { Subject } from '@/lib/dto'
 import { Button, IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -84,8 +84,8 @@ function PassagePanel({ passage, lang, tap = false }: { passage: NonNullable<Cli
           <UiIcon name={open ? 'chevron-up' : 'chevron-down'} size={20} />
         </Button>
       </div>
-      <div id={bodyId} hidden={!open} className="max-h-[40svh] overflow-y-auto px-4 pb-4">
-        <ReadAloudButton text={passage.text} style={styleForPassageKind(passage.kind)} lang={lang} subject="english" showNote={false} className="mb-3" />
+      <div id={bodyId} hidden={!open} lang={lang} className="max-h-[40svh] overflow-y-auto px-4 pb-4">
+        <ReadAloudButton text={passageClipPlan(passage.kind, passage.text)} lang={lang} subject="english" showNote={false} className="mb-3" />
         {passage.text.split(/\n{2,}/).map((para, i) => (
           <p key={i} lang={lang} className="text-question mt-0 mb-3 last:mb-0">
             {tap ? <TapWords text={para} /> : para}
