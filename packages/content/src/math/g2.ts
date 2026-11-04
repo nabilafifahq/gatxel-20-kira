@@ -1077,7 +1077,7 @@ const timesTables: Generator = {
             { value: `${g} × ${s + 1}`, why: `Each ${thing.holder} has ${s}, not ${s + 1}.` },
             { value: `${g + 1} × ${s}`, why: `Count the ${thing.holders} again. There are ${g}.` },
           ]),
-          hints: [`Count the ${thing.holders}.`, `How many are in each ${thing.holder}?`, `${g} groups of ${s} is written with ×.`],
+          hints: [`Count the ${thing.holders}.`, `How many are ${thing.in} each ${thing.holder}?`, `${g} groups of ${s} is written with ×.`],
           explanation: `There are ${g} groups with ${s} in each, so the picture shows ${g} × ${s} = ${g * s}.`,
         }
       }
@@ -1801,7 +1801,7 @@ const ACTIVITIES: readonly { what: string; unit: 'seconds' | 'minutes' | 'hours'
   { what: 'clap your hands 5 times', unit: 'seconds' },
   { what: 'brush your teeth', unit: 'minutes' },
   { what: 'eat a banana', unit: 'minutes' },
-  { what: 'sleep at night', unit: 'hours' },
+  { what: 'sleep through the night', unit: 'hours' },
   { what: 'fly from Jakarta to Bali', unit: 'hours' },
   { what: 'grow a bean plant', unit: 'days' },
 ]
@@ -1830,7 +1830,7 @@ const timeDurations: Generator = {
         prompt: `How long does it take to ${act.what}? Choose the best unit.`,
         ...mcqFrom(rng, act.unit, order.filter((x) => x !== act.unit).map((x) => ({ value: x, why: order.indexOf(x) < idx ? `${cap(x)} are too short for this.` : `${cap(x)} are too long for this.` }))),
         hints: ['Imagine doing it. Is it quick or slow?', 'Seconds are very short. Days are very long.', 'Think: could you count it, or does it take longer?'],
-        explanation: `It takes some ${act.unit} to ${act.what}, so ${act.unit} is the best unit.`,
+        explanation: `We use ${act.unit} to say how long it takes to ${act.what}.`,
       }
     }
     if (level === 2) {
@@ -2033,9 +2033,9 @@ const shapes2d2: Generator = {
       const info = SHAPE_INFO[s]
       return {
         type: 'mcq',
-        prompt: `I have ${info.sides} straight sides and ${vertexText(info.corners)}.${s === 'rectangle' ? ' My opposite sides are equal.' : ''} What shape am I?`,
+        prompt: `I have ${info.sides} straight sides and ${vertexText(info.corners)}.${s === 'rectangle' ? ' 2 of my sides are long and 2 are short.' : ''} What shape am I?`,
         ...mcqFrom(rng, s, rng.shuffle(G2_SHAPES.filter((x) => x !== s && x !== 'circle')).map((x) => ({ value: x, why: SHAPE_INFO[x].about }))),
-        hints: ['Use the number of sides.', 'Shape names often tell the number of sides: penta is 5, hexa is 6, octa is 8.', `Which shape has exactly ${info.sides} sides?`],
+        hints: ['Use the number of sides.', 'Shape names often tell the number of sides: penta is 5, hexa is 6, octa is 8.', s === 'rectangle' ? 'Which shape with 4 sides has 2 long sides and 2 short sides?' : `Which shape has exactly ${info.sides} sides?`],
         explanation: `${cap(art(s))} ${s} has ${info.sides} sides and ${vertexText(info.corners)}.`,
       }
     }
