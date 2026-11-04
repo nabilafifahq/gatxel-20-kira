@@ -419,9 +419,9 @@ export function signup() {
     bizOk.add(false, { name: 'signup_verify' })
     return
   }
+  // Browser mengonfirmasi sendiri begitu halaman terbuka, tanpa langkah password.
   page('/daftar/konfirmasi/' + token, '', 'signup_confirm_page')
-  think(2, 5)
-  const v = action('verifySignupAction', [{ token, password: SIGNUP_PASSWORD }], '/daftar/konfirmasi/' + token, '', 'signup_verify')
+  const v = action('verifySignupAction', [{ token }], '/daftar/konfirmasi/' + token, '', 'signup_verify')
   if (v.body.indexOf('"status":"ok"') < 0) {
     if (v.body.indexOf('"status":"full"') >= 0) verifyFull.add(1)
     else verifyOther.add(1)

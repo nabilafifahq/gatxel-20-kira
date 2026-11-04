@@ -63,13 +63,29 @@ describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
     expect(row!.password_hash).not.toContain(PASSWORD)
     expect(new Date(row!.expires_at).getTime() - Date.now()).toBeGreaterThan(23 * 3600 * 1000)
     expect(new Date(row!.expires_at).getTime() - Date.now()).toBeLessThanOrEqual(24 * 3600 * 1000)
-    // Pre-hijack: tanpa password yang benar, token tidak terpakai dan kursi tidak terambil.
-    expect(await count(owner`select count(*)::int as n from auth.signup where email_norm = ${`ibu${run}@gmail.com`}`)).toBe(1)
+    // Token saja cukup (keputusan pemilik, lihat docs/laporan-keamanan.md), dan hanya sekali.
     const ok = await svc.verifySignup(token)
     expect(ok.status).toBe('ok')
     expect((await svc.verifySignup(token)).status).toBe('invalid')
-    const [u] = await owner`select role, kind, email_norm from auth.user_account where lower(email) = ${email}`
+    const [u] = await owner`select role, kind, email_norm, password_hash from auth.user_account where lower(email) = ${email}`
     expect(u).toMatchObject({ role: 'guardian', kind: 'adult', email_norm: `ibu${run}@gmail.com` })
+    // Password dari formulir daftar yang menjadi password akun.
+    const { verifySecret } = await import('@/server/auth/password')
+    expect(await verifySecret(u!.password_hash as string, PASSWORD)).toBe(true)
+  })
+
+  it.each([
+    ['terlalu pendek', 'Pendek-1!', /13 karakter/],
+    ['tanpa huruf kapital', 'tanpa-kapital-panjang-2026!', /huruf kapital/],
+    ['tanpa angka', 'Tanpa-angka-yang-panjang!', /satu angka/],
+    ['tanpa simbol', 'TanpaSimbolYangPanjang2026', /satu simbol/],
+  ])('password lemah ditolak server dan tidak disimpan: %s', async (_label, password, message) => {
+    await expect(svc.startSignup({ name: 'Ibu Lemah', email: `lemah.${run}@gmail.com`, password, consent: true, ipHash: 'x' })).rejects.toThrow(message)
+    expect(await count(owner`select count(*)::int as n from auth.signup where email_norm = ${`lemah${run}@gmail.com`}`)).toBe(0)
+  })
+
+  it('password yang memuat bagian awal email ditolak server', async () => {
+    await expect(svc.startSignup({ name: 'Ibu Lemah', email: `lemah.${run}@gmail.com`, password: `Aa1!-lemah.${run}-kalimat`, consent: true, ipHash: 'x' })).rejects.toThrow(/alamat email/)
   })
 
   it('email yang sudah punya akun: jawaban sama, tidak ada pendaftar baru, pemilik dikabari', async () => {

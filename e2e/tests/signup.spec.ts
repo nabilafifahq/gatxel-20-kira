@@ -3,15 +3,16 @@ import { expect, test, type Page } from '@playwright/test'
 import { closeDb, db } from './helpers'
 
 /**
- * Pendaftaran publik end to end dengan Mailpit (SMTP lokal). Dilewati bila MAILPIT_URL tidak diisi
- * (misalnya http://127.0.0.1:8025), karena CI belum menyediakan Mailpit.
+ * Pendaftaran publik end to end dengan Mailpit (SMTP lokal). Alur yang butuh email dilewati bila MAILPIT_URL tidak
+ * diisi (misalnya http://127.0.0.1:8025), karena CI belum menyediakan Mailpit. Syarat password tidak butuh email,
+ * jadi selalu jalan.
  */
 const MAILPIT = process.env.MAILPIT_URL
-test.skip(!MAILPIT, 'MAILPIT_URL belum diisi')
 test.afterAll(closeDb)
 
 const run = randomBytes(4).toString('hex')
-const PASSWORD = 'kalimat-panjang-yang-mudah-diingat-2026'
+const PASSWORD = 'Kalimat-panjang-mudah-diingat-2026!'
+const NEW_PASSWORD = 'Password-baru-yang-panjang-2026!'
 
 type Mail = { Text: string; Subject: string; To: { Address: string }[] }
 
@@ -45,7 +46,93 @@ async function seatsFree(): Promise<number> {
   return 100 - (row!.n as number)
 }
 
+test.describe('syarat password', () => {
+  const field = (page: Page) => page.getByLabel('Password', { exact: true })
+  const submit = (page: Page) => page.getByRole('button', { name: 'Daftar', exact: true }).click()
+  const rule = (page: Page, text: string) => page.getByRole('list', { name: 'Syarat password' }).getByRole('listitem').filter({ hasText: text })
+
+  /** Ketikan baru terbaca setelah React aktif, jadi diulang sampai daftar centang bereaksi. */
+  async function untilHydrated(page: Page) {
+    await expect(async () => {
+      await field(page).fill('')
+      await field(page).pressSequentially('A')
+      await expect(rule(page, 'huruf kapital')).toContainText('sudah terpenuhi', { timeout: 1000 })
+    }).toPass()
+  }
+
+  test('daftar centang terpenuhi satu per satu sambil mengetik', async ({ page }) => {
+    await page.goto('/daftar')
+    const rules = {
+      length: rule(page, 'Minimal 13 karakter'),
+      upper: rule(page, 'huruf kapital'),
+      number: rule(page, 'Ada angka'),
+      symbol: rule(page, 'Ada simbol'),
+    }
+    const expectMet = async (...met: (keyof typeof rules)[]) => {
+      for (const key of Object.keys(rules) as (keyof typeof rules)[]) await expect(rules[key]).toContainText(met.includes(key) ? 'sudah terpenuhi' : 'belum terpenuhi')
+    }
+    await expectMet()
+
+    await untilHydrated(page)
+    await expectMet('upper')
+    await field(page).pressSequentially('1')
+    await expectMet('upper', 'number')
+    await field(page).pressSequentially('!')
+    await expectMet('upper', 'number', 'symbol')
+    // Dua belas karakter belum cukup, karakter ketiga belas memenuhi semuanya.
+    await field(page).pressSequentially('abcdefghi')
+    await expectMet('upper', 'number', 'symbol')
+    await field(page).pressSequentially('j')
+    await expectMet('length', 'upper', 'number', 'symbol')
+    // Menghapus karakter membatalkan centangnya lagi.
+    await field(page).press('Backspace')
+    await expectMet('upper', 'number', 'symbol')
+  })
+
+  test('password lemah ditolak di browser dan juga oleh server', async ({ page }) => {
+    await page.goto('/daftar')
+    await untilHydrated(page)
+    await page.getByLabel('Nama orang tua').fill('Ibu Uji Lemah')
+    await page.getByLabel('Email', { exact: true }).fill(`kira.lemah.${run}@gmail.com`)
+    await page.getByRole('checkbox', { name: /Saya setuju/ }).check()
+    const toServer: string[] = []
+    page.on('request', (r) => {
+      if (r.method() === 'POST' && r.headers()['next-action']) toServer.push(r.url())
+    })
+
+    // Di browser: pesan muncul tanpa permintaan ke server.
+    await field(page).fill('Pendek-1!')
+    await submit(page)
+    await expect(page.getByText('Password paling sedikit 13 karakter.').first()).toBeVisible()
+    expect(toServer).toEqual([])
+
+    // Pemeriksaan browser dilewati: formulir lolos dengan password kuat, lalu permintaannya diubah menjadi lemah.
+    for (const [weak, message] of [
+      ['Pendek-1!', 'Password paling sedikit 13 karakter.'],
+      ['tanpa-kapital-panjang-2026!', 'Tambahkan paling sedikit satu huruf kapital.'],
+    ] as const) {
+      await page.route('**/daftar', async (route) => {
+        const req = route.request()
+        if (req.method() !== 'POST' || !req.headers()['next-action']) return route.continue()
+        const body = req.postData() ?? ''
+        expect(body).toContain(PASSWORD)
+        return route.continue({ postData: body.replace(PASSWORD, weak) })
+      })
+      await field(page).fill(PASSWORD)
+      await expect(page.getByText(message)).toHaveCount(0)
+      await submit(page)
+      await expect(page.getByText(message).first()).toBeVisible()
+      await page.unroute('**/daftar')
+    }
+    expect(toServer).toHaveLength(2)
+    await expect(page.getByRole('heading', { name: 'Cek email Anda' })).toHaveCount(0)
+    const rows = await db()`select 1 from auth.signup where email_norm = ${`kiralemah${run}@gmail.com`}`
+    expect(rows).toHaveLength(0)
+  })
+})
+
 test.describe('pendaftaran orang tua', () => {
+  test.skip(!MAILPIT, 'MAILPIT_URL belum diisi')
   test.describe.configure({ mode: 'serial' })
   const email = `kira.uji.${run}@gmail.com`
 
@@ -96,15 +183,12 @@ test.describe('pendaftaran orang tua', () => {
 
     const mail = await mailTo(email, 'Konfirmasi email')
     const link = linkIn(mail, '/daftar/konfirmasi/')
-    // Membuka tautan saja tidak memakai token atau kursi.
+    // Pemindai email tanpa JavaScript tidak memakai token atau kursi.
+    expect((await page.request.get(link)).status()).toBe(200)
+    expect(await seatsFree()).toBe(before)
+    // Browser sungguhan: tanpa langkah password, akun aktif dan langsung masuk ke langkah tambah anak.
     await page.goto(link)
-    expect(await seatsFree()).toBe(before)
-    await page.getByLabel('Password', { exact: true }).fill('password-yang-salah-sama-sekali')
-    await page.getByRole('button', { name: 'Konfirmasi email' }).click()
-    await expect(page.getByText('Password belum cocok dengan yang dibuat saat mendaftar.')).toBeVisible()
-    expect(await seatsFree()).toBe(before)
-    await page.getByLabel('Password', { exact: true }).fill(PASSWORD)
-    await page.getByRole('button', { name: 'Konfirmasi email' }).click()
+    await expect(page.getByLabel('Password', { exact: true })).toHaveCount(0)
     await expect(page).toHaveURL(/\/mulai/, { timeout: 45_000 })
     expect(await seatsFree()).toBe(before - 1)
 
@@ -143,7 +227,7 @@ test.describe('pendaftaran orang tua', () => {
     const known = await page.getByText(/Bila ada akun Kira/).textContent()
     const mail = await mailTo(email, 'Atur ulang password')
     await page.goto(linkIn(mail, '/reset/'))
-    await page.getByLabel(/Password baru|Password/).first().fill('password-baru-yang-panjang-2026')
+    await page.getByLabel(/Password baru|Password/).first().fill(NEW_PASSWORD)
     await page.getByRole('button', { name: /Simpan|Atur ulang/ }).first().click()
     await expect(page).toHaveURL(/\/masuk\?notice=reset-done/)
 
