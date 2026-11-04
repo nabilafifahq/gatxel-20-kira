@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import type { WorldPeekDTO } from '@/lib/dto-world'
 import { WorldPeek } from '@/components/learner/world/WorldPeek'
@@ -13,7 +15,9 @@ import { QuestStopBig, QuestStopRow } from '@/components/learner/QuestStop'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { FreezePill, StreakChain, StreakCount } from '@/components/learner/StreakChain'
 import { SubjectChip } from '@/components/learner/SubjectChip'
-import { SUBJECT_NAME } from '@/components/learner/subject'
+import { subjectName } from '@/components/learner/subject'
+import type { Dict, UiLang } from '@/lib/i18n'
+import { useLang, useT } from '@/lib/i18n/client'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
 import { DailyChest, type ChestActions } from '@/components/learner/DailyChest'
 
@@ -30,13 +34,13 @@ import { DailyChest, type ChestActions } from '@/components/learner/DailyChest'
 type Note = { icon: 'moon' | 'clock'; title: string; line: string; cta: { label: string; href: string } | null }
 
 /** Hari istirahat dan batas waktu mengganti jalur dengan catatan besar. */
-function noteFor(data: TodayDTO, doneHref: string): Note | null {
-  if (data.variant === 'rest-day') return { icon: 'moon', title: 'Rest day', line: 'Your streak is safe.', cta: null }
+function noteFor(data: TodayDTO, doneHref: string, t: Dict, lang: UiLang): Note | null {
+  if (data.variant === 'rest-day') return { icon: 'moon', title: t.shell.today.restTitle, line: t.shell.today.restLine, cta: null }
   if (data.variant === 'time-limit') {
     const left = data.groups.flatMap((g) => g.stops).filter((s) => s.state !== 'done')
-    const names = [...new Set(left.map((s) => SUBJECT_NAME[s.subject]))]
-    const line = names.length > 0 ? `${joinAnd(names)} ${names.length === 1 ? 'moves' : 'move'} to tomorrow. Your answers are saved.` : 'Your answers are saved.'
-    return { icon: 'clock', title: 'Time for a break', line, cta: { label: "See today's work", href: doneHref } }
+    const names = [...new Set(left.map((s) => subjectName(s.subject, t)))]
+    const line = names.length > 0 ? t.shell.today.moveToTomorrow(joinAnd(names, lang), names.length) : t.shell.today.answersSaved
+    return { icon: 'clock', title: t.shell.today.breakTitle, line, cta: { label: t.shell.today.seeWork, href: doneHref } }
   }
   return null
 }
@@ -68,19 +72,20 @@ function NoteStop({ row }: { row: Note }): ReactElement {
 }
 
 function Progress({ data }: { data: TodayDTO }): ReactElement {
+  const t = useT()
   const { done, total, extraDone, extraTotal } = data.progress
   const pct = total > 0 ? Math.round((done / total) * 100) : 0
   return (
     <div className="flex flex-col gap-2">
       <p className="m-0 text-body-lg font-bold">
-        {done} of {total} sessions done
+        {t.shell.today.sessionsDone(done, total)}
         {extraTotal > 0 ? (
           <span className="font-semibold text-fg-muted">
-            , optional {extraDone} of {extraTotal}
+            {t.shell.today.optionalDone(extraDone, extraTotal)}
           </span>
         ) : null}
       </p>
-      <div role="img" aria-label={`${done} of ${total} sessions done`} className="flex h-3 overflow-hidden rounded-pill bg-divider">
+      <div role="img" aria-label={t.shell.today.sessionsDone(done, total)} className="flex h-3 overflow-hidden rounded-pill bg-divider">
         <span className="bg-fg" style={{ width: `${pct}%` }} />
       </div>
     </div>
@@ -88,13 +93,14 @@ function Progress({ data }: { data: TodayDTO }): ReactElement {
 }
 
 function GroupHeading({ group }: { group: TodayGroupDTO }): ReactElement {
+  const t = useT()
   return (
     <div className="flex flex-wrap items-center gap-3 pl-28 md:pl-36">
       <h3 className="m-0 text-h3 font-bold">
         <SubjectChip subject={group.subject} size="S" label={group.label} />
       </h3>
       <span className="text-body font-semibold text-fg-muted tabular-nums">
-        {group.done} of {group.total} done
+        {t.shell.today.groupDone(group.done, group.total)}
       </span>
     </div>
   )
@@ -102,8 +108,10 @@ function GroupHeading({ group }: { group: TodayGroupDTO }): ReactElement {
 
 /** Kartu hari pertama: mengajak anak mengambil tes penempatan. Hari belajar tetap jalan bila dilewati. */
 function PlacementCard({ card }: { card: PlacementCardDTO }): ReactElement {
+  const t = useT()
+  const lang = useLang()
   const started = card.subjects.some((s) => s.status === 'in_progress')
-  const names = joinAnd(card.subjects.map((s) => s.label))
+  const names = joinAnd(card.subjects.map((s) => t.common.subject[s.subject]), lang)
   return (
     <section aria-labelledby="today-placement" className="flex flex-col gap-3 rounded-card border-2 border-fg bg-surface px-4 py-4 md:flex-row md:items-center md:gap-6 md:px-6">
       <span className="flex h-14 w-14 flex-none items-center justify-center rounded-card border-2 border-fg">
@@ -111,21 +119,23 @@ function PlacementCard({ card }: { card: PlacementCardDTO }): ReactElement {
       </span>
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <h2 id="today-placement" className="m-0 text-h3 font-bold">
-          {started ? 'Carry on with your starting point' : 'Find your starting point'}
+          {started ? t.shell.today.placementContinueTitle : t.shell.today.placementFindTitle}
         </h2>
         <p className="m-0 text-body text-fg-muted">
-          {names}: about 5 minutes each. This helps Kira pick the right questions. No timer and no score. You can still do today&apos;s sessions first.
+          {t.shell.today.placementBody(names)}
         </p>
       </div>
       <ButtonLink href="/placement" variant="primary" className="flex-none">
-        {started ? 'Carry on' : "Let's go"}
+        {started ? t.shell.today.placementContinue : t.shell.today.placementStart}
       </ButtonLink>
     </section>
   )
 }
 
 export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions, placement, world }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions; placement?: PlacementCardDTO | null; world?: WorldPeekDTO | null }): ReactElement {
-  const note = noteFor(data, doneHref)
+  const t = useT()
+  const lang = useLang()
+  const note = noteFor(data, doneHref, t, lang)
   const streak = data.streak
   // Batas waktu: hanya sesi yang sudah selesai tetap tampil di jalur.
   const groups =
@@ -151,7 +161,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
 
         {world ? <WorldPeek world={world} /> : null}
 
-        <section aria-label="Streak" className="flex flex-col gap-2.5 rounded-card bg-surface shadow-soft px-3 py-3.5 sm:px-4 md:hidden">
+        <section aria-label={t.shell.today.streak} className="flex flex-col gap-2.5 rounded-card bg-surface shadow-soft px-3 py-3.5 sm:px-4 md:hidden">
           <div className="flex items-center justify-between gap-3">
             <StreakCount current={streak.current} layout="inline" />
             <FreezePill count={streak.freezes} className="h-8" />
@@ -164,7 +174,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
         {data.progress.total > 0 && data.variant !== 'rest-day' ? <Progress data={data} /> : null}
 
         {data.tracks ? (
-          <section aria-label="Your levels" className="rounded-card bg-surface shadow-soft px-4 py-3.5 md:px-6">
+          <section aria-label={t.shell.today.yourLevels} className="rounded-card bg-surface shadow-soft px-4 py-3.5 md:px-6">
             <XpTrackBars tracks={data.tracks} variant="compact" />
           </section>
         ) : null}
@@ -176,9 +186,9 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           {shown.length > 0 ? (
             <div className="flex flex-col gap-1 pl-28 md:pl-36">
               <h2 id="today-required" className="m-0 text-h2 font-bold">
-                Required today
+                {t.shell.today.requiredTitle}
               </h2>
-              <p className="m-0 text-body text-fg-muted">Finish the required ones to keep your streak.</p>
+              <p className="m-0 text-body text-fg-muted">{t.shell.today.requiredLine}</p>
             </div>
           ) : null}
           {note ? <NoteStop row={note} /> : null}
@@ -191,7 +201,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
             />
           ) : null}
           {shown.map((group) => (
-            <div key={group.subject} role="group" aria-label={`${group.label} sessions`} className="relative flex flex-col gap-4 md:gap-5">
+            <div key={group.subject} role="group" aria-label={t.shell.today.groupSessions(group.label)} className="relative flex flex-col gap-4 md:gap-5">
               <GroupHeading group={group} />
               {group.stops.map((stop) =>
                 stop.questId !== null && stop.questId === data.activeQuestId && data.variant !== 'time-limit' ? (
@@ -212,9 +222,9 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           <section aria-labelledby="today-extra" className="flex flex-col gap-4 rounded-card bg-surface shadow-soft px-4 py-5 md:px-6">
             <div className="flex flex-col gap-1">
               <h2 id="today-extra" className="m-0 text-h2 font-bold">
-                Optional today
+                {t.shell.today.optionalTitle}
               </h2>
-              <p className="m-0 text-body text-fg-muted">Only if you want more. Your streak does not change.</p>
+              <p className="m-0 text-body text-fg-muted">{t.shell.today.optionalLine}</p>
             </div>
             {extras.map((stop) => (
               <QuestStopRow key={stop.questId ?? stop.href ?? stop.session} stop={stop} size="auto" />
@@ -226,22 +236,22 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           <div className="mt-auto flex flex-col gap-3 pt-2 lg:flex-row">
             {data.nextCompetition ? (
               <section
-                aria-label="Next competition"
+                aria-label={t.shell.today.nextCompetition}
                 className="flex h-16 min-w-0 flex-1 items-center gap-3 rounded-card bg-surface shadow-soft px-4 md:h-18 md:gap-4 md:px-6"
               >
                 <UiIcon name="trophy" size={28} className="h-6 w-6 flex-none md:h-7 md:w-7" />
                 <div className="flex min-w-0 flex-col">
-                  <span className="hidden text-body text-fg-muted md:block">Next competition</span>
+                  <span className="hidden text-body text-fg-muted md:block">{t.shell.today.nextCompetition}</span>
                   <span className="text-body md:text-body-lg md:font-bold">
-                    <span className="md:hidden">Next: </span>
+                    <span className="md:hidden">{t.shell.today.nextShort}</span>
                     <strong className="font-bold">{data.nextCompetition.name}</strong>
                   </span>
                 </div>
                 <div className="ml-auto flex items-baseline gap-1 md:gap-2">
                   <span className="font-numbers text-h1 font-semibold tabular-nums">{data.nextCompetition.daysToGo}</span>
                   <span className="text-body font-semibold">
-                    {data.nextCompetition.daysToGo === 1 ? 'day' : 'days'}
-                    <span className="hidden md:inline"> to go</span>
+                    {t.shell.today.days(data.nextCompetition.daysToGo)}
+                    <span className="hidden md:inline">{t.shell.today.toGo}</span>
                   </span>
                 </div>
               </section>

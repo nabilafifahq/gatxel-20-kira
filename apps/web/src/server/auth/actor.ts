@@ -1,6 +1,9 @@
 import 'server-only'
 import { redirect } from 'next/navigation'
 import type { OrgContext } from '@kira/db/client'
+import type { ActionResult } from '@/lib/dto'
+import { dictFor, tOf } from '@/lib/i18n'
+import { getT } from '@/lib/i18n/server'
 import { AppError, forbidden, unauthenticated } from '../errors'
 import { throttleIp } from './ratelimit'
 import { getSession, type SessionInfo } from './session'
@@ -28,7 +31,7 @@ export async function requireActor(opts: { roles?: Role[] } = {}): Promise<Actor
     await throttleIp(`u:${actor.role}`, actor.role === 'learner' ? 900 : 300, actor.userId)
   } catch (e) {
     if (e instanceof AppError && e.code === 'rate-limited' && actor.role === 'learner')
-      throw new AppError('rate-limited', 'Slow down a little. Try again in a moment.', undefined, e.retryAfter)
+      throw new AppError('rate-limited', tOf(actor).shell.errors.rateLimited, undefined, e.retryAfter)
     throw e
   }
   return actor
@@ -48,6 +51,19 @@ export function requireLearner(): Promise<Actor> {
 
 export function homeFor(role: Role): string {
   return role === 'tutor' ? '/konsol' : role === 'guardian' ? '/keluarga' : '/today'
+}
+
+/** Pesan umum toFailure untuk anak selalu berbahasa Inggris: ganti dengan bahasa tampilannya. Pesan AppError sudah diterjemahkan di sumbernya. */
+export async function localFailure<T>(res: ActionResult<T>): Promise<ActionResult<T>> {
+  if (res.ok) return res
+  const en = dictFor('en').shell.errors
+  const key = res.message === en.generic ? 'generic' : res.message === en.badInput ? 'badInput' : null
+  if (!key) return res
+  try {
+    return { ...res, message: (await getT()).shell.errors[key] }
+  } catch {
+    return res
+  }
 }
 
 /** Untuk halaman: alihkan ke halaman masuk yang sesuai bila belum masuk atau salah peran. */

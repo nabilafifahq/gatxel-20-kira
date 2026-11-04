@@ -1,4 +1,6 @@
-/** Format tanggal dan waktu untuk layar learner (en-GB, zona Asia/Jakarta). */
+import { htmlLang, type UiLang } from '@/lib/i18n'
+
+/** Format tanggal dan waktu untuk layar learner (bawaan en-GB, zona Asia/Jakarta). */
 
 function parse(iso: string): { date: Date; dateOnly: boolean } {
   const dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(iso)
@@ -6,17 +8,17 @@ function parse(iso: string): { date: Date; dateOnly: boolean } {
 }
 
 /** "9 Oct" */
-export function shortDate(iso: string): string {
+export function shortDate(iso: string, lang: UiLang = 'en'): string {
   const { date, dateOnly } = parse(iso)
   if (Number.isNaN(date.getTime())) return iso
-  return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', timeZone: dateOnly ? 'UTC' : 'Asia/Jakarta' }).format(date)
+  return new Intl.DateTimeFormat(htmlLang(lang), { day: 'numeric', month: 'short', timeZone: dateOnly ? 'UTC' : 'Asia/Jakarta' }).format(date)
 }
 
 /** "Saturday 17 October" */
-export function longDate(iso: string): string {
+export function longDate(iso: string, lang: UiLang = 'en'): string {
   const { date, dateOnly } = parse(iso)
   if (Number.isNaN(date.getTime())) return iso
-  return new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', timeZone: dateOnly ? 'UTC' : 'Asia/Jakarta' }).format(date)
+  return new Intl.DateTimeFormat(htmlLang(lang), { weekday: 'long', day: 'numeric', month: 'long', timeZone: dateOnly ? 'UTC' : 'Asia/Jakarta' }).format(date)
 }
 
 /** "13:20" dari detik, untuk waktu terpakai di halaman hasil. */
@@ -32,8 +34,8 @@ export function plural(n: number, one: string, many: string): string {
 }
 
 /** "1, 2 and 5" */
-export function joinAnd(items: (string | number)[]): string {
+export function joinAnd(items: (string | number)[], lang: UiLang = 'en'): string {
   if (items.length === 0) return ''
   if (items.length === 1) return String(items[0])
-  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`
+  return `${items.slice(0, -1).join(', ')} ${lang === 'id' ? 'dan' : 'and'} ${items[items.length - 1]}`
 }

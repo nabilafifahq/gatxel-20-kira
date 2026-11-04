@@ -1,8 +1,9 @@
 import 'server-only'
 import { and, asc, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
-import { addDays, bestIndex, daysBetween, formatDateEn, jakartaDate, sessionMinutes, weekday, weekdayNameEn, type IsoDate, type SessionType } from '@kira/core'
+import { addDays, bestIndex, daysBetween, formatDateEn, formatDateId, jakartaDate, sessionMinutes, weekday, weekdayNameEn, weekdayNameId, type IsoDate, type SessionType } from '@kira/core'
 import { tables } from '@kira/db'
 import type { DoneTodayDTO, QuestIntroDTO, QuestStopDTO, SegmentState, Subject, TodayDTO, TodayGroupDTO } from '@/lib/dto'
+import { dictFor, type Dict, type UiLang } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
 import { lesson, skill } from './content'
@@ -29,18 +30,18 @@ const { quest, attempt, response, competitionEvent, orgItem } = tables
 export { SUBJECT_LABEL, SUBJECT_ORDER, buildQuestItems, ensureTodayQuests }
 
 /** Nama sesi untuk learner (en-GB). */
-export const SESSION_LABEL: Record<SessionType, string> = {
-  latihan: 'Practice',
-  tes: 'Test',
-  paper: 'Paper',
-  lesson: 'Lesson',
-  simulation: 'Competition practice',
-  esmo: 'ESMO practice',
-  review: 'Review cards',
-  'quick-maths': 'Quick Maths',
-  knowledge: 'Quiz',
-  'english-skill': 'English task',
-  reading: 'Reading',
+export const SESSION_LABEL: Record<SessionType, string> = dictFor('en').shell.session
+
+/** Skor "8 of 10" dari scoreText dalam bahasa tampilan anak. */
+function scoreIn(text: string, t: Dict): string {
+  const m = /^(\d+) (out )?of (\d+)$/.exec(text)
+  if (!m) return text
+  return m[2] ? t.shell.xOutOf100(Number(m[1])) : t.shell.xOfY(Number(m[1]), Number(m[3]))
+}
+
+/** Judul sesi buatan aplikasi tersimpan berbahasa Inggris di quest.title; judul dari konten tetap seperti aslinya. */
+function titleIn(title: string, t: Dict): string {
+  return t.shell.questTitles[title] ?? title
 }
 
 const CORE_ORDER: Record<string, number> = { latihan: 0, tes: 1, paper: 2 }
@@ -126,15 +127,13 @@ async function bestScores(
   return out
 }
 
-type StopCtx = { progress: Progress | undefined; locked: boolean; best: string | null }
-
-function minutesLabel(n: number): string {
-  return n === 1 ? '1 minute' : `${n} minutes`
-}
+type StopCtx = { progress: Progress | undefined; locked: boolean; best: string | null; t: Dict }
 
 function stopFor(q: QuestRow, c: StopCtx): QuestStopDTO {
   const session = q.session as SessionType
   const link = isLinkQuest(q)
+  const t = c.t
+  const words = t.shell.stop
   const p = c.progress
   const total = p?.total ?? 0
   const answered = p?.answered ?? 0
@@ -142,11 +141,11 @@ function stopFor(q: QuestRow, c: StopCtx): QuestStopDTO {
   const state: QuestStopDTO['state'] = q.status === 'done' ? 'done' : c.locked ? 'locked' : answered > 0 ? 'in-progress' : 'ready'
   const minutes = timed ? Math.max(1, Math.round((p!.timeLimitS ?? 0) / 60)) : sessionMinutes({ session, questionCount: total })
   let meta: string
-  if (state === 'locked') meta = `Opens after your ${SUBJECT_LABEL[q.subject as Subject]} practice`
-  else if (state === 'done') meta = [p?.score?.text ?? 'Done', c.best ? `best ${c.best}` : null].filter(Boolean).join(', ')
-  else if (state === 'in-progress') meta = `${answered} of ${total} done${timed ? '' : `, about ${minutesLabel(sessionMinutes({ session, questionCount: Math.max(1, total - answered) }))} left`}`
-  else if (link) meta = `About ${minutesLabel(sessionMinutes({ session }))}`
-  else meta = `${total} questions, ${timed ? `${minutesLabel(minutes)} on the clock` : `about ${minutesLabel(minutes)}`}`
+  if (state === 'locked') meta = words.opensAfter(t.common.subject[q.subject as Subject])
+  else if (state === 'done') meta = [p?.score?.text ? scoreIn(p.score.text, t) : t.common.done, c.best ? words.best(c.best) : null].filter(Boolean).join(', ')
+  else if (state === 'in-progress') meta = timed ? t.shell.today.groupDone(answered, total) : words.inProgressLeft(answered, total, t.shell.minutes(sessionMinutes({ session, questionCount: Math.max(1, total - answered) })))
+  else if (link) meta = words.about(t.shell.minutes(sessionMinutes({ session })))
+  else meta = timed ? words.readyTimed(total, t.shell.minutes(minutes)) : words.ready(total, t.shell.minutes(minutes))
   const href = link
     ? state === 'done'
       ? null
@@ -165,17 +164,17 @@ function stopFor(q: QuestRow, c: StopCtx): QuestStopDTO {
     subject: q.subject as Subject,
     state,
     session,
-    sessionLabel: SESSION_LABEL[session],
+    sessionLabel: t.shell.session[session],
     required: q.kind !== 'extra',
     timed,
     best: c.best,
-    title: q.title,
+    title: titleIn(q.title, t),
     meta,
     total,
     answered,
     segments: p?.segments ?? [],
     href,
-    ctaLabel: state === 'done' ? 'See answers' : state === 'locked' ? 'Locked' : state === 'in-progress' ? 'Continue' : link ? 'Open' : 'Start',
+    ctaLabel: state === 'done' ? words.seeAnswers : state === 'locked' ? words.locked : state === 'in-progress' ? t.common.continue : link ? words.open : t.common.start,
     offlineReady: Boolean(q.attemptId) && !timed && !link && state !== 'locked',
   }
 }
@@ -184,26 +183,27 @@ function stopFor(q: QuestRow, c: StopCtx): QuestStopDTO {
  * Sabtu: perhentian opsional "Fix-it Book" bila masih ada soal Tes atau Paper yang belum benar (rencana bagian 10.6,
  * ulang soal setiap Sabtu). Tidak memengaruhi streak dan bukan sesi tutor, jadi tidak punya baris quest.
  */
-export async function fixItExtra(tx: Tx, learnerId: string, date: IsoDate): Promise<QuestStopDTO | null> {
+export async function fixItExtra(tx: Tx, learnerId: string, date: IsoDate, lang: UiLang = 'en'): Promise<QuestStopDTO | null> {
   if (weekday(date) !== 6) return null
   const open = await fixItOpenCount(tx, learnerId)
   if (open === 0) return null
+  const words = dictFor(lang).shell.stop
   return {
     questId: null,
     subject: 'bonus',
     state: 'ready',
     session: 'review',
-    sessionLabel: 'Fix-it Book',
+    sessionLabel: words.fixItLabel,
     required: false,
     timed: false,
     best: null,
-    title: 'Fix-it Book',
-    meta: `${open} ${open === 1 ? 'question' : 'questions'} from tests and papers to try again`,
+    title: words.fixItLabel,
+    meta: words.fixItMeta(open),
     total: 0,
     answered: 0,
     segments: [],
     href: '/fix-it',
-    ctaLabel: 'Open',
+    ctaLabel: words.open,
     offlineReady: false,
   }
 }
@@ -228,15 +228,14 @@ export async function hasEsmo(tx: Tx, learnerId: string, today: IsoDate): Promis
   return (packs[0]?.n ?? 0) > 0
 }
 
-const NUMBER_WORD = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
-const numberWord = (n: number) => NUMBER_WORD[n] ?? String(n)
-
 /** Urutan sesi wajib dalam satu mapel: Latihan, Tes, Paper, lalu sesi wajib tambahan. */
 function byPath(a: QuestRow, b: QuestRow): number {
   return (CORE_ORDER[a.session] ?? 9) - (CORE_ORDER[b.session] ?? 9) || a.seq - b.seq
 }
 
-export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Promise<TodayDTO> {
+export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string, lang: UiLang = 'en'): Promise<TodayDTO> {
+  const t = dictFor(lang)
+  const words = t.shell.today
   const date = jakartaDate()
   const loaded = await loadLearner(tx, learnerId)
   // started_on diisi oleh ensureStarted() sebelum transaksi ini (learner tidak boleh mengubah profilnya sendiri).
@@ -258,24 +257,26 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
 
   const latihanDone = new Map<Subject, boolean>()
   for (const s of SUBJECT_ORDER) latihanDone.set(s, quests.filter((q) => q.subject === s && q.session === 'latihan' && q.kind === 'daily').every((q) => q.status === 'done'))
+  const scoreBest = (text: string | undefined) => (text ? scoreIn(text, t) : null)
   const stopOf = (q: QuestRow) =>
     stopFor(q, {
+      t,
       progress: q.attemptId ? progress.get(q.attemptId) : undefined,
       locked: q.session === 'tes' && !latihanDone.get(q.subject as Subject),
-      best: q.attemptId ? (best.get(q.attemptId) ?? null) : null,
+      best: q.attemptId ? scoreBest(best.get(q.attemptId)) : null,
     })
 
   const mandatory = quests.filter((q) => q.kind === 'daily')
   const groups: TodayGroupDTO[] = SUBJECT_ORDER.map((subject) => {
     const stops = mandatory.filter((q) => q.subject === subject).sort(byPath).map(stopOf)
-    return { subject, label: SUBJECT_LABEL[subject], done: stops.filter((s) => s.state === 'done').length, total: stops.length, stops }
+    return { subject, label: t.common.subject[subject], done: stops.filter((s) => s.state === 'done').length, total: stops.length, stops }
   }).filter((g) => g.stops.length > 0)
   const extras = quests
     .filter((q) => q.kind === 'extra')
     .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime() || a.id.localeCompare(b.id))
     .map(stopOf)
   if (!rest) {
-    const fixIt = await fixItExtra(tx, learnerId, date)
+    const fixIt = await fixItExtra(tx, learnerId, date, lang)
     if (fixIt) extras.push(fixIt)
   }
 
@@ -286,7 +287,7 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
   const allDone = total > 0 && done === total
   const extraDone = extras.filter((s) => s.state === 'done').length
   const minutes = await minutesOn(tx, learner.userId, date)
-  const streak = await streakDTO(tx, learner, date)
+  const streak = await streakDTO(tx, learner, date, lang)
   const anyAnswers = [...flat, ...extras].some((s) => s.answered > 0) || streak.current > 0
   // Hari tanpa sesi wajib (aturan hari Mati atau Opsional) netral: tidak ada yang perlu diselesaikan untuk streak.
   const noRequired = total === 0 && !rest
@@ -301,27 +302,27 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
           : 'normal'
   const subline =
     variant === 'rest-day'
-      ? 'Today is a rest day. Your streak is safe.'
+      ? words.sublineRest
       : variant === 'time-limit'
-        ? 'That is enough screen time for today. Well done.'
+        ? words.sublineLimit
         : variant === 'all-done'
           ? extras.length > extraDone
-            ? `All ${total} sessions are done. Optional sessions are open if you want them.`
-            : `All ${total} sessions are done. See you tomorrow.`
+            ? words.sublineAllDoneOptional(total)
+            : words.sublineAllDone(total)
           : noRequired
             ? extras.length > 0
-              ? 'No required sessions today. Your streak is safe, and you can try an optional one.'
-              : 'No sessions today. Your streak is safe.'
+              ? words.sublineNoRequiredOptional
+              : words.sublineNoSessions
             : active?.state === 'in-progress'
-            ? `${SUBJECT_LABEL[active.subject as Subject]} ${active.sessionLabel.toLowerCase()} is ${active.answered * 2 >= active.total ? 'half done' : 'started'}.`
+            ? (active.answered * 2 >= active.total ? words.sublineHalfDone : words.sublineStarted)(t.common.subject[active.subject as Subject], active.sessionLabel)
             : done === 0
-              ? `${numberWord(total)} ${total === 1 ? 'session' : 'sessions'} today. Start with the big one.`
-              : `${done} of ${total} done. Keep going.`
+              ? words.sublineFirst(total)
+              : words.sublineProgress(done, total)
   const comp = await nextCompetition(tx, learner.userId, date)
   return {
     shell,
-    dateLabel: formatDateEn(date, true),
-    headline: variant === 'first-day' ? 'Your first sessions' : `${weekdayNameEn(date)}'s sessions`,
+    dateLabel: lang === 'id' ? formatDateId(date, true) : formatDateEn(date, true),
+    headline: variant === 'first-day' ? words.headlineFirst : words.headline(lang === 'id' ? weekdayNameId(date) : weekdayNameEn(date)),
     subline,
     variant,
     streak,
@@ -330,7 +331,7 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
     activeQuestId: active?.questId ?? null,
     progress: { done, total, extraDone, extraTotal: extras.length },
     nextCompetition: comp ? { name: comp.name, daysToGo: comp.daysToGo } : null,
-    esmo: (await hasEsmo(tx, learner.userId, date)) ? { href: '/esmo', label: 'ESMO practice packs' } : null,
+    esmo: (await hasEsmo(tx, learner.userId, date)) ? { href: '/esmo', label: words.esmoLabel } : null,
     minutesToday: minutes,
     screenLimitMin: learner.screenLimitMin,
   }
@@ -338,7 +339,9 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
 
 export type IntroResult = QuestIntroDTO | { locked: true } | { redirect: string }
 
-export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, questId: string): Promise<IntroResult> {
+export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, questId: string, lang: UiLang = 'en'): Promise<IntroResult> {
+  const t = dictFor(lang)
+  const mode = t.shell.intro
   const learner = await loadLearner(tx, learnerId)
   const rows = await tx.select().from(quest).where(and(eq(quest.id, questId), eq(quest.learnerId, learnerId))).limit(1)
   const q = rows[0]
@@ -347,7 +350,7 @@ export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, 
   if (await isTesLocked(tx, q)) return { locked: true }
   if (!q.attemptId) await createAttemptFor(tx, ctx, learner, q)
   const fresh = (await tx.select().from(quest).where(eq(quest.id, questId)).limit(1))[0]!
-  if (!fresh.attemptId) throw notFound('No questions are ready for this session yet.')
+  if (!fresh.attemptId) throw notFound(t.shell.stop.noQuestions)
   const att = (await tx.select({ items: attempt.items, mode: attempt.mode, timeLimitS: attempt.timeLimitS }).from(attempt).where(eq(attempt.id, fresh.attemptId)).limit(1))[0]
   const items = (att?.items as AttemptItem[]) ?? []
   const sk = q.skillId ? skill(q.skillId) : undefined
@@ -361,17 +364,17 @@ export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, 
   const alt = others.find((o) => o.id !== q.id && o.status !== 'done' && o.subject !== q.subject && !isLinkQuest(o) && !(o.session === 'tes' && latihanOpen(o.subject)))
   const timeLimitMin = att?.timeLimitS ? Math.max(1, Math.round(att.timeLimitS / 60)) : null
   const modeLabel =
-    session === 'tes' ? 'Timed test' : session === 'paper' ? (timeLimitMin ? 'Timed paper' : 'Paper') : q.mode === 'belajar' ? 'Learn and practise' : session === 'reading' ? 'Reading' : q.kind === 'extra' ? 'Extra practice' : 'Practice'
-  const practise = sk ? [sk.title, sk.canDo.replace(/^I can /, '').replace(/\.$/, '')].map((s) => s.charAt(0).toUpperCase() + s.slice(1)) : [q.title]
+    session === 'tes' ? mode.modeTimedTest : session === 'paper' ? (timeLimitMin ? mode.modeTimedPaper : mode.modePaper) : q.mode === 'belajar' ? mode.modeLearn : session === 'reading' ? mode.modeReading : q.kind === 'extra' ? mode.modeExtra : mode.modePractice
+  const practise = sk ? [sk.title, sk.canDo.replace(/^I can /, '').replace(/\.$/, '')].map((s) => s.charAt(0).toUpperCase() + s.slice(1)) : [titleIn(q.title, t)]
   return {
     shell: await learnerShell(tx, learner),
     questId: q.id,
     subject,
-    title: q.title,
+    title: titleIn(q.title, t),
     questionCount: items.length,
     minutes: timeLimitMin ?? sessionMinutes({ session, questionCount: items.length }),
     hintsPerQuestion: att?.mode === 'tes' ? 0 : 3,
-    youWillPractise: session === 'paper' ? [q.title] : practise,
+    youWillPractise: session === 'paper' ? [titleIn(q.title, t)] : practise,
     modeLabel,
     timeLimitMin,
     lessonHref:
@@ -385,7 +388,8 @@ export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, 
   }
 }
 
-export async function doneTodayDTO(tx: Tx, learnerId: string): Promise<DoneTodayDTO> {
+export async function doneTodayDTO(tx: Tx, learnerId: string, lang: UiLang = 'en'): Promise<DoneTodayDTO> {
+  const t = dictFor(lang)
   const date = jakartaDate()
   const learner = await loadLearner(tx, learnerId)
   const quests = (await tx.select().from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))).filter((q) => q.kind !== 'bonus')
@@ -403,8 +407,8 @@ export async function doneTodayDTO(tx: Tx, learnerId: string): Promise<DoneToday
   return {
     shell: await learnerShell(tx, learner, date),
     variant,
-    title: variant === 'time-limit' ? 'Time for a break' : 'Done for today',
-    line: variant === 'time-limit' ? `You learned for ${minutes} minutes today. Your answers are saved.` : 'You finished your sessions. Your streak grows.',
+    title: variant === 'time-limit' ? t.shell.today.breakTitle : t.shell.done.titleDone,
+    line: variant === 'time-limit' ? t.shell.done.lineBreak(minutes) : t.shell.done.lineDone,
     xpToday: xp[0]?.n ?? 0,
     minutesToday: minutes,
     quests: quests
@@ -415,15 +419,15 @@ export async function doneTodayDTO(tx: Tx, learnerId: string): Promise<DoneToday
         const s = a && q.status === 'done' ? scoreText(a, items) : null
         return {
           subject: q.subject as Subject,
-          session: SESSION_LABEL[q.session as SessionType],
-          title: q.title,
-          score: q.status === 'done' ? (s?.text ?? 'Done') : 'Not finished',
+          session: t.shell.session[q.session as SessionType],
+          title: titleIn(q.title, t),
+          score: q.status === 'done' ? (s?.text ? scoreIn(s.text, t) : t.common.done) : t.shell.done.notFinished,
           required: q.kind !== 'extra',
         }
       }),
-    tomorrow: `Tomorrow is ${weekdayNameEn(tomorrow)}. New sessions will be ready.`,
+    tomorrow: t.shell.done.tomorrow(lang === 'id' ? weekdayNameId(tomorrow) : weekdayNameEn(tomorrow)),
     answersHref: atts.find((a) => a.submittedAt)?.id ? `/results/${atts.find((a) => a.submittedAt)!.id}` : null,
-    streak: await streakDTO(tx, learner, date),
+    streak: await streakDTO(tx, learner, date, lang),
   }
 }
 

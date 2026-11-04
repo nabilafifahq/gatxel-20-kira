@@ -1,3 +1,5 @@
+import { dictFor, type UiLang } from '@/lib/i18n'
+
 /**
  * Logika perayaan akhir sesi tanpa React: bintang 1 sampai 3, kapan confetti keluar, dan isi bar XP.
  * Confetti hanya di akhir sesi (DESIGN.md bagian 6a), tidak pernah per jawaban benar.
@@ -36,13 +38,13 @@ function fraction(p: LevelPoint): number {
 }
 
 /** Naik level: bar mulai dari kosong di level baru. Selain itu bar terisi dari posisi sebelumnya. */
-export function xpBarView(bar: { before: LevelPoint; after: LevelPoint }): XpBarView {
+export function xpBarView(bar: { before: LevelPoint; after: LevelPoint }, lang: UiLang = 'en'): XpBarView {
   const leveledUp = bar.after.level > bar.before.level
   return {
     from: leveledUp ? 0 : fraction(bar.before),
     to: fraction(bar.after),
     level: bar.after.level,
     leveledUp,
-    line: `${bar.after.into} of ${bar.after.span} XP to level ${bar.after.level + 1}`,
+    line: dictFor(lang).shell.xpToLevel(bar.after.into, bar.after.span, bar.after.level + 1),
   }
 }

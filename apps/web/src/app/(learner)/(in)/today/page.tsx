@@ -19,8 +19,8 @@ export default async function TodayPage() {
   await ensureStarted(actor.orgId, actor.userId)
   const { data, urls, placement, world } = await load(() =>
     inOrg(orgCtx(actor), async (tx) => {
-      const today = await todayDTO(tx, orgCtx(actor), actor.userId)
-      const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today) }
+      const today = await todayDTO(tx, orgCtx(actor), actor.userId, actor.uiLang)
+      const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today, undefined, actor.uiLang) }
       const world = (await isFeatureOn(actor.userId, 'kira-world')) ? await worldPeek(tx, actor.userId).catch(() => null) : null
       return { data, world, urls: await offlineUrlsForToday(tx, actor.userId), placement: await placementCard(tx, orgCtx(actor), actor.userId) }
     }),

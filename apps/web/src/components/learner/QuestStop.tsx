@@ -1,26 +1,22 @@
+'use client'
+
 import Link from 'next/link'
 import type { ReactElement } from 'react'
 import type { QuestStopDTO } from '@/lib/dto'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import type { Dict } from '@/lib/i18n'
+import { useT } from '@/lib/i18n/client'
 import { SubjectChip } from './SubjectChip'
 import { SubjectIcon } from './SubjectIcon'
-import { SUBJECT_NAME, SUBJECT_STYLE } from './subject'
+import { SUBJECT_STYLE, subjectName } from './subject'
 
 /**
  * Perhentian quest di jalur Today (papan QuestStop). Cap persegi membulat bergaris tinta.
  * Quest aktif dua kali lebih besar (144 px) dengan judul, chip, keterangan, dan tombol.
  * Status selalu tertulis sebagai teks di samping cap.
  */
-
-const STATE_WORD: Record<QuestStopDTO['state'], string> = {
-  locked: 'locked',
-  ready: 'ready',
-  'in-progress': 'in progress',
-  done: 'done',
-  rest: 'rest day',
-}
 
 function progressPct(stop: QuestStopDTO): number {
   if (stop.total <= 0) return 0
@@ -83,10 +79,10 @@ export function QuestStamp({ stop, size = 'L' }: { stop: QuestStopDTO; size?: St
   }
 }
 
-function stopAria(stop: QuestStopDTO): string {
-  const name = `${SUBJECT_NAME[stop.subject]} ${stop.sessionLabel.toLowerCase()}`
-  if (stop.state === 'in-progress') return `${name}, ${stop.answered} of ${stop.total} done`
-  return `${name}, ${STATE_WORD[stop.state]}`
+function stopAria(stop: QuestStopDTO, t: Dict): string {
+  const name = t.shell.sessionName(subjectName(stop.subject, t), stop.sessionLabel)
+  if (stop.state === 'in-progress') return `${name}, ${t.shell.today.groupDone(stop.answered, stop.total)}`
+  return `${name}, ${t.shell.stop.state[stop.state]}`
 }
 
 /**
@@ -95,6 +91,7 @@ function stopAria(stop: QuestStopDTO): string {
  * mulai md judulnya "Mapel: judul quest" dengan keterangan dari DTO (papan TodayA).
  */
 export function QuestStopRow({ stop, size = 'L' }: { stop: QuestStopDTO; size?: StampSize }): ReactElement {
+  const t = useT()
   const quiet = stop.state === 'locked' || stop.state === 'rest'
   const open = !!stop.href && !quiet
   const topic = stop.title && stop.title !== stop.sessionLabel ? stop.title : null
@@ -105,12 +102,12 @@ export function QuestStopRow({ stop, size = 'L' }: { stop: QuestStopDTO; size?: 
       </span>
       <span className="flex min-w-0 flex-col gap-0.5">
         <span className={cx('text-body-lg font-bold', quiet ? 'text-fg-muted' : 'text-fg')}>{stop.sessionLabel}</span>
-        {topic ? <span className={cx('text-body font-semibold break-words', quiet ? 'text-fg-muted' : 'text-fg')}>{topic}</span> : null}
+        {topic ? <span lang="en-GB" className={cx('text-body font-semibold break-words', quiet ? 'text-fg-muted' : 'text-fg')}>{topic}</span> : null}
         <span className="text-body text-fg-muted">{stop.meta}</span>
         {stop.offlineReady && !quiet && stop.state !== 'done' ? (
           <span className="inline-flex items-center gap-1.5 text-body font-semibold text-fg">
             <UiIcon name="check-circle" size={18} className="text-success" />
-            Saved on this device
+            {t.shell.stop.savedHere}
           </span>
         ) : null}
       </span>
@@ -119,13 +116,13 @@ export function QuestStopRow({ stop, size = 'L' }: { stop: QuestStopDTO; size?: 
   const cls = cx('relative flex items-center rounded-card no-underline', size === 'L' ? 'gap-8' : size === 'S' ? 'gap-4' : 'gap-4 md:gap-8')
   if (open && stop.href) {
     return (
-      <Link href={stop.href} aria-label={`${stopAria(stop)}. ${stop.meta}`} className={cx(cls, 'text-fg hover:text-fg')}>
+      <Link href={stop.href} aria-label={`${stopAria(stop, t)}. ${stop.meta}`} className={cx(cls, 'text-fg hover:text-fg')}>
         {inner}
       </Link>
     )
   }
   return (
-    <div role="group" aria-label={`${stopAria(stop)}. ${stop.meta}`} className={cls}>
+    <div role="group" aria-label={`${stopAria(stop, t)}. ${stop.meta}`} className={cls}>
       {inner}
     </div>
   )
@@ -133,6 +130,7 @@ export function QuestStopRow({ stop, size = 'L' }: { stop: QuestStopDTO; size?: 
 
 /** Perhentian aktif ukuran 2 kali (144 px tablet, 112 px HP). */
 export function QuestStopBig({ stop, headingLevel = 2 }: { stop: QuestStopDTO; headingLevel?: 2 | 3 | 4 }): ReactElement {
+  const t = useT()
   const style = SUBJECT_STYLE[stop.subject]
   const Heading = headingLevel === 4 ? 'h4' : headingLevel === 3 ? 'h3' : 'h2'
   const bonus = stop.subject === 'bonus'
@@ -145,7 +143,7 @@ export function QuestStopBig({ stop, headingLevel = 2 }: { stop: QuestStopDTO; h
           {showBar ? (
             <span
               role="img"
-              aria-label={`${stop.answered} of ${stop.total} done`}
+              aria-label={t.shell.today.groupDone(stop.answered, stop.total)}
               className={cx('flex h-2 w-16 overflow-hidden rounded-control bg-surface md:h-2.5 md:w-22', bonus && 'border border-fg')}
             >
               <span className="bg-fg" style={{ width: `${progressPct(stop)}%` }} />
@@ -163,14 +161,14 @@ export function QuestStopBig({ stop, headingLevel = 2 }: { stop: QuestStopDTO; h
             <SubjectChip subject={stop.subject} size="S" />
           </span>
           <p className="m-0 text-body text-fg-muted md:text-body-lg">
-            <strong className="font-bold text-fg md:hidden">{SUBJECT_NAME[stop.subject]}, </strong>
+            <strong className="font-bold text-fg md:hidden">{subjectName(stop.subject, t)}, </strong>
             {stop.meta}
           </p>
         </div>
         {stop.offlineReady ? (
           <span className="inline-flex items-center gap-2 text-body font-semibold">
             <UiIcon name="check-circle" size={20} className="text-success" />
-            Saved on this device
+            {t.shell.stop.savedHere}
           </span>
         ) : null}
         {stop.href ? (
