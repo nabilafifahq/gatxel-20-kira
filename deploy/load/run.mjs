@@ -24,6 +24,7 @@ const hold = arg('hold', '180')
 const steps = arg('steps', '')
 const stepSeconds = arg('step-seconds', '90')
 const burstN = arg('burst-n', '130')
+const clipOrigin = arg('clip-origin', '1')
 const outDir = join(here, 'out', name)
 mkdirSync(outDir, { recursive: true })
 
@@ -123,7 +124,7 @@ const sampler = sampleLoop()
 
 // --- k6 ---
 const composeArgs = ['compose', '-p', project, '--env-file', envFile, '--profile', 'loadtest', '--profile', 'loadrun', 'run', '--rm', '-T',
-  '-e', `SCENARIO=${scenario}`, '-e', `STAGE=${stage}`, '-e', `THINK=${think}`, '-e', `SOAK_MIN=${soakMin}`, '-e', `HOLD=${hold}`, '-e', `STEPS=${steps}`, '-e', `STEP_SECONDS=${stepSeconds}`, '-e', `BURST_N=${burstN}`,
+  '-e', `SCENARIO=${scenario}`, '-e', `STAGE=${stage}`, '-e', `THINK=${think}`, '-e', `SOAK_MIN=${soakMin}`, '-e', `HOLD=${hold}`, '-e', `STEPS=${steps}`, '-e', `STEP_SECONDS=${stepSeconds}`, '-e', `BURST_N=${burstN}`, '-e', `CLIP_ORIGIN=${clipOrigin}`,
   'k6', 'run', `--summary-export=/out/${name}/summary.json`, '/load/kira.js']
 console.log('docker', composeArgs.join(' '))
 const started = Date.now()
@@ -162,7 +163,7 @@ const rate = (key) => {
 const rows = []
 for (const key of Object.keys(m)) {
   const mm = /^http_req_duration\{name:([^}]+)\}$/.exec(key)
-  if (!mm) continue
+  if (!mm || mm[1].includes(',')) continue
   const t = m[key]
   if (!t.count) continue
   const failed = m[`http_req_failed{name:${mm[1]}}`]
@@ -208,7 +209,9 @@ for (const n of steps.split(',').filter(Boolean)) {
   if (!d || !d.count) continue
   const fr = m[`http_req_failed{step:${n}}`]
   const biz = m[`kira_business_ok{step:${n}}`]
-  stepRows.push({ vus: Number(n), count: d.count, p50: d.med, p95: d['p(95)'], p99: d['p(99)'], httpErr: fr ? (fr.value ?? fr.rate ?? 0) : 0, bizOk: biz ? (biz.value ?? biz.rate ?? null) : null })
+  const td = m[`http_req_duration{name:today,step:${n}}`]
+  const sv = m[`http_req_duration{name:save_answer,step:${n}}`]
+  stepRows.push({ todayP95: td?.['p(95)'] ?? null, saveP95: sv?.['p(95)'] ?? null, vus: Number(n), count: d.count, p50: d.med, p95: d['p(95)'], p99: d['p(99)'], httpErr: fr ? (fr.value ?? fr.rate ?? 0) : 0, bizOk: biz ? (biz.value ?? biz.rate ?? null) : null })
 }
 const result = {
   name, scenario, stage, think,
@@ -265,9 +268,9 @@ lines.push(`CPU seluruh PC: rata-rata ${f(result.hostCpu.avg, 0)}%, puncak ${f(r
 if (Object.values(result.signup).some(Boolean)) lines.push('Pendaftaran: ' + JSON.stringify(result.signup))
 if (stepRows.length) {
   lines.push('')
-  lines.push('| Anak tangga (VU) | Permintaan | p50 ms | p95 ms | p99 ms | Galat HTTP | Bisnis OK |')
-  lines.push('|---:|---:|---:|---:|---:|---:|---:|')
-  for (const s of stepRows) lines.push(`| ${s.vus} | ${s.count} | ${f(s.p50)} | ${f(s.p95)} | ${f(s.p99)} | ${f(s.httpErr * 100, 2)}% | ${s.bizOk === null ? '-' : f(s.bizOk * 100, 1) + '%'} |`)
+  lines.push('| Anak tangga (VU) | Permintaan | p50 ms | p95 ms | p99 ms | Galat HTTP | Bisnis OK | Today p95 | Simpan jawaban p95 |')
+  lines.push('|---:|---:|---:|---:|---:|---:|---:|---:|---:|')
+  for (const s of stepRows) lines.push(`| ${s.vus} | ${s.count} | ${f(s.p50)} | ${f(s.p95)} | ${f(s.p99)} | ${f(s.httpErr * 100, 2)}% | ${s.bizOk === null ? '-' : f(s.bizOk * 100, 1) + '%'} | ${f(s.todayP95)} | ${f(s.saveP95)} |`)
 }
 writeFileSync(join(outDir, 'result.md'), lines.join('\n') + '\n')
 console.log(lines.join('\n'))

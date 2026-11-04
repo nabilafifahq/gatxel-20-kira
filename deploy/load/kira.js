@@ -49,6 +49,8 @@ function thresholds() {
     t[`http_req_duration{step:${n}}`] = ['max>=0']
     t[`http_reqs{step:${n}}`] = ['count>=0']
     t[`kira_business_ok{step:${n}}`] = ['rate>=0']
+    t[`http_req_duration{name:today,step:${n}}`] = ['max>=0']
+    t[`http_req_duration{name:save_answer,step:${n}}`] = ['max>=0']
   }
   return t
 }
@@ -209,7 +211,10 @@ const clips = new SharedArray('clips', () => {
   }
 })
 
+// CLIP_ORIGIN=0: klip tidak diambil dari origin, seperti saat Cloudflare sudah menyimpannya. Bawaan: semua klip lewat origin (paling berat).
+const CLIP_ORIGIN = __ENV.CLIP_ORIGIN !== '0'
 function clipGet(w, path) {
+  if (!CLIP_ORIGIN) return
   // Isi tidak disimpan k6 (hemat memori generator); byte tetap dihitung dari Content-Length.
   const r = http.get(BASE + path, { headers: headers(w.cookie, { Accept: 'audio/mpeg' }), tags: { name: 'audio_clip' }, responseType: 'none' })
   check(r, { 'audio 200': (x) => x.status === 200 })

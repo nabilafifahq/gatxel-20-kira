@@ -428,6 +428,8 @@ worker -> web:3000 (jaringan internal, tanpa proxy);   worker, migrate, backup -
 
 - **Proxy** menyajikan langsung dari disk: `/_next/static` (cache setahun, immutable), `/sounds`, `/flags`, `/fonts`, `/icons`, `/maps` (cache 7 hari), dan `/tts/<sha256>.mp3` dari folder data yang dipasang read-only (cache setahun, immutable). Jadi Cloudflare menyimpan semuanya dan unggahan rumah (sekitar 29 Mbps) tidak terpakai untuk berkas statis. Klip yang belum ada diteruskan ke web. Batas isi permintaan: 8 MB di semua jalur, 62 MB hanya untuk `/konsol/impor` dan `/api/media` (jenis dan ukuran tetap diperiksa web). `/api/internal/*` dijawab 404 oleh proxy; worker memanggilnya langsung ke `web:3000`. IP klien dibaca dari `CF-Connecting-IP` dan diteruskan sebagai `X-Forwarded-For`.
 - **Image proxy memuat salinan berkas statis dari image web.** Bangun keduanya bersama (`docker compose build web proxy`, atau `up -d --build`); jangan membangun web saja.
+- **Cek sehat proxy** memakai `/api/health?scope=live`, tanpa database: pool yang penuh mengenai semua replika sekaligus dan tidak boleh menjadi "no upstreams". `/api/health` tanpa parameter (Docker, langkah periksa) tetap memeriksa database.
+- **Satu transaksi, satu sambungan.** Di dalam `inOrg`, `withFamilyAdmin`, atau `tx` jangan memanggil yang membuka sambungan app baru (`isFeatureOn`, `inOrg`, `appDb`). Pakai `isFeatureOnTx(tx, ...)`. `server/tx-guard.ts` melempar di tes dan mencatat di produksi.
 - **PgBouncer** mode transaksi, TLS terverifikasi ke Postgres, tanpa pernyataan prepared (`KIRA_DB_PREPARE=off` untuk web). `withOrg` aman karena memakai `set_config(..., true)` di dalam transaksi, dan kunci advisory yang dipakai bersifat transaksi (`pg_advisory_xact_lock`). Role tetap terpisah: web memakai `kira_app` dan `kira_auth` lewat PgBouncer; `kira_worker` dan `kira_owner` (migrate, backup) langsung ke db. Pool server: 30 untuk kira_app dan 15 untuk kira_auth (batas role di Postgres 40 dan 20).
 - **Valkey** menyimpan ember token (pembatas laju IP, MCP, permintaan suara), cache sesi 15 detik, dan cache layar Today 30 detik. Tanpa Valkey, tiap replika memakai memori sendiri dan batasnya menjadi per replika; tidak ada data yang hilang karena semuanya cache.
 
@@ -444,7 +446,7 @@ worker -> web:3000 (jaringan internal, tanpa proxy);   worker, migrate, backup -
 | `PG_MAX_CONNECTIONS`, `PG_SHARED_BUFFERS`, `PG_EFFECTIVE_CACHE_SIZE`, `PG_WORK_MEM` | 150, 1GB, 6GB, 16MB | Penyetelan Postgres. |
 | `KIRA_WEB_IMAGE`, `KIRA_WORKER_IMAGE`, `KIRA_PROXY_IMAGE` | kira-web:latest, kira-worker:latest, kira-proxy:latest | Nama image; staging memakai nama lain supaya tidak menimpa produksi. |
 
-Penyetelan Postgres lain ada di `docker-compose.yml` (WAL: `wal_compression`, `max_wal_size=4GB`, `checkpoint_timeout=15min`; `random_page_cost=1.1`; `idle_in_transaction_session_timeout=60s`; `log_min_duration_statement=500`; `pg_stat_statements` dimuat). Mengubah flag membuat `db` restart sekitar 10 detik. `synchronous_commit` tetap on: data anak tidak boleh hilang karena listrik padam.
+Penyetelan Postgres lain ada di `docker-compose.yml` (WAL: `wal_compression`, `max_wal_size=4GB`, `checkpoint_timeout=15min`; `random_page_cost=1.1`; `idle_in_transaction_session_timeout=60s` untuk worker dan cadangan; web lewat PgBouncer diputus setelah 15 detik (`connect_query`); `log_min_duration_statement=500`; `pg_stat_statements` dimuat). Mengubah flag membuat `db` restart sekitar 10 detik. `synchronous_commit` tetap on: data anak tidak boleh hilang karena listrik padam.
 
 ### Staging (project kirastg)
 
@@ -465,12 +467,12 @@ Skenario ada di `deploy/load/` (lihat kepala `kira.js`). Alurnya:
 
 ```powershell
 node deploy/load/actions.mjs                    # ID Server Action dari kontainer web yang sedang jalan (ulangi setiap build)
-node deploy/load/prep.mjs C:\kw4\stg\data 200   # klip suara palsu untuk skenario audio
+node deploy/load/prep.mjs --real C:\kw4\tts-piper\tts C:\kw4\stg\data all   # klip sungguhan (sumber hanya dibaca); tulis served-version.txt bila versinya bukan bawaan
 docker compose -p kirastg @E --profile loadtest --profile loadrun run --rm -e FAMILIES=500 seed --reset --and-create
 node deploy/load/run.mjs --scenario mixed --stage 300
 ```
 
-`run.mjs` menjalankan k6 di jaringan staging, mencuplik CPU, RAM, sambungan Postgres dan PgBouncer tiap 5 detik, dan menulis `deploy/load/out/<nama>/result.md`. Skenario: `signup` (daftar lalu verifikasi lewat Mailpit), `signin`, `pin`, `today`, `latihan`, `tes`, `paper`, `audio`, `qm`, `quiz`, `parent`, `mixed`, `spike`. Tahap: `--stage 100|300|500|1000|soak` (`--soak-min 30`); `spike` naik dari 0 ke 500 VU dalam 30 detik. Seed ulang sebelum tiap tahap supaya setiap anak mulai dari hari yang segar.
+`run.mjs` menjalankan k6 di jaringan staging, mencuplik CPU, RAM, sambungan Postgres dan PgBouncer tiap 5 detik, dan menulis `deploy/load/out/<nama>/result.md`. Skenario: `signup` (daftar, verifikasi lewat Mailpit, tambah anak), `signin`, `pin`, `today`, `latihan`, `tes`, `paper`, `audio`, `qm`, `quiz`, `parent`, `parentswitch`, `hub`, `cards`, `reading`, `dict`, `world`, `boss`, `placement`, `feedback`, `mixed`, `spike`. Tahap: `--stage 100|300|500|1000|soak` (`--soak-min 30`); `--stage stress --steps 1000,1500,2000 --step-seconds 75` naik per anak tangga dan berhenti sendiri bila galat satu anak tangga lewat 1 persen; `--scenario signup --stage burst --burst-n 150` memberi 150 pendaftaran dalam 2 menit untuk menguji batas kursi (`KIRA_BETA_SEATS`, paling banyak 100000); `spike` naik dari 0 ke 500 VU dalam 30 detik. Seed ulang sebelum tiap tahap supaya setiap anak mulai dari hari yang segar.
 
 ### Pindah dari susunan lama ke susunan ini (produksi)
 
