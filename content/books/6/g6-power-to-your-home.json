@@ -223,38 +223,38 @@
       "questions": [
         {
           "id": "q1",
-          "prompt": "How does electricity travel to distant towns?",
+          "prompt": "On a very hot evening, millions of people switch on fans and air conditioners. What must the engineers in the control rooms do?",
           "options": [
-            "Along thick metal cables on tall steel towers",
-            "On trucks that carry very large batteries",
-            "Through the air as a kind of radio wave",
-            "Through pipes that are full of warm water"
+            "Turn off all the step-up transformers",
+            "Stop the turbines until it is cooler",
+            "Lower the cables closer to the ground",
+            "Bring more generators into action"
           ],
-          "answer": 0,
-          "why": "It travels along thick metal cables carried by tall steel towers."
+          "answer": 3,
+          "why": "Power stations must make about as much as people are using at each moment. When use rises, engineers bring more generators into action."
         },
         {
           "id": "q2",
           "prompt": "What is the problem with sending current along long wires?",
           "options": [
             "The current becomes too cold to be used at home",
+            "Some of the energy turns into heat and is lost",
             "The wires become too heavy for towers to hold up",
-            "The electrons stop moving after a few kilometres",
-            "Some of the energy turns into heat and is lost"
+            "The electrons stop moving after a few kilometres"
           ],
-          "answer": 3,
+          "answer": 1,
           "why": "As current flows through a long wire, some of the energy turns into heat and is lost."
         },
         {
           "id": "q3",
           "prompt": "What does a step-up transformer do?",
           "options": [
-            "It lowers the voltage to a very safe level",
             "It raises the voltage to a very high level",
+            "It lowers the voltage to a very safe level",
             "It spins the magnet inside the generator",
             "It stores the extra energy for the evening"
           ],
-          "answer": 1,
+          "answer": 0,
           "why": "A step-up transformer at the power station raises the voltage to a very high level."
         },
         {
@@ -528,7 +528,7 @@
     {
       "id": "c6",
       "title": "Power for Tomorrow",
-      "text": "Today, many power stations burn coal and gas, which release carbon dioxide. This gas traps heat in the air and contributes to climate change. So scientists and engineers are looking for cleaner ways to make electricity.\n\nSolar panels turn sunlight into electricity. They have no turbine and no magnet. Instead, sunlight knocks electrons loose in a thin layer of a material called silicon, and a current begins to flow. They are very useful in sunny countries like Indonesia, and they can be placed on roofs. They can even float. On the Cirata reservoir in West Java, a huge field of solar panels has been floating on the water since 2023. The water helps to keep the panels cool, and panels work better when they are not too hot.\n\nWind turbines and hydro stations make power without burning fuel. Geothermal power stations use the Earth's own heat.\n\nEach of these has a weakness. The sun goes down in the early evening, just when many homes need the most power. The wind can drop for days. In a long dry season, reservoirs run low. A big dam can also flood a valley where people used to live. So engineers mix different sources together, and they are building very large batteries to store power for later. No single answer solves everything, which is what makes this such an interesting problem.\n\nBut the cleanest energy of all is the energy that we do not use. Switching off lights when you leave a room, choosing efficient bulbs and unplugging chargers all help. A modern bulb called an LED gives the same light as an old filament bulb for a small part of the energy. In many homes, the air conditioner uses more power than anything else, so setting it a little warmer saves a surprising amount. If every family saved a little, the power stations would have to burn less fuel, and the air would be cleaner for everyone.\n\nThe people who solve these problems will need to know about magnets, turbines, grids and much more. Some of them are probably at primary school today. If you have read this far, one of them could be you.",
+      "text": "Today, many power stations burn coal and gas, which release carbon dioxide. This gas traps heat in the air and contributes to climate change. So scientists and engineers are looking for cleaner ways to make electricity.\n\nSolar panels turn sunlight into electricity. They have no turbine and no magnet. Instead, sunlight knocks electrons loose in a thin layer of a material called silicon, and a current begins to flow. They are very useful in sunny countries like Indonesia, and they can be placed on roofs. They can even float. On the Cirata reservoir in West Java, a huge field of solar panels has been floating on the water since 2023. The water helps to keep the panels cool, and panels work better when they are not too hot.\n\nWind turbines and hydro stations make power without burning fuel. Geothermal power stations use the Earth's own heat.\n\nMost of these have a weakness. The sun goes down in the early evening, just when many homes need the most power. The wind can drop for days. In a long dry season, reservoirs run low. A big dam can also flood a valley where people used to live. So engineers mix different sources together, and they are building very large batteries to store power for later. No single answer solves everything, which is what makes this such an interesting problem.\n\nBut the cleanest energy of all is the energy that we do not use. Switching off lights when you leave a room, choosing efficient bulbs and unplugging chargers all help. A modern bulb called an LED gives the same light as an old filament bulb for a small part of the energy. In many homes, the air conditioner uses more power than anything else, so setting it a little warmer saves a surprising amount. If every family saved a little, the power stations would have to burn less fuel, and the air would be cleaner for everyone.\n\nThe people who solve these problems will need to know about magnets, turbines, grids and much more. Some of them are probably at primary school today. If you have read this far, one of them could be you.",
       "questions": [
         {
           "id": "q1",
@@ -582,13 +582,13 @@
           "id": "q5",
           "prompt": "Why do engineers mix different energy sources?",
           "options": [
-            "Each source is much cheaper when it is used with coal",
-            "Each source has been required by a law in every country",
-            "Each source has a weakness that others can help to cover",
-            "Each source works only on one particular day of the week"
+            "Every source is much cheaper when it is used with coal",
+            "Every source is required by a law in every country",
+            "A weakness in one source can be covered by the others",
+            "Every source works only on one day of the week"
           ],
           "answer": 2,
-          "why": "The text lists a weakness for each source, then says engineers mix different sources together."
+          "why": "The text lists weaknesses of the sun, the wind and reservoirs, then says engineers mix different sources together."
         },
         {
           "id": "q6",
