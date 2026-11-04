@@ -76,7 +76,7 @@ export function Dialog({
         if (dismissible && e.target === ref.current) onClose()
       }}
       className={cx(
-        'm-auto max-h-[calc(100svh-32px)] w-[calc(100%-32px)] overflow-hidden rounded-card border-0 bg-surface p-0 text-fg',
+        'kira-sheet m-auto max-h-[calc(100svh-32px)] w-[calc(100%-32px)] overflow-hidden rounded-card border-0 bg-surface p-0 text-fg',
         size === 'sm' && 'max-w-[440px]',
         size === 'md' && 'max-w-[540px]',
         size === 'lg' && 'max-w-[720px]',
@@ -84,7 +84,7 @@ export function Dialog({
       )}
     >
       {open ? (
-        <div className="flex max-h-[calc(100svh-32px)] flex-col">
+        <div className="kira-sheet-body flex max-h-[calc(100svh-32px)] flex-col">
           <div className="flex items-start gap-3 px-7 pt-7 pb-2 max-sm:px-5 max-sm:pt-5">
             <div className="flex min-w-0 flex-1 flex-col gap-1">
               <h2 id={tid} className="m-0 text-h2 font-bold">

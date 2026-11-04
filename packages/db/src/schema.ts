@@ -244,6 +244,8 @@ export const memberProfile = pgTable(
     name: text('name').notNull(),
     role: text('role', { enum: ['tutor', 'guardian'] }).notNull(),
     email: text('email').notNull(),
+    /** Laporan minggu pertama sudah dibuka, untuk daftar langkah di beranda keluarga (migrasi 0027). */
+    firstReportSeenAt: ts('first_report_seen_at'),
     createdAt: createdAt(),
     removedAt: ts('removed_at'),
   },
@@ -273,6 +275,10 @@ export const learnerProfile = pgTable(
     startedOn: date('started_on'),
     /** Streak dihitung mulai tanggal ini (diisi saat tutor mengatur ulang streak, migrasi 0013). Kosong berarti sejak started_on. */
     streakSince: date('streak_since'),
+    /** Jalur yang dipilih orang tua saat onboarding: recommended, custom, skipped. Kosong berarti belum memilih (migrasi 0027). */
+    setupPath: text('setup_path', { enum: ['recommended', 'custom', 'skipped'] }),
+    /** Walkthrough pertama anak sudah tampil atau dilewati (migrasi 0027). */
+    firstRunDoneAt: ts('first_run_done_at'),
     createdAt: createdAt(),
     updatedAt: ts('updated_at').notNull().defaultNow(),
     deletedAt: ts('deleted_at'),
@@ -906,12 +912,41 @@ export const publicMail = pgTable('public_mail', {
   text: text('text').notNull(),
   kind: text('kind').notNull(),
   listUnsubscribe: text('list_unsubscribe'),
+  replyTo: text('reply_to'),
+  /** Path relatif di KIRA_DATA_DIR/support. Dihapus setelah terkirim atau setelah masa simpan lampiran. */
+  attachmentPath: text('attachment_path'),
+  attachmentName: text('attachment_name'),
+  attachmentMime: text('attachment_mime'),
   sendAfter: ts('send_after').notNull().defaultNow(),
   status: text('status', { enum: ['queued', 'sent', 'failed', 'no-smtp'] }).notNull().default('queued'),
   attempts: integer('attempts').notNull().default(0),
   lastError: text('last_error'),
   createdAt: createdAt(),
   sentAt: ts('sent_at'),
+})
+
+/**
+ * Pesan dari halaman Bantuan. Tanpa org: pengirim publik belum punya keluarga. Web hanya boleh INSERT (migrasi 0026),
+ * tidak ada role aplikasi yang bisa membacanya; pembacaan lewat email ke tim dan perintah admin.
+ */
+export const supportTicket = pgTable('support_ticket', {
+  id: id(),
+  reference: text('reference').notNull().unique(),
+  category: text('category', { enum: ['bug', 'saran', 'koreksi', 'kemitraan', 'lainnya'] }).notNull(),
+  subject: text('subject').notNull(),
+  message: text('message').notNull(),
+  senderEmail: text('sender_email').notNull(),
+  accountId: uuid('account_id'),
+  accountRole: text('account_role', { enum: ['tutor', 'guardian'] }),
+  userAgent: text('user_agent'),
+  screen: text('screen'),
+  appVersion: text('app_version'),
+  pageFrom: text('page_from'),
+  ipHash: text('ip_hash'),
+  attachmentName: text('attachment_name'),
+  attachmentMime: text('attachment_mime'),
+  attachmentBytes: integer('attachment_bytes'),
+  createdAt: createdAt(),
 })
 
 export const weekReport = pgTable(

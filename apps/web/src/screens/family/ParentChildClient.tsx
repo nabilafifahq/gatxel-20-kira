@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Avatar } from '@kira/figures'
 import type { AvatarName, ConsoleShell, PinPicture, Subject } from '@/lib/dto'
 import type { ParentChildDTO, ParentSessionDTO, ParentWorkDTO } from '@/lib/dto-parent'
@@ -14,6 +14,7 @@ import { RadioGroup, Select, Switch, TextField } from '@/components/console/Fiel
 import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
+import { UiIcon } from '@/components/ui/icons'
 import { useAction } from '@/components/console/useAction'
 import { ChangeSkill } from '@/components/family/ChangeSkill'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
@@ -50,8 +51,18 @@ const SUBJECT_NAME: Record<Subject, string> = { math: 'Math', english: 'English'
 const DAY = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
 
 function Section({ id, title, hint, open, children }: { id: string; title: string; hint?: string; open?: boolean; children: ReactNode }) {
+  const ref = useRef<HTMLDetailsElement>(null)
+  // Tautan "Pengaturan" dan "Mapel dan fitur" dari beranda membuka bagian ini langsung.
+  useEffect(() => {
+    const hash = window.location.hash
+    const target = hash === `#${id}` ? ref.current : hash && /^#[a-z-]+$/.test(hash) ? ref.current?.querySelector(hash) : null
+    if (target && ref.current) {
+      ref.current.open = true
+      target.scrollIntoView({ block: 'start' })
+    }
+  }, [id])
   return (
-    <details open={open} className="group rounded-card border border-divider bg-surface">
+    <details ref={ref} open={open} className="group rounded-card border border-divider bg-surface">
       <summary className="flex min-h-14 cursor-pointer list-none items-center gap-3 px-4 py-3">
         <span className="flex min-w-0 flex-1 flex-col">
           <h2 id={id} className="m-0 text-h3 font-bold">
@@ -59,9 +70,7 @@ function Section({ id, title, hint, open, children }: { id: string; title: strin
           </h2>
           {hint ? <span className="text-small text-fg-muted">{hint}</span> : null}
         </span>
-        <span aria-hidden="true" className="text-h3 font-bold text-fg-muted group-open:rotate-90">
-          ›
-        </span>
+        <UiIcon name="chevron-right" size={20} className="text-fg-muted transition-transform duration-150 ease-kira group-open:rotate-90" />
       </summary>
       <div aria-labelledby={id} className="flex flex-col gap-4 border-t border-divider px-4 py-4">
         {children}
@@ -236,7 +245,7 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
       </Section>
 
       <Section id="atur" title="Pengaturan" hint="Aturan hari, waktu layar, suara, PIN, dan profil">
-        <h3 className="m-0 text-body font-bold">Fitur yang dipakai</h3>
+        <h3 id="fitur" className="m-0 text-body font-bold">Fitur yang dipakai</h3>
         <p className="m-0 text-small text-fg-muted">Matikan mapel atau fitur yang belum dipakai {c.name}. Mapel yang dimatikan tidak muncul di hari belajar dan tidak dihitung untuk streak.</p>
         <FeatureChecklist learnerId={c.id} name={c.name} initial={data.controls.features} />
         <h3 className="m-0 border-t border-divider pt-4 text-body font-bold">Aturan hari</h3>

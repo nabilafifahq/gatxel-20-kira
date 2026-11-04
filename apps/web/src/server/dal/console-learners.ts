@@ -1,6 +1,7 @@
 import 'server-only'
 import { and, asc, eq, isNull, ne, sql } from 'drizzle-orm'
 import { formatDateId, jakartaDate, type IsoDate } from '@kira/core'
+import { consentRequestEmail } from '@kira/core/email-templates'
 import { tables } from '@kira/db'
 import type { AvatarName, LearnersDTO, PinPicture } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
@@ -16,7 +17,8 @@ import { deviceCountByLearner, listPendingInvites, revokeInvite } from '../auth/
 import { setPin, unlockPin } from '../auth/pin'
 import { revokeUserSessions } from '../auth/session'
 import { latestConsents, recordConsentTx, syncLearnerActive, type ConsentPurposeId } from './consent'
-import { queueEmail, simpleEmail } from './outbox'
+import { queueEmail } from './outbox'
+import { emailIdentity } from '../email'
 import { shellIn } from './console-shell'
 
 /**
@@ -174,17 +176,8 @@ export async function addLearner(actor: Actor, input: AddLearnerInput): Promise<
       await auditTx(tx, ctx, 'guardian.linked', learnerId, { guardianId: guardian.userId })
     })
     try {
-      const mail = simpleEmail({
-        title: `Persetujuan untuk ${name} di Kira`,
-        lines: [
-          `${actor.name} menambahkan ${name} di Kira ${pre.orgName}.`,
-          `${name} bisa mulai belajar di tablet setelah persetujuan orang tua diberikan di halaman Privasi.`,
-        ],
-        buttonLabel: 'Buka halaman Privasi',
-        buttonUrl: `${origin()}/keluarga/privasi?learner=${learnerId}`,
-        footer: 'Email ini dikirim karena akun orang tua ini tertaut ke learner tersebut di Kira.',
-      })
-      await queueEmail(ctx.orgId, { to: email, subject: `Persetujuan untuk ${name} di Kira`, ...mail, kind: 'consent-request' })
+      const mail = consentRequestEmail(emailIdentity(), { url: `${origin()}/keluarga/privasi?learner=${learnerId}`, actorName: actor.name, learnerName: name, orgName: pre.orgName })
+      await queueEmail(ctx.orgId, { to: email, ...mail, kind: 'consent-request' })
     } catch (e) {
       // Tautan sudah dibuat; email pemberitahuan hanya pelengkap.
       log.error('email permintaan persetujuan gagal masuk antrean', { learnerId, error: e })

@@ -15,9 +15,31 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 type Errors = { name?: string; email?: string; password?: string; consent?: string }
 
 /** Pendaftaran orang tua: nama, email, password, persetujuan. Setelah terkirim, layar berganti ke petunjuk cek email. */
-export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey: string | null; seatsLeft: number }) {
+export function SignupClient({
+  turnstileSiteKey,
+  seatsLeft,
+  bare = false,
+  onSwitchToLogin,
+  sharedEmail = '',
+  onEmailChange,
+}: {
+  turnstileSiteKey: string | null
+  seatsLeft: number
+  /** Tanpa kartu: panel kanan layar masuk. Judul menjadi h2. */
+  bare?: boolean
+  /** Pindah ke Masuk di halaman yang sama. Tanpa ini, tautan biasa ke /masuk. */
+  onSwitchToLogin?: () => void
+  /** Email yang dibawa dari form Masuk. */
+  sharedEmail?: string
+  onEmailChange?: (email: string) => void
+}) {
+  const H = bare ? 'h2' : 'h1'
   const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [email, setEmailState] = useState(sharedEmail)
+  const setEmail = (v: string) => {
+    setEmailState(v)
+    onEmailChange?.(v)
+  }
   const [password, setPassword] = useState('')
   const [consent, setConsent] = useState(false)
   const [captcha, setCaptcha] = useState<string | null>(null)
@@ -56,10 +78,10 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
 
   if (sentTo) {
     return (
-      <AuthCard labelledBy="daftar-cek">
-        <h1 id="daftar-cek" className="m-0 text-h1 font-bold max-sm:text-h2">
+      <AuthCard labelledBy="daftar-cek" bare={bare}>
+        <H id="daftar-cek" className="m-0 text-h1 font-bold max-sm:text-h2">
           Cek email kamu
-        </h1>
+        </H>
         <p className="m-0 text-body text-fg-muted">
           Kami mengirim tombol konfirmasi ke <strong className="text-fg">{sentTo}</strong>. Tekan tombol itu, lalu keluarga Kira kamu langsung dibuat. Tautan berlaku 24 jam. Cek juga folder spam.
         </p>
@@ -96,13 +118,13 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
   }
 
   return (
-    <AuthCard labelledBy="daftar-judul">
+    <AuthCard labelledBy="daftar-judul" bare={bare}>
       <div className="flex flex-col gap-1">
-        <h1 id="daftar-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
+        <H id="daftar-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Daftar kursi beta
-        </h1>
+        </H>
         <p className="m-0 text-body text-fg-muted">
-          Untuk orang tua. Tersisa {seatsLeft} kursi. Setelah email dikonfirmasi, kamu menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.
+          {bare ? 'Untuk orang tua. Setelah email dikonfirmasi, kamu menambahkan anak dan bisa mulai hari ini.' : `Untuk orang tua. Tersisa ${seatsLeft} kursi. Setelah email dikonfirmasi, kamu menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.`}
         </p>
       </div>
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
@@ -142,7 +164,7 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
           size="L"
           value={password}
           error={errors.password}
-          hint="Paling sedikit 15 karakter. Kalimat panjang yang mudah kamu ingat lebih baik daripada kata acak."
+          hint="Paling sedikit 15 karakter. Kalimat panjang yang mudah diingat paling baik."
           onChange={(e) => {
             setPassword(e.target.value)
             if (errors.password) setErrors((x) => ({ ...x, password: undefined }))
@@ -183,9 +205,15 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
       </form>
       <p className="m-0 text-body text-fg-muted">
         Sudah punya akun?{' '}
-        <Link href="/masuk" className="font-bold">
-          Masuk
-        </Link>
+        {onSwitchToLogin ? (
+          <button type="button" onClick={onSwitchToLogin} className="cursor-pointer border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
+            Masuk
+          </button>
+        ) : (
+          <Link href="/masuk" className="font-bold">
+            Masuk
+          </Link>
+        )}
       </p>
     </AuthCard>
   )
