@@ -276,7 +276,7 @@ const en = {
     givenTo: 'This certificate is proudly given to',
     reason: (days: number) => `for studying on ${days} days in a row with Kira.`,
     closing: 'One page at a time, one day at a time. Well done!',
-    awardedOn: (date: string) => `Awarded on ${date}`,
+    awardedOn: (date: string) => `Awarded on ${new Date(`${date}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}`,
     fallbackName: 'Kira learner',
     fileName: (days: number) => `kira-certificate-${days}-days.pdf`,
   },
