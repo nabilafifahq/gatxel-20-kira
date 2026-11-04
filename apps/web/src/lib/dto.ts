@@ -6,7 +6,7 @@
  */
 
 import type { ClientItem } from '@kira/content/present'
-import type { SolutionStep } from '@kira/content/schema'
+import type { LessonStep, SolutionStep } from '@kira/content/schema'
 import type { FigureSpec } from '@kira/figures/spec'
 import type { AccessoryId } from '@kira/core'
 import type { AccessoryDTO, ArenaTutorDTO, XpTrackDTO } from './dto-arena'
@@ -368,6 +368,9 @@ export type CorrectionBookDTO = {
   startHref: string | null
 }
 
+// Alat peraga Math
+export type ToolsDTO = { shell: LearnerShell }
+
 // L12 Pelajaran
 export type LessonDTO = {
   shell: LearnerShell
@@ -375,7 +378,7 @@ export type LessonDTO = {
   subject: Subject
   title: string
   meta: string
-  steps: SolutionStep[]
+  steps: LessonStep[]
   check: ClientItem[]
   practiseHref: string
   backHref: string
