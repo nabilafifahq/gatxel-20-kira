@@ -45,3 +45,4 @@ math	3	amb	m3.place-value.807	4 hundreds, 15 tens, 10 ones is also 560 and was m
 math	4	amb	m4.place-value.806	13 hundreds and 15 tens is also 1,450 and was marked wrong (exact check) => with the fewest blocks	serious
 math	4	amb	m4.place-value.808	19 hundreds and 17 tens is also 2,070 and was marked wrong (exact check) => with the fewest blocks	serious
 math	4	amb	m4.place-value.811	12 hundreds and 105 ones is also 1,305 and was marked wrong (exact check) => with the fewest blocks	serious
+math	3-4	open	packages/content/scripts/peraga-items.ts	the generator still holds the old prompts of m3.place-value.807, m4.place-value.806, .808, .811; re-running it reverts the fixes in the .tools.json files; not changed because app code is out of scope	minor
