@@ -150,7 +150,7 @@ test('sesi opsional dari tutor tampil di Optional today dan tidak menambah sesi 
   await expect(extra).toBeVisible()
   await expect(extra.getByText('Review cards')).toBeVisible()
   await expect(extra.getByText('English listening')).toBeVisible()
-  await expect(extra.getByText('Optional, and your streak does not change.')).toBeVisible()
+  await expect(extra.getByText('Only if you want more. Your streak does not change.')).toBeVisible()
   await expectNoSeriousA11y(page, 'Today dengan Optional today')
   const [dr] = await db()`select quests_required from day_record where learner_id = ${lid} and date = ${today}`
   expect(dr!.quests_required).toBe(9)

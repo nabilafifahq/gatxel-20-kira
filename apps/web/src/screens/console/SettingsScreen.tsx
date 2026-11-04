@@ -541,7 +541,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
               <Button variant="primary" className="self-start" onClick={doSaveLimits} loading={saveLimits.pending}>
                 Simpan batas
               </Button>
-              <div className="flex flex-col gap-3 border-t border-divider pt-4">
+              <div id="aturan-hari" className="flex flex-col gap-3 border-t border-divider pt-4">
                 <h3 className="m-0 text-body font-bold">Aturan hari {learner.name}</h3>
                 <DayRulesEditor
                   key={learner.id}

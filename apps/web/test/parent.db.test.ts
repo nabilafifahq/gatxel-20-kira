@@ -83,6 +83,14 @@ describe.skipIf(!ready)('dashboard orang tua', () => {
     expect(homeB.children.map((c) => c.id)).toEqual([b1])
   })
 
+  it('penanda orang dewasa: keluarga tanpa tutor melihat sendiri jawaban tulis, keluarga bertutor tidak berubah', async () => {
+    const core = await import('@/server/dal/learner-core')
+    const markerIn = (org: string, user: string) => dbm.inOrg({ orgId: org, userId: user, role: 'learner' }, (tx) => core.markerFor(tx))
+    expect(await markerIn(orgB, b1)).toBe('grownup')
+    expect(await markerIn(orgA, a1)).toBe('tutor')
+    expect((await R.parentHomeDTO(actor(gB, orgB))).hasTutor).toBe(false)
+  })
+
   it('anak sendiri: detail terbaca, dengan aturan hari Seimbang sebagai bawaan', async () => {
     const d = await R.parentChildDTO(PA(), a1)
     expect(d.card.id).toBe(a1)

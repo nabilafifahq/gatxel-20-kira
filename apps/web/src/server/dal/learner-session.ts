@@ -31,7 +31,7 @@ import { conflict, notFound } from '../errors'
 import { poolForSkill, preset, resolveItems, skill, skillsFor, type PoolCandidate } from './content'
 import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
-import { isRestDay, loadLearner, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
+import { isRestDay, loadLearner, markerFor, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
 import { dayRulesFor } from './learner-rules'
 
 const { quest, attempt, planSlot, planWeek, reviewCard, paper, response } = tables
@@ -219,6 +219,8 @@ type PlanSpec = {
   seedKey: string
   /** Sesi berasal dari slot rencana tutor (bukan pilihan otomatis): soal foto jawaban boleh ikut Latihan. */
   assigned: boolean
+  /** Sesi wajib (dihitung streak). Keluarga tanpa tutor: soal tulis, bicara, gambar, dan foto tidak masuk sesi wajib. */
+  required: boolean
 }
 
 function paperItems(refs: readonly string[], resolved: Map<string, { difficulty: number }>): AttemptItem[] {
@@ -245,6 +247,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
   if (session === 'latihan' || session === 'reading') {
     if (!spec.skillId) return null
     const legacy = spec.mode === 'belajar'
+    const noManual = spec.required && (await markerFor(tx)) === 'grownup'
     const items = await buildQuestItems(tx, ctx, learner, {
       skillId: spec.skillId,
       subject,
@@ -253,7 +256,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
       seedKey: spec.seedKey,
       ...(legacy ? { length: spec.count ?? 6 } : { style: 'easy' as const, length: spec.count ?? LATIHAN_COUNT }),
       avoid,
-      ...(spec.assigned ? { allowPhoto: true } : {}),
+      ...(noManual ? { allowManual: false } : spec.assigned ? { allowPhoto: true } : {}),
     })
     return { title: skill(spec.skillId)?.title ?? SUBJECT_LABEL[subject], mode: legacy ? 'belajar' : 'latihan', items, timeLimitS: null, presetId: null }
   }
@@ -349,6 +352,7 @@ export async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: Learner
       date: q.date,
       seedKey: seedKeyOf(q),
       assigned: q.planSlotId !== null,
+      required: q.kind === 'daily',
     },
     avoid,
   )
@@ -645,6 +649,7 @@ export async function syncDay(tx: Tx, ctx: OrgContext, learner: LearnerRow, date
         date,
         seedKey,
         assigned: Boolean(row?.skillId),
+        required: entry.required,
       },
       session === 'tes' ? await refsFor(subject) : new Set(),
     )

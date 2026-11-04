@@ -98,7 +98,8 @@ async function resetStreak(name: string | undefined): Promise<void> {
   const rows = await sql`select user_id, org_id from learner_profile where name = ${name} and deleted_at is null`
   if (rows.length !== 1) throw new Error(rows.length === 0 ? 'Learner dengan nama itu tidak ditemukan.' : 'Ada lebih dari satu learner dengan nama itu. Atur ulang dari konsol atau dashboard orang tua.')
   const { user_id: id, org_id: org } = rows[0]!
-  const [{ today }] = await sql<{ today: string }[]>`select to_char((now() at time zone 'Asia/Jakarta')::date, 'YYYY-MM-DD') as today`
+  const [row0] = await sql<{ today: string }[]>`select to_char((now() at time zone 'Asia/Jakarta')::date, 'YYYY-MM-DD') as today`
+  const today = row0!.today
   await sql.begin(async (tx) => {
     const gone = await tx`delete from day_record where learner_id = ${id} and date < ${today}::date returning date`
     await tx`update learner_profile set streak_since = ${today}::date, updated_at = now() where user_id = ${id}`

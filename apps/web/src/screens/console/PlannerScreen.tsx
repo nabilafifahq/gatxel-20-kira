@@ -476,7 +476,8 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
             </span>
           </div>
           <p className="m-0 text-body text-fg-muted">
-            {data.weekLabel}. Batas waktu layar dari orang tua {data.screenLimitMin} menit sehari.
+            {data.weekLabel}. Batas waktu layar dari orang tua {data.screenLimitMin} menit sehari. Aturan hari: {data.dayPresetLabel}.{' '}
+            <Link href={data.rulesHref}>Ubah aturan hari</Link>
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
