@@ -63,25 +63,28 @@ const STOPS: Stop[] = [
     thumb: <SubjectIcon subject="math" size={56} />,
     art: (
       <span className="flex items-center gap-2">
-        <span className="rounded-control bg-surface p-2 shadow-soft">
-          <SubjectIcon subject="math" size={56} />
-        </span>
-        <span className="rounded-control bg-surface p-2 shadow-soft">
-          <SubjectIcon subject="english" size={56} />
-        </span>
-        <span className="rounded-control bg-surface p-2 shadow-soft">
-          <SubjectIcon subject="science" size={56} />
-        </span>
+        {(
+          [
+            ['math', 'Math'],
+            ['english', 'English'],
+            ['science', 'Science'],
+          ] as const
+        ).map(([subject, name]) => (
+          <span key={subject} className="flex flex-col items-center gap-1 rounded-control bg-surface p-2 font-display font-semibold shadow-soft">
+            <SubjectIcon subject={subject} size={56} />
+            {name}
+          </span>
+        ))}
       </span>
     ),
-    lines: ['Buka halaman Hari ini.', 'Di sana ada sesimu.', 'Satu sesi berisi beberapa soal.', 'Kerjakan satu per satu.', 'Semua selesai? Ada peti hadiah untukmu!'],
+    lines: ['Buka halaman Hari ini.', 'Di sana ada sesimu. Ada yang wajib, ada yang tambahan.', 'Satu sesi berisi beberapa soal.', 'Kerjakan satu per satu.', 'Semua selesai? Ada peti hadiah untukmu!'],
   },
   {
     id: 'salah',
     menu: 'Salah? Boleh!',
     title: 'Salah itu boleh',
     tone: 'yellow',
-    thumb: <KiraStar size={56} mood="calm" animate={false} />,
+    thumb: <UiIcon name="not-yet" size={48} />,
     art: (
       <span className="flex flex-col items-center gap-3">
         <KiraStar size={128} mood="calm" />
@@ -109,7 +112,7 @@ const STOPS: Stop[] = [
         </span>
       </span>
     ),
-    lines: ['Selesaikan sesi. Kamu dapat bintang.', 'Membaca juga dapat bintang.', 'Bintang tidak pernah hilang.', 'Pakai bintang di Toko Bintang.', 'Ada topi, mahkota, dan latar yang cantik.', 'Tidak perlu uang sungguhan.'],
+    lines: ['Selesaikan sesi. Kamu dapat bintang.', 'Membaca juga dapat bintang.', 'Libur? Bintangmu tetap ada.', 'Pakai bintang di Toko Bintang.', 'Ada topi, mahkota, dan latar yang cantik.', 'Tidak perlu uang sungguhan.'],
   },
   {
     id: 'teman',
@@ -126,13 +129,13 @@ const STOPS: Stop[] = [
     lines: ['Kamu punya telur misteri.', 'Kumpulkan 5 bintang. Telurnya menetas!', 'Pilih temanmu. Beri dia nama.', 'Belajar terus. Temanmu tumbuh.', 'Libur beberapa hari? Dia tetap menunggumu.', 'Temanmu tidak pernah sakit.'],
   },
   {
-    id: 'robot',
-    menu: 'Robot',
-    title: 'Tantangan Puzzle Robot',
+    id: 'bos',
+    menu: 'Bos',
+    title: 'Tantangan bos',
     tone: 'lavender',
     thumb: <RobotArt size={56} />,
     art: <RobotArt size={160} />,
-    lines: ['Puzzle Robot suka teka-teki.', 'Ada 10 soal.', 'Jawab benar 7 soal. Kamu menang!', 'Menang? Kamu dapat 10 bintang. Hadiah ini sekali seminggu.', 'Belum menang? Tidak ada yang hilang.', 'Boleh coba lagi kapan saja.'],
+    lines: ['Ada 14 lawan yang lucu.', 'Yang pertama Robot Teka-Teki.', 'Ada 10 soal. Jawab benar 7 soal. Kamu menang!', 'Menang? Kamu dapat kartu dan bintang.', 'Belum menang? Tidak ada yang hilang.', 'Boleh coba lagi kapan saja.'],
   },
   {
     id: 'kamus',
@@ -150,7 +153,7 @@ const STOPS: Stop[] = [
         </Bubble>
       </span>
     ),
-    lines: ['Ada kata yang sulit?', 'Ketuk katanya.', 'Artinya muncul dalam bahasa Indonesia.', 'Mau dengar? Ketuk gambar speaker.', 'Simpan katanya. Nanti kamu bisa berlatih.'],
+    lines: ['Ada kata yang sulit?', 'Ketuk katanya.', 'Artinya muncul dalam bahasa Indonesia.', 'Mau dengar? Ketuk gambar speaker.', 'Simpan katanya di Kata-kataku. Nanti kamu bisa berlatih.'],
   },
   {
     id: 'bahasa',
@@ -160,7 +163,7 @@ const STOPS: Stop[] = [
     thumb: <UiIcon name="globe" size={48} />,
     art: (
       <span className="flex flex-col items-center gap-3">
-        <Bubble>Lanjut</Bubble>
+        <Bubble>Coba lagi</Bubble>
         <Bubble>What is 6 + 7?</Bubble>
       </span>
     ),
@@ -237,7 +240,7 @@ export function KidsGuide() {
                   {s.title}
                 </h2>
                 {s.lines.map((line) => (
-                  <p key={line} className="m-0 font-reading text-h3 font-semibold">
+                  <p key={line} className="m-0 font-reading text-h3 font-semibold sm:text-h2">
                     {line}
                   </p>
                 ))}

@@ -49,7 +49,7 @@ export function LandingScreen({ seats, curriculumClaim, turnstileSiteKey }: Land
           Kira
         </Link>
         <nav aria-label="Menu utama" className="ml-auto flex items-center gap-2 sm:gap-4">
-          <Link href="/panduan" className="hidden min-h-11 items-center font-bold sm:inline-flex">
+          <Link href="/panduan" className="inline-flex min-h-11 items-center font-bold">
             Panduan
           </Link>
           <Link href="/masuk" className="inline-flex min-h-11 items-center font-bold">

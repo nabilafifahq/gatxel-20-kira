@@ -8,7 +8,7 @@ export function guideMetadata(origin: string, page: { title: string; description
   const url = `${origin}${page.path}`
   return {
     metadataBase: new URL(origin),
-    title: page.title,
+    title: { absolute: page.title },
     description: page.description,
     alternates: { canonical: url },
     openGraph: {
