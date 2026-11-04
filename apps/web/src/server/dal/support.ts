@@ -8,6 +8,7 @@ import { appVersion } from '../app-version'
 import { appDb, inOrg } from '../db'
 import { newTicketReference } from '../support-file'
 import { emailIdentity, supportAddresses } from '../email'
+import { gradeOfSkill, resolveItems } from './content'
 import { roleLabel, SUPPORT_CATEGORIES, type SupportCategoryId } from '@/lib/support'
 
 export type NewSupportTicket = {
@@ -100,17 +101,23 @@ const REPORT_REASON: Record<string, string> = {
   other: 'Lainnya',
 }
 
+const REPORT_SCREEN: Record<'practice' | 'test', string> = { practice: 'Layar latihan anak', test: 'Layar tes anak' }
+
 /**
  * Laporan soal dari anak dibaca di konsol tutor. Keluarga tanpa tutor tidak punya konsol, jadi laporannya diteruskan
  * ke kotak bantuan tim. Keluarga bertutor tidak berubah. Pesan tidak memuat nama anak; pengirimnya email orang tua.
  */
-export async function forwardProblemReport(input: { orgId: string; reference: string; itemRef: string; reason: string; note: string; ipHash: string }): Promise<boolean> {
-  const members = await inOrg(systemCtx(input.orgId), (tx) =>
-    tx
+export async function forwardProblemReport(input: { orgId: string; reference: string; itemRef: string; reason: string; note: string; learnerId: string | null; screen: 'practice' | 'test' | null; ipHash: string }): Promise<boolean> {
+  const { members, skillId, itemGrade, learnerGrade } = await inOrg(systemCtx(input.orgId), async (tx) => {
+    const rows = await tx
       .select({ id: tables.memberProfile.userId, role: tables.memberProfile.role, email: tables.memberProfile.email })
       .from(tables.memberProfile)
-      .where(and(eq(tables.memberProfile.orgId, input.orgId), isNull(tables.memberProfile.removedAt))),
-  )
+      .where(and(eq(tables.memberProfile.orgId, input.orgId), isNull(tables.memberProfile.removedAt)))
+    if (rows.some((m) => m.role === 'tutor')) return { members: rows, skillId: null, itemGrade: null, learnerGrade: null }
+    const found = (await resolveItems(tx, [input.itemRef])).get(input.itemRef)
+    const learner = input.learnerId ? (await tx.select({ grade: tables.learnerProfile.grade }).from(tables.learnerProfile).where(eq(tables.learnerProfile.userId, input.learnerId)).limit(1))[0] : undefined
+    return { members: rows, skillId: found?.skill ?? null, itemGrade: found ? gradeOfSkill(found.skill) : null, learnerGrade: learner?.grade ?? null }
+  })
   if (members.some((m) => m.role === 'tutor')) return false
   const parent = members.find((m) => m.role === 'guardian' && m.email)
   if (!parent?.email) return false
@@ -118,13 +125,23 @@ export async function forwardProblemReport(input: { orgId: string; reference: st
     reference: newTicketReference(),
     category: 'koreksi',
     subject: `Laporan soal dari anak: ${input.itemRef}`.slice(0, 120),
-    message: [`Soal: ${input.itemRef}`, `Alasan: ${REPORT_REASON[input.reason] ?? input.reason}`, `Catatan anak: ${input.note.trim() || 'tidak ada'}`, `Kode laporan: ${input.reference}`].join('\n'),
+    message: [
+      `Soal: ${input.itemRef}`,
+      `Skill: ${skillId ?? 'tidak diketahui'}`,
+      `Kelas soal: ${itemGrade ?? 'tidak diketahui'}`,
+      `Kelas anak: ${learnerGrade ?? 'tidak diketahui'}`,
+      `Learner: ${input.learnerId ?? 'orang dewasa'}`,
+      `Layar: ${input.screen ? REPORT_SCREEN[input.screen] : 'tidak diketahui'}`,
+      `Alasan: ${REPORT_REASON[input.reason] ?? input.reason}`,
+      `Catatan anak: ${input.note.trim() || 'tidak ada'}`,
+      `Kode laporan: ${input.reference}`,
+    ].join('\n'),
     senderEmail: parent.email,
     account: { id: parent.id, role: 'guardian' },
     userAgent: '',
     screen: '',
     appVersion: appVersion(),
-    pageFrom: '',
+    pageFrom: input.screen ? REPORT_SCREEN[input.screen] : '',
     ipHash: input.ipHash,
     attachment: null,
     sendConfirmation: false,

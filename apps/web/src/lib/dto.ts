@@ -224,7 +224,7 @@ export type RemedialLessonDTO = { title: string; steps: SolutionStep[] }
 export type RunnerActions = {
   saveAnswer(p: AnswerPayload): Promise<ActionResult<AnswerResult>>
   submitAttempt(attemptId: string, clientId: string): Promise<ActionResult<{ redirectTo: string }>>
-  reportProblem(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string }): Promise<ActionResult<{ reference: string }>>
+  reportProblem(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string; screen?: 'practice' | 'test' }): Promise<ActionResult<{ reference: string }>>
   /** Putaran perbaikan di Latihan (tidak ada di mode berwaktu). */
   remedialLesson?(input: { attemptId: string; position: number }): Promise<ActionResult<{ lesson: RemedialLessonDTO | null }>>
   addRemedialItem?(input: { attemptId: string; position: number }): Promise<ActionResult<{ item: RunnerItem | null }>>
