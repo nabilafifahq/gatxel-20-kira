@@ -2,6 +2,8 @@ import { expect, test } from '@playwright/test'
 import { closeDb, db, expectNoSeriousA11y, learnerId, noHorizontalScroll, pinLogin, registerTablet, seedOrgId, waitForPath, watchErrors } from './helpers'
 
 test.afterAll(closeDb)
+// Satu spec ini berjalan melewati semua layar Kira World, jadi butuh lebih lama dari batas bawaan 90 detik.
+test.setTimeout(300_000)
 
 const SHOTS = process.env.E2E_SHOTS
 
