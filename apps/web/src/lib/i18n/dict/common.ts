@@ -13,6 +13,7 @@ const en = {
   tryAgain: 'Try again',
   grade: (n: number) => `Grade ${n}`,
   subject: { math: 'Math', english: 'English', science: 'Science' },
+  langSwitch: { label: 'Language', id: 'Bahasa Indonesia', en: 'English', notAllowed: 'Ask a grown-up to change the language.' },
 }
 
 const id: typeof en = {
@@ -29,6 +30,7 @@ const id: typeof en = {
   tryAgain: 'Coba lagi',
   grade: (n) => `Kelas ${n}`,
   subject: { math: 'Matematika', english: 'Bahasa Inggris', science: 'Sains' },
+  langSwitch: { label: 'Bahasa', id: 'Bahasa Indonesia', en: 'English', notAllowed: 'Minta tolong orang dewasa untuk mengganti bahasa, ya.' },
 }
 
 export const common = { en, id }

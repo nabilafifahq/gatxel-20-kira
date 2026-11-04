@@ -15,6 +15,8 @@ import { useAction } from '@/components/console/useAction'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
 import { PublicFrame } from '@/screens/public/PublicFrame'
 import { addChildAction, saveConsentsAction } from '@/server/actions/onboarding'
+import { UiLangChoice } from './UiLangChoice'
+import type { UiLang } from '@/lib/i18n/lang'
 import { registerDeviceAction } from '@/server/actions/auth'
 import type { OnboardingChild, OnboardingPurpose, OnboardingState } from '@/server/dal/onboarding'
 
@@ -179,6 +181,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
   const [grade, setGrade] = useState(1)
   const [avatar, setAvatar] = useState<AvatarName>(firstFree)
   const [pin, setPin] = useState<PinPicture[]>([])
+  const [uiLang, setUiLang] = useState<UiLang>('id')
   const [errors, setErrors] = useState<{ name?: string; pin?: string }>({})
   const add = useAction(addChildAction)
   const gid = useId().replace(/:/g, '')
@@ -191,7 +194,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
     if (pp) next.pin = pp
     setErrors(next)
     if (next.name || next.pin) return
-    const r = await add.run({ name: name.trim(), grade, avatar, pin })
+    const r = await add.run({ name: name.trim(), grade, avatar, pin, uiLang })
     if (r.ok) {
       setName('')
       setPin([])
@@ -242,6 +245,7 @@ function AddChildForm({ existing, first, onAdded }: { existing: OnboardingChild[
           ))}
         </div>
       </fieldset>
+      <UiLangChoice name={`bahasa${gid}`} value={uiLang} onChange={setUiLang} />
       <PinChooser value={pin} onChange={(p) => { setPin(p); if (errors.pin) setErrors((x) => ({ ...x, pin: undefined })) }} error={errors.pin} legend="PIN gambar untuk masuk" />
       {add.error && !add.error.fieldErrors ? (
         <InlineAlert tone="danger" title={add.error.message} reference={add.error.reference}>

@@ -17,6 +17,8 @@ import { useAction } from '@/components/console/useAction'
 import { FamilyShell } from '@/components/family/FamilyShell'
 import { AVATARS, AvatarPicker } from '@/screens/console/LearnersScreen'
 import { parentAddChildAction } from '@/server/actions/parent'
+import { UiLangChoice } from '@/components/family/UiLangChoice'
+import type { UiLang } from '@/lib/i18n/lang'
 import { registerDeviceAction } from '@/server/actions/auth'
 
 /**
@@ -175,6 +177,7 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
   const used = Object.fromEntries(taken) as Partial<Record<AvatarName, string>>
   const [avatar, setAvatar] = useState<AvatarName>(AVATARS.find((a) => !used[a]) ?? 'cat')
   const [pin, setPin] = useState<PinPicture[]>([])
+  const [uiLang, setUiLang] = useState<UiLang>('id')
   const [error, setError] = useState<string | null>(null)
   const add = useAction(parentAddChildAction)
 
@@ -183,7 +186,7 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
     const p = pinProblem(pin)
     if (p) return setError(p)
     setError(null)
-    const r = await add.run({ name: name.trim(), grade: Number(grade), avatar, pin })
+    const r = await add.run({ name: name.trim(), grade: Number(grade), avatar, pin, uiLang })
     if (r.ok) onDone(r.data.learnerId)
   }
 
@@ -217,6 +220,7 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
           layout="row"
         />
         <AvatarPicker value={avatar} onChange={setAvatar} taken={used} />
+        <UiLangChoice name="bahasa-baru" value={uiLang} onChange={setUiLang} />
         <PinChooser value={pin} onChange={setPin} />
         {error ? <InlineAlert tone="danger" title={error} /> : null}
         <ActionError error={add.error} />

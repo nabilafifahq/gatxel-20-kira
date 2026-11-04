@@ -262,10 +262,10 @@ export async function changePassword(user: { userId: string; sessionId: string; 
 }
 
 /** Akun learner baru: identitas di skema auth, profil belajar di skema publik. Belum aktif sampai ada persetujuan orang tua. */
-export async function createLearnerAccount(ctx: { orgId: string; userId: string }, input: { name: string; grade: number; avatar: string; pin: string[] }): Promise<string> {
+export async function createLearnerAccount(ctx: { orgId: string; userId: string }, input: { name: string; grade: number; avatar: string; pin: string[]; uiLang?: UiLang }): Promise<string> {
   const [user] = await authDb()
     .insert(userAccount)
-    .values({ orgId: ctx.orgId, kind: 'learner', role: 'learner', email: null, name: input.name.trim() })
+    .values({ orgId: ctx.orgId, kind: 'learner', role: 'learner', email: null, name: input.name.trim(), ...(input.uiLang ? { uiLang: input.uiLang } : {}) })
     .returning({ id: userAccount.id })
   try {
     await setPin(user!.id, input.pin)

@@ -17,6 +17,8 @@ import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
 import { FamilyShell } from '@/components/family/FamilyShell'
+import { UiLangChoice } from '@/components/family/UiLangChoice'
+import type { UiLang } from '@/lib/i18n/lang'
 import { WeekSummary } from '@/components/family/WeekSummary'
 import { PlacementSection } from './PlacementSection'
 import { AvatarPicker } from '@/screens/console/LearnersScreen'
@@ -30,6 +32,7 @@ import {
   parentSaveDayRulesAction,
   parentSaveLimitsAction,
   parentSaveSoundAction,
+  parentSaveUiLangAction,
   parentSetQuestionCountAction,
   parentSetSessionRequiredAction,
   parentUnlockAction,
@@ -245,6 +248,7 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
         />
         <Limits c={data.controls} learnerId={c.id} name={c.name} onSaved={() => toast({ tone: 'success', title: 'Batas waktu layar tersimpan.' })} />
         <Sound c={data.controls} learnerId={c.id} onSaved={() => toast({ tone: 'success', title: 'Pilihan suara tersimpan.' })} />
+        <UiLangSettings c={data.controls} learnerId={c.id} name={c.name} onSaved={() => toast({ tone: 'success', title: 'Bahasa tampilan tersimpan.' })} />
         <PinTools learnerId={c.id} name={c.name} onDone={(t) => toast({ tone: 'success', title: t })} />
         <EditProfile learnerId={c.id} name={c.name} grade={data.controls.grade} avatar={data.controls.avatar} />
         <div className="flex flex-col gap-2">
@@ -463,6 +467,30 @@ function Sound({ c, learnerId, onSaved }: { c: ParentChildDTO['controls']; learn
           Musik latar
         </span>
         <Switch checked={music} onChange={(v) => void commit(sound, v)} labelledBy="mus" busy={save.pending} />
+      </div>
+      <ActionError error={save.error} />
+    </div>
+  )
+}
+
+function UiLangSettings({ c, learnerId, name, onSaved }: { c: ParentChildDTO['controls']; learnerId: string; name: string; onSaved: () => void }) {
+  const [lang, setLang] = useState<UiLang>(c.uiLang)
+  const [allow, setAllow] = useState(c.uiLangSwitch)
+  const save = useAction(parentSaveUiLangAction)
+  async function commit(l: UiLang, a: boolean) {
+    setLang(l)
+    setAllow(a)
+    const r = await save.run({ learnerId, uiLang: l, uiLangSwitch: a })
+    if (r.ok) onSaved()
+  }
+  return (
+    <div className="flex flex-col gap-3 border-t border-divider pt-4">
+      <UiLangChoice name="bahasa-anak" value={lang} onChange={(v) => void commit(v, allow)} disabled={save.pending} />
+      <div className="flex items-center gap-3">
+        <span id="bahasa-izin" className="flex-1 text-body">
+          {name} boleh mengganti bahasa sendiri
+        </span>
+        <Switch checked={allow} onChange={(v) => void commit(lang, v)} labelledBy="bahasa-izin" busy={save.pending} />
       </div>
       <ActionError error={save.error} />
     </div>
