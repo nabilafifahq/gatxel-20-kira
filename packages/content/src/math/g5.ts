@@ -1029,7 +1029,7 @@ const decimalPlaceValue: Generator = {
             dp === 1 ? '1 whole is 10 tenths.' : '1 whole is 100 hundredths, and 1 tenth is 10 hundredths.',
             `${plural(w, 'whole', 'wholes')} ${w === 1 ? 'makes' : 'make'} ${w * 10 ** dp} ${name}.`,
           ],
-          explanation: `${fmt(n)} = ${dp === 1 ? `${w * 10} + ${t}` : `${w * 100} + ${t * 10} + ${h}`} ${name} = ${u} ${name}.`,
+          explanation: `${fmt(n)} = ${dp === 1 ? `${w * 10} tenths + ${plural(t, 'tenth', 'tenths')}` : `${w * 100} hundredths + ${t * 10} hundredths + ${plural(h, 'hundredth', 'hundredths')}`} = ${u} ${name}.`,
           solution: [
             { say: `Change the wholes into ${name}.`, show: `${w} = ${w * 10 ** dp} ${name}` },
             { say: 'Add the rest.', show: `${fmt(n)} = ${u} ${name}` },
