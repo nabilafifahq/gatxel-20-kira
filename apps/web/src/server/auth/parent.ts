@@ -2,7 +2,7 @@ import 'server-only'
 import { and, eq, sql } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import type { OrgContext, Tx } from '../db'
-import { inOrg } from '../db'
+import { authDb, inOrg } from '../db'
 import { systemCtx } from '../audit'
 import { forbidden } from '../errors'
 import { orgCtx, requireActor, type Actor } from './actor'
@@ -58,4 +58,17 @@ export async function withFamilyAdmin<T>(actor: Actor, fn: (tx: Tx, scope: Paren
     }
     return fn(tx, scope)
   })
+}
+
+/**
+ * True bila orang tua ini mendaftar sendiri dan memiliki keluarganya (punya kursi beta). Orang tua yang diundang
+ * tutor ke keluarga lama tidak memilikinya, jadi tidak bisa menambah anak sendiri.
+ */
+export async function isFamilyOwner(actor: Pick<Actor, 'userId' | 'orgId'>): Promise<boolean> {
+  const rows = await authDb()
+    .select({ orgId: tables.betaSeat.orgId })
+    .from(tables.betaSeat)
+    .where(and(eq(tables.betaSeat.userId, actor.userId), eq(tables.betaSeat.orgId, actor.orgId)))
+    .limit(1)
+  return Boolean(rows[0])
 }

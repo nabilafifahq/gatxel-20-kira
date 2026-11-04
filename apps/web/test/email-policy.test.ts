@@ -62,6 +62,6 @@ describe('MX dan checkEmail', () => {
   })
   it('pesan ramah tanpa tanda pisah panjang', async () => {
     const v = await checkEmail('a@tmail.pk', { resolver: mx })
-    expect(v.ok ? '' : v.message).not.toMatch(/[—–]/)
+    expect(v.ok ? '' : v.message).not.toMatch(new RegExp(`[${String.fromCharCode(8212, 8211)}]`))
   })
 })

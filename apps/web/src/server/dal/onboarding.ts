@@ -5,10 +5,10 @@ import type { AvatarName, PinPicture } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
 import { orgCtx } from '../auth/actor'
 import { createLearnerAccount } from '../auth/accounts'
-import { withFamilyAdmin } from '../auth/parent'
+import { isFamilyOwner, withFamilyAdmin } from '../auth/parent'
 import { auditTx } from '../audit'
 import { env } from '../env'
-import { conflict, invalid } from '../errors'
+import { conflict, forbidden, invalid } from '../errors'
 import { latestConsents, syncLearnerActive, type ConsentPurposeId } from './consent'
 import { applyDefaultPreset } from './default-preset'
 import { setConsentTx } from './privacy'
@@ -54,6 +54,7 @@ export async function onboardingState(actor: Actor): Promise<OnboardingState> {
 export async function addChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[] }): Promise<string> {
   const max = env().KIRA_MAX_LEARNERS_PER_FAMILY
   const name = input.name.trim()
+  if (!(await isFamilyOwner(actor))) throw forbidden('Hanya pemilik keluarga yang bisa menambah anak dari sini. Minta tutor menambahkan anak.')
   return withFamilyAdmin(actor, async (tx, scope) => {
     await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`kira-learners:${actor.orgId}`}))`)
     const mine = await tx
