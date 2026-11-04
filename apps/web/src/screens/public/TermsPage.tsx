@@ -125,7 +125,7 @@ export function TermsPage({ data }: TermsPageProps) {
 
       <LegalSection id="k-berhenti" title="10. Berhenti memakai Kira">
         <p className="m-0">
-          Pemilik akun dan Orang Tua bisa berhenti kapan saja dan menghapus akun dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>.
+          Pemilik akun dan Orang Tua bisa berhenti kapan saja. Akun dan data anak dihapus sendiri dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>. Untuk menghapus akun orang tua, kirim permintaan ke {entity.email}.
           Pengelola bisa menangguhkan akun yang melanggar bagian 6 setelah memberi tahu pemilik akun beserta alasannya, dan akun dibuka lagi setelah pelanggaran
           dihentikan.
         </p>
