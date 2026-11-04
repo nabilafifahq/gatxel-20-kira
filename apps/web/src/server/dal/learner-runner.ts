@@ -169,7 +169,7 @@ export const answerPayloadSchema = z
   .strict()
 
 /** Bentuk jawaban per tipe, dibatasi ukurannya. */
-function validAnswer(item: Item, answer: unknown): boolean {
+export function validAnswer(item: Item, answer: unknown): boolean {
   if (answer === null || answer === undefined) return true
   const json = JSON.stringify(answer)
   if (json.length > 20000) return false

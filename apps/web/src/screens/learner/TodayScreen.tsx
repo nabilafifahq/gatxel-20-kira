@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { ReactElement } from 'react'
 import type { TodayDTO, TodayGroupDTO } from '@/lib/dto'
+import type { PlacementCardDTO } from '@/lib/dto-placement'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
@@ -97,7 +98,31 @@ function GroupHeading({ group }: { group: TodayGroupDTO }): ReactElement {
   )
 }
 
-export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions }): ReactElement {
+/** Kartu hari pertama: mengajak anak mengambil tes penempatan. Hari belajar tetap jalan bila dilewati. */
+function PlacementCard({ card }: { card: PlacementCardDTO }): ReactElement {
+  const started = card.subjects.some((s) => s.status === 'in_progress')
+  const names = joinAnd(card.subjects.map((s) => s.label))
+  return (
+    <section aria-labelledby="today-placement" className="flex flex-col gap-3 rounded-card border-2 border-fg bg-surface px-4 py-4 md:flex-row md:items-center md:gap-6 md:px-6">
+      <span className="flex h-14 w-14 flex-none items-center justify-center rounded-card border-2 border-fg">
+        <UiIcon name="map" size={28} />
+      </span>
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
+        <h2 id="today-placement" className="m-0 text-h3 font-bold">
+          {started ? 'Carry on with your starting point' : 'Find your starting point'}
+        </h2>
+        <p className="m-0 text-body text-fg-muted">
+          {names}: about 5 minutes each. This helps Kira pick the right questions. No timer and no score. You can still do today&apos;s sessions first.
+        </p>
+      </div>
+      <ButtonLink href="/placement" variant="primary" className="flex-none">
+        {started ? 'Carry on' : "Let's go"}
+      </ButtonLink>
+    </section>
+  )
+}
+
+export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions, placement }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions; placement?: PlacementCardDTO | null }): ReactElement {
   const note = noteFor(data, doneHref)
   const streak = data.streak
   // Batas waktu: hanya sesi yang sudah selesai tetap tampil di jalur.
@@ -129,6 +154,8 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           </div>
           <StreakChain streak={streak} size="S" animate={data.variant === 'all-done'} />
         </section>
+
+        {placement ? <PlacementCard card={placement} /> : null}
 
         {data.progress.total > 0 && data.variant !== 'rest-day' ? <Progress data={data} /> : null}
 
