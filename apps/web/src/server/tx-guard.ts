@@ -14,6 +14,7 @@ const held = new AsyncLocalStorage<true>()
 type Report = (message: string, meta: { pool: string; where: string }) => void
 
 const seen = new Set<string>()
+// eslint-disable-next-line no-console -- penjaga transaksi melapor lewat log JSON satu baris, tanpa memakai server/log
 let report: Report = (message, meta) => console.warn(JSON.stringify({ level: 'warn', msg: message, ...meta }))
 
 export function setTxGuardReporter(fn: Report): void {
