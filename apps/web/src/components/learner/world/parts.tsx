@@ -141,6 +141,8 @@ export function PetStage({ kind, stage, costume, home, name, line, happy, onPat,
   }
   return (
     <div className="relative mx-auto w-full max-w-[560px] overflow-hidden rounded-card border-2 border-fg">
+      {/* Teman menempel di dasar gambar, bukan di dasar kotak: di ponsel ucapan ada di bawah gambar dan tidak boleh tertutup. */}
+      <div className="relative">
       <PetHomeArt id={home} width={560} className="block h-auto w-full" />
       <div className="absolute inset-x-0 bottom-0 flex justify-center pb-1">
         <button type="button" onClick={pat} aria-label={w.pet.patLabel(name)} className="relative flex min-h-14 min-w-14 cursor-pointer items-end justify-center border-0 bg-transparent p-0">
@@ -153,6 +155,7 @@ export function PetStage({ kind, stage, costume, home, name, line, happy, onPat,
             </span>
           ))}
         </button>
+      </div>
       </div>
       {line ? (
         <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface px-3.5 py-2 text-body font-bold max-sm:mt-2 sm:absolute sm:top-3 sm:left-3 sm:max-w-[70%]">
