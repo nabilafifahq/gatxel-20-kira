@@ -21,6 +21,15 @@ const schema = z.object({
   AI_MONTHLY_JOB_LIMIT: z.coerce.number().int().min(0).default(400),
   KIRA_HIBP: z.enum(['on', 'off']).default('on'),
   KIRA_MAX_LEARNERS: z.coerce.number().int().min(1).max(50).default(10),
+  /** Jumlah kursi beta. Kursi terpakai saat email terverifikasi; keluarga lama (tutor) tidak memakai kursi. */
+  KIRA_BETA_SEATS: z.coerce.number().int().min(0).max(100000).default(100),
+  /** Batas anak per keluarga yang dibuat orang tua. */
+  KIRA_MAX_LEARNERS_PER_FAMILY: z.coerce.number().int().min(1).max(20).default(5),
+  /** Kalimat netral tentang kurikulum di halaman depan. Kosong menyembunyikannya. Jangan menyatakan dukungan resmi. */
+  KIRA_CURRICULUM_CLAIM: z.string().max(200).optional(),
+  /** Cloudflare Turnstile di halaman auth publik. Aktif hanya bila kedua nilai diisi. */
+  KIRA_TURNSTILE_SITE_KEY: z.string().max(200).optional(),
+  KIRA_TURNSTILE_SECRET: z.string().max(200).optional(),
   /** Rahasia bersama web dan worker untuk /api/internal/*. Tanpa nilai ini endpoint internal menolak semua permintaan. */
   KIRA_INTERNAL_TOKEN: z.string().min(32, 'KIRA_INTERNAL_TOKEN minimal 32 karakter').optional(),
   /** Alamat layanan suara (Qwen3-TTS) untuk worker. Web hanya memeriksa apakah ada: kosong berarti tablet memakai suara bawaan. */

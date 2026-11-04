@@ -126,7 +126,7 @@ $$;
 
 -- Verifikasi email: buat keluarga dan ambil kursi dalam satu transaksi di bawah kunci, jadi batas tidak pernah
 -- terlewati walau banyak verifikasi serentak. Status: ok, full, invalid, taken.
-CREATE OR REPLACE FUNCTION kira_verify_signup(p_token_hash text, p_seats integer, p_family_name text)
+CREATE OR REPLACE FUNCTION kira_verify_signup(p_token_hash text, p_seats integer)
 RETURNS TABLE(status text, user_id uuid, org_id uuid)
 LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, auth, pg_temp AS $$
 DECLARE
@@ -155,7 +155,7 @@ BEGIN
   END IF;
   v_org := gen_random_uuid();
   v_user := gen_random_uuid();
-  INSERT INTO public.org (id, name) VALUES (v_org, p_family_name);
+  INSERT INTO public.org (id, name) VALUES (v_org, left('Keluarga ' || split_part(btrim(s.name), ' ', 1), 80));
   INSERT INTO auth.user_account (id, org_id, kind, role, email, email_norm, name, password_hash, password_changed_at)
     VALUES (v_user, v_org, 'adult', 'guardian', s.email, s.email_norm, s.name, s.password_hash, now());
   INSERT INTO public.member_profile (user_id, org_id, name, role, email) VALUES (v_user, v_org, s.name, 'guardian', s.email);
@@ -169,11 +169,11 @@ BEGIN
   RETURN QUERY SELECT 'ok'::text, v_user, v_org;
 END $$;
 --> statement-breakpoint
-REVOKE ALL ON FUNCTION kira_seats_taken(), kira_verify_signup(text, integer, text) FROM PUBLIC;
+REVOKE ALL ON FUNCTION kira_seats_taken(), kira_verify_signup(text, integer) FROM PUBLIC;
 --> statement-breakpoint
 GRANT EXECUTE ON FUNCTION kira_seats_taken() TO kira_auth, kira_app;
 --> statement-breakpoint
-GRANT EXECUTE ON FUNCTION kira_verify_signup(text, integer, text) TO kira_auth;
+GRANT EXECUTE ON FUNCTION kira_verify_signup(text, integer) TO kira_auth;
 --> statement-breakpoint
 
 -- Pembersihan harian: pendaftar yang tidak memverifikasi dalam 24 jam, konfirmasi kabar yang tidak diklik 14 hari,
