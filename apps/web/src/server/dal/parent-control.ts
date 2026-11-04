@@ -1,6 +1,6 @@
 import 'server-only'
 import { and, eq, isNull, sql } from 'drizzle-orm'
-import { jakartaDate } from '@kira/core'
+import { jakartaDate, type SessionType } from '@kira/core'
 import { tables } from '@kira/db'
 import type { AvatarName, DayPresetId, DayRulesDTO, PlanChangeResult, PinPicture, Subject } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
@@ -25,7 +25,9 @@ import { resolveItems } from './content'
  * menaikkan peran hanya selama panggilan itu. Setiap aksi dicatat di audit_log sebagai orang tua.
  */
 
-const { learnerProfile, guardianLink, response } = tables
+const { learnerProfile, guardianLink, response, quest } = tables
+
+const CORE: readonly SessionType[] = ['latihan', 'tes', 'paper']
 
 /** Periksa tautan orang tua ke anak ini, jalankan fn, lalu catat aksinya. */
 async function ownChild<T>(actor: Actor, learnerId: string, action: string, meta: Record<string, unknown>, fn: (tx: Tx, scope: ParentScope) => Promise<T>): Promise<T> {
@@ -48,14 +50,32 @@ export async function parentResetStreak(actor: Actor, input: { learnerId: string
   return ownChild(actor, input.learnerId, 'streak.reset', {}, (tx, scope) => scope.elevate(() => resetStreakTx(tx, scope.ctx, input)))
 }
 
-export async function parentSetSessionRequired(actor: Actor, input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper'; required: boolean }): Promise<PlanChangeResult> {
-  await ownChild(actor, input.learnerId, 'session.required', { subject: input.subject, session: input.session, required: input.required }, async () => undefined)
-  return setSessionRequired(asStaff(actor), { learnerId: input.learnerId, date: jakartaDate(), slotId: null, subject: input.subject, session: input.session, required: input.required })
+/** Sesi hari ini yang dituju: dicari dari id sesi (quest), dan hanya bila anaknya tertaut ke orang tua ini. */
+async function targetOf(actor: Actor, questId: string): Promise<{ learnerId: string; slotId: string | null; subject: Subject; session: SessionType }> {
+  return withFamilyAdmin(actor, async (tx, scope) => {
+    const [q] = await tx
+      .select({ learnerId: quest.learnerId, slotId: quest.planSlotId, subject: quest.subject, session: quest.session, date: quest.date })
+      .from(quest)
+      .where(eq(quest.id, questId))
+      .limit(1)
+    if (!q) throw notFound('Sesi ini tidak ditemukan. Muat ulang halaman.')
+    await scope.assertParentOf(q.learnerId)
+    if (q.date !== jakartaDate()) throw conflict('Sesi ini bukan sesi hari ini. Muat ulang halaman.')
+    if (!CORE.includes(q.session as SessionType)) throw invalid('Hanya Latihan, Tes, dan Paper yang bisa diatur dari sini.')
+    return { learnerId: q.learnerId, slotId: q.slotId, subject: q.subject as Subject, session: q.session as SessionType }
+  })
 }
 
-export async function parentRemoveSession(actor: Actor, input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper' }): Promise<PlanChangeResult> {
-  await ownChild(actor, input.learnerId, 'session.removed', { subject: input.subject, session: input.session }, async () => undefined)
-  return removeSession(asStaff(actor), { learnerId: input.learnerId, date: jakartaDate(), slotId: null, subject: input.subject, session: input.session })
+export async function parentSetSessionRequired(actor: Actor, input: { questId: string; required: boolean }): Promise<PlanChangeResult> {
+  const t = await targetOf(actor, input.questId)
+  await ownChild(actor, t.learnerId, 'session.required', { subject: t.subject, session: t.session, required: input.required }, async () => undefined)
+  return setSessionRequired(asStaff(actor), { learnerId: t.learnerId, date: jakartaDate(), slotId: t.slotId, subject: t.subject, session: t.session, required: input.required })
+}
+
+export async function parentRemoveSession(actor: Actor, input: { questId: string }): Promise<PlanChangeResult> {
+  const t = await targetOf(actor, input.questId)
+  await ownChild(actor, t.learnerId, 'session.removed', { subject: t.subject, session: t.session }, async () => undefined)
+  return removeSession(asStaff(actor), { learnerId: t.learnerId, date: jakartaDate(), slotId: t.slotId, subject: t.subject, session: t.session })
 }
 
 const DEFAULT_COUNT = { latihan: 10, tes: 8 } as const
@@ -78,19 +98,21 @@ export async function parentAddOptional(actor: Actor, input: { learnerId: string
 }
 
 /** Ubah jumlah soal sesi hari ini yang belum dimulai. Sesi yang sudah dimulai ditolak server dengan pesan jelas. */
-export async function parentSetQuestionCount(actor: Actor, input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes'; questionCount: number }): Promise<PlanChangeResult> {
-  await ownChild(actor, input.learnerId, 'session.count', { subject: input.subject, session: input.session, count: input.questionCount }, async () => undefined)
+export async function parentSetQuestionCount(actor: Actor, input: { questId: string; questionCount: number }): Promise<PlanChangeResult> {
+  const t = await targetOf(actor, input.questId)
+  if (t.session === 'paper') throw invalid('Jumlah soal hanya bisa diubah untuk Latihan dan Tes.')
+  await ownChild(actor, t.learnerId, 'session.count', { subject: t.subject, session: t.session, count: input.questionCount }, async () => undefined)
   const staff = asStaff(actor)
   const today = jakartaDate()
-  const dto = await plannerDTO(staff, input.learnerId, today)
-  const slot = dto?.slots.find((s) => s.date === today && s.subject === input.subject && s.session === input.session)
+  const dto = await plannerDTO(staff, t.learnerId, today)
+  const slot = dto?.slots.find((s) => s.date === today && (t.slotId ? s.id === t.slotId : s.auto && s.subject === t.subject && s.session === t.session))
   if (!slot) throw notFound('Sesi ini tidak ada hari ini. Muat ulang halaman.')
   return upsertSlot(staff, {
-    learnerId: input.learnerId,
+    learnerId: t.learnerId,
     ...(slot.auto ? { fromAuto: true } : { slotId: slot.id }),
     date: today,
-    subject: input.subject,
-    session: input.session,
+    subject: t.subject,
+    session: t.session,
     required: slot.required,
     skillId: slot.skillId,
     mode: slot.mode === 'tes' ? 'tes' : 'latihan',

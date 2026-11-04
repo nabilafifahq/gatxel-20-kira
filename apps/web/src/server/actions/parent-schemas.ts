@@ -25,9 +25,10 @@ export const parentSchemas = {
     })
     .strict(),
   resetStreak: z.object({ learnerId: id, confirmName: z.string().trim().min(1, 'Ketik nama anak untuk mengonfirmasi.').max(80) }).strict(),
-  sessionRequired: z.object({ learnerId: id, subject, session: coreSession, required: z.boolean() }).strict(),
+  quest: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.') }).strict(),
+  sessionRequired: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), required: z.boolean() }).strict(),
   sessionTarget: z.object({ learnerId: id, subject, session: coreSession }).strict(),
-  questionCount: z.object({ learnerId: id, subject, session: z.enum(['latihan', 'tes']), questionCount: z.number().int().min(5, 'Paling sedikit 5 soal.').max(30, 'Paling banyak 30 soal.') }).strict(),
+  questionCount: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), questionCount: z.number().int().min(5, 'Paling sedikit 5 soal.').max(30, 'Paling banyak 30 soal.') }).strict(),
   limits: z
     .object({
       learnerId: id,

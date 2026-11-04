@@ -120,20 +120,3 @@ export type ParentResultDTO = {
   rows: ParentResultRow[]
 }
 
-export type AddSessionInput = { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper' }
-
-export type ParentActions = {
-  saveDayRules(input: { learnerId: string; preset: DayPresetId; rules: DayRulesDTO | null }): Promise<ActionResult<PlanChangeResult>>
-  resetStreak(input: { learnerId: string; confirmName: string }): Promise<ActionResult<{ removedDays: number; streakBefore: number }>>
-  setSessionRequired(input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper'; required: boolean }): Promise<ActionResult<PlanChangeResult>>
-  removeSession(input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper' }): Promise<ActionResult<PlanChangeResult>>
-  addOptionalSession(input: AddSessionInput): Promise<ActionResult<PlanChangeResult>>
-  setQuestionCount(input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes'; questionCount: number }): Promise<ActionResult<PlanChangeResult>>
-  saveLimits(input: { learnerId: string; screenLimitMin: number; restWeekdays: number[] }): Promise<ActionResult>
-  saveSound(input: { learnerId: string; soundEnabled: boolean; musicEnabled: boolean }): Promise<ActionResult>
-  resetPin(input: { learnerId: string; pin: string[] }): Promise<ActionResult>
-  unlock(input: { learnerId: string }): Promise<ActionResult>
-  editChild(input: { learnerId: string; name: string; grade: number; avatar: AvatarName }): Promise<ActionResult>
-  addChild(input: { name: string; grade: number; avatar: AvatarName; pin: string[] }): Promise<ActionResult<{ learnerId: string }>>
-  markWork(input: { responseId: string; verdict: 'good' | 'again'; feedback: string }): Promise<ActionResult>
-}

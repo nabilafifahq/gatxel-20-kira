@@ -64,7 +64,7 @@ export async function parentSetSessionRequiredAction(input: unknown): Promise<Ac
 export async function parentRemoveSessionAction(input: unknown): Promise<ActionResult<PlanChangeResult>> {
   return runAction('parentRemoveSession', async () => {
     const actor = await requireParent()
-    const data = S.sessionTarget.parse(input)
+    const data = S.quest.parse(input)
     const change = await parentRemoveSession(actor, data)
     after(change)
     return change
