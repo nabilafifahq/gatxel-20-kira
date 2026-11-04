@@ -26,3 +26,35 @@ CREATE POLICY learner_feature_learner ON learner_feature AS RESTRICTIVE
   WITH CHECK (app_role() IN ('tutor', 'guardian') AND app_can_see_learner(learner_id));
 --> statement-breakpoint
 GRANT SELECT, INSERT, UPDATE, DELETE ON learner_feature TO kira_app, kira_worker;
+--> statement-breakpoint
+
+-- Kartu belajar (Flashcards): keadaan FSRS per anak per kartu. Dek ada di content/flashcards (atau dek pribadi dari kamus),
+-- jadi tabel ini hanya menyimpan jadwal ulang. Satu baris per anak, dek, dan kartu.
+CREATE TABLE flashcard_state (
+  learner_id uuid NOT NULL,
+  org_id uuid NOT NULL,
+  deck_id text NOT NULL,
+  card_id text NOT NULL,
+  card jsonb NOT NULL,
+  due_at timestamptz NOT NULL,
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  CONSTRAINT flashcard_state_pk PRIMARY KEY (learner_id, deck_id, card_id),
+  CONSTRAINT flashcard_state_org_fk FOREIGN KEY (org_id) REFERENCES org(id) ON DELETE CASCADE,
+  CONSTRAINT flashcard_state_learner_fk FOREIGN KEY (learner_id) REFERENCES learner_profile(user_id) ON DELETE CASCADE
+);
+--> statement-breakpoint
+CREATE INDEX flashcard_state_due_idx ON flashcard_state (learner_id, due_at);
+--> statement-breakpoint
+CREATE INDEX flashcard_state_org_idx ON flashcard_state (org_id);
+--> statement-breakpoint
+ALTER TABLE flashcard_state ENABLE ROW LEVEL SECURITY;
+--> statement-breakpoint
+ALTER TABLE flashcard_state FORCE ROW LEVEL SECURITY;
+--> statement-breakpoint
+CREATE POLICY flashcard_state_org ON flashcard_state USING (org_id = app_org_id()) WITH CHECK (org_id = app_org_id());
+--> statement-breakpoint
+CREATE POLICY flashcard_state_learner ON flashcard_state AS RESTRICTIVE
+  USING (app_can_see_learner(learner_id))
+  WITH CHECK (app_can_see_learner(learner_id));
+--> statement-breakpoint
+GRANT SELECT, INSERT, UPDATE, DELETE ON flashcard_state TO kira_app, kira_worker;
