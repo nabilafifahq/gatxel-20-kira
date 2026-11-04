@@ -299,7 +299,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             answer={{ value: cur.value, onChange: setValue, disabled: locked }}
           />
         </section>
-        <section aria-label="Answers" className="relative flex min-h-0 flex-col overflow-y-auto py-1 lg:flex-1">
+        <section aria-label="Answers" className="relative flex min-h-0 flex-col overflow-x-hidden overflow-y-auto py-1 lg:flex-1">
           <RunnerCorner shell={data.shell} phase="answer" timed streak={0} xp={0} nonce={item.ref} />
           <div className="m-auto flex w-full flex-col gap-3.5 max-md:[&>*>*>p:first-child]:pr-12">
             <WidgetDensityContext.Provider value="exam">
