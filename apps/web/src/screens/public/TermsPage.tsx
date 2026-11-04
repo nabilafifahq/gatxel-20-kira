@@ -67,7 +67,7 @@ export function TermsPage({ data }: TermsPageProps) {
           akun yang dibuat orang dewasa dan setelah Orang Tua memberi persetujuan sesuai Kebijakan Privasi.
         </p>
         <p className="m-0">
-          Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa. Perangkat yang hilang atau dipinjam orang lain bisa dicabut dari Pengaturan.
+          Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa. Kalau perangkat hilang atau dipinjam orang lain, Orang Tua mengganti PIN gambar anak di halaman anak dan bisa meminta perangkat itu dicabut lewat {entity.email}. Keluarga bertutor mencabutnya sendiri dari Pengaturan konsol.
         </p>
       </LegalSection>
 
