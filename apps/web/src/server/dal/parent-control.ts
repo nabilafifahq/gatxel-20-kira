@@ -1,18 +1,17 @@
 import 'server-only'
-import { and, eq, isNull, sql } from 'drizzle-orm'
+import { and, eq, isNull } from 'drizzle-orm'
 import { jakartaDate, type SessionType } from '@kira/core'
 import { tables } from '@kira/db'
 import type { AvatarName, DayPresetId, DayRulesDTO, PlanChangeResult, PinPicture, Subject } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
 import { withFamilyAdmin, type ParentScope } from '../auth/parent'
 import { auditTx } from '../audit'
-import { env } from '../env'
 import { conflict, invalid, notFound } from '../errors'
 import type { Tx } from '../db'
 import { addChild } from './onboarding'
 import { rubricCriteriaOf } from './console-inbox-parent'
 import { gradeResponseTx } from './console-inbox'
-import { assertNameFree, resetPin, unlockLearner, updateLearner } from './console-learners'
+import { resetPin, unlockLearner, updateLearner } from './console-learners'
 import { resetStreakTx, saveDayRulesTx } from './console-day-rules'
 import { plannerDTO, removeSession, setSessionRequired, upsertSlot } from './console-planner'
 import { updateLearnerLimitsTx } from './console-settings'
@@ -25,7 +24,7 @@ import { resolveItems } from './content'
  * menaikkan peran hanya selama panggilan itu. Setiap aksi dicatat di audit_log sebagai orang tua.
  */
 
-const { learnerProfile, guardianLink, response, quest } = tables
+const { learnerProfile, response, quest } = tables
 
 const CORE: readonly SessionType[] = ['latihan', 'tes', 'paper']
 
