@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, expectNoSeriousA11y, noHorizontalScroll, pinLogin, registerTablet, waitForPath, watchErrors } from './helpers'
+import { closeDb, db, expectNoSeriousA11y, GUARDIAN, learnerId, loginAdult, noHorizontalScroll, pinLogin, registerTablet, waitForPath, watchErrors } from './helpers'
 
 test.afterAll(closeDb)
 
@@ -70,4 +70,15 @@ test('Ruang Baca di HP: tidak ada gulir mendatar dan target sentuh 44 px', async
     expect(box!.height).toBeGreaterThanOrEqual(44)
   }
   await ctx.close()
+})
+
+test('Orang tua melihat menit membaca dan buku selesai di beranda keluarga', async ({ page }) => {
+  const lid = await learnerId('Aisha')
+  const org = (await db()`select org_id from learner_profile where user_id = ${lid}`)[0]!.org_id as string
+  await db()`delete from reading_day where learner_id = ${lid}`
+  await db()`insert into reading_day (learner_id, date, org_id, seconds) values (${lid}, (now() at time zone 'Asia/Jakarta')::date, ${org}, 900)`
+  await loginAdult(page, GUARDIAN, '/keluarga')
+  const note = page.getByTestId('ruang-baca').first()
+  await expect(note).toContainText('Ruang Baca')
+  await expect(note).toContainText('15 menit membaca')
 })

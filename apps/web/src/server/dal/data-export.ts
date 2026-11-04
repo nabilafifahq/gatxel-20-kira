@@ -21,7 +21,7 @@ import { loadLearner } from './learner-core'
  * (status benar atau salah sama dengan membocorkan kunci jawaban sebelum dikumpulkan).
  */
 
-const { consentEvent, deletionRequest, skillState, attempt, response, reviewCard, note, weekReport, xpEvent, badgeAward, dayRecord, media, memberProfile, arenaSession, arenaState, dailyChest } = tables
+const { consentEvent, deletionRequest, skillState, attempt, response, reviewCard, note, weekReport, xpEvent, badgeAward, dayRecord, media, memberProfile, arenaSession, arenaState, dailyChest, bookProgress, bookChapter, readingDay } = tables
 
 export const EXPORT_PSEUDONYM = 'learner_1'
 const HIDDEN_MODES = new Set(['tes', 'simulasi', 'kertas'])
@@ -200,6 +200,21 @@ export async function learnerExport(tx: Tx, learnerId: string, opts: { pseudonym
     .from(dayRecord)
     .where(eq(dayRecord.learnerId, learnerId))
     .orderBy(asc(dayRecord.date))
+  const readingBooks = await tx
+    .select({ bookId: bookProgress.bookId, chapterId: bookProgress.chapterId, startedAt: bookProgress.startedAt, finishedAt: bookProgress.finishedAt })
+    .from(bookProgress)
+    .where(eq(bookProgress.learnerId, learnerId))
+    .orderBy(asc(bookProgress.startedAt))
+  const readingChapters = await tx
+    .select({ bookId: bookChapter.bookId, chapterId: bookChapter.chapterId, quizzes: bookChapter.quizCount, bestCorrect: bookChapter.bestCorrect, bestTotal: bookChapter.bestTotal, doneAt: bookChapter.doneAt })
+    .from(bookChapter)
+    .where(eq(bookChapter.learnerId, learnerId))
+    .orderBy(asc(bookChapter.doneAt))
+  const readingDays = await tx
+    .select({ date: readingDay.date, seconds: readingDay.seconds })
+    .from(readingDay)
+    .where(eq(readingDay.learnerId, learnerId))
+    .orderBy(asc(readingDay.date))
   const files = await tx
     .select({ id: media.id, kind: media.kind, mime: media.mime, size: media.size, createdAt: media.createdAt, expiresAt: media.expiresAt, deletedAt: media.deletedAt })
     .from(media)
@@ -247,6 +262,11 @@ export async function learnerExport(tx: Tx, learnerId: string, opts: { pseudonym
       lessonDoneAt: iso(s.lessonDoneAt),
       updatedAt: iso(s.updatedAt),
     })),
+    reading: {
+      books: readingBooks.map((b) => ({ bookId: b.bookId, chapterId: b.chapterId, startedAt: iso(b.startedAt), finishedAt: iso(b.finishedAt) })),
+      chapters: readingChapters.map((c) => ({ bookId: c.bookId, chapterId: c.chapterId, quizzes: c.quizzes, bestCorrect: c.bestCorrect, bestTotal: c.bestTotal, doneAt: iso(c.doneAt) })),
+      days: readingDays.map((d) => ({ date: d.date, seconds: d.seconds })),
+    },
     attempts: attempts.map((a) => {
       const hidden = hiddenOpen.has(a.id)
       return {
