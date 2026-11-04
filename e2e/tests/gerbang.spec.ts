@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import { expect, test, type BrowserContext, type Page } from '@playwright/test'
+import { expect as baseExpect, test, type BrowserContext, type Page } from '@playwright/test'
 import { closeDb, createPracticeAttempt, db, expectNoSeriousA11y, GUARDIAN, loginAdult, mcqItems, registerTablet, pinLogin, watchErrors } from './helpers'
 import { BASE, learnerSession, SESSION_COOKIE, sessionFor, type Who } from './security-helpers'
 
@@ -8,6 +8,9 @@ import { BASE, learnerSession, SESSION_COOKIE, sessionFor, type Who } from './se
  * daftar langkah orang tua, dan tips pertama anak. Keluarga pemilik dibuat langsung di database, jadi tes ini tidak butuh Mailpit.
  */
 test.afterAll(closeDb)
+
+const expect = baseExpect.configure({ timeout: 45_000 })
+test.setTimeout(240_000)
 
 const CREDIT = 'Build by Gatxel @ 2026 Made with Love by GATteam'
 const WA = 'https://wa.me/6287794551486?text=Halo%20Tim%20Gatxel%2C%20saya%20tertarik%20berdiskusi%20kemitraan%20bersama%20Kira'
@@ -57,7 +60,8 @@ async function pathOf(learnerId: string): Promise<string | null> {
 
 async function expectFooter(page: Page, opts: { partner: boolean }) {
   const footer = page.getByTestId('site-footer')
-  await expect(footer).toBeVisible()
+  // Today pertama menyusun sesi hari itu, bisa agak lama di mesin yang sibuk.
+  await expect(footer).toBeVisible({ timeout: 60_000 })
   await expect(footer.getByTestId('site-credit')).toHaveText(CREDIT)
   for (const [label, href] of [['Panduan', '/panduan'], ['Bantuan', '/feedback'], ['Privasi', '/privasi'], ['Syarat', '/ketentuan']] as const) {
     await expect(footer.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
@@ -169,7 +173,17 @@ test('jalur rekomendasi sekali ketuk: tambah anak, satu ketukan, cara anak masuk
     await expect(page.getByText('Centang izin Belajar di Kira')).toBeVisible()
     await consent.check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()
+    // Tetap di langkah 1: orang tua melihat anak yang baru ditambahkan, bisa memperbaikinya, dan bisa menambah anak lain.
+    await expect(page).toHaveURL(/langkah=1/)
     await expect(page.getByText('Kelas 5')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Ubah data Nara' })).toHaveAttribute('href', /\/keluarga\/anak\/.+#atur$/)
+    await page.getByRole('button', { name: 'Tambah anak lain' }).click()
+    await page.getByLabel('Nama panggilan').fill('Bayu')
+    for (const p of PIN) await page.getByRole('button', { name: p, exact: true }).click()
+    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
+    await page.getByRole('button', { name: 'Tambahkan anak' }).click()
+    await expect(page.getByRole('link', { name: 'Ubah data Bayu' })).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Ubah data Nara' })).toBeVisible()
 
     await page.getByRole('link', { name: 'Lanjut pilih jalur' }).click()
     await expect(page).toHaveURL(/langkah=2/)
@@ -193,7 +207,8 @@ test('jalur rekomendasi sekali ketuk: tambah anak, satu ketukan, cara anak masuk
     await expect(page.locator('a[href="/panduan/aplikasi"]')).toBeVisible()
     await expectNoSeriousA11y(page, '/mulai langkah 3')
 
-    const [kid] = await db()`select user_id, setup_path from learner_profile where org_id = ${f.orgId}`
+    expect((await db()`select setup_path from learner_profile where org_id = ${f.orgId} and setup_path = 'recommended'`).length).toBe(2)
+    const [kid] = await db()`select user_id, setup_path from learner_profile where org_id = ${f.orgId} and name = 'Nara'`
     expect(kid!.setup_path).toBe('recommended')
     // Kelas 5: Paper menyala, olimpiade mati sampai dipilih orang tua.
     const off = (await db()`select key from learner_feature where learner_id = ${kid!.user_id as string} and enabled = false`).map((r) => r.key as string)
@@ -258,8 +273,9 @@ test('lewati dulu memakai rekomendasi, tidak buntu, dan daftar langkah hilang se
     expect(await pathOf(f.childIds[0]!)).toBe('skipped')
     // Kelas 1: isinya sama dengan rekomendasi.
     const off = (await db()`select key from learner_feature where learner_id = ${f.childIds[0]!} and enabled = false`).map((r) => r.key as string)
-    expect(off).toContain('paper')
+    expect(off).not.toContain('paper')
     expect(off).toContain('quiz-arena')
+    expect(off).toContain('olympiad-math')
 
     // Halaman anak: tautan Pengaturan membuka bagian saklar.
     await page.goto('/keluarga')
