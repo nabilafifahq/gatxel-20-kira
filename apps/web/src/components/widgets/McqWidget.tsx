@@ -35,10 +35,15 @@ function OptionContent({ o, exam = false, short = true }: { o: ClientOption; exa
   return <span className="text-question block">{o.text}</span>
 }
 
-function useLayout(options: ClientOption[]): { pictures: boolean; wide: boolean } {
+/** Kata terpanjang di opsi: kata utuh tidak bisa dilipat, jadi menentukan apakah dua kolom muat di layar HP. */
+const longestWord = (options: ClientOption[]) => Math.max(0, ...options.flatMap((o) => (o.text ?? '').split(/\s+/).map((w) => w.length)))
+
+function useLayout(options: ClientOption[]): { pictures: boolean; columns: string } {
   const pictures = options.some((o) => !!o.figure)
   const wide = !pictures && options.some((o) => (o.text ?? '').length > 14)
-  return { pictures, wide }
+  const word = longestWord(options)
+  const columns = pictures ? 'grid-cols-2' : wide ? 'grid-cols-1 @lg:grid-cols-2' : word >= 8 ? 'grid-cols-1 @sm:grid-cols-2' : 'grid-cols-2'
+  return { pictures, columns }
 }
 
 function tileState(selected: boolean, disabled: boolean, feedback: WidgetProps['feedback']): AnswerTileState {
@@ -50,7 +55,7 @@ function tileState(selected: boolean, disabled: boolean, feedback: WidgetProps['
 export function McqWidget({ item, value, onChange, disabled = false, feedback = null, subject }: WidgetProps): ReactElement {
   const options = item.options ?? []
   const chosen = asChoice(value)
-  const { pictures, wide } = useLayout(options)
+  const { pictures, columns } = useLayout(options)
   const exam = useWidgetDensity() === 'exam'
   const stack = pictures || exam
   // Satu ukuran huruf untuk semua opsi di satu soal: besar hanya bila semua opsi pendek.
@@ -61,7 +66,7 @@ export function McqWidget({ item, value, onChange, disabled = false, feedback = 
       <div
         role="group"
         aria-label="Answers"
-        className={cx('grid gap-x-4 gap-y-5 pt-1', pictures || exam ? 'grid-cols-2' : wide ? 'grid-cols-1 @lg:grid-cols-2' : 'grid-cols-2')}
+        className={cx('grid gap-x-4 gap-y-5 pt-1', pictures ? 'grid-cols-2' : exam ? (longestWord(options) >= 10 ? 'grid-cols-1 @sm:grid-cols-2' : 'grid-cols-2') : columns)}
       >
         {options.map((o, idx) => {
           const selected = chosen === o.i
@@ -91,7 +96,7 @@ export function McqWidget({ item, value, onChange, disabled = false, feedback = 
 export function MultiWidget({ item, value, onChange, disabled = false, feedback = null, subject }: WidgetProps): ReactElement {
   const options = item.options ?? []
   const chosen = asChoices(value)
-  const { pictures, wide } = useLayout(options)
+  const { pictures, columns } = useLayout(options)
   const need = item.multiCount ?? 0
   const toggle = (i: number) => {
     const has = chosen.includes(i)
@@ -108,7 +113,7 @@ export function MultiWidget({ item, value, onChange, disabled = false, feedback 
       <div
         role="group"
         aria-label="Answers"
-        className={cx('grid gap-x-4 gap-y-5 pt-1', pictures ? 'grid-cols-2' : wide ? 'grid-cols-1 @lg:grid-cols-2' : 'grid-cols-2')}
+        className={cx('grid gap-x-4 gap-y-5 pt-1', columns)}
       >
         {options.map((o, idx) => {
           const selected = chosen.includes(o.i)
