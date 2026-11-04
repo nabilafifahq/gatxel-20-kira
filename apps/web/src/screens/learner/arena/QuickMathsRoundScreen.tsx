@@ -355,8 +355,18 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
           beforeLeave={() => chain.current.catch(() => undefined)}
         />
         <div className="flex min-w-0 flex-1 flex-col">
-          <span className="truncate text-body-lg font-bold">{data.mission ? play.missionTitle(data.mission.title) : data.title}</span>
-          <span className="truncate text-body text-fg-muted">{progress ?? data.subtitle}</span>
+          <span className="text-body font-bold leading-tight max-md:line-clamp-2 md:truncate md:text-body-lg">{data.mission ? play.missionTitle(data.mission.title) : data.title}</span>
+          {(timed || stopwatch) && !result ? (
+            <>
+              <span className="truncate text-body text-fg-muted max-md:hidden">{progress ?? data.subtitle}</span>
+              <span className="inline-flex items-center gap-1.5 text-body font-bold tabular-nums md:hidden">
+                <UiIcon name="check-circle" size={18} className="text-success" />
+                {t.round.right(right)}
+              </span>
+            </>
+          ) : (
+            <span className="truncate text-body text-fg-muted">{progress ?? data.subtitle}</span>
+          )}
         </div>
         {syncState ? (
           <span className="hidden md:inline-flex">
@@ -364,7 +374,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
           </span>
         ) : null}
         {(timed || stopwatch) && !result ? (
-          <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums">
+          <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums max-md:hidden">
             <UiIcon name="check-circle" size={24} className="text-success" />
             {t.round.right(right)}
           </span>
