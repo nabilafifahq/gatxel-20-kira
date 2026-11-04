@@ -17,6 +17,8 @@ const skillById = (id: string) => skills.find((s) => s.id === id)!
 const questOf = async (learner: string, subject: string, session: string) =>
   (await db()`select id, skill_id, attempt_id, kind, status from quest where learner_id = ${learner} and date = ${jakartaToday()} and subject = ${subject} and session = ${session} order by kind, seq limit 1`)[0]!
 
+const literal = (text: string) => new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+
 /** Baris sesi di halaman orang tua: "Math, Latihan". */
 const rowOf = (page: Page, name: string) => page.getByRole('listitem').filter({ has: page.getByText(name, { exact: true }) })
 
@@ -68,7 +70,7 @@ test('orang tua mengganti pelajaran, Today anak ikut, sesi selesai dan sesi berj
   await noHorizontalScroll(page)
   await expectNoSeriousA11y(page, 'dialog ganti pelajaran')
 
-  await dialog.getByRole('radio', { name: new RegExp(target.titleId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) }).check()
+  await dialog.getByRole('radio', { name: literal(target.titleId) }).check()
   await dialog.getByRole('button', { name: 'Pakai pelajaran ini' }).click()
   await expect(dialog).toBeHidden()
   await expect(page.getByRole('status').filter({ hasText: `diganti ke ${target.titleId}` })).toBeVisible()
@@ -127,7 +129,7 @@ test('tutor keluarga lama mengganti pelajaran hari ini lewat Rencana, Today anak
   await page.getByRole('button', { name: new RegExp(`^Atur Latihan.*, Math, ${day}`) }).click()
   const dialog = page.getByRole('dialog', { name: 'Atur sesi' })
   await dialog.getByRole('searchbox').fill(target.title)
-  await dialog.getByRole('radio', { name: new RegExp(target.title.replace(/[.*+?^${}()|[]\]/g, '\$&')) }).first().check()
+  await dialog.getByRole('radio', { name: literal(target.title) }).first().check()
   await dialog.getByRole('button', { name: 'Tambah ke rencana' }).click()
   await expect.poll(async () => (await questOf(lid, 'math', 'latihan')).skill_id, { timeout: 15_000 }).toBe(target.id)
   expect((await questOf(lid, 'math', 'latihan')).kind).toBe('daily')
