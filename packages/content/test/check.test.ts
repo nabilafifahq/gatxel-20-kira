@@ -102,3 +102,35 @@ describe('answerText', () => {
     expect(answerText(write, 'id')).toBe('Dinilai tutor')
   })
 })
+
+describe('bentuk setara yang diketik anak', () => {
+  const numeric = { type: 'numeric', answer: 0.9, tolerance: 0 } as const
+  const textKey = (answers: string[], equiv?: 'fraction' | 'any') => ({ type: 'text', blanks: [{ answers, caseSensitive: false, ...(equiv ? { equiv } : {}) }] }) as const
+  const status = (key: Parameters<typeof checkAnswer>[0], answer: unknown) => checkAnswer(key, answer).status
+
+  it('angka tanpa nol di depan dan tanda minus lain', () => {
+    expect(parseNumberCandidates('.9')).toEqual([0.9])
+    expect(parseNumberCandidates(',25')).toEqual([0.25])
+    expect(parseNumberCandidates('-.5')).toEqual([-0.5])
+    expect(parseNumberCandidates('−5')).toEqual([-5])
+    expect(status(numeric, { value: '.9' })).toBe('correct')
+    expect(status(numeric, { value: '0,9' })).toBe('correct')
+  })
+  it('isian teks angka dan pecahan', () => {
+    expect(status(textKey(['0.9']), { texts: ['.9'] })).toBe('correct')
+    expect(status(textKey(['1200']), { texts: ['1,200'] })).toBe('correct')
+    expect(status(textKey(['3/4']), { texts: ['3 / 4'] })).toBe('correct')
+    expect(status(textKey(['3.50']), { texts: ['3.5'] })).toBe('wrong')
+    expect(status(textKey(['0.5']), { texts: ['1/2'] })).toBe('wrong')
+  })
+  it('pecahan senilai hanya bila soal generator tidak meminta bentuk tertentu', () => {
+    const gen = (prompt: string) =>
+      keyOf({ id: 'gen:m6.add-subtract-fractions:3:abc', skill: 'm6.add-subtract-fractions', difficulty: 3, type: 'text', prompt, hints: ['a', 'b', 'c'], explanation: 'x', tags: [], source: 'kira-original', blanks: [{ answers: ['11/24'], caseSensitive: false }] } as never)
+    expect(status(gen('Work out 5/6 - 3/8.'), { texts: ['22/48'] })).toBe('correct')
+    expect(status(gen('Work out 5/6 - 3/8. Write it as a fraction.'), { texts: ['22/48'] })).toBe('correct')
+    expect(status(gen('Write 22/48 in its simplest form.'), { texts: ['22/48'] })).toBe('wrong')
+    expect(status(gen('Write 22/48 in its simplest form.'), { texts: ['11/24'] })).toBe('correct')
+    expect(status(gen('Work out 5/6 - 3/8. Write it as a fraction.'), { texts: ['0.4583'] })).toBe('wrong')
+    expect(status(gen('Work out 5/6 - 3/8.'), { texts: ['12/24'] })).toBe('wrong')
+  })
+})
