@@ -185,9 +185,9 @@ export function useSpeech(lang: SpeechLang): {
 
   const playKeys = useCallback(
     (keys: readonly string[], onFail: () => void) => {
-      const my = ++token.current
       stopSpeech()
       stopHostVoice()
+      const my = ++token.current // sesudah stopSpeech, yang memberi tahu semua tombol termasuk ini
       window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
       setReading(true)
       void (async () => {
