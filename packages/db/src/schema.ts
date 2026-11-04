@@ -63,6 +63,10 @@ export const userAccount = auth.table(
     disabledAt: ts('disabled_at'),
     /** Email ternormalisasi (Gmail tanpa titik dan +tag). Akun lama bernilai null. */
     emailNorm: text('email_norm'),
+    /** Bahasa tampilan anak. Akun yang sudah ada saat migrasi 0025 tetap en; anak baru id. */
+    uiLang: text('ui_lang', { enum: ['id', 'en'] }).notNull().default('id'),
+    /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
+    uiLangSwitch: boolean('ui_lang_switch').notNull().default(false),
   },
   (t) => [
     uniqueIndex('user_account_email_uq').on(sql`lower(${t.email})`).where(sql`${t.email} is not null`),

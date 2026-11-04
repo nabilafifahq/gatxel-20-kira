@@ -15,6 +15,7 @@ import { randomToken, safeEqual, sha256hex } from './crypto'
 import { revokeUserSessions } from './session'
 import { setPin } from './pin'
 import { emailKey } from '../signup/email-policy'
+import type { UiLang } from '@/lib/i18n/lang'
 
 const { userAccount, invite, resetToken, signup } = tables
 
@@ -277,6 +278,23 @@ export async function createLearnerAccount(ctx: { orgId: string; userId: string 
     throw e
   }
   return user!.id
+}
+
+export async function learnerUiPrefs(userIds: string[], orgId: string): Promise<Map<string, { uiLang: UiLang; uiLangSwitch: boolean }>> {
+  const rows = userIds.length
+    ? await authDb()
+        .select({ id: userAccount.id, uiLang: userAccount.uiLang, uiLangSwitch: userAccount.uiLangSwitch })
+        .from(userAccount)
+        .where(and(inArray(userAccount.id, userIds), eq(userAccount.orgId, orgId), eq(userAccount.kind, 'learner')))
+    : []
+  return new Map(rows.map((r) => [r.id, { uiLang: r.uiLang, uiLangSwitch: r.uiLangSwitch }]))
+}
+
+export async function setLearnerUiPrefs(userId: string, orgId: string, prefs: { uiLang?: UiLang; uiLangSwitch?: boolean }): Promise<void> {
+  await authDb()
+    .update(userAccount)
+    .set(prefs)
+    .where(and(eq(userAccount.id, userId), eq(userAccount.orgId, orgId), eq(userAccount.kind, 'learner')))
 }
 
 export async function renameUser(userId: string, orgId: string, name: string): Promise<void> {
