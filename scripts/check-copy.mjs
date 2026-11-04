@@ -106,7 +106,7 @@ const FILE_ALLOW = new Map([
 ])
 
 // File token: hex boleh, tetapi hanya warna dari tabel DESIGN.md.
-const TOKEN_FILES = ['apps/web/src/app/globals.css', 'apps/web/src/app/tokens.css', 'packages/figures/src/palette.ts']
+const TOKEN_FILES = ['apps/web/src/app/globals.css', 'apps/web/src/app/tokens.css', 'apps/web/src/app/cetak/print-legacy.css', 'packages/figures/src/palette.ts']
 // themeColor di layout Next boleh, asal sama dengan nilai token.
 const LAYOUTS = ['apps/web/src/app/**/layout.tsx']
 const EMAIL_MARKER = 'gtx-allow-hex: email'

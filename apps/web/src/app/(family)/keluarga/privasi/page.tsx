@@ -18,7 +18,7 @@ export default async function FamilyPrivacyPage({ searchParams }: { searchParams
     return (
       <FamilyShell shell={shell} active="privacy">
         <h1 className="m-0 text-h2 font-bold">Privasi dan data</h1>
-        <p role="status" className="m-0 rounded-card border border-divider bg-surface p-4 text-body">
+        <p role="status" className="m-0 rounded-card bg-surface shadow-soft p-4 text-body">
           Akun ini belum tertaut ke anak mana pun, jadi belum ada persetujuan yang bisa diatur. Minta tutor mengirim undangan yang menyertakan nama anak.
         </p>
       </FamilyShell>

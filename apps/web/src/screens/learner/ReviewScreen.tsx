@@ -85,7 +85,6 @@ function AnswerRow({
 }
 
 function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; data: ReviewDTO; onNext: () => void; isLast: boolean }): ReactElement {
-  const style = SUBJECT_STYLE[data.subject]
   const manual = isManualType(q.item.type)
   const ok = q.status === 'correct'
   const yours = q.status === 'blank' ? { letter: null, text: 'No answer' } : splitAnswer(q.yourAnswerText, q)
@@ -93,9 +92,9 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
   const player = q.solution && q.solution.length > 0 ? q.solution : null
   const showFigure = !player && q.item.figure
   return (
-    <section aria-labelledby={`review-q-${q.position}`} className="flex min-w-0 flex-1 flex-col gap-5 rounded-card border border-divider bg-surface p-5 md:p-7">
+    <section aria-labelledby={`review-q-${q.position}`} className="flex min-w-0 flex-1 flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-7">
       <div className="flex items-start gap-3.5">
-        <span className={cx('mt-px inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-body-lg font-bold text-white tabular-nums', style.solid)}>
+        <span className={cx('mt-px inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-body-lg font-bold text-white tabular-nums', 'bg-fg')}>
           {q.position}
         </span>
         <h2 id={`review-q-${q.position}`} tabIndex={-1} className="m-0 min-w-0 flex-1 text-question font-normal focus:outline-none">
@@ -144,7 +143,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
             </div>
           ) : null}
           {q.tip ? (
-            <div className="flex items-start gap-2.5 rounded-control border border-divider bg-bg px-3.5 py-3">
+            <div className="flex items-start gap-2.5 rounded-control bg-lavender px-3.5 py-3">
               <UiIcon name="hint" size={22} className="mt-0.5 flex-none" />
               <div className="flex flex-col">
                 <span className="text-body font-bold">Tip</span>
@@ -227,7 +226,7 @@ export function ReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
                       on ? cx('border-3', style.border, style.tint) : 'border border-divider bg-surface hover:border-border',
                     )}
                   >
-                    <span className={cx('inline-flex h-8 min-w-10 flex-none items-center justify-center rounded-pill px-2.5 text-body font-bold text-white tabular-nums', style.solid)}>
+                    <span className={cx('inline-flex h-8 min-w-10 flex-none items-center justify-center rounded-pill px-2.5 text-body font-bold text-white tabular-nums', 'bg-fg')}>
                       {x.position}
                     </span>
                     <span className="hidden min-w-0 flex-1 truncate text-body font-semibold lg:block">{x.item.prompt}</span>

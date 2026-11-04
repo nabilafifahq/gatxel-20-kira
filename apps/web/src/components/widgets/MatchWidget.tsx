@@ -63,7 +63,7 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
   }
 
   const badge = (n: number) => (
-    <span className={cx('ml-auto inline-flex h-7.5 w-7.5 flex-none items-center justify-center rounded-pill font-body text-body font-bold text-white', style.solid)}>{n}</span>
+    <span className={cx('ml-auto inline-flex h-7.5 w-7.5 flex-none items-center justify-center rounded-pill font-body text-body font-bold text-white', 'bg-fg')}>{n}</span>
   )
 
   const cell = 'relative flex min-h-[84px] max-md:min-h-[68px] items-center gap-3 rounded-control px-3.5 py-2.5 text-left text-fg transition-transform duration-150 ease-kira'

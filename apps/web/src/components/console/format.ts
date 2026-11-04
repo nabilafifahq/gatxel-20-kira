@@ -55,9 +55,9 @@ export const SUBJECT_LABEL: Record<Subject, string> = { math: 'Math', english: '
 export const SUBJECTS: Subject[] = ['math', 'english', 'science']
 
 /** Kelas warna mapel ditulis utuh supaya Tailwind membangkitkannya. */
-export const SUBJECT_TEXT: Record<Subject, string> = { math: 'text-math', english: 'text-english', science: 'text-science' }
+export const SUBJECT_TEXT: Record<Subject, string> = { math: 'text-fg', english: 'text-fg', science: 'text-fg' }
 export const SUBJECT_BG50: Record<Subject, string> = { math: 'bg-math-50', english: 'bg-english-50', science: 'bg-science-50' }
-export const SUBJECT_BORDER: Record<Subject, string> = { math: 'border-math', english: 'border-english', science: 'border-science' }
+export const SUBJECT_BORDER: Record<Subject, string> = { math: 'border-fg', english: 'border-fg', science: 'border-fg' }
 export const SUBJECT_BG: Record<Subject, string> = { math: 'bg-math', english: 'bg-english', science: 'bg-science' }
 export const SUBJECT_STROKE: Record<Subject, string> = { math: 'stroke-math', english: 'stroke-english', science: 'stroke-science' }
 export const SUBJECT_FILL: Record<Subject, string> = { math: 'fill-math', english: 'fill-english', science: 'fill-science' }

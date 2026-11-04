@@ -38,8 +38,8 @@ export const PasswordField = forwardRef<
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={cx(
-            'w-full min-w-0 rounded-control border-2 bg-surface pr-[120px] pl-3.5 text-body text-fg',
-            size === 'L' ? 'h-12' : 'h-11',
+            'w-full min-w-0 rounded-md border-2 bg-surface pr-[120px] pl-3.5 text-body text-fg',
+            size === 'L' ? 'h-14' : 'h-12',
             controlBorder(error),
             className,
           )}

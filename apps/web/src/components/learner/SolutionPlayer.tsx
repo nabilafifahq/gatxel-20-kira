@@ -95,7 +95,7 @@ export function SolutionPlayer({
   const atEnd = step >= total - 1
 
   return (
-    <div role="region" aria-label={label} className={cx('flex flex-col overflow-hidden rounded-card border border-divider bg-surface', className)}>
+    <div role="region" aria-label={label} className={cx('flex flex-col overflow-hidden rounded-card bg-surface shadow-soft', className)}>
       <div className="relative flex min-h-[200px] items-center justify-center bg-bg px-4 pt-5 pb-3">
         <div key={step} className="motion-fade flex w-full flex-col items-center gap-3 starting:opacity-0">
           {current.figure || fallbackFigure ? (
@@ -103,9 +103,9 @@ export function SolutionPlayer({
               <Figure spec={(current.figure ?? fallbackFigure) as FigureSpec} />
             </div>
           ) : null}
-          {current.show ? <div className="text-center font-display text-h1 font-semibold tabular-nums">{current.show}</div> : null}
+          {current.show ? <div className="text-center font-numbers text-h1 font-semibold tabular-nums">{current.show}</div> : null}
           {!current.figure && !fallbackFigure && !current.show ? (
-            <div aria-hidden="true" className="font-display text-display font-semibold text-border tabular-nums">
+            <div aria-hidden="true" className="font-numbers text-display font-semibold text-border tabular-nums">
               {step + 1}
             </div>
           ) : null}

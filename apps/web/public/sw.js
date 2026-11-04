@@ -57,6 +57,7 @@ function isStatic(pathname) {
     pathname.startsWith('/_next/static/') ||
     pathname.startsWith('/icons/') ||
     pathname.startsWith('/sounds/') ||
+    pathname.startsWith('/fonts/') ||
     pathname === '/favicon.ico' ||
     pathname === '/manifest.webmanifest' ||
     pathname === OFFLINE_URL

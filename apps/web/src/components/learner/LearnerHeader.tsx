@@ -1,3 +1,4 @@
+import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import type { ReactElement, ReactNode } from 'react'
 import { Avatar } from '@kira/figures'
@@ -68,9 +69,9 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
     <>
       <nav
         aria-label="Main"
-        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 border-r border-divider bg-surface px-1 overflow-y-auto py-5 md:flex"
+        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
-        <div className="mb-3 font-display text-h1 font-bold">Kira</div>
+        <KiraLogo size={36} stacked className="mb-3" />
         {items.map((n) => {
           const on = n.key === current
           return (
@@ -80,7 +81,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               aria-current={on ? 'page' : undefined}
               className={cx(
                 'relative flex min-h-16 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 px-1 py-1.5 text-center text-small leading-tight no-underline',
-                on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted hover:border-divider hover:text-fg',
+                on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg hover:bg-lavender',
               )}
             >
               <UiIcon name={n.icon} size={26} />
@@ -92,7 +93,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
       </nav>
       <nav
         aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-30 flex h-19 gap-2 border-t border-divider bg-surface px-4 py-1.5 md:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 flex h-19 gap-2 rounded-t-xl bg-surface px-4 py-1.5 shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
       >
         {phone.map((n) => {
           const on = n.key === current
@@ -103,7 +104,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               aria-current={on ? 'page' : undefined}
               className={cx(
                 'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 no-underline',
-                on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted',
+                on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg',
               )}
             >
               <UiIcon name={n.icon} size={24} />

@@ -4,3 +4,5 @@ export { Button, ButtonLink, IconButton, IconLink, buttonClasses, type ButtonPro
 export { Dialog, type DialogProps } from './Dialog'
 export { Toast, ToastProvider, useToast, type ToastInput, type ToastKind } from './Toast'
 export { EmptyState } from './EmptyState'
+export { Skeleton, LearnerSkeleton, PageSkeleton } from './Skeleton'
+export { KiraStar, KiraLogo } from './KiraStar'

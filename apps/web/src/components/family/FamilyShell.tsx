@@ -1,5 +1,6 @@
 'use client'
 
+import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import type { ConsoleShell } from '@/lib/dto'
@@ -41,7 +42,7 @@ export function FamilyShell({
         </a>
         <header className="sticky top-0 z-30 border-b border-divider bg-surface">
           <div className="mx-auto flex h-[60px] max-w-[720px] items-center gap-2.5 px-4">
-            <span className="font-display text-h1 leading-8 font-bold">Kira</span>
+            <KiraLogo size={32} />
             <span className="text-small text-fg-muted">Laporan keluarga</span>
             {learnerName ? (
               <span className="ml-auto inline-flex items-center gap-2 text-small font-bold">

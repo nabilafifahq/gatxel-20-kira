@@ -574,7 +574,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
             body="Usulan hanya mengisi Latihan di hari yang masih kosong dan belum lewat: skill di bawah 70%, review yang seminggu tidak dilatih, skill baru berikutnya, dan persiapan lomba. Tes hari itu memakai skill yang sama."
           />
         ) : (
-          <ul className="m-0 list-none overflow-hidden rounded-card border border-divider bg-surface p-0">
+          <ul className="m-0 list-none overflow-hidden rounded-card bg-surface shadow-soft p-0">
             {data.suggestions.map((s) => {
               const st = sugState[s.id] ?? 'open'
               return (

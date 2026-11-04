@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from './cx'
-import { SUBJECT_BG50, SUBJECT_BORDER, SUBJECT_LABEL } from './format'
+import { SUBJECT_BG, SUBJECT_BORDER, SUBJECT_LABEL } from './format'
 
-/** Kartu: permukaan putih, garis 1px --divider, radius 16, tanpa bayangan. */
+/** Kartu: putih, bayangan lembut, radius 20, tanpa garis. */
 export function Card({
   children,
   className,
@@ -19,7 +19,7 @@ export function Card({
   return (
     <Tag
       className={cx(
-        'min-w-0 rounded-card border border-divider bg-surface',
+        'min-w-0 rounded-card bg-surface shadow-soft',
         padding === 'sm' && 'p-4',
         padding === 'md' && 'p-6 max-sm:p-4',
         padding === 'lg' && 'p-8 max-sm:p-5',
@@ -101,8 +101,8 @@ export function SubjectGlyph({ subject, size = 20 }: { subject: Subject; size?: 
     return (
       <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" focusable="false" className="flex-none">
         <rect x="5" y="5" width="10" height="10" rx="2" className="fill-math stroke-fg" strokeWidth="2" />
-        <rect x="17" y="5" width="10" height="10" rx="2" className="fill-math-50 stroke-fg" strokeWidth="2" />
-        <rect x="5" y="17" width="10" height="10" rx="2" className="fill-math-50 stroke-fg" strokeWidth="2" />
+        <rect x="17" y="5" width="10" height="10" rx="2" className="fill-surface stroke-fg" strokeWidth="2" />
+        <rect x="5" y="17" width="10" height="10" rx="2" className="fill-surface stroke-fg" strokeWidth="2" />
         <rect x="17" y="17" width="10" height="10" rx="2" className="fill-math stroke-fg" strokeWidth="2" />
       </svg>
     )
@@ -141,14 +141,13 @@ export function SubjectChip({ subject, withIcon = true, size = 'md' }: { subject
   return (
     <span
       className={cx(
-        'inline-flex flex-none items-center gap-1.5 rounded-pill border font-semibold whitespace-nowrap text-fg',
+        'inline-flex flex-none items-center gap-1.5 rounded-pill border-2 bg-surface font-bold whitespace-nowrap text-fg',
         size === 'md' ? 'h-8 text-small' : 'h-7 text-small',
-        withIcon ? 'pr-3 pl-1.5' : 'px-3',
-        SUBJECT_BG50[subject],
+        withIcon ? 'pr-3 pl-1.5' : 'pr-3 pl-2.5',
         SUBJECT_BORDER[subject],
       )}
     >
-      {withIcon ? <SubjectGlyph subject={subject} /> : null}
+      {withIcon ? <SubjectGlyph subject={subject} /> : <span aria-hidden="true" className={cx('h-3 w-3 flex-none rounded-pill border-2 border-fg', SUBJECT_BG[subject])} />}
       {SUBJECT_LABEL[subject]}
     </span>
   )
@@ -165,7 +164,7 @@ export function Pill({ children, tone = 'neutral', className }: { children: Reac
         tone === 'warn' && 'border-warn bg-warn-50 text-fg',
         tone === 'danger' && 'border-danger bg-danger-50 text-fg',
         tone === 'dark' && 'border-fg bg-fg text-white',
-        tone === 'math' && 'border-math bg-math-50 text-fg',
+        tone === 'math' && 'border-fg bg-math-50 text-fg',
         className,
       )}
     >

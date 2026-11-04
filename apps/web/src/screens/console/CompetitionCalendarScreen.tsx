@@ -290,7 +290,7 @@ export function CompetitionCalendarScreen({ data, actions }: CompetitionCalendar
         {data.months.length === 0 ? (
           <EmptyState compact icon="trophy" title="Belum ada lomba di kalender." body="Tambah lomba dari katalog atau isi sendiri dari juknis penyelenggara." />
         ) : (
-          <ol role="list" aria-label="Garis waktu lomba per bulan" tabIndex={0} className="relative m-0 flex list-none gap-3 overflow-x-auto rounded-card border border-divider bg-surface p-4">
+          <ol role="list" aria-label="Garis waktu lomba per bulan" tabIndex={0} className="relative m-0 flex list-none gap-3 overflow-x-auto rounded-card bg-surface shadow-soft p-4">
             {data.months.map((m) => (
               <li key={m.key} className="flex w-[180px] flex-none flex-col gap-2 border-l-2 border-divider pl-3">
                 <span className="text-small font-bold text-fg-muted">{m.name}</span>
@@ -340,7 +340,7 @@ export function CompetitionCalendarScreen({ data, actions }: CompetitionCalendar
             }
           />
         ) : (
-          <div role="region" aria-labelledby="lomba-cap" tabIndex={0} className="relative overflow-x-auto rounded-card border border-divider bg-surface">
+          <div role="region" aria-labelledby="lomba-cap" tabIndex={0} className="relative overflow-x-auto rounded-card bg-surface shadow-soft">
             <table className="w-full min-w-[960px] border-collapse text-body">
               <caption id="lomba-cap" className="visually-hidden">
                 Lomba dan status pendaftaran
@@ -444,7 +444,7 @@ export function CompetitionCalendarScreen({ data, actions }: CompetitionCalendar
         <p className="-mt-1 mb-0 text-body text-fg-muted">Format terverifikasi berarti cocok dengan juknis resmi atau paket resmi milik keluarga.</p>
         <ul className="m-0 grid list-none gap-3 p-0 md:grid-cols-2">
           {data.catalog.map((c) => (
-            <li key={c.id} className="flex flex-col gap-2 rounded-card border border-divider bg-surface px-5 py-4">
+            <li key={c.id} className="flex flex-col gap-2 rounded-card bg-surface shadow-soft px-5 py-4">
               <span className="flex flex-wrap items-center gap-2">
                 <span className="text-body font-bold">{c.name}</span>
                 {c.verified ? (

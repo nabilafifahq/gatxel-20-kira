@@ -1,3 +1,4 @@
+import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { cx } from '@/components/console/cx'
@@ -34,7 +35,7 @@ export function PublicFrame({
             Kira
           </Link>
         ) : (
-          <span className="font-display text-h1 leading-9 font-bold">Kira</span>
+          <KiraLogo size={36} />
         )}
         {headerAction ? <div className="ml-auto">{headerAction}</div> : null}
       </header>
@@ -64,7 +65,7 @@ export function AuthCard({ children, labelledBy }: { children: ReactNode; labell
   return (
     <section
       aria-labelledby={labelledBy}
-      className="flex w-full max-w-[440px] flex-col gap-5 rounded-card border border-divider bg-surface p-8 max-sm:p-5"
+      className="flex w-full max-w-[440px] flex-col gap-5 rounded-card bg-surface shadow-soft p-8 max-sm:p-5"
     >
       {children}
     </section>

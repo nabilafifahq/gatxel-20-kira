@@ -187,7 +187,7 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
             <Card padding="none" className="flex-[2_1_600px] px-6 py-5 max-sm:px-3 max-sm:py-4">
               <MasteryHeatmap weeks={data.weeks} groups={groups} selected={selected} onSelect={setSelected} learnerName={learner.name} />
             </Card>
-            <aside aria-live="polite" aria-label="Rincian sel terpilih" className="flex min-w-0 flex-[1_1_300px] flex-col gap-3 rounded-card border border-divider bg-surface px-6 py-5">
+            <aside aria-live="polite" aria-label="Rincian sel terpilih" className="flex min-w-0 flex-[1_1_300px] flex-col gap-3 rounded-card bg-surface shadow-soft px-6 py-5">
               {detail && detail.cell ? (
                 (() => {
                   const lv = levelOf(detail.cell)
@@ -302,7 +302,7 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
               }
             />
           ) : (
-            <div role="region" aria-labelledby="riwayat-cap" tabIndex={0} className="relative overflow-x-auto rounded-card border border-divider bg-surface">
+            <div role="region" aria-labelledby="riwayat-cap" tabIndex={0} className="relative overflow-x-auto rounded-card bg-surface shadow-soft">
               <table className="w-full min-w-[600px] border-collapse text-body">
                 <caption id="riwayat-cap" className="visually-hidden">
                   Riwayat attempt {learner.name}

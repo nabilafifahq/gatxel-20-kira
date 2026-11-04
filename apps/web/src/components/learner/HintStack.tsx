@@ -14,7 +14,7 @@ export function HintList({ hints, opened, className }: { hints: string[]; opened
   const shown = hints.slice(0, opened)
   if (shown.length === 0) return null
   return (
-    <div role="status" className={cx('flex flex-col gap-2.5 rounded-control border border-divider bg-bg px-4 py-3', className)}>
+    <div role="status" className={cx('flex flex-col gap-2.5 rounded-control bg-lavender px-4 py-3', className)}>
       {shown.map((h, i) => (
         <div key={i} className="flex items-start gap-2.5">
           <UiIcon name="hint" size={22} className="mt-0.5" />

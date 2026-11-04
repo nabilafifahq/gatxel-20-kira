@@ -130,7 +130,7 @@ export function AttemptDetailScreen({ data }: AttemptDetailScreenProps) {
         <div className="flex flex-wrap items-start gap-x-10 gap-y-5">
           <div className="flex flex-col gap-1">
             <span className="text-small font-semibold text-fg-muted">Skor</span>
-            <span className="font-display text-h1 leading-10 font-semibold tabular">{a.score}</span>
+            <span className="font-numbers text-h1 leading-10 font-semibold tabular">{a.score}</span>
           </div>
           <KeyValues
             className="min-w-0 flex-[1_1_300px]"
@@ -166,7 +166,7 @@ export function AttemptDetailScreen({ data }: AttemptDetailScreenProps) {
             </div>
             <ol aria-label={`Jawaban ${learner.name} per soal`} className="m-0 flex list-none flex-col gap-3 p-0 md:hidden">
               {data.rows.map((r) => (
-                <li key={r.position} className="flex min-w-0 flex-col gap-2 rounded-card border border-divider bg-surface p-4">
+                <li key={r.position} className="flex min-w-0 flex-col gap-2 rounded-card bg-surface shadow-soft p-4">
                   <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
                     <span className="text-body font-bold">Soal {r.position}</span>
                     <StatusCell row={r} />

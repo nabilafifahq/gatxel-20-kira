@@ -148,7 +148,7 @@ export function SpellingBeeScreen({
       </header>
 
       {!finished && current ? (
-        <section aria-label="Spell the word" className="flex max-w-[640px] flex-col gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
+        <section aria-label="Spell the word" className="flex max-w-[640px] flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
           <div className="flex flex-wrap gap-3">
             <Button variant="primary" icon={speech.status === 'reading' ? 'waveform' : 'speaker'} onClick={sayWord} disabled={speech.status === 'unavailable'}>
               Hear the word
@@ -193,7 +193,7 @@ export function SpellingBeeScreen({
               />
               {phase === 'second-try' ? (
                 <p className="m-0 flex items-center gap-2 text-body-lg" role="status">
-                  <UiIcon name="not-yet" size={22} className="text-review" />
+                  <UiIcon name="not-yet" size={22} className="text-fg" />
                   Not quite. Listen again and try once more.
                 </p>
               ) : null}
@@ -210,7 +210,7 @@ export function SpellingBeeScreen({
           ) : null}
         </section>
       ) : (
-        <section aria-label="Your score" className="flex max-w-[640px] flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-8">
+        <section aria-label="Your score" className="flex max-w-[640px] flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-8">
           {sending ? (
             <p className="m-0 text-body-lg" role="status">
               Checking your words
@@ -230,7 +230,7 @@ export function SpellingBeeScreen({
                   const ok = w ? d.typed.toLowerCase() === w.word.toLowerCase() : false
                   return (
                     <li key={d.id} className="flex items-center gap-2 text-body-lg">
-                      <UiIcon name={ok ? 'check' : 'not-yet'} size={20} className={ok ? 'text-success' : 'text-review'} />
+                      <UiIcon name={ok ? 'check' : 'not-yet'} size={20} className={ok ? 'text-success' : 'text-fg'} />
                       <span className="font-bold">{w?.word}</span>
                       {ok ? null : <span className="text-fg-muted">you typed {d.typed || 'nothing'}</span>}
                     </li>

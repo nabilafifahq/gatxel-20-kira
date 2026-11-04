@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { Figure, figureBox, FIGURE_KINDS, figureSpec, MATH, MATH_50, type FigureKind, type FigureSpec, type FigureSpecInput } from '../src'
+import { Figure, figureBox, FIGURE_KINDS, figureSpec, MATH, type FigureKind, type FigureSpec, type FigureSpecInput } from '../src'
 import { digitalText, handAngles } from '../src/render/clock'
 import { fmt, rupiah, textWidth, wrapText } from '../src/render/kit'
 import { gaugeScale, minorPer, ticksBetween } from '../src/render/gauges'
@@ -317,7 +317,7 @@ describe('Figure: isi sesuai data', () => {
 
   it('turus dikelompokkan lima: empat garis tegak dan satu garis miring', () => {
     const html = render(figureSpec.parse({ kind: 'tally', rows: [{ label: 'Cats', count: 13 }], alt: 'Tally chart: cats 13.' }))
-    const d = /<path d="([^"]+)" stroke="#14202E" stroke-width="2.5" fill="none"/.exec(html)
+    const d = /<path d="([^"]+)" stroke="#6546A5" stroke-width="2.5" fill="none"/.exec(html)
     expect(d).not.toBeNull()
     expect(count(d![1]!, 'V')).toBe(4 * 2 + 3)
     expect(count(d![1]!, 'L')).toBe(2)
@@ -340,7 +340,7 @@ describe('Figure: isi sesuai data', () => {
 
   it('basetens menggambar satu balok per keping', () => {
     const html = render(figureSpec.parse({ kind: 'basetens', thousands: 1, hundreds: 2, tens: 3, ones: 4, alt: '1234 in base ten blocks.' }))
-    expect(count(html, `fill="${MATH_50}"`)).toBe(1 + 2 + 3 + 4)
+    expect(count(html, `fill="${MATH}"`)).toBe(1 + 2 + 3 + 4)
   })
 
   it('uang: setiap koin dan lembar ditulis dengan format Rupiah', () => {

@@ -17,7 +17,7 @@ export function XpTrackBars({ tracks, variant = 'full', only, className }: { tra
           <li key={t.track} className="flex min-w-0 flex-col gap-1.5">
             <div className="flex items-baseline justify-between gap-2">
               <span className={cx('text-body font-bold', tone.text)}>{t.track === 'belajar' ? 'Learning' : t.name}</span>
-              <span className="font-display text-h2 leading-none font-semibold tabular-nums">Level {t.level}</span>
+              <span className="font-numbers text-h2 leading-none font-semibold tabular-nums">Level {t.level}</span>
             </div>
             <span role="img" aria-label={`${t.name}, level ${t.level}. ${t.line}`} className="flex h-3 overflow-hidden rounded-control bg-divider">
               <span className={cx('kira-bar-fill', tone.bar)} style={{ '--p': Math.min(1, Math.max(0, t.percent / 100)) } as CSSProperties} />

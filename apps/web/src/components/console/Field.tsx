@@ -18,8 +18,8 @@ import { ConsoleIcon } from './icons'
  */
 
 export const CONTROL =
-  'h-11 w-full min-w-0 rounded-control border-2 bg-surface px-3 text-body text-fg placeholder:text-fg-muted ' +
-  'disabled:cursor-not-allowed disabled:border-divider disabled:bg-bg disabled:text-fg-muted'
+  'h-12 w-full min-w-0 rounded-md border-2 bg-surface px-3 text-body text-fg placeholder:text-fg-muted focus-visible:ring-4 focus-visible:ring-lilac ' +
+  'disabled:cursor-not-allowed disabled:border-lavender disabled:bg-lavender disabled:text-fg-muted'
 
 export function controlBorder(error?: string | null): string {
   return error ? 'border-danger' : 'border-border hover:border-fg'
@@ -133,7 +133,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy(fid, hint, error, rest['aria-describedby'])}
         className={cx(
-          'w-full min-w-0 resize-y rounded-control border-2 bg-surface px-3 py-2.5 text-body text-fg placeholder:text-fg-muted disabled:border-divider disabled:bg-bg',
+          'w-full min-w-0 resize-y rounded-md border-2 bg-surface px-3 py-2.5 text-body text-fg placeholder:text-fg-muted disabled:border-lavender disabled:bg-lavender',
           controlBorder(error),
           className,
         )}
@@ -271,7 +271,7 @@ export function RadioGroup<T extends string>({
               className={cx(
                 'flex cursor-pointer items-start gap-2.5',
                 layout === 'tiles' &&
-                  cx('min-h-11 rounded-control border-2 px-3 py-2', checked ? 'border-fg bg-bg' : 'border-border bg-surface hover:border-fg'),
+                  cx('min-h-11 rounded-control border-2 px-3 py-2', checked ? 'border-fg bg-lilac' : 'border-border bg-surface hover:border-fg'),
                 o.disabled && 'cursor-not-allowed opacity-60',
               )}
             >

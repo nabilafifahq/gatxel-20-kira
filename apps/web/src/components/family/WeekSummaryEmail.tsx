@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react'
-import { BG, DIVIDER, INK, MATH, MATH_50, MUTED, WHITE } from '@kira/figures/palette'
+import { BG, DIVIDER, INK, LILAC, MATH_50, MUTED, WHITE } from '@kira/figures/palette'
 import type { WeekSummaryDTO } from '@/lib/dto'
 import { dateId } from '@/components/console/format'
 import { renderStaticMarkup } from './staticMarkup'
@@ -23,8 +23,8 @@ export type WeekSummaryEmailOptions = {
   controller?: string
 }
 
-const FONT = "'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif"
-const DISPLAY = "Mohave, 'Arial Narrow', Arial, sans-serif"
+const FONT = "Nunito, 'Segoe UI', Arial, sans-serif"
+const DISPLAY = "Fredoka, Nunito, Arial, sans-serif"
 
 const p = (extra: CSSProperties = {}): CSSProperties => ({ margin: 0, fontFamily: FONT, fontSize: 16, lineHeight: '26px', color: INK, ...extra })
 
@@ -85,7 +85,7 @@ export function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEma
                         </Row>
                         {s.firstWeek ? (
                           <Row>
-                            <p style={p({ background: MATH_50, border: `2px solid ${MATH}`, borderRadius: 12, padding: '14px 16px' })}>
+                            <p style={p({ background: MATH_50, border: `2px solid ${INK}`, borderRadius: 12, padding: '14px 16px' })}>
                               Ini minggu pertama {s.learnerName} di Kira. Ringkasan lengkap datang Senin depan, setelah 7 hari data.
                             </p>
                           </Row>
@@ -148,14 +148,15 @@ export function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEma
                               href={opts.reportUrl}
                               style={{
                                 display: 'inline-block',
-                                background: INK,
-                                color: WHITE,
+                                background: LILAC,
+                                border: `2px solid ${INK}`,
+                                color: INK,
                                 fontFamily: FONT,
                                 fontSize: 16,
                                 lineHeight: '48px',
                                 fontWeight: 700,
                                 textDecoration: 'none',
-                                borderRadius: 12,
+                                borderRadius: 16,
                                 padding: '0 24px',
                               }}
                             >
@@ -168,7 +169,7 @@ export function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEma
                             <p style={p({ fontSize: 14, lineHeight: '22px', color: MUTED, paddingBottom: 6 })}>
                               Email ini dikirim karena persetujuan laporan kemajuan lewat email aktif.{' '}
                               {opts.privacyUrl ? (
-                                <a href={opts.privacyUrl} style={{ color: MATH, fontWeight: 700 }}>
+                                <a href={opts.privacyUrl} style={{ color: INK, fontWeight: 700, textDecoration: 'underline' }}>
                                   Atur di halaman Privasi keluarga
                                 </a>
                               ) : (

@@ -14,9 +14,9 @@ import type { WidgetProps } from './types'
  */
 
 const SUBJECT_FOCUS: Record<WidgetProps['subject'], string> = {
-  math: 'focus-visible:border-math',
-  english: 'focus-visible:border-english',
-  science: 'focus-visible:border-science',
+  math: 'focus-visible:border-fg',
+  english: 'focus-visible:border-fg',
+  science: 'focus-visible:border-fg',
 }
 
 type PromptProps = Pick<WidgetProps, 'item' | 'value' | 'onChange' | 'disabled' | 'feedback' | 'subject'> & { className?: string; id?: string }

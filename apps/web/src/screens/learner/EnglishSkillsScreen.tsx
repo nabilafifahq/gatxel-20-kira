@@ -22,7 +22,7 @@ const ICON: Record<EnglishCardArea, UiIconName> = {
 function Card({ card }: { card: EnglishCardDTO }): ReactElement {
   const style = SUBJECT_STYLE.english
   return (
-    <li className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-6">
+    <li className="flex flex-col gap-3 rounded-card bg-surface shadow-soft p-6">
       <div className="flex items-center gap-3">
         <span aria-hidden="true" className={cx('flex h-12 w-12 flex-none items-center justify-center rounded-control', style.tint, style.text)}>
           <UiIcon name={ICON[card.area]} size={28} />

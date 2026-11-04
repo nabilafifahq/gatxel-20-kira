@@ -5,6 +5,7 @@ import { buttonClass, ButtonLink } from '@/components/console/Button'
 import { cx } from '@/components/console/cx'
 import { ConsoleIcon, type ConsoleIconName } from '@/components/console/icons'
 import { PUBLIC_ROUTES } from '@/components/console/routes'
+import { KiraStar } from '@/components/ui/KiraStar'
 import { PublicFrame } from './PublicFrame'
 
 /**
@@ -105,8 +106,11 @@ export function ErrorScreen({ kind, reference, homeHref, lang, retry }: ErrorScr
     <div lang={lang} className="contents">
       <PublicFrame brandHref={learner ? null : PUBLIC_ROUTES.login} showLegal={!learner}>
         <div className="flex w-full max-w-[640px] flex-col items-start gap-[18px]">
-          <div className="flex size-24 items-center justify-center rounded-card border-2 border-fg bg-surface">
-            <ConsoleIcon name={icon.name} size={52} strokeWidth={1.75} className={icon.className} />
+          <div className="flex items-center gap-4">
+            <KiraStar size={96} mood="calm" />
+            <div className="flex size-16 items-center justify-center rounded-pill bg-lavender">
+              <ConsoleIcon name={icon.name} size={34} strokeWidth={2} className={icon.className} />
+            </div>
           </div>
           <h1 className="m-0 text-h1 font-bold max-sm:text-h2">{c.title}</h1>
           <p className="m-0 text-body-lg">{c.what}</p>

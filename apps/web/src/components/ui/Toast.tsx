@@ -92,8 +92,8 @@ export function Toast({ toast, area = 'learner', className }: { toast: ToastInpu
       role="status"
       lang={learner ? 'en-GB' : 'id'}
       className={cx(
-        'motion-fade flex max-w-[min(560px,calc(100vw-32px))] items-start gap-3 rounded-control border-2 bg-surface starting:-translate-y-2 starting:opacity-0',
-        isError ? 'border-danger' : 'border-fg',
+        'motion-fade flex max-w-[min(560px,calc(100vw-32px))] items-start gap-3 rounded-control bg-surface shadow-soft starting:-translate-y-2 starting:opacity-0',
+        isError ? 'border-2 border-danger' : '',
         learner ? 'px-5 py-4' : 'px-4.5 py-3.5',
         className,
       )}

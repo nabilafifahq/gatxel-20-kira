@@ -158,7 +158,7 @@ export function Timer({
         <span
           aria-hidden="true"
           className={cx(
-            'inline-block font-display text-h1 font-semibold tabular-nums transition-transform duration-(--duration-base) ease-kira',
+            'inline-block font-numbers text-h1 font-semibold tabular-nums transition-transform duration-(--duration-base) ease-kira',
             countdown && 'mx-1',
             grow && 'scale-125',
             DIGIT_CLASS[tone],

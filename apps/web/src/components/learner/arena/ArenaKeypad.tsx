@@ -84,7 +84,7 @@ export function ArenaKeypad({
     }
   }
 
-  const active = tone === 'hitung' ? 'active:border-mental active:bg-mental-50' : 'active:border-knowledge active:bg-knowledge-50'
+  const active = tone === 'hitung' ? 'active:border-fg active:bg-mental-50' : 'active:border-fg active:bg-knowledge-50'
   const keyBase = cx(
     'flex h-16 items-center justify-center rounded-control border-2 p-0 text-h1 font-bold transition-transform duration-150 ease-kira',
     disabled ? 'cursor-not-allowed border-divider bg-bg text-border' : cx('cursor-pointer border-border bg-surface text-fg hover:border-fg active:scale-97', active),
@@ -97,11 +97,11 @@ export function ArenaKeypad({
         : disabled
           ? 'border-2 border-divider bg-bg'
           : tone === 'hitung'
-            ? 'border-3 border-mental bg-surface'
-            : 'border-3 border-knowledge bg-surface'
+            ? 'border-3 border-fg bg-surface'
+            : 'border-3 border-fg bg-surface'
   return (
     <div className={cx('flex w-full max-w-[360px] flex-col gap-2.5', className)}>
-      <output id={outputId} aria-live="polite" aria-label={label} className={cx('flex h-18 items-center justify-end rounded-control px-5 font-display text-display leading-none font-semibold tabular-nums', frame)}>
+      <output id={outputId} aria-live="polite" aria-label={label} className={cx('flex h-18 items-center justify-end rounded-control px-5 font-numbers text-display leading-none font-semibold tabular-nums', frame)}>
         {value === '' ? <span className="text-border">?</span> : value}
       </output>
       <div className="grid grid-cols-3 gap-2.5">

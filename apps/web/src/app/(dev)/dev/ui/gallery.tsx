@@ -105,7 +105,7 @@ function WidgetCard({ item, n }: { item: RunnerItem; n: number }): ReactElement 
   const [feedback, setFeedback] = useState<WidgetFeedback>(null)
   const subject: Subject = item.skill.startsWith('e') ? 'english' : item.skill.startsWith('s') ? 'science' : 'math'
   return (
-    <article className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-5" aria-label={`Widget ${item.type}`}>
+    <article className="flex flex-col gap-4 rounded-card bg-surface shadow-soft p-5" aria-label={`Widget ${item.type}`}>
       <div className="flex flex-wrap items-center gap-2">
         <span className="inline-flex h-8 items-center rounded-pill bg-fg px-3 text-body font-bold text-white">{item.type}</span>
         <span className="text-body text-fg-muted">{item.ref}</span>

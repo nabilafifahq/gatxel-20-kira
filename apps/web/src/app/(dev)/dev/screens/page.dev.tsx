@@ -15,7 +15,7 @@ export default function ScreensIndex() {
       </header>
       <ul className="m-0 flex list-none flex-col gap-3 p-0">
         {Object.entries(LEARNER_SCREENS).map(([name, meta]) => (
-          <li key={name} className="flex flex-col gap-2 rounded-card border border-divider bg-surface p-4">
+          <li key={name} className="flex flex-col gap-2 rounded-card bg-surface shadow-soft p-4">
             <span className="text-body-lg font-bold">{meta.title}</span>
             <span className="flex flex-wrap gap-2">
               {meta.states.map((st) => (

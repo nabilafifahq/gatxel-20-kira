@@ -76,7 +76,7 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
                       : st === 'not-yet'
                         ? 'border-warn bg-surface text-fg'
                         : label !== ''
-                          ? cx(style.border, style.solid, 'text-white')
+                          ? cx(style.border, 'bg-fg', 'text-white')
                           : target
                             ? cx('border-dashed bg-surface text-fg', style.border)
                             : 'border-fg bg-surface text-fg',
@@ -106,7 +106,7 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
                   !locked && 'cursor-pointer hover:border-fg',
                 )}
               >
-                <span aria-hidden="true" className={cx('inline-flex h-8 w-8 flex-none items-center justify-center rounded-pill text-body font-bold', label !== '' ? cx(style.solid, 'text-white') : 'border-2 border-border text-fg')}>
+                <span aria-hidden="true" className={cx('inline-flex h-8 w-8 flex-none items-center justify-center rounded-pill text-body font-bold', label !== '' ? cx('bg-fg', 'text-white') : 'border-2 border-border text-fg')}>
                   {s + 1}
                 </span>
                 <span className={cx('min-w-0 flex-1 font-bold', label === '' && 'font-normal text-fg-muted')}>{label !== '' ? label : 'Empty'}</span>

@@ -59,7 +59,7 @@ export function CountdownOverlay({
         key={n}
         aria-hidden="true"
         className={cx(
-          'kira-count font-display text-[160px] leading-none font-semibold tabular-nums',
+          'kira-count font-numbers text-[160px] leading-none font-semibold tabular-nums',
           n > 0 ? 'text-fg' : 'text-success',
         )}
       >

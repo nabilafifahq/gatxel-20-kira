@@ -15,9 +15,9 @@ export const LETTERS_AZ = 'abcdefghijklmnopqrstuvwxyz'.split('')
 export const DIGITS_0_9 = '1234567890'.split('')
 
 const ACTIVE: Record<Subject, string> = {
-  math: 'active:border-math active:bg-math-50',
-  english: 'active:border-english active:bg-english-50',
-  science: 'active:border-science active:bg-science-50',
+  math: 'active:border-fg active:bg-math-50',
+  english: 'active:border-fg active:bg-english-50',
+  science: 'active:border-fg active:bg-science-50',
 }
 
 export function CharKeypad({

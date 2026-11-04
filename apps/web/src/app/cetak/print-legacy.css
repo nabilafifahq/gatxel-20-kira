@@ -1,0 +1,42 @@
+/*
+ * Papan cetak (paper, kunci, LJK) tetap memakai gaya lama: kertas putih, tinta biru keabuan,
+ * huruf Andika dan Mohave. Token lama hanya berlaku di bawah data-area="print".
+ * Ini satu-satunya tempat nilai warna lama masih ditulis (diizinkan check-copy sebagai file token).
+ */
+@import '@fontsource/andika/400.css';
+@import '@fontsource/andika/700.css';
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
+@import '@fontsource/mohave/500.css';
+@import '@fontsource/mohave/600.css';
+@import '@fontsource/mohave/700.css';
+
+[data-area='print'] {
+  --color-bg: #f5f8fc;
+  --color-fg: #14202e;
+  --color-fg-muted: #4a5a6e;
+  --color-border: #7a8899;
+  --color-divider: #d3dce6;
+  --color-math: #1f6fb2;
+  --color-math-50: #e7f0f9;
+  --color-english: #b4442f;
+  --color-english-50: #faece8;
+  --color-science: #2e7d4f;
+  --color-science-50: #e7f3ec;
+  --color-accent: #1f6fb2;
+  --color-warn: #b54708;
+  --color-warn-50: #fdf1e7;
+  --color-star: #f2b10e;
+  --color-review: #a3b1c2;
+  --color-success-50: #e7f3ec;
+  --color-danger-50: #fcebea;
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-reading: Andika, Verdana, sans-serif;
+  --font-display: Mohave, 'Arial Narrow', sans-serif;
+  --radius-card: 16px;
+  --radius-control: 12px;
+  --radius-sm: 4px;
+}

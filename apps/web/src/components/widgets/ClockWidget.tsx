@@ -104,7 +104,7 @@ export function ClockWidget({ item, value, onChange, disabled = false, feedback 
         <ClockFace h={h} m={m} empty={!t} handClass={handClass} />
       </div>
       <div className="flex flex-col gap-3">
-        <output aria-live="polite" className="text-center font-display text-h1 font-semibold tabular-nums">
+        <output aria-live="polite" className="text-center font-numbers text-h1 font-semibold tabular-nums">
           {t ? clockLabel(h, m) : <span className="font-body text-body-lg font-bold text-fg-muted">Set the time</span>}
         </output>
         <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2">

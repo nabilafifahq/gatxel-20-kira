@@ -247,7 +247,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
                   className={cx(
                     'relative cursor-pointer rounded-control p-0 font-bold tabular-nums',
                     many ? 'h-11 w-11 text-body' : 'h-12 w-12 text-body-lg',
-                    done ? cx(style.solid, 'text-white') : 'bg-surface text-fg',
+                    done ? cx('bg-fg', 'text-white') : 'bg-surface text-fg',
                     now ? 'border-3 border-fg' : done ? cx('border-2', style.border) : 'border-2 border-border',
                   )}
                 >
@@ -289,7 +289,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
       ) : null}
 
       <div className="relative flex min-h-0 flex-1 flex-col gap-4 px-4 md:px-8 lg:flex-row lg:gap-6">
-        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card border border-divider bg-surface p-4 md:p-8 lg:flex-[1.15]">
+        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:flex-[1.15]">
           <QuestionView
             key={item.ref}
             item={item}

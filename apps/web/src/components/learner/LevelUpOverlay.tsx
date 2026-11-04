@@ -7,15 +7,15 @@ import { cx } from '@/components/ui/cx'
 import { Mascot } from './Mascot'
 
 /**
- * Momen naik level layar penuh, berwarna jalur XP: belajar kuning, Quick Maths ungu, Quiz biru tua.
+ * Momen naik level layar penuh, berwarna jalur XP: belajar kuning, Quick Maths lilac, Quiz biru muda.
  * Tidak menjebak fokus: bukan dialog modal, tombol Continue bisa dijangkau tab biasa, dan overlay
  * hilang sendiri setelah beberapa detik. Cincin melebar dan angka level masuk (transform dan opacity).
  */
 
 const TONE: Record<XpTrack, { bg: string; fg: string; ring: string; name: string }> = {
   belajar: { bg: 'bg-star', fg: 'text-fg', ring: 'border-fg', name: 'Learning' },
-  hitung: { bg: 'bg-mental', fg: 'text-white', ring: 'border-white', name: 'Quick Maths' },
-  pengetahuan: { bg: 'bg-knowledge', fg: 'text-white', ring: 'border-white', name: 'Quiz' },
+  hitung: { bg: 'bg-mental', fg: 'text-fg', ring: 'border-fg', name: 'Quick Maths' },
+  pengetahuan: { bg: 'bg-knowledge', fg: 'text-fg', ring: 'border-fg', name: 'Quiz' },
 }
 
 export const LEVEL_UP_MS = 3200
@@ -52,13 +52,13 @@ export function LevelUpOverlay({
           className={cx('kira-ring absolute inset-0 rounded-pill border-4', tone.ring)}
           style={{ '--kira-delay': '350ms' } as CSSProperties}
         />
-        <span className="kira-scale-in font-display text-[120px] leading-none font-semibold tabular-nums">
+        <span className="kira-scale-in font-numbers text-[120px] leading-none font-semibold tabular-nums">
           {level}
         </span>
       </span>
       <Mascot name={avatar} mood="celebrate" size={88} />
       <p className="m-0 font-display text-display font-semibold">You levelled up!</p>
-      <p className="m-0 text-body-lg font-bold">
+      <p className="m-0 text-h3 font-bold">
         {tone.name} level {level}
       </p>
       <button
@@ -66,7 +66,7 @@ export function LevelUpOverlay({
         onClick={onDone}
         className={cx(
           'mt-2 h-14 rounded-control border-2 px-8 text-body-lg font-bold',
-          track === 'belajar' ? 'border-fg bg-surface text-fg' : 'border-white bg-white text-fg',
+          'border-fg bg-surface text-fg',
         )}
       >
         Continue

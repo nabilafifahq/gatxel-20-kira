@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { DIVIDER, INK, MATH, MATH_50, WHITE } from '../palette'
+import { DIVIDER, INK, MATH, WHITE } from '../palette'
 import { int, PAD, polyPath, r2, splitRows, type Drawn, type Spec } from './kit'
 
 type P = [number, number]
@@ -30,7 +30,7 @@ function Block({ x, y, nx, ny, nz, u, k }: { x: number; y: number; nx: number; n
     <g>
       <path d={polyPath([ftl, btl, btr, ftr])} fill={WHITE} />
       <path d={polyPath([ftr, btr, bbr, fbr])} fill={DIVIDER} />
-      <path d={polyPath([fbl, ftl, ftr, fbr])} fill={MATH_50} />
+      <path d={polyPath([fbl, ftl, ftr, fbr])} fill={MATH} />
       {grid.length > 0 && <path d={grid.join('')} fill="none" stroke={MATH} strokeWidth={1} strokeLinecap="butt" />}
       <path d={polyPath([fbl, ftl, btl, btr, bbr, fbr])} fill="none" stroke={INK} strokeWidth={sw} />
       <path d={`M${r2(ftl[0])} ${r2(ftl[1])}H${r2(ftr[0])}V${r2(fbr[1])}M${r2(ftr[0])} ${r2(ftr[1])}L${r2(btr[0])} ${r2(btr[1])}`} fill="none" stroke={INK} strokeWidth={sw} />
