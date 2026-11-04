@@ -162,6 +162,7 @@ export function deriveSteps(item: Item): SolutionStep[] | null {
   steps.push({
     say: item.figure ? 'Look at the picture and read what the question asks.' : 'Read what the question asks.',
     ...(mark ? { mark: [mark] } : {}),
+    ...(item.figure ? { focus: 'figure' as const } : {}),
   })
   const sentences = splitSentences(item.explanation).map((s) => clip(s, 220))
   // Paling banyak 4 langkah penjelasan: kalimat sisa digabung ke langkah terakhir selama muat.

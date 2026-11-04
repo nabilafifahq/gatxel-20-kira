@@ -98,6 +98,8 @@ export const solutionStepSchema = z
     anim: animSchema.optional(),
     /** Bagian kalimat soal yang disorot saat langkah ini tampil. Harus muncul persis di prompt. */
     mark: z.array(text(60)).min(1).max(4).optional(),
+    /** Sorot gambar soal pada langkah ini (hanya bila soal punya gambar). */
+    focus: z.literal('figure').optional(),
   })
   .strict()
 export type SolutionStep = z.infer<typeof solutionStepSchema>

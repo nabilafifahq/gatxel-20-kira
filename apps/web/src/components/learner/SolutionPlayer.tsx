@@ -157,7 +157,7 @@ export function SolutionPlayer({
           {prompt && current.mark ? <MarkedPrompt prompt={prompt} marks={current.mark} reduced={reduced} /> : null}
           {current.anim ? <AnimStage anim={current.anim} subject={subject} reduced={reduced} /> : null}
           {!current.anim && figure ? (
-            <div className="w-full max-w-[380px]">
+            <div className={cx('w-full max-w-[380px] rounded-card', current.focus === 'figure' && cx('p-1 ring-4 ring-star', !reduced && 'kira-pulse'))}>
               <Figure spec={figure} />
             </div>
           ) : null}

@@ -256,6 +256,7 @@ export function solutionProblems(item: Item): string[] {
       const m = animProblem(s.anim)
       if (m) p.push(`Pembahasan langkah ${i + 1}: ${m}`)
     }
+    if (s.focus === 'figure' && !item.figure) p.push(`Pembahasan langkah ${i + 1}: focus figure tapi soal tanpa gambar`)
     for (const w of s.mark ?? []) if (!item.prompt.includes(w)) p.push(`Pembahasan langkah ${i + 1}: sorotan "${w}" tidak ada di soal`)
   })
   if (steps.length > 0 && solutionReaches(item) === false) p.push(`Pembahasan tidak sampai ke jawaban berkunci (${item.id})`)

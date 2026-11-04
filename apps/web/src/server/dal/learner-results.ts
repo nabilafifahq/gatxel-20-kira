@@ -113,7 +113,8 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   if (a.status === 'in_progress') return { inProgress: true }
   const learner = await loadLearner(tx, learnerId)
   const marker = await markerFor(tx)
-  const items = (a.items as AttemptItem[]) ?? []
+  // Soal serupa dari putaran perbaikan tidak ikut skor sesi (tetap ada di review).
+  const items = ((a.items as AttemptItem[]) ?? []).filter((i) => i.remedialOf === undefined)
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
   const latest = latestByPosition(await tx.select().from(response).where(eq(response.attemptId, a.id)))
   const result = (a.result as { byTopic?: Topic[]; timeUsedSec?: number; pending?: number; newBadges?: ResultsDTO['newBadges'] } | null) ?? {}
