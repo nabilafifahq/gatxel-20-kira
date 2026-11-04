@@ -87,7 +87,7 @@ export function CharKeypad({
       <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
         {keys.map((k) => (
           <button key={k} type="button" disabled={disabled} aria-label={k === ' ' ? 'Space' : k === '-' ? 'Hyphen' : k === "'" ? 'Apostrophe' : k === '.' ? 'Point' : k} onClick={() => onKey(k)} className={keyBase}>
-            {upper ? k.toUpperCase() : k}
+            {k === ' ' ? <span className="text-body font-bold">Space</span> : upper ? k.toUpperCase() : k}
           </button>
         ))}
       </div>
