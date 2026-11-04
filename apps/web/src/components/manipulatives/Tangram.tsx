@@ -47,7 +47,7 @@ export function Tangram({
     return { x: b.x, y: b.y, w: b.x2 - b.x, h: b.y2 - b.y }
   }, [slots])
   const pad = 0.5
-  const unit = 44
+  const unit = 56
   const W = (box.w + pad * 2) * unit
   const H = (box.h + pad * 2) * unit
 
@@ -116,7 +116,7 @@ export function Tangram({
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="paper-grid flex w-full justify-center overflow-hidden rounded-card border border-divider bg-surface p-2">
-        <svg viewBox={`0 0 ${W} ${H}`} role="group" aria-label={`Tangram board with ${slots.length} places`} className="h-auto w-full max-w-[560px]" style={{ touchAction: 'manipulation' }}>
+        <svg viewBox={`0 0 ${W} ${H}`} role="group" aria-label={`Tangram board with ${slots.length} places`} className="h-auto w-full" style={{ touchAction: 'manipulation', maxWidth: W }}>
           <g transform={`translate(${(pad - box.x) * unit} ${(pad - box.y) * unit}) scale(${unit})`}>
             {slots.map((slot, i) => {
               const pl = placed[i]

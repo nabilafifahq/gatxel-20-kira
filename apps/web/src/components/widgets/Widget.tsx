@@ -31,11 +31,23 @@ import { WriteWidget } from './WriteWidget'
 function Loading(): ReactElement {
   return <div role="status" aria-label="Loading the tool" className="h-48 w-full animate-pulse rounded-card border border-divider bg-surface" />
 }
-const BlocksWidget = dynamic(() => import('./BlocksWidget').then((m) => m.BlocksWidget), { loading: Loading })
-const FractionBarWidget = dynamic(() => import('./FractionBarWidget').then((m) => m.FractionBarWidget), { loading: Loading })
-const BarModelWidget = dynamic(() => import('./BarModelWidget').then((m) => m.BarModelWidget), { loading: Loading })
-const TangramWidget = dynamic(() => import('./TangramWidget').then((m) => m.TangramWidget), { loading: Loading })
-const GeoboardWidget = dynamic(() => import('./GeoboardWidget').then((m) => m.GeoboardWidget), { loading: Loading })
+const LOAD = {
+  blocks: () => import('./BlocksWidget').then((m) => m.BlocksWidget),
+  fractionbar: () => import('./FractionBarWidget').then((m) => m.FractionBarWidget),
+  barmodel: () => import('./BarModelWidget').then((m) => m.BarModelWidget),
+  tangram: () => import('./TangramWidget').then((m) => m.TangramWidget),
+  geoboard: () => import('./GeoboardWidget').then((m) => m.GeoboardWidget),
+} as const
+const BlocksWidget = dynamic(LOAD.blocks, { loading: Loading })
+const FractionBarWidget = dynamic(LOAD.fractionbar, { loading: Loading })
+const BarModelWidget = dynamic(LOAD.barmodel, { loading: Loading })
+const TangramWidget = dynamic(LOAD.tangram, { loading: Loading })
+const GeoboardWidget = dynamic(LOAD.geoboard, { loading: Loading })
+
+/** Muat lebih dulu alat peraga yang akan muncul di sesi ini, supaya soal berikutnya langsung siap dan tetap jalan saat offline. */
+export function warmManipulatives(types: readonly string[]): void {
+  for (const t of new Set(types)) if (t in LOAD) void LOAD[t as keyof typeof LOAD]().catch(() => undefined)
+}
 
 /** Pilih widget sesuai ClientItem.type. Key berdasarkan ref supaya state widget tidak bocor antarsoal. */
 export function Widget(props: WidgetProps): ReactElement {

@@ -9,5 +9,5 @@ type Props = { onMilestone?(k: ToolMilestone): void }
 
 export function BlocksPlay({ start, onMilestone }: Props & { start?: Blocks }): ReactElement {
   const [value, setValue] = useState<Blocks>(start ?? { h: 0, t: 0, o: 0 })
-  return <PlaceValueBlocks value={value} onChange={setValue} onMilestone={onMilestone} />
+  return <PlaceValueBlocks places={start && start.h === 0 ? 'to' : 'hto'} value={value} onChange={setValue} onMilestone={onMilestone} />
 }

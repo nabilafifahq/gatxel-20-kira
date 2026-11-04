@@ -51,5 +51,6 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 
 - Satu skill punya soal di `content/items/<subject>/g<grade>/<skill>.json`. Skema di `packages/content/src/schema.ts`.
 - Math memakai generator deterministik di `packages/content/src/math`; soal olimpiade ditulis tangan di `content/items/math/olympiad`.
+- Alat peraga Math (`blocks`, `fractionbar`, `barmodel`, `tangram`, `geoboard`): logika dan penilaian di `packages/content/src/manip.ts`, soal di `content/items/math/g<N>/<skill>.tools.json` (dibuat `packages/content/scripts/peraga-items.ts`), widget lazy di `apps/web/src/components/manipulatives`. Halaman bebas `/tools` (fitur `manipulatives`) dan langkah pelajaran `steps[].tool`.
 - Setelah menambah atau mengubah soal, jalankan `pnpm content:check` sampai bersih.
 - Soal resmi lomba tidak disalin ke repo. Paket resmi milik keluarga diimpor lewat konsol (T12) dan tersimpan sebagai soal privat org.

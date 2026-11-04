@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto'
 import postgres from 'postgres'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { answerToLabels, labelCount, type Item } from '@kira/content'
+import { manipulativeAnswer } from '@kira/content/manip-solve'
 import { createDb, withOrg, type Db, type OrgContext, type Tx } from '@kira/db/client'
 import { computeStreak, jakartaDate, retryXp, saturdayFullSubject, weekStart } from '@kira/core'
 
@@ -69,6 +70,12 @@ describe.skipIf(!ready)('sesi harian', () => {
         return { texts: item.blanks.map((b) => b.answers[0]) }
       case 'grid':
         return { cells: item.filled.flat() }
+      case 'blocks':
+      case 'fractionbar':
+      case 'barmodel':
+      case 'tangram':
+      case 'geoboard':
+        return manipulativeAnswer(item)
       default:
         return null
     }
