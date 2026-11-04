@@ -164,8 +164,8 @@ describe('kunci memuat versi suara', () => {
 })
 
 describe('aturan suara', () => {
-  it('hanya empat peran: tiga memakai suara utama dan satu suara kedua', () => {
-    expect([...TTS_STYLE_IDS]).toEqual(['teacher', 'quizhost', 'dictation', 'second'])
+  it('lima peran: tiga memakai suara utama, satu suara kedua, satu suara Indonesia (hanya API)', () => {
+    expect([...TTS_STYLE_IDS]).toEqual(['teacher', 'quizhost', 'dictation', 'second', 'indonesian'])
   })
   it('semua jenis bacaan memakai suara utama', () => {
     for (const kind of ['story', 'poem', 'diary', 'letter', 'dialogue', 'information', 'report', 'instructions']) {

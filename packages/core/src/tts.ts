@@ -18,7 +18,7 @@
 export const TTS_VOICE_VERSION = 'k1'
 
 /** Peran suara. teacher = suara utama (soal, pelajaran, cerita); quizhost dan dictation = suara utama dengan kecepatan lain. */
-export const TTS_STYLE_IDS = ['teacher', 'quizhost', 'dictation', 'second'] as const
+export const TTS_STYLE_IDS = ['teacher', 'quizhost', 'dictation', 'second', 'indonesian'] as const
 export type TtsStyleId = (typeof TTS_STYLE_IDS)[number]
 
 export const TTS_DEFAULT_STYLE: TtsStyleId = 'teacher'
@@ -32,6 +32,8 @@ export const TTS_STYLE_VOICE: Record<TtsStyleId, string> = {
   quizhost: 'bf_emma',
   dictation: 'bf_emma',
   second: 'bf_isabella',
+  // Peran bahasa Indonesia (kamus, arti kata): suara id dari server suara Gatxel, hanya lewat API. Teks Inggris tidak pernah memakainya.
+  indonesian: 'id',
 }
 
 export function isTtsStyle(v: unknown): v is TtsStyleId {

@@ -100,9 +100,9 @@ class Synth:
 
 def remote_main(conn: Any) -> None:
     """Mesin untuk TTS_BACKEND=openai-compatible: tanpa torch dan GPU, hanya permintaan HTTP ke backend."""
-    from remote import RemoteSynth
+    from remote import PiperSynth, RemoteSynth
 
-    synth = RemoteSynth(load_styles())
+    synth: Any = PiperSynth(load_styles()) if os.environ.get("TTS_BACKEND") == "piper" else RemoteSynth(load_styles())
     log("mesin jarak jauh mulai")
     while True:
         try:
@@ -124,7 +124,7 @@ def remote_main(conn: Any) -> None:
 
 
 def engine_main(conn: Any) -> None:
-    if os.environ.get("TTS_BACKEND", "kokoro") == "openai-compatible":
+    if os.environ.get("TTS_BACKEND", "kokoro") in ("openai-compatible", "piper"):
         remote_main(conn)
         return
     import torch

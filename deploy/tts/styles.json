@@ -6,13 +6,18 @@
     "kokoro": "hexgrad/Kokoro-82M"
   },
   "note": "Satu suara perempuan Inggris Britania yang hangat (bf_emma) untuk semua peran. quizhost dan dictation memakai suara yang sama dengan kecepatan berbeda. second (bf_isabella) hanya untuk dialog dua pembicara. Ubah suara atau kecepatan: naikkan voiceVersion di sini dan TTS_VOICE_VERSION di packages/core/src/tts.ts.",
+  "piper": {
+    "repo": "rhasspy/piper-voices",
+    "files": ["en/en_US/lessac/medium/en_US-lessac-medium.onnx", "en/en_US/lessac/medium/en_US-lessac-medium.onnx.json"]
+  },
   "checker": {
     "whisper": "Systran/faster-whisper-small.en"
   },
   "styles": {
-    "teacher": { "label": "Friendly teacher", "voice": "bf_emma", "speed": 0.92, "gapMs": 320 },
-    "quizhost": { "label": "Quiz host", "voice": "bf_emma", "speed": 1.04, "gapMs": 220 },
-    "dictation": { "label": "Slow and clear", "voice": "bf_emma", "speed": 0.78, "gapMs": 650 },
-    "second": { "label": "Second speaker", "voice": "bf_isabella", "speed": 0.92, "gapMs": 320 }
+    "teacher": { "label": "Friendly teacher", "voice": "bf_emma", "speed": 0.92, "piperSpeed": 1.0, "gapMs": 320 },
+    "quizhost": { "label": "Quiz host", "voice": "bf_emma", "speed": 1.04, "piperSpeed": 1.06, "gapMs": 220 },
+    "dictation": { "label": "Slow and clear", "voice": "bf_emma", "speed": 0.78, "piperSpeed": 0.82, "gapMs": 650 },
+    "second": { "label": "Second speaker", "voice": "bf_isabella", "speed": 0.92, "piperSpeed": 1.0, "gapMs": 320 },
+    "indonesian": { "label": "Indonesian (API only)", "voice": "id", "speed": 1.0, "piperSpeed": 1.0, "gapMs": 320 }
   }
 }

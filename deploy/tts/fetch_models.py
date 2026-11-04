@@ -12,8 +12,16 @@ import engine
 
 styles = engine.load_styles()
 models = {**styles["models"], **styles.get("checker", {})}  # checker: Whisper untuk check_clips.py
-wanted = sys.argv[1:] or sorted(models.keys())
+wanted = sys.argv[1:] or sorted([*models.keys(), "piper"])
 for kind in wanted:
+    if kind == "piper":
+        # Suara Inggris Piper (en_US-lessac-medium, sama dengan suara en di server Gatxel): dua berkas.
+        from huggingface_hub import hf_hub_download
+
+        for f in styles["piper"]["files"]:
+            print(f"mengunduh {styles['piper']['repo']}/{f} ...", flush=True)
+            print("selesai:", hf_hub_download(styles["piper"]["repo"], f), flush=True)
+        continue
     repo = models[kind]
     print(f"mengunduh {repo} ...", flush=True)
     path = snapshot_download(repo_id=repo)

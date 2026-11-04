@@ -19,7 +19,7 @@ import { loadSpelling } from '@kira/content/spelling'
 import { spellingSpeechClips } from '@kira/content/speech'
 import { isClipText, TTS_VOICE_VERSION } from '@kira/core/tts'
 import { createTtsClient } from '../src/tts/client'
-import { dedupe, repoClips } from '../src/tts/collect'
+import { bookClips, dedupe, dictionaryClips, repoClips, worldClips } from '../src/tts/collect'
 import { clipKey, hasClip, ttsRoot, writeClip } from '../src/tts/store'
 
 const { values } = parseArgs({
@@ -51,7 +51,8 @@ console.log(`versi suara: ${version}${health.ok ? ` (layanan ${health.backend ??
 const { index, errors } = loadContent(values['content-dir'] ?? findContentDir())
 if (errors.length > 0) console.warn(`konten punya ${errors.length} error, soal yang rusak dilewati`)
 const spelling = loadSpelling(values['content-dir'] ?? findContentDir())
-let clips = dedupe([...repoClips(index), ...Object.values(spelling.levels).flatMap((w) => spellingSpeechClips(w))]).filter((c) => isClipText(c.text))
+const contentDir = values['content-dir'] ?? findContentDir()
+let clips = dedupe([...repoClips(index), ...Object.values(spelling.levels).flatMap((w) => spellingSpeechClips(w)), ...dictionaryClips(contentDir), ...bookClips(contentDir), ...worldClips(contentDir)]).filter((c) => isClipText(c.text))
 if (values.limit) clips = clips.slice(0, Number(values.limit))
 
 await mkdir(ttsRoot(dataDir), { recursive: true })

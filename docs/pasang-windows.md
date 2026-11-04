@@ -359,6 +359,21 @@ Hanya satu suara yang didengar anak pada satu waktu. Penunjuk `<data>/tts/served
 4. Pindahkan penunjuk bila lulus: `pnpm tts:promote -- --data-dir <data> --version <versi> --report <laporan.csv>`. Perintah ini menolak bila ada klip yang belum ada atau tingkat lulus di bawah 99%. Browser membaca versi baru dari `/api/tts/today` dan web dalam 5 detik; semua perangkat berpindah bersamaan.
 5. Kembali ke Kokoro kapan saja: `pnpm tts:promote -- --data-dir <data> --version k1 --report <laporan Kokoro>` (klipnya tetap ada di disk).
 
+### Suara pilot: Piper (en_US-lessac-medium) dan suara id dari server Gatxel
+
+Suara standar pilot adalah suara `en` server suara Gatxel, yaitu model Piper publik **en_US-lessac-medium**. Layanan `tts` menjalankannya sendiri di CPU (`TTS_BACKEND=piper`, model dan parameter sama, jadi suaranya sama dan tidak ada ganti jenis kelamin), sehingga server Gatxel yang dipakai bersama tidak dibebani. Versi suara di kunci klip: `piper-lessac-medium`.
+
+- **Bahasa menentukan suara, tidak pernah ditebak.** Peran `indonesian` (kamus, arti kata) dibuat lewat API Gatxel dengan suara `id` (id_ID-gatxel-medium). Semua peran Inggris (`teacher`, `quizhost`, `dictation`, `second`) memakai `en`. Teks Inggris tidak pernah dikirim ke `id` (hasilnya tak terbaca), dan sebaliknya.
+- Variabel: `TTS_BACKEND=piper`, `TTS_WORKERS=8` (proses sejajar, satu utas ONNX tiap proses), `TTS_PIPER_MODEL` (opsional; bawaan dicari di volume `/models`). Untuk peran Indonesia: `TTS_BASE_URL=http://host.docker.internal:3000/api/v1`, `TTS_API_KEY`, `TTS_VOICE=en`, `TTS_VOICE_ID=id`, `TTS_MODEL=piper`, dan bila perlu `TTS_REQUEST_PAUSE=0.2` (detik, jeda antar permintaan supaya layanan bersama tidak jenuh).
+- Unduh model: `docker compose --profile tts-setup run --rm tts-fetch python fetch_models.py piper`.
+- Lisensi: data latih model Lessac dan Gatxel berlisensi riset. Pilot gratis dan tidak komersial; ganti model sebelum penggunaan komersial.
+
+**Mengganti model nanti**: (1) pasang backend/suara baru lewat variabel di atas (atau tambahkan kelas sintesis di `deploy/tts/remote.py`); (2) set `TTS_VOICE_VERSION` baru (mis. `gatxel-2`); (3) `pnpm tts:generate` ke folder yang sama membuat hanya klip bernama baru, tanpa menyentuh yang disajikan; (4) `check_clips.py`; (5) `pnpm tts:promote`. Tidak ada perubahan kode web atau worker, dan versi lama tetap di disk untuk kembali.
+
+**Regenerasi bertahap saat konten masuk**: kunci klip adalah sha256 dari versi suara, peran, dan teks. Konten baru atau berubah berarti kunci baru, dan `pnpm tts:generate` (atau job `tts.batch` malam) hanya membuat kunci yang belum ada; teks yang sama dilewati. Jalankan lagi setelah tiap gelombang konten, lalu `check_clips.py` (hanya klip baru yang diperiksa) dan `pnpm tts:promote` setelah set lengkap lulus. Selama itu anak tetap mendengar versi yang disajikan.
+
+**Tanpa panggilan TTS langsung**: semua jalur anak (soal, pelajaran, kamus, kartu kilat, buku, cerita, album, bos, kuis) memutar berkas klip statis lewat `/tts/<kunci>.mp3`. Layanan `tts` dan server Gatxel tidak pernah dipanggil saat anak memakai aplikasi; klip yang belum ada hanya memicu job `tts.clip` di antrean worker dan, sampai jadi, suara perangkat.
+
 
 ### Masalah yang sering muncul
 

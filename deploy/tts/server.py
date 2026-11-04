@@ -40,7 +40,7 @@ PORT = int(os.environ.get("TTS_PORT", "8000"))
 TOKEN = os.environ.get("KIRA_INTERNAL_TOKEN", "")
 IDLE_SECONDS = int(os.environ.get("TTS_IDLE_SECONDS", "600"))
 BACKEND = remote.backend()  # kokoro | openai-compatible
-DEVICE = os.environ.get("TTS_DEVICE", "auto") if BACKEND == "kokoro" else "remote"  # auto | cuda | cpu
+DEVICE = os.environ.get("TTS_DEVICE", "auto") if BACKEND == "kokoro" else ("cpu-piper" if BACKEND == "piper" else "remote")  # auto | cuda | cpu
 MIN_FREE_MIB = int(os.environ.get("TTS_MIN_FREE_MIB", "1500"))
 WORKERS = max(1, int(os.environ.get("TTS_WORKERS", "3")))
 BATCH_CHUNK = int(os.environ.get("TTS_BATCH_CHUNK", "8"))
@@ -122,7 +122,7 @@ class EngineHost:
         with self.lock:
             self.requests += 1
             device = "cpu" if time.monotonic() < self.cpu_until else DEVICE
-            if device not in ("cpu", "remote") and not self.loaded():
+            if device not in ("cpu", "remote", "cpu-piper") and not self.loaded():
                 # GPU dipakai program lain? Jangan muat model dan jangan buat konteks CUDA (lihat gpu.py).
                 free = gpu.gpu_free_mib()
                 if free is not None and free < MIN_FREE_MIB:
@@ -299,7 +299,7 @@ class Handler(BaseHTTPRequestHandler):
         last = max(POOL.hosts, key=lambda h: h.last_used)
         self._json(200, {
             "ok": True,
-            "engine": "kokoro-82m" if BACKEND == "kokoro" else "openai-compatible",
+            "engine": {"kokoro": "kokoro-82m", "piper": "piper-lessac-medium"}.get(BACKEND, "openai-compatible"),
             "backend": BACKEND,
             "voiceVersion": VOICE_VERSION,
             "deviceSetting": DEVICE,

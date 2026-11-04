@@ -21,8 +21,8 @@ describe('aturan suara tetap (deploy/tts/styles.json)', () => {
       expect(s.speed).toBeLessThan(1.3)
     }
   })
-  it('hanya dua suara berbeda, keduanya Inggris Britania; suara utama dipakai guru, kuis, dan dikte', () => {
-    const voices = new Set(Object.values(styles.styles).map((s) => s.voice))
+  it('hanya dua suara Inggris berbeda, keduanya Inggris Britania; suara utama dipakai guru, kuis, dan dikte', () => {
+    const voices = new Set(Object.entries(styles.styles).filter(([id]) => id !== 'indonesian').map(([, s]) => s.voice))
     expect(voices.size).toBeLessThanOrEqual(2)
     for (const v of voices) expect(v).toMatch(/^b[fm]_/)
     expect(styles.styles.teacher!.voice).toBe(styles.styles.quizhost!.voice)
