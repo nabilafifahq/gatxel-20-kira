@@ -14,7 +14,7 @@ export function XpTrackBars({ tracks, variant = 'full', only, className }: { tra
   const dict = useT().arena.tracks
   const list = only ? tracks.filter((t) => t.track === only) : tracks
   return (
-    <ul aria-label={dict.list} className={cx('m-0 grid list-none gap-3 p-0', variant === 'compact' ? 'sm:grid-cols-3' : only ? '' : 'md:grid-cols-3', className)}>
+    <ul role="list" aria-label={dict.list} className={cx('m-0 grid list-none gap-3 p-0', variant === 'compact' ? 'sm:grid-cols-3' : only ? '' : 'md:grid-cols-3', className)}>
       {list.map((t) => {
         const tone = TRACK_TONE[t.track]
         // Nama dan baris sisa XP disusun di sini dari angka DTO, supaya mengikuti bahasa anak di semua layar.
