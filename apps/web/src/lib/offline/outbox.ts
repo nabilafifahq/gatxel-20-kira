@@ -27,6 +27,10 @@ export async function queueAnswer(payload: AnswerPayload): Promise<void> {
   await (await db()).put('answers', { clientId: payload.clientId, payload, savedAt: Date.now() } satisfies Stored)
 }
 
+export async function removeAnswer(clientId: string): Promise<void> {
+  await (await db()).delete('answers', clientId)
+}
+
 export async function queueSubmit(attemptId: string, clientId: string): Promise<void> {
   await (await db()).put('submits', { attemptId, clientId, savedAt: Date.now() } satisfies StoredSubmit)
 }

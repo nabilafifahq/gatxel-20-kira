@@ -12,6 +12,7 @@ import { Dialog } from '@/components/ui/Dialog'
 import { ToastProvider, useToast } from '@/components/ui/Toast'
 import { BadgeTile } from '@/components/learner/BadgeTile'
 import { avatarLabel, LearnerFrame } from '@/components/learner/LearnerHeader'
+import { effectiveOn } from '@kira/core/features'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { SoundToggle } from '@/components/learner/SoundToggle'
 import { MusicToggle } from '@/components/learner/MusicToggle'
@@ -190,12 +191,12 @@ function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: 
           </h2>
           <XpTrackBars tracks={data.tracks} />
           <div className="flex flex-wrap gap-3">
-            {data.tracks.some((x) => x.track === 'hitung') ? (
+            {effectiveOn(data.shell.features ?? {}, 'mental-math') ? (
               <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
                 {t.shell.nav['quick-maths']}
               </ButtonLink>
             ) : null}
-            {data.tracks.some((x) => x.track === 'pengetahuan') ? (
+            {effectiveOn(data.shell.features ?? {}, 'quiz-arena') ? (
               <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
                 {t.shell.nav['quiz-arena']}
               </ButtonLink>
@@ -265,6 +266,7 @@ function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: 
         </section>
       ) : null}
 
+      {effectiveOn(data.shell.features ?? {}, 'kira-world') ? (
       <section aria-label={t.shell.nav.world} className="flex flex-wrap items-center gap-3.5 rounded-card border-2 border-fg bg-surface p-4">
         <div className="flex min-w-50 flex-1 flex-col gap-0.5">
           <h2 className="m-0 text-h3 font-bold">{t.shell.nav.world}</h2>
@@ -274,6 +276,7 @@ function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: 
           {t.shell.me.openWorld}
         </ButtonLink>
       </section>
+      ) : null}
       {data.collection ? <ChestCollection collection={data.collection} avatar={avatar} accessory={accessory} background={data.shell.background ?? null} equip={actions.equipChest} /> : null}
 
       <div className="flex flex-1 flex-col gap-6 lg:flex-row">

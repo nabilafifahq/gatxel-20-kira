@@ -2,13 +2,15 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ActionResult, AnswerPayload, AnswerResult } from '@/lib/dto'
+import { queueAnswer, removeAnswer } from '@/lib/offline/outbox'
 
 /**
  * Antrean kirim jawaban di memori. Anak tidak pernah menunggu: jawaban masuk antrean,
  * dikirim satu per satu, dan dicoba ulang diam-diam dengan jeda yang makin panjang.
  * Saat offline antrean berhenti dan jalan lagi ketika jaringan kembali.
  * Jawaban baru untuk posisi yang sama menggantikan yang belum terkirim (mode tes).
- * Antrean persisten di IndexedDB nanti membungkus actions.saveAnswer dari luar.
+ * Setiap jawaban juga ditulis ke kotak keluar IndexedDB sampai server menerimanya, jadi tidak hilang bila halaman
+ * dimuat ulang atau aplikasi ditutup saat offline. flushOutbox mengirimnya lewat /api/sync; clientId mencegah ganda.
  */
 
 type Entry = {
@@ -91,6 +93,7 @@ export function useAnswerQueue(save: (p: AnswerPayload) => Promise<ActionResult<
         // Entri bisa sudah diganti oleh jawaban yang lebih baru selama dikirim.
         if (result && result.ok) {
           queue.current = queue.current.filter((e) => e !== entry)
+          void removeAnswer(entry.payload.clientId).catch(() => {})
           entry.waiters.forEach((w) => w(result))
           sync()
           continue
@@ -98,6 +101,7 @@ export function useAnswerQueue(save: (p: AnswerPayload) => Promise<ActionResult<
         entry.tries += 1
         if (result && !result.ok && entry.tries >= MAX_REFUSALS) {
           queue.current = queue.current.filter((e) => e !== entry)
+          void removeAnswer(entry.payload.clientId).catch(() => {})
           setDropped(result.reference)
           entry.waiters.forEach((w) => w(result))
           sync()
@@ -133,9 +137,11 @@ export function useAnswerQueue(save: (p: AnswerPayload) => Promise<ActionResult<
         const list = queue.current
         // Ganti jawaban lama untuk posisi yang sama yang belum mulai dikirim (bukan entri pertama yang mungkin sedang dikirim).
         const idx = list.findIndex((e, i) => i > 0 && e.payload.position === payload.position && e.payload.attemptNo === payload.attemptNo)
+        void queueAnswer(payload).catch(() => {})
         if (idx > 0) {
           const old = list[idx]
           if (old) {
+            void removeAnswer(old.payload.clientId).catch(() => {})
             old.waiters.forEach((w) => w(null))
             list[idx] = { payload, tries: 0, waiters: [resolve] }
           }
