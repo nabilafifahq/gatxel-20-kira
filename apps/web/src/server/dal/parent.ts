@@ -205,8 +205,8 @@ async function skillMap(tx: Tx, learner: LearnerRow): Promise<{ map: ParentChild
       .map((s) => {
         const st = by.get(s.id)
         const mastery = st ? (st.gate === 'mastered' ? 100 : Math.round((st.stars / 3) * 100)) : 0
-        if (st && st.gate === 'reteach' && st.n > 0) weak.push({ subject, title: s.title, note: 'Perlu diulang, Kira akan menjadwalkannya lagi.' })
-        return { id: s.id, title: s.title, stars: st?.stars ?? 0, mastery, state: STATE_OF_GATE[st?.gate ?? 'new'] ?? 'baru', answered: st?.n ?? 0 } satisfies ParentSkillDTO
+        if (st && st.gate === 'reteach' && st.n > 0) weak.push({ subject, title: s.titleId ?? s.title, note: 'Perlu diulang, Kira akan menjadwalkannya lagi.' })
+        return { id: s.id, title: s.titleId ?? s.title, stars: st?.stars ?? 0, mastery, state: STATE_OF_GATE[st?.gate ?? 'new'] ?? 'baru', answered: st?.n ?? 0 } satisfies ParentSkillDTO
       })
     return { subject, label: SUBJECT_ID_LABEL[subject], skills }
   }).filter((g) => g.skills.length > 0)
