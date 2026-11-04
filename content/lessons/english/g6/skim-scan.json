@@ -1,0 +1,54 @@
+{
+  "skill": "e6.skim-scan",
+  "title": "Skimming, scanning and finding information",
+  "steps": [
+    {
+      "say": "Skimming means reading quickly to get the general idea of a text."
+    },
+    {
+      "say": "Scanning means moving your eyes over a page to find one detail, such as a date or name."
+    },
+    {
+      "say": "Headings, bold words and captions help you skim."
+    },
+    {
+      "say": "A contents page shows the chapters. An index lists topics with page numbers. A glossary explains hard words."
+    },
+    {
+      "say": "To find an answer, choose key words, skim to the right section, then scan for the key words."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.skim-scan.901",
+      "skill": "e6.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You want to find the year something happened in a long article. What do you do?",
+      "options": [
+        {
+          "text": "Skim for the main idea only",
+          "why": "Skimming gives the idea, not a single date."
+        },
+        {
+          "text": "Scan for numbers near the key words"
+        },
+        {
+          "text": "Read every word from the start",
+          "why": "This would take too long."
+        },
+        {
+          "text": "Read only the last line",
+          "why": "The year could be anywhere."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "You want one detail only.",
+        "A year is made of four digits.",
+        "Hunt for the key words and the digits."
+      ],
+      "explanation": "To find a single detail, scan for the key words and numbers."
+    }
+  ]
+}

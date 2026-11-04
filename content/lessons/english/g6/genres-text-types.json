@@ -1,0 +1,56 @@
+{
+  "skill": "e6.genres-text-types",
+  "title": "Genres and text types",
+  "steps": [
+    {
+      "say": "Fiction is made up. Non-fiction gives true information about the real world."
+    },
+    {
+      "say": "Each fiction genre has features. A mystery has clues. Fantasy has magic. Science fiction looks to the future.",
+      "show": "mystery = clues, fantasy = magic"
+    },
+    {
+      "say": "Playscripts show who speaks. Stage directions in brackets tell actors what to do.",
+      "show": "MAYA: (opening the door) Is anyone there?"
+    },
+    {
+      "say": "Non-fiction texts have a purpose. A recount tells what happened. Instructions tell how to do something. A report gives facts."
+    },
+    {
+      "say": "A balanced argument gives more than one side before it reaches a view."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.genres-text-types.901",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which text type is written to tell the reader how to do something?",
+      "options": [
+        {
+          "text": "A report",
+          "why": "A report gives facts about a topic."
+        },
+        {
+          "text": "Instructions"
+        },
+        {
+          "text": "A recount",
+          "why": "A recount tells what happened."
+        },
+        {
+          "text": "A fable",
+          "why": "A fable is a made-up story with a lesson."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the purpose of the text.",
+        "Look for the one that gives commands.",
+        "It uses steps, such as first, next and then."
+      ],
+      "explanation": "Instructions tell the reader what to do, step by step."
+    }
+  ]
+}

@@ -9,22 +9,22 @@
       "prompt": "Which of these is a non-fiction book?",
       "options": [
         {
-          "text": "A tale about a talking tiger",
-          "why": "This is an invented story, so it is fiction."
+          "text": "A guide to Indonesian volcanoes"
         },
         {
           "text": "A play about a magic drum",
           "why": "A play with a made-up plot is fiction."
         },
         {
-          "text": "A guide to Indonesian volcanoes"
+          "text": "A tale about a talking tiger",
+          "why": "This is an invented story, so it is fiction."
         },
         {
           "text": "A poem collection about the moon",
           "why": "Poems can be made up, so this book is not a book of facts."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Non-fiction gives true information.",
         "Ask yourself: could the book be about real things you can check?",
@@ -83,22 +83,22 @@
       "prompt": "A library arranges its fiction shelves by the author's surname. Where would you look for a novel by Tom Rivera?",
       "options": [
         {
-          "text": "Under T, for Tom",
-          "why": "The shelves use the surname, not the first name."
+          "text": "Under R, for Rivera"
         },
         {
           "text": "Under N, for novel",
           "why": "Novel is the type of book, not the author's name."
         },
         {
-          "text": "Under R, for Rivera"
+          "text": "Under T, for Tom",
+          "why": "The shelves use the surname, not the first name."
         },
         {
           "text": "In the non-fiction section by subject number",
           "why": "Fiction is not sorted by subject number."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Fiction shelves use the author's family name.",
         "Find the surname first, then its first letter.",
@@ -149,22 +149,22 @@
       "prompt": "Read the extract. Which genre is it most likely to be?\n\nThe lamp flickered. Nadia counted the muddy footprints again: three sets, but only two people had been home. Someone else had been in the study.",
       "options": [
         {
-          "text": "Fable",
-          "why": "A fable has talking animals and a moral, not clues and footprints."
+          "text": "Mystery"
         },
         {
           "text": "Science fiction",
           "why": "There is no future technology or space in the extract."
         },
         {
-          "text": "Mystery"
+          "text": "Fable",
+          "why": "A fable has talking animals and a moral, not clues and footprints."
         },
         {
           "text": "Historical fiction",
           "why": "Nothing here tells us the story is set in a real past time."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Look at what Nadia is doing.",
         "Footprints and an unexplained visitor are clues.",
@@ -215,18 +215,18 @@
           "why": "This is a story sentence with speech marks."
         },
         {
-          "text": "MAYA: (opening the door) Is anyone there?"
+          "text": "Dear Maya, I opened the door today.",
+          "why": "This is the start of a letter."
         },
         {
           "text": "1. Open the door slowly.",
           "why": "Numbered steps belong to instructions."
         },
         {
-          "text": "Dear Maya, I opened the door today.",
-          "why": "This is the start of a letter."
+          "text": "MAYA: (opening the door) Is anyone there?"
         }
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
         "A playscript is written for actors to speak.",
         "Look for a character's name and words in brackets.",
@@ -362,18 +362,18 @@
           "why": "This is one-sided and shouts. A balanced argument gives both sides."
         },
         {
-          "text": "Some people say homework builds good habits, but others argue it takes time from sleep and play."
+          "text": "Yesterday I did my homework and then ate rice.",
+          "why": "This tells what happened. It does not discuss both sides."
         },
         {
           "text": "First, find a quiet desk and open your book.",
           "why": "This is an instruction, not an argument."
         },
         {
-          "text": "Yesterday I did my homework and then ate rice.",
-          "why": "This tells what happened. It does not discuss both sides."
+          "text": "Some people say homework builds good habits, but others argue it takes time from sleep and play."
         }
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
         "A balanced argument looks at more than one side.",
         "Find the sentence with words such as some people say and others argue.",

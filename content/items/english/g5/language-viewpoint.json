@@ -1285,6 +1285,198 @@
         "reading"
       ],
       "expectedSeconds": 70
+    },
+    {
+      "id": "e5.language-viewpoint.037",
+      "skill": "e5.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Kofi read a story about a lost dog. He said, \"I felt worried because it reminded me of when my own dog went missing.\" What kind of response is this?",
+      "options": [
+        {
+          "text": "a prediction",
+          "why": "He is not saying what will happen next."
+        },
+        {
+          "text": "a summary",
+          "why": "He is not retelling the plot."
+        },
+        {
+          "text": "a personal response linked to his own life"
+        },
+        {
+          "text": "a fact about dogs",
+          "why": "He is sharing a feeling, not a fact."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Ask what Kofi is sharing.",
+        "He mentions his own dog.",
+        "This kind of response links a book to your own life."
+      ],
+      "explanation": "Kofi connects the story to his own experience, so it is a personal response."
+    },
+    {
+      "id": "e5.language-viewpoint.038",
+      "skill": "e5.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is a prediction about a story?",
+      "options": [
+        {
+          "text": "I think the dog will find its way home."
+        },
+        {
+          "text": "I liked the dog.",
+          "why": "This is an opinion about the story."
+        },
+        {
+          "text": "The story is set in a village.",
+          "why": "This is a fact from the story."
+        },
+        {
+          "text": "The author is from Kenya.",
+          "why": "This is not about what happens next."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A prediction says what might happen next.",
+        "Look for words like I think or will.",
+        "Which sentence looks ahead?"
+      ],
+      "explanation": "A prediction says what the reader thinks will happen next."
+    },
+    {
+      "id": "e5.language-viewpoint.039",
+      "skill": "e5.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dewi read a story about a storm while sitting in a warm classroom. Her cousin read the same story while sheltering from a real storm. Why might they react differently?",
+      "options": [
+        {
+          "text": "The story changed its words.",
+          "why": "The words stay the same."
+        },
+        {
+          "text": "Their situations make the story feel different to each of them."
+        },
+        {
+          "text": "Only one of them can read.",
+          "why": "Both read the story."
+        },
+        {
+          "text": "Stories are always the same for everyone.",
+          "why": "Readers can react differently."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare where each person is reading.",
+        "A real storm could make the story feel more frightening.",
+        "Think about how where you are changes how you feel."
+      ],
+      "explanation": "Where and when we read can change how a story makes us feel."
+    },
+    {
+      "id": "e5.language-viewpoint.040",
+      "skill": "e5.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is the best way to recommend a book to a friend?",
+      "options": [
+        {
+          "text": "It is a book.",
+          "why": "This gives no reason to read it."
+        },
+        {
+          "text": "Read it because the cliffhanger endings make you want to turn the page, and the hero is funny."
+        },
+        {
+          "text": "I read it on Monday.",
+          "why": "This says nothing about what is good about the book."
+        },
+        {
+          "text": "The book has 200 pages.",
+          "why": "A page count is not a reason to recommend it."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A recommendation gives a reason.",
+        "Look for the sentence that says what is good about the book.",
+        "Which sentence would make your friend want to read it?"
+      ],
+      "explanation": "A good recommendation tells the friend what makes the book worth reading."
+    },
+    {
+      "id": "e5.language-viewpoint.041",
+      "skill": "e5.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Poem 1 describes a tall tree that survives many storms. Poem 2 describes a blade of grass that bends in strong wind and then stands up again. What theme do both poems share?",
+      "options": [
+        {
+          "text": "fear of the dark",
+          "why": "Neither poem is about the dark."
+        },
+        {
+          "text": "the beauty of spring",
+          "why": "Neither poem is about spring."
+        },
+        {
+          "text": "loneliness",
+          "why": "Neither poem is about being alone."
+        },
+        {
+          "text": "strength to survive hard times"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Ask what the tree and the grass have in common.",
+        "Both face strong weather.",
+        "Both survive. What big idea is that?"
+      ],
+      "explanation": "Both poems show something surviving difficult weather, so the theme is strength through hard times."
+    },
+    {
+      "id": "e5.language-viewpoint.042",
+      "skill": "e5.language-viewpoint",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Text A is a lively story about a fox. Text B is a factual report about foxes. Choose all the features likely to be in Text B.",
+      "options": [
+        {
+          "text": "headings and subheadings"
+        },
+        {
+          "text": "technical words such as nocturnal"
+        },
+        {
+          "text": "dialogue in speech marks",
+          "why": "Dialogue is more likely in a story."
+        },
+        {
+          "text": "facts written in the present tense"
+        },
+        {
+          "text": "a character's feelings in the first person",
+          "why": "This is more likely in a story."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "A report gives information about a topic.",
+        "Think about the language of facts.",
+        "Which features belong to a story, and which to a report?"
+      ],
+      "explanation": "A report uses headings, technical words and facts in the present tense. Dialogue and feelings belong more to stories."
     }
   ]
 }

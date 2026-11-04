@@ -748,6 +748,270 @@
         "Listen for the last sound of each word."
       ],
       "explanation": "Lose ends with a z sound and loose ends with an s sound, so they sound different."
+    },
+    {
+      "id": "e5.silent-letters-homophones.025",
+      "skill": "e5.silent-letters-homophones",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words by how the sound at the end is spelled.",
+      "groups": [
+        "Ends in -er",
+        "Ends in -y"
+      ],
+      "items": [
+        {
+          "text": "butter",
+          "group": 0
+        },
+        {
+          "text": "city",
+          "group": 1
+        },
+        {
+          "text": "ladder",
+          "group": 0
+        },
+        {
+          "text": "baby",
+          "group": 1
+        },
+        {
+          "text": "sister",
+          "group": 0
+        },
+        {
+          "text": "puppy",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "The end of each word has a weak, unstressed sound.",
+        "Say each word aloud and look at its last letters.",
+        "Use known words as patterns, like butter for -er."
+      ],
+      "explanation": "Butter, ladder and sister end in -er. City, baby and puppy end in -y with an ee sound."
+    },
+    {
+      "id": "e5.silent-letters-homophones.026",
+      "skill": "e5.silent-letters-homophones",
+      "type": "spell",
+      "difficulty": 2,
+      "prompt": "Spell the word that means sixty minutes.",
+      "word": "hour",
+      "sentence": "The film lasted one hour.",
+      "hints": [
+        "Think about the h that you do not say.",
+        "The ou makes a sound like the one in \"our\".",
+        "Start with h, then think of ou, then r."
+      ],
+      "explanation": "The h in hour is silent. It follows an unusual letter pattern, so it is worth learning."
+    },
+    {
+      "id": "e5.silent-letters-homophones.027",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is spelled correctly? The ice cream shop sold a delicious ___ of mango.",
+      "options": [
+        {
+          "text": "peice",
+          "why": "The letters ie are in the wrong order."
+        },
+        {
+          "text": "piece"
+        },
+        {
+          "text": "peece",
+          "why": "This spelling does not follow the usual pattern."
+        },
+        {
+          "text": "pease",
+          "why": "This is a different word."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The vowel sound is a long e.",
+        "The rule is i before e, except after c.",
+        "Try writing the word two ways and see which looks right."
+      ],
+      "explanation": "Piece follows \"i before e, except after c\" because there is no c before the vowels."
+    },
+    {
+      "id": "e5.silent-letters-homophones.028",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word is an exception to the rule \"i before e, except after c\"?",
+      "options": [
+        {
+          "text": "receive",
+          "why": "This word follows the rule: e comes after c."
+        },
+        {
+          "text": "believe",
+          "why": "This word follows the rule: i comes before e."
+        },
+        {
+          "text": "ceiling",
+          "why": "This word follows the rule: e comes after c."
+        },
+        {
+          "text": "weird"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check where the ie or ei comes in each word.",
+        "Find a word where ei is not after c.",
+        "Say each word and apply the rule."
+      ],
+      "explanation": "Weird has ei but no c before it, so it breaks the rule and must be learned."
+    },
+    {
+      "id": "e5.silent-letters-homophones.029",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word has the same vowel sound as through?",
+      "options": [
+        {
+          "text": "though",
+          "why": "Though ends with the sound oh."
+        },
+        {
+          "text": "cough",
+          "why": "Cough ends with an off sound."
+        },
+        {
+          "text": "threw"
+        },
+        {
+          "text": "thorough",
+          "why": "Thorough has a different ending sound."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The ough pattern can be said in different ways.",
+        "Say each word aloud and compare the middle sound.",
+        "Which word sounds like the word through when you say it?"
+      ],
+      "explanation": "Threw and through sound the same, even though they are spelled differently."
+    },
+    {
+      "id": "e5.silent-letters-homophones.030",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which related word helps you remember the silent letter in column?",
+      "options": [
+        {
+          "text": "colony",
+          "why": "It has no silent letter that helps."
+        },
+        {
+          "text": "columnist"
+        },
+        {
+          "text": "cold",
+          "why": "It does not share the silent n."
+        },
+        {
+          "text": "collar",
+          "why": "It does not share the silent n."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for a word from the same family.",
+        "In a related word the silent letter may be said aloud.",
+        "Which word has the letters column plus an ending?"
+      ],
+      "explanation": "In columnist the n is sounded, which reminds you that column has an n at the end."
+    },
+    {
+      "id": "e5.silent-letters-homophones.031",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rina keeps a spelling log. Which entry will help her most?",
+      "options": [
+        {
+          "text": "I wrote definately. Correct: definitely. Tip: it has finite in the middle."
+        },
+        {
+          "text": "Spelling is hard.",
+          "why": "This does not show which word to learn."
+        },
+        {
+          "text": "A list of words I like.",
+          "why": "This does not track mistakes."
+        },
+        {
+          "text": "definately",
+          "why": "This is the wrong spelling and has no help."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A good log shows the mistake, the correct spelling and a tip.",
+        "Which entry would help you remember next time?",
+        "Look for the entry with the right spelling in it."
+      ],
+      "explanation": "A useful log shows the mistake, the correct word and a hint for remembering it."
+    },
+    {
+      "id": "e5.silent-letters-homophones.032",
+      "skill": "e5.silent-letters-homophones",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the words in alphabetical order.",
+      "items": [
+        "crane",
+        "crater",
+        "cream",
+        "crisp",
+        "crowd"
+      ],
+      "hints": [
+        "All the words start with cr.",
+        "Compare the third letter, then the fourth.",
+        "crane, crater and cream start with cra and cre."
+      ],
+      "explanation": "Words are ordered by letters from left to right: crane, crater, cream, crisp, crowd."
+    },
+    {
+      "id": "e5.silent-letters-homophones.033",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The guide words at the top of a dictionary page are pilot and pitch. Which word is on that page?",
+      "options": [
+        {
+          "text": "pillow",
+          "why": "Pillow comes before pilot, so it is on an earlier page."
+        },
+        {
+          "text": "pigeon",
+          "why": "Pigeon comes before pilot, so it is on an earlier page."
+        },
+        {
+          "text": "pinch"
+        },
+        {
+          "text": "planet",
+          "why": "Planet comes after pitch, so it is on a later page."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Guide words show the first and last word on the page.",
+        "Compare the third letter of each word.",
+        "The word must come after pilot and before pitch."
+      ],
+      "explanation": "Pinch comes after pilot and before pitch in alphabetical order, so it is on that page."
     }
   ]
 }

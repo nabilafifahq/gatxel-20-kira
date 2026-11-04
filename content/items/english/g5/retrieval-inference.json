@@ -1260,6 +1260,201 @@
         "reading"
       ],
       "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.039",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Citra is very shy. She never speaks in class. Her teacher asks her to read aloud tomorrow. What is she most likely to do tonight?",
+      "options": [
+        {
+          "text": "Dance on the table.",
+          "why": "This does not match a shy character."
+        },
+        {
+          "text": "Practise reading quietly because she feels nervous."
+        },
+        {
+          "text": "Ask to read three times.",
+          "why": "A shy child is unlikely to ask for more."
+        },
+        {
+          "text": "Forget about it completely.",
+          "why": "The text shows it is a big event for her."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what Citra is like.",
+        "Use clues about her personality.",
+        "What would a shy person do before a big task?"
+      ],
+      "explanation": "The clues show Citra is shy, so she will most likely practise quietly and feel nervous."
+    },
+    {
+      "id": "e5.retrieval-inference.040",
+      "skill": "e5.retrieval-inference",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the sentences.",
+      "groups": [
+        "Fact",
+        "Opinion"
+      ],
+      "items": [
+        {
+          "text": "The Earth orbits the Sun.",
+          "group": 0
+        },
+        {
+          "text": "Durian is the tastiest fruit.",
+          "group": 1
+        },
+        {
+          "text": "Jakarta is a city in Indonesia.",
+          "group": 0
+        },
+        {
+          "text": "Football is more fun than chess.",
+          "group": 1
+        },
+        {
+          "text": "Spiders have eight legs.",
+          "group": 0
+        },
+        {
+          "text": "Rainy days are boring.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A fact can be checked.",
+        "An opinion tells what someone feels or thinks.",
+        "Words like best and boring are often opinions."
+      ],
+      "explanation": "Facts can be checked. Opinions show what a person thinks or feels."
+    },
+    {
+      "id": "e5.retrieval-inference.041",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: \"The Rainbow Cafe opens at 8 a.m. and serves forty kinds of juice. Its mango juice is the most delicious drink in town. Free refills cost nothing on Mondays.\" Which sentence is an opinion?",
+      "options": [
+        {
+          "text": "The Rainbow Cafe opens at 8 a.m.",
+          "why": "You can check the opening time."
+        },
+        {
+          "text": "Its mango juice is the most delicious drink in town."
+        },
+        {
+          "text": "The cafe serves forty kinds of juice.",
+          "why": "You can count the kinds of juice."
+        },
+        {
+          "text": "Free refills cost nothing on Mondays.",
+          "why": "You can check this offer."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An opinion cannot be proved.",
+        "Look for words that judge, like best or most delicious.",
+        "Which sentence tells what someone feels?"
+      ],
+      "explanation": "\"Most delicious\" is a feeling and cannot be proved, so it is an opinion."
+    },
+    {
+      "id": "e5.retrieval-inference.042",
+      "skill": "e5.retrieval-inference",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the statements that are facts.",
+      "options": [
+        {
+          "text": "Blue whales are the largest animals on Earth."
+        },
+        {
+          "text": "Whales are majestic and beautiful.",
+          "why": "Majestic and beautiful describe feelings, so this is an opinion."
+        },
+        {
+          "text": "Whales breathe air through blowholes."
+        },
+        {
+          "text": "Everyone should visit a whale park.",
+          "why": "Should shows what someone thinks."
+        },
+        {
+          "text": "Some whales can dive for more than an hour."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "A fact can be checked in a book or by a scientist.",
+        "Opinions use words like beautiful, best or should.",
+        "Check each statement and ask: could I prove it?"
+      ],
+      "explanation": "Facts can be checked. Words such as majestic and should show opinions."
+    },
+    {
+      "id": "e5.retrieval-inference.043",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Leo checked the sky again. The kite string was frayed where it had rubbed against the fence, but he told himself it would hold. The wind was getting stronger. What is most likely to happen next?",
+      "options": [
+        {
+          "text": "The string will snap and the kite will fly away."
+        },
+        {
+          "text": "The wind will stop completely.",
+          "why": "The text says the wind is getting stronger."
+        },
+        {
+          "text": "The kite will turn into a bird.",
+          "why": "This is not likely in the story."
+        },
+        {
+          "text": "Leo will fix the string.",
+          "why": "He has just decided it will hold."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Use clues from the text to predict.",
+        "What two things are putting the string at risk?",
+        "A frayed string plus a stronger wind leads to what?"
+      ],
+      "explanation": "A frayed string and a stronger wind are clues that the string will break."
+    },
+    {
+      "id": "e5.retrieval-inference.044",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Which word shows an opinion in this sentence? Cats are clearly the best pets.",
+      "blanks": [
+        {
+          "answers": [
+            "best",
+            "clearly",
+            "the best"
+          ]
+        }
+      ],
+      "hints": [
+        "An opinion tells what someone thinks.",
+        "Look for a word that judges.",
+        "Find the word that compares cats with other pets."
+      ],
+      "explanation": "Best (and clearly) show the writer's opinion, because they cannot be proved."
     }
   ]
 }

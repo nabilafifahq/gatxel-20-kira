@@ -1,0 +1,562 @@
+{
+  "skill": "e6.fact-opinion-voice-theme",
+  "items": [
+    {
+      "id": "e6.fact-opinion-voice-theme.001",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is a fact?",
+      "options": [
+        {
+          "text": "Jakarta is the most exciting city.",
+          "why": "Exciting is what someone feels, so this is an opinion."
+        },
+        {
+          "text": "Jakarta is the capital city of Indonesia."
+        },
+        {
+          "text": "Jakarta is a city everyone should visit.",
+          "why": "Should is a sign of opinion."
+        },
+        {
+          "text": "Jakarta has the tastiest food.",
+          "why": "Tastiest depends on who is eating."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A fact can be checked and proved.",
+        "Opinions tell what someone thinks or feels.",
+        "Which sentence could you check in an atlas?"
+      ],
+      "explanation": "The capital city can be checked in an atlas, so it is a fact. The others depend on what people feel."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.002",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each sentence into fact or opinion.",
+      "groups": [
+        "Fact",
+        "Opinion"
+      ],
+      "items": [
+        {
+          "text": "A week has seven days.",
+          "group": 0
+        },
+        {
+          "text": "A triangle has three sides.",
+          "group": 0
+        },
+        {
+          "text": "The Nile is in Africa.",
+          "group": 0
+        },
+        {
+          "text": "Mondays are the worst.",
+          "group": 1
+        },
+        {
+          "text": "Mangoes are the best fruit.",
+          "group": 1
+        },
+        {
+          "text": "Cats make better pets.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Ask: can I prove it?",
+        "Words like best, worst and better often show opinions.",
+        "Start with A week has seven days. Can you count it?"
+      ],
+      "explanation": "Facts can be checked. Words like best, worst and better show what someone thinks."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.003",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which words show that this sentence is an opinion?\n\nThe new library is the most beautiful building in town.",
+      "options": [
+        {
+          "text": "new library",
+          "why": "These words name the building, so they are not the opinion."
+        },
+        {
+          "text": "in town",
+          "why": "This tells us where the building is."
+        },
+        {
+          "text": "the most beautiful"
+        },
+        {
+          "text": "building",
+          "why": "This is just the name of the thing."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for a word that describes how someone feels.",
+        "Beauty cannot be measured the way height can.",
+        "Which phrase would people disagree about?"
+      ],
+      "explanation": "Most beautiful is a judgement that people can disagree about. The other words are plain description."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.004",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read the review. Choose the two statements that can be checked and proved.\n\nThe Sunset Cafe opened in 2019. It serves 40 dishes. Its noodles are the finest in the city. Everyone loves the garden seating.",
+      "options": [
+        {
+          "text": "The Sunset Cafe opened in 2019."
+        },
+        {
+          "text": "It serves 40 dishes."
+        },
+        {
+          "text": "Its noodles are the finest in the city.",
+          "why": "Finest is a judgement, not something that can be measured."
+        },
+        {
+          "text": "Everyone loves the garden seating.",
+          "why": "Everyone loves it is a strong claim of feeling, not a checked fact."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "Facts include dates and numbers.",
+        "You could check the opening year and the menu.",
+        "Cross out sentences with finest and loves."
+      ],
+      "explanation": "A year and a number of dishes can be checked. Finest and loves are opinions."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.005",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence contains both a fact and an opinion?",
+      "options": [
+        {
+          "text": "The river is 40 km long and flows to the sea.",
+          "why": "Both parts can be checked, so this is all fact."
+        },
+        {
+          "text": "The river is wonderfully calm and beautiful.",
+          "why": "Both parts are feelings and judgements."
+        },
+        {
+          "text": "The river is 40 km long and its water is wonderfully calm."
+        },
+        {
+          "text": "Do you think the river is calm?",
+          "why": "This is a question. It states neither a fact nor an opinion."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Split each sentence into its parts.",
+        "Which part could be measured? Which part is a feeling?",
+        "Look for one measured part and one judging part in the same sentence."
+      ],
+      "explanation": "Forty kilometres is a measurable fact. Wonderfully calm is a personal judgement."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.006",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Label each statement as a fact or an opinion.",
+      "head": [
+        "Statement",
+        "Fact or opinion"
+      ],
+      "rows": [
+        [
+          "Bamboo is a grass.",
+          ""
+        ],
+        [
+          "Bamboo looks lovely.",
+          ""
+        ],
+        [
+          "Bamboo can grow tall.",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "fact"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "opinion"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "fact"
+          ]
+        }
+      ],
+      "hints": [
+        "Fact means it can be checked.",
+        "Nicest is a word of judgement.",
+        "Check each statement: grass, nicest, tall."
+      ],
+      "explanation": "Bamboo being a grass and growing tall are facts. Nicest furniture is an opinion."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.007",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which text uses a narrator's voice?",
+      "options": [
+        {
+          "text": "Once, a small crab named Pip lived under a red rock. He liked to count the waves."
+        },
+        {
+          "text": "I think everyone should walk to school. In my opinion, it keeps us fit.",
+          "why": "This is a writer speaking in their own voice to share an opinion."
+        },
+        {
+          "text": "Dear Sir, I am writing to complain about the noise.",
+          "why": "This is a letter, where the writer speaks as themselves."
+        },
+        {
+          "text": "Boil the water for two minutes.",
+          "why": "This is an instruction, not a story voice."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A narrator tells a made-up story.",
+        "Look for a character and events that are invented.",
+        "Which choice begins like a tale?"
+      ],
+      "explanation": "A narrator is the voice that tells a story about made-up characters. The other extracts are the real writer speaking."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.008",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read the extract. Whose voice do we hear?\n\nWhen I first visited the reef, I was amazed. I want every reader to see it before it fades.",
+      "options": [
+        {
+          "text": "A narrator inside a made-up story",
+          "why": "There is no made-up character or plot here."
+        },
+        {
+          "text": "The writer's own voice, speaking to the reader"
+        },
+        {
+          "text": "A character in a playscript",
+          "why": "There is no speaker name or stage direction."
+        },
+        {
+          "text": "No voice at all, because it only gives facts",
+          "why": "The extract shows feelings and wants, so a voice is clear."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at I and every reader.",
+        "Who is saying I? A character or the author?",
+        "The text shares real feelings and talks to us directly."
+      ],
+      "explanation": "The writer says what they felt and wants readers to act. This is the writer's own voice."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.009",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each line by whose voice it shows.",
+      "groups": [
+        "Writer's voice",
+        "Narrator's voice"
+      ],
+      "items": [
+        {
+          "text": "I believe parks matter.",
+          "group": 0
+        },
+        {
+          "text": "In my view, we must act.",
+          "group": 0
+        },
+        {
+          "text": "Let me tell you why.",
+          "group": 0
+        },
+        {
+          "text": "Tia crept up the stairs.",
+          "group": 1
+        },
+        {
+          "text": "The dragon yawned slowly.",
+          "group": 1
+        },
+        {
+          "text": "Long ago, a king ruled.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A writer's voice shares the real author's views.",
+        "A narrator tells what happens to characters in a story.",
+        "Start with Tia crept up the stairs. Is that a view or an event?"
+      ],
+      "explanation": "The first group gives the author's own views. The second group tells story events about characters."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.010",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A story ends: \"And so Leo learned that telling the truth, even when it is hard, is worth it.\" How is the theme conveyed?",
+      "options": [
+        {
+          "text": "Explicitly, because the narrator states it directly"
+        },
+        {
+          "text": "Implicitly, through the setting only",
+          "why": "The setting is not mentioned in the ending."
+        },
+        {
+          "text": "Implicitly, through the title only",
+          "why": "The ending speaks the message itself."
+        },
+        {
+          "text": "It is not conveyed at all",
+          "why": "The final sentence gives the message."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A theme is the big idea behind a story.",
+        "Is the message written in words or only hinted at?",
+        "The last sentence says what Leo learned."
+      ],
+      "explanation": "The narrator says the lesson in words, so the theme is stated explicitly."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.011",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read the extract. What theme does it suggest?\n\nBayu's team lost the match. They sat quietly on the bench until Bayu picked up the ball and said, \"Same time next week?\" Everyone nodded.",
+      "options": [
+        {
+          "text": "Winning is the only thing that matters",
+          "why": "The team is already planning to play again after losing."
+        },
+        {
+          "text": "Keep trying after a setback"
+        },
+        {
+          "text": "Football is too hard to play",
+          "why": "Nobody in the story says this."
+        },
+        {
+          "text": "Teams need new kit",
+          "why": "Kit is never mentioned."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The story never states the theme, so work it out.",
+        "What do the players choose to do after losing?",
+        "Look at what Bayu says and how the others react."
+      ],
+      "explanation": "After losing, the team decides to play again. The writer shows the theme of keeping trying through their actions."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.012",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Read: \"The ferry leaves at 7:15 and takes 40 minutes to cross the bay.\" How long is the crossing?",
+      "options": [
+        {
+          "text": "40 minutes"
+        },
+        {
+          "text": "7:15",
+          "why": "This is the time the ferry leaves."
+        },
+        {
+          "text": "55 minutes",
+          "why": "The text does not give an arrival time of 7:55 as a length of time."
+        },
+        {
+          "text": "an hour",
+          "why": "The text says 40 minutes, not an hour."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for the number followed by the word minutes.",
+        "Do not confuse the leaving time with the length of the trip.",
+        "Find the words takes 40 minutes."
+      ],
+      "explanation": "The text states it directly: the crossing takes 40 minutes. This is explicit meaning."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.013",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read the extract. What can the reader work out?\n\nRavi stared at the empty bowl, then at the open gate. The cat's blanket was still warm.",
+      "options": [
+        {
+          "text": "The cat has only just left"
+        },
+        {
+          "text": "The cat is asleep on the blanket",
+          "why": "The bowl is empty and the gate is open, so the cat is probably not there."
+        },
+        {
+          "text": "The gate is made of iron",
+          "why": "Nothing says what the gate is made of."
+        },
+        {
+          "text": "Ravi has never had a cat",
+          "why": "The text gives no hint of this."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The writer does not say outright what happened.",
+        "Think about clues: open gate and warm blanket.",
+        "Ask what a warm blanket tells you about when the cat was there."
+      ],
+      "explanation": "The warm blanket and the open gate suggest the cat left a short time ago. This is implicit meaning, worked out from clues."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.014",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Read the sentences below, then sort them.\n\nSekar zipped her coat to her chin and pulled her hat over her ears. Frost glittered on the wall.",
+      "groups": [
+        "Stated in the text",
+        "Worked out by the reader"
+      ],
+      "items": [
+        {
+          "text": "Sekar wore a coat.",
+          "group": 0
+        },
+        {
+          "text": "Frost was on the wall.",
+          "group": 0
+        },
+        {
+          "text": "Sekar zipped her coat.",
+          "group": 0
+        },
+        {
+          "text": "It was very cold.",
+          "group": 1
+        },
+        {
+          "text": "Sekar felt the chill.",
+          "group": 1
+        },
+        {
+          "text": "Sekar wanted to keep warm.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Stated means the words are on the page.",
+        "Worked out means you used clues.",
+        "Is It was very cold written in the extract?"
+      ],
+      "explanation": "The text names the coat, the zip and the frost. The cold, the chill and Sekar's wish for warmth are inferred from those clues."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.015",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which question needs implicit understanding rather than explicit?",
+      "options": [
+        {
+          "text": "What colour was the boat?",
+          "why": "The colour is given in the text."
+        },
+        {
+          "text": "Where did Kofi hide the key?",
+          "why": "This is a detail stated in the text."
+        },
+        {
+          "text": "Why did Kofi's voice shake when the teacher asked, \"Who moved the chair?\""
+        },
+        {
+          "text": "How many chairs were in the room?",
+          "why": "A number is stated directly."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Explicit questions have answers written in the text.",
+        "Implicit questions ask for reasons or feelings that are hinted at.",
+        "Which question asks you to read between the lines?"
+      ],
+      "explanation": "The reason for the shaking voice is not stated. The reader infers Kofi felt nervous or guilty."
+    },
+    {
+      "id": "e6.fact-opinion-voice-theme.016",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read the extract. Which idea is implied rather than stated?\n\nThe fishing village had changed. Where forty boats once crowded the bay, only nine rocked at their ropes. Old Pak Hadi mended a net nobody had ordered, humming a tune the young ones did not know.",
+      "options": [
+        {
+          "text": "There were once forty boats in the bay",
+          "why": "The number forty is stated."
+        },
+        {
+          "text": "Pak Hadi is mending a net",
+          "why": "This is stated directly."
+        },
+        {
+          "text": "Nine boats remain in the bay",
+          "why": "The number nine is stated."
+        },
+        {
+          "text": "Fewer people work as fishers here now"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check which options use exact words from the extract.",
+        "The writer shows change without saying why.",
+        "Fewer boats and young ones who do not know the tune are clues."
+      ],
+      "explanation": "The extract states the numbers and Pak Hadi's task. The idea that fewer people fish now is suggested by the clues, not stated."
+    }
+  ]
+}

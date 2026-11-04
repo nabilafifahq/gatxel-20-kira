@@ -1,0 +1,86 @@
+{
+  "skill": "e5.text-types",
+  "title": "Fiction genres and non-fiction text types",
+  "steps": [
+    {
+      "say": "Fiction is an invented story. Non-fiction gives facts about real things.",
+      "show": "fiction or non-fiction"
+    },
+    {
+      "say": "Fiction has genres, such as mystery, fantasy, science fiction and historical fiction.",
+      "show": "clues = mystery, magic = fantasy"
+    },
+    {
+      "say": "Non-fiction has text types, such as instructions, reports, recounts and persuasion.",
+      "show": "steps = instructions"
+    },
+    {
+      "say": "Personal style uses I, we and you. Impersonal style states facts.",
+      "show": "Water boils at 100 degrees."
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.text-types.901",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A story has dragons and a wizard. Which genre is it?",
+      "options": [
+        {
+          "text": "mystery",
+          "why": "There is no puzzle to solve."
+        },
+        {
+          "text": "science fiction",
+          "why": "There is no future technology."
+        },
+        {
+          "text": "fantasy"
+        },
+        {
+          "text": "report",
+          "why": "A report gives facts."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the characters.",
+        "Magic and imaginary creatures are the clue.",
+        "Which genre has dragons?"
+      ],
+      "explanation": "Dragons and wizards belong to fantasy."
+    },
+    {
+      "id": "e5.text-types.902",
+      "skill": "e5.text-types",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which text gives the steps for making a paper boat?",
+      "options": [
+        {
+          "text": "a recount",
+          "why": "A recount tells what happened."
+        },
+        {
+          "text": "instructions"
+        },
+        {
+          "text": "a poem",
+          "why": "A poem is written in lines."
+        },
+        {
+          "text": "a diary",
+          "why": "A diary is a personal record."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the purpose.",
+        "Steps tell you what to do.",
+        "Which text type tells you how to do something?"
+      ],
+      "explanation": "Instructions give steps to follow."
+    }
+  ]
+}
