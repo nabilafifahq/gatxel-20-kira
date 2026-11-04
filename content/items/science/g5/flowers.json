@@ -1,0 +1,541 @@
+{
+  "skill": "s5.flowers",
+  "items": [
+    {
+      "id": "s5.flowers.001",
+      "skill": "s5.flowers",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Do all plants make flowers?",
+      "options": [
+        {
+          "text": "Yes, all plants make flowers.",
+          "why": "Ferns and mosses do not have flowers."
+        },
+        {
+          "text": "No, some plants such as ferns and mosses do not."
+        },
+        {
+          "text": "Only trees make flowers.",
+          "why": "Many small plants make flowers too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about ferns.",
+        "Ferns and mosses use spores.",
+        "Some plants make cones, not flowers."
+      ],
+      "explanation": "Not all plants make flowers. Ferns, mosses and conifers do not."
+    },
+    {
+      "id": "s5.flowers.002",
+      "skill": "s5.flowers",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What do the petals of a flower often do?",
+      "options": [
+        {
+          "text": "make pollen",
+          "why": "The anthers make pollen."
+        },
+        {
+          "text": "attract insects"
+        },
+        {
+          "text": "make seeds",
+          "why": "Seeds develop in the ovary."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Petals are often bright.",
+        "Insects visit flowers.",
+        "Bright colours are easy to see."
+      ],
+      "explanation": "Bright petals attract insects to the flower."
+    },
+    {
+      "id": "s5.flowers.003",
+      "skill": "s5.flowers",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which part of a flower protects the bud before it opens?",
+      "options": [
+        {
+          "text": "the anthers",
+          "why": "Anthers make pollen."
+        },
+        {
+          "text": "the sepals"
+        },
+        {
+          "text": "the stigma",
+          "why": "The stigma catches pollen."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "They are usually green.",
+        "They sit under the petals.",
+        "Think of a bud wrapped in leaves."
+      ],
+      "explanation": "The sepals wrap around the bud and protect it."
+    },
+    {
+      "id": "s5.flowers.004",
+      "skill": "s5.flowers",
+      "difficulty": 1,
+      "type": "text",
+      "prompt": "The ___ is the part of a flower that makes pollen.",
+      "blanks": [
+        {
+          "answers": [
+            "anther"
+          ]
+        }
+      ],
+      "hints": [
+        "It is part of the stamen.",
+        "It is at the top of the filament.",
+        "The word starts with a."
+      ],
+      "explanation": "The anther makes pollen."
+    },
+    {
+      "id": "s5.flowers.005",
+      "skill": "s5.flowers",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What is the stamen?",
+      "options": [
+        {
+          "text": "the female part of the flower",
+          "why": "The carpel is the female part."
+        },
+        {
+          "text": "the male part of the flower, with an anther and a filament"
+        },
+        {
+          "text": "the green part under the petals",
+          "why": "That is the sepals."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It has two parts.",
+        "It makes pollen.",
+        "It is the male part."
+      ],
+      "explanation": "The stamen is the male part of a flower. It has an anther and a filament."
+    },
+    {
+      "id": "s5.flowers.006",
+      "skill": "s5.flowers",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What is the carpel?",
+      "options": [
+        {
+          "text": "the male part that makes pollen",
+          "why": "That is the stamen."
+        },
+        {
+          "text": "the female part of the flower, with a stigma, style and ovary"
+        },
+        {
+          "text": "the part that attracts insects",
+          "why": "That is the petals."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It has a sticky top.",
+        "It has an ovary at the bottom.",
+        "It is the female part."
+      ],
+      "explanation": "The carpel is the female part. It has a stigma, a style and an ovary."
+    },
+    {
+      "id": "s5.flowers.007",
+      "skill": "s5.flowers",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Where are the ovules found?",
+      "options": [
+        {
+          "text": "on the anther",
+          "why": "The anther makes pollen."
+        },
+        {
+          "text": "in the ovary"
+        },
+        {
+          "text": "on the petals",
+          "why": "Petals do not hold ovules."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The ovary is at the bottom of the carpel.",
+        "Ovules can become seeds.",
+        "They are inside."
+      ],
+      "explanation": "The ovules are inside the ovary."
+    },
+    {
+      "id": "s5.flowers.008",
+      "skill": "s5.flowers",
+      "difficulty": 2,
+      "type": "sort",
+      "prompt": "Sort each part into the male or female part of the flower.",
+      "groups": [
+        "Male (stamen)",
+        "Female (carpel)"
+      ],
+      "items": [
+        {
+          "text": "anther",
+          "group": 0
+        },
+        {
+          "text": "filament",
+          "group": 0
+        },
+        {
+          "text": "stigma",
+          "group": 1
+        },
+        {
+          "text": "style",
+          "group": 1
+        },
+        {
+          "text": "ovary",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "The stamen has two parts.",
+        "The carpel has a sticky top.",
+        "Ovules are in the carpel."
+      ],
+      "explanation": "The anther and filament are in the stamen. The stigma, style and ovary are in the carpel."
+    },
+    {
+      "id": "s5.flowers.009",
+      "skill": "s5.flowers",
+      "difficulty": 3,
+      "type": "order",
+      "prompt": "Put the parts of the carpel in order from top to bottom.",
+      "items": [
+        "stigma",
+        "style",
+        "ovary"
+      ],
+      "hints": [
+        "The sticky part is on top.",
+        "The style is a stalk.",
+        "The ovary is at the bottom."
+      ],
+      "explanation": "From the top the carpel has the stigma, then the style, then the ovary."
+    },
+    {
+      "id": "s5.flowers.010",
+      "skill": "s5.flowers",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What happens to the ovules after pollination?",
+      "options": [
+        {
+          "text": "They become pollen.",
+          "why": "Pollen is made in the anthers."
+        },
+        {
+          "text": "They become seeds."
+        },
+        {
+          "text": "They become petals.",
+          "why": "Petals are made before pollination."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Ovules are inside the ovary.",
+        "Seeds form after pollen reaches the ovule.",
+        "The ovary grows around them."
+      ],
+      "explanation": "After pollination the ovules become seeds, and the ovary grows into a fruit."
+    },
+    {
+      "id": "s5.flowers.011",
+      "skill": "s5.flowers",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What happens to the ovary after pollination?",
+      "options": [
+        {
+          "text": "It turns into an anther.",
+          "why": "It does not."
+        },
+        {
+          "text": "It grows into a fruit."
+        },
+        {
+          "text": "It dries up and falls off at once.",
+          "why": "It grows around the seeds."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The seeds are inside.",
+        "A mango has a stone in it.",
+        "The ovary protects the seeds."
+      ],
+      "explanation": "The ovary grows into a fruit that holds the seeds."
+    },
+    {
+      "id": "s5.flowers.012",
+      "skill": "s5.flowers",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Why is the stigma sticky?",
+      "options": [
+        {
+          "text": "so that insects cannot land",
+          "why": "Insects often land on flowers."
+        },
+        {
+          "text": "so that pollen sticks to it"
+        },
+        {
+          "text": "to keep the ovary wet",
+          "why": "Stickiness is for catching pollen."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Pollen has to land on it.",
+        "A sticky surface holds things.",
+        "It is at the top of the carpel."
+      ],
+      "explanation": "A sticky stigma holds the pollen grains that land on it."
+    },
+    {
+      "id": "s5.flowers.013",
+      "skill": "s5.flowers",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which parts belong to the stamen?",
+      "options": [
+        {
+          "text": "filament"
+        },
+        {
+          "text": "stigma",
+          "why": "The stigma belongs to the carpel."
+        },
+        {
+          "text": "ovary",
+          "why": "The ovary belongs to the carpel."
+        },
+        {
+          "text": "anther"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "The stamen is the male part.",
+        "It makes pollen.",
+        "The carpel is the other part."
+      ],
+      "explanation": "The anther and the filament make up the stamen."
+    },
+    {
+      "id": "s5.flowers.014",
+      "skill": "s5.flowers",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What is the job of a filament?",
+      "options": [
+        {
+          "text": "to make pollen",
+          "why": "The anther makes pollen."
+        },
+        {
+          "text": "to hold up the anther"
+        },
+        {
+          "text": "to catch pollen",
+          "why": "The stigma catches pollen."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a thin stalk.",
+        "It is part of the stamen.",
+        "It supports another part."
+      ],
+      "explanation": "The filament is a thin stalk that holds up the anther."
+    },
+    {
+      "id": "s5.flowers.015",
+      "skill": "s5.flowers",
+      "difficulty": 3,
+      "type": "text",
+      "prompt": "The ___ is the part of a flower that protects the bud before it opens.",
+      "blanks": [
+        {
+          "answers": [
+            "sepal",
+            "sepals"
+          ]
+        }
+      ],
+      "hints": [
+        "It is usually green.",
+        "It sits below the petals.",
+        "It starts with s."
+      ],
+      "explanation": "Sepals protect the flower while it is a bud."
+    },
+    {
+      "id": "s5.flowers.016",
+      "skill": "s5.flowers",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "An insect visits a flower and some pollen sticks to its body. What might happen next?",
+      "options": [
+        {
+          "text": "It will turn the pollen into seeds.",
+          "why": "Seeds form in the ovary after pollination."
+        },
+        {
+          "text": "It may carry the pollen to the stigma of another flower."
+        },
+        {
+          "text": "It will eat the stigma.",
+          "why": "It visits for nectar."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Insects travel from flower to flower.",
+        "Pollen needs to reach a stigma.",
+        "This is called pollination."
+      ],
+      "explanation": "The insect may brush the pollen onto another stigma, which is pollination."
+    },
+    {
+      "id": "s5.flowers.017",
+      "skill": "s5.flowers",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A plant produces seeds but has no flowers or fruit. Which could it be?",
+      "options": [
+        {
+          "text": "a mango tree",
+          "why": "A mango tree has flowers and fruit."
+        },
+        {
+          "text": "a conifer such as a pine"
+        },
+        {
+          "text": "a rose",
+          "why": "A rose has flowers."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Some plants make seeds in cones.",
+        "Pine trees are an example.",
+        "Think of trees with needles."
+      ],
+      "explanation": "Conifers make seeds in cones and do not have flowers."
+    },
+    {
+      "id": "s5.flowers.018",
+      "skill": "s5.flowers",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "If you removed all the anthers from a flower, what could not happen?",
+      "options": [
+        {
+          "text": "The flower could not grow petals.",
+          "why": "Petals are separate."
+        },
+        {
+          "text": "The flower could not make its own pollen."
+        },
+        {
+          "text": "The flower could not make a fruit at all.",
+          "why": "It might still get pollen from another flower."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Anthers make pollen.",
+        "Think about what is missing.",
+        "The ovary is still there."
+      ],
+      "explanation": "Without anthers the flower would not make any pollen."
+    },
+    {
+      "id": "s5.flowers.019",
+      "skill": "s5.flowers",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Why do flowers that are pollinated by insects usually have bright petals?",
+      "options": [
+        {
+          "text": "Bright petals make more pollen.",
+          "why": "Petals do not make pollen."
+        },
+        {
+          "text": "Bright petals help insects find the flower."
+        },
+        {
+          "text": "Bright petals protect the ovary.",
+          "why": "The sepals protect the bud."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Pollination often needs insects.",
+        "Insects look for food.",
+        "Colour acts as a sign."
+      ],
+      "explanation": "Bright petals act like a sign that tells insects where the nectar is."
+    },
+    {
+      "id": "s5.flowers.020",
+      "skill": "s5.flowers",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A scientist wants to stop a flower from making seeds. Which is the best way?",
+      "options": [
+        {
+          "text": "Remove the petals only.",
+          "why": "Pollen can still reach the stigma."
+        },
+        {
+          "text": "Cover the flower so that no pollen reaches the stigma."
+        },
+        {
+          "text": "Water the flower more.",
+          "why": "Water does not prevent pollination."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Seeds need pollination.",
+        "Pollen must reach the stigma.",
+        "Block the pollen."
+      ],
+      "explanation": "Seeds only form after pollen reaches the stigma, so covering the flower stops pollination."
+    }
+  ]
+}

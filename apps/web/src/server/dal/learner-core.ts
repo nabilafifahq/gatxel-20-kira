@@ -329,7 +329,8 @@ export async function awardBadges(tx: Tx, ctx: OrgContext, learner: LearnerRow, 
   return [...fresh, ...arena].map((b) => ({ id: b.id, title: b.title, description: b.description }))
 }
 
-export async function recentSeen(tx: Tx, learnerId: string, days = 30): Promise<Map<string, number>> {
+/** Soal yang pernah dijawab learner dan berapa hari lalu. Seluruh riwayat dipakai supaya soal tidak berulang sebelum bank habis. */
+export async function recentSeen(tx: Tx, learnerId: string, days = 3650): Promise<Map<string, number>> {
   const since = new Date(Date.now() - days * 86400000)
   const rows = await tx
     .select({ ref: response.itemRef, at: sql<Date>`max(${response.answeredAt})` })

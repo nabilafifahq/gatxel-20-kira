@@ -1,0 +1,77 @@
+{
+  "skill": "s5.magnets-strength",
+  "title": "Magnets and magnetic materials",
+  "steps": [
+    {
+      "say": "A magnet is an object that has its own magnetic force. It has a north pole and a south pole."
+    },
+    {
+      "say": "A magnetic material, such as iron, is attracted to a magnet, but it is not a magnet itself unless it is magnetised."
+    },
+    {
+      "say": "Magnetic forces can act without touching. This is a force that acts over a distance, like gravity."
+    },
+    {
+      "say": "Magnets can have different strengths. A stronger magnet can pick up more paper clips and attract from further away."
+    },
+    {
+      "say": "Magnetic forces get weaker as the distance gets bigger. You can test strength by counting how many paper clips a magnet can hold."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.magnets-strength.901",
+      "skill": "s5.magnets-strength",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which of these is a magnetic material?",
+      "options": [
+        {
+          "text": "a plastic ruler",
+          "why": "Plastic is not magnetic."
+        },
+        {
+          "text": "an iron nail"
+        },
+        {
+          "text": "a wooden spoon",
+          "why": "Wood is not magnetic."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Many magnetic materials contain iron.",
+        "Nails are often made of iron.",
+        "Plastic and wood are not."
+      ],
+      "explanation": "Iron is a magnetic material, so an iron nail is attracted to a magnet."
+    },
+    {
+      "id": "s5.magnets-strength.902",
+      "skill": "s5.magnets-strength",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What happens to the force between two magnets as they move further apart?",
+      "options": [
+        {
+          "text": "It gets stronger.",
+          "why": "Magnetic forces get weaker with distance."
+        },
+        {
+          "text": "It gets weaker."
+        },
+        {
+          "text": "It stays exactly the same.",
+          "why": "Distance changes the strength."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try holding two magnets close and far.",
+        "The pull is stronger when they are close.",
+        "Distance weakens the force."
+      ],
+      "explanation": "Magnetic forces get weaker as the distance between the magnets gets bigger."
+    }
+  ]
+}

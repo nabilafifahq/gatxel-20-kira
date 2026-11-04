@@ -4,7 +4,7 @@ import { and, asc, desc, eq, gte, inArray, isNull, like, sql } from 'drizzle-orm
 import { addDays, createRng, formatDateId, jakartaDate, weekStart, type IsoDate, type Rng } from '@kira/core'
 import { tables } from '@kira/db'
 import { isPaperType, ITEM_ID, type Item } from '@kira/content'
-import { genRef, newSeed, parseGenRef, type Level } from '@kira/content/math'
+import { genRef, instanceSignature, newSeed, parseGenRef, type Level } from '@kira/content/math'
 import type { PaperBuilderDTO, PaperDTO, Subject } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
 import { orgCtx } from '../auth/actor'
@@ -228,8 +228,10 @@ export function pickPaperItems(pools: readonly SkillPool[], count: number, diffi
         const c = rng.pick(p.left)
         if (!c.unlimited) p.left.splice(p.left.indexOf(c), 1)
         const ref = c.unlimited ? materialise(c.ref, rng) : c.ref
-        if (used.has(ref)) continue
+        const sig = c.unlimited ? instanceSignature(ref) : ref
+        if (used.has(ref) || used.has(sig)) continue
         used.add(ref)
+        used.add(sig)
         out.push({ ref, difficulty: c.difficulty, skillId: p.skillId })
         progress = true
         break

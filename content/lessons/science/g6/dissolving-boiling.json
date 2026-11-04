@@ -1,0 +1,77 @@
+{
+  "skill": "s6.dissolving-boiling",
+  "title": "Dissolving, boiling and evaporation",
+  "steps": [
+    {
+      "say": "Warm water dissolves most solids faster than cold water. The warm water particles move faster and mix with the solid particles more quickly."
+    },
+    {
+      "say": "Warm water can usually dissolve more of a solid than cold water, so a hot drink can hold more sugar."
+    },
+    {
+      "say": "Boiling and evaporation are not the same. Evaporation happens only at the surface and at any temperature. Boiling happens throughout the liquid, at its boiling point."
+    },
+    {
+      "say": "A substance has a fixed melting and boiling point. Pure water melts at 0 °C and boils at 100 °C, which helps us identify substances."
+    },
+    {
+      "say": "Gases have properties too. They take up space and have mass. A balloon full of air weighs a little more than an empty one."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.dissolving-boiling.901",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "In which water will sugar dissolve fastest?",
+      "options": [
+        {
+          "text": "cold water",
+          "why": "Cold water is slower."
+        },
+        {
+          "text": "warm water"
+        },
+        {
+          "text": "ice",
+          "why": "Ice is solid."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Warm particles move faster.",
+        "Hot drinks dissolve sugar quickly.",
+        "Think about stirring sugar into tea."
+      ],
+      "explanation": "Sugar dissolves faster in warm water because the particles move faster."
+    },
+    {
+      "id": "s6.dissolving-boiling.902",
+      "skill": "s6.dissolving-boiling",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Where does evaporation happen?",
+      "options": [
+        {
+          "text": "only at the bottom of the pan",
+          "why": "Bubbles form at the bottom during boiling."
+        },
+        {
+          "text": "at the surface of a liquid"
+        },
+        {
+          "text": "only when the liquid is at its boiling point",
+          "why": "Evaporation can happen at any temperature."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It happens at all temperatures.",
+        "Only the top particles can escape.",
+        "Boiling is different."
+      ],
+      "explanation": "Evaporation happens at the surface of a liquid and can happen at any temperature."
+    }
+  ]
+}

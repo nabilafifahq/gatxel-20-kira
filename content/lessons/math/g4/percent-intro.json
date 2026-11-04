@@ -1,0 +1,65 @@
+{
+  "skill": "m4.percent-intro",
+  "title": "Percent and fractions",
+  "steps": [
+    {
+      "say": "Percent means parts in each hundred. The symbol is %. 25% means 25 out of every 100."
+    },
+    {
+      "say": "If a 10 by 10 grid has 30 squares shaded, then 30 out of 100 are shaded. That is 30%."
+    },
+    {
+      "say": "50% is 50 out of 100, which is one half. 25% is one quarter. 100% is the whole."
+    },
+    {
+      "say": "The more equal parts a whole is cut into, the smaller each part is. One fifth is smaller than one third."
+    },
+    {
+      "say": "A fraction is also a division. 3/4 means 3 ÷ 4. A unit fraction such as 1/5 means 1 ÷ 5."
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.percent-intro.901",
+      "skill": "m4.percent-intro",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "In a 10 by 10 grid, 40 squares are shaded. What percent of the grid is shaded?",
+      "answer": 40,
+      "unit": "%",
+      "hints": [
+        "The grid has 100 squares.",
+        "Percent means parts in each hundred.",
+        "Out of 100, 40 are shaded."
+      ],
+      "explanation": "40 out of 100 is 40%."
+    },
+    {
+      "id": "m4.percent-intro.902",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which is bigger, 1/3 or 1/5?",
+      "options": [
+        {
+          "text": "1/5",
+          "why": "Cutting into more parts makes smaller parts."
+        },
+        {
+          "text": "1/3"
+        },
+        {
+          "text": "They are equal.",
+          "why": "They are different."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "More equal parts means smaller parts.",
+        "Compare how many parts each whole is cut into.",
+        "A pizza cut into 3 slices has bigger slices than one cut into 5."
+      ],
+      "explanation": "The more parts a whole is cut into, the smaller each part. So 1/3 is bigger than 1/5."
+    }
+  ]
+}

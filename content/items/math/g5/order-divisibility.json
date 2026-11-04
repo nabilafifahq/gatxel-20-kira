@@ -1,0 +1,420 @@
+{
+  "skill": "m5.order-divisibility",
+  "items": [
+    {
+      "id": "m5.order-divisibility.001",
+      "skill": "m5.order-divisibility",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is 5 + 3 × 4?",
+      "answer": 17,
+      "hints": [
+        "Multiply before you add.",
+        "Work out 3 × 4 first.",
+        "Then add 5."
+      ],
+      "explanation": "3 × 4 = 12. 5 + 12 = 17."
+    },
+    {
+      "id": "m5.order-divisibility.002",
+      "skill": "m5.order-divisibility",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is 8 + 2 × 6?",
+      "answer": 20,
+      "hints": [
+        "Multiply before you add.",
+        "Work out 2 × 6 first.",
+        "Then add 8."
+      ],
+      "explanation": "2 × 6 = 12. 8 + 12 = 20."
+    },
+    {
+      "id": "m5.order-divisibility.003",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is 10 + 4 × 3?",
+      "answer": 22,
+      "hints": [
+        "Multiply before you add.",
+        "Work out 4 × 3 first.",
+        "Then add 10."
+      ],
+      "explanation": "4 × 3 = 12. 10 + 12 = 22."
+    },
+    {
+      "id": "m5.order-divisibility.004",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is 9 + 5 × 2?",
+      "answer": 19,
+      "hints": [
+        "Multiply before you add.",
+        "Work out 5 × 2 first.",
+        "Then add 9."
+      ],
+      "explanation": "5 × 2 = 10. 9 + 10 = 19."
+    },
+    {
+      "id": "m5.order-divisibility.005",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is 20 − 2 × 5?",
+      "answer": 10,
+      "hints": [
+        "Multiply before you subtract.",
+        "Work out 2 × 5 first.",
+        "Take that from 20."
+      ],
+      "explanation": "2 × 5 = 10. 20 − 10 = 10."
+    },
+    {
+      "id": "m5.order-divisibility.006",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is 30 − 4 × 6?",
+      "answer": 6,
+      "hints": [
+        "Multiply before you subtract.",
+        "Work out 4 × 6 first.",
+        "Take that from 30."
+      ],
+      "explanation": "4 × 6 = 24. 30 − 24 = 6."
+    },
+    {
+      "id": "m5.order-divisibility.007",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is 50 − 3 × 10?",
+      "answer": 20,
+      "hints": [
+        "Multiply before you subtract.",
+        "Work out 3 × 10 first.",
+        "Take that from 50."
+      ],
+      "explanation": "3 × 10 = 30. 50 − 30 = 20."
+    },
+    {
+      "id": "m5.order-divisibility.008",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is 24 ÷ 6 + 2?",
+      "answer": 6,
+      "hints": [
+        "Divide before you add.",
+        "Work out 24 ÷ 6 first.",
+        "Then add 2."
+      ],
+      "explanation": "24 ÷ 6 = 4. 4 + 2 = 6."
+    },
+    {
+      "id": "m5.order-divisibility.009",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "What is 40 ÷ 8 + 5?",
+      "answer": 10,
+      "hints": [
+        "Divide before you add.",
+        "Work out 40 ÷ 8 first.",
+        "Then add 5."
+      ],
+      "explanation": "40 ÷ 8 = 5. 5 + 5 = 10."
+    },
+    {
+      "id": "m5.order-divisibility.010",
+      "skill": "m5.order-divisibility",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "What is 3 + 4 × 5 − 2?",
+      "answer": 21,
+      "hints": [
+        "Do the multiplication first.",
+        "4 × 5 = 20.",
+        "Then work from left to right: 3 + 20 − 2."
+      ],
+      "explanation": "4 × 5 = 20. 3 + 20 = 23. 23 − 2 = 21."
+    },
+    {
+      "id": "m5.order-divisibility.011",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which is the correct answer to 2 + 3 × 4?",
+      "options": [
+        {
+          "text": "20",
+          "why": "That adds before it multiplies."
+        },
+        {
+          "text": "14"
+        },
+        {
+          "text": "24",
+          "why": "That is not correct."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Multiply first.",
+        "3 × 4.",
+        "Then add 2."
+      ],
+      "explanation": "3 × 4 = 12. 2 + 12 = 14."
+    },
+    {
+      "id": "m5.order-divisibility.012",
+      "skill": "m5.order-divisibility",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Is 124 divisible by 4?",
+      "options": [
+        {
+          "text": "No, because 124 is odd.",
+          "why": "124 is even."
+        },
+        {
+          "text": "Yes, because 24 ÷ 4 = 6."
+        },
+        {
+          "text": "No, because 1 + 2 + 4 = 7.",
+          "why": "The digit sum is not the test for 4."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the last two digits.",
+        "24 ÷ 4.",
+        "The test for 4 uses two digits."
+      ],
+      "explanation": "The last two digits are 24 and 24 ÷ 4 = 6, so 124 is divisible by 4."
+    },
+    {
+      "id": "m5.order-divisibility.013",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which numbers are divisible by 4?",
+      "options": [
+        {
+          "text": "208"
+        },
+        {
+          "text": "134",
+          "why": "The last two digits 34 are not divisible by 4."
+        },
+        {
+          "text": "210",
+          "why": "The last two digits 10 are not divisible by 4."
+        },
+        {
+          "text": "132"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Test the last two digits of each.",
+        "32 ÷ 4 and 08 ÷ 4.",
+        "34 and 10 are not in the 4 times table."
+      ],
+      "explanation": "32 and 08 are divisible by 4, so 132 and 208 are divisible by 4."
+    },
+    {
+      "id": "m5.order-divisibility.014",
+      "skill": "m5.order-divisibility",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which number is divisible by 8?",
+      "options": [
+        {
+          "text": "1,124",
+          "why": "The last three digits 124 are not divisible by 8."
+        },
+        {
+          "text": "1,128"
+        },
+        {
+          "text": "1,130",
+          "why": "The last three digits 130 are not divisible by 8."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Test the last three digits.",
+        "128 ÷ 8.",
+        "Check 124 ÷ 8 and 130 ÷ 8 for comparison."
+      ],
+      "explanation": "128 ÷ 8 = 16, so 1,128 is divisible by 8."
+    },
+    {
+      "id": "m5.order-divisibility.015",
+      "skill": "m5.order-divisibility",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A number is divisible by 8. What else must be true?",
+      "options": [
+        {
+          "text": "It is also divisible by 3.",
+          "why": "This is not always true."
+        },
+        {
+          "text": "It is also divisible by 4."
+        },
+        {
+          "text": "It is also divisible by 5.",
+          "why": "This is not always true."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "8 is 4 × 2.",
+        "Anything that divides by 8 can be halved twice.",
+        "A multiple of 8 is a multiple of 4."
+      ],
+      "explanation": "Every multiple of 8 is also a multiple of 4, because 8 = 4 × 2."
+    },
+    {
+      "id": "m5.order-divisibility.016",
+      "skill": "m5.order-divisibility",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "What is the smallest number greater than 100 that is divisible by 4?",
+      "answer": 104,
+      "hints": [
+        "100 is divisible by 4, but the number must be greater than 100.",
+        "Count on in fours from 100.",
+        "Check the last two digits of your answer."
+      ],
+      "explanation": "100 is divisible by 4, so the next multiple of 4 is 104."
+    },
+    {
+      "id": "m5.order-divisibility.017",
+      "skill": "m5.order-divisibility",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "A sequence starts at 4 and adds 4 each time: 4, 8, 12, 16, ... What is the 10th term?",
+      "answer": 40,
+      "hints": [
+        "The 10th term is 10 lots of 4.",
+        "Use multiplication: 10 × 4.",
+        "Repeated addition of 4 is multiplication by 4."
+      ],
+      "explanation": "Each term is the position times 4, so the 10th term is 10 × 4 = 40."
+    },
+    {
+      "id": "m5.order-divisibility.018",
+      "skill": "m5.order-divisibility",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A sequence starts at 6 and adds 6 each time. What is the 12th term?",
+      "answer": 72,
+      "hints": [
+        "The terms are the multiples of 6.",
+        "The 12th term is 12 × 6.",
+        "Use your 6 times table."
+      ],
+      "explanation": "The terms are multiples of 6. The 12th is 12 × 6 = 72."
+    },
+    {
+      "id": "m5.order-divisibility.019",
+      "skill": "m5.order-divisibility",
+      "difficulty": 5,
+      "type": "numeric",
+      "prompt": "A sequence starts at 3 and adds 5 each time: 3, 8, 13, 18, ... What is the 8th term?",
+      "answer": 38,
+      "hints": [
+        "From the 1st term to the 8th term there are 7 steps.",
+        "Add 7 × 5 to 3.",
+        "7 × 5 = 35."
+      ],
+      "explanation": "3 + 7 × 5 = 3 + 35 = 38."
+    },
+    {
+      "id": "m5.order-divisibility.020",
+      "skill": "m5.order-divisibility",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which calculation gives the largest answer?",
+      "options": [
+        {
+          "text": "2 + 3 × 4",
+          "why": "= 14, which is less than 20."
+        },
+        {
+          "text": "(2 + 3) × 4"
+        },
+        {
+          "text": "2 × 3 + 4",
+          "why": "= 10, which is less than 20."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work out each one.",
+        "Brackets first.",
+        "Multiply before you add."
+      ],
+      "explanation": "(2 + 3) × 4 = 20, 2 + 3 × 4 = 14 and 2 × 3 + 4 = 10, so the first is largest."
+    },
+    {
+      "id": "m5.order-divisibility.021",
+      "skill": "m5.order-divisibility",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A student writes 10 − 2 × 3 = 24. What did the student do wrong?",
+      "options": [
+        {
+          "text": "They multiplied before subtracting.",
+          "why": "That is the correct order."
+        },
+        {
+          "text": "They subtracted before multiplying."
+        },
+        {
+          "text": "They added instead of subtracting.",
+          "why": "The error is the order of working."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Multiply first.",
+        "2 × 3 = 6.",
+        "Then work out 10 − 6."
+      ],
+      "explanation": "The correct answer is 10 − 6 = 4. The student subtracted first: 8 × 3 = 24."
+    },
+    {
+      "id": "m5.order-divisibility.022",
+      "skill": "m5.order-divisibility",
+      "difficulty": 2,
+      "type": "text",
+      "prompt": "In 5 + 2 × 3, we work out the ___ first.",
+      "blanks": [
+        {
+          "answers": [
+            "multiplication",
+            "multiply",
+            "times",
+            "2 × 3",
+            "2 x 3"
+          ]
+        }
+      ],
+      "hints": [
+        "Multiply and divide come before add and subtract.",
+        "Look at the × sign.",
+        "The word starts with m."
+      ],
+      "explanation": "We multiply before we add: 2 × 3 = 6, then 5 + 6 = 11."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "skill": "s5.adaptations",
+  "title": "Adaptations",
+  "steps": [
+    {
+      "say": "An adaptation is a feature that helps a living thing survive in its habitat."
+    },
+    {
+      "say": "A camel has wide feet for sand and can go a long time without water. A cactus stores water in its thick stem."
+    },
+    {
+      "say": "Polar bears have thick fur and a layer of fat to keep warm in the cold. Rainforest plants have leaves with pointed tips to let rain drip off."
+    },
+    {
+      "say": "Flowers have bright petals and sweet nectar to attract insects. Light seeds, hooks and fruits help seeds travel to new places."
+    },
+    {
+      "say": "Predators have sharp teeth or claws and eyes at the front to hunt. Prey animals often have eyes on the sides to spot danger, or fast legs and camouflage."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.adaptations.901",
+      "skill": "s5.adaptations",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What is an adaptation?",
+      "options": [
+        {
+          "text": "a change in the weather",
+          "why": "The weather is not a feature of a living thing."
+        },
+        {
+          "text": "a feature that helps a living thing survive in its habitat"
+        },
+        {
+          "text": "a kind of food",
+          "why": "Food is something an animal eats."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about a polar bear's thick fur.",
+        "It is a feature of the living thing.",
+        "It helps with survival."
+      ],
+      "explanation": "An adaptation is a feature that helps a living thing survive in its habitat."
+    },
+    {
+      "id": "s5.adaptations.902",
+      "skill": "s5.adaptations",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Why does a cactus have a thick, fleshy stem?",
+      "options": [
+        {
+          "text": "to stop it from growing taller",
+          "why": "The thick stem is for storing water."
+        },
+        {
+          "text": "to store water for dry times"
+        },
+        {
+          "text": "to attract animals",
+          "why": "Animals are not attracted by the stem."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A desert has very little water.",
+        "The stem is a store.",
+        "Think about what a plant needs to survive."
+      ],
+      "explanation": "A cactus stores water in its stem, so it can survive in dry places."
+    }
+  ]
+}

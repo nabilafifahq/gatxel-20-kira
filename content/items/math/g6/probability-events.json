@@ -1,0 +1,482 @@
+{
+  "skill": "m6.probability-events",
+  "items": [
+    {
+      "id": "m6.probability-events.001",
+      "skill": "m6.probability-events",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "The probability that a bus is late is 0.2. What is the probability that it is not late? Give a decimal.",
+      "answer": 0.8,
+      "allowDecimal": true,
+      "hints": [
+        "The probabilities of all outcomes add to 1.",
+        "Take 0.2 from 1.",
+        "Work out 1 − 0.2."
+      ],
+      "explanation": "1 − 0.2 = 0.8."
+    },
+    {
+      "id": "m6.probability-events.002",
+      "skill": "m6.probability-events",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "The probability that a bus is late is 0.45. What is the probability that it is not late? Give a decimal.",
+      "answer": 0.55,
+      "allowDecimal": true,
+      "hints": [
+        "The probabilities of all outcomes add to 1.",
+        "Take 0.45 from 1.",
+        "Work out 1 − 0.45."
+      ],
+      "explanation": "1 − 0.45 = 0.55."
+    },
+    {
+      "id": "m6.probability-events.003",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "The probability that a bus is late is 0.6. What is the probability that it is not late? Give a decimal.",
+      "answer": 0.4,
+      "allowDecimal": true,
+      "hints": [
+        "The probabilities of all outcomes add to 1.",
+        "Take 0.6 from 1.",
+        "Work out 1 − 0.6."
+      ],
+      "explanation": "1 − 0.6 = 0.4."
+    },
+    {
+      "id": "m6.probability-events.004",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "The probability that a bus is late is 0.35. What is the probability that it is not late? Give a decimal.",
+      "answer": 0.65,
+      "allowDecimal": true,
+      "hints": [
+        "The probabilities of all outcomes add to 1.",
+        "Take 0.35 from 1.",
+        "Work out 1 − 0.35."
+      ],
+      "explanation": "1 − 0.35 = 0.65."
+    },
+    {
+      "id": "m6.probability-events.005",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "A spinner has three colours. The probability of red is 0.25 and the probability of blue is 0.4. What is the probability of green? Give a decimal.",
+      "answer": 0.35,
+      "allowDecimal": true,
+      "hints": [
+        "All the probabilities add to 1.",
+        "Add the red and blue probabilities first.",
+        "Take the total from 1."
+      ],
+      "explanation": "0.25 + 0.4 = 0.65. 1 − 0.65 = 0.35."
+    },
+    {
+      "id": "m6.probability-events.006",
+      "skill": "m6.probability-events",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A bag has red, blue and yellow counters. The probability of red is 0.5 and of blue is 0.3. What is the probability of yellow? Give a decimal.",
+      "answer": 0.2,
+      "allowDecimal": true,
+      "hints": [
+        "All the probabilities add to 1.",
+        "Add 0.5 and 0.3.",
+        "Take the total from 1."
+      ],
+      "explanation": "0.5 + 0.3 = 0.8. 1 − 0.8 = 0.2."
+    },
+    {
+      "id": "m6.probability-events.007",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "A coin is tossed 100 times and lands on heads 46 times. What is the estimated probability of heads? Give a decimal.",
+      "answer": 0.46,
+      "allowDecimal": true,
+      "hints": [
+        "Divide the number of heads by the number of tosses.",
+        "46 out of 100.",
+        "Write 46 ÷ 100 as a decimal."
+      ],
+      "explanation": "46 ÷ 100 = 0.46."
+    },
+    {
+      "id": "m6.probability-events.008",
+      "skill": "m6.probability-events",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "In an experiment a drawing pin lands point up 30 times out of 200 throws. What is the estimated probability of landing point up? Give a decimal.",
+      "answer": 0.15,
+      "allowDecimal": true,
+      "hints": [
+        "Divide 30 by 200.",
+        "Make it out of 100 first: 30 ÷ 2 = 15.",
+        "15 out of 100 is 0.15."
+      ],
+      "explanation": "30 ÷ 200 = 0.15."
+    },
+    {
+      "id": "m6.probability-events.009",
+      "skill": "m6.probability-events",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A spinner is spun 50 times and lands on blue 18 times. What is the estimated probability of blue? Give a decimal.",
+      "answer": 0.36,
+      "allowDecimal": true,
+      "hints": [
+        "Divide the blue count by the total.",
+        "Multiply top and bottom by 2 to make it out of 100.",
+        "36 out of 100 is 0.36."
+      ],
+      "explanation": "18 ÷ 50 = 0.36."
+    },
+    {
+      "id": "m6.probability-events.010",
+      "skill": "m6.probability-events",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "You roll one die. Which two events cannot happen at the same time?",
+      "options": [
+        {
+          "text": "rolling an odd number and rolling a 3",
+          "why": "A 3 is odd, so both can happen."
+        },
+        {
+          "text": "rolling a 1 and rolling a 6"
+        },
+        {
+          "text": "rolling an even number and rolling a number greater than 3",
+          "why": "A 4 or 6 fits both."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A single roll gives one number.",
+        "Look for events with no number in common.",
+        "1 and 6 are different numbers."
+      ],
+      "explanation": "You cannot roll a 1 and a 6 on one roll."
+    },
+    {
+      "id": "m6.probability-events.011",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "You pick one card from a normal pack. Which two events can happen at the same time?",
+      "options": [
+        {
+          "text": "picking a heart and picking a spade",
+          "why": "A card cannot be both."
+        },
+        {
+          "text": "picking a heart and picking a king"
+        },
+        {
+          "text": "picking a red card and picking a black card",
+          "why": "A card cannot be both."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The king of hearts is one card.",
+        "Look for an example card that fits both.",
+        "Hearts are one suit."
+      ],
+      "explanation": "The king of hearts is both a heart and a king, so both events can happen together."
+    },
+    {
+      "id": "m6.probability-events.012",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "You roll a die. Which pair of events can happen at the same time?",
+      "options": [
+        {
+          "text": "rolling a 3 and rolling a 4",
+          "why": "A single roll cannot be both."
+        },
+        {
+          "text": "rolling an even number and rolling a number more than 4"
+        },
+        {
+          "text": "rolling a 1 and rolling a 2",
+          "why": "A single roll cannot be both."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find a number that fits both.",
+        "A 6 is even and more than 4.",
+        "Check each pair."
+      ],
+      "explanation": "A 6 is both even and more than 4, so both events can happen on the same roll."
+    },
+    {
+      "id": "m6.probability-events.013",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which pairs of events can NOT happen at the same time?",
+      "options": [
+        {
+          "text": "rolling a 2 and rolling a 4 on one roll"
+        },
+        {
+          "text": "rolling an even number and rolling a 6",
+          "why": "A 6 is even, so they can happen together."
+        },
+        {
+          "text": "rolling an odd number and rolling a 5",
+          "why": "A 5 is odd, so they can happen together."
+        },
+        {
+          "text": "a coin landing heads and the same coin landing tails"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "One toss gives one result.",
+        "One roll gives one number.",
+        "Look for events with no outcome in common."
+      ],
+      "explanation": "One coin toss cannot be heads and tails, and one roll cannot be both 2 and 4."
+    },
+    {
+      "id": "m6.probability-events.014",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A weather forecast says the chance of rain is 0.2, the chance of cloud with no rain is 0.5, and the rest is sun. What is the chance of sun?",
+      "options": [
+        {
+          "text": "0.7",
+          "why": "This is the chance it does not rain."
+        },
+        {
+          "text": "0.3"
+        },
+        {
+          "text": "0.8",
+          "why": "This is the chance of no rain."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "All the chances add to 1.",
+        "Add 0.2 and 0.5.",
+        "Take the total from 1."
+      ],
+      "explanation": "0.2 + 0.5 = 0.7. 1 − 0.7 = 0.3."
+    },
+    {
+      "id": "m6.probability-events.015",
+      "skill": "m6.probability-events",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Why do we do an experiment many times to estimate a probability?",
+      "options": [
+        {
+          "text": "The first trial is always wrong.",
+          "why": "The first trial is not always wrong."
+        },
+        {
+          "text": "More trials usually give a better estimate."
+        },
+        {
+          "text": "To make the probability bigger.",
+          "why": "More trials do not change the true probability."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "One toss tells you very little.",
+        "Think about tossing a coin 5 times and 500 times.",
+        "Results settle down with more trials."
+      ],
+      "explanation": "With more trials the results settle closer to the true probability."
+    },
+    {
+      "id": "m6.probability-events.016",
+      "skill": "m6.probability-events",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A coin is tossed 10 times and lands on heads 7 times. The next student tosses it 1,000 times and gets 507 heads. Whose result is likely to be closer to the true probability?",
+      "options": [
+        {
+          "text": "The student who tossed 10 times.",
+          "why": "Fewer trials give a less reliable estimate."
+        },
+        {
+          "text": "The student who tossed 1,000 times."
+        },
+        {
+          "text": "They are equally reliable.",
+          "why": "More trials are more reliable."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare 10 trials with 1,000 trials.",
+        "The true probability for a fair coin is 0.5.",
+        "507 out of 1,000 is 0.507."
+      ],
+      "explanation": "The larger experiment is usually more reliable. Here 0.507 is much closer to 0.5 than 0.7."
+    },
+    {
+      "id": "m6.probability-events.017",
+      "skill": "m6.probability-events",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A simulation uses a die to act as a spinner with 6 equal sections. What is the probability of each number? Give a fraction.",
+      "options": [
+        {
+          "text": "1/3",
+          "why": "There are 6 numbers, not 3."
+        },
+        {
+          "text": "1/6"
+        },
+        {
+          "text": "6",
+          "why": "A probability cannot be more than 1."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "There are 6 equal outcomes.",
+        "The probabilities add to 1.",
+        "Share 1 between 6."
+      ],
+      "explanation": "Each number has probability 1/6, since six equal chances add up to 1."
+    },
+    {
+      "id": "m6.probability-events.018",
+      "skill": "m6.probability-events",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A die is rolled 60 times. The number 6 comes up 12 times. What is the estimated probability of rolling a 6? Give a decimal.",
+      "answer": 0.2,
+      "allowDecimal": true,
+      "hints": [
+        "Divide 12 by 60.",
+        "12 ÷ 60 is the same as 1 ÷ 5.",
+        "One fifth as a decimal."
+      ],
+      "explanation": "12 ÷ 60 = 0.2."
+    },
+    {
+      "id": "m6.probability-events.019",
+      "skill": "m6.probability-events",
+      "difficulty": 5,
+      "type": "numeric",
+      "prompt": "A fair coin is tossed 200 times. About how many heads would you expect?",
+      "answer": 100,
+      "unit": "heads",
+      "hints": [
+        "A fair coin has probability 0.5 of heads.",
+        "Multiply 200 by 0.5.",
+        "Half of 200."
+      ],
+      "explanation": "0.5 × 200 = 100 heads."
+    },
+    {
+      "id": "m6.probability-events.020",
+      "skill": "m6.probability-events",
+      "difficulty": 5,
+      "type": "numeric",
+      "prompt": "The probability of picking a red sweet from a jar is 0.3. About how many red sweets would you expect in a sample of 50 picks (replacing each sweet each time)?",
+      "answer": 15,
+      "unit": "sweets",
+      "hints": [
+        "Multiply the number of picks by the probability.",
+        "Work out 50 × 0.3.",
+        "10% of 50 is 5."
+      ],
+      "explanation": "50 × 0.3 = 15 red sweets."
+    },
+    {
+      "id": "m6.probability-events.021",
+      "skill": "m6.probability-events",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "The probability of an event is 1.2. What does this tell you?",
+      "options": [
+        {
+          "text": "It is certain to happen.",
+          "why": "Certain events have probability 1."
+        },
+        {
+          "text": "There is a mistake, because a probability cannot be more than 1."
+        },
+        {
+          "text": "It happens more than once.",
+          "why": "Probability is not a count."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Probabilities range from 0 to 1.",
+        "Compare 1.2 with 1.",
+        "A probability cannot go above 1."
+      ],
+      "explanation": "A probability is always between 0 and 1, so 1.2 cannot be a probability."
+    },
+    {
+      "id": "m6.probability-events.022",
+      "skill": "m6.probability-events",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Two events A and B cannot happen at the same time. P(A) = 0.3 and P(B) = 0.4. What is the probability that A or B happens?",
+      "options": [
+        {
+          "text": "0.12",
+          "why": "This multiplies the probabilities."
+        },
+        {
+          "text": "0.7"
+        },
+        {
+          "text": "0.1",
+          "why": "This subtracts the probabilities."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "They cannot both happen.",
+        "Add the two probabilities.",
+        "0.3 + 0.4."
+      ],
+      "explanation": "For events that cannot happen together, add the probabilities: 0.3 + 0.4 = 0.7."
+    },
+    {
+      "id": "m6.probability-events.023",
+      "skill": "m6.probability-events",
+      "difficulty": 2,
+      "type": "text",
+      "prompt": "The probabilities of all the possible outcomes add up to ___.",
+      "blanks": [
+        {
+          "answers": [
+            "1",
+            "one"
+          ]
+        }
+      ],
+      "hints": [
+        "A certain event has this probability.",
+        "It is the largest probability.",
+        "It is a single digit."
+      ],
+      "explanation": "The probabilities of all outcomes add up to 1."
+    }
+  ]
+}

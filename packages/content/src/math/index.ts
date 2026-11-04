@@ -57,3 +57,11 @@ export function generateUncached(ref: string): Item {
   const body = gen.generate({ rng: createRng(`${parsed.skill}:${parsed.level}:${parsed.seed}`), level: parsed.level })
   return itemSchema.parse({ ...body, id: ref, skill: parsed.skill, difficulty: parsed.level })
 }
+
+/** Tanda pengenal instans generator: isi soal tanpa id, supaya dua seed yang menghasilkan soal sama terdeteksi. */
+export function instanceSignature(ref: string): string {
+  const p = parseGenRef(ref)
+  if (!p || !GENERATORS.has(p.skill)) return ref
+  const { id: _id, ...rest } = generateItem(ref)
+  return JSON.stringify(rest)
+}

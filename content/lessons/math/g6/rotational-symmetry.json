@@ -1,0 +1,51 @@
+{
+  "skill": "m6.rotational-symmetry",
+  "title": "Rotational symmetry",
+  "steps": [
+    {
+      "say": "A shape has rotational symmetry if it looks exactly the same after you turn it by less than a full turn about its centre."
+    },
+    {
+      "say": "The order of rotational symmetry is the number of different positions in one full turn in which the shape looks the same."
+    },
+    {
+      "say": "A square looks the same four times in a full turn, at quarter, half and three-quarter turns and back at the start. Its order is 4."
+    },
+    {
+      "say": "A rectangle looks the same after a half turn, so its order is 2. An equilateral triangle has order 3."
+    },
+    {
+      "say": "A shape that only looks the same after a full turn has order 1. That means no rotational symmetry."
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.rotational-symmetry.901",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of a square?",
+      "answer": 4,
+      "hints": [
+        "Turn a square a quarter turn.",
+        "It looks the same after each quarter turn.",
+        "Count the quarter turns in a full turn."
+      ],
+      "explanation": "A square looks the same four times in a full turn, so its order is 4."
+    },
+    {
+      "id": "m6.rotational-symmetry.902",
+      "skill": "m6.rotational-symmetry",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "What is the order of rotational symmetry of a rectangle that is not a square?",
+      "answer": 2,
+      "hints": [
+        "Turn it a quarter turn. Does it look the same?",
+        "It looks the same after a half turn.",
+        "Count the positions in a full turn."
+      ],
+      "explanation": "A rectangle looks the same after a half turn and a full turn, so its order is 2."
+    }
+  ]
+}

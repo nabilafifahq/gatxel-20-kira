@@ -1,0 +1,64 @@
+{
+  "skill": "m3.complements-multiples",
+  "title": "Complements and multiples",
+  "steps": [
+    {
+      "say": "A complement is the number you add to make a target. The complement of 64 to 100 is 36, because 64 + 36 = 100."
+    },
+    {
+      "say": "To find a complement of 100, make the tens add to 90 and the ones add to 10. For 64: 4 + 6 = 10 and 60 + 30 = 90, so you add 36."
+    },
+    {
+      "say": "Complements of 1,000 work the same way with hundreds. 700 + 300 = 1,000. For 760: 760 + 240 = 1,000."
+    },
+    {
+      "say": "Multiples of 10 end in 0. Multiples of 5 end in 0 or 5. Multiples of 2 are the even numbers: they end in 0, 2, 4, 6 or 8."
+    },
+    {
+      "say": "Numbers to 1,000 are read and written with hundreds, tens and ones. 407 is four hundred and seven."
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.complements-multiples.901",
+      "skill": "m3.complements-multiples",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "What do you add to 70 to make 100?",
+      "answer": 30,
+      "hints": [
+        "Think about the ones you need to make 10.",
+        "70 is seven tens. How many tens make ten tens?",
+        "Three tens."
+      ],
+      "explanation": "70 + 30 = 100."
+    },
+    {
+      "id": "m3.complements-multiples.902",
+      "skill": "m3.complements-multiples",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which number is a multiple of 5?",
+      "options": [
+        {
+          "text": "43",
+          "why": "It does not end in 0 or 5."
+        },
+        {
+          "text": "45"
+        },
+        {
+          "text": "46",
+          "why": "It does not end in 0 or 5."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Multiples of 5 end in 0 or 5.",
+        "Look at the last digit.",
+        "Count in fives."
+      ],
+      "explanation": "45 ends in 5, so it is a multiple of 5."
+    }
+  ]
+}

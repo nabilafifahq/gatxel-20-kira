@@ -1,0 +1,526 @@
+{
+  "skill": "m4.percent-intro",
+  "items": [
+    {
+      "id": "m4.percent-intro.001",
+      "skill": "m4.percent-intro",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "A grid has 100 equal squares. 10 squares are shaded. What percent is shaded?",
+      "answer": 10,
+      "unit": "%",
+      "hints": [
+        "A percent is a number out of 100.",
+        "The grid has 100 squares.",
+        "10 out of 100."
+      ],
+      "explanation": "10 out of 100 is 10%."
+    },
+    {
+      "id": "m4.percent-intro.002",
+      "skill": "m4.percent-intro",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "A grid has 100 equal squares. 20 squares are shaded. What percent is shaded?",
+      "answer": 20,
+      "unit": "%",
+      "hints": [
+        "A percent is a number out of 100.",
+        "The grid has 100 squares.",
+        "20 out of 100."
+      ],
+      "explanation": "20 out of 100 is 20%."
+    },
+    {
+      "id": "m4.percent-intro.003",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "A grid has 100 equal squares. 35 squares are shaded. What percent is shaded?",
+      "answer": 35,
+      "unit": "%",
+      "hints": [
+        "A percent is a number out of 100.",
+        "The grid has 100 squares.",
+        "35 out of 100."
+      ],
+      "explanation": "35 out of 100 is 35%."
+    },
+    {
+      "id": "m4.percent-intro.004",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "A grid has 100 equal squares. 60 squares are shaded. What percent is shaded?",
+      "answer": 60,
+      "unit": "%",
+      "hints": [
+        "A percent is a number out of 100.",
+        "The grid has 100 squares.",
+        "60 out of 100."
+      ],
+      "explanation": "60 out of 100 is 60%."
+    },
+    {
+      "id": "m4.percent-intro.005",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "numeric",
+      "prompt": "A grid has 100 equal squares. 75 squares are shaded. What percent is shaded?",
+      "answer": 75,
+      "unit": "%",
+      "hints": [
+        "A percent is a number out of 100.",
+        "The grid has 100 squares.",
+        "75 out of 100."
+      ],
+      "explanation": "75 out of 100 is 75%."
+    },
+    {
+      "id": "m4.percent-intro.006",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which fraction of a whole is 25%?",
+      "options": [
+        {
+          "text": "1/2",
+          "why": "25% is not that fraction."
+        },
+        {
+          "text": "1/4"
+        },
+        {
+          "text": "3/4",
+          "why": "25% is not that fraction."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of 100 as a whole.",
+        "50 is half of 100.",
+        "25 is a quarter of 100."
+      ],
+      "explanation": "25% is 25 out of 100, which is one quarter."
+    },
+    {
+      "id": "m4.percent-intro.007",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which fraction of a whole is 50%?",
+      "options": [
+        {
+          "text": "1/4",
+          "why": "50% is not that fraction."
+        },
+        {
+          "text": "1/2"
+        },
+        {
+          "text": "3/4",
+          "why": "50% is not that fraction."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of 100 as a whole.",
+        "50 is half of 100.",
+        "25 is a quarter of 100."
+      ],
+      "explanation": "50% is 50 out of 100, which is one half."
+    },
+    {
+      "id": "m4.percent-intro.008",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which fraction of a whole is 100%?",
+      "options": [
+        {
+          "text": "1/2",
+          "why": "100% is not that fraction."
+        },
+        {
+          "text": "the whole"
+        },
+        {
+          "text": "1/4",
+          "why": "100% is not that fraction."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of 100 as a whole.",
+        "50 is half of 100.",
+        "25 is a quarter of 100."
+      ],
+      "explanation": "100% is 100 out of 100, which is the whole."
+    },
+    {
+      "id": "m4.percent-intro.009",
+      "skill": "m4.percent-intro",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What does the symbol % mean?",
+      "options": [
+        {
+          "text": "out of 10",
+          "why": "Percent means out of 100."
+        },
+        {
+          "text": "out of 100"
+        },
+        {
+          "text": "out of 1,000",
+          "why": "Percent means out of 100."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Percent means per hundred.",
+        "Think of 100 cents in a dollar.",
+        "A full grid has 100 squares."
+      ],
+      "explanation": "Percent means out of 100."
+    },
+    {
+      "id": "m4.percent-intro.010",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which fraction is smaller?",
+      "options": [
+        {
+          "text": "1/4",
+          "why": "Fourths are bigger than eighths."
+        },
+        {
+          "text": "1/8"
+        },
+        {
+          "text": "1/2",
+          "why": "Halves are the biggest here."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "More equal parts mean smaller parts.",
+        "Compare 2, 4 and 8 parts.",
+        "Eighths are the smallest."
+      ],
+      "explanation": "The more parts a whole is cut into, the smaller the parts. 1/8 is the smallest."
+    },
+    {
+      "id": "m4.percent-intro.011",
+      "skill": "m4.percent-intro",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which list is in order from smallest to largest?",
+      "options": [
+        {
+          "text": "1/2, 1/5, 1/10",
+          "why": "That is largest to smallest."
+        },
+        {
+          "text": "1/10, 1/5, 1/2"
+        },
+        {
+          "text": "1/5, 1/10, 1/2",
+          "why": "1/5 is bigger than 1/10."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "More parts mean smaller parts.",
+        "10 parts is the smallest part.",
+        "2 parts is the biggest."
+      ],
+      "explanation": "Tenths are smaller than fifths, and fifths are smaller than halves."
+    },
+    {
+      "id": "m4.percent-intro.012",
+      "skill": "m4.percent-intro",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Zara cuts a cake into 6 equal slices. Rafi cuts the same cake into 8 equal slices. Whose slice is bigger?",
+      "options": [
+        {
+          "text": "Rafi's",
+          "why": "More slices means smaller slices."
+        },
+        {
+          "text": "Zara's"
+        },
+        {
+          "text": "They are the same.",
+          "why": "The slices are different sizes."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The cakes are the same size.",
+        "More slices means smaller slices.",
+        "Compare 6 and 8."
+      ],
+      "explanation": "The cake cut into fewer slices has bigger slices, so Zara's slice is bigger."
+    },
+    {
+      "id": "m4.percent-intro.013",
+      "skill": "m4.percent-intro",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which division is the same as the fraction 3/4?",
+      "options": [
+        {
+          "text": "4 ÷ 3",
+          "why": "The top number is divided by the bottom number."
+        },
+        {
+          "text": "3 ÷ 4"
+        },
+        {
+          "text": "3 × 4",
+          "why": "A fraction is a division, not a multiplication."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The line in a fraction means divide.",
+        "The top number is the numerator.",
+        "The numerator is divided by the denominator."
+      ],
+      "explanation": "A fraction is the numerator divided by the denominator, so 3/4 is 3 ÷ 4."
+    },
+    {
+      "id": "m4.percent-intro.014",
+      "skill": "m4.percent-intro",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which fraction is the same as 1 ÷ 5?",
+      "options": [
+        {
+          "text": "5/1",
+          "why": "That is 5 ÷ 1."
+        },
+        {
+          "text": "1/5"
+        },
+        {
+          "text": "1/50",
+          "why": "That is 1 ÷ 50."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The first number goes on top.",
+        "The second number goes on the bottom.",
+        "Say it as one fifth."
+      ],
+      "explanation": "1 ÷ 5 is the fraction 1/5."
+    },
+    {
+      "id": "m4.percent-intro.015",
+      "skill": "m4.percent-intro",
+      "difficulty": 3,
+      "type": "numeric",
+      "prompt": "Share 3 cakes equally between 4 children. What fraction of a cake does each child get? Give the numerator.",
+      "answer": 3,
+      "hints": [
+        "3 ÷ 4 as a fraction.",
+        "The number of cakes goes on top.",
+        "The number of children goes on the bottom."
+      ],
+      "explanation": "3 ÷ 4 = 3/4, so the numerator is 3."
+    },
+    {
+      "id": "m4.percent-intro.016",
+      "skill": "m4.percent-intro",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "In a class of 100 pupils, 35 walk to school. What percent do not walk?",
+      "answer": 65,
+      "unit": "%",
+      "hints": [
+        "Find how many do not walk.",
+        "Take 35 from 100.",
+        "Out of 100, that is the percent."
+      ],
+      "explanation": "100 − 35 = 65, so 65% do not walk."
+    },
+    {
+      "id": "m4.percent-intro.017",
+      "skill": "m4.percent-intro",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A 10 by 10 grid has 28 red squares, 40 blue squares and the rest are white. What percent are white?",
+      "answer": 32,
+      "unit": "%",
+      "hints": [
+        "Add the red and blue squares.",
+        "Take the total from 100.",
+        "Out of 100 is the same as percent."
+      ],
+      "explanation": "28 + 40 = 68 coloured. 100 − 68 = 32, so 32% are white."
+    },
+    {
+      "id": "m4.percent-intro.018",
+      "skill": "m4.percent-intro",
+      "difficulty": 4,
+      "type": "numeric",
+      "prompt": "A pizza is cut into 100 tiny pieces and Eka eats 50 of them. What percent of the pizza does Eka eat?",
+      "answer": 50,
+      "unit": "%",
+      "hints": [
+        "Out of 100 means percent.",
+        "50 out of 100.",
+        "This is also one half."
+      ],
+      "explanation": "50 out of 100 is 50%."
+    },
+    {
+      "id": "m4.percent-intro.019",
+      "skill": "m4.percent-intro",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which is the same as 50%?",
+      "options": [
+        {
+          "text": "one quarter",
+          "why": "25% is one quarter."
+        },
+        {
+          "text": "one half"
+        },
+        {
+          "text": "one fifth",
+          "why": "One fifth is 20%."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "50 out of 100.",
+        "It is half of the whole.",
+        "Two halves make 100%."
+      ],
+      "explanation": "50% means 50 out of 100, which is one half."
+    },
+    {
+      "id": "m4.percent-intro.020",
+      "skill": "m4.percent-intro",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Which statement is true?",
+      "options": [
+        {
+          "text": "25% of a whole is the same as one half.",
+          "why": "50% is one half."
+        },
+        {
+          "text": "25% of a whole is the same as one quarter."
+        },
+        {
+          "text": "25% of a whole is bigger than 50%.",
+          "why": "25% is less than 50%."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Four quarters make a whole.",
+        "25 × 4 = 100.",
+        "Quarter is 25 out of 100."
+      ],
+      "explanation": "Four quarters make 100%, so one quarter is 25%."
+    },
+    {
+      "id": "m4.percent-intro.021",
+      "skill": "m4.percent-intro",
+      "difficulty": 2,
+      "type": "text",
+      "prompt": "Percent means parts in each ___.",
+      "blanks": [
+        {
+          "answers": [
+            "hundred",
+            "100"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of the number 100.",
+        "A grid has this many squares.",
+        "The word has seven letters."
+      ],
+      "explanation": "Percent means parts in each hundred."
+    },
+    {
+      "id": "m4.percent-intro.022",
+      "skill": "m4.percent-intro",
+      "difficulty": 5,
+      "type": "numeric",
+      "prompt": "A bar is cut into 10 equal parts. 3 parts are shaded blue and 2 parts are shaded green. What percent of the bar is shaded? (Each part is 10%.)",
+      "answer": 50,
+      "unit": "%",
+      "hints": [
+        "Add the shaded parts first.",
+        "3 + 2 = 5 parts.",
+        "Each part is 10%."
+      ],
+      "explanation": "5 parts out of 10 is 5 × 10% = 50%."
+    },
+    {
+      "id": "m4.percent-intro.023",
+      "skill": "m4.percent-intro",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A shop says 20% of the 100 books are on sale. How many books are on sale?",
+      "options": [
+        {
+          "text": "80",
+          "why": "That is the number NOT on sale."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "2",
+          "why": "20% of 100 is more than 2."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "There are 100 books.",
+        "Percent means out of 100.",
+        "20 out of 100."
+      ],
+      "explanation": "20% means 20 out of 100, so 20 books are on sale."
+    },
+    {
+      "id": "m4.percent-intro.024",
+      "skill": "m4.percent-intro",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which is the greatest?",
+      "options": [
+        {
+          "text": "1/4",
+          "why": "1/4 is 25%, which is less than 50%."
+        },
+        {
+          "text": "50%"
+        },
+        {
+          "text": "10%",
+          "why": "10% is less than 50%."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Change all to percents.",
+        "1/4 is 25%.",
+        "Compare 50, 25 and 10."
+      ],
+      "explanation": "50% is bigger than 25% and 10%, so it is the greatest."
+    }
+  ]
+}

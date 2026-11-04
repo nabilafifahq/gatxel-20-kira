@@ -5,6 +5,7 @@ import { medalFileSchema, type MedalEntry } from './medals'
 import { registrySchema, type Registry } from './sources'
 import { skillGrade, skillSubject } from './schema'
 import type { ContentIndex, Problem } from './load'
+import { checkCambridgeMap } from './cambridge'
 
 /**
  * Berkas konten di luar skill dan soal: registri sumber (content/sources/registry.json),
@@ -110,5 +111,6 @@ export function checkExtras(dir: string, index: ContentIndex): Problem[] {
   const { entries, errors: medalErrors } = loadMedals(dir)
   out.push(...medalErrors)
   for (const e of entries) if (!competitionIds.has(e.competition)) out.push({ file: 'competitions/medals.json', message: `lomba ${e.competition} tidak ada di katalog` })
+  out.push(...checkCambridgeMap(dir, index))
   return out
 }

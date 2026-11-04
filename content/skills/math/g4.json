@@ -8,9 +8,16 @@
     "titleId": "Nilai tempat sampai 10.000",
     "canDo": "I can say what each digit in a 4-digit number is worth and multiply or divide by 10 and 100.",
     "order": 10,
-    "prerequisites": ["m3.place-value"],
+    "prerequisites": [
+      "m3.place-value"
+    ],
     "term": 1,
-    "competitions": ["ikmc", "kmnr", "sasmo", "osn-sd"],
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -22,9 +29,14 @@
     "titleId": "Membandingkan dan mengurutkan bilangan sampai 10.000",
     "canDo": "I can compare and order 4-digit numbers.",
     "order": 20,
-    "prerequisites": ["m4.place-value", "m3.compare-order"],
+    "prerequisites": [
+      "m4.place-value",
+      "m3.compare-order"
+    ],
     "term": 1,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -36,9 +48,15 @@
     "titleId": "Membulatkan ke puluhan, ratusan, atau ribuan terdekat",
     "canDo": "I can round numbers and use rounding to estimate an answer.",
     "order": 30,
-    "prerequisites": ["m4.place-value", "m3.round-10-100"],
+    "prerequisites": [
+      "m4.place-value",
+      "m3.round-10-100"
+    ],
     "term": 1,
-    "competitions": ["kmnr", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -50,9 +68,15 @@
     "titleId": "Bilangan negatif dan suhu",
     "canDo": "I can read negative temperatures and count on and back across zero.",
     "order": 40,
-    "prerequisites": ["m3.temperature"],
+    "prerequisites": [
+      "m3.temperature"
+    ],
     "term": 2,
-    "competitions": ["ikmc", "osn-sd", "imso"],
+    "competitions": [
+      "ikmc",
+      "osn-sd",
+      "imso"
+    ],
     "generator": true
   },
   {
@@ -64,9 +88,18 @@
     "titleId": "Barisan bilangan dan aturannya",
     "canDo": "I can find the rule of a sequence and use it to find missing numbers.",
     "order": 50,
-    "prerequisites": ["m3.sequences"],
+    "prerequisites": [
+      "m3.sequences"
+    ],
     "term": 1,
-    "competitions": ["ikmc", "sasmo", "kmnr", "hkimo", "timo", "seamo"],
+    "competitions": [
+      "ikmc",
+      "sasmo",
+      "kmnr",
+      "hkimo",
+      "timo",
+      "seamo"
+    ],
     "generator": true
   },
   {
@@ -78,9 +111,17 @@
     "titleId": "Penjumlahan dan pengurangan mencongak",
     "canDo": "I can add and subtract 3-digit and 4-digit numbers in my head with quick strategies.",
     "order": 60,
-    "prerequisites": ["m3.add-sub-mental", "m4.place-value"],
+    "prerequisites": [
+      "m3.add-sub-mental",
+      "m4.place-value"
+    ],
     "term": 1,
-    "competitions": ["kmnr", "sasmo", "hkimo", "timo"],
+    "competitions": [
+      "kmnr",
+      "sasmo",
+      "hkimo",
+      "timo"
+    ],
     "generator": true
   },
   {
@@ -92,9 +133,15 @@
     "titleId": "Penjumlahan dan pengurangan bersusun sampai 10.000",
     "canDo": "I can add and subtract 4-digit numbers in columns and check with an estimate.",
     "order": 70,
-    "prerequisites": ["m3.add-sub-columns", "m4.place-value"],
+    "prerequisites": [
+      "m3.add-sub-columns",
+      "m4.place-value"
+    ],
     "term": 1,
-    "competitions": ["kmnr", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -106,9 +153,16 @@
     "titleId": "Perkalian sampai 10 × 10",
     "canDo": "I can recall every times table up to 10 × 10 and use it to work out related facts.",
     "order": 80,
-    "prerequisites": ["m3.times-tables"],
+    "prerequisites": [
+      "m3.times-tables"
+    ],
     "term": 1,
-    "competitions": ["ikmc", "kmnr", "sasmo", "timo"],
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo",
+      "timo"
+    ],
     "generator": true
   },
   {
@@ -120,9 +174,18 @@
     "titleId": "Faktor dan kelipatan",
     "canDo": "I can find factors and multiples of a number.",
     "order": 90,
-    "prerequisites": ["m4.times-tables"],
+    "prerequisites": [
+      "m4.times-tables"
+    ],
     "term": 2,
-    "competitions": ["ikmc", "sasmo", "hkimo", "timo", "osn-sd", "imso"],
+    "competitions": [
+      "ikmc",
+      "sasmo",
+      "hkimo",
+      "timo",
+      "osn-sd",
+      "imso"
+    ],
     "generator": true
   },
   {
@@ -134,9 +197,15 @@
     "titleId": "Perkalian dengan bilangan 1 angka",
     "canDo": "I can multiply 2-digit and 3-digit numbers by a 1-digit number.",
     "order": 100,
-    "prerequisites": ["m4.times-tables", "m3.multiply-2d-1d"],
+    "prerequisites": [
+      "m4.times-tables",
+      "m3.multiply-2d-1d"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -148,9 +217,16 @@
     "titleId": "Pembagian dengan bilangan 1 angka",
     "canDo": "I can divide by a 1-digit number and decide what to do with a remainder.",
     "order": 110,
-    "prerequisites": ["m4.times-tables", "m3.division"],
+    "prerequisites": [
+      "m4.times-tables",
+      "m3.division"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "sasmo", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "sasmo",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -162,9 +238,16 @@
     "titleId": "Persepuluhan dan perseratusan",
     "canDo": "I can read, write and compare decimals with tenths and hundredths.",
     "order": 120,
-    "prerequisites": ["m4.place-value", "m3.fractions"],
+    "prerequisites": [
+      "m4.place-value",
+      "m3.fractions"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "osn-sd", "imso"],
+    "competitions": [
+      "kmnr",
+      "osn-sd",
+      "imso"
+    ],
     "generator": true
   },
   {
@@ -176,9 +259,15 @@
     "titleId": "Pecahan senilai dan membandingkan pecahan",
     "canDo": "I can find equivalent fractions and compare fractions.",
     "order": 130,
-    "prerequisites": ["m3.equivalent-fractions"],
+    "prerequisites": [
+      "m3.equivalent-fractions"
+    ],
     "term": 2,
-    "competitions": ["ikmc", "kmnr", "osn-sd"],
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -190,9 +279,15 @@
     "titleId": "Menjumlahkan dan mengurangkan pecahan berpenyebut sama",
     "canDo": "I can add and subtract fractions that have the same denominator.",
     "order": 140,
-    "prerequisites": ["m4.equivalent-fractions"],
+    "prerequisites": [
+      "m4.equivalent-fractions"
+    ],
     "term": 3,
-    "competitions": ["kmnr", "osn-sd", "imso"],
+    "competitions": [
+      "kmnr",
+      "osn-sd",
+      "imso"
+    ],
     "generator": true
   },
   {
@@ -204,9 +299,16 @@
     "titleId": "Pecahan dari suatu jumlah dan ukuran",
     "canDo": "I can find a fraction of a number, an amount of money or a measure.",
     "order": 150,
-    "prerequisites": ["m3.fractions-of-amounts", "m4.divide-written"],
+    "prerequisites": [
+      "m3.fractions-of-amounts",
+      "m4.divide-written"
+    ],
     "term": 3,
-    "competitions": ["kmnr", "sasmo", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "sasmo",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -218,9 +320,15 @@
     "titleId": "Soal cerita uang dalam rupiah",
     "canDo": "I can solve shopping problems with prices, totals and change in rupiah.",
     "order": 160,
-    "prerequisites": ["m4.add-sub-written", "m4.multiply-written"],
+    "prerequisites": [
+      "m4.add-sub-written",
+      "m4.multiply-written"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -232,9 +340,13 @@
     "titleId": "Uang dengan tanda desimal",
     "canDo": "I can add and subtract amounts of money written in dollars and cents.",
     "order": 170,
-    "prerequisites": ["m4.decimals"],
+    "prerequisites": [
+      "m4.decimals"
+    ],
     "term": 3,
-    "competitions": ["kmnr"],
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -246,9 +358,14 @@
     "titleId": "Jam 12 jam dan 24 jam",
     "canDo": "I can change times between the 12-hour clock and the 24-hour clock.",
     "order": 180,
-    "prerequisites": ["m3.time-clock"],
+    "prerequisites": [
+      "m3.time-clock"
+    ],
     "term": 1,
-    "competitions": ["ikmc", "kmnr"],
+    "competitions": [
+      "ikmc",
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -260,9 +377,16 @@
     "titleId": "Jadwal perjalanan dan selang waktu",
     "canDo": "I can read a timetable and work out how long a trip or an event takes.",
     "order": 190,
-    "prerequisites": ["m4.time-24-hour", "m3.time-intervals"],
+    "prerequisites": [
+      "m4.time-24-hour",
+      "m3.time-intervals"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "sasmo", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "sasmo",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -274,9 +398,17 @@
     "titleId": "Mengubah satuan panjang, massa, dan kapasitas",
     "canDo": "I can change between mm, cm, m, km, g, kg, ml and l.",
     "order": 200,
-    "prerequisites": ["m3.length", "m3.mass-capacity", "m4.place-value"],
+    "prerequisites": [
+      "m3.length",
+      "m3.mass-capacity",
+      "m4.place-value"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "osn-sd", "imso"],
+    "competitions": [
+      "kmnr",
+      "osn-sd",
+      "imso"
+    ],
     "generator": true
   },
   {
@@ -288,9 +420,17 @@
     "titleId": "Keliling dan luas persegi panjang",
     "canDo": "I can calculate the perimeter and area of rectangles and shapes made from rectangles.",
     "order": 210,
-    "prerequisites": ["m3.perimeter-area", "m4.times-tables"],
+    "prerequisites": [
+      "m3.perimeter-area",
+      "m4.times-tables"
+    ],
     "term": 3,
-    "competitions": ["ikmc", "kmnr", "sasmo", "osn-sd"],
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -302,9 +442,14 @@
     "titleId": "Sudut lancip, tumpul, dan siku-siku",
     "canDo": "I can sort angles into acute, right and obtuse and compare their sizes.",
     "order": 220,
-    "prerequisites": ["m3.angles-turns"],
+    "prerequisites": [
+      "m3.angles-turns"
+    ],
     "term": 3,
-    "competitions": ["ikmc", "osn-sd"],
+    "competitions": [
+      "ikmc",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -316,9 +461,16 @@
     "titleId": "Bangun datar: sifat dan simetri",
     "canDo": "I can sort triangles and quadrilaterals by their properties and count lines of symmetry.",
     "order": 230,
-    "prerequisites": ["m3.shapes-2d", "m3.symmetry"],
+    "prerequisites": [
+      "m3.shapes-2d",
+      "m3.symmetry"
+    ],
     "term": 1,
-    "competitions": ["ikmc", "kmnr", "osn-sd"],
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -330,9 +482,15 @@
     "titleId": "Bangun ruang dan jaring-jaringnya",
     "canDo": "I can describe 3D shapes and match them to their nets.",
     "order": 240,
-    "prerequisites": ["m3.shapes-3d"],
+    "prerequisites": [
+      "m3.shapes-3d"
+    ],
     "term": 1,
-    "competitions": ["ikmc", "kmnr", "osn-sd"],
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -344,9 +502,14 @@
     "titleId": "Koordinat dan translasi (pergeseran)",
     "canDo": "I can read and plot coordinates and move a point or shape by a translation.",
     "order": 250,
-    "prerequisites": ["m3.position-direction"],
+    "prerequisites": [
+      "m3.position-direction"
+    ],
     "term": 3,
-    "competitions": ["ikmc", "osn-sd"],
+    "competitions": [
+      "ikmc",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -358,9 +521,14 @@
     "titleId": "Tabel, piktogram, dan diagram batang",
     "canDo": "I can read and compare data in tables, pictograms and bar charts.",
     "order": 260,
-    "prerequisites": ["m3.pictograms-bars"],
+    "prerequisites": [
+      "m3.pictograms-bars"
+    ],
     "term": 2,
-    "competitions": ["kmnr", "osn-sd"],
+    "competitions": [
+      "kmnr",
+      "osn-sd"
+    ],
     "generator": true
   },
   {
@@ -372,9 +540,15 @@
     "titleId": "Diagram Venn dan diagram Carroll",
     "canDo": "I can sort and read data in Venn and Carroll diagrams that use two rules.",
     "order": 270,
-    "prerequisites": ["m3.venn-carroll", "m4.factors-multiples"],
+    "prerequisites": [
+      "m3.venn-carroll",
+      "m4.factors-multiples"
+    ],
     "term": 3,
-    "competitions": ["ikmc", "kmnr"],
+    "competitions": [
+      "ikmc",
+      "kmnr"
+    ],
     "generator": true
   },
   {
@@ -386,9 +560,74 @@
     "titleId": "Peluang dan kemungkinan",
     "canDo": "I can describe chance with words like even chance and order outcomes by how likely they are.",
     "order": 280,
-    "prerequisites": ["m3.chance"],
+    "prerequisites": [
+      "m3.chance"
+    ],
     "term": 3,
-    "competitions": ["ikmc", "imso"],
+    "competitions": [
+      "ikmc",
+      "imso"
+    ],
     "generator": true
+  },
+  {
+    "id": "m4.percent-intro",
+    "subject": "math",
+    "grade": 4,
+    "strand": "Nf",
+    "title": "Percent as parts of 100 and fractions as division",
+    "titleId": "Persen sebagai bagian dari 100 dan pecahan sebagai pembagian",
+    "canDo": "I can say what a percent means, compare unit fractions and show a fraction as a division.",
+    "order": 290,
+    "prerequisites": [
+      "m4.equivalent-fractions"
+    ],
+    "term": 2,
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": false
+  },
+  {
+    "id": "m4.time-units",
+    "subject": "math",
+    "grade": 4,
+    "strand": "Gt",
+    "title": "Converting units of time",
+    "titleId": "Mengubah satuan waktu",
+    "canDo": "I can change between seconds, minutes, hours, days, weeks, months and years.",
+    "order": 295,
+    "prerequisites": [
+      "m3.time-intervals"
+    ],
+    "term": 3,
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": false
+  },
+  {
+    "id": "m4.square-numbers",
+    "subject": "math",
+    "grade": 4,
+    "strand": "Nc",
+    "title": "Square numbers and missing numbers",
+    "titleId": "Bilangan kuadrat dan bilangan yang hilang",
+    "canDo": "I can spot and extend square number patterns and find a missing number shown by a symbol.",
+    "order": 300,
+    "prerequisites": [
+      "m4.times-tables"
+    ],
+    "term": 2,
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": false
   }
 ]

@@ -1,0 +1,555 @@
+{
+  "skill": "s6.germs-defences",
+  "items": [
+    {
+      "id": "s6.germs-defences.001",
+      "skill": "s6.germs-defences",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which of these is a germ that can cause disease?",
+      "options": [
+        {
+          "text": "vitamins",
+          "why": "Vitamins help the body."
+        },
+        {
+          "text": "bacteria"
+        },
+        {
+          "text": "minerals",
+          "why": "Minerals are not living things."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a tiny living thing.",
+        "Some are harmful.",
+        "Not all are harmful."
+      ],
+      "explanation": "Bacteria are tiny living things and some cause disease."
+    },
+    {
+      "id": "s6.germs-defences.002",
+      "skill": "s6.germs-defences",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which of these helps keep food safe to eat?",
+      "options": [
+        {
+          "text": "leaving food in the sun",
+          "why": "Warm food lets germs grow fast."
+        },
+        {
+          "text": "washing hands before cooking"
+        },
+        {
+          "text": "sneezing over food",
+          "why": "This spreads germs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Germs grow on dirty hands.",
+        "Clean hands carry fewer germs.",
+        "Think about cooking."
+      ],
+      "explanation": "Clean hands help stop germs reaching food."
+    },
+    {
+      "id": "s6.germs-defences.003",
+      "skill": "s6.germs-defences",
+      "difficulty": 1,
+      "type": "text",
+      "prompt": "Skin is a ___ that helps keep germs out of the body.",
+      "blanks": [
+        {
+          "answers": [
+            "barrier",
+            "defence",
+            "defense"
+          ]
+        }
+      ],
+      "hints": [
+        "It covers the outside of the body.",
+        "A wall is another example.",
+        "The word starts with b."
+      ],
+      "explanation": "Skin is a barrier against germs."
+    },
+    {
+      "id": "s6.germs-defences.004",
+      "skill": "s6.germs-defences",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "How can water spread disease?",
+      "options": [
+        {
+          "text": "Water makes germs grow wings.",
+          "why": "This does not happen."
+        },
+        {
+          "text": "Dirty water can carry germs that make people ill."
+        },
+        {
+          "text": "Only salty water can carry germs.",
+          "why": "Fresh water can carry germs too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Germs can live in water.",
+        "Drinking dirty water is risky.",
+        "Clean water is safer."
+      ],
+      "explanation": "Dirty water can hold germs, so drinking it can cause diseases."
+    },
+    {
+      "id": "s6.germs-defences.005",
+      "skill": "s6.germs-defences",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Why do we boil drinking water in some places?",
+      "options": [
+        {
+          "text": "to make it colder",
+          "why": "Boiling makes it hot."
+        },
+        {
+          "text": "to kill germs in the water"
+        },
+        {
+          "text": "to add vitamins",
+          "why": "Boiling does not add vitamins."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Heat kills many germs.",
+        "It makes water safer.",
+        "Think about safe drinking water."
+      ],
+      "explanation": "Boiling kills many germs, so the water is safer to drink."
+    },
+    {
+      "id": "s6.germs-defences.006",
+      "skill": "s6.germs-defences",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which part of the body makes acid that kills many germs?",
+      "options": [
+        {
+          "text": "the lungs",
+          "why": "The lungs take in air."
+        },
+        {
+          "text": "the stomach"
+        },
+        {
+          "text": "the skin",
+          "why": "Skin is a barrier."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is where food goes after you swallow.",
+        "The acid breaks down food too.",
+        "It is inside your tummy."
+      ],
+      "explanation": "The stomach makes acid that kills many germs that arrive with food."
+    },
+    {
+      "id": "s6.germs-defences.007",
+      "skill": "s6.germs-defences",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What do tiny hairs and mucus in the nose do?",
+      "options": [
+        {
+          "text": "They help you smell colours.",
+          "why": "Smell does not detect colour."
+        },
+        {
+          "text": "They catch dirt and germs before they reach the lungs."
+        },
+        {
+          "text": "They make you sneeze for fun.",
+          "why": "Sneezing is a defence."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The nose is a doorway for air.",
+        "Germs can come in with the air.",
+        "They act like a trap."
+      ],
+      "explanation": "Hairs and mucus trap dirt and germs, which helps protect the lungs."
+    },
+    {
+      "id": "s6.germs-defences.008",
+      "skill": "s6.germs-defences",
+      "difficulty": 2,
+      "type": "sort",
+      "prompt": "Sort each action into helping to stop the spread of disease or helping it to spread.",
+      "groups": [
+        "Helps stop the spread",
+        "Helps it spread"
+      ],
+      "items": [
+        {
+          "text": "washing your hands",
+          "group": 0
+        },
+        {
+          "text": "covering your cough with a tissue",
+          "group": 0
+        },
+        {
+          "text": "drinking clean water",
+          "group": 0
+        },
+        {
+          "text": "sharing a toothbrush",
+          "group": 1
+        },
+        {
+          "text": "coughing on food",
+          "group": 1
+        },
+        {
+          "text": "drinking dirty river water",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think about moving germs.",
+        "Clean habits stop germs.",
+        "Sharing and dirty water spread them."
+      ],
+      "explanation": "Hygiene stops germs spreading. Sharing personal items or drinking dirty water can spread them."
+    },
+    {
+      "id": "s6.germs-defences.009",
+      "skill": "s6.germs-defences",
+      "difficulty": 3,
+      "type": "multi",
+      "prompt": "Which of these are ways germs can spread?",
+      "options": [
+        {
+          "text": "in droplets when someone coughs"
+        },
+        {
+          "text": "by looking at someone",
+          "why": "Germs do not pass by looking."
+        },
+        {
+          "text": "by talking about an illness",
+          "why": "Talking does not spread germs unless droplets travel."
+        },
+        {
+          "text": "through dirty water"
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Think about how germs travel.",
+        "Water and air can carry them.",
+        "Touch can too."
+      ],
+      "explanation": "Germs can spread through dirty water and through droplets in the air."
+    },
+    {
+      "id": "s6.germs-defences.010",
+      "skill": "s6.germs-defences",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "What do white blood cells do?",
+      "options": [
+        {
+          "text": "They carry oxygen to the cells.",
+          "why": "Red blood cells carry oxygen."
+        },
+        {
+          "text": "They fight germs that get inside the body."
+        },
+        {
+          "text": "They make bones stronger.",
+          "why": "This is not their job."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "They protect the body.",
+        "They are part of the blood.",
+        "They are called white."
+      ],
+      "explanation": "White blood cells find and fight germs inside the body."
+    },
+    {
+      "id": "s6.germs-defences.011",
+      "skill": "s6.germs-defences",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "A cut in the skin lets germs into the body. Why is it important to wash and cover it?",
+      "options": [
+        {
+          "text": "to make the cut bigger",
+          "why": "This is not the aim."
+        },
+        {
+          "text": "to keep germs out while the skin heals"
+        },
+        {
+          "text": "to stop blood forever",
+          "why": "The cover just protects."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Skin is a barrier.",
+        "A cut breaks the barrier.",
+        "A cover acts like skin for a while."
+      ],
+      "explanation": "Cleaning and covering a cut protects it from germs while the skin heals."
+    },
+    {
+      "id": "s6.germs-defences.012",
+      "skill": "s6.germs-defences",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Which of these is a way to stop the spread of germs when you sneeze?",
+      "options": [
+        {
+          "text": "sneeze into your bare hands",
+          "why": "Germs stay on your hands."
+        },
+        {
+          "text": "sneeze into a tissue or your elbow"
+        },
+        {
+          "text": "sneeze towards your friend",
+          "why": "This spreads germs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Germs travel in droplets.",
+        "You should block them.",
+        "Wash your hands after."
+      ],
+      "explanation": "Sneezing into a tissue or elbow catches the droplets."
+    },
+    {
+      "id": "s6.germs-defences.013",
+      "skill": "s6.germs-defences",
+      "difficulty": 3,
+      "type": "mcq",
+      "prompt": "Why do doctors recommend vaccines?",
+      "options": [
+        {
+          "text": "They make you grow taller.",
+          "why": "This is not their job."
+        },
+        {
+          "text": "They help the body get ready to fight certain germs before you meet them."
+        },
+        {
+          "text": "They kill all germs in the world.",
+          "why": "They only help your own body."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A vaccine is given in advance.",
+        "Your body learns to respond.",
+        "It prevents some diseases."
+      ],
+      "explanation": "A vaccine trains the body to respond to a germ, so it can fight it quickly."
+    },
+    {
+      "id": "s6.germs-defences.014",
+      "skill": "s6.germs-defences",
+      "difficulty": 3,
+      "type": "text",
+      "prompt": "Tiny living things that can cause disease are called ___ or microbes.",
+      "blanks": [
+        {
+          "answers": [
+            "germs"
+          ]
+        }
+      ],
+      "hints": [
+        "They are too small to see.",
+        "The word starts with g.",
+        "Bacteria and viruses are examples."
+      ],
+      "explanation": "Germs, or microbes, can cause infectious diseases."
+    },
+    {
+      "id": "s6.germs-defences.015",
+      "skill": "s6.germs-defences",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Why can a disease spread quickly in a school?",
+      "options": [
+        {
+          "text": "Schools make germs stronger.",
+          "why": "Schools do not change germs."
+        },
+        {
+          "text": "Many people are close together, so germs pass easily."
+        },
+        {
+          "text": "Teachers carry all the germs.",
+          "why": "Anyone can pass on germs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about how close children sit.",
+        "Germs spread by touch and air.",
+        "More people means more chances."
+      ],
+      "explanation": "When people are close, germs have more chances to pass between them."
+    },
+    {
+      "id": "s6.germs-defences.016",
+      "skill": "s6.germs-defences",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "A child is ill with a fever. Which action is the best?",
+      "options": [
+        {
+          "text": "go to school anyway",
+          "why": "This could spread germs."
+        },
+        {
+          "text": "rest, drink water and tell an adult"
+        },
+        {
+          "text": "hide it",
+          "why": "Adults need to know."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Rest helps the body fight germs.",
+        "Fever is a sign of infection.",
+        "An adult can help."
+      ],
+      "explanation": "Resting, drinking water and telling an adult is the best way to get better and protect others."
+    },
+    {
+      "id": "s6.germs-defences.017",
+      "skill": "s6.germs-defences",
+      "difficulty": 4,
+      "type": "mcq",
+      "prompt": "Why does washing hands before eating help?",
+      "options": [
+        {
+          "text": "It makes the food taste sweeter.",
+          "why": "Taste is not changed."
+        },
+        {
+          "text": "It removes germs that could get into the body with food."
+        },
+        {
+          "text": "It makes the stomach acid stronger.",
+          "why": "Washing hands does not change the stomach."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hands touch many things.",
+        "Germs can be on them.",
+        "Eating moves germs into the body."
+      ],
+      "explanation": "Clean hands carry fewer germs into the mouth when you eat."
+    },
+    {
+      "id": "s6.germs-defences.018",
+      "skill": "s6.germs-defences",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Why can antibiotics not cure a cold?",
+      "options": [
+        {
+          "text": "Antibiotics only work on adults.",
+          "why": "This is not the reason."
+        },
+        {
+          "text": "Colds are caused by viruses, and antibiotics work on bacteria."
+        },
+        {
+          "text": "Colds are not caused by anything.",
+          "why": "Colds are caused by viruses."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "There are different kinds of germs.",
+        "A cold is caused by a virus.",
+        "Antibiotics target bacteria."
+      ],
+      "explanation": "Antibiotics kill bacteria but do not work against viruses, which cause colds."
+    },
+    {
+      "id": "s6.germs-defences.019",
+      "skill": "s6.germs-defences",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "A town has no clean drinking water and many people become ill. Which is the most useful change?",
+      "options": [
+        {
+          "text": "sell more sweets",
+          "why": "This does not stop disease."
+        },
+        {
+          "text": "provide clean water and good sanitation"
+        },
+        {
+          "text": "close the school",
+          "why": "This does not fix the cause."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The cause is the water.",
+        "Clean water stops waterborne germs.",
+        "Sanitation also helps."
+      ],
+      "explanation": "Clean water and sanitation remove the main route for germs, so fewer people become ill."
+    },
+    {
+      "id": "s6.germs-defences.020",
+      "skill": "s6.germs-defences",
+      "difficulty": 5,
+      "type": "mcq",
+      "prompt": "Which sentence about vaccines is correct?",
+      "options": [
+        {
+          "text": "A vaccine is the same as a medicine for an illness you already have.",
+          "why": "A vaccine works in advance."
+        },
+        {
+          "text": "A vaccine helps the body to be ready for a germ before it arrives."
+        },
+        {
+          "text": "A vaccine makes you ill on purpose.",
+          "why": "A vaccine is designed to be safe."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Vaccines are given in advance.",
+        "They help the body learn.",
+        "They are different from medicine."
+      ],
+      "explanation": "A vaccine prepares the immune system in advance so it can respond quickly."
+    }
+  ]
+}
