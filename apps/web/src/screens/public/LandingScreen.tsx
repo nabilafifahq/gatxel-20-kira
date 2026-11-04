@@ -85,15 +85,15 @@ export function LandingScreen({ seats, curriculumClaim, turnstileSiteKey }: Land
             <ol className="m-0 mt-4 flex list-none flex-col gap-3 p-0">
               <li className="flex items-center gap-3 rounded-control bg-math-50 px-4 py-3 text-fg">
                 <span className="font-display text-h2 font-semibold">1</span>
-                <span className="text-body font-bold">Math, 8 soal</span>
+                <span className="text-body font-bold">Math</span>
               </li>
               <li className="flex items-center gap-3 rounded-control bg-english-50 px-4 py-3 text-fg">
                 <span className="font-display text-h2 font-semibold">2</span>
-                <span className="text-body font-bold">English, 8 soal</span>
+                <span className="text-body font-bold">English</span>
               </li>
               <li className="flex items-center gap-3 rounded-control bg-science-50 px-4 py-3 text-fg">
                 <span className="font-display text-h2 font-semibold">3</span>
-                <span className="text-body font-bold">Science, 8 soal</span>
+                <span className="text-body font-bold">Science</span>
               </li>
             </ol>
             <p className="m-0 mt-5 font-reading text-body-lg">Berapa hasil 6 + 7?</p>
