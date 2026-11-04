@@ -43,6 +43,8 @@ async function prepare() {
   await sql`update auth.user_account set name = 'Rina' where id = ${guardian}`
   await sql`update member_profile set name = 'Rina' where user_id = ${guardian}`
   await sql`update day_rules set preset = 'seimbang', rules = null where learner_id in (${aisha}, ${raka})`
+  // Bahasa bawaan keluarga baru: tampilan anak berbahasa Indonesia.
+  await sql`update auth.user_account set ui_lang = 'id' where id in (${aisha}, ${raka})`
 
   // Enam hari belajar terakhir, supaya halaman Keluarga dan rapor tidak kosong.
   for (const [who, base] of [[aisha, 22], [raka, 28]]) {
@@ -70,13 +72,17 @@ async function restore() {
   await sql`update org set name = ${orgRow.name} where id = ${org}`
   await sql`update auth.user_account set name = 'Mama Contoh' where id = ${guardian}`
   await sql`update member_profile set name = 'Mama Contoh' where user_id = ${guardian}`
+  await sql`update auth.user_account set ui_lang = 'en' where id in (${aisha}, ${raka})`
 }
 
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined })
 
 async function newPhone() {
   const context = await browser.newContext({ viewport: { width: WIDTH, height: HEIGHT }, deviceScaleFactor: SCALE, locale: 'id-ID', timezoneId: 'Asia/Jakarta', reducedMotion: 'reduce' })
-  return { context, page: await context.newPage() }
+  const page = await context.newPage()
+  page.setDefaultNavigationTimeout(180_000)
+  page.setDefaultTimeout(60_000)
+  return { context, page }
 }
 
 async function settle(page) {
@@ -111,6 +117,8 @@ async function toWebp(page, png) {
 async function capture(page, name) {
   if (only.size && !only.has(name)) return
   await settle(page)
+  // Lencana galat mode dev tidak boleh ikut terfoto.
+  await page.evaluate(() => document.querySelectorAll('nextjs-portal').forEach((el) => el.remove()))
   const png = await page.screenshot({ animations: 'disabled' })
   const res = await toWebp(page, png)
   const file = join(OUT, `${name}.webp`)
@@ -153,9 +161,9 @@ async function childShots() {
   await page.getByRole('link', { name: /^Aisha, / }).click()
   await page.waitForURL((u) => u.pathname.startsWith('/pin/'))
   await capture(page, 'pin')
-  for (const p of ['Sun', 'Moon', 'Star', 'Cat']) await page.getByRole('button', { name: p, exact: true }).click()
-  await page.waitForURL((u) => u.pathname === '/today', { timeout: 45_000 })
-  await page.getByRole('heading', { level: 1 }).first().waitFor({ state: 'visible', timeout: 45_000 })
+  for (const p of [/^(Sun|Matahari)$/, /^(Moon|Bulan)$/, /^(Star|Bintang)$/, /^(Cat|Kucing)$/]) await page.getByRole('button', { name: p }).click()
+  await page.waitForURL((u) => u.pathname === '/today', { timeout: 120_000 })
+  await page.getByRole('heading', { level: 1 }).first().waitFor({ state: 'visible', timeout: 120_000 })
   await capture(page, 'today')
 
   if (!only.size || only.has('kamus')) {

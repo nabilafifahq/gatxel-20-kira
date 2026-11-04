@@ -260,7 +260,7 @@ const HARI: GuideFeature[] = [
     suits: 'Laras kelas 3 ada ulangan pecahan besok. Bundanya mengganti pelajaran Latihan Math hari ini ke pecahan, dan menjadikan Latihan Science opsional supaya malamnya tidak terlalu panjang.',
     steps: [
       <>
-        Buka halaman anak, lalu <L>Sesi hari ini</L>.
+        Buka halaman anak, lalu <L>Sesi hari ini</L>. Sesi dibuat saat anak membuka Kira. Kalau anak belum membukanya hari ini, tekan <L>Siapkan sesi hari ini</L> supaya bisa diubah lebih dulu.
       </>,
       <>
         Tekan <L>Jadikan wajib</L> atau <L>Jadikan opsional</L> pada sebuah sesi.
