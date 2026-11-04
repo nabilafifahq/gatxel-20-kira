@@ -702,8 +702,11 @@ export async function setSessionRequired(actor: Actor, input: SessionTarget & { 
     await assertNotRest(tx, learner, input.date)
     const weekId = await ensureWeek(tx, ctx, learner.id, weekStart(input.date))
     let slotId: string
-    if (input.slotId) {
-      const slot = await slotById(tx, input.slotId)
+    // Tanpa slotId: pakai slot dasar yang sudah menggantikan sesi otomatis itu (misalnya setelah dijadikan Opsional).
+    const claimed = input.slotId ? null : (await dayEntries(tx, learner, input.date)).entries.find((e) => e.baseline && e.slotId !== null && e.subject === input.subject && e.session === input.session)
+    const useSlotId = input.slotId ?? claimed?.slotId ?? null
+    if (useSlotId) {
+      const slot = await slotById(tx, useSlotId)
       if (slot.learnerId !== learner.id || slot.date !== input.date) throw notFound('Slot tidak ditemukan untuk hari itu. Muat ulang halaman rencana.')
       if (!slot.base) await assertRoom(tx, learner.id, slot.date, input.required, slot.id)
       await tx.update(planSlot).set({ required: input.required }).where(eq(planSlot.id, slot.id))
