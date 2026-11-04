@@ -208,7 +208,9 @@ export function PrivacyNoticePage({ data, account }: PrivacyNoticePageProps & { 
           Hasil ini tidak dipakai untuk iklan, tidak dijual, dan tidak dibagikan ke sekolah atau penyelenggara lomba.
         </p>
         <p className="m-0">
-          Orang Tua bisa mengajukan keberatan atas pemilihan soal otomatis ke {entity.email}. Setelah itu tutor menyusun soal secara manual untuk anak tersebut.
+          Orang Tua bisa mengajukan keberatan atas pemilihan soal otomatis ke {entity.email}. Di keluarga bertutor, setelah itu tutor menyusun soal secara manual
+          untuk anak tersebut. Di keluarga tanpa tutor, Orang Tua bisa memilih sendiri pelajaran tiap sesi dari halaman anak, dan kami membantu lewat email kalau ada yang
+          belum bisa diatur sendiri.
         </p>
       </LegalSection>
 
