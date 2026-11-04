@@ -79,6 +79,9 @@ export type Answer =
   | { placed: (readonly [number, number, 0 | 1] | null)[] }
   | { pegs: (readonly [number, number])[]; closed: boolean }
 
+/** Batas digit keypad jawaban angka. Harus lebih panjang dari jawaban terpanjang di bank soal dan generator (test/keypad-limit.test.ts). */
+export const NUMERIC_MAX_DIGITS = 10
+
 export type CheckStatus = 'correct' | 'wrong' | 'blank' | 'pending'
 
 export type CheckResult = { status: CheckStatus; score: number; partial?: number }
