@@ -109,6 +109,31 @@ test('orang tua mengganti pelajaran, Today anak ikut, sesi selesai dan sesi berj
   await ctx.close()
 })
 
+test('orang tua menyiapkan hari ini sebelum anak membuka Today, lalu anak mendapat pelajaran pilihannya', async ({ page: child, browser, baseURL }) => {
+  const lid = await learnerId('Raka')
+  await resetDay(lid)
+  const ctx = await browser.newContext({ baseURL: baseURL!, viewport: { width: 390, height: 844 }, locale: 'en-GB', timezoneId: 'Asia/Jakarta' })
+  const page = await ctx.newPage()
+  await loginAdult(page, GUARDIAN, `/keluarga/anak/${lid}`)
+  await page.getByRole('button', { name: 'Siapkan sesi hari ini' }).click()
+  const row = rowOf(page, 'Math, Latihan')
+  await expect(row.getByRole('button', { name: 'Ganti pelajaran' })).toBeVisible()
+  const before = await questOf(lid, 'math', 'latihan')
+  const grade4 = JSON.parse(readFileSync(fileURLToPath(new URL('../../content/skills/math/g4.json', import.meta.url)), 'utf8')) as SkillFile
+  const target = grade4.find((x) => x.id !== before.skill_id)!
+  await row.getByRole('button', { name: 'Ganti pelajaran' }).click()
+  const dialog = page.getByRole('dialog', { name: 'Ganti pelajaran Latihan Math' })
+  await dialog.getByRole('radio', { name: literal(target.titleId) }).check()
+  await dialog.getByRole('button', { name: 'Pakai pelajaran ini' }).click()
+  await expect(dialog).toBeHidden()
+  await expect.poll(async () => (await questOf(lid, 'math', 'latihan')).skill_id).toBe(target.id)
+
+  await registerTablet(child, ['Aisha', 'Raka'], 'Tablet siapkan')
+  await pinLogin(child, 'Raka')
+  await expect(child.getByText(target.title).first()).toBeVisible()
+  await ctx.close()
+})
+
 test('tutor keluarga lama mengganti pelajaran hari ini lewat Rencana, Today anak ikut', async ({ page: child, browser, baseURL }) => {
   const lid = await learnerId('Raka')
   await resetDay(lid)

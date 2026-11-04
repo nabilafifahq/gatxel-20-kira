@@ -21,7 +21,7 @@ import {
   parentSetSessionRequired,
   parentUnlock,
 } from '../dal/parent-control'
-import { parentChangeSessionSkill, parentSkillOptions } from '../dal/parent-skill-change'
+import { parentChangeSessionSkill, parentPrepareToday, parentSkillOptions } from '../dal/parent-skill-change'
 import { parentSchemas as S } from './parent-schemas'
 
 /**
@@ -99,6 +99,16 @@ export async function parentSetQuestionCountAction(input: unknown): Promise<Acti
     const actor = await requireParent()
     const data = S.questionCount.parse(input)
     const change = await parentSetQuestionCount(actor, data)
+    after(change)
+    return change
+  })
+}
+
+export async function parentPrepareTodayAction(input: unknown): Promise<ActionResult<PlanChangeResult>> {
+  return runAction('parentPrepareToday', async () => {
+    const actor = await requireParent()
+    const data = S.unlock.parse(input)
+    const change = await parentPrepareToday(actor, data)
     after(change)
     return change
   })

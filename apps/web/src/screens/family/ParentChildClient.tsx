@@ -25,6 +25,7 @@ import {
   parentAddOptionalAction,
   parentEditChildAction,
   parentMarkWorkAction,
+  parentPrepareTodayAction,
   parentRemoveSessionAction,
   parentResetPinAction,
   parentResetStreakAction,
@@ -108,9 +109,7 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
       </p>
 
       <Section id="hari-ini" title="Sesi hari ini" hint="Wajib dulu, lalu opsional. Hanya sesi wajib yang dihitung untuk streak." open>
-        {data.today.sessions.length === 0 ? (
-          <p className="m-0 text-body text-fg-muted">Belum ada sesi hari ini. Sesi dibuat otomatis saat {c.name} membuka layar Hari Ini.</p>
-        ) : null}
+        {data.today.sessions.length === 0 ? <PrepareToday learnerId={c.id} name={c.name} canPrepare={c.active && c.status !== 'rest'} /> : null}
         {note ? <InlineAlert tone="success" title={note} /> : null}
         <SessionList title="Wajib" sessions={required} onNote={setNote} learnerId={c.id} />
         <SessionList title="Opsional" sessions={optional} onNote={setNote} learnerId={c.id} />
@@ -361,6 +360,24 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
         error={remove.error ? remove.error.message : undefined}
       />
     </li>
+  )
+}
+
+function PrepareToday({ learnerId, name, canPrepare }: { learnerId: string; name: string; canPrepare: boolean }) {
+  const prepare = useAction(parentPrepareTodayAction)
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="m-0 text-body text-fg-muted">
+        Belum ada sesi hari ini. Sesi dibuat otomatis saat {name} membuka layar Hari Ini.
+        {canPrepare ? ' Bisa juga disiapkan sekarang supaya pelajarannya bisa diganti lebih dulu.' : ''}
+      </p>
+      {canPrepare ? (
+        <Button variant="secondary" className="self-start" loading={prepare.pending} onClick={() => void prepare.run({ learnerId })}>
+          Siapkan sesi hari ini
+        </Button>
+      ) : null}
+      <ActionError error={prepare.error} />
+    </div>
   )
 }
 
