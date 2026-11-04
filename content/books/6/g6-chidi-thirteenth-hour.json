@@ -13,474 +13,618 @@
     {
       "id": "c1",
       "title": "The Clock with Thirteen Numbers",
-      "text": "Chidi never had enough time. His school day in Lagos began at seven, football practice ended at five, and then came homework, chores and his little sister Ngozi, who needed help with her violin. By bedtime, Chidi was always behind.\n\nOne Saturday, he wandered into the repair shop at the end of his street. Mr Okonkwo, a thin man with silver glasses, was sitting among hundreds of ticking clocks. \"Looking for something?\" he asked.\n\n\"A way to get more time,\" joked Chidi.\n\nMr Okonkwo smiled strangely. From a dusty shelf, he took down a small brass clock. Chidi looked closer and blinked. The face had thirteen numbers instead of twelve.\n\n\"It is broken,\" Chidi said.\n\n\"Very likely,\" said Mr Okonkwo. \"Take it. It is free. But be careful. Time is not as simple as it looks.\"",
+      "text": "Chidi never had enough time. His school day in Lagos began at seven, football practice ended at five, and then came homework, chores and his little sister Ngozi, who needed help with her violin. By bedtime, Chidi was always behind. There was always one more page, one more plate to wash, one more scale for Ngozi that he promised to hear tomorrow.\n\nTheir mother worked long shifts at the hospital, and their father drove a delivery van to Ibadan three days a week, so the two children looked after each other more than most. Ngozi was eight, and she played the violin as if she were telling it a secret. Chidi was twelve, and his homework diary was full of red ink. It said late, and late again, and once, in his teacher's tired handwriting, simply, oh, Chidi.\n\nOne Saturday, he wandered into the repair shop at the end of his street, because his watch needed a new battery. The door closed behind him, and the horns of the yellow buses dropped away. Inside, the air smelled of oil and old wood. Mr Okonkwo, a thin man with silver glasses, was sitting among hundreds of ticking clocks, and no two of them agreed. \"Looking for something?\" he asked, without looking up from the tiny wheel in his tweezers.\n\n\"A way to get more time,\" joked Chidi.\n\nThe tweezers stopped. Mr Okonkwo smiled strangely. From a dusty shelf, he took down a small brass clock and put it on the counter. It was heavier than it looked. Chidi looked closer and blinked. The face had thirteen numbers instead of twelve, all squeezed together.\n\n\"It is broken,\" Chidi said.\n\n\"Very likely,\" said Mr Okonkwo. \"Take it. It is free.\"\n\nChidi hesitated in the doorway. Nothing in Lagos was free. \"Why?\" he asked.\n\n\"Because the last person brought it back.\" The old man looked up at last, over his glasses. \"Be careful. Time is not as simple as it looks.\"\n\nChidi laughed, paid for his battery and walked out into the noise with the clock in his bag. He was halfway home before he noticed its ticking. It was slightly out of step with his watch, as if an extra beat were hiding inside it.",
       "questions": [
         {
           "id": "q1",
           "prompt": "In which city does Chidi live?",
           "options": [
-            "Abuja",
             "Accra",
             "Lagos",
-            "Nairobi"
+            "Abuja",
+            "Ibadan"
           ],
-          "answer": 2,
-          "why": "The text says his school day in Lagos began at seven."
+          "answer": 1,
+          "why": "The text says his school day in Lagos began at seven. His father drives to Ibadan."
         },
         {
           "id": "q2",
           "prompt": "Why was Chidi always behind by bedtime?",
           "options": [
-            "He was lazy",
-            "He had school, football, homework, chores and helping his sister",
-            "He slept all day",
-            "He did not like school"
+            "He slept all afternoon and did not begin his homework until late",
+            "His parents kept him away from school for three days each week",
+            "School, football, homework, chores and Ngozi filled up his whole day",
+            "He spent most of his evenings at the repair shop on his street"
           ],
-          "answer": 1,
-          "why": "His day was full of school, football, homework, chores and help with Ngozi."
+          "answer": 2,
+          "why": "His day ran from school at seven and football until five, and then came homework, chores and helping Ngozi."
         },
         {
           "id": "q3",
-          "prompt": "What instrument does Ngozi play?",
+          "prompt": "What does \"as if she were telling it a secret\" suggest about Ngozi's playing?",
           "options": [
-            "The piano",
-            "The guitar",
-            "The drum",
-            "The violin"
+            "It is shy and almost impossible to hear",
+            "It is very loud and rather careless",
+            "It is quick and full of mistakes",
+            "It is gentle and full of feeling"
           ],
           "answer": 3,
-          "why": "Ngozi needed help with her violin."
+          "why": "Telling someone a secret is quiet and close. The comparison makes her playing sound tender and personal."
         },
         {
           "id": "q4",
-          "prompt": "What was strange about the brass clock?",
+          "prompt": "Why did Chidi go into the repair shop?",
           "options": [
-            "Its face had thirteen numbers",
-            "It ran backwards",
-            "It had no hands",
-            "It was made of gold"
+            "His watch needed a new battery",
+            "He had come to look for more time",
+            "He wanted to buy a clock for Ngozi",
+            "His violin needed a new string"
           ],
           "answer": 0,
-          "why": "The face had thirteen numbers instead of twelve."
+          "why": "He went into the repair shop because his watch needed a new battery. His remark about more time was a joke."
         },
         {
           "id": "q5",
-          "prompt": "What did Chidi think when he saw it?",
+          "prompt": "What was strange about the brass clock?",
           "options": [
-            "That it was magic",
-            "That it was broken",
-            "That it was very expensive",
-            "That it was lost"
+            "Its face had thirteen numbers",
+            "It was made of solid gold",
+            "It ran backwards all day",
+            "It had no hands at all"
           ],
-          "answer": 1,
-          "why": "Chidi said, \"It is broken.\""
+          "answer": 0,
+          "why": "The face had thirteen numbers instead of twelve, all squeezed together."
         },
         {
           "id": "q6",
-          "prompt": "What does Mr Okonkwo's smile suggest?",
+          "prompt": "What does Mr Okonkwo's reaction to Chidi's joke suggest?",
           "options": [
-            "He is angry",
-            "He knows something Chidi does not",
-            "He wants to sell it",
-            "He is sleepy"
+            "He thinks the boy has been very rude to him",
+            "He has not heard what the boy said to him",
+            "He is too busy to give any attention to customers",
+            "He takes the idea of getting more time quite seriously"
+          ],
+          "answer": 3,
+          "why": "The tweezers stop and he smiles strangely. Then he brings out the clock, as if the joke were a real request."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why might \"the last person brought it back\" worry a careful reader?",
+          "options": [
+            "It suggests that the clock was too heavy for most people",
+            "It suggests that the shop only ever sells broken clocks",
+            "It suggests that the clock caused some kind of trouble",
+            "It suggests that the clock had been stolen from someone"
+          ],
+          "answer": 2,
+          "why": "People do not usually return a free gift unless something is wrong with it, and straight after this he says, \"Be careful.\""
+        },
+        {
+          "id": "q8",
+          "prompt": "What did Chidi notice on the way home?",
+          "options": [
+            "His new battery had already started running down",
+            "The clock's ticking was out of step with his watch",
+            "The yellow buses had all gone quiet on his street",
+            "The clock had stopped ticking as soon as he left"
           ],
           "answer": 1,
-          "why": "He smiled strangely and warned that time is not as simple as it looks."
+          "why": "It was slightly out of step with his watch, as if an extra beat were hiding inside it."
         }
       ]
     },
     {
       "id": "c2",
       "title": "The Extra Hour",
-      "text": "That night, Chidi put the clock on his shelf and tried to sleep. At exactly midnight, the clock began to chime: one, two, three... all the way to thirteen.\n\nAt the thirteenth chime, the whole world stopped. The ceiling fan hung still in mid-spin. A moth froze in the air near the window. Outside, a car stood silent on the road with its headlights shining.\n\nChidi crept to the window. Nothing moved. He was the only one awake in a world of statues.\n\n\"Whoa,\" he whispered. \"An extra hour!\"\n\nHe used it well. He finished his maths homework, practised passing the football against the wall, and even read half a book. When the hour was over, the clock ticked once, and the world started again. The moth flew on. Chidi fell asleep smiling.",
+      "text": "That night, Chidi put the clock on his shelf, between his football boots and his geography book, and tried to sleep. Lagos was never quiet. A generator hummed next door, and somewhere a dog was barking at nothing. At exactly midnight, the clock began to chime: one, two, three, all the way to twelve. Chidi groaned and pulled the pillow over his head.\n\nThen, after a small pause, it chimed once more.\n\nAt the thirteenth chime, the whole world stopped. The generator stopped. The dog stopped. The ceiling fan hung still in mid-spin. A moth froze in the air near the window with its wings spread. Outside, a car stood silent on the road with its headlights shining, and the night watchman across the street was halfway through a yawn.\n\nChidi crept to the window. Nothing moved. He looked in at Ngozi, who lay with one arm flung out, and he could not see her breathing. For a moment, he was very afraid. He was the only one awake in a world of statues. He touched the moth with one finger, and it stayed where it was, like a bead on an invisible string. In his room, the brass clock went on ticking, very slowly.\n\n\"Whoa,\" he whispered. \"An extra hour!\"\n\nHe used it well. He finished his maths homework at the desk with nobody calling his name. He went down to the yard and practised passing the football against the wall, and the thud did not wake a soul. He even read half a book, just for pleasure, which he had not done since last term. He even sharpened all his pencils, just because he could. On his way in, he said good evening to the watchman, and it felt very strange to get no answer. It felt like the first deep breath he had taken in months.\n\nWhen the hour was over, the clock ticked once, and the world started again. The fan turned. The watchman finished his yawn. The moth flew on.\n\nChidi got back into bed. He was not even tired. He fell asleep smiling, and he did not hear Ngozi sigh and turn over in the next room.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "At what time did the clock chime thirteen?",
-          "options": [
-            "At sunrise",
-            "At noon",
-            "At six o'clock",
-            "At midnight"
-          ],
-          "answer": 3,
-          "why": "At exactly midnight, the clock began to chime."
-        },
-        {
-          "id": "q2",
           "prompt": "What happened at the thirteenth chime?",
           "options": [
-            "The whole world stopped",
-            "The clock broke",
-            "A storm began",
-            "The lights went out"
+            "The clock broke into pieces",
+            "All the lights went out",
+            "A storm began outside",
+            "The whole world stopped"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "At the thirteenth chime, the whole world stopped."
         },
         {
-          "id": "q3",
-          "prompt": "What did Chidi see near the window?",
+          "id": "q2",
+          "prompt": "Which detail best shows that time itself had stopped?",
           "options": [
-            "A bird",
-            "A cat",
-            "A moth frozen in the air",
-            "A bat"
+            "The night watchman was frozen halfway through a yawn",
+            "A generator had been humming in the house next door",
+            "Chidi had pulled the pillow right over his head",
+            "The clock had chimed all the way up to twelve"
           ],
-          "answer": 2,
-          "why": "A moth froze in the air near the window."
+          "answer": 0,
+          "why": "Nobody can stay halfway through a yawn. A sleeping street can be quiet, but a yawn stopped in the middle only happens if time has stopped."
+        },
+        {
+          "id": "q3",
+          "prompt": "Why was Chidi very afraid for a moment?",
+          "options": [
+            "The ticking clock had started to grow very much louder",
+            "Ngozi did not seem to be breathing, and he seemed to be alone",
+            "The moth had flown straight into his face in the dark",
+            "A stranger had come into the room and spoken to him"
+          ],
+          "answer": 1,
+          "why": "He looked at Ngozi and could not see her breathing, and he was the only one awake in a world of statues."
         },
         {
           "id": "q4",
           "prompt": "What did Chidi do with the extra hour?",
           "options": [
-            "He slept more",
-            "He played a video game",
-            "He went for a walk",
-            "He did his homework, practised football and read"
+            "He woke Ngozi and showed her the frozen moth",
+            "He walked to the repair shop and spoke to the owner",
+            "He did his maths, practised football and read",
+            "He slept for longer, then played a video game"
           ],
-          "answer": 3,
-          "why": "He finished his maths homework, practised passing the football and read half a book."
+          "answer": 2,
+          "why": "He finished his maths homework, practised passing the football against the wall, and read half a book."
         },
         {
           "id": "q5",
-          "prompt": "How did the extra hour end?",
+          "prompt": "How could Chidi kick a football against a wall at midnight without trouble?",
           "options": [
-            "The clock ticked once and the world started again",
-            "Chidi smashed the clock",
-            "Ngozi woke him",
-            "The moth stung him"
+            "Nobody could hear it, because the world had stopped",
+            "The whole street was away visiting family in Ibadan",
+            "He wrapped the ball in an old towel to muffle it",
+            "The generator next door was making too much noise"
           ],
           "answer": 0,
-          "why": "When the hour was over, the clock ticked once and the world started again."
+          "why": "The text says the thud did not wake a soul. Everyone was frozen, so nobody could be disturbed."
         },
         {
           "id": "q6",
-          "prompt": "How did Chidi feel the next morning?",
+          "prompt": "What does \"the first deep breath he had taken in months\" tell us?",
           "options": [
-            "Frightened",
-            "Cross",
-            "Pleased with the extra hour",
-            "Bored"
+            "He had been ill with a bad cough for several months",
+            "He had felt rushed and under pressure for a long time",
+            "He had been running too much at football practice",
+            "He had not been outside in the fresh air for months"
+          ],
+          "answer": 1,
+          "why": "It is not about real breathing. After months of being behind, an hour with no pressure feels like relief."
+        },
+        {
+          "id": "q7",
+          "prompt": "How did the extra hour end?",
+          "options": [
+            "Ngozi woke and called out for her big brother",
+            "Chidi turned the clock's hands back to twelve",
+            "The moth flew into the fan and made a noise",
+            "The clock ticked once, and the world started again"
+          ],
+          "answer": 3,
+          "why": "When the hour was over, the clock ticked once, and the world started again."
+        },
+        {
+          "id": "q8",
+          "prompt": "Why might the writer mention Ngozi sighing at the end of the chapter?",
+          "options": [
+            "To remind us that she is younger than her brother Chidi",
+            "To explain that she is a noisy sleeper who keeps Chidi awake",
+            "To hint that the extra hour may be having some effect on her",
+            "To show that she has been woken up by the noise of the ball"
           ],
           "answer": 2,
-          "why": "He fell asleep smiling after using the hour well."
+          "why": "The chapter ends on this small detail, just as Chidi is pleased and not even tired. It makes the reader wonder about her."
         }
       ]
     },
     {
       "id": "c3",
       "title": "Too Good to Stop",
-      "text": "For a week, the clock chimed thirteen every midnight. Chidi's life changed. He finished his homework early, his football improved, and his teacher praised his neat work. He even had time to play cards with his friends in the evening.\n\n\"How do you do it?\" asked his best friend, Emeka.\n\n\"Just good planning,\" Chidi lied.\n\nBut he began to notice something odd. Ngozi was always tired now. At breakfast she yawned over her porridge, and during violin practice her bow slid off the strings. \"I do not know what is wrong,\" she said sadly. \"I sleep all night, but I wake up exhausted.\"\n\nChidi felt a tiny cold feeling in his stomach. He thought about the clock. Then he pushed the thought away. After all, it could not possibly be connected.",
+      "text": "For a week, the clock chimed thirteen every midnight. Chidi's life changed. He finished his homework early, his football improved, and his teacher praised his neat work. The red ink vanished from his diary. His coach moved him up to the first team. He even had time to play cards with his friends in the evening, and he began to feel a little sorry for people who only had twenty-four hours. His mother looked at his marks and said, \"Who are you, and what have you done with my son?\"\n\n\"How do you do it?\" asked his best friend, Emeka, at the bus stop. They had shared every secret since they were six.\n\n\"Just good planning,\" Chidi lied. It came out very easily, and that surprised him a little.\n\nBy the fifth night, the hour was not for homework any more. He put his feet on the desk and read comics, because he told himself he had earned it.\n\nBut he began to notice something odd. Ngozi was always tired now. At breakfast she yawned over her porridge, and during violin practice her bow slid off the strings. Her teacher sent a note home. The school concert was on Saturday week, and Ngozi had the solo. She had talked of nothing else for months, and now she hardly mentioned it.\n\n\"I do not know what is wrong,\" she said sadly. \"I sleep all night, but I wake up exhausted.\"\n\nTheir mother felt her forehead and took her temperature, and there was nothing wrong. \"She is growing,\" she said. But she did not look sure, and she stood looking at Ngozi for a long time.\n\nChidi felt a tiny cold feeling in his stomach. He thought about the clock. A whole extra hour, every night. Where did it come from? He had taken care never to ask that question. He remembered the old man's eyes over the silver glasses, and the words, the last person brought it back.\n\nThen he pushed the thought away. After all, it could not possibly be connected.\n\nThat night, he lay awake and waited for midnight anyway. At the thirteenth chime, he looked for a moment towards Ngozi's door. Then he reached for his comic.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "How long did the clock chime thirteen every midnight?",
+          "prompt": "How long did Chidi's new life go on before he noticed something odd?",
           "options": [
-            "For a day",
-            "For a week",
-            "For a month",
-            "For a year"
+            "For a single day",
+            "For about a week",
+            "For about a year",
+            "For a whole month"
           ],
           "answer": 1,
-          "why": "For a week, the clock chimed thirteen every midnight."
+          "why": "The chapter opens with \"For a week, the clock chimed thirteen every midnight\", and during that time he begins to notice."
         },
         {
           "id": "q2",
-          "prompt": "What changed for Chidi?",
+          "prompt": "What changed for Chidi at school?",
           "options": [
-            "His school grades fell",
-            "His homework was early and his football improved",
-            "He lost his friends",
-            "He had less time"
+            "His marks fell, and his teacher sent a note home",
+            "He gave up football and stayed home in the evening",
+            "His work was on time, and his teacher praised it",
+            "He moved to a new class with his friend Emeka"
           ],
-          "answer": 1,
-          "why": "He finished his homework early, his football improved, and his teacher praised his work."
+          "answer": 2,
+          "why": "He finished his homework early, his teacher praised his neat work, and the red ink vanished from his diary."
         },
         {
           "id": "q3",
-          "prompt": "What did Chidi tell Emeka?",
+          "prompt": "Why did the easy lie surprise Chidi a little?",
           "options": [
-            "The truth",
-            "That it was just good planning",
-            "That he had a robot",
-            "That he had a magic book"
+            "He was not used to hiding things from his best friend",
+            "He had already told Emeka all about the brass clock",
+            "He had not thought that Emeka would ever ask him",
+            "He did not know the meaning of the word planning"
           ],
-          "answer": 1,
-          "why": "He said, \"Just good planning,\" but that was a lie."
+          "answer": 0,
+          "why": "They had shared every secret since they were six, so lying to Emeka was new for him."
         },
         {
           "id": "q4",
-          "prompt": "What was wrong with Ngozi?",
+          "prompt": "How did Chidi's use of the hour change by the fifth night?",
           "options": [
-            "She was always tired",
-            "She had lost her violin",
-            "She was ill with a fever",
-            "She was angry with Chidi"
+            "He stayed in bed asleep the whole time",
+            "He gave it to his friends for playing cards",
+            "He began to spend it helping his sister",
+            "He stopped working and read comics in it"
           ],
-          "answer": 0,
-          "why": "Ngozi was always tired and said she woke up exhausted."
+          "answer": 3,
+          "why": "By the fifth night, the hour was not for homework any more. He put his feet on the desk and read comics."
         },
         {
           "id": "q5",
-          "prompt": "Which detail shows that Ngozi was exhausted?",
+          "prompt": "Why was Ngozi's tiredness such a serious problem just now?",
           "options": [
-            "She won a competition",
-            "She sang loudly",
-            "She ran fast",
-            "Her bow slid off the strings"
+            "She had the solo at the school concert very soon",
+            "Her teacher was going to move away from Lagos",
+            "She had a very important maths test the next week",
+            "Her mother had just lost her job at the hospital"
           ],
-          "answer": 3,
-          "why": "During violin practice her bow slid off the strings."
+          "answer": 0,
+          "why": "The school concert was on Saturday week, and Ngozi had the solo."
         },
         {
           "id": "q6",
-          "prompt": "What did Chidi do when he thought about the clock?",
+          "prompt": "What did their mother do when she was worried about Ngozi?",
           "options": [
-            "He told his mother",
-            "He smashed it",
-            "He pushed the thought away",
-            "He took it back"
+            "She looked through Chidi's room to find the cause",
+            "She felt her forehead and took her temperature",
+            "She kept her away from school for a whole week",
+            "She rang the violin teacher and asked for advice"
+          ],
+          "answer": 1,
+          "why": "Their mother felt her forehead and took her temperature, and there was nothing wrong."
+        },
+        {
+          "id": "q7",
+          "prompt": "What does \"He had taken care never to ask that question\" show?",
+          "options": [
+            "He had asked Mr Okonkwo, and he had got no reply",
+            "He had forgotten all about it as soon as he got home",
+            "He did not understand how clocks and watches work",
+            "Part of him suspected the answer and did not want to know"
+          ],
+          "answer": 3,
+          "why": "Taking care not to ask means he knew there was a question and avoided it on purpose."
+        },
+        {
+          "id": "q8",
+          "prompt": "Does Chidi truly believe that \"it could not possibly be connected\"?",
+          "options": [
+            "Yes, his mother has told him that she has found the cause",
+            "No, he has just proved that the clock is hurting his sister",
+            "No, he is telling himself that so that he can keep the hour",
+            "Yes, he has good evidence that Ngozi is simply growing"
           ],
           "answer": 2,
-          "why": "He thought about the clock, then pushed the thought away."
+          "why": "He feels a cold fear and pushes the thought away, then looks towards her door before reaching for his comic. He is avoiding what he suspects."
         }
       ]
     },
     {
       "id": "c4",
       "title": "The Clockmaker's Warning",
-      "text": "The next evening, Ngozi fell asleep in the middle of her violin practice. Chidi carried her to bed. Then he took the brass clock in his bag and ran down the street to the repair shop.\n\nMr Okonkwo was waiting at the door, as if he had expected him. \"I wondered when you would come,\" he said. \"You have noticed, then.\"\n\n\"Noticed what?\" Chidi's voice shook.\n\n\"The clock does not make time,\" said the old man. \"It only moves it. Every extra hour you use is taken from somebody close to you. Somebody who loves you, and whom you love. They lose an hour of rest and do not know why.\"\n\nChidi felt his legs go weak. \"Ngozi,\" he whispered. \"I have been taking her hours.\"\n\n\"Yes. And there is only one way to stop it,\" said Mr Okonkwo. \"You must give back all the hours you have taken.\"",
+      "text": "The next evening, Ngozi fell asleep in the middle of her violin practice. The bow slipped from her hand and rolled across the floor, and she did not wake. Chidi stood in the doorway and looked at her. She was eight years old, and there were grey shadows under her eyes. He carried her to bed, and she did not stir even when he took off her shoes.\n\nThen he took the brass clock in his bag and ran down the street to the repair shop.\n\nIt was long past closing time, but the door stood open. Mr Okonkwo was waiting there, as if he had expected him. Two cups of tea were on the counter, and both of them were already poured.\n\n\"I wondered when you would come,\" he said. \"You have noticed, then.\"\n\n\"Noticed what?\" Chidi's voice shook. He put the clock on the counter, and all the clocks in the shop seemed to tick more softly.\n\n\"The clock does not make time,\" said the old man. \"It only moves it. Every extra hour you use is taken from somebody close to you. Somebody who loves you, and whom you love. They lose an hour of rest and do not know why.\"\n\nChidi felt his legs go weak. He sat down on a box of spare springs. Seven nights, one hour every night. He remembered the comics, and his feet on the desk. \"Ngozi,\" he whispered. \"I have been taking her hours.\"\n\n\"Yes.\"\n\n\"You knew!\" Chidi was shouting now. He had never shouted at an adult in his life. \"Why did you give it to me?\"\n\nMr Okonkwo let him finish. Then he took off his glasses, and without them he looked very old. \"I told you to be careful, and you laughed,\" he said. \"Nobody believes a warning about time until they have spent some. When I was your age, I had a brother. Nobody warned me at all.\"\n\nThe shop was silent for a while, apart from the ticking.\n\n\"Then I will smash it,\" said Chidi.\n\n\"You may. But the hours would still be owed, and she would go on paying for them. And there is only one way to stop it,\" said Mr Okonkwo. \"You must give back all the hours you have taken.\"",
       "questions": [
         {
           "id": "q1",
-          "prompt": "What did Ngozi do in the middle of her practice?",
+          "prompt": "What happened during Ngozi's violin practice?",
           "options": [
-            "She cried",
-            "She played louder",
-            "She fell asleep",
-            "She went outside"
+            "She started to cry and said that she had a bad fever",
+            "She played her solo better than she had ever played it",
+            "She fell asleep, and the bow rolled across the floor",
+            "She broke a string and went to look for her brother"
           ],
           "answer": 2,
-          "why": "Ngozi fell asleep in the middle of her violin practice."
+          "why": "Ngozi fell asleep in the middle of her violin practice. The bow slipped from her hand and rolled across the floor."
         },
         {
           "id": "q2",
-          "prompt": "How did Mr Okonkwo seem to know Chidi would come?",
+          "prompt": "Which detail suggests that Mr Okonkwo had been expecting Chidi?",
           "options": [
-            "He was waiting at the door as if he had expected him",
-            "He had phoned",
-            "He had a map",
-            "He followed him"
+            "His glasses were lying on the counter",
+            "There was a box of spare springs on the floor",
+            "There were hundreds of clocks in the shop",
+            "Two cups of tea had already been poured"
           ],
-          "answer": 0,
-          "why": "Mr Okonkwo was waiting at the door, as if he had expected him."
+          "answer": 3,
+          "why": "He was waiting at the open door after closing time, and two cups of tea were already poured, one of them clearly for a visitor."
         },
         {
           "id": "q3",
           "prompt": "What does the clock really do?",
           "options": [
-            "It makes new time",
+            "It stops time for ever for everyone",
             "It moves time from one person to another",
-            "It stops time for ever",
-            "It tells the time wrongly"
+            "It makes brand new time out of nothing",
+            "It tells the wrong time on purpose"
           ],
           "answer": 1,
-          "why": "The clock does not make time. It only moves it."
+          "why": "\"The clock does not make time,\" said the old man. \"It only moves it.\""
         },
         {
           "id": "q4",
-          "prompt": "From whom is the extra hour taken?",
+          "prompt": "From whom is each extra hour taken?",
           "options": [
-            "A stranger",
-            "The clockmaker",
-            "Nobody",
-            "Somebody who loves Chidi and whom he loves"
+            "Somebody who loves the user, and whom the user loves",
+            "The person who last brought the clock to the shop",
+            "The clockmaker, who must lose an hour for every sale",
+            "A stranger living in another part of the same city"
           ],
-          "answer": 3,
-          "why": "Every extra hour is taken from somebody close to you."
+          "answer": 0,
+          "why": "Every extra hour is taken from somebody close to you. \"Somebody who loves you, and whom you love.\""
         },
         {
           "id": "q5",
-          "prompt": "Whose hours had Chidi been taking?",
+          "prompt": "Why does Chidi remember the comics at this moment?",
           "options": [
-            "Ngozi's",
-            "Emeka's",
-            "His teacher's",
-            "His mother's"
+            "He wishes he had brought one along to the shop to read",
+            "He feels guilty that he spent his sister's rest on something so idle",
+            "He thinks that the comics are what made Ngozi so ill",
+            "He wants to give the comics to Mr Okonkwo in payment"
           ],
-          "answer": 0,
-          "why": "Chidi whispered, \"Ngozi. I have been taking her hours.\""
+          "answer": 1,
+          "why": "He has just learned that each hour came from someone he loves, and he recalls lying with his feet on the desk. The memory shames him."
         },
         {
           "id": "q6",
-          "prompt": "What must Chidi do to stop the clock?",
+          "prompt": "How does Mr Okonkwo answer the question \"Why did you give it to me?\"",
           "options": [
-            "Smash it",
-            "Throw it into the sea",
-            "Wind it backwards",
-            "Give back all the hours he has taken"
+            "He says that Chidi had stolen the clock and that it was never a gift at all",
+            "He says that he wanted Chidi's homework to improve and that it did improve",
+            "He says that the clock was broken and he did not know what it would do",
+            "He says he warned Chidi, and nobody believes such a warning until it costs them"
           ],
           "answer": 3,
-          "why": "Mr Okonkwo says he must give back all the hours."
+          "why": "He says, \"I told you to be careful, and you laughed. Nobody believes a warning about time until they have spent some.\""
+        },
+        {
+          "id": "q7",
+          "prompt": "What do Mr Okonkwo's words about his brother suggest?",
+          "options": [
+            "He learned how to mend clocks from his older brother",
+            "His brother lives in Ibadan and drives a delivery van",
+            "He once took hours from his own brother in the same way",
+            "His brother is the person who brought the clock back"
+          ],
+          "answer": 2,
+          "why": "He says, \"When I was your age, I had a brother. Nobody warned me at all.\" He looks old and sad, so he seems to have made the same mistake."
+        },
+        {
+          "id": "q8",
+          "prompt": "Why would smashing the clock not solve the problem?",
+          "options": [
+            "The hours would still be owed, and Ngozi would go on paying",
+            "Mr Okonkwo would have to be paid for the broken clock",
+            "The clock is made of brass and is too strong to smash",
+            "The shop would be full of the sound of chiming for days"
+          ],
+          "answer": 0,
+          "why": "\"You may. But the hours would still be owed, and she would go on paying for them.\""
         }
       ]
     },
     {
       "id": "c5",
       "title": "Giving It Back",
-      "text": "\"But how?\" asked Chidi. \"I cannot just hand her seven hours.\"\n\n\"You can spend your hours on her,\" said Mr Okonkwo. \"Time is not given back by a magic trick. It is given back by care. For every hour you borrowed, give an hour of your own time to Ngozi, and do it gladly. When you have repaid them all, the clock will stop.\"\n\nChidi took a deep breath and ran home. That night, he put the clock aside, and for the next week he got up early. He helped Ngozi with her scales. He carried her violin to school. He sat in the front row at her lessons and clapped louder than anyone.\n\nSome days, his homework was late and football practice was missed. It was not easy. But when Ngozi laughed again, Chidi found that he did not mind.",
+      "text": "\"But how?\" asked Chidi. \"I cannot just hand her seven hours.\"\n\n\"You can spend your hours on her,\" said Mr Okonkwo. \"Care is how time goes back, and no magic trick will do it. For every hour you borrowed, give an hour of your own time to Ngozi, and do it gladly. When you have repaid them all, the clock will stop.\" He looked at Chidi over his cup. \"Gladly is the hard part. An hour given with a sour face counts for nothing.\"\n\nChidi took a deep breath and ran home. That night, he put the clock aside. Each midnight it still chimed thirteen, and each midnight he stayed in bed with his eyes shut and let the hour go by. For the next week he got up early.\n\nThe first hour went badly. He sat on the edge of Ngozi's bed with his arms folded while she played her scales, and he listened to the sound of a football game out in the street. He knew that it did not count, even before she looked up and said, \"You can go if you want.\"\n\nSo on Tuesday, he did it again, and this time he asked her to show him how to hold the bow. He was terrible. The noise he made sounded like a goat on a hot roof, and Ngozi laughed for the first time in a fortnight. Something in his chest came loose.\n\nAfter that, it grew easier. He helped Ngozi with her scales. He carried her violin to school. He sat in the front row at her lessons and clapped louder than anyone, until her teacher politely asked him to stop clapping in the middle of a scale.\n\nOn Thursday, at the bus stop, he told Emeka the truth, or as much as he could. \"It was never good planning,\" he said. \"I was cheating, and someone else was paying for it.\" Emeka looked at him for a long moment. \"Do you want help with the maths?\" he asked.\n\nSome days, his homework was late and football practice was missed. The red ink came back. It was not easy. But when Ngozi laughed again, Chidi found that he did not mind. The grey shadows faded from under her eyes, and by Friday she could play her whole solo without a slip.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "How many hours did Chidi owe, according to his words?",
+          "prompt": "How many hours did Chidi owe?",
           "options": [
             "Three",
             "Five",
             "Seven",
-            "Twelve"
+            "Thirteen"
           ],
           "answer": 2,
-          "why": "He had borrowed an hour every night for a week, so seven hours."
+          "why": "He says, \"I cannot just hand her seven hours.\" He took one hour on each of seven nights."
         },
         {
           "id": "q2",
-          "prompt": "How does Mr Okonkwo say time is given back?",
+          "prompt": "How must the hours be given back?",
           "options": [
-            "By care",
-            "By magic",
-            "By money",
-            "By a machine"
+            "By letting Ngozi use the clock for a week",
+            "By winding the clock backwards seven times",
+            "By paying Mr Okonkwo for the time he used",
+            "By spending his own time on Ngozi gladly"
           ],
-          "answer": 0,
-          "why": "Time is given back by care."
+          "answer": 3,
+          "why": "\"For every hour you borrowed, give an hour of your own time to Ngozi, and do it gladly.\""
         },
         {
           "id": "q3",
-          "prompt": "What did Chidi do for Ngozi?",
+          "prompt": "Why did Chidi know that the first hour \"did not count\"?",
           "options": [
-            "He bought her a violin",
-            "He took her to a doctor",
-            "He helped with her scales, carried her violin and went to her lessons",
-            "He taught her football"
+            "The clock had chimed thirteen at the end of that same hour",
+            "He had given it with folded arms and his mind on the football",
+            "Mr Okonkwo had told him that he must begin on a Tuesday",
+            "Ngozi had played her scales badly and then gone to sleep"
           ],
-          "answer": 2,
-          "why": "He helped Ngozi with her scales, carried her violin to school and sat in the front row."
+          "answer": 1,
+          "why": "Mr Okonkwo said an hour with a sour face counts for nothing. Chidi sat with his arms folded, listening to the football game."
         },
         {
           "id": "q4",
-          "prompt": "What did Chidi do at her lessons?",
+          "prompt": "What made Ngozi laugh for the first time in a fortnight?",
           "options": [
-            "He fell asleep",
-            "He clapped louder than anyone",
-            "He played the violin",
-            "He took photos"
+            "Chidi's terrible attempt to play the violin",
+            "A goat that had climbed onto a hot roof",
+            "Her teacher asking Chidi to stop clapping",
+            "A joke told by Emeka at the bus stop"
           ],
-          "answer": 1,
-          "why": "He sat in the front row and clapped louder than anyone."
+          "answer": 0,
+          "why": "He asked her to show him how to hold the bow. He was terrible, and the noise made Ngozi laugh."
         },
         {
           "id": "q5",
-          "prompt": "What was the cost of helping Ngozi?",
+          "prompt": "What does \"Something in his chest came loose\" suggest?",
           "options": [
-            "Nothing",
-            "Money",
-            "Late homework and missed football practice",
-            "A broken clock"
+            "He had hurt himself while holding the bow",
+            "He felt his guilt and worry begin to ease",
+            "He was having trouble breathing in the heat",
+            "He had a bad cold that was getting better"
           ],
-          "answer": 2,
-          "why": "Some days, his homework was late and football practice was missed."
+          "answer": 1,
+          "why": "It comes straight after she laughs for the first time in two weeks. It describes a feeling of relief, and it is not about an injury."
         },
         {
           "id": "q6",
-          "prompt": "Why did Chidi not mind in the end?",
+          "prompt": "How has Chidi changed since he told Emeka \"Just good planning\"?",
           "options": [
-            "He was forced to help",
-            "Ngozi was laughing again",
-            "He wanted a prize",
-            "The clock had stopped"
+            "He now tells the truth, even though it makes him look bad",
+            "He now thinks that planning is the only way to succeed",
+            "He now refuses to speak to Emeka at the bus stop",
+            "He now tells many more lies to keep his friends"
           ],
-          "answer": 1,
-          "why": "When Ngozi laughed again, Chidi found that he did not mind."
+          "answer": 0,
+          "why": "In chapter three he lied easily. Now he says, \"I was cheating, and someone else was paying for it.\""
+        },
+        {
+          "id": "q7",
+          "prompt": "What does Emeka's reply show about him?",
+          "options": [
+            "He has not heard what Chidi has just told him",
+            "He wants Chidi to do his maths homework for him",
+            "He is too angry to talk about what has happened",
+            "He is a loyal friend who offers help without judging"
+          ],
+          "answer": 3,
+          "why": "Chidi admits to cheating, and Emeka simply offers help with the maths. He does not scold him or walk away."
+        },
+        {
+          "id": "q8",
+          "prompt": "What did helping Ngozi cost Chidi?",
+          "options": [
+            "A week away from school and from home",
+            "The loss of all his comics and his watch",
+            "Late homework and missed football practice",
+            "A broken clock and an angry clockmaker"
+          ],
+          "answer": 2,
+          "why": "Some days, his homework was late and football practice was missed. The red ink came back."
         }
       ]
     },
     {
       "id": "c6",
       "title": "Twelve Is Enough",
-      "text": "On Saturday evening, Ngozi played at the school concert. Her bow danced over the strings, and the hall was silent until the last note. When she finished, the audience stood up and cheered. In the front row, Chidi clapped until his hands hurt.\n\nThat night at midnight, the clock chimed twelve times. Only twelve. Nothing stopped, and the moth outside kept on flying. Chidi smiled in the dark.\n\nThe next morning, he took the clock back to Mr Okonkwo. \"Keep it,\" said the old man. \"Or use it as a lesson. Time is the only thing that we all have in equal amounts.\"\n\n\"I think I understand,\" said Chidi. \"I never needed more hours. I needed to use the ones I had.\"\n\nOn the way home, he wrote a timetable on the back of his hand: homework, football, Ngozi. Then he looked at the sky and noticed that twelve hours were plenty.",
+      "text": "On Saturday evening, Ngozi played at the school concert. Their mother had swapped a shift, and their father came straight from Ibadan with dust on his shoes. Ngozi walked out in her white dress, very small beside the piano, and she tucked the violin under her chin.\n\nHer bow danced over the strings, and the hall was silent until the last note. Even the babies stopped crying. When she finished, the audience stood up and cheered. In the front row, Chidi clapped until his hands hurt. She looked straight at him and crossed her eyes for half a second, the way she did at home, and he laughed out loud and had to pretend it was a cough.\n\nThat night at midnight, the clock chimed twelve times. Only twelve. Chidi lay in the dark and held his breath, waiting for the next chime. It did not come. The ceiling fan went on turning, and the dog went on barking. Nothing stopped, and the moth outside kept on flying. Chidi smiled in the dark. He had never been so pleased to lose an hour.\n\nThe next morning, he took the clock back to Mr Okonkwo. It looked smaller somehow. The old man was bent over a tiny wheel, and he did not seem surprised.\n\n\"Keep it,\" he said. \"Or use it as a lesson. Time is the only thing that we all have in equal amounts.\"\n\n\"I think I understand,\" said Chidi. \"I never needed more hours. I needed to use the ones I had.\"\n\nMr Okonkwo looked up and smiled, an ordinary smile this time. Chidi looked at the clock for a moment. Then he put it on the counter and pushed it across.\n\n\"Someone else will come in looking for more time,\" said the old man. \"Someone always does.\"\n\n\"Then I think,\" said Chidi, \"that you should put a sign on it.\"\n\nMr Okonkwo began to laugh. It sounded rusty, as if he did not do it very often, and the laugh followed Chidi out into the noise of the street.\n\nOn the way home, he wrote a timetable on the back of his hand: homework, football, Ngozi. It was not very neat, and there would still be late days. Then he looked at the sky and decided that twelve numbers were plenty.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "Where did Ngozi play on Saturday evening?",
+          "prompt": "Who came to watch Ngozi's concert?",
           "options": [
-            "At a restaurant",
-            "At the school concert",
-            "At the repair shop",
-            "At home"
+            "Both of their parents, and Chidi",
+            "Only Mr Okonkwo and his brother",
+            "Nobody from her family at all",
+            "Only her teacher and Emeka"
           ],
-          "answer": 1,
-          "why": "Ngozi played at the school concert."
+          "answer": 0,
+          "why": "Their mother had swapped a shift, their father came straight from Ibadan, and Chidi sat in the front row."
         },
         {
           "id": "q2",
-          "prompt": "How did the audience react?",
+          "prompt": "How did the audience react to the solo?",
           "options": [
-            "They went home",
+            "They left before the last note",
+            "They asked her to play it again",
             "They stood up and cheered",
-            "They fell asleep",
-            "They talked loudly"
+            "They talked among themselves"
           ],
-          "answer": 1,
+          "answer": 2,
           "why": "When she finished, the audience stood up and cheered."
         },
         {
           "id": "q3",
-          "prompt": "How many times did the clock chime that midnight?",
+          "prompt": "Why did Ngozi cross her eyes at Chidi?",
           "options": [
-            "Thirteen",
-            "Eleven",
-            "Twelve",
-            "Fourteen"
+            "She had made a mistake and wanted to hide it from him",
+            "The bright lights in the hall had made her feel very dizzy",
+            "She was cross with him for clapping far too loudly",
+            "It was a private family joke, and it showed she was herself again"
           ],
-          "answer": 2,
-          "why": "That night the clock chimed twelve times."
+          "answer": 3,
+          "why": "The text says she did it the way she did at home. A child who is exhausted would hardly play a joke, so she has recovered."
         },
         {
           "id": "q4",
-          "prompt": "What does it mean that \"nothing stopped\"?",
+          "prompt": "How many times did the clock chime that midnight?",
           "options": [
-            "The clock no longer had its magic",
-            "The moth died",
-            "The clock broke",
-            "The world was asleep"
+            "Eleven",
+            "Twelve",
+            "Thirteen",
+            "Fourteen"
           ],
-          "answer": 0,
-          "why": "At the twelfth chime the world kept moving, so the clock had no more magic."
+          "answer": 1,
+          "why": "That night at midnight, the clock chimed twelve times. Only twelve."
         },
         {
           "id": "q5",
-          "prompt": "What lesson did Chidi learn?",
+          "prompt": "What does \"He had never been so pleased to lose an hour\" mean?",
           "options": [
-            "He needed a better clock",
-            "He needed to use the hours he had well, not to have more",
-            "Time cannot be saved",
-            "Magic is dangerous"
+            "He had lost his watch at the concert and did not care about it",
+            "He was glad that the debt was paid and the extra hour had gone",
+            "He was happy that he could stay in bed for longer the next day",
+            "He had been hoping that the concert would finish an hour early"
           ],
           "answer": 1,
-          "why": "He said, \"I never needed more hours. I needed to use the ones I had.\""
+          "why": "Twelve chimes mean the clock has stopped its magic, as Mr Okonkwo said it would once the hours were repaid."
         },
         {
           "id": "q6",
-          "prompt": "What did Chidi write on the back of his hand?",
+          "prompt": "What does Mr Okonkwo say about time?",
           "options": [
-            "A phone number",
-            "A joke",
-            "A poem",
-            "A timetable: homework, football, Ngozi"
+            "It belongs to whoever owns the most clocks",
+            "It is the only thing that money can always buy",
+            "It is the only thing we all have in equal amounts",
+            "It moves faster in Lagos than it does elsewhere"
+          ],
+          "answer": 2,
+          "why": "He says, \"Time is the only thing that we all have in equal amounts.\""
+        },
+        {
+          "id": "q7",
+          "prompt": "Why does Chidi say the clock should have a sign on it?",
+          "options": [
+            "To stop Mr Okonkwo from losing it among the other clocks",
+            "To show customers the time in other parts of the world",
+            "To tell people the correct price of the brass clock",
+            "To warn the next person before they make the same mistake"
           ],
           "answer": 3,
-          "why": "He wrote a timetable on the back of his hand: homework, football, Ngozi."
+          "why": "Mr Okonkwo says someone else will come looking for more time. Chidi has learned that a warning needs to be clear."
+        },
+        {
+          "id": "q8",
+          "prompt": "What lesson did Chidi learn?",
+          "options": [
+            "He needed to use the hours he had, and he did not need more",
+            "He needed a better clock to help him with his homework",
+            "He needed to keep away from every kind of magic for ever",
+            "He needed to stop playing football and looking after Ngozi"
+          ],
+          "answer": 0,
+          "why": "He says, \"I never needed more hours. I needed to use the ones I had.\""
         }
       ]
     }
