@@ -1,7 +1,7 @@
 import { isClipText, splitClipText, ttsKeyInput, type TtsClipRequest, type TtsStyleId } from '@kira/core/tts'
 
 /**
- * Sisi browser suara bahasa Inggris (Qwen3-TTS). Teks dipecah menjadi klip dengan aturan yang sama dengan
+ * Sisi browser suara bahasa Inggris (Kokoro). Teks dipecah menjadi klip dengan aturan yang sama dengan
  * worker (packages/core/src/tts.ts), kuncinya dihitung dengan SubtleCrypto (sha256), lalu klip diambil dari
  * /tts/<kunci>.mp3 dengan cookie sesi. Service worker menyimpan klip hari ini untuk offline.
  * Semua fungsi di sini tidak pernah melempar: kegagalan berarti pembaca memakai suara bawaan perangkat.

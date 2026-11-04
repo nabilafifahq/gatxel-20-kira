@@ -7,7 +7,7 @@ import { ttsEnabled } from '@/server/tts'
 export const dynamic = 'force-dynamic'
 
 /**
- * Status suara Qwen dan alamat klip untuk sesi hari ini (hanya yang sudah ada). Dipakai layar learner:
+ * Status suara klip dan alamat klip untuk sesi hari ini (hanya yang sudah ada). Dipakai layar learner:
  * enabled memberi tahu apakah perlu meminta klip baru, urls disimpan service worker untuk offline.
  */
 export async function GET() {

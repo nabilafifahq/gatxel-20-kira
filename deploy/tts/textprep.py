@@ -23,9 +23,20 @@ def _fraction(m: "re.Match[str]") -> str:
     return f"one {word}" if top == 1 else f"{top} {word}s"
 
 
+def _rupiah(m: "re.Match[str]") -> str:
+    raw = m.group(1)
+    amount = raw.rstrip(".,")
+    tail = raw[len(amount):]
+    # Titik dan koma pemisah ribuan (Rp1.000, Rp 8,000) dibuang supaya dibaca satu bilangan, bukan desimal.
+    if re.fullmatch(r"\d{1,3}([.,]\d{3})+", amount):
+        amount = re.sub(r"[.,]", "", amount)
+    return f"{amount} rupiah{tail}"
+
+
 def prepare_text(text: str) -> str:
     t = " ".join(text.split())
-    t = re.sub(r"\bRp\.?\s*(\d[\d.,]*)", r"\1 rupiah", t)
+    t = re.sub(r"\bRp\.?\s*(\d[\d.,]*)", _rupiah, t)
+    t = re.sub(r"\s\+\s", " plus ", t)
     t = re.sub(r"(?<![\d/])(\d{1,3})/(\d{1,3})(?![\d/])", _fraction, t)
     t = re.sub(r"(?<=\d)\s*(cm|mm|km|kg|ml|g|l|m)\b", lambda m: " " + UNITS[m.group(1)], t)
     t = re.sub(r"(?<=\d)\s*°\s*C\b", " degrees Celsius", t)
@@ -33,5 +44,5 @@ def prepare_text(text: str) -> str:
     t = re.sub(r"(?<=\d)\s*[x×]\s*(?=\d)", " times ", t)
     t = re.sub(r"(?<=\d)\s*÷\s*(?=\d)", " divided by ", t)
     t = re.sub(r"(?<=\d)\s*\+\s*(?=\d)", " plus ", t)
-    t = re.sub(r"(?<=\d)\s+[-−–]\s+(?=\d)", " minus ", t)
+    t = re.sub(r"(?<=\d)\s+[-\u2212\u2013]\s+(?=\d)", " minus ", t)
     return " ".join(t.split())

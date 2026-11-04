@@ -5,7 +5,7 @@ import { fetchClips, requestClips, ttsStatus } from './tts-client'
 import { isSfxMuted } from './sfx'
 
 /**
- * Suara pembawa acara Quiz Arena (gaya quizhost). Hanya memutar klip Qwen yang sudah dibuat lewat /tts/<kunci>.mp3.
+ * Suara pembawa acara Quiz Arena (gaya quizhost). Hanya memutar klip suara yang sudah dibuat lewat /tts/<kunci>.mp3.
  * Bila layanan suara mati, klip belum ada, atau jaringan gagal, tidak ada bunyi sama sekali: suara perangkat tidak
  * dipakai di sini. Klip yang belum ada diminta dibuat supaya siap lain kali. Mengikuti tombol senyap efek suara.
  */

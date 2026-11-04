@@ -249,7 +249,10 @@ def clean_clip(c: Any) -> dict[str, Any] | str:
         clean.append({"text": text, "kind": kind})
     if total > MAX_TOTAL_CHARS:
         return "teks terlalu panjang"
-    return {"style": style, "segments": clean}
+    variant = c.get("variant", 0)
+    if not isinstance(variant, int) or isinstance(variant, bool) or not 0 <= variant <= 2:
+        return "variant harus 0 sampai 2"
+    return {"style": style, "segments": clean, "variant": variant}
 
 
 def validate(body: Any) -> tuple[dict[str, Any], str] | str:

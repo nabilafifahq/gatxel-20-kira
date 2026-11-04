@@ -74,11 +74,13 @@ class Synth:
             self.pipeline.load_voice(v)
         log(f"model siap di {device} dalam {time.monotonic() - t0:.1f} detik")
 
-    def one(self, style_id: str, segments: list[dict[str, str]]) -> tuple[Any, str]:
+    def one(self, style_id: str, segments: list[dict[str, str]], variant: int = 0) -> tuple[Any, str]:
+        """Satu klip = satu suara. variant 0 = normal; 1 dan 2 dipakai pemeriksa mutu untuk membuat ulang klip yang gagal
+        (kecepatan sedikit berbeda, karena teks yang sama pada kecepatan yang sama selalu menghasilkan audio yang sama)."""
         import numpy as np
 
         style = self.styles[style_id]
-        voice, speed = style["voice"], float(style.get("speed", 1.0))
+        voice, speed = style["voice"], float(style.get("speed", 1.0)) * (1.0, 0.95, 1.05)[variant]
         gap = np.zeros(int(SR * int(style.get("gapMs", 300)) / 1000), dtype=np.float32)
         parts: list[Any] = []
         for seg in segments:
@@ -131,7 +133,7 @@ def engine_main(conn: Any) -> None:
             for clip in req["clips"]:
                 t0 = time.monotonic()
                 try:
-                    audio, voice = synth.one(clip["style"], clip["segments"])
+                    audio, voice = synth.one(clip["style"], clip["segments"], int(clip.get("variant", 0)))
                     results.append({"ok": True, "pcm": audio.astype("float32").tobytes(), "sr": SR, "ms": int((time.monotonic() - t0) * 1000), "voice": voice})
                 except Exception as e:  # noqa: BLE001 - satu klip gagal tidak membatalkan yang lain
                     if is_oom(e):

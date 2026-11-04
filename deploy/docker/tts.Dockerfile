@@ -24,6 +24,9 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/* \
  && python -m spacy download en_core_web_sm
 
+# Pustaka CUDA dari pip (cuBLAS dan lainnya) perlu terlihat oleh faster-whisper di check_clips.py.
+RUN ls -d /usr/local/lib/python3.12/site-packages/nvidia/*/lib > /etc/ld.so.conf.d/nvidia-pip.conf && ldconfig
+
 # Bobot model (sekitar 350 MB) ada di volume /models, bukan di image.
 RUN useradd --system --uid 10001 --create-home kira \
  && mkdir -p /models \

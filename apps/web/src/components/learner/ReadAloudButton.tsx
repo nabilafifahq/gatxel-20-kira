@@ -11,7 +11,7 @@ import { preloadClips } from './tts-client'
 /**
  * Tombol baca suara (papan ReadAloudButton). Satu tombol untuk mulai dan berhenti
  * dengan aria-pressed. Tinggi 56 px. Saat membaca, latar memakai tint mapel.
- * Tidak tersedia berarti perangkat tidak punya suara bahasa Inggris dan klip Qwen belum aktif; tombol tetap
+ * Tidak tersedia berarti perangkat tidak punya suara bahasa Inggris dan klip suara belum aktif; tombol tetap
  * terlihat dengan garis putus-putus. Teks Indonesia tidak dibacakan, jadi untuk lang="id" tombol tidak tampil.
  */
 
@@ -35,7 +35,7 @@ export function ReadAloudButton({
   compact?: boolean
   /** Tampilkan kalimat "No English voice on this tablet." saat tidak tersedia. */
   showNote?: boolean
-  /** Gaya suara Qwen (guru, pencerita, dikte). Bawaan: guru. */
+  /** Gaya suara klip (guru, pencerita, dikte). Bawaan: guru. */
   style?: TtsStyleId
   /** Label tombol bila bukan Read aloud (misalnya Play the question). */
   labels?: { idle: string; busy: string }
@@ -49,7 +49,6 @@ export function ReadAloudButton({
   const preloadKey = JSON.stringify([text, style ?? null])
   useEffect(() => {
     if (lang === 'en-GB') preloadClips(text, style ?? TTS_DEFAULT_STYLE)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [preloadKey, lang])
   // Teks Indonesia dibacakan suara perangkat; tanpa suara Indonesia di perangkat tombol disembunyikan.
   if (lang === 'id' && off) return null

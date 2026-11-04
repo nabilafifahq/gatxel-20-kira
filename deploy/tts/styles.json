@@ -6,6 +6,9 @@
     "kokoro": "hexgrad/Kokoro-82M"
   },
   "note": "Satu suara perempuan Inggris Britania yang hangat (bf_emma) untuk semua peran. quizhost dan dictation memakai suara yang sama dengan kecepatan berbeda. second (bf_isabella) hanya untuk dialog dua pembicara. Ubah suara atau kecepatan: naikkan voiceVersion di sini dan TTS_VOICE_VERSION di packages/core/src/tts.ts.",
+  "checker": {
+    "whisper": "Systran/faster-whisper-small.en"
+  },
   "styles": {
     "teacher": { "label": "Friendly teacher", "voice": "bf_emma", "speed": 0.92, "gapMs": 320 },
     "quizhost": { "label": "Quiz host", "voice": "bf_emma", "speed": 1.04, "gapMs": 220 },

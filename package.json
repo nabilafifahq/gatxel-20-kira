@@ -19,6 +19,7 @@
     "test:db": "vitest run --project db --project web-db",
     "test:all": "vitest run",
     "tts:generate": "tsx apps/worker/scripts/tts-generate.ts",
+    "tts:samples": "tsx apps/worker/scripts/tts-samples.ts",
     "content:check": "tsx packages/content/scripts/check.ts",
     "db:generate": "drizzle-kit generate --config packages/db/drizzle.config.ts",
     "db:migrate": "tsx packages/db/scripts/migrate.ts",

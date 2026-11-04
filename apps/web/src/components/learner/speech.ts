@@ -9,7 +9,7 @@ import { clipPlan, deviceText, fetchClips, requestClips, ttsStatus, type SpeechP
 
 /**
  * Baca suara, hanya untuk teks bahasa Inggris (rencana bagian 11.4: teks Indonesia tidak dibacakan).
- * Urutan: klip Qwen3-TTS yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan service worker bila offline),
+ * Urutan: klip Kokoro yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan service worker bila offline),
  * kalau belum ada diminta dibuat worker dan sementara dibacakan suara perangkat. Di APK tablet suara
  * perangkat lewat TextToSpeech Android (jembatan KiraNative, lib/native.ts), di browser lewat Web Speech API.
  * Hanya satu teks dibaca pada satu waktu; tombol lain kembali ke idle.
