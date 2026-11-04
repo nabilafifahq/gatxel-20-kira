@@ -24,6 +24,30 @@ import { playSfx } from './sfx'
 const WIDTH = 296
 const WORD_STYLE: CSSProperties = { font: 'inherit', color: 'inherit', letterSpacing: 'inherit' }
 
+/**
+ * Tombol kata boleh dipisah baris dari teks di sebelahnya, jadi titik bisa jatuh sendirian di awal baris.
+ * Tanda baca yang menempel pada kata ikut dirender bersama tombolnya.
+ */
+function glue<P extends { text: string; word: boolean; hit: unknown; pre: string; post: string }>(pieces: P[]): P[] {
+  const out = pieces.map((p) => ({ ...p }))
+  out.forEach((p, i) => {
+    if (!p.hit) return
+    const next = out[i + 1]
+    const after = next && !next.word ? /^[^sp{L}p{N}]+/u.exec(next.text) : null
+    if (next && after) {
+      p.post = after[0]
+      next.text = next.text.slice(after[0].length)
+    }
+    const prev = out[i - 1]
+    const before = prev && !prev.word ? /[^sp{L}p{N}]+$/u.exec(prev.text) : null
+    if (prev && before) {
+      p.pre = before[0]
+      prev.text = prev.text.slice(0, -before[0].length)
+    }
+  })
+  return out
+}
+
 type Open = { hit: WordHit; surface: string; left: number; top?: number; bottom?: number; opener: HTMLElement }
 
 function placeFor(el: HTMLElement): Pick<Open, 'left' | 'top' | 'bottom'> {
@@ -59,7 +83,7 @@ export function TapWords({ text, enabled = true, className }: { text: string; en
 
   const pieces = useMemo(() => {
     if (!active || !dict) return null
-    return splitWords(text).map((p) => ({ ...p, hit: p.word ? lookupWord(dict, p.text) : null }))
+    return glue(splitWords(text).map((p) => ({ ...p, hit: p.word ? lookupWord(dict, p.text) : null, pre: '', post: '' })))
   }, [active, dict, text])
 
   const close = useCallback(() => {
@@ -75,8 +99,9 @@ export function TapWords({ text, enabled = true, className }: { text: string; en
     <span className={className}>
       {pieces.map((p, i) =>
         p.hit ? (
+          <span key={i} className="whitespace-nowrap">
+          {p.pre}
           <button
-            key={i}
             type="button"
             style={WORD_STYLE}
             aria-haspopup="dialog"
@@ -91,6 +116,8 @@ export function TapWords({ text, enabled = true, className }: { text: string; en
           >
             {p.text}
           </button>
+          {p.post}
+          </span>
         ) : (
           <Fragment key={i}>{p.text}</Fragment>
         ),
