@@ -48,7 +48,8 @@ async function seatsFree(): Promise<number> {
 
 test.describe('syarat password', () => {
   const field = (page: Page) => page.getByLabel('Password', { exact: true })
-  const submit = (page: Page) => page.getByRole('button', { name: 'Daftar', exact: true }).click()
+  // Tombol tampak abu-abu (aria-disabled) selama ada masalah, tetapi tetap bisa diketuk.
+  const submit = (page: Page) => page.getByRole('button', { name: 'Daftar', exact: true }).click({ force: true })
   const rule = (page: Page, text: string) => page.getByRole('list', { name: 'Syarat password' }).getByRole('listitem').filter({ hasText: text })
 
   /** Ketikan baru terbaca setelah React aktif, jadi diulang sampai daftar centang bereaksi. */
@@ -63,7 +64,7 @@ test.describe('syarat password', () => {
   test('daftar centang terpenuhi satu per satu sambil mengetik', async ({ page }) => {
     await page.goto('/daftar')
     const rules = {
-      length: rule(page, 'Minimal 13 karakter'),
+      length: rule(page, 'Minimal 12 karakter'),
       upper: rule(page, 'huruf kapital'),
       number: rule(page, 'Ada angka'),
       symbol: rule(page, 'Ada simbol'),
@@ -79,10 +80,10 @@ test.describe('syarat password', () => {
     await expectMet('upper', 'number')
     await field(page).pressSequentially('!')
     await expectMet('upper', 'number', 'symbol')
-    // Dua belas karakter belum cukup, karakter ketiga belas memenuhi semuanya.
-    await field(page).pressSequentially('abcdefghi')
+    // Sebelas karakter belum cukup, karakter kedua belas memenuhi semuanya.
+    await field(page).pressSequentially('abcdefgh')
     await expectMet('upper', 'number', 'symbol')
-    await field(page).pressSequentially('j')
+    await field(page).pressSequentially('i')
     await expectMet('length', 'upper', 'number', 'symbol')
     // Menghapus karakter membatalkan centangnya lagi.
     await field(page).press('Backspace')
@@ -103,12 +104,12 @@ test.describe('syarat password', () => {
     // Di browser: pesan muncul tanpa permintaan ke server.
     await field(page).fill('Pendek-1!')
     await submit(page)
-    await expect(page.getByText('Password paling sedikit 13 karakter.').first()).toBeVisible()
+    await expect(page.getByText('Password paling sedikit 12 karakter.').first()).toBeVisible()
     expect(toServer).toEqual([])
 
     // Pemeriksaan browser dilewati: formulir lolos dengan password kuat, lalu permintaannya diubah menjadi lemah.
     for (const [weak, message] of [
-      ['Pendek-1!', 'Password paling sedikit 13 karakter.'],
+      ['Pendek-1!', 'Password paling sedikit 12 karakter.'],
       ['tanpa-kapital-panjang-2026!', 'Tambahkan paling sedikit satu huruf kapital.'],
     ] as const) {
       await page.route('**/daftar', async (route) => {
@@ -209,7 +210,7 @@ test.describe('pendaftaran orang tua', () => {
     await page.getByText('Izin tambahan, boleh nanti').click()
     const boxes = page.getByRole('form', { name: 'Tambah anak' }).getByRole('checkbox')
     for (let i = 0; i < (await boxes.count()); i++) await expect(boxes.nth(i)).not.toBeChecked()
-    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
+    await page.getByRole('checkbox', { name: /Saya orang tua atau wali/ }).check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()
     await expect(page.getByText('Nara', { exact: true }).first()).toBeVisible()
     await page.getByRole('link', { name: 'Lanjut pilih jalur' }).click()
@@ -219,7 +220,7 @@ test.describe('pendaftaran orang tua', () => {
     await expect(page.getByText('Nara').first()).toBeVisible()
   })
 
-  test('pendaftaran ganda: tautan meminta nama dan password baru, isian lama tidak dipakai, dan akun aktif dikabari', async ({ page }) => {
+  test('pendaftaran ganda: tautan meminta nama, password baru, dan persetujuan, isian lama tidak dipakai, dan akun aktif dikabari', async ({ page }) => {
     const other = `kira.ganda.${run}@gmail.com`
     const before = await seatsFree()
     await fillSignup(page, other)
@@ -236,23 +237,30 @@ test.describe('pendaftaran orang tua', () => {
     const name = page.getByLabel('Nama orang tua')
     await expect(name).toHaveValue('')
     expect(await page.content()).not.toContain('Ibu Uji Daftar')
+    // Persetujuan di formulir daftar tidak terbawa: keduanya mulai kosong.
+    const terms = page.getByRole('checkbox', { name: /Saya setuju dengan Syarat dan Ketentuan/ })
+    const news = page.getByRole('checkbox', { name: /Kirim saya kabar produk/ })
+    await expect(terms).not.toBeChecked()
+    await expect(news).not.toBeChecked()
     const field = page.getByLabel('Password baru', { exact: true })
     const activate = page.getByRole('button', { name: 'Aktifkan akun' })
-    // Nama wajib diisi, dan password lemah ditolak.
+    // Nama dan persetujuan wajib, dan password lemah ditolak. Tombol abu-abu tetap bisa diketuk.
     await expect(async () => {
       await field.fill('Pendek-1!')
-      await activate.click()
+      await activate.click({ force: true })
       await expect(page.getByText('Tulis nama Anda, paling sedikit 2 huruf.').first()).toBeVisible({ timeout: 1000 })
     }).toPass()
-    await expect(page.getByText('Password paling sedikit 13 karakter.').first()).toBeVisible()
+    await expect(page.getByText('Password paling sedikit 12 karakter.').first()).toBeVisible()
+    await expect(page.getByText('Centang persetujuan Syarat dan Ketentuan untuk melanjutkan.').first()).toBeVisible()
     expect(await seatsFree()).toBe(before)
     await name.fill('Ibu Pengisi Baru')
     await field.fill(NEW_PASSWORD)
+    await terms.check()
     await activate.click()
     await expect(page).toHaveURL(/\/mulai/, { timeout: 45_000 })
     expect(await seatsFree()).toBe(before - 1)
-    const [account] = await db()`select name from auth.user_account where lower(email) = ${other}`
-    expect(account!.name).toBe('Ibu Pengisi Baru')
+    const [account] = await db()`select name, marketing_opt_in from auth.user_account where lower(email) = ${other}`
+    expect(account).toMatchObject({ name: 'Ibu Pengisi Baru', marketing_opt_in: false })
     await mailTo(other, 'Akun Kira Anda aktif')
 
     await page.context().clearCookies()
@@ -302,7 +310,7 @@ test.describe('pendaftaran orang tua', () => {
       const consent = page.getByRole('checkbox', { name: /Kabari saya/ })
       await expect(consent).not.toBeChecked()
       await page.getByLabel('Email', { exact: true }).fill(wl)
-      await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click()
+      await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click({ force: true })
       await expect(page.getByText('Centang persetujuan supaya kami boleh mengirim kabar.')).toBeVisible()
       await consent.check()
       await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click()

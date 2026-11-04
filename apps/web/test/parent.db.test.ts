@@ -179,14 +179,26 @@ describe.skipIf(!ready)('dashboard orang tua', () => {
     expect((await owner`select xp from learner_profile where user_id = ${a1}`)[0]!.xp).toBe(321)
   })
 
-  it('tambah anak: tertaut ke orang tua ini saja, belum aktif sampai ada persetujuan', async () => {
-    const r = await P.parentAddChild(PA(), { name: 'Anak Tiga', grade: 1, avatar: 'fox', pin: ['sun', 'moon', 'star', 'cat'] })
+  it('tambah anak: tertaut ke orang tua ini saja, persetujuan tercatat dengan versi kebijakan, dan anak aktif', async () => {
+    const r = await P.parentAddChild(PA(), { name: 'Anak Tiga', grade: 1, avatar: 'fox', pin: ['sun', 'moon', 'star', 'cat'], guardianConsent: true })
     const link = await owner`select guardian_id from guardian_link where learner_id = ${r.learnerId}`
     expect(link.map((l) => l.guardian_id)).toEqual([gA])
-    expect((await owner`select active from learner_profile where user_id = ${r.learnerId}`)[0]!.active).toBe(false)
-    await expect(P.parentAddChild(PA(), { name: 'anak tiga', grade: 1, avatar: 'fox', pin: ['sun', 'moon', 'star', 'cat'] })).rejects.toMatchObject({ code: 'invalid' })
+    expect((await owner`select active from learner_profile where user_id = ${r.learnerId}`)[0]!.active).toBe(true)
+    const consent = await owner`select purpose, granted, guardian_id, notice_version, created_at from consent_event where learner_id = ${r.learnerId}`
+    expect(consent).toHaveLength(1)
+    const { NOTICE_VERSION } = await import('@/server/auth/accounts')
+    expect(consent[0]).toMatchObject({ purpose: 'learning', granted: true, guardian_id: gA, notice_version: NOTICE_VERSION })
+    expect(consent[0]!.created_at).toBeTruthy()
+    await expect(P.parentAddChild(PA(), { name: 'anak tiga', grade: 1, avatar: 'fox', pin: ['sun', 'moon', 'star', 'cat'], guardianConsent: true })).rejects.toMatchObject({ code: 'invalid' })
     expect((await R.parentHomeDTO(PA())).children.map((c) => c.id)).toContain(r.learnerId)
     expect((await R.parentHomeDTO(actor(gB, orgB))).children.map((c) => c.id)).not.toContain(r.learnerId)
+  })
+
+  it('tambah anak tanpa persetujuan ditolak server, dan tidak ada anak yang dibuat', async () => {
+    const [{ n: before }] = (await owner`select count(*)::int as n from auth.user_account where org_id = ${orgA} and kind = 'learner'`) as unknown as [{ n: number }]
+    await expect(P.parentAddChild(PA(), { name: 'Tanpa Izin', grade: 1, avatar: 'fox', pin: ['sun', 'moon', 'star', 'cat'], guardianConsent: false })).rejects.toMatchObject({ code: 'invalid' })
+    const [{ n: after }] = (await owner`select count(*)::int as n from auth.user_account where org_id = ${orgA} and kind = 'learner'`) as unknown as [{ n: number }]
+    expect(after).toBe(before)
   })
 
   it('jawaban tulis: orang tua melihat dan menilai anaknya, bukan anak lain', async () => {

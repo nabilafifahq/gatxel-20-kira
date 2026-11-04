@@ -6,7 +6,7 @@ import { TurnstileField } from '@/components/auth/TurnstileField'
 import { Button, ButtonLink, IconButton } from '@/components/console/Button'
 import { cx } from '@/components/console/cx'
 import { InlineAlert } from '@/components/console/Feedback'
-import { TextArea, TextField } from '@/components/console/Field'
+import { OptionalMark, RequiredMark, RequiredNote, TextArea, TextField } from '@/components/console/Field'
 import { ConsoleIcon } from '@/components/console/icons'
 import type { ActionResult } from '@/lib/dto'
 import {
@@ -196,9 +196,13 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
         <h2 className="m-0 font-display text-h3 font-semibold">Kirim lewat email</h2>
         <p className="m-0 text-small text-fg-muted">Balasan kami masuk ke kotak masuk Anda.</p>
       </div>
+      <RequiredNote />
 
       <fieldset data-field="category" className="m-0 flex flex-col gap-2 border-0 p-0">
-        <legend className="mb-2 p-0 text-small font-bold">Tentang apa pesan Anda?</legend>
+        <legend className="mb-2 p-0 text-small font-bold">
+          Tentang apa pesan Anda?
+          <RequiredMark />
+        </legend>
         <div className="flex flex-col overflow-hidden rounded-control border-2 border-lavender">
           {SUPPORT_CATEGORIES.map((c, i) => {
             const on = category === c.id
@@ -242,6 +246,7 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
 
       <div data-field="subject">
         <TextField
+          required
           label="Subjek"
           name="subject"
           value={subject}
@@ -259,6 +264,7 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
 
       <div data-field="message">
         <TextArea
+          required
           label="Pesan"
           name="message"
           rows={5}
@@ -288,6 +294,7 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
       ) : (
         <div data-field="email">
           <TextField
+            required
             label="Email Anda"
             name="email"
             type="email"
@@ -310,7 +317,8 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
 
       <div data-field="attachment" className="flex flex-col gap-1.5">
         <span className="text-small font-bold" id="lampiran-label">
-          Lampiran (boleh dikosongkan)
+          Lampiran
+          <OptionalMark />
         </span>
         {file ? (
           <div className="flex min-h-14 items-center gap-3 rounded-control border-2 border-lavender px-3 py-2">

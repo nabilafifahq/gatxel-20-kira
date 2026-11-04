@@ -10,7 +10,7 @@ import { cx } from '@/components/console/cx'
 import { DayRulesEditor, StreakResetControl, changeMessage } from '@/components/console/DayRulesEditor'
 import { ConfirmDialog } from '@/components/console/Dialog'
 import { ActionError, InlineAlert } from '@/components/console/Feedback'
-import { RadioGroup, Select, Switch, TextField } from '@/components/console/Field'
+import { RadioGroup, RequiredNote, Select, Switch, TextField } from '@/components/console/Field'
 import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
@@ -343,7 +343,7 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
           )}
           {!s.started && s.session !== 'paper' ? (
             <div className="flex items-end gap-2">
-              <TextField label="Jumlah soal" inputMode="numeric" value={n} onChange={(e) => setN(e.target.value)} className="w-24" />
+              <TextField label="Jumlah soal" required inputMode="numeric" value={n} onChange={(e) => setN(e.target.value)} className="w-24" />
               <Button
                 variant="secondary"
                 size="S"
@@ -448,7 +448,8 @@ function Limits({ c, learnerId, name, onSaved }: { c: ParentChildDTO['controls']
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">Batas waktu layar</h3>
-      <TextField label="Paling lama per hari (menit)" inputMode="numeric" value={minutes} onChange={(e) => setMinutes(e.target.value)} hint="Antara 15 dan 180 menit. Berlaku langsung, juga untuk hari ini." />
+      <RequiredNote />
+      <TextField label="Paling lama per hari (menit)" required inputMode="numeric" value={minutes} onChange={(e) => setMinutes(e.target.value)} hint="Antara 15 dan 180 menit. Berlaku langsung, juga untuk hari ini." />
       <fieldset className="m-0 flex flex-wrap gap-2 border-0 p-0">
         <legend className="mb-1 p-0 text-small font-bold">Hari istirahat</legend>
         {[1, 2, 3, 4, 5, 6, 0].map((d) => {
@@ -549,7 +550,8 @@ function PinTools({ learnerId, name, onDone }: { learnerId: string; name: string
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">PIN {name}</h3>
-      <PinChooser value={pin} onChange={setPin} legend={`PIN gambar baru untuk ${name}`} />
+      <RequiredNote />
+      <PinChooser required value={pin} onChange={setPin} legend={`PIN gambar baru untuk ${name}`} />
       {err ? <InlineAlert tone="danger" title={err} /> : null}
       <ActionError error={reset.error ?? unlock.error} />
       <div className="flex flex-wrap gap-2">
@@ -596,9 +598,10 @@ function EditProfile({ learnerId, name, grade, avatar }: { learnerId: string; na
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">Nama, kelas, dan avatar</h3>
-      <TextField label="Nama" value={n} onChange={(e) => (setN(e.target.value), setDone(false))} maxLength={40} />
-      <RadioGroup name="kelas-ubah" legend="Kelas" value={g} onChange={(v) => (setG(v), setDone(false))} options={['1', '2', '3', '4', '5', '6'].map((x) => ({ value: x, label: `Kelas ${x}` }))} layout="row" />
-      <AvatarPicker value={a} onChange={(v) => (setA(v), setDone(false))} taken={{}} />
+      <RequiredNote />
+      <TextField label="Nama" required value={n} onChange={(e) => (setN(e.target.value), setDone(false))} maxLength={40} />
+      <RadioGroup name="kelas-ubah" required legend="Kelas" value={g} onChange={(v) => (setG(v), setDone(false))} options={['1', '2', '3', '4', '5', '6'].map((x) => ({ value: x, label: `Kelas ${x}` }))} layout="row" />
+      <AvatarPicker required value={a} onChange={(v) => (setA(v), setDone(false))} taken={{}} />
       {Number(g) !== grade ? <InlineAlert tone="info" title="Mengganti kelas mengubah soal yang diberikan mulai hari berikutnya." live="none" /> : null}
       {done ? <InlineAlert tone="success" title="Profil tersimpan." /> : null}
       <ActionError error={save.error} />
@@ -639,7 +642,7 @@ function WorkCard({ w, hasTutor }: { w: ParentWorkDTO; hasTutor: boolean }) {
       ) : null}
       {w.criteria.length > 0 ? (
         <>
-          <TextField label="Catatan untuk anak (boleh kosong)" value={feedback} onChange={(e) => setFeedback(e.target.value)} maxLength={500} />
+          <TextField label="Catatan untuk anak" optional value={feedback} onChange={(e) => setFeedback(e.target.value)} maxLength={500} />
           <div className="flex flex-wrap gap-2">
             <Button variant="secondary" size="S" loading={mark.pending} onClick={() => void mark.run({ responseId: w.responseId, verdict: 'good', feedback })}>
               Bagus

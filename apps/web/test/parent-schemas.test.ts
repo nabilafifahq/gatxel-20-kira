@@ -35,8 +35,12 @@ describe('skema aksi orang tua', () => {
   })
 
   it('PIN harus 4 gambar dari daftar, nama 1 sampai 40 karakter, kelas 1 sampai 6', () => {
-    const ok = { name: ' Ayu ', grade: 6, avatar: 'cat', pin: ['sun', 'moon', 'star', 'cat'] }
+    const ok = { name: ' Ayu ', grade: 6, avatar: 'cat', pin: ['sun', 'moon', 'star', 'cat'], guardianConsent: true }
     expect(S.addChild.parse(ok).name).toBe('Ayu')
+    // Persetujuan orang tua wajib true: tidak dikirim atau false ditolak.
+    const { guardianConsent: _omit, ...withoutConsent } = ok
+    expect(() => S.addChild.parse(withoutConsent)).toThrow()
+    expect(() => S.addChild.parse({ ...ok, guardianConsent: false })).toThrow()
     expect(() => S.addChild.parse({ ...ok, pin: ['sun', 'moon', 'star'] })).toThrow()
     expect(() => S.addChild.parse({ ...ok, pin: ['sun', 'moon', 'star', 'dog'] })).toThrow()
     expect(() => S.addChild.parse({ ...ok, name: '' })).toThrow()

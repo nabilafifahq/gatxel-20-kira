@@ -387,7 +387,7 @@ Pendaftaran kedua untuk email yang masih menunggu tidak menimpa password atau na
 
 - Password sama: dianggap kirim ulang, dan tautannya tetap langsung aktif.
 - Password berbeda: baris diberi tanda `conflict` dan token diputar. Tanda dipasang walau jeda satu menit atau batas email menahan email baru, jadi tautan yang sudah terkirim juga ikut berhenti mengaktifkan akun langsung. Tanda tidak bisa dicabut dengan mengulang password yang tersimpan.
-- Tautan bertanda membuka langkah "Buat password baru" dengan kolom nama wajib dan daftar centang. Kolom nama mulai kosong dan nama tersimpan tidak pernah dikirim ke browser, karena bisa berasal dari orang lain. Nama dan password baru dipasang di transaksi yang sama dengan pembuatan akun (`kira_verify_signup`), jadi isian formulir daftar tidak ikut ke akun, termasuk isian orang lain yang mendaftar lebih dulu atau sesudahnya.
+- Tautan bertanda membuka langkah "Buat password baru": nama wajib, daftar centang password, Syarat dan Ketentuan wajib, email kabar opsional. Semua kolom mulai kosong dan nama tersimpan tidak pernah dikirim ke browser, karena bisa berasal dari orang lain. Semuanya dipasang di transaksi yang sama dengan pembuatan akun (`kira_verify_signup`), jadi isian dan persetujuan formulir daftar tidak ikut ke akun, termasuk milik orang lain yang mendaftar lebih dulu atau sesudahnya. Bukti persetujuan memakai versi yang berlaku saat itu dan hash IP pemegang tautan.
 - Jawaban publik dan waktunya sama di semua cabang: `startSignup` selalu menghitung satu hash dan satu verifikasi Argon2, dan aksinya dibungkus `evenTime`.
 
 Risiko sisa, tingkat sedang: **orang menekan tautan yang tidak pernah dia minta, saat hanya ada satu pendaftaran.** Seseorang mendaftar dengan email orang lain memakai password miliknya sendiri. Bila pemilik email menekan tautan itu, akun aktif dengan password si pendaftar dan pemilik email langsung masuk. Anak yang kemudian ditambahkan bisa dilihat oleh orang yang memegang password itu. Pemindai tautan yang menjalankan JavaScript bisa melakukan klik semacam ini tanpa pemilik email, dan untuk pendaftaran asli akibatnya pengguna melihat "Tautan ini sudah tidak berlaku" walau akunnya aktif dan tetap bisa masuk dengan passwordnya.
@@ -396,8 +396,8 @@ Yang meredam: email konfirmasi memuat "Kalau bukan Anda, abaikan email ini.", da
 
 ### Aturan password
 
-Password orang dewasa yang baru: minimal 13 karakter, dengan huruf kapital, angka, dan simbol (`apps/web/src/lib/password-rules.ts`, dipakai browser dan `passwordProblem` di server). Ini keputusan pemilik dan menyimpang dari `docs/standards/gtx/references/security-gates.md` bagian S-06, yang meminta minimal 15 karakter sebagai faktor tunggal dan melarang aturan komposisi.
+Password orang dewasa yang baru: minimal 12 karakter, dengan huruf kapital, angka, dan simbol (`apps/web/src/lib/password-rules.ts`, dipakai browser dan `passwordProblem` di server). Ini keputusan pemilik dan menyimpang dari `docs/standards/gtx/references/security-gates.md` bagian S-06, yang meminta minimal 15 karakter sebagai faktor tunggal dan melarang aturan komposisi.
 
 Yang tetap mengikuti standar: Argon2id m=19456, t=2, p=1, cek HaveIBeenPwned, paste tidak diblokir, tanpa rotasi paksa. Aturan baru hanya diperiksa saat password dibuat atau diganti, jadi password lama tetap bisa dipakai masuk.
 
-Risiko sisa, tingkat rendah: aturan komposisi mendorong pola yang mudah ditebak, misalnya kata dengan huruf awal kapital dan akhiran `2026!`, dan batas bawahnya dua karakter lebih pendek dari standar. Karena itu `KIRA_HIBP=on` di produksi menjadi penyaring utama, dan batas masuk per email menahan tebakan.
+Risiko sisa, tingkat rendah: aturan komposisi mendorong pola yang mudah ditebak, misalnya kata dengan huruf awal kapital dan akhiran `2026!`, dan batas bawahnya tiga karakter lebih pendek dari standar. Karena itu `KIRA_HIBP=on` di produksi menjadi penyaring utama, dan batas masuk per email menahan tebakan.

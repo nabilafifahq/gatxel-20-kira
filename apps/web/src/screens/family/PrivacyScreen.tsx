@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import type { ConsentPurpose, PrivacyActions, PrivacyDTO } from '@/lib/dto'
 import { Button } from '@/components/console/Button'
 import { cx } from '@/components/console/cx'
@@ -43,7 +43,7 @@ function withdrawEffect(id: PurposeId, name: string): string {
   }
 }
 
-export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
+export function PrivacyScreen({ data, actions, accountSection }: PrivacyScreenProps & { accountSection?: ReactNode }) {
   const toast = useToast()
   const name = data.learner.name
   const isGuardian = data.shell.role === 'guardian'
@@ -223,6 +223,8 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
           Setiap persetujuan tercatat dengan versi Kebijakan Privasi, waktu, dan cara diberikan. Penarikan menghentikan pemrosesan paling lambat 3 x 24 jam.
         </p>
       </section>
+
+      {accountSection}
 
       <section aria-labelledby="data-learner" className="flex flex-col gap-3">
         <h2 id="data-learner" className="m-0 text-h3 font-bold">

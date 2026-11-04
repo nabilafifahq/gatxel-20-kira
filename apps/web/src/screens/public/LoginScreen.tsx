@@ -3,7 +3,7 @@
 import { useRef, useState, type FormEvent } from 'react'
 import type { LoginScreenProps } from '@/lib/dto'
 import { Button } from '@/components/console/Button'
-import { TextField } from '@/components/console/Field'
+import { RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
 import { ConsoleIcon } from '@/components/console/icons'
 import { PasswordField } from '@/components/console/PasswordField'
@@ -165,7 +165,9 @@ function LoginForm({
         </div>
       ) : null}
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
+        <RequiredNote />
         <TextField
+          required
           id="masuk-email"
           name="email"
           label="Email"
@@ -184,6 +186,7 @@ function LoginForm({
           }}
         />
         <PasswordField
+          required
           id="masuk-password"
           name="password"
           label="Password"
@@ -279,7 +282,9 @@ function ForgotForm({
         </InlineAlert>
       ) : (
         <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
+          <RequiredNote />
           <TextField
+            required
             id="lupa-email"
             name="email"
             label="Email"

@@ -2,13 +2,12 @@
 
 import { useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
-import { Checkbox, TextField } from '@/components/console/Field'
+import { Checkbox, FieldError, focusFirstProblem, RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
 import { useAction } from '@/components/console/useAction'
 import { TurnstileField } from '@/components/auth/TurnstileField'
+import { isComplete, waitlistProblems, type Problems, type WaitlistField } from '@/lib/required-rules'
 import { joinWaitlistAction } from '@/server/actions/signup'
-
-const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
 /** Form daftar tunggu: email dan persetujuan (tidak dicentang dari awal). Jawaban sukses sama untuk email apa pun. */
 export function WaitlistForm({ turnstileSiteKey }: { turnstileSiteKey: string | null }) {
@@ -16,27 +15,29 @@ export function WaitlistForm({ turnstileSiteKey }: { turnstileSiteKey: string | 
   const [consent, setConsent] = useState(false)
   const [captcha, setCaptcha] = useState<string | null>(null)
   const [captchaKey, setCaptchaKey] = useState(0)
-  const [errors, setErrors] = useState<{ email?: string; consent?: string }>({})
+  const [errors, setErrors] = useState<Problems<WaitlistField>>({})
   const [done, setDone] = useState<string | null>(null)
   const join = useAction(joinWaitlistAction)
 
+  const problems = waitlistProblems({ email, consent, captchaNeeded: Boolean(turnstileSiteKey) && !captcha })
+  const incomplete = !isComplete(problems)
+
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = e.currentTarget
     const em = email.trim()
-    const next: typeof errors = {}
-    if (!em) next.email = 'Isi email Anda.'
-    else if (!EMAIL_RE.test(em)) next.email = 'Tulis alamat email lengkap, dengan @ dan nama domain.'
-    if (!consent) next.consent = 'Centang persetujuan supaya kami boleh mengirim kabar.'
-    setErrors(next)
-    if (next.email || next.consent) return
-    if (turnstileSiteKey && !captcha) {
-      setErrors({ email: 'Selesaikan pemeriksaan keamanan di bawah dulu.' })
+    setErrors(problems)
+    if (incomplete) {
+      focusFirstProblem(form)
       return
     }
     const r = await join.run({ email: em, consent, ...(captcha ? { turnstile: captcha } : {}) })
     if (r.ok) setDone(em)
     else {
-      if (r.fieldErrors) setErrors({ email: r.fieldErrors.email, consent: r.fieldErrors.consent })
+      if (r.fieldErrors) {
+        setErrors({ email: r.fieldErrors.email, consent: r.fieldErrors.consent })
+        focusFirstProblem(form)
+      }
       setCaptchaKey((k) => k + 1)
     }
   }
@@ -51,8 +52,10 @@ export function WaitlistForm({ turnstileSiteKey }: { turnstileSiteKey: string | 
 
   return (
     <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-4" aria-label="Daftar tunggu">
+      <RequiredNote />
       <TextField
         name="email"
+        required
         label="Email"
         type="email"
         inputMode="email"
@@ -68,26 +71,35 @@ export function WaitlistForm({ turnstileSiteKey }: { turnstileSiteKey: string | 
           if (errors.email) setErrors((x) => ({ ...x, email: undefined }))
         }}
       />
-      <div className="flex flex-col gap-1">
-        <Checkbox
-          name="consent"
-          checked={consent}
-          onChange={(e) => {
-            setConsent(e.target.checked)
-            if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }))
+      <Checkbox
+        name="consent"
+        required
+        checked={consent}
+        error={errors.consent}
+        onChange={(e) => {
+          setConsent(e.target.checked)
+          if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }))
+        }}
+        label="Kabari saya lewat email saat kursi Kira dibuka lagi"
+        description="Kami hanya mengirim kabar soal kursi dan perkembangan Kira. Setiap email punya tautan untuk berhenti."
+      />
+      <div tabIndex={errors.captcha ? -1 : undefined} data-problem={errors.captcha ? 'true' : undefined} className="flex flex-col gap-1">
+        <TurnstileField
+          siteKey={turnstileSiteKey}
+          onToken={(t) => {
+            setCaptcha(t)
+            if (t && errors.captcha) setErrors((x) => ({ ...x, captcha: undefined }))
           }}
-          label="Kabari saya lewat email saat kursi Kira dibuka lagi"
-          description="Kami hanya mengirim kabar soal kursi dan perkembangan Kira. Setiap email punya tautan untuk berhenti."
+          resetKey={captchaKey}
         />
-        {errors.consent ? <p className="m-0 text-small font-bold text-danger">{errors.consent}</p> : null}
+        {errors.captcha ? <FieldError id="tunggu-captcha-error">{errors.captcha}</FieldError> : null}
       </div>
-      <TurnstileField siteKey={turnstileSiteKey} onToken={setCaptcha} resetKey={captchaKey} />
       {join.error && !join.error.fieldErrors ? (
         <InlineAlert tone="danger" title={join.error.message} reference={join.error.reference}>
           Coba lagi dalam beberapa menit.
         </InlineAlert>
       ) : null}
-      <Button type="submit" variant="primary" loading={join.pending} className="h-12! w-full">
+      <Button type="submit" variant="primary" loading={join.pending} incomplete={incomplete} className="h-12! w-full">
         Masuk daftar tunggu
       </Button>
     </form>

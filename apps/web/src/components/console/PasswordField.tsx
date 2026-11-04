@@ -2,7 +2,7 @@
 
 import { forwardRef, useId, useState, type InputHTMLAttributes, type ReactNode } from 'react'
 import { UiIcon } from '@/components/ui/icons'
-import { PASSWORD_RULES, passwordRuleProblem } from '@/lib/password-rules'
+import { passwordInputProblem, PASSWORD_RULES } from '@/lib/password-rules'
 import { cx } from './cx'
 import { controlBorder, FieldShell } from './Field'
 
@@ -23,14 +23,16 @@ export const PasswordField = forwardRef<
     size?: 'M' | 'L'
     /** Tampilkan daftar syarat yang tercentang sambil mengetik (untuk password baru). */
     checklist?: boolean
+    /** Tampilkan * merah dan aria-required. */
+    required?: boolean
   }
->(function PasswordField({ id, label, hint, error, labelAside, className, size = 'M', checklist = false, ...rest }, ref) {
+>(function PasswordField({ id, label, hint, error, labelAside, className, size = 'M', checklist = false, required, ...rest }, ref) {
   const auto = useId()
   const fid = id ?? `pw${auto.replace(/:/g, '')}`
   const [shown, setShown] = useState(false)
-  const describedBy = [hint ? `${fid}-hint` : null, error ? `${fid}-error` : null].filter(Boolean).join(' ') || undefined
+  const describedBy = [required ? `${fid}-req` : null, hint ? `${fid}-hint` : null, error ? `${fid}-error` : null].filter(Boolean).join(' ') || undefined
   return (
-    <FieldShell id={fid} label={label} hint={hint} error={error} labelAside={labelAside}>
+    <FieldShell id={fid} label={label} hint={hint} error={error} labelAside={labelAside} required={required}>
       <div className="relative">
         <input
           ref={ref}
@@ -39,6 +41,7 @@ export const PasswordField = forwardRef<
           autoCapitalize="none"
           autoCorrect="off"
           spellCheck={false}
+          aria-required={required || undefined}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={cx(
@@ -90,9 +93,4 @@ function PasswordChecklist({ value }: { value: string }) {
 }
 
 /** Pemeriksaan di browser, sama dengan aturan di server. */
-export function passwordProblem(pw: string): string | null {
-  const n = [...pw].length
-  if (n === 0) return 'Isi password dulu.'
-  if (n > 128) return `Password paling panjang 128 karakter. Sekarang ${n} karakter.`
-  return passwordRuleProblem(pw)
-}
+export const passwordProblem = passwordInputProblem

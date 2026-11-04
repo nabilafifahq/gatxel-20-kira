@@ -9,6 +9,7 @@ import { ipHash } from '../auth/crypto'
 import { audit } from '../audit'
 import { verifyTurnstile } from '../auth/turnstile'
 import { evenTime } from '@/lib/even-time'
+import { signUpSchema, verifySignupSchema } from './signup-schemas'
 import { confirmWaitlist, joinWaitlist, resendVerification, startSignup, verifySignup } from '../signup/service'
 
 const turnstile = z.string().max(2048).optional()
@@ -18,13 +19,13 @@ const email = z.string().trim().max(200)
  * Jawaban sukses selalu sama, ada atau tidak ada akun dengan email itu. Kesalahan yang dikembalikan hanya
  * soal isian (bentuk email, email sekali pakai, password lemah, persetujuan, kursi penuh).
  */
-export async function signUpAction(input: { name: string; email: string; password: string; consent: boolean; turnstile?: string }): Promise<ActionResult<{ email: string }>> {
+export async function signUpAction(input: { name: string; email: string; password: string; consent: boolean; marketing?: boolean; turnstile?: string }): Promise<ActionResult<{ email: string }>> {
   return runAction('signUp', async () => {
-    const data = z.object({ name: z.string().trim().max(120), email, password: z.string().max(128), consent: z.boolean(), turnstile }).strict().parse(input)
+    const data = signUpSchema.parse(input)
     await throttleIp('signup', 6)
     await verifyTurnstile(data.turnstile, await clientIp())
     const hash = ipHash(await clientIp())
-    await evenTime(900, () => startSignup({ name: data.name, email: data.email, password: data.password, consent: data.consent, ipHash: hash }))
+    await evenTime(900, () => startSignup({ name: data.name, email: data.email, password: data.password, consent: data.consent, marketing: data.marketing, ipHash: hash }))
     return { email: data.email.toLowerCase() }
   })
 }
@@ -43,13 +44,15 @@ export type VerifyResult = { status: 'ok'; redirectTo: string } | { status: 'ful
 
 /**
  * Dipanggil browser setelah halaman konfirmasi terbuka, jadi pemindai email tanpa JavaScript tidak memakai tautan.
- * Nama dan password hanya dipakai untuk pendaftar bertanda conflict, lewat langkah Buat password baru.
+ * Isian lain hanya dipakai untuk pendaftar bertanda conflict, lewat langkah Buat password baru.
  */
-export async function verifySignupAction(input: { token: string; name?: string; password?: string }): Promise<ActionResult<VerifyResult>> {
+export async function verifySignupAction(input: { token: string; name?: string; password?: string; consent?: boolean; marketing?: boolean }): Promise<ActionResult<VerifyResult>> {
   return runAction('verifySignup', async () => {
-    const data = z.object({ token: z.string().min(20).max(100), name: z.string().trim().max(120).optional(), password: z.string().max(128).optional() }).strict().parse(input)
+    const data = verifySignupSchema.parse(input)
     await throttleIp('signup-verify', 10)
-    const r = await verifySignup(data.token, data.name !== undefined && data.password !== undefined ? { name: data.name, password: data.password } : undefined)
+    const replacement =
+      data.name !== undefined && data.password !== undefined ? { name: data.name, password: data.password, consent: data.consent === true, marketing: data.marketing === true, ipHash: ipHash(await clientIp()) } : undefined
+    const r = await verifySignup(data.token, replacement)
     if (r.status !== 'ok') return { status: r.status }
     await startSession({ id: r.userId, orgId: r.orgId, kind: 'adult' })
     await audit({ orgId: r.orgId, userId: r.userId, role: 'guardian' }, 'login.signup', r.userId)

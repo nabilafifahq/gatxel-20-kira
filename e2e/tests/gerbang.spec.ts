@@ -167,10 +167,11 @@ test('jalur rekomendasi sekali ketuk: tambah anak, satu ketukan, cara anak masuk
     await page.getByRole('radio', { name: '5', exact: true }).click()
     for (const p of PIN) await page.getByRole('button', { name: p, exact: true }).click()
     // Tidak ada izin yang tercentang dari awal, dan izin belajar wajib.
-    const consent = page.getByRole('checkbox', { name: /Belajar di Kira/ })
+    const consent = page.getByRole('checkbox', { name: /Saya orang tua atau wali/ })
     await expect(consent).not.toBeChecked()
-    await page.getByRole('button', { name: 'Tambahkan anak' }).click()
-    await expect(page.getByText('Centang izin Belajar di Kira')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Tambahkan anak' })).toHaveAttribute('aria-disabled', 'true')
+    await page.getByRole('button', { name: 'Tambahkan anak' }).click({ force: true })
+    await expect(page.getByText('Centang persetujuan orang tua atau wali')).toBeVisible()
     await consent.check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()
     // Tetap di langkah 1: orang tua melihat anak yang baru ditambahkan, bisa memperbaikinya, dan bisa menambah anak lain.
@@ -180,7 +181,7 @@ test('jalur rekomendasi sekali ketuk: tambah anak, satu ketukan, cara anak masuk
     await page.getByRole('button', { name: 'Tambah anak lain' }).click()
     await page.getByLabel('Nama panggilan').fill('Bayu')
     for (const p of PIN) await page.getByRole('button', { name: p, exact: true }).click()
-    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
+    await page.getByRole('checkbox', { name: /Saya orang tua atau wali/ }).check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()
     await expect(page.getByRole('link', { name: 'Ubah data Bayu' })).toBeVisible()
     await expect(page.getByRole('link', { name: 'Ubah data Nara' })).toBeVisible()

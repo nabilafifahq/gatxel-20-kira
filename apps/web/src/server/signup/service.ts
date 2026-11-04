@@ -12,7 +12,9 @@ import { signupActivatedEmail, signupExistingEmail, signupVerifyEmail, waitlistC
 import { queuePublicMail } from '../dal/outbox'
 import { emailIdentity } from '../email'
 import { emailSendAllowed } from '../auth/ratelimit'
+import { audit } from '../audit'
 import { checkEmail, emailKey } from './email-policy'
+import { TERMS_MESSAGE } from '@/lib/required-rules'
 
 const { signup, userAccount, waitlist } = tables
 
@@ -91,13 +93,14 @@ async function rotateAndSend(row: PendingSignup): Promise<void> {
 
 /**
  * Pendaftaran kedua untuk email yang masih menunggu. Password dan nama yang tersimpan tidak pernah ditimpa, karena
- * tidak ada cara mengetahui pendaftar mana pemilik email. Password sama: sama dengan kirim ulang. Password berbeda: baris
- * diberi tanda supaya tautan meminta nama dan password baru. Tanda dipasang sebelum pemeriksaan jeda dan batas email, karena
- * tautan yang sudah terkirim juga harus berhenti mengaktifkan akun dengan password tersimpan. Tanda tidak pernah dicabut:
- * mengulang password yang tersimpan tidak membuktikan apa pun.
+ * tidak ada cara mengetahui pendaftar mana pemilik email. Password sama: sama dengan kirim ulang, dan pilihan email kabar
+ * terbaru yang berlaku. Password berbeda: baris diberi tanda supaya tautan meminta isian baru, termasuk persetujuan.
+ * Tanda dipasang sebelum pemeriksaan jeda dan batas email, karena tautan yang sudah terkirim juga harus berhenti
+ * mengaktifkan akun dengan isian tersimpan. Tanda tidak pernah dicabut: mengulang password yang tersimpan tidak membuktikan apa pun.
  */
-async function repeatSignup(row: PendingSignup, samePassword: boolean): Promise<void> {
+async function repeatSignup(row: PendingSignup, samePassword: boolean, marketing: { marketingOptIn: boolean; marketingOptInAt: Date | null }): Promise<void> {
   if (samePassword) {
+    await authDb().update(signup).set(marketing).where(eq(signup.id, row.id))
     if (row.sentCount < RESEND_MAX) await rotateAndSend(row)
     return
   }
@@ -110,8 +113,8 @@ async function repeatSignup(row: PendingSignup, samePassword: boolean): Promise<
  * Pemanggil menampilkan jawaban yang sama apa pun hasilnya, supaya tidak membocorkan email yang sudah terdaftar.
  * Melempar hanya untuk kesalahan yang aman ditampilkan: bentuk, email sekali pakai, password lemah, kursi penuh.
  */
-export async function startSignup(input: { name: string; email: string; password: string; consent: boolean; ipHash: string }): Promise<void> {
-  if (!input.consent) throw invalid('Centang persetujuan untuk melanjutkan.', { consent: 'Centang persetujuan untuk melanjutkan.' })
+export async function startSignup(input: { name: string; email: string; password: string; consent: boolean; marketing?: boolean; ipHash: string }): Promise<void> {
+  if (input.consent !== true) throw invalid(TERMS_MESSAGE, { consent: TERMS_MESSAGE })
   const name = input.name.trim()
   if (name.length < 2 || name.length > 80) throw invalid('Tulis nama orang tua, 2 sampai 80 huruf.', { name: 'Tulis nama orang tua, 2 sampai 80 huruf.' })
   const verdict = await checkEmail(input.email)
@@ -120,6 +123,9 @@ export async function startSignup(input: { name: string; email: string; password
   if (problem) throw invalid(problem, { password: problem })
   if ((await seatInfo()).full) throw new AppError('unavailable', SEATS_FULL_MESSAGE)
 
+  // Hanya true yang dihitung setuju.
+  const now = new Date()
+  const marketing = { marketingOptIn: input.marketing === true, marketingOptInAt: input.marketing === true ? now : null }
   // Satu hash dan satu verifikasi dihitung di semua cabang supaya waktu respons tidak membedakan email yang sudah
   // terdaftar atau sedang menunggu konfirmasi.
   const passwordHash = await hashSecret(input.password)
@@ -132,12 +138,11 @@ export async function startSignup(input: { name: string; email: string; password
     return
   }
   if (pending) {
-    await repeatSignup(pending, samePassword)
+    await repeatSignup(pending, samePassword, marketing)
     return
   }
   if (!emailSendAllowed('verify', verdict.email)) return
   const token = randomToken(32)
-  const now = new Date()
   // Baris yang sudah kedaluwarsa boleh ditimpa utuh. Baris yang masih berlaku tidak pernah ditimpa di sini.
   const written = await authDb()
     .insert(signup)
@@ -151,10 +156,11 @@ export async function startSignup(input: { name: string; email: string; password
       termsVersion: TERMS_VERSION,
       noticeVersion: NOTICE_VERSION,
       ipHash: input.ipHash,
+      ...marketing,
     })
     .onConflictDoUpdate({
       target: signup.emailNorm,
-      set: { email: verdict.email, name, passwordHash, tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), termsVersion: TERMS_VERSION, noticeVersion: NOTICE_VERSION, ipHash: input.ipHash, lastSentAt: now, sentCount: 1, conflict: false },
+      set: { email: verdict.email, name, passwordHash, tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), termsVersion: TERMS_VERSION, noticeVersion: NOTICE_VERSION, ipHash: input.ipHash, ...marketing, lastSentAt: now, sentCount: 1, conflict: false },
       where: sql`${signup.expiresAt} <= now()`,
     })
     .returning({ id: signup.id })
@@ -164,7 +170,7 @@ export async function startSignup(input: { name: string; email: string; password
   }
   // Kalah balapan dengan pendaftaran lain untuk email yang sama: perlakukan sebagai pendaftaran kedua.
   const raced = await pendingSignup(verdict.key)
-  if (raced) await repeatSignup(raced, await verifySecret(raced.passwordHash, input.password))
+  if (raced) await repeatSignup(raced, await verifySecret(raced.passwordHash, input.password), marketing)
 }
 
 /** Kirim ulang email konfirmasi. Diam bila tidak ada pendaftar, terlalu sering, atau sudah lima kali. */
@@ -186,31 +192,41 @@ export async function hasPendingSignup(emailRaw: string): Promise<boolean> {
   return Boolean(rows[0])
 }
 
+export type SignupReplacement = { name: string; password: string; consent: boolean; marketing: boolean; ipHash: string }
+
 export type VerifyOutcome = { status: 'ok'; userId: string; orgId: string } | { status: 'full' | 'invalid' | 'taken' | 'needs-password' }
 
 /**
  * Verifikasi token: buat keluarga dan ambil kursi sekaligus, di bawah kunci database.
  * Keputusan pemilik untuk pilot: tautan di email cukup, tanpa memasukkan password lagi. Pengecualiannya pendaftar
- * bertanda conflict: pemegang tautan mengisi nama dan password baru, dan keduanya dipasang di transaksi yang sama dengan
- * pembuatan akun, jadi isian formulir daftar, milik siapa pun, tidak ikut ke akun. Nama tersimpan tidak pernah dikirim
- * ke browser, karena bisa berasal dari orang lain. Risiko sisa ada di docs/laporan-keamanan.md.
+ * bertanda conflict: pemegang tautan mengisi nama, password baru, dan persetujuannya sendiri, dan semuanya dipasang di
+ * transaksi yang sama dengan pembuatan akun. Isian dan persetujuan dari formulir daftar, milik siapa pun, tidak ikut ke
+ * akun. Nama tersimpan tidak pernah dikirim ke browser, karena bisa berasal dari orang lain. Risiko sisa ada di
+ * docs/laporan-keamanan.md.
  */
-export async function verifySignup(token: string, replacement?: { name: string; password: string }): Promise<VerifyOutcome> {
+export async function verifySignup(token: string, replacement?: SignupReplacement): Promise<VerifyOutcome> {
   if (token.length < 20 || token.length > 100) return { status: 'invalid' }
   const tokenHash = sha256hex(token)
   const row = (await authDb().select({ email: signup.email, conflict: signup.conflict }).from(signup).where(and(eq(signup.tokenHash, tokenHash), sql`${signup.expiresAt} > now()`)).limit(1))[0]
   if (!row) return { status: 'invalid' }
-  let newHash: string | null = null
-  let newName: string | null = null
+  let fresh: string | null = null
   if (row.conflict) {
     if (!replacement) return { status: 'needs-password' }
-    newName = replacement.name.trim()
-    if (newName.length < 2 || newName.length > 80) throw invalid('Tulis nama orang tua, 2 sampai 80 huruf.', { name: 'Tulis nama orang tua, 2 sampai 80 huruf.' })
-    const problem = await passwordProblem(replacement.password, { email: row.email, name: newName })
+    if (replacement.consent !== true) throw invalid(TERMS_MESSAGE, { consent: TERMS_MESSAGE })
+    const name = replacement.name.trim()
+    if (name.length < 2 || name.length > 80) throw invalid('Tulis nama orang tua, 2 sampai 80 huruf.', { name: 'Tulis nama orang tua, 2 sampai 80 huruf.' })
+    const problem = await passwordProblem(replacement.password, { email: row.email, name })
     if (problem) throw invalid(problem, { password: problem })
-    newHash = await hashSecret(replacement.password)
+    fresh = JSON.stringify({
+      name,
+      password_hash: await hashSecret(replacement.password),
+      terms_version: TERMS_VERSION,
+      notice_version: NOTICE_VERSION,
+      ip_hash: replacement.ipHash,
+      marketing: replacement.marketing === true,
+    })
   }
-  const rows = await authDb().execute(sql`select status, user_id, org_id from kira_verify_signup(${tokenHash}, ${env().KIRA_BETA_SEATS}, ${newHash}::text, ${newName}::text)`)
+  const rows = await authDb().execute(sql`select status, user_id, org_id from kira_verify_signup(${tokenHash}, ${env().KIRA_BETA_SEATS}, ${fresh}::text::jsonb)`)
   const r = (rows as unknown as { status: string; user_id: string | null; org_id: string | null }[])[0]
   if (r?.status === 'ok' && r.user_id && r.org_id) {
     await sendActivated(row.email)
@@ -288,4 +304,20 @@ export async function unsubscribeWaitlist(token: string): Promise<boolean> {
     .where(eq(waitlist.token, token))
     .returning({ id: waitlist.id })
   return rows.length > 0
+}
+
+/**
+ * Tautan berhenti di /kabar/berhenti: token daftar tunggu atau token email kabar di akun. Idempotent.
+ * Hanya menghentikan email kabar; laporan belajar dan email akun tidak terpengaruh.
+ */
+export async function unsubscribeByToken(token: string): Promise<'waitlist' | 'account' | null> {
+  if (await unsubscribeWaitlist(token)) return 'waitlist'
+  if (token.length < 20 || token.length > 100) return null
+  const [row] = await authDb().select({ id: userAccount.id, orgId: userAccount.orgId, role: userAccount.role, optIn: userAccount.marketingOptIn }).from(userAccount).where(eq(userAccount.marketingToken, token)).limit(1)
+  if (!row) return null
+  if (row.optIn) {
+    await authDb().update(userAccount).set({ marketingOptIn: false, marketingWithdrawnAt: new Date() }).where(eq(userAccount.id, row.id))
+    await audit({ orgId: row.orgId, userId: row.id, role: row.role === 'tutor' ? 'tutor' : 'guardian' }, 'marketing.withdrawn', row.id, { via: 'link' })
+  }
+  return 'account'
 }

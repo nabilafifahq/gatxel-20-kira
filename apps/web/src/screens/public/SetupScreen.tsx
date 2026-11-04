@@ -14,7 +14,7 @@ import { AuthCard, PublicFrame } from './PublicFrame'
 /**
  * Setup pertama server Kira: membuat akun keluarga dan akun tutor pemilik.
  * Kode setup sekali pakai mencegah orang lain di jaringan yang sama mengambil alih
- * server yang baru dipasang. Password paling sedikit 13 karakter, dengan huruf kapital, angka, dan simbol,
+ * server yang baru dipasang. Password paling sedikit 12 karakter, dengan huruf kapital, angka, dan simbol,
  * tanpa aturan komposisi, paste boleh.
  */
 

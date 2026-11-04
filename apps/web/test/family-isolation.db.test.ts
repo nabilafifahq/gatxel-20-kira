@@ -68,7 +68,7 @@ describe.skipIf(!ready)('isolasi antar keluarga', () => {
     }
     A = await signUpFamily('a')
     B = await signUpFamily('b')
-    for (const f of [A, B]) f.kids.push(await onboarding.addChild(f.actor, { name: `Anak ${f.actor.name}`, grade: 2, avatar: 'fox', pin: [...PIN] }))
+    for (const f of [A, B]) f.kids.push(await onboarding.addChild(f.actor, { name: `Anak ${f.actor.name}`, grade: 2, avatar: 'fox', pin: [...PIN], guardianConsent: true }))
     await onboarding.saveChildConsents(B.actor, { learnerId: B.kids[0]!, consents: { learning: true, 'progress-email': false, audio: true, photo: false } })
     // Data B yang tidak boleh bocor: media, hasil belajar, catatan.
     const [m] = await owner`insert into media (org_id, learner_id, kind, path, mime, size, sha256, created_by)
@@ -156,16 +156,16 @@ describe.skipIf(!ready)('isolasi antar keluarga', () => {
 
   it('batas anak per keluarga tidak dibagi antar keluarga', async () => {
     // Batas uji 3 per keluarga: A penuh, B masih bisa menambah.
-    await onboarding.addChild(A.actor, { name: 'A dua', grade: 1, avatar: 'cat', pin: [...PIN] })
-    await onboarding.addChild(A.actor, { name: 'A tiga', grade: 3, avatar: 'owl', pin: [...PIN] })
-    await expect(onboarding.addChild(A.actor, { name: 'A empat', grade: 3, avatar: 'bear', pin: [...PIN] })).rejects.toThrow(/sampai 3 anak/)
-    await onboarding.addChild(B.actor, { name: 'B dua', grade: 4, avatar: 'cat', pin: [...PIN] })
+    await onboarding.addChild(A.actor, { name: 'A dua', grade: 1, avatar: 'cat', pin: [...PIN], guardianConsent: true })
+    await onboarding.addChild(A.actor, { name: 'A tiga', grade: 3, avatar: 'owl', pin: [...PIN], guardianConsent: true })
+    await expect(onboarding.addChild(A.actor, { name: 'A empat', grade: 3, avatar: 'bear', pin: [...PIN], guardianConsent: true })).rejects.toThrow(/sampai 3 anak/)
+    await onboarding.addChild(B.actor, { name: 'B dua', grade: 4, avatar: 'cat', pin: [...PIN], guardianConsent: true })
     const [n] = await owner`select count(*)::int as n from learner_profile where org_id = ${A.orgId}`
     expect(n!.n).toBe(3)
   })
 
   it('penambahan serentak tidak melewati batas', async () => {
-    const results = await Promise.allSettled([1, 2, 3, 4].map((i) => onboarding.addChild(B.actor, { name: `B serentak ${i}`, grade: 2, avatar: 'frog', pin: [...PIN] })))
+    const results = await Promise.allSettled([1, 2, 3, 4].map((i) => onboarding.addChild(B.actor, { name: `B serentak ${i}`, grade: 2, avatar: 'frog', pin: [...PIN], guardianConsent: true })))
     const [n] = await owner`select count(*)::int as n from learner_profile where org_id = ${B.orgId}`
     expect(n!.n).toBe(3)
     expect(results.filter((r) => r.status === 'fulfilled').length).toBe(1)

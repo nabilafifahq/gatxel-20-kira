@@ -9,6 +9,7 @@ import { isFamilyOwner, withFamilyAdmin } from '../auth/parent'
 import { auditTx } from '../audit'
 import { env } from '../env'
 import { conflict, forbidden, invalid } from '../errors'
+import { GUARDIAN_CONSENT_MESSAGE } from '@/lib/required-rules'
 import { latestConsents, syncLearnerActive, type ConsentPurposeId } from './consent'
 import { applyDefaultPreset } from './default-preset'
 import { setConsentTx } from './privacy'
@@ -56,12 +57,14 @@ export async function onboardingState(actor: Actor): Promise<OnboardingState> {
 
 /**
  * Orang tua menambah anak. Batas per keluarga (KIRA_MAX_LEARNERS_PER_FAMILY) dijaga dengan kunci
- * penasihat per org, jadi dua permintaan serentak tidak melewati batas. Anak belum aktif sampai orang tua
- * memberi persetujuan belajar.
+ * penasihat per org, jadi dua permintaan serentak tidak melewati batas. Persetujuan orang tua wajib: tanpa itu tidak
+ * ada anak yang dibuat. Persetujuan `learning` dicatat bersama waktu dan versi kebijakan di transaksi yang sama,
+ * jadi anak langsung aktif. Kalau persetujuan ditarik nanti, anak nonaktif lagi seperti biasa.
  */
-export async function addChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang }): Promise<string> {
+export async function addChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang; guardianConsent: boolean }): Promise<string> {
   const max = env().KIRA_MAX_LEARNERS_PER_FAMILY
   const name = input.name.trim()
+  if (input.guardianConsent !== true) throw invalid(GUARDIAN_CONSENT_MESSAGE, { guardianConsent: GUARDIAN_CONSENT_MESSAGE })
   if (!(await isFamilyOwner(actor))) throw forbidden('Hanya pemilik keluarga yang bisa menambah anak dari sini. Minta tutor menambahkan anak.')
   // Akun auth dan PIN (Argon2) dibuat sebelum transaksi: memakai pool lain dan butuh waktu, jadi tidak boleh memegang kunci dan sambungan.
   const learnerId = await createLearnerAuth(actor.orgId, { name, pin: input.pin, ...(input.uiLang ? { uiLang: input.uiLang } : {}) })
@@ -80,7 +83,7 @@ export async function addChild(actor: Actor, input: { name: string; grade: numbe
       }
       const ctx = orgCtx(actor)
       await scope.elevate(async () => {
-        await tx.insert(learnerProfile).values({ userId: learnerId, orgId: actor.orgId, name, grade: input.grade, avatar: input.avatar, active: false })
+        await tx.insert(learnerProfile).values({ userId: learnerId, orgId: actor.orgId, name, grade: input.grade, avatar: input.avatar, active: true })
         await auditTx(tx, { orgId: actor.orgId, userId: actor.userId, role: 'tutor' }, 'learner.created', learnerId)
         await tx.insert(guardianLink).values({ orgId: actor.orgId, guardianId: actor.userId, learnerId })
         await applyDefaultPreset(tx, ctx, learnerId)
@@ -88,6 +91,7 @@ export async function addChild(actor: Actor, input: { name: string; grade: numbe
         await saveFeatureMap(tx, actor.orgId, learnerId, recommendationFor(input.grade).features)
       })
       await auditTx(tx, ctx, 'guardian.linked', learnerId, { guardianId: actor.userId, via: 'onboarding' })
+      await setConsentTx(tx, ctx, { guardianId: actor.userId, learnerId, purpose: 'learning', granted: true })
       return learnerId
     })
   } catch (e) {

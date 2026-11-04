@@ -3,35 +3,44 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
-import { TextField } from '@/components/console/Field'
+import { focusFirstProblem, RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
-import { PasswordField, passwordProblem } from '@/components/console/PasswordField'
+import { PasswordField } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
 import { AuthCard } from '@/screens/public/PublicFrame'
+import { SignupConsentChecks } from '@/components/auth/SignupConsentChecks'
 import { WaitlistFull } from '@/components/auth/WaitlistFull'
+import { isComplete, replacementProblems, type Problems, type ReplacementField } from '@/lib/required-rules'
 import { verifySignupAction } from '@/server/actions/signup'
 
 /**
  * Konfirmasi email. Browser langsung mengonfirmasi setelah halaman terbuka, lalu masuk ke langkah tambah anak.
  * Token dipakai lewat Server Action, jadi pemindai email dan pratinjau tautan tanpa JavaScript tidak memakainya.
- * Bila ada pendaftaran lain dengan password berbeda, akun baru aktif setelah pemegang tautan mengisi nama dan password
- * baru. Kolom nama mulai kosong, karena nama yang tersimpan bisa berasal dari orang lain.
+ * Bila ada pendaftaran lain dengan password berbeda, akun baru aktif setelah pemegang tautan mengisi nama, password baru,
+ * dan persetujuannya sendiri. Semua kolom mulai kosong, karena isian yang tersimpan bisa berasal dari orang lain.
  */
 export function VerifyClient({ token, valid, needsPassword }: { token: string; valid: boolean; needsPassword: boolean }) {
   const verify = useAction(verifySignupAction)
   const [outcome, setOutcome] = useState<'full' | 'invalid' | 'taken' | null>(valid ? null : 'invalid')
   const [askPassword, setAskPassword] = useState(needsPassword)
   const [name, setName] = useState('')
-  const [nameError, setNameError] = useState<string | null>(null)
   const [password, setPassword] = useState('')
-  const [passwordError, setPasswordError] = useState<string | null>(null)
+  const [consent, setConsent] = useState(false)
+  const [marketing, setMarketing] = useState(false)
+  const [errors, setErrors] = useState<Problems<ReplacementField>>({})
+  const form = useRef<HTMLFormElement>(null)
   const started = useRef(false)
 
-  async function confirm(replacement?: { name: string; password: string }) {
+  const problems = replacementProblems({ name, password, consent })
+  const incomplete = !isComplete(problems)
+
+  async function confirm(replacement?: { name: string; password: string; consent: boolean; marketing: boolean }) {
     const r = await verify.run({ token, ...replacement })
     if (!r.ok) {
-      if (r.fieldErrors?.name) setNameError(r.fieldErrors.name)
-      if (r.fieldErrors?.password) setPasswordError(r.fieldErrors.password)
+      if (r.fieldErrors) {
+        setErrors({ name: r.fieldErrors.name, password: r.fieldErrors.password, consent: r.fieldErrors.consent })
+        focusFirstProblem(form.current)
+      }
       return
     }
     if (r.data.status === 'ok') window.location.assign(r.data.redirectTo)
@@ -47,11 +56,12 @@ export function VerifyClient({ token, valid, needsPassword }: { token: string; v
 
   async function submitReplacement(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const nameProblem = name.trim().length < 2 ? 'Tulis nama Anda, paling sedikit 2 huruf.' : null
-    const problem = passwordProblem(password)
-    setNameError(nameProblem)
-    setPasswordError(problem)
-    if (!nameProblem && !problem) await confirm({ name: name.trim(), password })
+    setErrors(problems)
+    if (incomplete) {
+      focusFirstProblem(e.currentTarget)
+      return
+    }
+    await confirm({ name: name.trim(), password, consent, marketing })
   }
 
   if (outcome === 'full') return <WaitlistFull />
@@ -93,40 +103,53 @@ export function VerifyClient({ token, valid, needsPassword }: { token: string; v
           <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
             Buat password baru
           </h1>
-          <p className="m-0 text-body text-fg-muted">Ada lebih dari satu pendaftaran dengan email ini, jadi nama dan password yang diisi saat mendaftar tidak dipakai. Isi nama Anda dan buat password baru untuk mengaktifkan akun.</p>
+          <p className="m-0 text-body text-fg-muted">Ada lebih dari satu pendaftaran dengan email ini, jadi isian saat mendaftar tidak dipakai. Isi nama Anda, buat password baru, dan setujui ketentuan untuk mengaktifkan akun.</p>
+          <RequiredNote className="mt-1" />
         </div>
-        <form method="post" noValidate onSubmit={submitReplacement} className="flex flex-col gap-5">
+        <form ref={form} method="post" noValidate onSubmit={submitReplacement} className="flex flex-col gap-5">
           <TextField
             name="name"
+            required
             label="Nama orang tua"
             autoComplete="name"
             value={name}
-            error={nameError}
+            error={errors.name}
             className="h-12!"
             onChange={(e) => {
               setName(e.target.value)
-              if (nameError) setNameError(null)
+              if (errors.name) setErrors((x) => ({ ...x, name: undefined }))
             }}
           />
           <PasswordField
             name="new-password"
+            required
             label="Password baru"
             checklist
             autoComplete="new-password"
             size="L"
             value={password}
-            error={passwordError}
+            error={errors.password}
             onChange={(e) => {
               setPassword(e.target.value)
-              if (passwordError) setPasswordError(null)
+              if (errors.password) setErrors((x) => ({ ...x, password: undefined }))
             }}
+          />
+          <SignupConsentChecks
+            consent={consent}
+            marketing={marketing}
+            consentError={errors.consent}
+            onConsentChange={(checked) => {
+              setConsent(checked)
+              if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }))
+            }}
+            onMarketingChange={setMarketing}
           />
           {verify.error && !verify.error.fieldErrors ? (
             <InlineAlert tone="danger" title={verify.error.message} reference={verify.error.reference}>
               Coba lagi. Bila tautan sudah tidak berlaku, daftar lagi dari halaman depan.
             </InlineAlert>
           ) : null}
-          <Button type="submit" variant="primary" loading={verify.pending} className="h-12! w-full">
+          <Button type="submit" variant="primary" loading={verify.pending} incomplete={incomplete} className="h-12! w-full">
             Aktifkan akun
           </Button>
         </form>

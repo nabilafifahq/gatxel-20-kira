@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Avatar } from '@kira/figures'
 import type { AvatarName, ConsoleShell, PinPicture } from '@/lib/dto'
 import type { ParentChildCard, ParentHomeDTO } from '@/lib/dto-parent'
@@ -10,8 +10,10 @@ import { Button, ButtonLink } from '@/components/console/Button'
 import { cx } from '@/components/console/cx'
 import { Dialog } from '@/components/console/Dialog'
 import { ActionError, InlineAlert } from '@/components/console/Feedback'
-import { Checkbox, RadioGroup, TextField } from '@/components/console/Field'
+import { Checkbox, focusFirstProblem, RadioGroup, RequiredNote, TextField } from '@/components/console/Field'
 import { PinChooser, pinProblem } from '@/components/console/PinChooser'
+import { GuardianConsent } from '@/components/family/GuardianConsent'
+import { addChildProblems, isComplete, type AddChildField, type Problems } from '@/lib/required-rules'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useAction } from '@/components/console/useAction'
 import { FamilyShell } from '@/components/family/FamilyShell'
@@ -199,16 +201,25 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
   const [avatar, setAvatar] = useState<AvatarName>(AVATARS.find((a) => !used[a]) ?? 'cat')
   const [pin, setPin] = useState<PinPicture[]>([])
   const [uiLang, setUiLang] = useState<UiLang>('id')
-  const [error, setError] = useState<string | null>(null)
+  const [consent, setConsent] = useState(false)
+  const [errors, setErrors] = useState<Problems<AddChildField>>({})
   const add = useAction(parentAddChildAction)
+  const body = useRef<HTMLDivElement>(null)
+  const problems = addChildProblems({ name, pinProblem: pinProblem(pin), consent })
+  const incomplete = !isComplete(problems)
 
   async function submit() {
-    if (!name.trim()) return setError('Isi nama anak dulu.')
-    const p = pinProblem(pin)
-    if (p) return setError(p)
-    setError(null)
-    const r = await add.run({ name: name.trim(), grade: Number(grade), avatar, pin, uiLang })
+    setErrors(problems)
+    if (incomplete) {
+      focusFirstProblem(body.current)
+      return
+    }
+    const r = await add.run({ name: name.trim(), grade: Number(grade), avatar, pin, uiLang, guardianConsent: consent })
     if (r.ok) onDone(r.data.learnerId)
+    else if (r.fieldErrors) {
+      setErrors({ name: r.fieldErrors.name, pin: r.fieldErrors.pin, consent: r.fieldErrors.guardianConsent })
+      focusFirstProblem(body.current)
+    }
   }
 
   return (
@@ -218,33 +229,61 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
       dismissible={!add.pending}
       size="lg"
       title="Tambah anak"
-      description="Anak bisa mulai belajar setelah Anda memberi persetujuan di langkah berikutnya."
+      description="Izin tambahan, seperti laporan lewat email, bisa diatur di langkah berikutnya."
       footer={
         <>
           <Button variant="secondary" onClick={onClose} disabled={add.pending}>
             Batal
           </Button>
-          <Button variant="primary" onClick={submit} loading={add.pending}>
+          <Button variant="primary" onClick={submit} loading={add.pending} incomplete={incomplete}>
             Simpan dan lanjut
           </Button>
         </>
       }
     >
-      <div className="flex flex-col gap-5">
-        <TextField label="Nama anak" value={name} onChange={(e) => setName(e.target.value)} maxLength={40} autoComplete="off" />
+      <div ref={body} className="flex flex-col gap-5">
+        <RequiredNote />
+        <TextField
+          label="Nama anak"
+          required
+          value={name}
+          error={errors.name}
+          onChange={(e) => {
+            setName(e.target.value)
+            if (errors.name) setErrors((x) => ({ ...x, name: undefined }))
+          }}
+          maxLength={40}
+          autoComplete="off"
+        />
         <RadioGroup
           name="kelas-baru"
+          required
           legend="Kelas"
           value={grade}
           onChange={setGrade}
           options={['1', '2', '3', '4', '5', '6'].map((g) => ({ value: g, label: `Kelas ${g}` }))}
           layout="row"
         />
-        <AvatarPicker value={avatar} onChange={setAvatar} taken={used} />
-        <UiLangChoice name="bahasa-baru" value={uiLang} onChange={setUiLang} />
-        <PinChooser value={pin} onChange={setPin} />
-        {error ? <InlineAlert tone="danger" title={error} /> : null}
-        <ActionError error={add.error} />
+        <AvatarPicker required value={avatar} onChange={setAvatar} taken={used} />
+        <UiLangChoice name="bahasa-baru" value={uiLang} onChange={setUiLang} required />
+        <PinChooser
+          required
+          value={pin}
+          error={errors.pin}
+          onChange={(p) => {
+            setPin(p)
+            if (errors.pin) setErrors((x) => ({ ...x, pin: undefined }))
+          }}
+        />
+        <GuardianConsent
+          checked={consent}
+          error={errors.consent}
+          onChange={(checked) => {
+            setConsent(checked)
+            if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }))
+          }}
+        />
+        {add.error && !add.error.fieldErrors ? <ActionError error={add.error} /> : null}
       </div>
     </Dialog>
   )
@@ -283,7 +322,8 @@ function RegisterDeviceDialog({ open, onClose, children_ }: { open: boolean; onC
       }
     >
       <div className="flex flex-col gap-4">
-        <TextField label="Nama perangkat" value={name} onChange={(e) => setName(e.target.value)} maxLength={60} />
+        <RequiredNote />
+        <TextField label="Nama perangkat" required value={name} onChange={(e) => setName(e.target.value)} maxLength={60} />
         <fieldset className="m-0 flex flex-col gap-2 border-0 p-0">
           <legend className="mb-1 p-0 text-small font-bold">Anak yang memakai perangkat ini</legend>
           {children_.map((c) => (

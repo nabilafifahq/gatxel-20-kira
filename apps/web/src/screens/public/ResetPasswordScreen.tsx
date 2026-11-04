@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from 'react'
 import type { ResetPasswordScreenProps } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
+import { RequiredNote } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
 import { PasswordField, passwordProblem } from '@/components/console/PasswordField'
 import { PUBLIC_ROUTES } from '@/components/console/routes'
@@ -60,8 +61,10 @@ export function ResetPasswordScreen({ token, valid, resetPassword }: ResetPasswo
           <p className="m-0 text-body text-fg-muted">Setelah disimpan, masuk lagi dengan password baru ini.</p>
         </div>
         <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
+          <RequiredNote />
           <PasswordField
             id="reset-password"
+            required
             name="new-password"
             label="Password baru"
             checklist

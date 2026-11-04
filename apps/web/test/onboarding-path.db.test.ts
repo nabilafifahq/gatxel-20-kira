@@ -55,15 +55,15 @@ describe.skipIf(!ready)('jalur onboarding', () => {
 
   it('anak baru langsung memakai isi rekomendasi, sebelum orang tua memilih apa pun', async () => {
     const a = await family('Baru')
-    const kid = await onboarding.addChild(a, { name: 'Sari', grade: 2, avatar: 'fox', pin: [...PIN] })
+    const kid = await onboarding.addChild(a, { name: 'Sari', grade: 2, avatar: 'fox', pin: [...PIN], guardianConsent: true })
     expect(await pathOf(kid)).toBeNull()
     expect(await offKeys(kid)).toEqual([...recommendationFor(2).off].sort())
   })
 
   it('rekomendasi dan lewati menyimpan isi yang sama, dengan catatan jalur yang berbeda', async () => {
     const a = await family('Dua')
-    const one = await onboarding.addChild(a, { name: 'Rani', grade: 5, avatar: 'cat', pin: [...PIN] })
-    const two = await onboarding.addChild(a, { name: 'Rudi', grade: 1, avatar: 'owl', pin: [...PIN] })
+    const one = await onboarding.addChild(a, { name: 'Rani', grade: 5, avatar: 'cat', pin: [...PIN], guardianConsent: true })
+    const two = await onboarding.addChild(a, { name: 'Rudi', grade: 1, avatar: 'owl', pin: [...PIN], guardianConsent: true })
     await onboarding.applyRecommendedPath(a, { mode: 'recommended', learnerIds: [one] })
     await onboarding.applyRecommendedPath(a, { mode: 'skipped', learnerIds: [two] })
     expect(await pathOf(one)).toBe('recommended')
@@ -77,7 +77,7 @@ describe.skipIf(!ready)('jalur onboarding', () => {
   it('anak keluarga lain ditolak, dan tidak berubah', async () => {
     const a = await family('Satu')
     const b = await family('Lain')
-    const theirs = await onboarding.addChild(b, { name: 'Tono', grade: 3, avatar: 'fox', pin: [...PIN] })
+    const theirs = await onboarding.addChild(b, { name: 'Tono', grade: 3, avatar: 'fox', pin: [...PIN], guardianConsent: true })
     await expect(onboarding.applyRecommendedPath(a, { mode: 'recommended', learnerIds: [theirs] })).rejects.toThrow()
     await expect(onboarding.markCustomPath(a, theirs)).rejects.toThrow()
     expect(await pathOf(theirs)).toBeNull()
@@ -85,7 +85,7 @@ describe.skipIf(!ready)('jalur onboarding', () => {
 
   it('atur sendiri hanya mencatat jalur', async () => {
     const a = await family('Atur')
-    const kid = await onboarding.addChild(a, { name: 'Wati', grade: 4, avatar: 'fox', pin: [...PIN] })
+    const kid = await onboarding.addChild(a, { name: 'Wati', grade: 4, avatar: 'fox', pin: [...PIN], guardianConsent: true })
     const before = await offKeys(kid)
     await onboarding.markCustomPath(a, kid)
     expect(await pathOf(kid)).toBe('custom')
@@ -99,7 +99,7 @@ describe.skipIf(!ready)('jalur onboarding', () => {
     const a = await family('Daftar')
     const done = async () => (await onboarding.firstRunChecklist(a))?.filter((i) => i.done).map((i) => i.key)
     expect(await done()).toEqual([])
-    const kid = await onboarding.addChild(a, { name: 'Yani', grade: 2, avatar: 'fox', pin: [...PIN] })
+    const kid = await onboarding.addChild(a, { name: 'Yani', grade: 2, avatar: 'fox', pin: [...PIN], guardianConsent: true })
     expect(await done()).toEqual(['child'])
     await onboarding.applyRecommendedPath(a, { mode: 'recommended', learnerIds: [kid] })
     expect(await done()).toEqual(['child', 'path'])
@@ -111,7 +111,7 @@ describe.skipIf(!ready)('jalur onboarding', () => {
 
   it('tips pertama anak: tertunda sekali, tersimpan di server', async () => {
     const a = await family('Tips')
-    const kid = await onboarding.addChild(a, { name: 'Zaki', grade: 2, avatar: 'fox', pin: [...PIN] })
+    const kid = await onboarding.addChild(a, { name: 'Zaki', grade: 2, avatar: 'fox', pin: [...PIN], guardianConsent: true })
     const ctx = { orgId: a.orgId, userId: kid, role: 'learner' as const }
     expect(await dbm.inOrg(ctx, (tx) => entry.firstRunPending(tx, kid))).toBe(true)
     await entry.markFirstRunDone(a.orgId, kid)

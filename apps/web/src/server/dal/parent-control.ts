@@ -178,7 +178,7 @@ export async function parentEditChild(actor: Actor, input: { learnerId: string; 
 
 /**
  * Tambah anak oleh orang tua sendiri. Satu implementasi dengan onboarding (/mulai): batas per keluarga
- * KIRA_MAX_LEARNERS_PER_FAMILY, kunci per org, preset Seimbang, dan anak aktif setelah persetujuan di halaman Privasi.
+ * KIRA_MAX_LEARNERS_PER_FAMILY, kunci per org, preset Seimbang, dan persetujuan orang tua yang wajib dicentang.
  */
 /** Bahasa tampilan anak dan izin anak menggantinya sendiri. Sesi anak membacanya lagi di request berikutnya. */
 export async function parentSaveUiLang(actor: Actor, input: { learnerId: string; uiLang: UiLang; uiLangSwitch: boolean }): Promise<void> {
@@ -186,7 +186,7 @@ export async function parentSaveUiLang(actor: Actor, input: { learnerId: string;
   await setLearnerUiPrefs(input.learnerId, actor.orgId, { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch })
 }
 
-export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang }): Promise<{ learnerId: string }> {
+export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang; guardianConsent: boolean }): Promise<{ learnerId: string }> {
   return { learnerId: await addChild(actor, input) }
 }
 

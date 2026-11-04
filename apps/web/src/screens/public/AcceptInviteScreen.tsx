@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, type FormEvent } from 'react'
 import type { AcceptInviteScreenProps } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
-import { Checkbox, FieldError, TextField } from '@/components/console/Field'
+import { Checkbox, FieldError, RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
 import { dateTimeId } from '@/components/console/format'
 import { PasswordField, passwordProblem } from '@/components/console/PasswordField'
@@ -86,6 +86,7 @@ export function AcceptInviteScreen({ token, invite, acceptInvite }: AcceptInvite
           </p>
         </div>
         <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
+          <RequiredNote />
           <TextField
             id="undangan-email"
             name="email"
@@ -100,6 +101,7 @@ export function AcceptInviteScreen({ token, invite, acceptInvite }: AcceptInvite
           <TextField
             id="undangan-name"
             name="name"
+            required
             label="Nama lengkap"
             autoComplete="name"
             value={name}
@@ -112,6 +114,7 @@ export function AcceptInviteScreen({ token, invite, acceptInvite }: AcceptInvite
           <PasswordField
             id="undangan-password"
             name="new-password"
+            required
             label="Password"
             checklist
             autoComplete="new-password"
@@ -125,6 +128,7 @@ export function AcceptInviteScreen({ token, invite, acceptInvite }: AcceptInvite
           <div className="flex flex-col gap-1.5">
             <Checkbox
               id="undangan-terms"
+              required
               checked={terms}
               aria-invalid={errors.terms ? true : undefined}
               onChange={(e) => {
