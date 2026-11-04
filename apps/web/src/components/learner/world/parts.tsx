@@ -155,7 +155,7 @@ export function PetStage({ kind, stage, costume, home, name, line, happy, onPat,
         </button>
       </div>
       {line ? (
-        <p role="status" className="absolute top-3 left-3 m-0 max-w-[70%] rounded-card border-2 border-fg bg-surface px-3.5 py-2 text-body font-bold">
+        <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface px-3.5 py-2 text-body font-bold max-sm:mt-2 sm:absolute sm:top-3 sm:left-3 sm:max-w-[70%]">
           {line}
         </p>
       ) : null}
