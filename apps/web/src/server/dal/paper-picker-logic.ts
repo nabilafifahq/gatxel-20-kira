@@ -165,8 +165,9 @@ export type PoolItem = { ref: string; skillId: string; difficulty: number }
 /**
  * Paper gaya lomba buatan Kira: soal yang belum pernah dipilih, bergiliran antar-skill supaya tersebar,
  * diurutkan dari kesulitan terendah seperti paper lomba. Null bila soal yang tersedia kurang dari MIN_PAPER_ITEMS.
+ * `spare` memberi soal baru (generator) saat bank olimpiade habis, supaya soal lama baru dipakai bila tidak ada pilihan lain.
  */
-export function assembleKiraPaper(pool: readonly PoolItem[], count: number, picks: readonly PickRecord[], rng: Rng): { refs: string[]; minutes: number } | null {
+export function assembleKiraPaper(pool: readonly PoolItem[], count: number, picks: readonly PickRecord[], rng: Rng, spare?: (need: number) => PoolItem[]): { refs: string[]; minutes: number } | null {
   const seen = new Set(picks.flatMap((p) => p.itemRefs))
   const bySkill = new Map<string, PoolItem[]>()
   const unique = new Map<string, PoolItem>()
@@ -188,6 +189,7 @@ export function assembleKiraPaper(pool: readonly PoolItem[], count: number, pick
     return out
   }
   const chosen = take(fresh, count)
+  if (chosen.length < count && spare) chosen.push(...spare(count - chosen.length))
   if (chosen.length < count) chosen.push(...take(stale, count - chosen.length))
   if (chosen.length < MIN_PAPER_ITEMS) return null
   chosen.sort((a, b) => a.difficulty - b.difficulty || a.ref.localeCompare(b.ref))

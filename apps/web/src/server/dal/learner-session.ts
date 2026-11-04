@@ -213,7 +213,8 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   }
   const taken = new Set<string>()
   const built = slots.map((s, i) => ({ ref: materialise(s.ref, rng, taken, seen), section: s.section, position: i + 1, difficulty: s.difficulty }))
-  return guardAttemptItems(tx, built, { seed: `${input.seedKey}:guard`, mode: input.mode, ...(input.avoid ? { avoid: input.avoid } : {}) })
+  // Pengganti dari penjaga juga menghindari soal yang sudah pernah dijawab, selama bank masih punya pilihan.
+  return guardAttemptItems(tx, built, { seed: `${input.seedKey}:guard`, mode: input.mode, avoid: new Set([...(input.avoid ?? []), ...seen.keys()]) })
 }
 
 /** Pilih skill otomatis untuk satu mapel bila tutor belum merencanakan. */
