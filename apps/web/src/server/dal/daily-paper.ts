@@ -117,6 +117,20 @@ function mathSpare(grade: number, need: number, rng: ReturnType<typeof createRng
   return out
 }
 
+/** Soal tertulis kelas ini di luar skill lomba yang belum pernah keluar, untuk English dan Science saat bank lomba habis. */
+function writtenSpare(subject: Subject, grade: number, need: number, rng: ReturnType<typeof createRng>, seen: ReadonlySet<string>): PoolItem[] {
+  const contest = contestSkillIds(subject, grade)
+  const out: PoolItem[] = []
+  for (const s of rng.shuffle(skillsFor(subject, grade).filter((x) => !contest.has(x.id)))) {
+    const fresh = (content().itemsBySkill.get(s.id) ?? []).filter((item) => usable(item) && !seen.has(item.id))
+    for (const item of rng.shuffle([...fresh]).slice(0, 3)) {
+      if (out.length >= need) return out
+      out.push({ ref: item.id, skillId: s.id, difficulty: item.difficulty })
+    }
+  }
+  return out
+}
+
 /** Soal olimpiade di repo dan draf AI atau tulisan tutor yang sudah disetujui (org_item), untuk satu mapel dan grade. */
 export async function kiraPool(tx: Tx, orgId: string, subject: Subject, grade: number): Promise<PoolItem[]> {
   const skillIds = contestSkillIds(subject, grade)
@@ -185,7 +199,7 @@ export async function pickDailyPaper(tx: Tx, ctx: DailyPaperCtx, subject: Subjec
       effective === 'full' ? fullCount : MINI_COUNT,
       [...picks, answered],
       rng,
-      subject === 'math' ? (need) => mathSpare(ctx.grade, need, rng, recentGeneratedContent(seen)) : undefined,
+      (need) => (subject === 'math' ? mathSpare(ctx.grade, need, rng, recentGeneratedContent(seen)) : writtenSpare(subject, ctx.grade, need, rng, new Set([...picks.flatMap((p) => p.itemRefs), ...seen.keys()]))),
     )
     if (made) {
       const title = effective === 'full' ? 'Kira contest-style full paper' : 'Kira contest-style mini paper'
