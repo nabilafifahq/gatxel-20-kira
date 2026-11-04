@@ -62,14 +62,6 @@ const TONE_BG: Record<CardDTO['tone'], string> = {
   knowledge: 'bg-knowledge-50',
   warn: 'bg-warn-50',
 }
-const TONE_BACK: Record<CardDTO['tone'], string> = {
-  math: 'bg-math',
-  english: 'bg-english',
-  science: 'bg-science',
-  mental: 'bg-mental',
-  knowledge: 'bg-knowledge',
-  warn: 'bg-warn',
-}
 const RARITY_STARS: Record<Rarity, number> = { common: 1, rare: 2, epic: 3, legendary: 4 }
 export const RARITY_WORD: Record<Rarity, string> = { common: 'Common', rare: 'Rare', epic: 'Epic', legendary: 'Legendary' }
 
@@ -78,7 +70,7 @@ export function RarityMark({ rarity }: { rarity: Rarity }): ReactElement {
     <span className="inline-flex items-center gap-1 text-small font-bold">
       <span aria-hidden className="inline-flex">
         {Array.from({ length: RARITY_STARS[rarity] }, (_, i) => (
-          <UiIcon key={i} name="star" size={14} className="text-star" />
+          <UiIcon key={i} name="star" size={14} className="text-fg" />
         ))}
       </span>
       {RARITY_WORD[rarity]}
@@ -94,7 +86,7 @@ export function CollectCard({ card, total, back = false, big = false, className 
   const shiny = !back && (card.rarity === 'epic' || card.rarity === 'legendary')
   if (back) {
     return (
-      <div className={cx('kw-card flex aspect-[5/7] w-full flex-col items-center justify-between rounded-card border-2 border-fg p-3 text-white', TONE_BACK[card.tone], className)} data-rarity="common">
+      <div className={cx('kw-card flex aspect-[5/7] w-full flex-col items-center justify-between rounded-card border-2 border-fg bg-fg p-3 text-white', className)} data-rarity="common">
         <span className="text-small font-bold tracking-wide uppercase">Kira cards</span>
         <span className="flex flex-col items-center gap-1">
           <UiIcon name="cards" size={big ? 56 : 40} strokeWidth={2} />
@@ -113,7 +105,7 @@ export function CollectCard({ card, total, back = false, big = false, className 
         <span>No. {no}</span>
       </div>
       <div className={cx('mx-2.5 mt-1 flex flex-1 items-center justify-center rounded-control border-2 border-fg', TONE_BG[card.tone])}>
-        <CardArt art={card.art} size={big ? 148 : 84} />
+        <CardArt art={card.art} size={big ? 148 : 84} className="h-auto w-3/4" />
       </div>
       <div className="flex flex-col gap-0.5 px-3 pt-2 pb-2.5">
         <span className={cx('font-bold', big ? 'text-h3' : 'text-body leading-5')}>{card.name}</span>

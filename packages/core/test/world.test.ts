@@ -68,6 +68,17 @@ describe('katalog', () => {
     expect(cardEarned(cardById('bk-3')!, { ...NO_CARD_PROGRESS, booksFinished: 3 })).toBe(true)
     expect(cardEarned(bossPrizeCard('flapdoodle')!, { ...NO_CARD_PROGRESS, bossesBeaten: ['flapdoodle'] })).toBe(true)
   })
+  it('setiap syarat bisa dicapai dengan isi konten yang ada', () => {
+    // 18 buku di content/books. Skill paling sedikit per kelas: Science 12, Math 22, English 17.
+    const limit = { science: 12, math: 22, english: 17 }
+    for (const c of CARDS) {
+      if (c.req.kind === 'book') expect(c.req.count, c.id).toBeLessThanOrEqual(18)
+      if (c.req.kind === 'mastered') expect(c.req.count, c.id).toBeLessThanOrEqual(limit[c.req.subject])
+      if (c.req.kind === 'quiz') expect(c.req.pct, c.id).toBeLessThanOrEqual(100)
+      if (c.req.kind === 'story') expect(STORY.some((x) => x.n === (c.req as { chapter: number }).chapter), c.id).toBe(true)
+      if (c.req.kind === 'boss') expect(bossById(c.req.boss), c.id).toBeDefined()
+    }
+  })
   it('album tidak menghitung kartu dari fitur yang dimatikan', () => {
     const on = (k: string) => k !== 'math' && k !== 'quiz-arena'
     expect(cardAvailable(cardById('nm-euclid')!, on)).toBe(false)

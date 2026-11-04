@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from 'react'
-import { DANGER, DIVIDER, ENGLISH, ENGLISH_50, INK, KNOWLEDGE, KNOWLEDGE_50, LILAC, MATH, MATH_50, MUTED, SCIENCE_50, SKY, STAR, SUCCESS, WARN, WARN_50, WHITE, YELLOW } from '../palette'
+import { DANGER, DIVIDER, ENGLISH, INK, KNOWLEDGE, KNOWLEDGE_50, LILAC, MATH, MATH_50, MUTED, SCIENCE_50, SKY, STAR, SUCCESS, WARN, WARN_50, WHITE, YELLOW } from '../palette'
 import { Icon } from '../icons'
 
 /**
