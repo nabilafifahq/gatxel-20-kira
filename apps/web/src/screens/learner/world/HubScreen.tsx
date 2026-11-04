@@ -50,7 +50,7 @@ export function HubScreen({ data }: { data: WorldHubDTO }): ReactElement {
         <Tile href="/world/shop" icon="gift" title="Star Shop" line="Homes, costumes, outfits, frames" />
         <Tile href="/world/cards" icon="cards" title="Card album" line={`${data.cards.owned} of ${data.cards.total} cards earned`} />
         <Tile href="/world/story" icon="book" title="Weekly story" line={`${data.story.open} of ${data.story.total} chapters open`} />
-        <Tile href="/world/boss" icon="bolt" title="Puzzle Robot" line={data.boss.wonThisWeek ? 'You beat it this week' : 'This week’s friendly challenge'} />
+        <Tile href="/world/boss" icon="bolt" title="Boss challenge" line={`${data.boss.beaten} of ${data.boss.total} bosses beaten`} />
         <Tile href="/world/trophies" icon="trophy" title="Trophy room" line="Badges, medals and certificates" />
       </div>
       <p className="m-0 text-small text-fg-muted">Stars come from finishing your required sessions, perfect sessions, reading chapters and practice rounds.</p>

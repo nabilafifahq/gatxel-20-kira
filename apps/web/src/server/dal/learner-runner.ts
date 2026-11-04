@@ -13,6 +13,7 @@ import { presetRulesFor } from './daily-paper-scoring'
 import { effectiveRules, presetForAttempt } from './learner-competition'
 import { areaOfSessionRef, isReadingAttempt } from '@kira/core/english-skills'
 import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, refreshDayRecord } from './learner-core'
+import { parseBossRef } from '@kira/core'
 import { awardReadingStars, awardSessionStars, finishBoss } from './kira-world'
 import { completeLinkedSession, isTesLocked, questOfAttempt, scoreOf, submittedFamily, type AttemptItem } from './learner-session'
 
@@ -161,7 +162,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     showTerms: runnerItems.some((i) => (i.terms?.length ?? 0) > 0),
     offline: true,
     ...(areaOfSessionRef(a.refId) ? { englishArea: areaOfSessionRef(a.refId)! } : {}),
-    ...(a.refId?.startsWith('boss:') ? { boss: true } : {}),
+    ...(a.refId?.startsWith('boss:') ? { boss: parseBossRef(a.refId).id } : {}),
   }
 }
 

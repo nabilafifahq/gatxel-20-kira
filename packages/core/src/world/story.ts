@@ -43,6 +43,24 @@ export type StoryChapter = {
   tease: string
 }
 
+/** Jendela gambar dalam persen adegan. Rumusnya sama dengan StoryScene di @kira/figures. */
+export function storyWindow(look: StoryPage['look']): { x0: number; x1: number; y0: number; y1: number } {
+  const w = 100 / look.zoom
+  const x0 = Math.min(100 - w, Math.max(0, look.cx - w / 2))
+  const y0 = look.cy === undefined ? 100 - w : Math.min(100 - w, Math.max(0, look.cy - w / 2))
+  return { x0, x1: x0 + w, y0, y1: y0 + w }
+}
+
+/**
+ * Teks bab 8 berkata Pip ada di setiap gambar, jadi posisinya selalu dijaga di dalam jendela: digeser ke samping bila
+ * perlu, dan bila tanahnya di luar jendela dia mengintip dari tepi bawah.
+ */
+function pipInView(look: StoryPage['look'], pip: { x: number; y: number }): { x: number; y: number } {
+  const v = storyWindow(look)
+  const marginX = (v.x1 - v.x0) * 0.08
+  return { x: Math.min(v.x1 - marginX, Math.max(v.x0 + marginX, pip.x)), y: Math.min(v.y1 + 1, Math.max(v.y0 + 12, pip.y)) }
+}
+
 type Opt = { kira: StoryKira; show?: readonly string[]; scene?: StorySceneName; cy?: number }
 
 /** Teks, tengah jendela, zoom, Lumi x, Lumi y, Pip x, Pip y, lalu Kira dan pilihan gambar. */
@@ -51,7 +69,7 @@ function p(text: string, cx: number, zoom: number, lx: number, ly: number, px: n
     text,
     look: { cx, zoom, ...(o.cy !== undefined ? { cy: o.cy } : {}) },
     lumi: { x: lx, y: ly },
-    pip: { x: px, y: py },
+    pip: pipInView({ cx, zoom, ...(o.cy !== undefined ? { cy: o.cy } : {}) }, { x: px, y: py }),
     kira: o.kira,
     show: o.show ?? [],
     ...(o.scene ? { scene: o.scene } : {}),
@@ -117,16 +135,16 @@ export const STORY: readonly StoryChapter[] = [
     pages: [
       p('The river was flat and still. It shone like a mirror. Kira could see her own nose in it.', 22, 1.1, 30, 30, 6, 56, { kira: { x: 14, y: 62 } }),
       p('There was a bridge. It had a beginning. It had an end.', 50, 1, 34, 24, 3, 58, { kira: { x: 14, y: 62 } }),
-      p('It had no middle!', 50, 1.8, 50, 44, 72, 60, { kira: { x: 30, y: 62, worry: true } }),
-      p('Far across the water, something green sat in the reeds. A big green book!', 84, 1.7, 80, 36, 96, 62, { kira: { x: 30, y: 62 } }),
-      p('“I can jump it,” said Kira. She ran. She stopped. “I cannot jump it,” said Kira.', 36, 1.6, 44, 34, 20, 58, { kira: { x: 36, y: 62, worry: true } }),
-      p('“I can swim it,” said Kira. She dipped in one toe. Brrr! “I cannot swim it,” said Kira.', 22, 1.5, 30, 42, 3, 58, { kira: { x: 14, y: 62, worry: true } }),
-      p('So Kira sat down and looked. Plink. Plink. Plink. Little fish were bumping something.', 40, 1.5, 44, 66, 8, 58, { show: ['fish'], kira: { x: 18, y: 62 } }),
-      p('Three logs were floating by. Kira took off her red scarf.', 44, 1.8, 42, 62, 12, 58, { show: ['fish', 'scarf'], kira: { x: 28, y: 62 } }),
-      p('She tied it to the first log and pulled. Heave! One log.', 44, 1.5, 40, 50, 12, 58, { show: ['log1', 'scarf'], kira: { x: 32, y: 62 } }),
-      p('“One log at a time,” said Kira. Heave! Two logs. Heave! Three logs.', 50, 1.4, 56, 50, 8, 58, { show: ['log1', 'log2', 'log3'], kira: { x: 32, y: 62 } }),
-      p('Step. Wobble. Step. Wobble. Step.', 50, 1.6, 66, 40, 22, 58, { show: ['log1', 'log2', 'log3'], kira: { x: 50, y: 62 } }),
-      p('The green book was safe in her bag. Lumi glowed a little brighter. And inside the cover was another bitten scrap.', 80, 1.4, 86, 34, 66, 58, { show: ['log1', 'log2', 'log3', 'scrap'], kira: { x: 80, y: 66, read: true } }),
+      p('It had no middle!', 50, 1.8, 50, 44, 72, 60, { cy: 52, kira: { x: 30, y: 62, worry: true } }),
+      p('Far across the water, something green sat in the reeds. A big green book!', 84, 1.7, 80, 36, 96, 62, { cy: 52, kira: { x: 30, y: 62 } }),
+      p('“I can jump it,” said Kira. She ran. She stopped. “I cannot jump it,” said Kira.', 36, 1.6, 44, 34, 20, 58, { cy: 52, kira: { x: 36, y: 62, worry: true } }),
+      p('“I can swim it,” said Kira. She dipped in one toe. Brrr! “I cannot swim it,” said Kira.', 22, 1.5, 30, 42, 3, 58, { cy: 52, kira: { x: 14, y: 62, worry: true } }),
+      p('So Kira sat down and looked. Plink. Plink. Plink. Little fish were bumping something.', 40, 1.5, 44, 66, 8, 58, { cy: 52, show: ['fish'], kira: { x: 18, y: 62 } }),
+      p('Three logs were floating by. Kira took off her red scarf.', 44, 1.8, 42, 62, 12, 58, { cy: 52, show: ['fish', 'scarf'], kira: { x: 28, y: 62 } }),
+      p('She tied it to the first log and pulled. Heave! One log.', 44, 1.5, 40, 50, 12, 58, { cy: 52, show: ['log1', 'scarf'], kira: { x: 32, y: 62 } }),
+      p('“One log at a time,” said Kira. Heave! Two logs. Heave! Three logs.', 50, 1.4, 56, 50, 8, 58, { cy: 52, show: ['log1', 'log2', 'log3'], kira: { x: 32, y: 62 } }),
+      p('Step. Wobble. Step. Wobble. Step.', 50, 1.6, 66, 40, 22, 58, { cy: 52, show: ['log1', 'log2', 'log3'], kira: { x: 50, y: 62 } }),
+      p('The green book was safe in her bag. Lumi glowed a little brighter. And inside the cover was another bitten scrap.', 80, 1.4, 86, 34, 66, 58, { cy: 52, show: ['log1', 'log2', 'log3', 'scrap'], kira: { x: 80, y: 66, read: true } }),
     ],
   },
   {
@@ -147,8 +165,8 @@ export const STORY: readonly StoryChapter[] = [
       p('So Kira stopped. She took the empty cover, stood very still and held it open.', 40, 1.5, 30, 36, 64, 88, { show: ['pages-many', 'baker', 'cover'], kira: { x: 38, y: 90 } }),
       p('The wind went quiet. One page floated down. It landed on the cover.', 40, 1.9, 30, 44, 56, 90, { show: ['pages-few', 'baker', 'cover'], kira: { x: 38, y: 90 } }),
       p('“One page at a time,” said Kira. Two pages. Ten pages. A hundred pages.', 45, 1.4, 34, 30, 8, 88, { show: ['pages-few', 'baker', 'cover'], kira: { x: 38, y: 90 } }),
-      p('The baker stitched them in with a long thread. Then she gave Kira a warm bun.', 66, 1.5, 54, 30, 86, 88, { show: ['baker', 'bun', 'book'], kira: { x: 56, y: 90 } }),
-      p('The white book was whole again. Lumi glowed a little brighter. And on the last page sat a bitten scrap.', 60, 1.3, 70, 22, 46, 88, { show: ['baker', 'book', 'scrap'], kira: { x: 56, y: 90, read: true } }),
+      p('The baker stitched them in with a long thread. Then she gave Kira a warm bun.', 68, 1.5, 58, 30, 90, 88, { show: ['baker', 'bun', 'book'], kira: { x: 64, y: 90 } }),
+      p('The white book was whole again. Lumi glowed a little brighter. And on the last page sat a bitten scrap.', 66, 1.3, 72, 22, 88, 88, { show: ['baker', 'book', 'scrap'], kira: { x: 62, y: 90, read: true } }),
     ],
   },
   {
@@ -188,8 +206,8 @@ export const STORY: readonly StoryChapter[] = [
       p('The wind blew. The snow blew. Lumi’s light was the only warm thing left.', 48, 1.4, 52, 54, 30, 92, { show: ['snowfall', 'wind'], kira: { x: 44, y: 90, worry: true } }),
       p('Her boots felt heavy. Her bag felt heavy. Even her eyelids felt heavy.', 50, 1.8, 54, 48, 34, 92, { show: ['snowfall', 'wind'], kira: { x: 50, y: 90, worry: true } }),
       p('She sat down on a rock. “I can’t,” she said, very quietly.', 50, 1.5, 58, 44, 32, 92, { show: ['snowfall', 'rest'], kira: { x: 50, y: 84, worry: true } }),
-      p('Lumi said nothing. Lumi sat on her knee.', 50, 2, 53, 66, 36, 92, { show: ['snowfall', 'rest'], kira: { x: 50, y: 84, worry: true } }),
-      p('Kira opened the blue book, just to look at something nice. She read the first line out loud.', 50, 1.8, 54, 62, 38, 92, { show: ['snowfall', 'rest'], kira: { x: 50, y: 84, read: true } }),
+      p('Lumi said nothing. Lumi sat on her knee.', 50, 2, 55, 79, 36, 92, { show: ['snowfall', 'rest'], kira: { x: 50, y: 84, worry: true } }),
+      p('Kira opened the blue book, just to look at something nice. She read the first line out loud.', 50, 1.8, 60, 70, 38, 92, { show: ['snowfall', 'rest'], kira: { x: 50, y: 84, read: true } }),
       p('Her voice was small. Lumi glowed. All around them, the snow turned gold.', 50, 1.3, 56, 56, 34, 92, { show: ['rest', 'gold'], kira: { x: 50, y: 84, read: true } }),
       p('Kira read one more page. She felt warmer. “Hmm,” said Kira. She closed the book and stood up.', 50, 1.5, 58, 52, 40, 92, { show: ['rest', 'gold'], kira: { x: 50, y: 84 } }),
       p('“One boot at a time,” she said. One boot. The other boot. One boot. The other boot.', 62, 1.3, 70, 36, 44, 92, { kira: { x: 64, y: 90 } }),

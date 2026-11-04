@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState, type ReactElement } from 'react'
-import { CardArt, Kira, RobotArt } from '@kira/figures'
-import { CARD_COUNT } from '@kira/core'
-import type { BossDTO, BossResultDTO } from '@/lib/dto-world'
+import { BossArt, CardArt, Kira } from '@kira/figures'
+import { CARD_COUNT, bossEnergy } from '@kira/core'
+import type { BossDTO, BossResultDTO, BossRowDTO } from '@/lib/dto-world'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
@@ -12,100 +12,204 @@ import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { playSfx } from '@/components/learner/sfx'
 import { CollectCard, RarityMark, WorldTabs } from '@/components/learner/world/parts'
 
-/** Layar lawan: Kira dan Puzzle Robot masuk dari dua sisi, lalu tombol mulai. */
+function LevelMark({ level }: { level: 1 | 2 | 3 }): ReactElement {
+  return (
+    <span className="inline-flex items-center gap-1 text-small font-bold">
+      <span aria-hidden className="inline-flex">
+        {Array.from({ length: level }, (_, i) => (
+          <UiIcon key={i} name="bolt" size={14} />
+        ))}
+      </span>
+      Level {level}
+    </span>
+  )
+}
+
+/** Papan lawan: Kira dan lawan masuk dari dua sisi, kelemahan dan hadiah terlihat, lalu tombol mulai. */
+function FaceOff({ boss, name, wonThisWeek, winStars }: { boss: BossRowDTO; name: string; wonThisWeek: boolean; winStars: number }): ReactElement {
+  return (
+    <section aria-label="Face off" className="kw-animate overflow-hidden rounded-card border-2 border-fg bg-knowledge-50">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-2 px-3 pt-6 pb-4 md:px-10">
+        <div className="kw-enter-left flex flex-col items-center gap-2">
+          <svg viewBox="0 0 80 90" className="w-24 md:w-36" aria-label="Kira">
+            <Kira x={40} y={84} s={1.2} />
+          </svg>
+          <span className="rounded-pill border-2 border-fg bg-surface px-3 py-1 text-body font-bold">{name}</span>
+        </div>
+        <span aria-hidden className="mb-14 font-display text-h1 font-bold">
+          VS
+        </span>
+        <div key={boss.id} className="kw-enter-right flex flex-col items-center gap-2">
+          <BossArt id={boss.id} size={160} title={boss.name} className="w-28 md:w-40" />
+          <span className="rounded-pill border-2 border-fg bg-surface px-3 py-1 text-center text-body font-bold">{boss.name}</span>
+        </div>
+      </div>
+      <div className="flex flex-col gap-3 border-t-2 border-fg bg-surface p-4 md:p-6">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <h2 className="m-0 text-h2 font-bold">{boss.epithet}</h2>
+          <LevelMark level={boss.level} />
+        </div>
+        <p className="m-0 rounded-card border-2 border-fg bg-bg px-3.5 py-2 font-reading text-body-lg">{boss.intro}</p>
+        <p className="m-0 text-body-lg">{boss.personality}</p>
+        <p className="m-0 inline-flex flex-wrap items-center gap-2 text-body-lg">
+          <span className="rounded-pill bg-danger-50 px-3 py-1 text-small font-bold text-danger">Weak against</span>
+          <strong>{boss.weakness}</strong>
+        </p>
+        <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-body-lg">
+          <li>
+            Every right answer is a hit. Land {boss.winAt} hits in {boss.questions} questions to win.
+          </li>
+          <li>A wrong answer costs nothing, and you can have a rematch as often as you like.</li>
+          <li>{wonThisWeek ? 'You already earned this week’s stars. Battle on for cards and for fun.' : `Your first win this week earns ${winStars} stars.`}</li>
+        </ul>
+        {boss.prize ? (
+          <div className="flex items-center gap-3 rounded-card border-2 border-dashed border-border p-3">
+            <span className="flex h-16 w-16 flex-none items-center justify-center rounded-control border-2 border-fg bg-mental-50">
+              <CardArt art={boss.prize.art} size={48} />
+            </span>
+            <span className="flex flex-col">
+              <span className="text-body font-bold">First win prize: the {boss.prize.name} card</span>
+              <RarityMark rarity={boss.prize.rarity} />
+            </span>
+          </div>
+        ) : null}
+        <ButtonLink href={`/world/boss/start?b=${boss.id}`} prefetch={false} iconAfter="arrow-right" className="w-full md:w-auto md:self-start">
+          {boss.wins > 0 ? `Rematch ${boss.name}` : 'Start the challenge'}
+        </ButtonLink>
+      </div>
+    </section>
+  )
+}
+
 export function BossScreen({ data }: { data: BossDTO }): ReactElement {
+  const openBosses = data.bosses.filter((b) => b.open)
+  const [picked, setPicked] = useState(data.spotlight ?? openBosses[0]?.id ?? null)
+  const boss = openBosses.find((b) => b.id === picked) ?? openBosses[0] ?? null
   useEffect(() => {
     playSfx('whoosh')
   }, [])
+  const pick = (id: string) => {
+    playSfx('whoosh')
+    setPicked(id)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   return (
     <LearnerFrame shell={data.shell} current="world" className="flex flex-col gap-4 md:gap-5">
       <header className="flex flex-col gap-1">
-        <h1 className="m-0 text-h1 font-bold">Puzzle Robot</h1>
-        <p className="m-0 text-body-lg text-fg-muted">A friendly challenge every week. Answer {data.questions} mixed questions at your level and power the robot down.</p>
+        <h1 className="m-0 text-h1 font-bold">Boss challenge</h1>
+        <p className="m-0 text-body-lg text-fg-muted">
+          Friendly battles powered by your right answers. {data.beaten} of {data.bosses.length} bosses beaten.
+        </p>
       </header>
       <WorldTabs current="boss" />
-      <section aria-label="Face off" className="kw-animate overflow-hidden rounded-card border-2 border-fg bg-knowledge-50">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-2 px-3 pt-6 pb-4 md:px-10">
-          <div className="kw-enter-left flex flex-col items-center gap-2">
-            <svg viewBox="0 0 80 90" className="w-28 md:w-40" aria-label="Kira">
-              <Kira x={40} y={84} s={1.2} />
-            </svg>
-            <span className="rounded-pill border-2 border-fg bg-surface px-3 py-1 text-body font-bold">{data.shell.name}</span>
+      {boss ? <FaceOff boss={boss} name={data.shell.name} wonThisWeek={data.wonThisWeek} winStars={data.winStars} /> : <p className="m-0 text-body-lg">The bosses are resting today, because the subjects they test are switched off. Ask a grown-up if you want to battle.</p>}
+      {data.bosses.length > 0 ? (
+        <section aria-label="All bosses" className="flex flex-col gap-3">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h2 className="m-0 text-h2 font-bold">Your challengers</h2>
+            {data.nextIn !== null ? (
+              <span className="text-body text-fg-muted">
+                Finish your sessions on {data.nextIn} more {data.nextIn === 1 ? 'day' : 'days'} to meet the next one.
+              </span>
+            ) : null}
           </div>
-          <span aria-hidden className="mb-14 font-display text-h1 font-bold">VS</span>
-          <div className="kw-enter-right flex flex-col items-center gap-2">
-            <RobotArt size={160} title="Puzzle Robot" className="w-28 md:w-40" />
-            <span className="rounded-pill border-2 border-fg bg-surface px-3 py-1 text-body font-bold">Puzzle Robot</span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-3 border-t-2 border-fg bg-surface p-4 md:p-6">
-          <ul className="m-0 flex list-none flex-col gap-1.5 p-0 text-body-lg">
-            <li>Each right answer drains the robot&rsquo;s energy.</li>
-            <li>Get at least {data.winAt} out of every {data.questions} right (70 percent) to win. A wrong answer costs nothing, and you can try as many times as you like.</li>
-            <li>
-              Win to earn {data.winStars} stars{data.prize ? ' and a collector card' : ''}. {data.wonThisWeek ? 'You already beat the robot this week, so play again just for fun.' : ''}
-            </li>
+          <ul className="kw-animate m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">
+            {data.bosses.map((b) => (
+              <li key={b.id}>
+                {b.open ? (
+                  <button
+                    type="button"
+                    onClick={() => pick(b.id)}
+                    aria-pressed={b.id === boss?.id}
+                    className={cx('flex min-h-14 w-full cursor-pointer flex-col items-center gap-1.5 rounded-card border-2 p-3 text-center', b.id === boss?.id ? 'border-fg bg-knowledge-50' : 'border-border bg-surface hover:border-fg')}
+                  >
+                    <BossArt id={b.id} size={84} hurt={false} />
+                    <span className="text-body font-bold">{b.name}</span>
+                    <span className="text-small text-fg-muted">{b.weakness}</span>
+                    {b.wins > 0 ? (
+                      <span className="inline-flex items-center gap-1 rounded-pill bg-success-50 px-2.5 py-0.5 text-small font-bold text-success">
+                        <UiIcon name="check" size={13} strokeWidth={3} /> Beaten {b.wins > 1 ? `${b.wins} times` : 'once'}
+                      </span>
+                    ) : (
+                      <LevelMark level={b.level} />
+                    )}
+                  </button>
+                ) : (
+                  <div className="flex w-full flex-col items-center gap-1.5 rounded-card border-2 border-dashed border-border bg-surface p-3 text-center">
+                    <span aria-hidden className="opacity-30 brightness-0">
+                      <BossArt id={b.id} size={84} />
+                    </span>
+                    <span className="text-body font-bold text-fg-muted">{b.name}</span>
+                    <LevelMark level={b.level} />
+                  </div>
+                )}
+              </li>
+            ))}
           </ul>
-          {data.prize ? (
-            <div className="flex items-center gap-3 rounded-card border-2 border-dashed border-border p-3">
-              <span className="flex h-16 w-16 flex-none items-center justify-center rounded-control border-2 border-fg bg-mental-50">
-                <CardArt art={data.prize.art} size={48} />
-              </span>
-              <span className="flex flex-col">
-                <span className="text-body font-bold">This week&rsquo;s prize card: {data.prize.name}</span>
-                <RarityMark rarity={data.prize.rarity} />
-              </span>
-            </div>
-          ) : null}
-          <ButtonLink href="/world/boss/start" prefetch={false} iconAfter="arrow-right" className="w-full md:w-auto md:self-start">
-            {data.tries > 0 ? 'Challenge the robot again' : 'Start the challenge'}
-          </ButtonLink>
-        </div>
-      </section>
+        </section>
+      ) : null}
     </LearnerFrame>
   )
 }
 
-/** Hasil: bar energi turun, robot padam, lalu kartu langka berbalik dengan kilau holografik. */
+/** Hasil: bar tenaga turun, lawan tumbang, lalu kartu langka berbalik dengan kilau holografik. Kalah tidak mengurangi apa pun. */
 export function BossResultScreen({ data }: { data: BossResultDTO }): ReactElement {
   const [stage, setStage] = useState(0)
   useEffect(() => {
-    const t1 = setTimeout(() => { setStage(1); playSfx('combo', { level: 3 }) }, 500)
-    const t2 = setTimeout(() => { setStage(2); playSfx(data.won ? 'levelup' : 'tap') }, 1500)
-    const t3 = setTimeout(() => { setStage(3); if (data.card) playSfx('chest') }, 2800)
+    const t1 = setTimeout(() => {
+      setStage(1)
+      playSfx('combo', { level: 3 })
+    }, 500)
+    const t2 = setTimeout(() => {
+      setStage(2)
+      playSfx(data.won ? 'levelup' : 'tap')
+    }, 1500)
+    const t3 = setTimeout(() => {
+      setStage(3)
+      if (data.card) playSfx('chest')
+    }, 2800)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)
     }
   }, [data.won, data.card])
-  const left = Math.max(0, 1 - data.correct / Math.max(1, data.total))
+  const left = bossEnergy(data.correct, data.total)
   const energy = stage >= 1 ? left : 1
+  const pct = Math.round(energy * 100)
+  const line = data.won ? data.boss.defeat : data.boss.rematch
   return (
     <LearnerFrame shell={data.shell} current="world" className="flex flex-col gap-4 md:gap-5">
       {data.won && stage >= 2 ? <Confetti /> : null}
       <section aria-label="Result" className="kw-animate flex flex-col items-center gap-4 rounded-card border-2 border-fg bg-knowledge-50 p-5 text-center md:p-8">
-        <div className={cx(stage >= 1 && 'kw-hit')} key={`s${stage >= 1}`}>
-          <RobotArt size={170} energy={energy} hurt={stage >= 1} title="Puzzle Robot" />
+        <div className={cx(stage >= 1 && !data.won && 'kw-hit', stage >= 2 && data.won && 'kw-ko')} key={`s${stage >= 1}${stage >= 2}`}>
+          <BossArt id={data.boss.id} size={170} energy={energy} hurt={stage >= 1 && data.won} title={data.boss.name} />
         </div>
         <div className="w-full max-w-[420px]">
           <div className="mb-1 flex justify-between text-small font-bold">
-            <span>Robot energy</span>
-            <span className="tabular-nums">{Math.round(energy * 100)}%</span>
+            <span>{data.boss.name}</span>
+            <span className="tabular-nums">{pct}% energy</span>
           </div>
-          <div role="progressbar" aria-label="Robot energy" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(energy * 100)} className="h-5 overflow-hidden rounded-pill border-2 border-fg bg-divider">
-            <span className="block h-full w-full origin-left bg-science transition-transform duration-[1200ms] ease-kira" style={{ transform: `scaleX(${energy})` }} />
+          <div role="progressbar" aria-label={`${data.boss.name} energy`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} className="h-5 overflow-hidden rounded-pill border-2 border-fg bg-divider">
+            <span className="block h-full w-full origin-left bg-success transition-transform duration-[1200ms] ease-kira" style={{ transform: `scaleX(${energy})` }} />
           </div>
         </div>
-        <h1 className="m-0 text-h1 font-bold">{data.won ? 'You beat the Puzzle Robot!' : 'So close!'}</h1>
+        <h1 className="m-0 text-h1 font-bold">{data.won ? `You beat ${data.boss.name}!` : 'So close! Rematch?'}</h1>
+        <p className="m-0 max-w-[520px] rounded-card border-2 border-fg bg-surface px-3.5 py-2 font-reading text-body-lg">{line}</p>
         <p className="m-0 max-w-[520px] text-body-lg">
           {data.correct} of {data.total} right.{' '}
-          {data.won ? (data.stars > 0 ? `You earned ${data.stars} stars.` : 'You already earned this week’s prize, and now you have played again for fun.') : `You need ${data.winAt} to win. The robot will wait, and nothing was lost. Try again whenever you like.`}
+          {data.won
+            ? data.stars > 0
+              ? `You earned ${data.stars} stars.`
+              : data.card
+                ? 'You already earned this week’s stars, and you won a new card.'
+                : 'You already earned this week’s stars, and you played again for fun.'
+            : `You needed ${data.winAt} to win. Nothing was lost, and your stars and cards are all safe.`}
         </p>
       </section>
       {data.won && data.card && stage >= 3 ? (
         <section aria-label="Your new card" className="flex flex-col items-center gap-3 rounded-card border-2 border-fg bg-surface p-5 text-center">
-          <h2 className="m-0 text-h2 font-bold">A new collector card!</h2>
+          <h2 className="m-0 text-h2 font-bold">A new rare card!</h2>
           <div className="kw-flip w-56 max-w-full">
             <CollectCard card={{ ...data.card, tone: 'mental' }} total={CARD_COUNT} big />
           </div>
@@ -119,13 +223,16 @@ export function BossResultScreen({ data }: { data: BossResultDTO }): ReactElemen
         </p>
       ) : null}
       <div className="flex flex-wrap justify-center gap-3">
-        <ButtonLink href="/world/boss/start" prefetch={false} variant="secondary">
-          Play again
+        <ButtonLink href={`/world/boss/start?b=${data.boss.id}`} prefetch={false} variant={data.won ? 'secondary' : 'primary'}>
+          {data.won ? 'Play again' : 'Friendly rematch'}
+        </ButtonLink>
+        <ButtonLink href="/world/boss" variant="secondary">
+          All bosses
         </ButtonLink>
         <ButtonLink href="/world/cards" variant="secondary">
           See my cards
         </ButtonLink>
-        <ButtonLink href="/today" iconAfter="arrow-right">
+        <ButtonLink href="/today" iconAfter="arrow-right" variant="secondary">
           Back to Today
         </ButtonLink>
       </div>

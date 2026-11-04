@@ -35,13 +35,16 @@ export type CardDTO = {
   fact: string | null
   hint: string
   progress: number
+  /** Angka kemajuan yang sama dengan syarat kartu. Kosong untuk kartu ya-atau-belum. */
+  count: { have: number; need: number; unit: 'percent' | 'count' } | null
   isNew: boolean
 }
 export type AlbumDTO = {
   shell: LearnerShell
   total: number
   owned: number
-  sets: { id: string; name: string; blurb: string; earnedBy: string; complete: boolean; reward: string; cards: CardDTO[] }[]
+  rarities: { rarity: Rarity; owned: number; total: number }[]
+  sets: { id: string; name: string; blurb: string; earnedBy: string; complete: boolean; reward: string; rare: boolean; cards: CardDTO[] }[]
 }
 
 /** Satu kartu ringkas untuk momen hadiah. */
@@ -80,15 +83,34 @@ export type StoryDTO = {
   }[]
 }
 
+export type BossRowDTO = {
+  id: string
+  name: string
+  epithet: string
+  personality: string
+  level: 1 | 2 | 3
+  weakness: string
+  intro: string
+  questions: number
+  winAt: number
+  /** Sudah datang: bisa dilawan. */
+  open: boolean
+  wins: number
+  /** Kartu langka yang belum dimiliki dari lawan ini. */
+  prize: { id: string; name: string; rarity: Rarity; art: string } | null
+}
+
 export type BossDTO = {
   shell: LearnerShell
   week: string
   wonThisWeek: boolean
-  tries: number
-  questions: number
-  winAt: number
   winStars: number
-  prize: { id: string; name: string; rarity: Rarity; art: string } | null
+  bosses: BossRowDTO[]
+  /** Lawan yang disorot saat layar dibuka. */
+  spotlight: string | null
+  /** Hari belajar lagi sampai lawan berikutnya datang. Kosong bila semua sudah datang. */
+  nextIn: number | null
+  beaten: number
 }
 
 export type BossResultDTO = {
@@ -99,6 +121,7 @@ export type BossResultDTO = {
   winAt: number
   won: boolean
   stars: number
+  boss: { id: string; name: string; defeat: string; rematch: string }
   card: { id: string; no: number; name: string; rarity: Rarity; art: string; fact: string } | null
 }
 
@@ -111,6 +134,7 @@ export type TrophyDTO = {
   currentStreak: number
   milestones: { days: 7 | 30 | 100; reached: boolean; certificate: boolean }[]
   bossWins: number
+  bossesBeaten: { id: string; name: string; wins: number }[]
   setsComplete: { id: string; name: string }[]
   medals: MedalDTO[]
 }
@@ -123,7 +147,7 @@ export type WorldHubDTO = {
   hatchAt: number
   cards: { owned: number; total: number }
   story: { open: number; total: number }
-  boss: { wonThisWeek: boolean }
+  boss: { wonThisWeek: boolean; beaten: number; total: number }
 }
 
 export type WorldPeekDTO = {
