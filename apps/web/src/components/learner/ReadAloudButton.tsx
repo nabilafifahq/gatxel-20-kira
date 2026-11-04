@@ -53,7 +53,7 @@ export function ReadAloudButton({
     if (lang === 'en-GB') preloadClips(text, style ?? TTS_DEFAULT_STYLE)
   }, [preloadKey, lang])
   // Teks Indonesia dibacakan suara perangkat; tanpa suara Indonesia di perangkat tombol disembunyikan.
-  if (lang === 'id' && off) return null
+  if (off) return null // tanpa klip tidak ada suara pengganti: tombol disembunyikan
   return (
     <span className={cx('inline-flex flex-wrap items-center gap-2.5', className)}>
       <button

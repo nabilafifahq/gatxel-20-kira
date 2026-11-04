@@ -2,16 +2,15 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
-import { hasNativeBridge, nativeReady, nativeSpeak, nativeStop, nativeTtsReady } from '@/lib/native'
 import { duckMusic } from './music'
 import { stopHostVoice } from './host-voice'
-import { clipPlan, deviceText, fetchClips, requestClips, ttsStatus, type SpeechPart } from './tts-client'
+import { clipPlan, fetchClips, requestClips, ttsStatus, type SpeechPart } from './tts-client'
 
 /**
- * Baca suara, hanya untuk teks bahasa Inggris (rencana bagian 11.4: teks Indonesia tidak dibacakan).
- * Urutan: klip Kokoro yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan service worker bila offline),
- * kalau belum ada diminta dibuat worker dan sementara dibacakan suara perangkat. Di APK tablet suara
- * perangkat lewat TextToSpeech Android (jembatan KiraNative, lib/native.ts), di browser lewat Web Speech API.
+ * Baca suara. Aturan pemilik: suara tidak boleh berganti. Hanya klip yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan
+ * service worker bila offline) yang diputar. Tidak ada suara perangkat (speechSynthesis atau TextToSpeech Android) untuk anak:
+ * suara itu bisa laki-laki atau robotik. Bila satu klip belum ada, tombol diam (dan klipnya diminta dibuat worker), tidak
+ * pernah berganti suara. Teks Indonesia hanya dibacakan bila ada klip `id` yang nyata; selain itu diam.
  * Hanya satu teks dibaca pada satu waktu; tombol lain kembali ke idle.
  */
 
@@ -22,33 +21,17 @@ export type SpeechInput = string | readonly SpeechPart[]
 export type SpeakOptions = { style?: TtsStyleId }
 
 const EVENT = 'kira:speech-start'
-const RATE = 0.9
 const GAP_MS = 220
-
-function pickVoice(lang: SpeechLang): SpeechSynthesisVoice | null {
-  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null
-  const voices = window.speechSynthesis.getVoices()
-  if (lang === 'id') {
-    return voices.find((v) => /^(id|in)([-_]|$)/i.test(v.lang)) ?? null
-  }
-  return voices.find((v) => /^en[-_]GB/i.test(v.lang)) ?? voices.find((v) => /^en([-_]|$)/i.test(v.lang)) ?? null
-}
 
 let currentAudio: HTMLAudioElement | null = null
 
-/** Diamkan klip dan suara perangkat, tanpa memberi tahu tombol. */
+/** Diamkan klip yang sedang diputar, tanpa memberi tahu tombol. */
 function silence(): void {
   if (currentAudio) {
     currentAudio.onended = null
     currentAudio.onerror = null
     currentAudio.pause()
     currentAudio = null
-  }
-  if (hasNativeBridge()) nativeStop()
-  try {
-    window.speechSynthesis?.cancel()
-  } catch {
-    // Perangkat tanpa Web Speech: tidak ada yang dihentikan.
   }
 }
 
@@ -61,10 +44,7 @@ export function stopSpeech(): void {
 // Pembawa acara kuis mulai bicara: bacaan soal berhenti, tidak ada bunyi di atas bunyi lain.
 if (typeof window !== 'undefined') window.addEventListener('kira:host-start', () => stopSpeech())
 
-/**
- * Putar klip berurutan. onDone(true) bila semua selesai atau dihentikan; onDone(false) bila klip pertama tidak
- * bisa diputar (misalnya autoplay diblokir), supaya pembaca beralih ke suara perangkat.
- */
+/** Putar klip berurutan. onDone(true) bila semua selesai atau dihentikan; onDone(false) bila klip pertama tidak bisa diputar. */
 function playChain(blobs: Blob[], isCurrent: () => boolean, onDone: (ok: boolean) => void): void {
   const audio = new Audio()
   currentAudio = audio
@@ -107,8 +87,8 @@ export function useSpeech(lang: SpeechLang): {
   stop: () => void
 } {
   const id = useId()
-  const [available, setAvailable] = useState<boolean | null>(null)
-  const [clipsReady, setClipsReady] = useState(false)
+  // null = belum tahu; true = layanan klip aktif di server.
+  const [clipsReady, setClipsReady] = useState<boolean | null>(null)
   const [reading, setReading] = useState(false)
   // Musik latar turun selama bacaan berjalan (ducking).
   useEffect(() => {
@@ -119,46 +99,13 @@ export function useSpeech(lang: SpeechLang): {
 
   useEffect(() => {
     let cancelled = false
-    let detach: (() => void) | undefined
-    const checkWebSpeech = () => {
-      if (!('speechSynthesis' in window)) {
-        setAvailable(false)
-        return
-      }
-      const check = () => setAvailable(pickVoice(lang) !== null)
-      if (window.speechSynthesis.getVoices().length > 0) {
-        check()
-        return
-      }
-      // Daftar suara dimuat terlambat di beberapa browser.
-      window.speechSynthesis.addEventListener('voiceschanged', check)
-      const t = window.setTimeout(check, 1500)
-      detach = () => {
-        window.speechSynthesis.removeEventListener('voiceschanged', check)
-        window.clearTimeout(t)
-      }
-    }
-    if (hasNativeBridge()) {
-      void nativeReady().then((ready) => {
-        if (cancelled) return
-        if (ready?.tts) setAvailable(true)
-        else checkWebSpeech()
-      })
-    } else {
-      checkWebSpeech()
-    }
-    // Bila suara klip aktif di server, tombol tetap hidup walau perangkat tidak punya suara bahasa Inggris.
-    // Teks Indonesia tidak punya klip: selalu suara perangkat.
-    if (lang !== 'id') {
-      void ttsStatus().then((s) => {
-        if (!cancelled && s?.enabled) setClipsReady(true)
-      })
-    }
+    void ttsStatus().then((s) => {
+      if (!cancelled) setClipsReady(Boolean(s?.enabled))
+    })
     return () => {
       cancelled = true
-      detach?.()
     }
-  }, [lang])
+  }, [])
 
   // Tombol lain mulai membaca: yang ini kembali ke idle.
   useEffect(() => {
@@ -196,66 +143,23 @@ export function useSpeech(lang: SpeechLang): {
       stopSpeech()
       stopHostVoice()
       window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
-      // Hanya satu suara: klip yang masih berjalan dari tombol lain berhenti dulu.
-      silence()
       const finish = () => {
         if (token.current !== my) return
         setReading(false)
         onEnd?.()
       }
-      const text = deviceText(input)
-      const speakWeb = () => {
-        const voice = pickVoice(lang)
-        if (!voice || !('speechSynthesis' in window)) {
-          setReading(false)
-          setAvailable(false)
-          return
-        }
-        try {
-          window.speechSynthesis.cancel()
-          const u = new SpeechSynthesisUtterance(text)
-          u.voice = voice
-          u.lang = voice.lang
-          u.rate = RATE
-          u.onend = finish
-          u.onerror = finish
-          setReading(true)
-          window.speechSynthesis.speak(u)
-        } catch {
-          setReading(false)
-        }
-      }
-      const speakDevice = () => {
-        if (nativeTtsReady()) {
-          setReading(true)
-          nativeSpeak(text, lang, RATE).then(finish, finish)
-          return
-        }
-        if (hasNativeBridge()) {
-          // Jembatan ada tetapi belum menjawab hello: tunggu sebentar, lalu pilih jalurnya.
-          setReading(true)
-          void nativeReady().then((ready) => {
-            if (token.current !== my) return
-            if (ready?.tts) nativeSpeak(text, lang, RATE).then(finish, finish)
-            else speakWeb()
-          })
-          return
-        }
-        speakWeb()
-      }
-
-      // Teks Indonesia: suara perangkat (tidak ada klip). Bahasa Inggris: klip dulu; suara perangkat hanya bila klip belum ada.
+      // Teks Indonesia tidak punya klip: diam. onEnd tetap dipanggil supaya pemutar langkah tidak menunggu selamanya.
       const plan = lang === 'id' ? [] : clipPlan(input, opts?.style ?? TTS_DEFAULT_STYLE)
       if (plan.length === 0) {
-        speakDevice()
+        window.setTimeout(finish, 0)
         return
       }
       setReading(true)
       void (async () => {
         const status = await ttsStatus()
         if (token.current !== my) return
-        if (status && !status.enabled) {
-          speakDevice()
+        if (!status?.enabled) {
+          finish()
           return
         }
         const set = await fetchClips(plan)
@@ -264,16 +168,13 @@ export function useSpeech(lang: SpeechLang): {
           playChain(
             set.blobs,
             () => token.current === my,
-            (ok) => {
-              if (token.current !== my) return
-              if (ok) finish()
-              else speakDevice()
-            },
+            () => finish(),
           )
           return
         }
-        if (set.missing.length > 0 && status?.enabled) requestClips(set.missing)
-        speakDevice()
+        // Ada klip yang belum ada: diam (suara tidak boleh berganti), dan minta worker membuatnya.
+        if (set.missing.length > 0) requestClips(set.missing)
+        finish()
       })()
     },
     [id, lang],
@@ -287,7 +188,8 @@ export function useSpeech(lang: SpeechLang): {
     [reading, speak, stop],
   )
 
-  const unavailable = available === false && !(clipsReady && lang === 'en-GB')
+  // Tombol disembunyikan/dinonaktifkan bila layanan klip mati, dan selalu untuk teks Indonesia (belum ada klip id).
+  const unavailable = lang === 'id' || clipsReady === false
   const status: SpeechStatus = unavailable ? 'unavailable' : reading ? 'reading' : 'idle'
   return { status, toggle, speak, stop }
 }
