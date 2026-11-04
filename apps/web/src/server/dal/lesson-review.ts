@@ -8,7 +8,7 @@ import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
 import { lesson, skill, strandName } from './content'
 import { featureMapFor } from './learner-features'
-import { learnerShell, loadLearner } from './learner-core'
+import { learnerShell, loadLearner, QUICK_REVIEW_PREFIX } from './learner-core'
 import { buildQuestItems } from './learner-session'
 import { guardPracticeRefs } from './practice-guard'
 
@@ -98,7 +98,7 @@ export async function startReviewQuiz(tx: Tx, ctx: OrgContext, learnerId: string
   const items = built.filter((b) => allowed.has(b.ref)).map((b, i) => ({ ...b, position: i + 1 }))
   const [row] = await tx
     .insert(attempt)
-    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: sk.subject, title: `Quick review: ${l.title}`, items })
+    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: sk.subject, title: `${QUICK_REVIEW_PREFIX}${l.title}`, items })
     .returning({ id: attempt.id })
   return row!.id
 }

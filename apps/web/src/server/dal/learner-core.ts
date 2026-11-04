@@ -238,11 +238,27 @@ export async function applyOutcome(
     }
   }
   const full = answerXp({ difficulty: item.difficulty, correct: input.correct, hintsUsed: input.hintsUsed, attemptNo: input.attemptNo })
-  const xp = input.retry ? retryXp(full) : full
+  let xp = input.retry ? retryXp(full) : full
+  if (xp > 0) xp = await capQuickReviewXp(tx, learner.userId, input.attemptId, input.date, xp)
   if (xp > 0) {
     await tx.insert(xpEvent).values({ orgId: ctx.orgId, learnerId: learner.userId, amount: xp, reason: 'answer', ref: input.attemptId, date: input.date })
   }
   return xp
+}
+
+/** Ulasan singkat (tiga soal cepat dari pelajaran) memberi XP paling banyak ini per hari, supaya tidak jadi jalan pintas XP. */
+export const QUICK_REVIEW_PREFIX = 'Quick review: '
+export const QUICK_REVIEW_DAILY_XP_CAP = 30
+
+async function capQuickReviewXp(tx: Tx, learnerId: string, attemptId: string, date: IsoDate, xp: number): Promise<number> {
+  const [a] = await tx.select({ title: attempt.title }).from(attempt).where(eq(attempt.id, attemptId)).limit(1)
+  if (!a?.title.startsWith(QUICK_REVIEW_PREFIX)) return xp
+  const [used] = await tx
+    .select({ n: sql<number>`coalesce(sum(${xpEvent.amount}), 0)::int` })
+    .from(xpEvent)
+    .innerJoin(attempt, sql`${attempt.id}::text = ${xpEvent.ref}`)
+    .where(and(eq(xpEvent.learnerId, learnerId), eq(xpEvent.date, date), eq(xpEvent.reason, 'answer'), sql`${attempt.title} like ${QUICK_REVIEW_PREFIX + '%'}`))
+  return Math.max(0, Math.min(xp, QUICK_REVIEW_DAILY_XP_CAP - (used?.n ?? 0)))
 }
 
 export async function grantXp(tx: Tx, ctx: OrgContext, learnerId: string, amount: number, reason: string, ref: string, date: IsoDate): Promise<void> {
