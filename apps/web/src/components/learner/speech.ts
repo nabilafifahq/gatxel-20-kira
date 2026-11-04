@@ -140,10 +140,11 @@ export function useSpeech(lang: SpeechLang): {
 
   const speak = useCallback(
     (input: SpeechInput, onEnd?: () => void, opts?: SpeakOptions) => {
-      const my = ++token.current
       // Tidak ada yang diputar di atas bunyi lain: hentikan bacaan sebelumnya dan suara pembawa acara dulu.
       stopSpeech()
       stopHostVoice()
+      // stopSpeech memberi tahu semua tombol, termasuk tombol ini. Token diambil sesudahnya: kalau sebelumnya, bacaan ini langsung usang dan klip tidak pernah diputar.
+      const my = ++token.current
       window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
       const finish = () => {
         if (token.current !== my) return

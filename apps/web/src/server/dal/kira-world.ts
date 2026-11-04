@@ -744,7 +744,8 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
       if (s && !usedSkills.has(s.id) && (strands.length === 0 || strands.includes(skillStrand(subject, learner.grade, s.id)))) picked = s
     }
     // Pemilih otomatis mengutamakan skill berikutnya, jadi rumpun kelemahan diambil langsung bila belum kena.
-    const skillId = picked?.id ?? inFamily.find((s) => !usedSkills.has(s.id))?.id
+    // Pengisi sisa soal tanpa rumpun boleh memakai skill mana pun yang belum terpakai, supaya jumlah soal tetap utuh.
+    const skillId = picked?.id ?? inFamily.find((s) => !usedSkills.has(s.id))?.id ?? (strands.length === 0 ? skillsFor(subject, learner.grade).find((s) => !usedSkills.has(s.id))?.id : undefined)
     if (!skillId) return
     usedSkills.add(skillId)
     const built = await buildQuestItems(tx, ctx, learner, { skillId, subject, mode: 'latihan', date, seedKey: `${seed}:${key}`, length: count, style: 'easy', allowManual: false, avoid: refs })
@@ -763,7 +764,7 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
   // Bos tidak mengirim kunci atau teks dengar, jadi soal dengar tanpa klip tidak bisa dikerjakan.
   let guarded = await dropUnplayableAudio(tx, await guardAttemptItems(tx, items, { seed, mode: 'latihan' }))
   // Penjaga membuang soal kembar. Isi lagi supaya jumlah soal sama dengan yang tertulis di layar bos.
-  for (let i = 0; i < 4 && guarded.length < questions; i++) {
+  for (let i = 0; i < 8 && guarded.length < questions; i++) {
     items.length = 0
     items.push(...guarded)
     const subjects = def.subjects.filter(on)
