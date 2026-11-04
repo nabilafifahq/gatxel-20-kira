@@ -204,8 +204,8 @@ export async function finishQuizRound(tx: Tx, ctx: OrgContext, learnerId: string
     badges: newBadges
       .map((b) => ARENA_BADGES.find((x) => x.id === b.id) ?? null)
       .filter((b): b is NonNullable<typeof b> => b !== null)
-      .map((b) => ({ id: b.id, title: t.arena.badges[b.id]?.title ?? b.title, description: t.arena.badges[b.id]?.description ?? b.description, glyph: b.glyph })),
-    accessories: accessories.map((a) => ({ id: a.id, label: t.arena.accessories[a.id] })),
+      .map((b) => ({ id: b.id, title: t.shell.badges[b.id]?.title ?? b.title, description: t.shell.badges[b.id]?.desc ?? b.description, glyph: b.glyph })),
+    accessories: accessories.map((a) => ({ id: a.id, label: t.shell.accessories[a.id] })),
     tracks: trackDTOs(after),
   }
   const lines =
