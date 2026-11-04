@@ -11,7 +11,7 @@ const EMOJI = /\p{Extended_Pictographic}/u
 describe('header email', () => {
   it('membuang CR, LF, dan karakter kendali lain', () => {
     expect(stripHeaderBreaks('Halo\r\nBcc: korban@example.com')).toBe('Halo Bcc: korban@example.com')
-    expect(stripHeaderBreaks(`a b\u0000c\td`)).toBe('a b c d')
+    expect(stripHeaderBreaks(['a', 'b', 'c'].join(String.fromCharCode(0x2028)) + String.fromCharCode(0) + 'd\te')).toBe('a b c d e')
     expect(stripHeaderBreaks('  rapi   sekali  ')).toBe('rapi sekali')
   })
 
@@ -81,7 +81,7 @@ describe('semua jenis email', () => {
         expect(imgs[0]).toContain('alt="Kira"')
         expect(imgs[0]).toMatch(/width="\d+"/)
         expect(mail.html).not.toMatch(/<script|<link\b|@import|@font-face|fonts\.googleapis|url\(/i)
-        expect(Buffer.byteLength(mail.html, 'utf8')).toBeLessThan(EMAIL_MAX_BYTES)
+        expect(new TextEncoder().encode(mail.html).length).toBeLessThan(EMAIL_MAX_BYTES)
       })
 
       it('orang tua disapa Anda', () => {

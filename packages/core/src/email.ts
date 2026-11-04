@@ -63,11 +63,14 @@ export function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
 }
 
-const CONTROL_CHARS = new RegExp('[\\u0000-\\u001f\\u007f-\\u009f\\u2028\\u2029]+', 'g')
-
 /** Satu baris aman untuk header email: CR, LF, dan karakter kendali lain dibuang, spasi dirapikan. */
 export function stripHeaderBreaks(value: string): string {
-  return value.replace(CONTROL_CHARS, ' ').replace(/\s+/g, ' ').trim()
+  let out = ''
+  for (const ch of value) {
+    const c = ch.codePointAt(0)!
+    out += c < 0x20 || (c >= 0x7f && c <= 0x9f) || c === 0x2028 || c === 0x2029 ? ' ' : ch
+  }
+  return out.replace(/\s+/g, ' ').trim()
 }
 
 const SAFE_ADDRESS = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/
