@@ -45,7 +45,10 @@ function DeckTile({ d, mode }: { d: DeckRow; mode: string }): ReactElement {
 }
 
 export function CardsHubScreen({ data }: { data: CardsHubDTO }): ReactElement {
-  const bySubject = (['english', 'science', 'math'] as const).map((s) => ({ s, decks: data.decks.filter((d) => d.subject === s && !d.personal) }))
+  // Ada ratusan dek: kelas anak dulu, kelas lain menunggu sampai diminta.
+  const [allGrades, setAllGrades] = useState(false)
+  const otherGrades = data.decks.some((d) => !d.personal && d.grade !== data.grade)
+  const bySubject = (['english', 'science', 'math'] as const).map((s) => ({ s, decks: data.decks.filter((d) => d.subject === s && !d.personal && (allGrades || d.grade === data.grade)) }))
   const personal = data.decks.filter((d) => d.personal)
   const vocab = data.mode === 'vocab'
   return (
@@ -81,6 +84,11 @@ export function CardsHubScreen({ data }: { data: CardsHubDTO }): ReactElement {
             </ul>
           </section>
         ))}
+      {otherGrades && !allGrades ? (
+        <Button variant="secondary" onClick={() => setAllGrades(true)} className="self-start">
+          Show other grades
+        </Button>
+      ) : null}
     </LearnerFrame>
   )
 }
