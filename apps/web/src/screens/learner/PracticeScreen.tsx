@@ -104,7 +104,7 @@ export function PracticeScreen({ data, few }: { data: PracticeDTO; few: boolean 
                   prefetch={false}
                   className="flex min-h-24 h-full flex-col justify-center gap-1 rounded-card border-2 border-border bg-surface p-4 text-fg no-underline transition-transform duration-150 ease-kira hover:border-fg active:scale-98"
                 >
-                  <span className="text-h3 font-bold">{t.title}</span>
+                  <span lang={/^[mse]-/.test(t.id) ? 'en-GB' : undefined} className="text-h3 font-bold">{t.title}</span>
                   <span className="text-body text-fg-muted">{t.sub}</span>
                 </Link>
               </li>

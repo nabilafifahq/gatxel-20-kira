@@ -37,7 +37,7 @@ export function BossScreen({ data }: { data: BossDTO }): ReactElement {
           <span aria-hidden className="mb-14 font-display text-h1 font-bold">VS</span>
           <div className="kw-enter-right flex flex-col items-center gap-2">
             <RobotArt size={160} title={t.world.bossName} className="w-28 md:w-40" />
-            <span className="rounded-pill border-2 border-fg bg-surface px-3 py-1 text-body font-bold">{t.world.bossName}</span>
+            <span className="rounded-pill border-2 border-fg bg-surface px-3 py-1 text-body font-bold whitespace-nowrap">{t.world.bossName}</span>
           </div>
         </div>
         <div className="flex flex-col gap-3 border-t-2 border-fg bg-surface p-4 md:p-6">

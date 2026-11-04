@@ -113,7 +113,7 @@ export function CupArt({ size = 64, tone = STAR, title, className }: { size?: nu
 }
 
 /** Segel sertifikat: lingkaran bergerigi dengan jumlah hari. */
-export function SealArt({ days, size = 96, className }: { days: number; size?: number; className?: string }): ReactElement {
+export function SealArt({ days, unit = 'DAYS', size = 96, className }: { days: number; unit?: string; size?: number; className?: string }): ReactElement {
   const teeth = Array.from({ length: 16 }, (_, i) => i)
   return (
     <svg width={size} height={size} viewBox="0 0 96 96" className={className} aria-hidden>
@@ -127,7 +127,7 @@ export function SealArt({ days, size = 96, className }: { days: number; size?: n
           {days}
         </text>
         <text x="48" y="68" textAnchor="middle" fontSize="9" fontWeight="700" fill={INK} stroke="none" fontFamily="system-ui, sans-serif">
-          DAYS
+          {unit}
         </text>
       </g>
       <path d="M30 80l-6 14l12 -4l4 6l6 -14zM66 80l6 14l-12 -4l-4 6l-6 -14z" fill={DANGER} {...line} strokeWidth="2" />
