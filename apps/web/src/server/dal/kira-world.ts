@@ -582,6 +582,7 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
     { subject: 'math', count: 2 },
   ]
   const usedSkills = new Set<string>()
+  let bossSubject: 'math' | 'english' | 'science' | null = null
   const refs = new Set<string>()
   const items: AttemptItem[] = []
   for (const [i, p] of plan.entries()) {
@@ -593,6 +594,8 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
     }
     if (!picked) continue
     usedSkills.add(picked.id)
+    // Attempt dicatat pada mapel pertama yang menyala, jadi laporan tidak menyebut Math saat Math dimatikan.
+    bossSubject ??= p.subject
     const built = await buildQuestItems(tx, ctx, learner, { skillId: picked.id, subject: p.subject, mode: 'latihan', date, seedKey: `boss:${learnerId}:${week}:${tries}:${i}`, length: p.count, style: 'easy', avoid: refs })
     for (const it of built) {
       if (refs.has(it.ref) || items.length >= BOSS_QUESTIONS) continue
@@ -604,7 +607,7 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
   const final = items.map((it, i) => ({ ...it, position: i + 1 }))
   const [row] = await tx
     .insert(attempt)
-    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: 'math', title: 'Puzzle Robot', refId: `boss:${week}:${tries + 1}`, items: final })
+    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: bossSubject ?? 'math', title: 'Puzzle Robot', refId: `boss:${week}:${tries + 1}`, items: final })
     .returning({ id: attempt.id })
   return row!.id
 }
