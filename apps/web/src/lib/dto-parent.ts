@@ -1,4 +1,4 @@
-import type { ActionResult, AvatarName, DayPresetId, DayRulesDTO, PlanChangeResult, Subject, WeekSummaryDTO } from './dto'
+import type { AvatarName, DayPresetId, DayRulesDTO, Subject, WeekSummaryDTO } from './dto'
 import type { ArenaTutorDTO, XpTrackDTO } from './dto-arena'
 
 /**
