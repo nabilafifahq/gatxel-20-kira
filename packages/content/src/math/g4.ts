@@ -38,7 +38,7 @@ import {
   type NumRule,
   type Step,
 } from './g3'
-import { fmt, mcqFrom, numberWords, ordinal, plural } from './helpers'
+import { AAn, aAn, fmt, mcqFrom, numberWords, ordinal, plural } from './helpers'
 import type { GeneratedItem, Generator } from './types'
 
 /** Generator Math Grade 4 (Cambridge Primary Stage 4). Bantuan bersama ada di g3.ts. */
@@ -362,7 +362,7 @@ const compareOrder4: Generator = {
         step: 100,
         answer: ans,
         hints: [`The line goes from ${fmt(th)} to ${fmt(th + 1000)}.`, 'Each small step is 100.', `Count on in hundreds from ${fmt(th)}: ${fmt(th + 100)}, ${fmt(th + 200)}, ...`],
-        explanation: `${fmt(ans)} is ${k} steps of 100 after ${fmt(th)}.`,
+        explanation: `${fmt(ans)} is ${plural(k, 'step', 'steps')} of 100 after ${fmt(th)}.`,
       }
     }
 
@@ -528,7 +528,7 @@ const negative4: Generator = {
         allowNegative: true,
         unit: '°C',
         hints: ['Find zero on the thermometer first.', 'Temperatures below zero are negative numbers.', `Each mark is ${sc.step} ${sc.step === 1 ? 'degree' : 'degrees'}. Count from 0 to the top of the line.`],
-        explanation: v < 0 ? `The line is ${-v} degrees below zero, so the temperature is ${deg(v)}.` : `The line is ${v} degrees above zero, so the temperature is ${deg(v)}.`,
+        explanation: v < 0 ? `The line is ${plural(-v, 'degree', 'degrees')} below zero, so the temperature is ${deg(v)}.` : `The line is ${plural(v, 'degree', 'degrees')} above zero, so the temperature is ${deg(v)}.`,
       }
     }
 
@@ -588,8 +588,8 @@ const negative4: Generator = {
           answer: a + up,
           allowNegative: true,
           unit: '°C',
-          hints: ['Rises means it gets warmer, so count up.', `First count up from ${a} to 0. That is ${-a} degrees.`, `After 0, count up the rest of the ${up} degrees.`],
-          explanation: `${a} up ${-a} degrees is 0. ${up - -a} more degrees makes ${deg(a + up)}.`,
+          hints: ['Rises means it gets warmer, so count up.', `First count up from ${a} to 0. That is ${plural(-a, 'degree', 'degrees')}.`, `After 0, count up the rest of the ${plural(up, 'degree', 'degrees')}.`],
+          explanation: `${a} up ${plural(-a, 'degree', 'degrees')} is 0. ${plural(up - -a, 'more degree', 'more degrees')} makes ${deg(a + up)}.`,
           solution: [
             { say: `Start at ${a} on a number line.`, figure: { kind: 'numberline', min: -10, max: 10, step: 1, labels: [-10, -5, 0, 5, 10], jumps: [{ from: a, to: 0 }, { from: 0, to: a + up }], alt: `A number line with a jump from ${a} to 0 and from 0 to ${a + up}.` } },
             { say: 'Count up to 0 first.', show: `${a} + ${-a} = 0` },
@@ -607,8 +607,8 @@ const negative4: Generator = {
           answer: a - down,
           allowNegative: true,
           unit: '°C',
-          hints: ['Falls means it gets colder, so count down.', `First count down from ${a} to 0. That is ${a} degrees.`, `Then count down ${down - a} more below 0.`],
-          explanation: `${a} down ${a} degrees is 0. ${down - a} more degrees below 0 is ${deg(a - down)}.`,
+          hints: ['Falls means it gets colder, so count down.', `First count down from ${a} to 0. That is ${plural(a, 'degree', 'degrees')}.`, `Then count down ${down - a} more below 0.`],
+          explanation: `${a} down ${plural(a, 'degree', 'degrees')} is 0. ${plural(down - a, 'more degree', 'more degrees')} below 0 is ${deg(a - down)}.`,
           tags: WORD,
         }
       }
@@ -619,8 +619,8 @@ const negative4: Generator = {
         prompt: `In the morning it was ${deg(a)}. In the afternoon it was ${deg(b)}. How many degrees warmer was it in the afternoon?`,
         answer: b - a,
         unit: '°C',
-        hints: ['Count up from the lower temperature to the higher one.', `Count from ${a} up to 0, then from 0 up to ${b}.`, `From ${a} to 0 is ${-a} degrees.`],
-        explanation: `${-a} degrees up to 0 and ${b} more degrees to ${b}. ${-a} + ${b} = ${b - a} degrees.`,
+        hints: ['Count up from the lower temperature to the higher one.', `Count from ${a} up to 0, then from 0 up to ${b}.`, `From ${a} to 0 is ${plural(-a, 'degree', 'degrees')}.`],
+        explanation: `${plural(-a, 'degree', 'degrees')} up to 0 and ${plural(b, 'more degree', 'more degrees')} to ${b}. ${-a} + ${b} = ${plural(b - a, 'degree', 'degrees')}.`,
         tags: WORD,
       }
     }
@@ -646,8 +646,8 @@ const negative4: Generator = {
         figure,
         answer: hot.t - cold.t,
         unit: '°C',
-        hints: ['Count up from the colder temperature to the warmer one.', 'Count up to 0 first, then on to the warmer temperature.', `From ${deg(cold.t)} to 0 is ${-cold.t} degrees.`],
-        explanation: `${-cold.t} degrees from ${deg(cold.t)} up to 0, then ${hot.t} more. ${-cold.t} + ${hot.t} = ${hot.t - cold.t} degrees.`,
+        hints: ['Count up from the colder temperature to the warmer one.', 'Count up to 0 first, then on to the warmer temperature.', `From ${deg(cold.t)} to 0 is ${plural(-cold.t, 'degree', 'degrees')}.`],
+        explanation: `${plural(-cold.t, 'degree', 'degrees')} from ${deg(cold.t)} up to 0, then ${hot.t} more. ${-cold.t} + ${hot.t} = ${plural(hot.t - cold.t, 'degree', 'degrees')}.`,
         tags: WORD,
       }
     }
@@ -1106,7 +1106,7 @@ const timesTables4: Generator = {
         type: 'numeric',
         prompt: rng.chance(0.5) ? `${n} × ${t} = ___` : `${t} × ${n} = ___`,
         answer: p,
-        hints: [`Use the ${t} times table.`, n > 5 ? `Start from 5 × ${t} = ${5 * t}, then count on in ${t}s.` : `Count in ${t}s.`, n > 5 ? `${n - 5} more ${t}s after ${5 * t}.` : `Start at ${t} and count on in ${t}s.`],
+        hints: [`Use the ${t} times table.`, n > 5 ? `Start from 5 × ${t} = ${5 * t}, then count on in ${t}s.` : `Count in ${t}s.`, n > 5 ? `${n - 5 === 1 ? `1 more ${t}` : `${n - 5} more ${t}s`} after ${5 * t}.` : `Start at ${t} and count on in ${t}s.`],
         explanation: `${n} × ${t} = ${p}.`,
       }
     }
@@ -1604,7 +1604,7 @@ const divideWritten4: Generator = {
           type: 'mcq',
           prompt: `${n} children are going on a trip. Each minibus carries ${d} children. How many minibuses are needed?`,
           ...textChoice(rng, String(q + 1), [
-            { value: String(q), why: `${q} minibuses carry ${q * d} children, so ${r} children would be left behind.` },
+            { value: String(q), why: `${q} minibuses carry ${q * d} children, so ${r === 1 ? '1 child' : `${r} children`} would be left behind.` },
             { value: `${q} r ${r}`, why: 'You cannot have part of a minibus. Round up so everyone has a seat.' },
             { value: String(r), why: `${r} is the number of children left over, not the number of minibuses.` },
           ]),
@@ -1688,7 +1688,7 @@ const decimals4: Generator = {
           answer: s / 10,
           allowDecimal: true,
           hints: ['The bar is split into 10 equal parts, so each part is one tenth.', 'Tenths are written in the first place after the decimal point.', 'Count the shaded tenths.'],
-          explanation: `${s} tenths are shaded. ${s}/10 = ${fmt(s / 10)}.`,
+          explanation: `${s === 1 ? '1 tenth is' : `${s} tenths are`} shaded. ${s}/10 = ${fmt(s / 10)}.`,
         }
       }
       return {
@@ -1696,8 +1696,8 @@ const decimals4: Generator = {
         prompt: `Write ${s}/10 as a decimal.`,
         answer: s / 10,
         allowDecimal: true,
-        hints: ['Tenths go in the first place after the decimal point.', 'Write 0, then the point, then the number of tenths.', `${s}/10 means ${s} tenths.`],
-        explanation: `${s}/10 is ${s} tenths, which is ${fmt(s / 10)}.`,
+        hints: ['Tenths go in the first place after the decimal point.', 'Write 0, then the point, then the number of tenths.', `${s}/10 means ${plural(s, 'tenth', 'tenths')}.`],
+        explanation: `${s}/10 is ${plural(s, 'tenth', 'tenths')}, which is ${fmt(s / 10)}.`,
       }
     }
 
@@ -1713,7 +1713,7 @@ const decimals4: Generator = {
           answer: dec(n),
           allowDecimal: true,
           hints: ['The grid has 100 squares, so each square is one hundredth.', 'Count full rows of 10 first. Each row is one tenth.', `Count the full shaded rows.`],
-          explanation: `${n} hundredths are shaded. ${n}/100 = ${fmt(dec(n))}.`,
+          explanation: `${n === 1 ? '1 hundredth is' : `${n} hundredths are`} shaded. ${n}/100 = ${fmt(dec(n))}.`,
         }
       }
       const whole = rng.int(1, 9)
@@ -1729,13 +1729,13 @@ const decimals4: Generator = {
       return {
         type: 'mcq',
         prompt: `What is the value of ${which} in ${fmt(v)}?`,
-        ...textChoice(rng, `${digit} ${pick}`, [
-          { value: `${digit} ${pick === 'tenths' ? 'hundredths' : 'tenths'}`, why: `The first place after the point is tenths. The second place is hundredths.` },
-          { value: `${digit} ones`, why: 'The ones digit is before the decimal point.' },
-          { value: `${digit} tens`, why: `There are no tens in ${fmt(v)}.` },
+        ...textChoice(rng, `${digit} ${digit === 1 ? pick.slice(0, -1) : pick}`, [
+          { value: `${digit} ${pick === 'tenths' ? (digit === 1 ? 'hundredth' : 'hundredths') : digit === 1 ? 'tenth' : 'tenths'}`, why: `The first place after the point is tenths. The second place is hundredths.` },
+          { value: `${digit} ${digit === 1 ? 'one' : 'ones'}`, why: 'The ones digit is before the decimal point.' },
+          { value: `${digit} ${digit === 1 ? 'ten' : 'tens'}`, why: `There are no tens in ${fmt(v)}.` },
         ]),
         hints: ['Find the decimal point first.', 'After the point come tenths, then hundredths.', `Is the ${digit} in the first or second place after the point?`],
-        explanation: `In ${fmt(v)}, the ${digit} is in the ${pick === 'tenths' ? 'first' : 'second'} place after the point, so it is ${digit} ${pick}.`,
+        explanation: `In ${fmt(v)}, the ${digit} is in the ${pick === 'tenths' ? 'first' : 'second'} place after the point, so it is ${digit} ${digit === 1 ? pick.slice(0, -1) : pick}.`,
       }
     }
 
@@ -1750,8 +1750,8 @@ const decimals4: Generator = {
         max: a + 1,
         step: 0.1,
         answer: ans,
-        hints: [`The line goes from ${a} to ${a + 1}.`, 'It is split into 10 equal steps, so each step is 0.1.', `Count ${k} steps of 0.1 from ${a}.`],
-        explanation: `${fmt(ans)} is ${k} tenths after ${a}.`,
+        hints: [`The line goes from ${a} to ${a + 1}.`, 'It is split into 10 equal steps, so each step is 0.1.', `Count ${plural(k, 'step', 'steps')} of 0.1 from ${a}.`],
+        explanation: `${fmt(ans)} is ${plural(k, 'tenth', 'tenths')} after ${a}.`,
       }
     }
 
@@ -1766,7 +1766,7 @@ const decimals4: Generator = {
         type: 'mcq',
         prompt: `Which is true about ${fmt(a)} and ${fmt(b)}?`,
         ...textChoice(rng, correct, [
-          { value: `${fmt(smaller)} is larger`, why: `Compare the tenths first: ${fmt(bigger)} has ${digitAt(Math.round(bigger * 100), 1)} tenths and ${fmt(smaller)} has ${digitAt(Math.round(smaller * 100), 1)}.` },
+          { value: `${fmt(smaller)} is larger`, why: `Compare the tenths first: ${fmt(bigger)} has ${plural(digitAt(Math.round(bigger * 100), 1), 'tenth', 'tenths')} and ${fmt(smaller)} has ${digitAt(Math.round(smaller * 100), 1)}.` },
           { value: 'They are equal', why: `${fmt(a)} = ${fmt(a)}0, which is not the same as ${fmt(b)}.` },
           { value: 'You cannot compare them', why: 'You can compare any two decimals by writing them with the same number of places.' },
         ]),
@@ -1816,11 +1816,11 @@ const decimals4: Generator = {
           prompt: `Which is the same as ${fmt(t / 10)}?`,
           ...textChoice(rng, `${t}/10`, [
             { value: `${t}/100`, why: `${t}/100 is ${fmt(dec(t))}, which has the ${t} in the hundredths place.` },
-            { value: `1/${t}`, why: `1/${t} is one of ${t} equal parts, not ${t} tenths.` },
+            { value: `1/${t}`, why: `1/${t} is one of ${t} equal parts, not ${plural(t, 'tenth', 'tenths')}.` },
             { value: `${t * 10}/10`, why: `${t * 10}/10 is ${t} whole ones.` },
           ]),
           hints: ['Look at the first place after the decimal point.', 'The first place after the point is tenths.', `${fmt(t / 10)} has ${t} in the tenths place.`],
-          explanation: `${fmt(t / 10)} is ${t} tenths, which is ${t}/10.`,
+          explanation: `${fmt(t / 10)} is ${plural(t, 'tenth', 'tenths')}, which is ${t}/10.`,
         }
       }
       const [A, B] = twoNames(rng)
@@ -1876,7 +1876,7 @@ const decimals4: Generator = {
         prompt: 'What decimal is at point A?',
         figure: { kind: 'numberline', min: 0, max: 1, step: 0.1, labels: [0, 1], marks: [{ at: k / 10, label: 'A' }], alt: `A number line from 0 to 1 in tenths. Point A is ${plural(k, 'step', 'steps')} after 0.` },
         ...textChoice(rng, fmt(k / 10), [
-          { value: fmt(dec(k)), why: `${fmt(dec(k))} is ${k} hundredths, which is much closer to 0.` },
+          { value: fmt(dec(k)), why: `${fmt(dec(k))} is ${plural(k, 'hundredth', 'hundredths')}, which is much closer to 0.` },
           { value: String(k), why: `${k} is a whole number. Point A is between 0 and 1.` },
           { value: fmt((10 - k) / 10 || 0.5), why: 'Count the steps from 0, not from 1.' },
           { value: fmt(((k % 9) + 1) / 10), why: `Count the steps from 0 to A again.` },
@@ -1969,7 +1969,7 @@ const equivalent4: Generator = {
           { value: `${frac4(n, big)} < ${frac4(n, small)}`, why: `${big} parts are bigger than ${small} parts, so ${frac4(n, big)} is larger.` },
         ]),
         hints: ['Both fractions have the same top number.', 'The more parts a whole is cut into, the smaller each part.', `Compare ${frac4(1, big)} with ${frac4(1, small)}.`],
-        explanation: `${n} parts of ${big} are bigger than ${n} parts of ${small}, so ${correct}.`,
+        explanation: `${n === 1 ? `1 part of ${big} is bigger than 1 part of ${small}` : `${n} parts of ${big} are bigger than ${n} parts of ${small}`}, so ${correct}.`,
       }
     }
 
@@ -2105,7 +2105,7 @@ const fractionsAddSub4: Generator = {
         shape: 'bar',
         parts: d,
         answer: { num: a + b, den: d },
-        hints: [`The bar has ${d} equal parts.`, `Shade ${a} parts, then ${b} more parts.`, `${a} + ${b} = ${a + b}.`],
+        hints: [`The bar has ${d} equal parts.`, `Shade ${plural(a, 'part', 'parts')}, then ${plural(b, 'more part', 'more parts')}.`, `${a} + ${b} = ${a + b}.`],
         explanation: `${frac4(a, d)} + ${frac4(b, d)} = ${frac4(a + b, d)}, so ${a + b} parts are shaded.`,
       }
     }
@@ -2243,7 +2243,7 @@ const fractionsOfAmounts4: Generator = {
       const ans = s * k
       const hints = [`Find ${frac4(1, d)} of ${n} first.`, `Divide by ${d}, then multiply by ${s}.`, `${n} ÷ ${d} = ${k}.`]
       const explanation = `${n} ÷ ${d} = ${k}. ${s} × ${k} = ${ans}, so ${frac4(s, d)} of ${n} is ${ans}.`
-      const figure: Fig = { kind: 'fraction', shape: 'bar', parts: d, shaded: s, label: String(n), alt: `A bar for ${n} split into ${d} equal parts, with ${s} parts shaded.` }
+      const figure: Fig = { kind: 'fraction', shape: 'bar', parts: d, shaded: s, label: String(n), alt: `A bar for ${n} split into ${d} equal parts, with ${plural(s, 'part', 'parts')} shaded.` }
       if (rng.chance(0.5)) return { type: 'numeric', prompt: `What is ${frac4(s, d)} of ${n}?`, figure, answer: ans, hints, explanation }
       return {
         type: 'mcq',
@@ -2810,7 +2810,7 @@ const timetables4: Generator = {
         prompt: `${mm} minutes = ___ hours ___ minutes`,
         blanks: [{ answers: [String(Math.floor(mm / 60))] }, { answers: [String(mm % 60)] }],
         hints: ['60 minutes make 1 hour.', `How many 60s fit into ${mm}?`, 'The minutes left over go in the second gap.'],
-        explanation: `${Math.floor(mm / 60)} × 60 = ${Math.floor(mm / 60) * 60}, and ${mm} - ${Math.floor(mm / 60) * 60} = ${mm % 60}. So ${mm} minutes = ${Math.floor(mm / 60)} hours ${mm % 60} minutes.`,
+        explanation: `${Math.floor(mm / 60)} × 60 = ${Math.floor(mm / 60) * 60}, and ${mm} - ${Math.floor(mm / 60) * 60} = ${mm % 60}. So ${mm} minutes = ${plural(Math.floor(mm / 60), 'hour', 'hours')} ${plural(mm % 60, 'minute', 'minutes')}.`,
       }
     }
 
@@ -2904,7 +2904,7 @@ const timetables4: Generator = {
         answer: gap,
         unit: 'days',
         hints: [`How many days does ${MONTHS4[mo]} have?`, `Count to the end of ${MONTHS4[mo]}, then on into ${MONTHS4[mo + 1]}.`, `${MONTHS4[mo]} has ${DAYS4[mo]} days.`],
-        explanation: `${DAYS4[mo]! - d1} days to the end of ${MONTHS4[mo]} and ${d2} more days. ${DAYS4[mo]! - d1} + ${d2} = ${gap}.`,
+        explanation: `${plural(DAYS4[mo]! - d1, 'day', 'days')} to the end of ${MONTHS4[mo]} and ${plural(d2, 'more day', 'more days')}. ${DAYS4[mo]! - d1} + ${d2} = ${gap}.`,
       }
     }
 
@@ -4016,7 +4016,7 @@ const shapes3d4: Generator = {
       if (prism) {
         if (ask === 'faces') {
           answer = n + 2
-          hints = ['A prism has two matching ends joined by rectangles.', `Each end is a ${b.word}.`, `There is one rectangle for each side of the ${b.word}.`]
+          hints = ['A prism has two matching ends joined by rectangles.', `Each end is ${aAn(b.word)}.`, `There is one rectangle for each side of the ${b.word}.`]
           explanation = `2 ${b.word} ends + ${n} rectangles = ${n + 2} faces.`
         } else if (ask === 'edges') {
           answer = 3 * n
@@ -4024,12 +4024,12 @@ const shapes3d4: Generator = {
           explanation = `${n} + ${n} + ${n} = ${3 * n} edges.`
         } else {
           answer = 2 * n
-          hints = ['All the vertices are on the two ends.', `Each end is a ${b.word} with ${n} corners.`, 'Add the corners on both ends.']
+          hints = ['All the vertices are on the two ends.', `Each end is ${aAn(b.word)} with ${n} corners.`, 'Add the corners on both ends.']
           explanation = `${n} + ${n} = ${2 * n} vertices.`
         }
       } else if (ask === 'faces') {
         answer = n + 1
-        hints = ['A pyramid has one base and triangles that meet at the top.', `The base is a ${b.word} with ${n} sides.`, 'There is one triangle for each side of the base.']
+        hints = ['A pyramid has one base and triangles that meet at the top.', `The base is ${aAn(b.word)} with ${n} sides.`, 'There is one triangle for each side of the base.']
         explanation = `1 ${b.word} base + ${n} triangles = ${n + 1} faces.`
       } else if (ask === 'edges') {
         answer = 2 * n
@@ -4042,7 +4042,7 @@ const shapes3d4: Generator = {
       }
       return {
         type: 'numeric',
-        prompt: `A ${solidName} has a ${b.word} ${prism ? 'at each end' : 'as its base'}. How many ${ask} does it have?`,
+        prompt: `${AAn(solidName)} has ${aAn(b.word)} ${prism ? 'at each end' : 'as its base'}. How many ${ask} does it have?`,
         figure: { kind: 'shape', shape: b.shape, alt: `A ${b.n === 3 ? 'triangle' : b.n === 4 ? 'square' : `regular ${b.word}`} with ${n} sides, the ${prism ? 'end' : 'base'} of the ${solidName}.` },
         answer,
         hints,
@@ -4682,7 +4682,7 @@ const vennCarroll4: Generator = {
       const N = A + B - both + neither
       const ask = rng.int(0, 2)
       const items = [{ text: String(both), region: 'both' as const }, ...(ask === 2 ? [{ text: String(neither), region: 'none' as const }] : [])]
-      const figure: Fig = { kind: 'venn', sets: [g.A, g.B], items, alt: `Venn diagram with circles for ${lc(g.A)} and ${lc(g.B)}. ${both} children are in the overlap.${ask === 2 ? ` ${neither} children are outside both circles.` : ''}` }
+      const figure: Fig = { kind: 'venn', sets: [g.A, g.B], items, alt: `Venn diagram with circles for ${lc(g.A)} and ${lc(g.B)}. ${both === 1 ? '1 child is' : `${both} children are`} in the overlap.${ask === 2 ? ` ${neither === 1 ? '1 child is' : `${neither} children are`} outside both circles.` : ''}` }
       if (ask === 0) {
         return {
           type: 'numeric',
@@ -4690,7 +4690,7 @@ const vennCarroll4: Generator = {
           figure,
           answer: neither,
           hints: [`The ${both} children in the overlap are counted in both groups.`, `Find how many children are inside the circles: ${A} + ${B} - ${both}.`, `Take that away from ${N}.`],
-          explanation: `${A} + ${B} - ${both} = ${A + B - both} children are inside the circles. ${N} - ${A + B - both} = ${neither} children ${g.neither}.`,
+          explanation: `${A} + ${B} - ${both} = ${A + B - both} children are inside the circles. ${N} - ${A + B - both} = ${neither}, so ${neither === 1 ? '1 child is' : `${neither} children are`} outside the circles.`,
           tags: WORD,
         }
       }
@@ -4866,7 +4866,7 @@ const chance4: Generator = {
         prompt: `A bag has ${r} red counters and ${bl} blue counters. How many red counters must be added to make an even chance of red?`,
         answer: d,
         hints: ['Even chance means the same number of red and blue.', `How many more is ${bl} than ${r}?`, `Count on from ${r} to ${bl}.`],
-        explanation: `${bl} - ${r} = ${d}. With ${d} more red counters there are ${bl} red and ${bl} blue, which is an even chance.`,
+        explanation: `${bl} - ${r} = ${d}. With ${plural(d, 'more red counter', 'more red counters')} there are ${bl} red and ${bl} blue, which is an even chance.`,
         tags: WORD,
       }
     }
