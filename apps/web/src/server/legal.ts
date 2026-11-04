@@ -1,17 +1,12 @@
 import 'server-only'
 import type { PrivacyNoticeData, TermsData } from '@/screens/public/legal'
 import { NOTICE_VERSION, TERMS_VERSION } from './auth/accounts'
+import { legalEnv } from './legal-env'
 
 /**
  * Isi halaman Kebijakan Privasi dan Ketentuan untuk pemasangan server rumah.
  * Identitas pengelola diambil dari .env (KIRA_LEGAL_*) supaya tidak ada isian kosong.
  */
-/** Nilai .env yang kosong dianggap belum diisi. */
-function legalEnv(name: string): string | null {
-  const v = process.env[name]?.trim()
-  return v ? v : null
-}
-
 function entity() {
   return {
     name: legalEnv('KIRA_LEGAL_NAME') ?? 'Pengelola Kira (isi KIRA_LEGAL_NAME di .env)',
