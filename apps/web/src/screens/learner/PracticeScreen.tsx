@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, type ReactElement } from 'react'
+import { useT } from '@/lib/i18n/client'
 import type { PracticeDTO, PracticeTile } from '@/server/dal/practice'
 import { cx } from '@/components/ui/cx'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
@@ -28,28 +29,29 @@ function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; chi
 }
 
 export function PracticeScreen({ data, few }: { data: PracticeDTO; few: boolean }): ReactElement {
+  const copy = useT().lessons.practice
   const [n, setN] = useState<number>(data.counts[2] ?? 10)
   const [timed, setTimed] = useState(false)
   const [style, setStyle] = useState<string>('mixed')
   const href = (t: PracticeTile) => (t.drill ? `${t.href}&n=${n}&timed=${timed ? 1 : 0}&style=${style}` : t.href)
   return (
     <LearnerFrame shell={data.shell} current="practice" className="flex flex-col gap-6">
-      <LearnerHeader shell={data.shell} title="Free practice" subline="Pick what you want to practise. You earn XP for every right answer." />
+      <LearnerHeader shell={data.shell} title={copy.title} subline={copy.subline} />
       {data.offNote ? (
         <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface p-4 text-body-lg font-bold">
-          {data.offNote} is resting for now. Ask your grown-up if you want it back. Here is what you can practise.
+          {copy.offNote(data.offNote)}
         </p>
       ) : null}
       {few ? (
         <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface p-4 text-body-lg font-bold">
-          That choice does not have enough questions yet. Try Mixed or another topic.
+          {copy.few}
         </p>
       ) : null}
 
-      <section aria-label="Practice options" className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-4">
+      <section aria-label={copy.options} className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-4">
         <div className="flex flex-col gap-2">
-          <h2 className="m-0 text-h3 font-bold">How many questions?</h2>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Number of questions">
+          <h2 className="m-0 text-h3 font-bold">{copy.howMany}</h2>
+          <div className="flex flex-wrap gap-2" role="group" aria-label={copy.numberOfQuestions}>
             {data.counts.map((c) => (
               <Chip key={c} on={n === c} onClick={() => setN(c)}>
                 {String(c)}
@@ -58,19 +60,19 @@ export function PracticeScreen({ data, few }: { data: PracticeDTO; few: boolean 
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <h2 className="m-0 text-h3 font-bold">Timer</h2>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Timer">
+          <h2 className="m-0 text-h3 font-bold">{copy.timer}</h2>
+          <div className="flex flex-wrap gap-2" role="group" aria-label={copy.timer}>
             <Chip on={!timed} onClick={() => setTimed(false)}>
-              Take my time
+              {copy.takeMyTime}
             </Chip>
             <Chip on={timed} onClick={() => setTimed(true)}>
-              Timed
+              {copy.timed}
             </Chip>
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <h2 className="m-0 text-h3 font-bold">Kind of question</h2>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Kind of question">
+          <h2 className="m-0 text-h3 font-bold">{copy.kind}</h2>
+          <div className="flex flex-wrap gap-2" role="group" aria-label={copy.kind}>
             {data.styles.map((s) => (
               <Chip key={s.id} on={style === s.id} onClick={() => setStyle(s.id)}>
                 {s.label}
@@ -81,7 +83,7 @@ export function PracticeScreen({ data, few }: { data: PracticeDTO; few: boolean 
       </section>
 
       {data.sections.length === 0 ? (
-        <p className="m-0 text-body-lg text-fg-muted">Nothing is switched on for practice yet. Ask your grown-up to open some topics.</p>
+        <p className="m-0 text-body-lg text-fg-muted">{copy.nothingOn}</p>
       ) : null}
       {data.sections.map((s) => (
         <section key={s.id} aria-labelledby={`pr-${s.id}`} className="flex flex-col gap-3">
