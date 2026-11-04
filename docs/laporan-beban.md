@@ -8,14 +8,14 @@ Uji akhir sebelum pembukaan pukul 06.00 WIB, Kamis 5 November 2026, dijalankan a
 
 **Apa arti 1000.** Pada 1000 anak aktif bersamaan PC ini tetap melayani tanpa galat, tetapi lambat: Today p95 5,1 detik dan simpan jawaban p95 967 ms, keduanya lewat target. Jadi batas jujur PC ini: target terpenuhi pada 500, gagal pada 1000. Titik di antara keduanya tidak diukur. Unggahan rumah juga mulai habis di sini: puncak 52 Mbps melawan sekitar 29 Mbps bila klip suara tidak disimpan Cloudflare.
 
-**Apakah RTX 5070 Ti sanggup?** Ya, karena kartu itu tidak dipakai saat anak belajar. Suara anak adalah berkas MP3 yang sudah direkam dan disajikan dari disk. Selama semua uji, pemakaian GPU rata-rata di bawah 1 persen (paling tinggi 9 persen, sekali, saat agen lain sedang memakai peramban) dan memori GPU tetap sekitar 2,8 GB. Yang menentukan batas adalah CPU 12 thread dan unggahan rumah. Satu syarat: `kira-tts-1` harus tetap mati (sudah ada di `CUTOVER.md`). Bila anak menekan tombol baca pada soal yang klipnya belum ada, sistem memang mencoba memanggil layanan suara (lihat bagian 3).
+**Apakah RTX 5070 Ti sanggup?** Ya, karena kartu itu tidak dipakai saat anak belajar. Suara anak adalah berkas MP3 yang sudah direkam dan disajikan dari disk. Selama semua uji, pemakaian GPU rata-rata di bawah 1 persen (paling tinggi 9 persen, sekali, saat Chrome agen lain juga berjalan; penyebabnya tidak dipastikan) dan memori GPU tetap sekitar 2,8 GB. Yang menentukan batas adalah CPU 12 thread dan unggahan rumah. Satu syarat: `kira-tts-1` harus tetap mati (sudah ada di `CUTOVER.md`). Bila anak menekan tombol baca pada soal yang klipnya belum ada, sistem memang mencoba memanggil layanan suara (lihat bagian 3).
 
 **Batas kursi.** 151 percobaan daftar dalam 2 menit dengan batas 100: tepat 100 kursi terisi. Tidak ada kursi ke-101.
 
 **Dua masalah besar yang ditemukan dan sudah diperbaiki malam ini:**
 
 1. **Situs bisa mati total.** Pada percobaan pertama 1000 anak, 70,93 persen permintaan gagal dan seluruh situs menjawab "no upstreams" selama uji berjalan. Penyebabnya: beberapa fungsi meminta sambungan database kedua sambil memegang yang pertama, sampai semua sambungan saling menunggu. Sekarang sudah diperbaiki, dan pada 1000 anak galatnya 0,00 persen.
-2. **Setiap anak mengunduh seluruh suara hari itu saat pertama membuka aplikasi.** Di peramban sungguhan: 303 klip, 5,1 MB, tanpa menekan apa pun. Sekarang hanya klip soal yang tampil dan soal berikutnya: 12 klip, 120 KB di soal pertama. Konsekuensinya saat internet putus: soal yang klipnya sudah diambil tetap berbunyi, soal lain menulis pesan bahwa suara gagal dimuat dan tidak berbunyi, karena suara perangkat sudah dihapus untuk anak.
+2. **Setiap anak mengunduh seluruh suara hari itu saat pertama membuka aplikasi.** Di peramban sungguhan: 303 klip, 5,0 MB, tanpa menekan apa pun. Sekarang hanya klip soal yang tampil dan soal berikutnya: 12 klip, 120 KB di soal pertama. Konsekuensinya saat internet putus: soal yang klipnya sudah diambil tetap berbunyi, soal lain menulis pesan bahwa suara gagal dimuat dan tidak berbunyi, karena suara perangkat sudah dihapus untuk anak.
 
 **Yang tidak diuji** (bagian 7): jalur lewat Cloudflare, unggahan dan Wi-Fi rumah yang sebenarnya, SMTP sungguhan, lonjakan 0 ke 500 dalam 30 detik, soak 15 menit, dan 300 anak pada kode akhir.
 
@@ -25,7 +25,7 @@ Satu anak aktif adalah satu pengguna virtual k6 dengan waktu berpikir 4 sampai 1
 
 | Anak aktif | Kode | Galat HTTP | Today p95 | Simpan jawaban p95 | Target |
 |---:|---|---:|---:|---:|---|
-| 100 | Perbaikan sambungan, semua klip diunduh di muka | 0,00% | 219 ms | 62 ms | Tercapai |
+| 100 | Perbaikan sambungan dan pemeriksaan klip, semua klip diunduh di muka | 0,00% | 219 ms | 62 ms | Tercapai |
 | 300 | Perbaikan sambungan, semua klip diunduh di muka, sebelum perbaikan pemeriksaan klip | 0,00% | 1874 ms | 531 ms | Today gagal |
 | 500 | Perbaikan sambungan dan pemeriksaan klip, semua klip diunduh di muka | 0,00% | 3296 ms | 5191 ms | Gagal |
 | **500** | **Kode akhir, klip per soal** | **0,00%** | **242 ms** | **41 ms** | **Tercapai** |
@@ -110,7 +110,7 @@ Penyetelan lewat konfigurasi tidak dicoba malam ini karena waktu habis oleh dua 
 ## 3. Suara
 
 - **Klip sungguhan:** 57.237 berkas (sekitar 1,6 GB, versi `piper-lessac-medium`) disalin dari `C:\kw4\tts-piper\tts` (sumber hanya dibaca) ke data staging, dengan `served-version.txt`. Salinan sudah dihapus. Klip p95 16 ms pada 500 anak dan 38 ms pada 1000 anak.
-- **GPU:** dicuplik tiap 5 detik dengan `nvidia-smi` di semua uji. Rata-rata 0,1 sampai 0,4 persen. Puncak tertinggi 9 persen pada uji 100 anak, saat agen lain menjalankan Chrome. Memori 2,8 GB tetap, tanpa proses TTS. `kira-tts-1` diam.
+- **GPU:** dicuplik tiap 5 detik dengan `nvidia-smi` di semua uji. Rata-rata 0,1 sampai 0,4 persen. Puncak tertinggi 9 persen pada uji 100 anak; Chrome agen lain berjalan pada saat itu, tetapi penyebabnya tidak dipastikan. Memori 2,8 GB tetap, tanpa proses TTS. `kira-tts-1` diam.
 - **Permintaan suara langsung:** `TTS_URL` di staging menunjuk penjaga kecil yang mencatat setiap permintaan. Semua uji k6: 0 permintaan. Tetapi k6 tidak pernah memanggil `/api/tts/request`. Di peramban sungguhan, menekan tombol baca pada soal yang klipnya belum ada (kemungkinan soal Matematika buatan generator) mengantrekan job `tts.clip`, dan worker memanggil `GET /health` ke layanan suara. Penjaga menjawab 503 dan job selesai dalam 26 ms. Jadi bila `kira-tts-1` menyala, tombol anak bisa sampai ke GPU. Bila mati, job dilewati.
 - **Soal tanpa klip:** anak melihat "Suara soal ini belum siap. Lewati dulu dan lanjutkan." dan tidak ada bunyi. Berapa banyak soal buatan generator yang tidak punya klip belum dihitung.
 - **Saat internet putus (peramban sungguhan):** soal berikutnya yang sudah dipramuat tetap berbunyi. Klip yang belum tersimpan memberi "Suaranya gagal dimuat. Periksa sambungan lalu coba lagi." Sesudah muat ulang saat offline tombolnya tetap ada dan pesannya sama. Belum dicoba di peramban: soal dengar sungguhan (memakai kode tombol yang sama), dan maju ke soal yang belum pernah dipramuat.
@@ -119,11 +119,11 @@ Byte sesi pertama di peramban sungguhan (Chromium tanpa layar, sampai soal perta
 
 | | Sebelum | Sesudah |
 |---|---:|---:|
-| Klip suara | 303 klip, 5,1 MB | 12 klip, 120 KB |
+| Klip suara | 303 klip, 5,0 MB | 12 klip, 120 KB |
 | Aset statis (sekali per perangkat) | 1,2 MB | 1,2 MB |
 | Kamus (sekali per perangkat) | 154 KB | 154 KB |
 | Halaman dan API | 187 KB | 171 KB |
-| Total | 6,7 MB | 1,6 MB |
+| Total | 6,5 MB | 1,6 MB |
 
 Jumlah per soal sesudah perubahan (sekitar 6 klip) diambil dari angka ini dan dipakai skenario k6.
 
@@ -167,13 +167,13 @@ Untuk 100 keluarga, unggahan 29 Mbps cukup, dengan atau tanpa cache klip. Untuk 
 | `76497456` | Sambungan kedua diminta saat transaksi terbuka (Today pada setiap kunjungan, pembuatan sesi, tes penempatan, alat peraga, tambah anak). Semua sambungan saling menunggu sampai diputus 60 detik kemudian. | 34 sambungan `idle in transaction` selama 45 sampai 60 detik; 70,93% galat pada 1000 anak. | Dibaca lewat `tx` yang sama. Akun dan PIN anak dibuat sebelum transaksi. Penjaga `server/tx-guard.ts`: melempar di tes, mencatat di produksi. Tes database tidak pernah memicu lemparan ini. |
 | `76497456` | Satu kali macet menjadi situs mati: cek sehat proxy menyentuh database, jadi semua replika keluar sekaligus. | "no upstreams" ribuan kali, padahal CPU web 0 persen. | Cek sehat proxy `/api/health?scope=live` tanpa database, dua kali gagal baru keluar, status 503 tidak dihitung. Transaksi web menganggur diputus setelah 15 detik; worker dan cadangan tetap 60 detik. Setelah perbaikan: 0 "no upstreams" di semua uji. |
 | `32eddc05` | `/api/tts/today` memeriksa sekitar 283 berkas sambil memegang transaksi. | p50 6 detik pada 300 anak. | Di luar transaksi; kemudian dihapus bersama daftar klip pada baris berikut. |
-| `d3dfe443`, `cf2a40e3` | Peramban mengunduh seluruh klip hari itu di muka. | 303 klip, 5,1 MB di peramban sungguhan. | Klip soal ini dan soal berikutnya saja. Status suara terakhir diingat untuk offline. Tombol suara menulis alasan bila klip gagal. Status suara kini p95 7 ms pada 500 anak. |
+| `d3dfe443`, `cf2a40e3` | Peramban mengunduh seluruh klip hari itu di muka. | 303 klip, 5,0 MB di peramban sungguhan. | Klip soal ini dan soal berikutnya saja. Status suara terakhir diingat untuk offline. Tombol suara menulis alasan bila klip gagal. Status suara kini p95 7 ms pada 500 anak. |
 
 Sambungan kedua pada pool auth di dalam transaksi tetap ada (`learnerUiPrefs`, bahasa anak) dan hanya dicatat. Pool itu tidak bisa ikut saling menunggu, karena pemegang sambungan auth tidak pernah meminta sambungan app. Pemindaian kode berdasarkan nama fungsi, jadi yang terlewat akan muncul di log dengan pesan "sambungan kedua diminta saat transaksi terbuka". Selama uji akhir hanya baris auth yang muncul.
 
 ## 7. Batas uji ini
 
-- **Satu PC.** k6, web, Postgres, dan proxy bersaing di 12 thread yang sama. Di produksi k6 tidak ada, jadi bagian CPU itu (43 sampai 141 persen satu inti) bebas.
+- **Satu PC.** k6, web, Postgres, dan proxy bersaing di 12 thread yang sama. Di produksi k6 tidak ada, jadi bagian CPU itu (28 sampai 141 persen satu inti) bebas.
 - **Jalur dalam, tanpa Cloudflare.** Latensi Cloudflare (sebelumnya terukur 0,35 sampai 0,45 detik per permintaan), cache tepi, batas Tunnel, dan https tidak ikut.
 - **Unggahan rumah (sekitar 29 Mbps) dan Wi-Fi tidak dilalui.** Bagian 5 adalah perhitungan.
 - **Pengukuran pendek.** 500 dan 1000 pada kode akhir hanya 60 detik tahan, sudah termasuk pembuatan sesi pertama hari itu untuk semua anak, yang terberat. Uji 1000 akhir dimulai tepat sesudah tes database selesai dan saat PC lebih sibuk (CPU PC rata-rata 84 persen) dibanding uji 500 (57 persen), jadi perbandingan keduanya tidak sepenuhnya setara.
@@ -182,7 +182,7 @@ Sambungan kedua pada pool auth di dalam transaksi tetap ada (`learnerUiPrefs`, b
 
 ## 8. Keadaan PC saat uji
 
-Bukan PC yang tenang. Tercatat tiap 30 detik: Steam memakai 85 sampai 100 persen satu inti sepanjang malam (bukan kerja Kira, tidak disentuh), `dllhost` sampai 100 persen, `chrome-headless-shell` agen lain sampai 150 persen, tumpukan `kiraqa` (11 kontainer) dan Postgres agen lain. Kontainer selain staging memuncak 28 sampai 355 persen satu inti. CPU seluruh PC rata-rata: 54 persen pada 100 anak, 91 persen pada 300, 57 persen pada 500 akhir, 84 persen pada 1000 akhir, 99 persen pada uji batas. Produksi lama tetap jalan selama uji dan tidak disentuh. Stack staging dan volumenya dihapus pukul 04.38.
+Bukan PC yang tenang. Tercatat tiap 30 detik: Steam memakai 85 sampai 100 persen satu inti sepanjang malam (bukan kerja Kira, tidak disentuh), `dllhost` sampai 100 persen, `chrome-headless-shell` agen lain sampai 150 persen, tumpukan `kiraqa` (11 kontainer) dan Postgres agen lain. Kontainer selain staging memuncak 28 sampai 355 persen satu inti. CPU seluruh PC rata-rata: 54 persen pada 100 anak, 91 persen pada 300, 57 persen pada 500 akhir, 84 persen pada 1000 akhir, 99 persen pada uji batas. Uji ini tidak menyentuh kontainer produksi. Kontainer produksi baru terlihat menyala sejak sekitar 04.36 (pindah ke susunan baru), jadi uji 500 akhir sebagian berjalan bersamaan dengan itu, dan angka 355 persen di atas ikut memuatnya. Stack staging dan volumenya dihapus pukul 04.38.
 
 ## 9. Mengulang
 
