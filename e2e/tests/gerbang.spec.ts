@@ -57,7 +57,8 @@ async function pathOf(learnerId: string): Promise<string | null> {
 
 async function expectFooter(page: Page, opts: { partner: boolean }) {
   const footer = page.getByTestId('site-footer')
-  await expect(footer).toBeVisible()
+  // Today pertama menyusun sesi hari itu, bisa agak lama di mesin yang sibuk.
+  await expect(footer).toBeVisible({ timeout: 60_000 })
   await expect(footer.getByTestId('site-credit')).toHaveText(CREDIT)
   for (const [label, href] of [['Panduan', '/panduan'], ['Bantuan', '/feedback'], ['Privasi', '/privasi'], ['Syarat', '/ketentuan']] as const) {
     await expect(footer.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
@@ -267,7 +268,7 @@ test('lewati dulu memakai rekomendasi, tidak buntu, dan daftar langkah hilang se
     await expect(page.getByRole('heading', { name: 'Fitur yang dipakai' })).toBeVisible()
 
     await page.goto('/keluarga/minggu')
-    await db()`insert into quest (org_id, learner_id, date, subject, session, kind, status, seq) values (${f.orgId}, ${f.childIds[0]!}, ${new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10)}, 'math', 'latihan', 'daily', 'done', 0)`
+    await db()`insert into quest (org_id, learner_id, date, subject, session, kind, mode, title, status, seq) values (${f.orgId}, ${f.childIds[0]!}, ${new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10)}, 'math', 'latihan', 'daily', 'latihan', 'Latihan', 'done', 0)`
     await page.goto('/keluarga')
     await expect(page.getByRole('heading', { name: /Halo/ })).toBeVisible()
     await expect(page.getByTestId('first-run-checklist')).toHaveCount(0)

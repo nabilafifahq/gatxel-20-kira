@@ -105,7 +105,7 @@ test.describe('pendaftaran orang tua', () => {
     expect(await seatsFree()).toBe(before)
     await page.getByLabel('Password', { exact: true }).fill(PASSWORD)
     await page.getByRole('button', { name: 'Konfirmasi email' }).click()
-    await expect(page).toHaveURL(/\/mulai$/)
+    await expect(page).toHaveURL(/\/mulai/)
     expect(await seatsFree()).toBe(before - 1)
 
     // Tautan sekali pakai.

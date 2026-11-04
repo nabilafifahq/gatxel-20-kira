@@ -51,6 +51,8 @@ export function AuthGateway({
 }) {
   const [mode, setModeState] = useState<GatewayMode>(initialMode)
   const [email, setEmail] = useState('')
+  // Panel memudar masuk hanya saat berpindah mode, tidak saat halaman pertama dimuat.
+  const [toggled, setToggled] = useState(false)
 
   useEffect(() => {
     const onPop = () => {
@@ -65,6 +67,7 @@ export function AuthGateway({
   const setMode = useCallback(
     (m: GatewayMode) => {
       setModeState(m)
+      setToggled(true)
       const query = m === 'login' && next ? `?next=${encodeURIComponent(next)}` : ''
       const url = (m === 'login' ? LOGIN_PATH : SIGNUP_PATH) + query
       if (window.location.pathname + window.location.search !== url) window.history.pushState(null, '', url)
@@ -103,7 +106,7 @@ export function AuthGateway({
                   { value: 'login', label: 'Masuk', id: 'tab-masuk', controls: 'panel-akun' },
                 ]}
               />
-              <div id="panel-akun" role="tabpanel" aria-labelledby={mode === 'login' ? 'tab-masuk' : 'tab-daftar'} key={mode} className="kira-fade-up">
+              <div id="panel-akun" role="tabpanel" aria-labelledby={mode === 'login' ? 'tab-masuk' : 'tab-daftar'} key={mode} className={toggled ? 'kira-fade-up' : undefined}>
                 {mode === 'login' ? (
                   <LoginClient bare next={next} notice={notice} turnstileSiteKey={turnstileSiteKey} onSwitchToSignup={() => setMode('signup')} sharedEmail={email} onEmailChange={setEmail} />
                 ) : seats.full ? (

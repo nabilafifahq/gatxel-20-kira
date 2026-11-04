@@ -120,6 +120,8 @@ export async function createPracticeAttempt(name: LearnerName, refs: { id: strin
 
 /** Jalankan axe dan gagal bila ada pelanggaran serius atau kritis. */
 export async function expectNoSeriousA11y(page: Page, label: string): Promise<void> {
+  // Tunggu gerak masuk selesai: warna saat memudar bukan warna sebenarnya.
+  await page.waitForTimeout(300)
   const res = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze()
   const bad = res.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical')
   expect(bad.map((v) => `${label}: ${v.id} (${v.impact}) ${v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(' | ')}`)).toEqual([])
