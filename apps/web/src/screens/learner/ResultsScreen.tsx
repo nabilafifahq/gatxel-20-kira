@@ -7,6 +7,7 @@ import { UiIcon } from '@/components/ui/icons'
 import { TryAgainButton } from '@/components/runtime/TryAgainButton'
 import { BadgeMedal } from '@/components/learner/BadgeTile'
 import { minutesSeconds, plural } from '@/components/learner/format'
+import { WorldGain } from '@/components/learner/world/WorldGain'
 import { SessionCelebration } from '@/components/learner/SessionCelebration'
 import { BadgeReveal } from '@/components/learner/BadgeReveal'
 import { CountUp } from '@/components/learner/CountUp'
@@ -188,6 +189,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
                 {timeLine}
               </div>
               <XpPill xp={data.xp} size="L" countUp />
+              <WorldGain world={data.world} />
             </div>
           )}
           <div className={cx('mt-auto flex border-t border-divider pt-5', esmo ? 'flex-wrap items-center gap-6' : 'flex-col gap-4')}>

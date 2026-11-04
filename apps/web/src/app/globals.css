@@ -643,6 +643,344 @@
   }
 }
 
+/*
+ * Kira World: gerak lembut untuk teman, kartu, robot, dan cerita. Hanya transform dan opacity.
+ * Reduced motion ditangani oleh aturan global di bawah (semua animasi menjadi satu langkah singkat).
+ */
+@keyframes kw-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes kw-breathe {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.02, 0.975);
+  }
+}
+@keyframes kw-sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+@keyframes kw-wag {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+@keyframes kw-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+@keyframes kw-drift {
+  0%,
+  100% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+@keyframes kw-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes kw-wave {
+  0%,
+  100% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+@keyframes kw-flap {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.6);
+  }
+}
+@keyframes kw-wobble {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0);
+  }
+  70% {
+    transform: rotate(-4deg);
+  }
+  80% {
+    transform: rotate(4deg);
+  }
+  90% {
+    transform: rotate(-2deg);
+  }
+}
+@keyframes kw-hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  25% {
+    transform: translateY(3px) scale(1.06, 0.92);
+  }
+  55% {
+    transform: translateY(-16px) scale(0.96, 1.05);
+  }
+}
+@keyframes kw-heart {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(0.7);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-48px) scale(1.2);
+  }
+}
+@keyframes kw-hit {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  15% {
+    transform: translateX(-9px) scale(0.96);
+  }
+  35% {
+    transform: translateX(8px) scale(1.03);
+  }
+  55% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes kw-flash-ring {
+  from {
+    opacity: 0.9;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+@keyframes kw-enter-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes kw-enter-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes kw-flip {
+  from {
+    opacity: 0;
+    transform: perspective(700px) rotateY(90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(700px) rotateY(0) scale(1);
+  }
+}
+@keyframes kw-holo {
+  0% {
+    transform: translateX(-70%);
+  }
+  100% {
+    transform: translateX(70%);
+  }
+}
+@keyframes kw-shine {
+  0%,
+  55% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(130%);
+  }
+}
+@keyframes kw-confetti {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--dx, 0), var(--dy, 80px)) rotate(240deg);
+  }
+}
+@layer components {
+  .kw-svg-anim,
+  .kw-pet,
+  .kw-eyes,
+  .kw-tail,
+  .kw-sway,
+  .kw-wing,
+  .kw-twinkle,
+  .kw-bob,
+  .kw-drift,
+  .kw-spin,
+  .kw-wave,
+  .kw-egg,
+  .kw-robot,
+  .kw-shine-medal {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .kw-animate .kw-pet {
+    transform-origin: 50% 100%;
+    animation: kw-breathe 3.6s ease-in-out infinite;
+  }
+  .kw-animate .kw-eyes {
+    animation: kira-blink 5s ease-in-out infinite;
+  }
+  .kw-animate .kw-tail {
+    transform-origin: 0% 80%;
+    animation: kw-wag 2.4s ease-in-out infinite;
+  }
+  .kw-animate .kw-sway {
+    transform-origin: 50% 100%;
+    animation: kw-sway 3.2s ease-in-out infinite;
+  }
+  .kw-animate .kw-wing {
+    animation: kw-flap 0.9s ease-in-out infinite;
+  }
+  .kw-animate .kw-twinkle {
+    animation: kw-twinkle 2.4s ease-in-out infinite;
+  }
+  .kw-animate .kw-late {
+    animation-delay: 1.1s;
+  }
+  .kw-animate .kw-bob {
+    animation: kw-bob 2.6s ease-in-out infinite;
+  }
+  .kw-animate .kw-drift {
+    animation: kw-drift 9s ease-in-out infinite;
+  }
+  .kw-animate .kw-spin {
+    animation: kw-spin 9s linear infinite;
+  }
+  .kw-animate .kw-wave {
+    animation: kw-wave 4s ease-in-out infinite;
+  }
+  .kw-animate .kw-egg {
+    transform-origin: 50% 100%;
+    animation: kw-wobble 3.4s ease-in-out infinite;
+  }
+  .kw-animate .kw-robot {
+    animation: kw-bob 3s ease-in-out infinite;
+  }
+  .kw-hop {
+    animation: kw-hop 650ms var(--ease-kira) both;
+    transform-origin: 50% 100%;
+  }
+  .kw-heart {
+    animation: kw-heart 1200ms var(--ease-kira) both;
+  }
+  .kw-hit {
+    animation: kw-hit 520ms var(--ease-kira) both;
+  }
+  .kw-flash-ring {
+    animation: kw-flash-ring 600ms var(--ease-kira) both;
+  }
+  .kw-enter-left {
+    animation: kw-enter-left 700ms var(--ease-kira) both;
+  }
+  .kw-enter-right {
+    animation: kw-enter-right 700ms var(--ease-kira) 150ms both;
+  }
+  .kw-flip {
+    animation: kw-flip 800ms var(--ease-kira) both;
+  }
+  .kw-confetti {
+    animation: kw-confetti 1400ms var(--ease-kira) var(--kira-delay, 0ms) both;
+  }
+  /* Kartu koleksi. Rarity menentukan bingkai; epic dan legendary punya kilau holografik yang bergeser. */
+  .kw-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .kw-card[data-rarity='rare'] {
+    box-shadow: 0 0 0 3px var(--color-math);
+  }
+  .kw-card[data-rarity='epic'] {
+    box-shadow: 0 0 0 3px var(--color-mental);
+  }
+  .kw-card[data-rarity='legendary'] {
+    box-shadow: 0 0 0 3px var(--color-star), 0 0 0 5px var(--color-fg);
+  }
+  .kw-holo::after {
+    content: '';
+    position: absolute;
+    inset: -20% -60%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.55;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      color-mix(in srgb, var(--color-star) 70%, transparent) 38%,
+      color-mix(in srgb, var(--color-accent) 60%, transparent) 46%,
+      color-mix(in srgb, var(--color-mental) 55%, transparent) 54%,
+      color-mix(in srgb, var(--color-success) 55%, transparent) 62%,
+      transparent 70%
+    );
+    animation: kw-holo 3.2s ease-in-out infinite alternate;
+  }
+  .kw-sheen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background: linear-gradient(100deg, transparent 40%, color-mix(in srgb, var(--color-white) 85%, transparent) 50%, transparent 60%);
+    animation: kw-shine 3.6s ease-in-out infinite;
+  }
+  .kw-shine-medal {
+    animation: kw-bob 3s ease-in-out infinite;
+  }
+}
+
 @media print {
   html,
   body {

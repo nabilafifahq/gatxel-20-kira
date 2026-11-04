@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import type { WorldPeekDTO } from '@/lib/dto-world'
+import { WorldPeek } from '@/components/learner/world/WorldPeek'
 import type { ReactElement } from 'react'
 import type { TodayDTO, TodayGroupDTO } from '@/lib/dto'
 import type { PlacementCardDTO } from '@/lib/dto-placement'
@@ -122,7 +124,7 @@ function PlacementCard({ card }: { card: PlacementCardDTO }): ReactElement {
   )
 }
 
-export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions, placement }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions; placement?: PlacementCardDTO | null }): ReactElement {
+export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions, placement, world }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions; placement?: PlacementCardDTO | null; world?: WorldPeekDTO | null }): ReactElement {
   const note = noteFor(data, doneHref)
   const streak = data.streak
   // Batas waktu: hanya sesi yang sudah selesai tetap tampil di jalur.
@@ -146,6 +148,8 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
             </div>
           }
         />
+
+        {world ? <WorldPeek world={world} /> : null}
 
         <section aria-label="Streak" className="flex flex-col gap-2.5 rounded-card bg-surface shadow-soft px-3 py-3.5 sm:px-4 md:hidden">
           <div className="flex items-center justify-between gap-3">

@@ -250,6 +250,15 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
         </section>
       ) : null}
 
+      <section aria-label="Kira World" className="flex flex-wrap items-center gap-3.5 rounded-card border-2 border-fg bg-surface p-4">
+        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+          <h2 className="m-0 text-h3 font-bold">Kira World</h2>
+          <p className="m-0 text-body text-fg-muted">Your friend, Star Shop, card album, story, Puzzle Robot and trophies.</p>
+        </div>
+        <ButtonLink href={LEARNER_ROUTES.world} prefetch={false} iconAfter="arrow-right">
+          Open Kira World
+        </ButtonLink>
+      </section>
       {data.collection ? <ChestCollection collection={data.collection} avatar={avatar} accessory={accessory} background={data.shell.background ?? null} equip={actions.equipChest} /> : null}
 
       <div className="flex flex-1 flex-col gap-6 lg:flex-row">

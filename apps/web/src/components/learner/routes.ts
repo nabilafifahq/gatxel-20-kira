@@ -19,6 +19,8 @@ export const LEARNER_ROUTES = {
   me: '/me',
   /** Kamus Ketuk: kata yang disimpan anak. */
   myWords: '/my-words',
+  /** Kira World: bintang, teman, toko, album, cerita, robot, piala. */
+  world: '/world',
   quickMaths: '/quick-maths',
   /** Latihan Bebas: anak memilih apa yang mau dilatih. */
   practice: '/practice',
@@ -34,4 +36,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'practice' | 'english' | 'reading' | 'quick-maths' | 'quiz-arena' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'practice' | 'english' | 'reading' | 'world' | 'quick-maths' | 'quiz-arena' | 'me'

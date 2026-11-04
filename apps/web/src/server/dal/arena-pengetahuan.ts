@@ -46,6 +46,7 @@ import { trackDTOs } from './arena-tracks'
 import { finishedRoundsOn, loadQuizState, saveArenaState, trackTotals, type QuizState } from './arena-state'
 import { assertCanPlay, assertOpen, clampMs, dropStaleRounds, loadSession, xpNote, type SessionRow } from './arena-session'
 import { awardBadges, learnerShell, loadLearner } from './learner-core'
+import { awardDrillStars } from './kira-world'
 import { completeLinkedSession } from './learner-session'
 
 const { arenaSession, xpEvent } = tables
@@ -176,6 +177,7 @@ export async function finishQuizRound(tx: Tx, ctx: OrgContext, learnerId: string
   if (xp > 0) {
     await tx.insert(xpEvent).values({ orgId: ctx.orgId, learnerId, amount: xp, reason: 'round', ref: row.id, date: row.date, track: 'pengetahuan' }).onConflictDoNothing()
   }
+  if (answered >= 5) await awardDrillStars(tx, learnerId, row.id, row.date as IsoDate)
   const durationMs = info.limitSec ? info.limitSec * 1000 : Math.max(1, answers.reduce((n, a) => n + Math.min(a.ms, 60000), 0))
   const next: QuizState = {
     know,

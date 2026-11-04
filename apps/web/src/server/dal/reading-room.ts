@@ -28,6 +28,7 @@ import type {
 import type { OrgContext, Tx } from '../db'
 import { conflict, invalid, notFound } from '../errors'
 import { grantXp, learnerShell, loadLearner } from './learner-core'
+import { awardReadingStars } from './kira-world'
 
 /**
  * Ruang Baca: perpustakaan, pembaca, kemajuan, menit membaca, dan kuis bab. Buku dimuat dari content/books
@@ -360,6 +361,8 @@ export async function submitChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: stri
       },
     })
   await grantXp(tx, ctx, learnerId, xp, 'reading-quiz', `${book.id}:${chapter.id}`, jakartaDate())
+  // Bintang Kira World untuk bab yang selesai (sekali per bab; ref buku dan bab mencegah ganda, jumlahnya menurun per hari).
+  if (first) await awardReadingStars(tx, learnerId, `${book.id}:${chapter.id}`, jakartaDate())
   await advanceProgress(tx, ctx, learnerId, book, chapter.id)
   const fin = await maybeFinishBook(tx, ctx, learnerId, book, chapter.id)
   const next = book.chapters[book.chapters.indexOf(chapter) + 1]
