@@ -1,11 +1,11 @@
 import 'server-only'
 
-const DEFAULT_CLAIM = 'Materinya disusun untuk anak SD kelas 1 sampai 6 dan diperiksa terus selama beta.'
+const DEFAULT_CLAIM = 'Materi mengacu pada kerangka Cambridge Primary'
 
 /**
  * Kalimat kurikulum di halaman depan. KIRA_CURRICULUM_CLAIM menggantinya; nilai kosong menyembunyikannya.
- * Jangan menulis bahwa Kira resmi, bersertifikat, atau didukung Cambridge. Setelah laporan pemetaan selesai,
- * kalimat yang diizinkan hanya: "mengacu pada kerangka Cambridge Primary".
+ * Jangan menulis bahwa Kira resmi, bersertifikat, atau didukung Cambridge. Laporan pemetaan sudah selesai
+ * (docs/laporan-cambridge.md), dan kalimat yang diizinkan hanya: "mengacu pada kerangka Cambridge Primary".
  * Dibaca langsung dari process.env karena env() menganggap nilai kosong sebagai tidak diisi.
  */
 export function curriculumClaim(): string | null {

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 import type { ReactElement } from 'react'
 import type { ResultsDTO } from '@/lib/dto'
 import { ButtonLink, IconLink } from '@/components/ui/Button'
@@ -295,6 +296,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
           {tr.seeAnswers}
         </ButtonLink>
       </footer>
+      <SiteFooter area="learner" />
     </div>
   )
 }

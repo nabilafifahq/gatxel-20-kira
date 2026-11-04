@@ -37,18 +37,30 @@ function go(url: string) {
   window.location.assign(url)
 }
 
-export function LoginScreen(props: LoginScreenProps) {
+export type LoginPanelExtras = {
+  /** Tanpa kerangka dan kartu: dipakai panel kanan layar masuk. Judul menjadi h2. */
+  bare?: boolean
+  /** Pindah ke Daftar di halaman yang sama. Tanpa ini, tautan biasa ke /daftar. */
+  onSwitchToSignup?: () => void
+  /** Email yang dibawa dari form Daftar. */
+  sharedEmail?: string
+  onEmailChange?: (email: string) => void
+}
+
+export function LoginScreen({ bare = false, onSwitchToSignup, sharedEmail = '', onEmailChange, ...props }: LoginScreenProps & LoginPanelExtras) {
   const [mode, setMode] = useState<'login' | 'forgot'>('login')
-  const [email, setEmail] = useState('')
-  return (
-    <PublicFrame>
-      {mode === 'login' ? (
-        <LoginForm {...props} email={email} setEmail={setEmail} onForgot={() => setMode('forgot')} />
-      ) : (
-        <ForgotForm requestReset={props.requestReset} turnstileSiteKey={props.turnstileSiteKey} email={email} setEmail={setEmail} onBack={() => setMode('login')} />
-      )}
-    </PublicFrame>
-  )
+  const [email, setEmailState] = useState(sharedEmail)
+  const setEmail = (v: string) => {
+    setEmailState(v)
+    onEmailChange?.(v)
+  }
+  const body =
+    mode === 'login' ? (
+      <LoginForm {...props} bare={bare} onSwitchToSignup={onSwitchToSignup} email={email} setEmail={setEmail} onForgot={() => setMode('forgot')} />
+    ) : (
+      <ForgotForm bare={bare} requestReset={props.requestReset} turnstileSiteKey={props.turnstileSiteKey} email={email} setEmail={setEmail} onBack={() => setMode('login')} />
+    )
+  return bare ? body : <PublicFrame>{body}</PublicFrame>
 }
 
 function LoginForm({
@@ -62,7 +74,10 @@ function LoginForm({
   email,
   setEmail,
   onForgot,
-}: LoginScreenProps & { email: string; setEmail: (v: string) => void; onForgot: () => void }) {
+  bare = false,
+  onSwitchToSignup,
+}: LoginScreenProps & { email: string; setEmail: (v: string) => void; onForgot: () => void; bare?: boolean; onSwitchToSignup?: () => void }) {
+  const H = bare ? 'h2' : 'h1'
   const [password, setPassword] = useState('')
   const [captcha, setCaptcha] = useState<string | null>(null)
   const [captchaKey, setCaptchaKey] = useState(0)
@@ -109,11 +124,11 @@ function LoginForm({
   const failure = login.error ?? passkey.error
 
   return (
-    <AuthCard labelledBy="masuk-judul">
+    <AuthCard labelledBy="masuk-judul" bare={bare}>
       <div className="flex flex-col gap-1">
-        <h1 id="masuk-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
+        <H id="masuk-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Masuk
-        </h1>
+        </H>
         <p className="m-0 text-body text-fg-muted">Untuk tutor dan orang tua. Anak masuk dengan PIN gambar di tablet.</p>
       </div>
       {n ? (
@@ -175,7 +190,7 @@ function LoginForm({
           value={password}
           error={errors.password}
           labelAside={
-            <button type="button" onClick={onForgot} className="cursor-pointer border-0 bg-transparent p-0 text-small font-semibold text-accent underline underline-offset-3 hover:text-fg">
+            <button type="button" onClick={onForgot} className="-my-3 inline-flex min-h-11 cursor-pointer items-center border-0 bg-transparent p-0 text-small font-semibold text-accent underline underline-offset-3 hover:text-fg">
               Lupa password?
             </button>
           }
@@ -191,9 +206,15 @@ function LoginForm({
       </form>
       <p className="m-0 text-body text-fg-muted">
         Belum punya akun?{' '}
-        <a href={PUBLIC_ROUTES.signup} className="font-bold">
-          Daftar kursi beta
-        </a>
+        {onSwitchToSignup ? (
+          <button type="button" onClick={onSwitchToSignup} className="cursor-pointer border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
+            Daftar kursi beta
+          </button>
+        ) : (
+          <a href={PUBLIC_ROUTES.signup} className="font-bold">
+            Daftar kursi beta
+          </a>
+        )}
       </p>
       {passkeySupported ? (
         <>
@@ -212,12 +233,14 @@ function LoginForm({
 }
 
 function ForgotForm({
+  bare = false,
   requestReset,
   turnstileSiteKey,
   email,
   setEmail,
   onBack,
 }: {
+  bare?: boolean
   requestReset: LoginScreenProps['requestReset']
   turnstileSiteKey?: string | null
   email: string
@@ -241,11 +264,11 @@ function ForgotForm({
   }
 
   return (
-    <AuthCard labelledBy="lupa-judul">
+    <AuthCard labelledBy="lupa-judul" bare={bare}>
       <div className="flex flex-col gap-1">
-        <h1 id="lupa-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
+        <h2 id="lupa-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Atur ulang password
-        </h1>
+        </h2>
         <p className="m-0 text-body text-fg-muted">Tulis email akun. Link untuk membuat password baru dikirim ke email itu.</p>
       </div>
       {sentTo ? (
