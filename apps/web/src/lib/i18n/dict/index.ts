@@ -15,6 +15,7 @@
  * text-to-speech hanya untuk isi berbahasa Inggris. Pedoman ada di docs/standards/gtx/references/copy-indonesian.md.
  */
 import { arena } from './arena'
+import { bosses } from './bosses'
 import { common } from './common'
 import { lessons } from './lessons'
 import { reading } from './reading'
@@ -30,6 +31,7 @@ export const en = {
   widgets: widgets.en,
   lessons: lessons.en,
   arena: arena.en,
+  bosses: bosses.en,
   reading: reading.en,
   world: world.en,
 }
@@ -43,6 +45,7 @@ export const id: Dict = {
   widgets: widgets.id,
   lessons: lessons.id,
   arena: arena.id,
+  bosses: bosses.id,
   reading: reading.id,
   world: world.id,
 }

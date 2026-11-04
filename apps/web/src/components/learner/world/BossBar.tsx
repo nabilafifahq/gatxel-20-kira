@@ -6,6 +6,8 @@ import { BossArt, Kira } from '@kira/figures'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { playSfx } from '../sfx'
+import { useT } from '@/lib/i18n/client'
+import { bossText } from '@/lib/i18n/dict/bosses'
 
 type Fx = { kind: 'hit' | 'taunt'; n: number; line: string }
 
@@ -15,7 +17,9 @@ type Fx = { kind: 'hit' | 'taunt'; n: number; line: string }
  * terbang, lawan terguncang, dan bunyi. Jawaban salah hanya membuat lawan bercanda: tidak ada yang berkurang.
  */
 export function BossBar({ bossId, right, wrong, total }: { bossId: string; right: number; wrong: number; total: number }): ReactElement {
-  const def = bossById(bossId) ?? BOSSES[0]!
+  const t = useT()
+  const source = bossById(bossId) ?? BOSSES[0]!
+  const def = bossText(t.bosses, source.id, source)
   const hitsToWin = bossWinAt(total)
   const energy = bossEnergy(right, total)
   const down = energy === 0
@@ -38,11 +42,7 @@ export function BossBar({ bossId, right, wrong, total }: { bossId: string; right
     prevWrong.current = wrong
   }, [right, wrong, def, hitsToWin])
   const pct = Math.round(energy * 100)
-  const line = down
-    ? `${def.name} has no energy left! Finish your last questions to see your prize.`
-    : fx
-      ? fx.line
-      : `${def.intro} Right answers power your attacks. A wrong answer costs nothing.`
+  const line = down ? t.world.boss.noEnergy(def.name) : fx ? fx.line : t.world.boss.barIntro(def.intro)
   return (
     <div className="kw-animate mx-4 mt-2 mb-1 flex items-center gap-3 rounded-card border-2 border-fg bg-surface px-3 py-2 md:mx-8">
       <svg width="58" height="64" viewBox="0 0 80 90" aria-hidden className="flex-none">
@@ -56,9 +56,9 @@ export function BossBar({ bossId, right, wrong, total }: { bossId: string; right
         ) : null}
         <div className="flex items-baseline justify-between gap-2 text-small font-bold">
           <span className="min-w-0 truncate">{def.name}</span>
-          <span className="flex-none tabular-nums">{pct}% energy</span>
+          <span className="flex-none tabular-nums">{t.world.boss.energy(pct)}</span>
         </div>
-        <div role="progressbar" aria-label={`${def.name} energy`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} className="flex h-4 gap-0.5 overflow-hidden rounded-pill border-2 border-fg bg-divider">
+        <div role="progressbar" aria-label={t.world.boss.energyOf(def.name)} aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} className="flex h-4 gap-0.5 overflow-hidden rounded-pill border-2 border-fg bg-divider">
           {Array.from({ length: hitsToWin }, (_, i) => (
             <span key={i} className={cx('h-full flex-1 transition-opacity duration-300', i < hitsToWin - right ? (energy <= 0.34 ? 'bg-danger' : energy <= 0.67 ? 'bg-star' : 'bg-success') : 'opacity-0')} />
           ))}

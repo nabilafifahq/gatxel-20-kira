@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { ACCESSORY_IDS, ALL_ITEMS, ARENA_BADGES, BADGES, CARD_SETS, CHEST_ACCESSORIES, CHEST_BACKGROUNDS, CHEST_STICKERS, PET_KIND_IDS, TREATS } from '@kira/core'
+import { ACCESSORY_IDS, ALL_ITEMS, ARENA_BADGES, BADGES, BOSSES, CARD_SETS, CHEST_ACCESSORIES, CHEST_BACKGROUNDS, CHEST_STICKERS, PET_KIND_IDS, TREATS } from '@kira/core'
 import { dictFor, htmlLang, parseUiLang, tOf } from '@/lib/i18n'
 import { en, id } from '@/lib/i18n/dict'
 
@@ -63,7 +63,17 @@ describe('kamus antarmuka anak', () => {
       ...missing('camilan', TREATS.map((x) => x.id), w.treats),
       ...missing('teman', PET_KIND_IDS, w.petBlurbs),
       ...missing('set kartu', CARD_SETS.map((x) => x.id), w.sets),
+      ...missing('keterangan set', CARD_SETS.map((x) => x.id), w.setInfo),
+      ...missing('bos', BOSSES.map((x) => x.id), id.bosses),
     ]).toEqual([])
+  })
+
+  it('kalimat bos Indonesia sama banyak dengan sumbernya, jadi bossLine berputar sama', () => {
+    for (const b of BOSSES) {
+      const text = id.bosses[b.id]
+      expect(text?.attacks.length, b.id).toBe(b.attacks.length)
+      expect(text?.hits.length, b.id).toBe(b.hits.length)
+    }
   })
 
   it('tidak ada nilai kosong atau hasil fungsi yang rusak', () => {
