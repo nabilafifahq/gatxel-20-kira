@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
-import { jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
+import { freeSessionDoneXp, jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
 import { parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { answerFromLabels, answerToLabels, checkAnswer, keyOf, labelCount, type Item, type LabelPerm } from '@kira/content'
@@ -476,7 +476,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     const isBoss = a.refId?.startsWith('boss:') ?? false
     // Ulasan singkat punya batas XP harian (capQuickReviewXp), jadi tidak mendapat bonus selesai: 0 dari 3 tidak boleh memberi XP.
     const quickReview = a.title.startsWith(QUICK_REVIEW_PREFIX)
-    const done = isBoss || quickReview ? 0 : a.kind === 'review' ? 10 : 20
+    const done = isBoss || quickReview ? 0 : freeSessionDoneXp({ kind: a.kind, correct, pending })
     await grantXp(tx, ctx, learnerId, done, `${a.kind}-done`, a.id, date)
     xp += done
     if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct, total)

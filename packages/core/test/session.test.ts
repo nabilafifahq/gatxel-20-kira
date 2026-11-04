@@ -26,6 +26,7 @@ import {
   scoreFraction,
   scoreWithPreset,
   sessionCompletionXp,
+  freeSessionDoneXp,
   sessionMinutes,
   tesTimeLimitSec,
   validateRules,
@@ -192,6 +193,10 @@ describe('ulang sesi', () => {
     expect(retryXp(1)).toBe(1)
     expect(retryXp(0)).toBe(0)
     expect(sessionCompletionXp({ session: 'paper', perfect: true })).toBe(40)
+    expect(freeSessionDoneXp({ kind: 'test', correct: 0, pending: 0 })).toBe(0)
+    expect(freeSessionDoneXp({ kind: 'test', correct: 1, pending: 0 })).toBe(20)
+    expect(freeSessionDoneXp({ kind: 'review', correct: 2, pending: 0 })).toBe(10)
+    expect(freeSessionDoneXp({ kind: 'test', correct: 0, pending: 1 })).toBe(20)
     expect(sessionCompletionXp({ session: 'paper', perfect: true, retry: true })).toBe(10)
     expect(sessionCompletionXp({ session: 'latihan', perfect: false })).toBe(20)
     expect(sessionCompletionXp({ session: 'review', perfect: false })).toBe(20)

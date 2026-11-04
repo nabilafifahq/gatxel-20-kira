@@ -188,7 +188,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
                 <UiIcon name="stopwatch" size={24} />
                 {timeLine}
               </div>
-              <XpPill xp={data.xp} size="L" countUp />
+              {data.xp > 0 ? <XpPill xp={data.xp} size="L" countUp /> : null}
               <WorldGain world={data.world} />
             </div>
           )}
@@ -199,7 +199,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
                   <UiIcon name="stopwatch" size={24} />
                   {timeLine}
                 </div>
-                <XpPill xp={data.xp} size="L" className="ml-auto" />
+                {data.xp > 0 ? <XpPill xp={data.xp} size="L" className="ml-auto" /> : null}
               </>
             ) : badge ? (
               <BadgeReveal className="flex items-center gap-4">
