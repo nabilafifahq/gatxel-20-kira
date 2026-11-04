@@ -724,7 +724,38 @@
       "points": 4,
       "expectedSeconds": 180,
       "type": "numeric",
-      "answer": 45
+      "answer": 45,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the smaller angle between the hour hand and the"
+          ]
+        },
+        {
+          "say": "At 4:30 the minute hand is at 180°."
+        },
+        {
+          "say": "The hour hand has moved 4.5 hours, which is 4.5 × 30 = 135°.",
+          "mark": [
+            "30"
+          ],
+          "anim": {
+            "k": "combine",
+            "a": 4.5,
+            "op": "×",
+            "b": 30,
+            "r": 135
+          }
+        },
+        {
+          "say": "The difference is 45°."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "45"
+        }
+      ]
     },
     {
       "id": "m6.oly-geometry.012",

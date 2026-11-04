@@ -1,61 +1,87 @@
 import 'server-only'
-import { and, desc, eq, gte, isNull, sql } from 'drizzle-orm'
+import { and, desc, eq, isNotNull, isNull, sql } from 'drizzle-orm'
 import {
   ALL_ITEMS,
+  BOSSES,
+  BOSS_LEVEL_QUESTIONS,
   BOSS_QUESTIONS,
-  BOSS_WIN_AT,
-  bossWinAt,
   BOSS_WIN_STARS,
   CARDS,
   CARD_SETS,
   DRILL_STARS_BY_COUNT,
   HATCH_AT_STARS,
+  RARITIES,
   READING_STARS_BY_COUNT,
   STORY,
   WEEK_GOAL_DAYS,
   anyItem,
+  bossById,
+  bossNextIn,
+  bossOpenCount,
+  bossPlan,
+  bossPrizeCard,
+  bossRef,
+  bossSpotlight,
+  bossWinAt,
+  bossesAvailable,
+  cardAvailable,
+  cardById,
   cardCloseness,
+  cardCount,
   cardEarned,
   cardHint,
   cardNumber,
   certificatesFor,
+  chapterByN,
   chaptersOpen,
   cleanPetName,
+  cleanStoryDone,
   diminishing,
   isPetKind,
   jakartaDate,
-  nextBossCard,
+  lumiGlow,
   nextStage,
-  petGreeting,
+  parseBossRef,
   petStage,
   sessionStars,
   setComplete,
   treatById,
   weekStart,
   daysBetween,
+  type BossDef,
+  type BossSubject,
   type CardProgress,
   type CertificateDays,
   type IsoDate,
   type PetKind,
 } from '@kira/core'
+import { effectiveOn, type FeatureKey } from '@kira/core/features'
 import { TOPICS, topicProgress, type TopicId } from '@kira/content/knowledge'
+import { dictFor, type Dict } from '@/lib/i18n'
+import { getT } from '@/lib/i18n/server'
 import { tables } from '@kira/db'
 import type { OrgContext, Tx } from '../db'
 import { conflict, forbidden, invalid, notFound } from '../errors'
 import { loadQuizState } from './arena-state'
-import { subjectOfSkill } from './content'
+import { skillsFor, subjectOfSkill } from './content'
 import { learnerShell, loadLearner, skillStates, streakFor } from './learner-core'
 import { autoSkill, buildQuestItems, type AttemptItem } from './learner-session'
-import { isFeatureOn } from './learner-features'
+import { featureMapFor } from './learner-features'
+import { guardAttemptItems } from './session-guard'
 import type { LearnerShell } from '@/lib/dto'
-import type { AlbumDTO, BossDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
+import type { AlbumDTO, BossDTO, BossResultDTO, CardMiniDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
 
-const { starLedger, worldState, worldItem, worldCard, contestMedal, skillState, dayRecord, quest, learnerProfile, attempt } = tables
+const { starLedger, worldState, worldItem, worldCard, contestMedal, skillState, dayRecord, quest, learnerProfile, attempt, bookProgress } = tables
 
 /**
  * Kira World. Semua perubahan bintang dan barang dihitung dan diperiksa di server. Bintang tidak pernah
  * berkurang karena libur; teman tidak pernah sakit atau pergi.
  */
+
+/** Teks dalam bahasa anak untuk pesan error dan sapaan. Di luar request (tes, skrip) memakai bahasa Inggris. */
+async function worldText(): Promise<Dict['world']> {
+  return (await getT().catch(() => dictFor('en'))).world
+}
 
 // ---------------------------------------------------------------------------
 // Dompet bintang
@@ -95,13 +121,13 @@ async function lockLearner(tx: Tx, learnerId: string): Promise<void> {
 
 /** Pakai bintang. Saldo diperiksa di server di bawah kunci. Sumber unik membuat panggilan ganda tidak memotong dua kali. */
 export async function spendStars(tx: Tx, learnerId: string, price: number, source: string, reason = 'spend'): Promise<void> {
-  if (!Number.isInteger(price) || price <= 0) throw invalid('That price is not valid.')
+  if (!Number.isInteger(price) || price <= 0) throw invalid((await worldText()).errors.badPrice)
   await lockLearner(tx, learnerId)
   const { balance } = await starTotals(tx, learnerId)
-  if (balance < price) throw conflict('You need more stars for that.')
+  if (balance < price) throw conflict((await worldText()).errors.needStars)
   const orgId = await orgOf(tx, learnerId)
   const rows = await tx.insert(starLedger).values({ orgId, learnerId, amount: -price, reason, source, date: jakartaDate() }).onConflictDoNothing().returning({ id: starLedger.id })
-  if (rows.length === 0) throw conflict('That was already done.')
+  if (rows.length === 0) throw conflict((await worldText()).errors.alreadyDone)
 }
 
 async function countToday(tx: Tx, learnerId: string, reason: string, date: IsoDate): Promise<number> {
@@ -142,8 +168,16 @@ export async function awardDrillStars(tx: Tx, learnerId: string, roundId: string
 
 type PetState = { kind: PetKind; name: string; hearts: number; hatchedOn: IsoDate; lastTreat?: { id: string; at: string } }
 type Equipped = { petCostume?: string | null; petHome?: string | null; frame?: string | null }
-type Progress = { boss?: Record<string, string | null>; storySeen?: number }
+/** `boss`: minggu yang sudah memberi bintang. `bossWins`: berapa kali tiap lawan dikalahkan. */
+type Progress = { boss?: Record<string, string | null>; bossWins?: Record<string, number>; storyDone?: number[] }
 export type WorldRow = { pet: PetState | null; equipped: Equipped; progress: Progress }
+
+/** Kemenangan per lawan. Kemenangan lama, sebelum ada banyak lawan, semuanya melawan Puzzle Robot. */
+function bossWinsOf(p: Progress): Record<string, number> {
+  if (p.bossWins) return p.bossWins
+  const old = Object.keys(p.boss ?? {}).length
+  return old > 0 ? { robot: old } : {}
+}
 
 async function loadWorld(tx: Tx, learnerId: string): Promise<WorldRow> {
   const [row] = await tx.select().from(worldState).where(eq(worldState.learnerId, learnerId)).limit(1)
@@ -186,15 +220,36 @@ async function sessionsDone(tx: Tx, learnerId: string): Promise<number> {
 // Kartu
 
 async function cardProgress(tx: Tx, learnerId: string): Promise<CardProgress> {
-  const state = await loadQuizState(tx, learnerId)
+  const [state, learner, world, books, sessions, stars, rows] = await Promise.all([
+    loadQuizState(tx, learnerId),
+    loadLearner(tx, learnerId),
+    loadWorld(tx, learnerId),
+    tx.select({ n: sql<number>`count(*)::int` }).from(bookProgress).where(and(eq(bookProgress.learnerId, learnerId), isNotNull(bookProgress.finishedAt))),
+    sessionsDone(tx, learnerId),
+    starTotals(tx, learnerId),
+    tx.select({ id: skillState.skillId }).from(skillState).where(and(eq(skillState.learnerId, learnerId), eq(skillState.gate, 'mastered'))),
+  ])
   const quiz: CardProgress['quiz'] = {}
   for (const t of TOPICS) {
     const p = topicProgress(t.id as TopicId, state.know)
     quiz[t.id] = { known: p.known, total: p.total }
   }
-  const rows = await tx.select({ id: skillState.skillId }).from(skillState).where(and(eq(skillState.learnerId, learnerId), eq(skillState.gate, 'mastered')))
-  const masteredScience = rows.filter((r) => subjectOfSkill(r.id) === 'science').length
-  return { quiz, masteredScience }
+  const mastered = { math: 0, english: 0, science: 0 }
+  for (const r of rows) {
+    const s = subjectOfSkill(r.id)
+    if (s) mastered[s]++
+  }
+  const streak = await streakFor(tx, learner, jakartaDate())
+  return {
+    quiz,
+    mastered,
+    bossesBeaten: Object.keys(bossWinsOf(world.progress)),
+    storyDone: cleanStoryDone(world.progress.storyDone),
+    booksFinished: books[0]?.n ?? 0,
+    bestStreak: streak.best,
+    sessions,
+    starsEarned: stars.earned,
+  }
 }
 
 async function ownedCardIds(tx: Tx, learnerId: string): Promise<Set<string>> {
@@ -214,7 +269,7 @@ export async function syncCards(tx: Tx, learnerId: string): Promise<{ id: string
   const owned = await ownedCardIds(tx, learnerId)
   const fresh: { id: string }[] = []
   for (const c of CARDS) {
-    if (owned.has(c.id) || c.req.kind === 'boss' || !cardEarned(c, p)) continue
+    if (owned.has(c.id) || !cardEarned(c, p)) continue
     if (await giveCard(tx, learnerId, c.id, 'skill')) {
       fresh.push({ id: c.id })
       owned.add(c.id)
@@ -227,35 +282,45 @@ export async function syncCards(tx: Tx, learnerId: string): Promise<{ id: string
 export async function albumDTO(tx: Tx, learnerId: string): Promise<AlbumDTO> {
   const learner = await loadLearner(tx, learnerId)
   await syncCards(tx, learnerId)
-  const [owned, p, shell] = await Promise.all([ownedCardIds(tx, learnerId), cardProgress(tx, learnerId), learnerShell(tx, learner)])
+  const [owned, p, shell, map] = await Promise.all([ownedCardIds(tx, learnerId), cardProgress(tx, learnerId), learnerShell(tx, learner), featureMapFor(tx, learnerId)])
   const acquired = await tx.select({ id: worldCard.cardId, at: worldCard.acquiredAt }).from(worldCard).where(eq(worldCard.learnerId, learnerId))
   const at = new Map(acquired.map((a) => [a.id, a.at.getTime()]))
   const newest = Math.max(0, ...[...at.values()])
+  // Kartu dari mapel atau fitur yang dimatikan orang tua tidak dihitung, supaya angka kemajuan tetap jujur.
+  const inAlbum = CARDS.filter((c) => owned.has(c.id) || cardAvailable(c, (k) => effectiveOn(map, k as FeatureKey)))
   return {
     shell,
-    total: CARDS.length,
-    owned: owned.size,
-    sets: CARD_SETS.map((s) => ({
+    total: inAlbum.length,
+    owned: inAlbum.filter((c) => owned.has(c.id)).length,
+    rarities: RARITIES.map((rarity) => {
+      const all = inAlbum.filter((c) => c.rarity === rarity)
+      return { rarity, owned: all.filter((c) => owned.has(c.id)).length, total: all.length }
+    }),
+    sets: CARD_SETS.filter((s) => inAlbum.some((c) => c.set === s.id)).map((s) => ({
       id: s.id,
       name: s.name,
       blurb: s.blurb,
       earnedBy: s.earnedBy,
       complete: setComplete(s.id, owned),
       reward: anyItem(s.reward)?.name ?? s.reward,
-      cards: CARDS.filter((c) => c.set === s.id).map((c) => ({
-        id: c.id,
-        no: cardNumber(c.id),
-        name: c.name,
-        rarity: c.rarity,
-        art: c.art,
-        set: s.id,
-        tone: s.tone,
-        owned: owned.has(c.id),
-        fact: owned.has(c.id) ? c.fact : null,
-        hint: cardHint(c),
-        progress: owned.has(c.id) ? 1 : cardCloseness(c, p),
-        isNew: owned.has(c.id) && at.get(c.id) === newest && Date.now() - newest < 3 * 24 * 3600 * 1000,
-      })),
+      rare: s.rare ?? false,
+      cards: inAlbum
+        .filter((c) => c.set === s.id)
+        .map((c) => ({
+          id: c.id,
+          no: cardNumber(c.id),
+          name: c.name,
+          rarity: c.rarity,
+          art: c.art,
+          set: s.id,
+          tone: s.tone,
+          owned: owned.has(c.id),
+          fact: owned.has(c.id) ? c.fact : null,
+          hint: cardHint(c),
+          progress: owned.has(c.id) ? 1 : cardCloseness(c, p),
+          count: owned.has(c.id) ? null : cardCount(c, p),
+          isNew: owned.has(c.id) && at.get(c.id) === newest && Date.now() - newest < 3 * 24 * 3600 * 1000,
+        })),
     })),
   }
 }
@@ -281,30 +346,30 @@ export async function petDTO(tx: Tx, learnerId: string): Promise<PetDTO> {
     hatchAt: HATCH_AT_STARS,
     pet: pet ? { kind: pet.kind, name: pet.name, hearts: pet.hearts, stage, costume: world.equipped.petCostume ?? null, home: world.equipped.petHome ?? 'home-meadow' } : null,
     next: next ? { stage: next.stage, left: next.left } : null,
-    greeting: pet ? petGreeting(pet.name, away, Number(today.slice(-2))) : '',
+    greeting: pet ? (await worldText()).pet.greeting(pet.name, away, Number(today.slice(-2))) : '',
     homes: ownedHomes,
     costumes: ownedCostumes,
   }
 }
 
 export async function choosePet(tx: Tx, learnerId: string, input: { kind: string; name: string }): Promise<void> {
-  if (!isPetKind(input.kind)) throw invalid('Pick one of the six friends.')
+  if (!isPetKind(input.kind)) throw invalid((await worldText()).errors.pickFriend)
   const name = cleanPetName(input.name)
-  if (!name) throw invalid('Use 1 to 12 letters or numbers for the name.')
+  if (!name) throw invalid((await worldText()).errors.petName)
   await lockLearner(tx, learnerId)
   const world = await loadWorld(tx, learnerId)
-  if (world.pet) throw conflict('You already have a friend.')
+  if (world.pet) throw conflict((await worldText()).errors.hasFriend)
   const { earned } = await starTotals(tx, learnerId)
-  if (earned < HATCH_AT_STARS) throw forbidden('The egg needs a few more stars.')
+  if (earned < HATCH_AT_STARS) throw forbidden((await worldText()).errors.eggNeedsStars)
   await saveWorld(tx, learnerId, { pet: { kind: input.kind, name, hearts: 0, hatchedOn: jakartaDate() } })
 }
 
 export async function treatPet(tx: Tx, learnerId: string, treatId: string, nonce: string): Promise<{ line: string; hearts: number }> {
   const treat = treatById(treatId)
-  if (!treat) throw notFound('That treat does not exist.')
+  if (!treat) throw notFound((await worldText()).errors.noTreat)
   await lockLearner(tx, learnerId)
   const world = await loadWorld(tx, learnerId)
-  if (!world.pet) throw forbidden('Hatch your friend first.')
+  if (!world.pet) throw forbidden((await worldText()).errors.hatchFirst)
   await spendStars(tx, learnerId, treat.price, `treat:${treat.id}:${nonce}`)
   const pet = { ...world.pet, hearts: world.pet.hearts + 1 }
   await saveWorld(tx, learnerId, { pet })
@@ -340,10 +405,10 @@ function equippedIn(kind: string, id: string, eq_: Equipped, learner: { avatarAc
 
 export async function buyItem(tx: Tx, learnerId: string, itemId: string): Promise<void> {
   const item = ALL_ITEMS.find((i) => i.id === itemId)
-  if (!item || item.price <= 0 || CARD_SETS.some((s) => s.reward === item.id)) throw notFound('That item is not in the shop.')
+  if (!item || item.price <= 0 || CARD_SETS.some((s) => s.reward === item.id)) throw notFound((await worldText()).errors.notInShop)
   await lockLearner(tx, learnerId)
   const owned = await ownedItems(tx, learnerId)
-  if (owned.has(item.id)) throw conflict('You already have that.')
+  if (owned.has(item.id)) throw conflict((await worldText()).errors.alreadyOwned)
   await spendStars(tx, learnerId, item.price, `buy:${item.id}`)
   await giveItem(tx, learnerId, item.id, 'shop')
 }
@@ -352,9 +417,9 @@ export async function buyItem(tx: Tx, learnerId: string, itemId: string): Promis
 export async function equipItem(tx: Tx, learnerId: string, kind: 'petcostume' | 'pethome' | 'frame' | 'outfit' | 'backdrop', itemId: string | null): Promise<{ look: 'avatarAccessory' | 'avatarBackground'; value: string | null } | null> {
   if (itemId !== null) {
     const item = anyItem(itemId)
-    if (!item || item.kind !== kind) throw notFound('That item does not exist.')
+    if (!item || item.kind !== kind) throw notFound((await worldText()).errors.noItem)
     const owned = await ownedItems(tx, learnerId)
-    if (!owned.has(itemId)) throw forbidden('Earn or buy that first.')
+    if (!owned.has(itemId)) throw forbidden((await worldText()).errors.earnFirst)
   }
   // Pakaian dan latar avatar ditulis ke profil oleh pemanggil (peran sistem), seperti peti hadiah.
   if (kind === 'outfit') return { look: 'avatarAccessory', value: itemId }
@@ -387,8 +452,9 @@ async function goalWeeks(tx: Tx, learnerId: string): Promise<{ weeks: number; th
 
 export async function storyDTO(tx: Tx, learnerId: string): Promise<StoryDTO> {
   const learner = await loadLearner(tx, learnerId)
-  const [shell, g] = await Promise.all([learnerShell(tx, learner), goalWeeks(tx, learnerId)])
+  const [shell, g, world] = await Promise.all([learnerShell(tx, learner), goalWeeks(tx, learnerId), loadWorld(tx, learnerId)])
   const open = chaptersOpen(g.weeks)
+  const done = new Set(cleanStoryDone(world.progress.storyDone))
   return {
     shell,
     title: 'Kira and the Lost Library',
@@ -398,12 +464,48 @@ export async function storyDTO(tx: Tx, learnerId: string): Promise<StoryDTO> {
     chapters: STORY.map((c) => ({
       n: c.n,
       title: c.title,
-      scene: c.scene,
       isOpen: c.n <= open,
-      pages: c.n <= open ? c.pages.map((p) => ({ text: p.text, cx: p.look.cx, zoom: p.look.zoom, lx: p.lumi.x, ly: p.lumi.y })) : [],
+      done: done.has(c.n),
+      glow: lumiGlow(c.n),
+      // Halaman, sobekan surat, dan pertanyaan bab yang belum terbuka tidak dikirim ke browser.
+      pages:
+        c.n <= open
+          ? c.pages.map((p) => ({
+              text: p.text,
+              scene: p.scene ?? c.scene,
+              cx: p.look.cx,
+              ...(p.look.cy !== undefined ? { cy: p.look.cy } : {}),
+              zoom: p.look.zoom,
+              lx: p.lumi.x,
+              ly: p.lumi.y,
+              pip: p.pip,
+              kira: p.kira,
+              show: p.show,
+            }))
+          : [],
+      scrap: c.n <= open ? c.scrap : null,
+      wonder: c.n <= open ? c.wonder : '',
       tease: c.tease,
     })),
   }
+}
+
+/** Tandai bab selesai dibaca. Hanya bab yang sudah terbuka. Kartu kenangan bab diberikan lewat syncCards. */
+export async function finishChapter(tx: Tx, learnerId: string, n: number): Promise<{ cards: CardMiniDTO[] }> {
+  await lockLearner(tx, learnerId)
+  const [g, world] = await Promise.all([goalWeeks(tx, learnerId), loadWorld(tx, learnerId)])
+  if (n > chaptersOpen(g.weeks) || !chapterByN(n)) throw forbidden('That chapter is not open yet.')
+  const done = cleanStoryDone(world.progress.storyDone)
+  if (!done.includes(n)) await saveWorld(tx, learnerId, { progress: { ...world.progress, storyDone: [...done, n] } })
+  const fresh = await syncCards(tx, learnerId)
+  // Kartu kenangan bab ini tampil lebih dulu bila bersamaan dengan kartu tonggak lain.
+  const cards = fresh.map((c) => cardMini(c.id)).filter((c): c is CardMiniDTO => c !== null)
+  return { cards: cards.sort((a, b) => Number(b.id.startsWith('st-')) - Number(a.id.startsWith('st-'))) }
+}
+
+function cardMini(id: string): CardMiniDTO | null {
+  const c = CARDS.find((x) => x.id === id)
+  return c ? { id: c.id, no: cardNumber(c.id), name: c.name, rarity: c.rarity, art: c.art, fact: c.fact } : null
 }
 
 // ---------------------------------------------------------------------------
@@ -413,55 +515,92 @@ export function bossWeek(date: IsoDate = jakartaDate()): string {
   return weekStart(date)
 }
 
+/** Jumlah hari dengan semua sesi wajib selesai. Menentukan lawan yang sudah datang. */
+async function studyDays(tx: Tx, learnerId: string): Promise<number> {
+  const rows = await tx.select({ done: dayRecord.questsDone, req: dayRecord.questsRequired, rest: dayRecord.rest }).from(dayRecord).where(eq(dayRecord.learnerId, learnerId))
+  return rows.filter((r) => r.req > 0 && r.done >= r.req && !r.rest).length
+}
+
+/** Lawan yang boleh ditawarkan ke anak ini: mapelnya menyala, urut sesuai katalog, dan tanda sudah datang. */
+function bossRoster(available: readonly BossDef[], wins: Readonly<Record<string, number>>, days: number): { def: BossDef; open: boolean }[] {
+  const openCount = bossOpenCount(days)
+  return available.map((def, i) => ({ def, open: i < openCount || (wins[def.id] ?? 0) > 0 }))
+}
+
 export async function bossDTO(tx: Tx, learnerId: string): Promise<BossDTO> {
   const learner = await loadLearner(tx, learnerId)
-  const [shell, world, owned] = await Promise.all([learnerShell(tx, learner), loadWorld(tx, learnerId), ownedCardIds(tx, learnerId)])
+  const [shell, world, owned, days, map] = await Promise.all([learnerShell(tx, learner), loadWorld(tx, learnerId), ownedCardIds(tx, learnerId), studyDays(tx, learnerId), featureMapFor(tx, learnerId)])
   const week = bossWeek()
-  const won = world.progress.boss?.[week] !== undefined
-  const next = nextBossCard(owned)
-  const tries = await tx
-    .select({ id: attempt.id })
-    .from(attempt)
-    .where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + '%'}`, gte(attempt.createdAt, new Date(Date.now() - 8 * 24 * 3600 * 1000))))
+  const wins = bossWinsOf(world.progress)
+  const available = bossesAvailable((s) => effectiveOn(map, s))
+  const roster = bossRoster(available, wins, days)
   return {
     shell,
     week,
-    wonThisWeek: won,
-    tries: tries.length,
-    questions: BOSS_QUESTIONS,
-    winAt: BOSS_WIN_AT,
+    wonThisWeek: world.progress.boss?.[week] !== undefined,
     winStars: BOSS_WIN_STARS,
-    prize: won ? null : next ? { id: next.id, name: next.name, rarity: next.rarity, art: next.art } : null,
+    bosses: roster.map(({ def, open }) => {
+      const questions = BOSS_LEVEL_QUESTIONS[def.level]
+      const card = cardById(def.card)
+      return {
+        id: def.id,
+        // Lawan yang belum datang tetap misteri: nama dan sifatnya tidak dikirim ke browser.
+        name: open ? def.name : 'A new challenger',
+        epithet: open ? def.epithet : '',
+        personality: open ? def.personality : '',
+        level: def.level,
+        weakness: open ? def.weakness : '',
+        intro: open ? def.intro : '',
+        questions,
+        winAt: bossWinAt(questions),
+        open,
+        wins: wins[def.id] ?? 0,
+        prize: open && card && !owned.has(card.id) ? { id: card.id, name: card.name, rarity: card.rarity, art: card.art } : null,
+      }
+    }),
+    spotlight: bossSpotlight(roster.filter((r) => r.open).map((r) => r.def.id), wins, week),
+    nextIn: bossNextIn(days, available.length),
+    beaten: available.filter((b) => (wins[b.id] ?? 0) > 0).length,
   }
 }
 
-/** Dipanggil saat attempt bos dikumpulkan. Menang bila benar sedikitnya BOSS_WIN_AT. Tanpa hukuman untuk kalah. */
+/**
+ * Dipanggil saat attempt bos dikumpulkan. Menang bila benar sedikitnya 70 persen. Kemenangan pertama lawan ini memberi
+ * kartunya, kemenangan pertama minggu ini memberi bintang. Tanpa hukuman untuk kalah.
+ */
 export async function finishBoss(tx: Tx, learnerId: string, attemptId: string, refId: string, correct: number, total: number = BOSS_QUESTIONS): Promise<{ won: boolean; stars: number; cardId: string | null }> {
-  const week = refId.split(':')[1] ?? bossWeek()
-  const won = correct >= bossWinAt(total)
-  if (!won) return { won: false, stars: 0, cardId: null }
+  const ref = parseBossRef(refId)
+  const week = ref.week || bossWeek()
+  const def = bossById(ref.id) ?? BOSSES[0]!
+  if (correct < bossWinAt(total)) return { won: false, stars: 0, cardId: null }
   await lockLearner(tx, learnerId)
   const world = await loadWorld(tx, learnerId)
-  if (world.progress.boss && week in world.progress.boss) return { won: true, stars: 0, cardId: null }
-  const owned = await ownedCardIds(tx, learnerId)
-  const card = nextBossCard(owned)
-  const stars = await grantStars(tx, learnerId, BOSS_WIN_STARS, 'boss', `boss:${week}`)
-  if (card) await giveCard(tx, learnerId, card.id, `boss:${week}`)
-  await saveWorld(tx, learnerId, { progress: { ...world.progress, boss: { ...(world.progress.boss ?? {}), [week]: card?.id ?? null } } })
-  const syncOwned = await ownedCardIds(tx, learnerId)
-  for (const s of CARD_SETS) if (setComplete(s.id, syncOwned)) await giveItem(tx, learnerId, s.reward, `set:${s.id}`)
+  const wins = bossWinsOf(world.progress)
+  const card = (wins[def.id] ?? 0) === 0 ? bossPrizeCard(def.id) : undefined
+  const cardId = card && (await giveCard(tx, learnerId, card.id, `boss:${def.id}`)) ? card.id : null
+  const firstThisWeek = !(world.progress.boss && week in world.progress.boss)
+  const stars = firstThisWeek ? await grantStars(tx, learnerId, BOSS_WIN_STARS, 'boss', `boss:${week}`) : 0
+  await saveWorld(tx, learnerId, {
+    progress: {
+      ...world.progress,
+      boss: firstThisWeek ? { ...(world.progress.boss ?? {}), [week]: cardId } : (world.progress.boss ?? {}),
+      bossWins: { ...wins, [def.id]: (wins[def.id] ?? 0) + 1 },
+    },
+  })
+  await syncCards(tx, learnerId)
   void attemptId
-  return { won: true, stars, cardId: card?.id ?? null }
+  return { won: true, stars, cardId }
 }
 
-export async function bossResultDTO(tx: Tx, learnerId: string, attemptId: string) {
+export async function bossResultDTO(tx: Tx, learnerId: string, attemptId: string): Promise<BossResultDTO> {
   const [a] = await tx.select().from(attempt).where(and(eq(attempt.id, attemptId), eq(attempt.learnerId, learnerId))).limit(1)
-  if (!a || !a.refId?.startsWith('boss:')) throw notFound('That challenge was not found.')
+  if (!a || !a.refId?.startsWith('boss:')) throw notFound((await worldText()).errors.noChallenge)
   const learner = await loadLearner(tx, learnerId)
   const shell = await learnerShell(tx, learner)
   const res = (a.result ?? {}) as { boss?: { won: boolean; stars: number; cardId: string | null } }
   const card = res.boss?.cardId ? CARDS.find((c) => c.id === res.boss!.cardId) : null
-  const total = (a.items as unknown[]).length
+  const total = (a.items as { remedialOf?: number }[]).filter((i) => i.remedialOf === undefined).length
+  const def = bossById(parseBossRef(a.refId).id) ?? BOSSES[0]!
   return {
     shell,
     submitted: a.submittedAt !== null,
@@ -470,6 +609,7 @@ export async function bossResultDTO(tx: Tx, learnerId: string, attemptId: string
     winAt: bossWinAt(total),
     won: res.boss?.won ?? false,
     stars: res.boss?.stars ?? 0,
+    boss: { id: def.id, name: def.name, defeat: def.defeat, rematch: def.rematch },
     card: card ? { id: card.id, no: cardNumber(card.id), name: card.name, rarity: card.rarity, art: card.art, fact: card.fact } : null,
   }
 }
@@ -495,7 +635,8 @@ export async function trophyDTO(tx: Tx, learnerId: string): Promise<TrophyDTO> {
     bestStreak: streak.best,
     currentStreak: streak.current,
     milestones: ([7, 30, 100] as CertificateDays[]).map((d) => ({ days: d, reached: streak.best >= d, certificate: certs.includes(d) })),
-    bossWins: Object.keys(world.progress.boss ?? {}).length,
+    bossWins: Object.values(bossWinsOf(world.progress)).reduce((s, n) => s + n, 0),
+    bossesBeaten: Object.entries(bossWinsOf(world.progress)).map(([id, wins]) => ({ id, name: bossById(id)?.name ?? id, wins })),
     setsComplete: CARD_SETS.filter((s) => setComplete(s.id, owned)).map((s) => ({ id: s.id, name: s.name })),
     medals,
     learnerName: learner.name,
@@ -541,7 +682,7 @@ export async function worldHubDTO(tx: Tx, learnerId: string): Promise<WorldHubDT
     hatchAt: pet.hatchAt,
     cards: { owned: owned.size, total: CARDS.length },
     story: { open: story.open, total: STORY.length },
-    boss: { wonThisWeek: boss.wonThisWeek },
+    boss: { wonThisWeek: boss.wonThisWeek, beaten: boss.beaten, total: boss.bosses.length },
   }
 }
 
@@ -551,9 +692,10 @@ export async function worldPeek(tx: Tx, learnerId: string) {
   const today = jakartaDate()
   const last = await tx.select({ date: starLedger.date }).from(starLedger).where(and(eq(starLedger.learnerId, learnerId), sql`${starLedger.amount} > 0`)).orderBy(desc(starLedger.date)).limit(1)
   const away = last[0] ? daysBetween(last[0].date, today) : 0
+  const text = await worldText()
   return {
     stars,
-    pet: world.pet ? { kind: world.pet.kind, name: world.pet.name, stage: petStage(done), costume: world.equipped.petCostume ?? null, greeting: petGreeting(world.pet.name, away, Number(today.slice(-2))) } : null,
+    pet: world.pet ? { kind: world.pet.kind, name: world.pet.name, stage: petStage(done), costume: world.equipped.petCostume ?? null, greeting: text.pet.greeting(world.pet.name, away, Number(today.slice(-2))) } : null,
     canHatch: !world.pet && stars.earned >= HATCH_AT_STARS,
   }
 }
@@ -561,50 +703,67 @@ export async function worldPeek(tx: Tx, learnerId: string) {
 export type { LearnerShell }
 
 // ---------------------------------------------------------------------------
-// Mulai tantangan bos: 10 soal campuran sesuai tingkat anak lewat pembuat sesi pusat, tanpa duplikat.
+// Mulai tantangan bos: soal biasa sesuai tingkat anak lewat pembuat sesi pusat, dari rumpun kelemahan lawan. Satu pintu
+// penjaga soal kembar (guardSet) sebelum attempt disimpan. Tanpa soal yang harus dinilai manusia.
 
-export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: string): Promise<string> {
+export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: string, bossId: string = 'robot'): Promise<string> {
+  const def = bossById(bossId)
+  if (!def) throw notFound('That boss was not found.')
+  const map = await featureMapFor(tx, learnerId)
+  const on = (s: BossSubject) => effectiveOn(map, s)
+  if (!def.subjects.some(on)) throw forbidden('That boss is resting today.')
   const week = bossWeek()
+  const [world, days] = await Promise.all([loadWorld(tx, learnerId), studyDays(tx, learnerId)])
+  const roster = bossRoster(bossesAvailable(on), bossWinsOf(world.progress), days)
+  if (!roster.find((r) => r.def.id === def.id)?.open) throw forbidden('That boss has not arrived yet.')
   const [open] = await tx
     .select({ id: attempt.id })
     .from(attempt)
-    .where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + '%'}`, eq(attempt.status, 'in_progress')))
+    .where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + ':' + def.id + ':%'}`, eq(attempt.status, 'in_progress')))
     .limit(1)
   if (open) return open.id
   const learner = await loadLearner(tx, learnerId)
   const states = await skillStates(tx, learnerId)
   const date = jakartaDate()
-  const tries = (await tx.select({ id: attempt.id }).from(attempt).where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + '%'}`))).length
-  const plan: { subject: 'math' | 'english' | 'science'; count: number }[] = [
-    { subject: 'math', count: 3 },
-    { subject: 'english', count: 3 },
-    { subject: 'science', count: 2 },
-    { subject: 'math', count: 2 },
-  ]
+  const tries = (await tx.select({ id: attempt.id }).from(attempt).where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + ':%'}`))).length
+  const questions = BOSS_LEVEL_QUESTIONS[def.level]
+  const seed = `boss:${learnerId}:${week}:${def.id}:${tries}`
   const usedSkills = new Set<string>()
   const refs = new Set<string>()
   const items: AttemptItem[] = []
-  for (const [i, p] of plan.entries()) {
-    if (!(await isFeatureOn(learnerId, p.subject))) continue
+  const add = async (subject: BossSubject, strands: readonly string[], count: number, key: string) => {
     let picked: ReturnType<typeof autoSkill> | undefined
-    for (let k = 0; k < 6 && !picked; k++) {
-      const s = autoSkill(learner, p.subject, states, `${learnerId}:${week}:${tries}:${p.subject}:${i}:${k}`)
-      if (s && !usedSkills.has(s.id)) picked = s
+    const inFamily = strands.length > 0 ? skillsFor(subject, learner.grade).filter((s) => strands.includes(s.strand)) : []
+    for (let k = 0; k < 8 && !picked; k++) {
+      const s = autoSkill(learner, subject, states, `${seed}:${key}:${k}`)
+      if (s && !usedSkills.has(s.id) && (strands.length === 0 || strands.includes(skillStrand(subject, learner.grade, s.id)))) picked = s
     }
-    if (!picked) continue
-    usedSkills.add(picked.id)
-    const built = await buildQuestItems(tx, ctx, learner, { skillId: picked.id, subject: p.subject, mode: 'latihan', date, seedKey: `boss:${learnerId}:${week}:${tries}:${i}`, length: p.count, style: 'easy', avoid: refs })
+    // Pemilih otomatis mengutamakan skill berikutnya, jadi rumpun kelemahan diambil langsung bila belum kena.
+    const skillId = picked?.id ?? inFamily.find((s) => !usedSkills.has(s.id))?.id
+    if (!skillId) return
+    usedSkills.add(skillId)
+    const built = await buildQuestItems(tx, ctx, learner, { skillId, subject, mode: 'latihan', date, seedKey: `${seed}:${key}`, length: count, style: 'easy', allowManual: false, avoid: refs })
     for (const it of built) {
-      if (refs.has(it.ref) || items.length >= BOSS_QUESTIONS) continue
+      if (refs.has(it.ref) || items.length >= questions) continue
       refs.add(it.ref)
       items.push(it)
     }
   }
-  if (items.length < 5) throw invalid('The robot is still warming up. Try again soon.')
-  const final = items.map((it, i) => ({ ...it, position: i + 1 }))
+  for (const [i, c] of bossPlan(def, questions, on).entries()) await add(c.subject, c.strands, c.count, `${i}`)
+  // Rumpun tipis di kelas ini: isi sisanya dari mapel yang sama supaya pertarungan tetap utuh.
+  for (let i = 0; i < 6 && items.length < questions; i++) {
+    const subject = def.subjects.filter(on)[i % def.subjects.filter(on).length]!
+    await add(subject, [], Math.min(3, questions - items.length), `fill${i}`)
+  }
+  const guarded = await guardAttemptItems(tx, items, { seed, mode: 'latihan' })
+  if (guarded.length < 5) throw invalid('This boss is still warming up. Try again soon.')
   const [row] = await tx
     .insert(attempt)
-    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: 'math', title: 'Puzzle Robot', refId: `boss:${week}:${tries + 1}`, items: final })
+    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: def.subjects.find(on) ?? 'math', title: def.name, refId: bossRef(week, def.id, tries + 1), items: guarded })
     .returning({ id: attempt.id })
   return row!.id
+}
+
+function skillStrand(subject: BossSubject, grade: number, skillId: string): string {
+  return skillsFor(subject, grade).find((s) => s.id === skillId)?.strand ?? ''
 }

@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { FEATURE_KEYS } from '@kira/core/features'
+import { SKILL_ID } from '@kira/content/schema'
 import { AVATARS, PIN_PICTURES } from '@kira/figures/spec'
+import { UI_LANGS } from '@/lib/i18n/lang'
 
 /**
  * Skema Zod strict untuk setiap aksi dashboard orang tua. Dipisah dari berkas 'use server' supaya bisa dites.
@@ -32,6 +34,7 @@ export const parentSchemas = {
   quest: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.') }).strict(),
   sessionRequired: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), required: z.boolean() }).strict(),
   sessionTarget: z.object({ learnerId: id, subject, session: coreSession }).strict(),
+  sessionSkill: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), skillId: z.string().max(80).regex(SKILL_ID, 'Pilih pelajaran dari daftar.') }).strict(),
   questionCount: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), questionCount: z.number().int().min(5, 'Paling sedikit 5 soal.').max(30, 'Paling banyak 30 soal.') }).strict(),
   limits: z
     .object({
@@ -44,6 +47,7 @@ export const parentSchemas = {
   pin: z.object({ learnerId: id, pin }).strict(),
   unlock: z.object({ learnerId: id }).strict(),
   edit: z.object({ learnerId: id, name, grade, avatar: z.enum(AVATARS) }).strict(),
-  addChild: z.object({ name, grade, avatar: z.enum(AVATARS), pin }).strict(),
+  addChild: z.object({ name, grade, avatar: z.enum(AVATARS), pin, uiLang: z.enum(UI_LANGS).optional() }).strict(),
+  uiLang: z.object({ learnerId: id, uiLang: z.enum(UI_LANGS), uiLangSwitch: z.boolean() }).strict(),
   markWork: z.object({ responseId: z.string().uuid(), verdict: z.enum(['good', 'again']), feedback: z.string().trim().max(500, 'Catatan paling panjang 500 karakter.') }).strict(),
 }

@@ -35,8 +35,8 @@ function pickVoice(lang: SpeechLang): SpeechSynthesisVoice | null {
 
 let currentAudio: HTMLAudioElement | null = null
 
-/** Hentikan semua bacaan yang sedang berjalan. */
-export function stopSpeech(): void {
+/** Diamkan klip dan suara perangkat, tanpa memberi tahu tombol. */
+function silence(): void {
   if (currentAudio) {
     currentAudio.onended = null
     currentAudio.onerror = null
@@ -49,6 +49,12 @@ export function stopSpeech(): void {
   } catch {
     // Perangkat tanpa Web Speech: tidak ada yang dihentikan.
   }
+}
+
+/** Hentikan semua bacaan yang sedang berjalan, dan semua tombol baca kembali ke idle. */
+export function stopSpeech(): void {
+  silence()
+  if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent(EVENT, { detail: '' }))
 }
 
 /**
@@ -184,6 +190,8 @@ export function useSpeech(lang: SpeechLang): {
     (input: SpeechInput, onEnd?: () => void, opts?: SpeakOptions) => {
       const my = ++token.current
       window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
+      // Hanya satu suara: klip yang masih berjalan dari tombol lain berhenti dulu.
+      silence()
       const finish = () => {
         if (token.current !== my) return
         setReading(false)

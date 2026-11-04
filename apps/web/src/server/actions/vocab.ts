@@ -4,7 +4,9 @@ import { z } from 'zod'
 import type { ActionResult } from '@/lib/dto'
 import { orgCtx, requireLearner } from '../auth/actor'
 import { inOrg } from '../db'
-import { forbidden, runAction } from '../errors'
+import { forbidden } from '../errors'
+import { tOf } from '@/lib/i18n'
+import { runLearnerAction as runAction } from './learner-run'
 import { isFeatureOn } from '../dal/learner-features'
 import { removeWordTx, saveWordTx } from '../dal/vocab'
 
@@ -21,11 +23,10 @@ export async function saveWordAction(input: { word: string }): Promise<ActionRes
     async () => {
       const actor = await requireLearner()
       const data = wordInput.parse(input)
-      if (!(await isFeatureOn(actor.userId, 'dictionary'))) throw forbidden('Kamus sedang mati untuk akun ini.')
+      if (!(await isFeatureOn(actor.userId, 'dictionary'))) throw forbidden(tOf(actor).reading.errors.dictionaryOff)
       const word = await inOrg(orgCtx(actor), (tx) => saveWordTx(tx, actor.orgId, actor.userId, data.word))
       return { word }
     },
-    'en-GB',
   )
 }
 
@@ -38,6 +39,5 @@ export async function removeWordAction(input: { word: string }): Promise<ActionR
       await inOrg(orgCtx(actor), (tx) => removeWordTx(tx, actor.userId, data.word))
       return undefined
     },
-    'en-GB',
   )
 }

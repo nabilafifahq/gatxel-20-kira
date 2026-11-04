@@ -1,4 +1,7 @@
+'use client'
+
 import type { ReactElement, ReactNode } from 'react'
+import { useT } from '@/lib/i18n/client'
 import { cx } from './cx'
 import { KiraStar } from './KiraStar'
 
@@ -30,6 +33,7 @@ export function EmptyState({
   className?: string
   headingLevel?: 2 | 3
 }): ReactElement {
+  const t = useT()
   const learner = tone === 'learner'
   const Heading = headingLevel === 2 ? 'h2' : 'h3'
   return (
@@ -43,7 +47,7 @@ export function EmptyState({
     >
       {art ? <div aria-hidden="true" className="text-border">{art}</div> : learner ? <KiraStar size={72} mood="calm" /> : null}
       {filters && filters.length > 0 ? (
-        <ul aria-label={learner ? 'Filters' : 'Filter aktif'} className="m-0 flex list-none flex-wrap justify-center gap-1.5 p-0">
+        <ul aria-label={learner ? t.shell.ui.filters : 'Filter aktif'} className="m-0 flex list-none flex-wrap justify-center gap-1.5 p-0">
           {filters.map((f) => (
             <li key={f} className="inline-flex h-7.5 items-center rounded-pill border-2 border-border bg-surface px-2.5 text-small font-semibold">
               {f}

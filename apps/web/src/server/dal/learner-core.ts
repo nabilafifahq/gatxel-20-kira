@@ -18,6 +18,7 @@ import {
   weekView,
   weekCompleteCount,
   weekdayNameEn,
+  weekdayNameId,
   answerXp,
   retryXp,
   DEFAULT_REQUIRED_SESSIONS,
@@ -30,13 +31,16 @@ import {
   type DayRecord,
   type IsoDate,
 } from '@kira/core'
+import { skillAllowed, type FeatureSubject } from '@kira/core/features'
 import { tables } from '@kira/db'
 import type { Item } from '@kira/content'
+import { instanceSignature } from '@kira/content/math'
 import type { Jenjang, LearnerShell, StreakDTO, AvatarName } from '@/lib/dto'
+import type { UiLang } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
 import { awardArenaBadges } from './arena-badges'
-import { gradeOfSkill, subjectOfSkill } from './content'
+import { gradeOfSkill, skill, subjectOfSkill } from './content'
 
 import { featureMapFor } from './learner-features'
 
@@ -63,10 +67,13 @@ export async function totalXp(tx: Tx, learnerId: string, track: XpTrack = 'belaj
 export async function dueReviewCount(tx: Tx, learnerId: string, today: IsoDate): Promise<number> {
   const endOfDay = new Date(Date.parse(`${today}T23:59:59+07:00`))
   const rows = await tx
-    .select({ n: sql<number>`count(*)::int` })
+    .select({ subject: reviewCardT.subject, skillId: reviewCardT.skillId })
     .from(reviewCardT)
     .where(and(eq(reviewCardT.learnerId, learnerId), eq(reviewCardT.retired, false), lte(reviewCardT.dueAt, endOfDay)))
-  return rows[0]?.n ?? 0
+  if (rows.length === 0) return 0
+  // Kartu mapel yang dimatikan orang tua tidak dihitung: angka di menu Review sama dengan isi halamannya.
+  const features = await featureMapFor(tx, learnerId)
+  return rows.filter((r) => skillAllowed(features, r.subject as FeatureSubject, skill(r.skillId)?.strand)).length
 }
 
 export async function learnerShell(tx: Tx, learner: LearnerRow, today: IsoDate = jakartaDate()): Promise<LearnerShell> {
@@ -119,7 +126,7 @@ export async function streakFor(tx: Tx, learner: LearnerRow, today: IsoDate) {
   return result
 }
 
-export async function streakDTO(tx: Tx, learner: LearnerRow, today: IsoDate): Promise<StreakDTO> {
+export async function streakDTO(tx: Tx, learner: LearnerRow, today: IsoDate, lang: UiLang = 'en'): Promise<StreakDTO> {
   const result = await streakFor(tx, learner, today)
   const week = weekView(result, today, learner.restWeekdays)
   return {
@@ -127,7 +134,7 @@ export async function streakDTO(tx: Tx, learner: LearnerRow, today: IsoDate): Pr
     freezes: result.freezes,
     weekDone: weekCompleteCount(week),
     week: week.map((d) => {
-      const long = weekdayNameEn(d.date)
+      const long = lang === 'id' ? weekdayNameId(d.date) : weekdayNameEn(d.date)
       return { date: d.date, label: DAY_LETTER[long] ?? long.slice(0, 3), longLabel: long, status: d.status, isToday: d.isToday }
     }),
   }
@@ -349,6 +356,23 @@ export async function awardBadges(tx: Tx, ctx: OrgContext, learner: LearnerRow, 
   }
   const arena = await awardArenaBadges(tx, ctx, lid)
   return [...fresh, ...arena].map((b) => ({ id: b.id, title: b.title, description: b.description }))
+}
+
+/**
+ * Isi soal generator yang dijawab 30 hari terakhir. Seed lain bisa menghasilkan soal yang sama persis, jadi membandingkan ref
+ * saja tidak cukup untuk aturan tanpa soal ulangan. Dibatasi 400 soal terbaru supaya membangun sesi tetap ringan.
+ */
+export function recentGeneratedContent(seen: ReadonlyMap<string, number>): Set<string> {
+  const refs = [...seen].filter(([ref, days]) => ref.startsWith('gen:') && days <= 30).sort((a, b) => a[1] - b[1]).slice(0, 400)
+  const out = new Set<string>()
+  for (const [ref] of refs) {
+    try {
+      out.add(instanceSignature(ref))
+    } catch {
+      // Ref lama dari generator yang sudah berubah: tidak ada isi untuk dibandingkan.
+    }
+  }
+  return out
 }
 
 /** Soal yang pernah dijawab learner dan berapa hari lalu. Seluruh riwayat dipakai supaya soal tidak berulang sebelum bank habis. */

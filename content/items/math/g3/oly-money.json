@@ -21,7 +21,40 @@
         "kmnr"
       ],
       "points": 3,
-      "expectedSeconds": 75
+      "expectedSeconds": 75,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rupiah is her change?"
+          ]
+        },
+        {
+          "say": "Her change is 20.000 - 12.500 = Rp7.500.",
+          "mark": [
+            "Rp20.000",
+            "Rp12.500"
+          ],
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12500
+              },
+              {
+                "v": 7500,
+                "q": true
+              }
+            ],
+            "total": 20000,
+            "cur": "Rp"
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "7500 rupiah"
+        }
+      ]
     },
     {
       "id": "m3.oly-money.002",

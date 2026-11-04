@@ -3,7 +3,7 @@ import postgres from 'postgres'
 import { randomUUID } from 'node:crypto'
 import { createDb, withOrg, type Tx } from '@kira/db/client'
 import { BOSS_WIN_STARS } from '@kira/core'
-import { addMedal, applyLook, buyItem, choosePet, equipItem, finishBoss, grantStars, medalsOf, removeMedal, spendStars, starTotals, treatPet } from '@/server/dal/kira-world'
+import { addMedal, albumDTO, applyLook, bossDTO, buyItem, choosePet, equipItem, finishBoss, finishChapter, grantStars, medalsOf, removeMedal, spendStars, starTotals, storyDTO, syncCards, treatPet } from '@/server/dal/kira-world'
 
 /** Tes Kira World di Postgres sungguhan (migrasi 0021): dompet bintang, toko, teman, bos, RLS. */
 
@@ -84,12 +84,53 @@ describe.skipIf(!ready)('Kira World (Postgres)', () => {
     const lose = await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-02:1', 6))
     expect(lose).toEqual({ won: false, stars: 0, cardId: null })
     const win = await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-02:2', 8))
-    expect(win).toMatchObject({ won: true, stars: BOSS_WIN_STARS, cardId: 'rb-robot' })
+    expect(win).toEqual({ won: true, stars: BOSS_WIN_STARS, cardId: 'rb-robot' })
     const again = await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-02:3', 10))
     expect(again).toEqual({ won: true, stars: 0, cardId: null })
-    const next = await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-09:1', 10))
-    expect(next.cardId).toBe('rb-comet')
+    // Minggu berikutnya: bintang lagi, tetapi kartu Puzzle Robot sudah dimiliki.
+    const next = await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-09:robot:1', 10))
+    expect(next).toEqual({ won: true, stars: BOSS_WIN_STARS, cardId: null })
+    // Lawan lain di minggu yang sama: kartu baru, bintang tidak dua kali.
+    const comet = await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-09:comet:1', 9, 12))
+    expect(comet).toEqual({ won: true, stars: 0, cardId: 'rb-comet' })
+    const lost = await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-09:aurora:1', 8, 12))
+    expect(lost).toEqual({ won: false, stars: 0, cardId: null })
     expect((await l.run((tx) => starTotals(tx, l.id))).balance).toBe(BOSS_WIN_STARS * 2)
+  })
+
+  it('kartu tonggak: dari bos, cerita, dan bintang, tanpa acak dan tanpa dobel', async () => {
+    const l = await newLearner()
+    await l.run((tx) => finishBoss(tx, l.id, randomUUID(), 'boss:2026-11-02:robot:1', 8, 8))
+    await l.run((tx) => grantStars(tx, l.id, 100, 'session', 's1'))
+    const fresh = await l.run((tx) => syncCards(tx, l.id))
+    expect(fresh.map((c) => c.id)).toContain('ms-st100')
+    const again = await l.run((tx) => syncCards(tx, l.id))
+    expect(again).toEqual([])
+    const first = await l.run((tx) => finishChapter(tx, l.id, 1))
+    expect(first.cards.map((c) => c.id)).toEqual(['st-lumi'])
+    expect((await l.run((tx) => finishChapter(tx, l.id, 1))).cards).toEqual([])
+    // Bab yang belum terbuka tidak bisa ditandai selesai, dan isinya tidak dikirim.
+    await expect(l.run((tx) => finishChapter(tx, l.id, 8))).rejects.toMatchObject({ code: 'forbidden' })
+    const story = await l.run((tx) => storyDTO(tx, l.id))
+    expect(story.chapters[0]!.done).toBe(true)
+    expect(story.chapters[7]!.pages).toEqual([])
+    expect(story.chapters[7]!.scrap).toBeNull()
+    const album = await l.run((tx) => albumDTO(tx, l.id))
+    expect(album.owned).toBeGreaterThanOrEqual(3)
+    expect(album.sets.find((s) => s.id === 'robot')!.cards.find((c) => c.id === 'rb-robot')!.owned).toBe(true)
+  })
+
+  it('bos: mapel mati tidak ditawarkan, lawan baru masih misteri, dan bintang tidak menjadi syarat', async () => {
+    const l = await newLearner()
+    await owner`insert into learner_feature (org_id, learner_id, key, enabled) values (${orgId}, ${l.id}, 'math', false)`
+    const dto = await l.run((tx) => bossDTO(tx, l.id))
+    expect(dto.bosses.some((b) => b.id === 'clickerclaw')).toBe(false)
+    expect(dto.bosses.some((b) => b.id === 'robot')).toBe(true)
+    expect(dto.bosses.filter((b) => b.open)).toHaveLength(3)
+    const closed = dto.bosses.find((b) => !b.open)!
+    expect(closed.name).toBe('A new challenger')
+    expect(closed.personality).toBe('')
+    expect(dto.nextIn).toBe(2)
   })
 
   it('anak tidak melihat bintang anak lain (RLS) dan anak tidak bisa mencatat medali', async () => {

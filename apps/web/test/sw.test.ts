@@ -74,6 +74,33 @@ function boot(fetchImpl: (req: string | { url: string }) => Promise<Response>, c
 
 const reply = (status: number, body = 'SERVER') => () => Promise.resolve(new Response(body, { status }))
 
+describe('halaman offline dua bahasa', () => {
+  const seed = (go: ReturnType<typeof boot>) => go.stores.get('kira-v1-static')!.set(`${ORIGIN}/offline-id.html`, new Response('HALAMAN OFFLINE', { status: 200 }))
+
+  it('belum ada pesan bahasa: Indonesia', async () => {
+    const go = boot(reply(521))
+    seed(go)
+    expect(await (await go('/today'))!.text()).toBe('HALAMAN OFFLINE')
+  })
+
+  it('anak berbahasa Inggris melihat halaman Inggris, dan bisa berganti lagi', async () => {
+    const go = boot(reply(521))
+    seed(go)
+    await go.message({ type: 'ui-lang', lang: 'en' })
+    expect(await (await go('/today'))!.text()).toBe('OFFLINE PAGE')
+    await go.message({ type: 'ui-lang', lang: 'id' })
+    seed(go)
+    expect(await (await go('/today'))!.text()).toBe('HALAMAN OFFLINE')
+  })
+
+  it('nilai bahasa yang tidak dikenal diabaikan', async () => {
+    const go = boot(reply(521))
+    seed(go)
+    await go.message({ type: 'ui-lang', lang: 'fr' })
+    expect(await (await go('/today'))!.text()).toBe('HALAMAN OFFLINE')
+  })
+})
+
 describe('server tidak terjangkau', () => {
   it.each([502, 503, 504, 520, 521, 522, 523, 524, 525, 526, 527, 530])('status %i di halaman learner memakai halaman tersimpan', async (status) => {
     const go = boot(reply(status), { '/today': 'CACHED TODAY' })

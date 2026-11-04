@@ -12,6 +12,7 @@ import { TapWords } from '@/components/learner/TapWords'
 import { FigureFrame } from '@/components/learner/FigureFrame'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { ClozePrompt } from './ClozeWidget'
 import { speakableClipParts, speakableStyle } from './speakable-parts'
 import { TextPrompt } from './TextWidget'
@@ -41,14 +42,15 @@ export function NumberPill({ n, subject, className }: { n: number | string; subj
 /** Panel istilah Indonesia ke English (papan RunnerEsmoTerms). */
 export function TermsPanel({ terms, onClose, className }: { terms: { term: string; en: string }[]; onClose: () => void; className?: string }): ReactElement {
   const titleId = useId()
+  const dict = useT()
   return (
     <aside aria-labelledby={titleId} className={cx('flex flex-col gap-3 rounded-card border-2 border-fg bg-surface px-6 pt-4 pb-6', className)}>
       <div className="flex items-center gap-2.5">
         <UiIcon name="book" size={24} />
         <h2 id={titleId} className="m-0 text-h3 font-bold">
-          Terms in this question
+          {dict.widgets.question.termsTitle}
         </h2>
-        <IconButton icon="close" label="Close terms" size="M" className="ml-auto" onClick={onClose} />
+        <IconButton icon="close" label={dict.widgets.question.closeTerms} size="M" className="ml-auto" onClick={onClose} />
       </div>
       <dl className="m-0 flex flex-col">
         {terms.map((t) => (
@@ -62,7 +64,7 @@ export function TermsPanel({ terms, onClose, className }: { terms: { term: strin
           </div>
         ))}
       </dl>
-      <p className="m-0 text-body text-fg-muted">The real contest has no Terms button. Use it less each week.</p>
+      <p className="m-0 text-body text-fg-muted">{dict.widgets.question.termsNote}</p>
     </aside>
   )
 }
@@ -70,20 +72,22 @@ export function TermsPanel({ terms, onClose, className }: { terms: { term: strin
 function PassagePanel({ passage, lang, tap = false }: { passage: NonNullable<ClientItem['passage']>; lang: ClientItem['lang']; tap?: boolean }): ReactElement {
   const [open, setOpen] = useState(true)
   const bodyId = useId()
+  const t = useT()
   return (
     <section aria-label={passage.title} className="rounded-control bg-lavender">
-      <div className="flex items-center gap-3 px-4 py-2">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2">
         <UiIcon name="book" size={22} />
-        <h3 className="m-0 min-w-0 flex-1 text-body-lg font-bold">{passage.title}</h3>
+        {/* Di HP tombol turun ke baris sendiri, supaya judul tidak terjepit satu kata per baris. */}
+        <h3 lang={lang} className="m-0 min-w-0 flex-1 basis-40 text-body-lg font-bold">{passage.title}</h3>
         <Button variant="quiet" size="M" aria-expanded={open} aria-controls={bodyId} onClick={() => setOpen((o) => !o)} className="px-3">
-          {open ? 'Hide the text' : 'Show the text'}
+          {open ? t.widgets.question.hideText : t.widgets.question.showText}
           <UiIcon name={open ? 'chevron-up' : 'chevron-down'} size={20} />
         </Button>
       </div>
-      <div id={bodyId} hidden={!open} lang={lang} className="max-h-[40svh] overflow-y-auto px-4 pb-4">
+      <div id={bodyId} hidden={!open} className="max-h-[40svh] overflow-y-auto px-4 pb-4">
         <ReadAloudButton text={passage.text} style={styleForPassageKind(passage.kind)} lang={lang} subject="english" showNote={false} className="mb-3" />
         {passage.text.split(/\n{2,}/).map((para, i) => (
-          <p key={i} className="text-question mt-0 mb-3 last:mb-0">
+          <p key={i} lang={lang} className="text-question mt-0 mb-3 last:mb-0">
             {tap ? <TapWords text={para} /> : para}
           </p>
         ))}
@@ -96,12 +100,13 @@ function PassagePanel({ passage, lang, tap = false }: { passage: NonNullable<Cli
 function ListenPrompt({ item, subject, promptId }: { item: ClientItem; subject: Subject; promptId: string }): ReactElement {
   const [shown, setShown] = useState(false)
   const wordsId = useId()
+  const t = useT()
   // Hanya prompt (dan teks bacaan) yang diputar; pilihan jawaban terlihat di layar.
   const parts = speakableClipParts(item).slice(0, item.readText ? 2 : 1)
   return (
     <div className="flex min-w-0 flex-1 flex-col gap-3">
       <p id={promptId} className="text-question m-0 font-bold">
-        Listen, then choose the answer.
+        {t.widgets.question.listenThenChoose}
       </p>
       <div className="flex flex-wrap items-center gap-3">
         <ReadAloudButton
@@ -110,10 +115,10 @@ function ListenPrompt({ item, subject, promptId }: { item: ClientItem; subject: 
           lang={item.lang}
           subject={subject}
           showNote={false}
-          labels={{ idle: 'Play the question', busy: 'Playing' }}
+          labels={{ idle: t.widgets.question.playQuestion, busy: t.widgets.shared.playing }}
         />
         <Button variant="quiet" size="M" aria-expanded={shown} aria-controls={wordsId} onClick={() => setShown((o) => !o)} className="px-3">
-          {shown ? 'Hide the words' : 'Show the words'}
+          {shown ? t.widgets.question.hideWords : t.widgets.question.showWords}
           <UiIcon name={shown ? 'chevron-up' : 'chevron-down'} size={20} />
         </Button>
       </div>
@@ -156,6 +161,7 @@ export function QuestionView({
 }): ReactElement {
   const [termsOpen, setTermsOpen] = useState(false)
   const promptId = useId()
+  const t = useT()
   const hasTerms = showTerms && !!item.terms && item.terms.length > 0
   const inlineBlanks = item.type === 'text' && !!answer
   const inlineGaps = item.type === 'cloze' && !!answer
@@ -198,14 +204,14 @@ export function QuestionView({
       </div>
       {item.readText ? (
         <div className="flex flex-col gap-1 rounded-control border-2 border-border bg-surface px-4 py-3 md:ml-14.5">
-          <span className="text-body font-bold">Read this out loud</span>
+          <span className="text-body font-bold">{t.widgets.question.readOutLoud}</span>
           <p lang={item.lang} className="text-question m-0">
             {item.readText}
           </p>
         </div>
       ) : null}
       {item.figure && !figureInAnswer ? (
-        <FigureFrame spec={item.figure} paper={figurePaper ?? subject === 'math'} className="self-start md:ml-14.5" />
+        <FigureFrame spec={item.figure} lang={item.lang} paper={figurePaper ?? subject === 'math'} className="self-start md:ml-14.5" />
       ) : null}
       {children ? <div className="md:ml-14.5">{children}</div> : null}
       {!hideTools ? (
@@ -213,7 +219,7 @@ export function QuestionView({
           <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} />
           {hasTerms ? (
             <Button variant="secondary" icon="book" aria-expanded={termsOpen} onClick={() => setTermsOpen((o) => !o)}>
-              Terms
+              {t.widgets.question.terms}
             </Button>
           ) : null}
         </div>

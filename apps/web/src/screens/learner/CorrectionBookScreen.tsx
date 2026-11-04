@@ -1,12 +1,14 @@
+'use client'
+
 import type { ReactElement, ReactNode } from 'react'
 import type { CorrectionBookDTO, Subject } from '@/lib/dto'
+import { useT } from '@/lib/i18n/client'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
-import { plural } from '@/components/learner/format'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
-import { SUBJECT_NAME, SUBJECT_STYLE } from '@/components/learner/subject'
+import { SUBJECT_STYLE } from '@/components/learner/subject'
 
 /**
  * L11 Buku Koreksi (papan BukuKoreksi, BukuKoreksiHP, BukuKoreksiKosong). Kartu review hari ini
@@ -36,29 +38,35 @@ function groupCards(groups: Group[], cards: Card[]): { group: Group; cards: { ca
 }
 
 function SubjectTag({ subject }: { subject: Subject }): ReactElement {
+  const t = useT()
   const style = SUBJECT_STYLE[subject]
   return (
     <span className={cx('inline-flex h-7 items-center self-start rounded-pill border px-2.5 text-body font-bold', style.tint, style.border)}>
-      {SUBJECT_NAME[subject]}
+      {t.common.subject[subject]}
     </span>
   )
 }
 
 export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today, extra }: { data: CorrectionBookDTO; todayHref?: string; extra?: ReactNode }): ReactElement {
+  const t = useT()
+  const copy = t.lessons.correction
   const empty = data.dueCount === 0 || data.cards.length === 0
   const grouped = empty ? [] : groupCards(data.groups, data.cards)
   return (
     <LearnerFrame shell={data.shell} current="review" className="flex flex-col gap-4 md:gap-6">
       <header className="flex flex-wrap items-center gap-4 md:gap-5">
         <div className="flex min-w-0 flex-1 flex-col gap-1">
-          <h1 className="m-0 text-h1 font-bold">Review</h1>
-          {empty ? null : <p className="m-0 text-body-lg text-fg-muted">{plural(data.dueCount, 'card', 'cards')} today.</p>}
+          <h1 className="m-0 text-h1 font-bold">{copy.title}</h1>
+          {empty ? null : <p className="m-0 text-body-lg text-fg-muted">{copy.cardsToday(data.dueCount)}</p>}
         </div>
         {!empty && data.startHref ? (
           <ButtonLink href={data.startHref} prefetch={false} iconAfter="arrow-right" className="w-full px-6.5 md:w-auto">
-            Start review
+            {copy.start}
           </ButtonLink>
         ) : null}
+        <ButtonLink href="/practice/review" variant="secondary" className="w-full md:w-auto">
+          Review a lesson
+        </ButtonLink>
       </header>
 
       {extra}
@@ -73,12 +81,12 @@ export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today, e
               </span>
             </span>
           </span>
-          <p className="m-0 text-h2 font-bold">No review cards today.</p>
+          <p className="m-0 text-h2 font-bold">{copy.emptyTitle}</p>
           <p className="m-0 max-w-[520px] text-body-lg text-fg-muted">
-            {data.comingBack ? `${data.comingBack} ` : ''}Questions you miss in quests will show up here too.
+            {data.comingBack ? `${data.comingBack} ` : ''}{copy.emptyNote}
           </p>
           <ButtonLink href={todayHref} iconAfter="arrow-right" className="mt-1.5">
-            Back to Today
+            {t.lessons.backToToday}
           </ButtonLink>
         </section>
       ) : (
@@ -87,24 +95,24 @@ export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today, e
             {grouped.map(({ group, cards }) => (
               <section
                 key={`${group.subject}-${group.title}`}
-                aria-label={`${group.title}, ${plural(cards.length, 'card', 'cards')}`}
+                aria-label={copy.groupLabel(t.common.subject[group.subject], cards.length)}
                 className="flex min-w-0 flex-1 flex-col gap-3.5 rounded-card bg-surface shadow-soft p-4 md:p-5.5"
               >
                 <div className="flex items-center gap-2.5">
-                  <h2 className="m-0 text-h3 font-bold md:text-h2">{group.title}</h2>
+                  <h2 className="m-0 text-h3 font-bold md:text-h2">{t.common.subject[group.subject]}</h2>
                   <span className="ml-auto inline-flex h-8 min-w-9 items-center justify-center rounded-pill bg-fg px-2.5 text-body font-bold text-white tabular-nums">
                     {group.count}
                   </span>
                 </div>
-                <p className="m-0 text-body text-fg-muted">{group.note}</p>
+                <p className="m-0 text-body text-fg-muted">{copy.groupNote(group.count)}</p>
                 <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
                   {cards.map(({ card, meta }, i) => {
                     const short = card.prompt.length <= 14
                     return (
                       <li key={`${card.prompt}-${i}`} className="flex flex-col gap-1.5 rounded-control border-2 border-border bg-surface px-3.5 py-3">
                         <SubjectTag subject={card.subject} />
-                        <p className={cx('m-0 font-reading', short ? 'text-h1' : 'text-body-lg')}>{card.prompt}</p>
-                        <span className="text-body text-fg-muted">{meta}</span>
+                        <p lang="en-GB" className={cx('m-0 font-reading', short ? 'text-h1' : 'text-body-lg')}>{card.prompt}</p>
+                        <span lang="en-GB" className="text-body text-fg-muted">{meta}</span>
                       </li>
                     )
                   })}

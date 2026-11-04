@@ -1,6 +1,8 @@
 import { createHash, randomBytes } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import postgres from 'postgres'
+import { isSafeAddress, type EmailIdentity } from '@kira/core/email'
+import { emailSamples, seatReopenedEmail } from '@kira/core/email-templates'
 
 /**
  * Perintah admin server Kira. Dijalankan pemilik server dari terminal (Docker: lihat docs/pasang-windows.md).
@@ -17,6 +19,8 @@ import postgres from 'postgres'
  *   waitlist-export        cetak CSV daftar tunggu yang terkonfirmasi dan belum berhenti (email, sumber, tanggal)
  *   waitlist-notify <n>    antrekan undangan kursi untuk n orang tertua di daftar tunggu (dikirim bertahap, 10 per menit)
  *   sourcing-now           jadwalkan pembaruan sumber soal (seperti jadwal Minggu dini hari) sekarang juga untuk setiap org
+ *   support-tickets [n]    cetak n pesan Bantuan terbaru (bawaan 20) beserta status emailnya, untuk saat SMTP bermasalah
+ *   email-samples <email>  antrekan satu contoh setiap jenis email ke alamat itu; worker mengirimnya lewat SMTP_URL (bertahap, 10 per menit)
  *
  * Tidak pernah mencetak password, hash, atau token selain tautan reset yang memang diminta.
  */
@@ -178,6 +182,8 @@ async function ttsStatus(db: postgres.Sql = sql, log: (s: string) => void = cons
 
 const SEATS = Number(process.env.KIRA_BETA_SEATS ?? 100)
 
+const emailIdentity = (origin: string): EmailIdentity => ({ origin, legalName: process.env.KIRA_LEGAL_NAME?.trim() || null, legalAddress: process.env.KIRA_LEGAL_ADDRESS?.trim() || null })
+
 async function waitlistCount(): Promise<void> {
   const [w] = await sql`
     select
@@ -215,17 +221,45 @@ async function waitlistNotify(nRaw: string | undefined): Promise<void> {
     order by created_at limit ${n}`
   let i = 0
   for (const r of rows) {
-    const unsub = `${origin}/kabar/berhenti/${r.token}`
-    const text = ['Kursi beta Kira dibuka lagi', '', 'Kabar baik: ada kursi beta Kira yang kosong. Daftar sekarang selagi masih ada.', `Daftar: ${origin}/daftar`, '', 'Kamu menerima email ini karena kamu masuk daftar tunggu Kira.', `Berhenti berlangganan: ${unsub}`].join('\n')
-    const html = `<!doctype html><html lang="id"><body style="font-family:Arial,sans-serif;line-height:1.6"><h1 style="font-size:22px">Kursi beta Kira dibuka lagi</h1><p>Kabar baik: ada kursi beta Kira yang kosong. Daftar sekarang selagi masih ada.</p><p><a href="${origin}/daftar" style="display:inline-block;padding:12px 20px;border-radius:12px;background:#14202e;color:#ffffff;text-decoration:none;font-weight:bold">Daftar sekarang</a></p><p style="font-size:14px">Kamu menerima email ini karena kamu masuk daftar tunggu Kira. <a href="${unsub}">Berhenti berlangganan</a></p></body></html>`
+    const { html, text, subject } = seatReopenedEmail(emailIdentity(origin), { signupUrl: `${origin}/daftar`, unsubscribeUrl: `${origin}/kabar/berhenti/${r.token}` })
     await sql.begin(async (tx) => {
-      await tx`insert into public_mail (to_addr, subject, html, text, kind, list_unsubscribe, send_after) values (${r.email}, 'Kursi beta Kira dibuka lagi', ${html}, ${text}, 'waitlist-invite', ${`${origin}/api/kabar/berhenti/${r.token}`}, now() + (${Math.floor(i / 10)} * interval '1 minute'))`
+      await tx`insert into public_mail (to_addr, subject, html, text, kind, list_unsubscribe, send_after) values (${r.email}, ${subject}, ${html}, ${text}, 'waitlist-invite', ${`${origin}/api/kabar/berhenti/${r.token}`}, now() + (${Math.floor(i / 10)} * interval '1 minute'))`
       await tx`update auth.waitlist set invited_at = now() where id = ${r.id}`
     })
     i++
   }
   await sql`select pg_notify('kira_mail', 'public')`
   console.log(`${rows.length} undangan diantrekan, dikirim bertahap 10 per menit (selesai sekitar ${Math.ceil(rows.length / 10)} menit).`)
+}
+
+/**
+ * Satu contoh setiap jenis email, lewat kotak keluar dan worker yang sama dengan email sungguhan, jadi header dan SMTP-nya juga diuji.
+ * Token di tautan contoh tidak berlaku. Tidak ada data keluarga yang dipakai.
+ */
+async function emailSamplesCommand(addressRaw: string | undefined): Promise<void> {
+  const to = addressRaw?.trim() ?? ''
+  if (!isSafeAddress(to)) throw new Error('Pakai: admin email-samples <alamat email>')
+  const origin = (process.env.KIRA_ORIGIN ?? '').replace(/\/$/, '')
+  if (!origin.startsWith('https://') && !origin.startsWith('http://localhost')) throw new Error('KIRA_ORIGIN belum diisi dengan alamat https Kira.')
+  const samples = emailSamples(emailIdentity(origin))
+  let i = 0
+  for (const { kind, mail, listUnsubscribe } of samples) {
+    await sql`insert into public_mail (to_addr, subject, html, text, kind, list_unsubscribe, send_after) values (${to}, ${mail.subject}, ${mail.html}, ${mail.text}, ${kind}, ${listUnsubscribe ?? null}, now() + (${i * 6} * interval '1 second'))`
+    i++
+  }
+  await sql`select pg_notify('kira_mail', 'public')`
+  console.log(`${samples.length} email contoh diantrekan ke ${to}. Worker mengirimnya lewat SMTP dalam sekitar 2 menit. Status: docker compose logs -f worker`)
+}
+
+/** Pesan Bantuan terbaru. Hanya perintah ini yang bisa membacanya: web cuma boleh menambah baris. */
+async function supportTickets(nRaw: string | undefined): Promise<void> {
+  const n = nRaw === undefined ? 20 : Number(nRaw)
+  if (!Number.isInteger(n) || n < 1 || n > 500) throw new Error('Pakai: admin support-tickets [jumlah 1 sampai 500]')
+  const rows = await sql`
+    select t.reference, t.created_at, t.category, t.sender_email, t.account_role, t.subject, t.message, t.attachment_name,
+      (select m.status from public_mail m where m.kind = 'support-ticket' and m.subject like '%(' || t.reference || ')' limit 1) as email_status
+    from support_ticket t order by t.created_at desc limit ${n}`
+  console.log(JSON.stringify(rows, null, 2))
 }
 
 const [cmd, arg] = process.argv.slice(2)
@@ -241,8 +275,10 @@ try {
   else if (cmd === 'waitlist-export') await waitlistExport()
   else if (cmd === 'waitlist-notify') await waitlistNotify(arg)
   else if (cmd === 'sourcing-now') await sourcingNow()
+  else if (cmd === 'email-samples') await emailSamplesCommand(arg)
+  else if (cmd === 'support-tickets') await supportTickets(arg)
   else {
-    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | reset-streak <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n>')
+    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | reset-streak <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n> | email-samples <email> | support-tickets [n]')
     process.exitCode = cmd ? 1 : 0
   }
 } catch (e) {

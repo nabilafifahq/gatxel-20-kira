@@ -1,7 +1,10 @@
+'use client'
+
 import type { ReactElement } from 'react'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Hint bertingkat (papan HintStack). Tepat tiga hint per soal: dorongan, strategi,
@@ -10,7 +13,8 @@ import { UiIcon } from '@/components/ui/icons'
  */
 
 /** Daftar hint yang sudah dibuka. Tidak merender apa pun bila belum ada. */
-export function HintList({ hints, opened, className }: { hints: string[]; opened: number; className?: string }): ReactElement | null {
+export function HintList({ hints, opened, className, contentLang = 'en-GB' }: { hints: string[]; opened: number; className?: string; contentLang?: string }): ReactElement | null {
+  const t = useT().runner.hints
   const shown = hints.slice(0, opened)
   if (shown.length === 0) return null
   return (
@@ -19,10 +23,8 @@ export function HintList({ hints, opened, className }: { hints: string[]; opened
         <div key={i} className="flex items-start gap-2.5">
           <UiIcon name="hint" size={22} className="mt-0.5" />
           <div className="flex min-w-0 flex-col">
-            <span className="text-body font-bold">
-              Hint {i + 1} of {hints.length}
-            </span>
-            <span className="font-reading text-h3">{h}</span>
+            <span className="text-body font-bold">{t.of(i + 1, hints.length)}</span>
+            <span lang={contentLang} className="font-reading text-h3">{h}</span>
           </div>
         </div>
       ))}
@@ -44,17 +46,18 @@ export function HintButton({
   disabled?: boolean
   compact?: boolean
 }): ReactElement {
+  const t = useT().runner.hints
   const left = Math.max(0, total - opened)
   const off = disabled || left === 0
   return (
     <Button variant="secondary" icon="hint" disabled={off} onClick={onOpen} className="px-4">
-      Hint
+      {t.hint}
       {compact ? (
-        <span className="visually-hidden">, {left} left</span>
+        <span className="visually-hidden">, {t.left(left)}</span>
       ) : (
-        <span className={cx('text-body font-semibold', off ? 'text-border' : 'text-fg-muted')}>{left} left</span>
+        <span className={cx('text-body font-semibold', off ? 'text-border' : 'text-fg-muted')}>{t.left(left)}</span>
       )}
-      {left > 0 ? <span className="visually-hidden">. A hint halves the XP for this question.</span> : null}
+      {left > 0 ? <span className="visually-hidden">. {t.halvesXp}</span> : null}
     </Button>
   )
 }
@@ -76,6 +79,7 @@ export function HintStack({
   disabled?: boolean
   className?: string
 }): ReactElement | null {
+  const t = useT().runner.hints
   if (hints.length === 0) return null
   const left = hints.length - opened
   return (
@@ -83,15 +87,13 @@ export function HintStack({
       <HintList hints={hints} opened={opened} />
       {left > 0 ? (
         <Button variant="secondary" icon={opened === 0 ? 'hint' : undefined} disabled={disabled} onClick={onOpenNext} className="self-start">
-          {opened === 0 ? 'Hint' : `Show hint ${opened + 1}`}
+          {opened === 0 ? t.hint : t.show(opened + 1)}
         </Button>
       ) : null}
       {opened === 0 ? (
-        <p className="m-0 text-body text-fg-muted">A hint halves the XP for this question.</p>
+        <p className="m-0 text-body text-fg-muted">{t.halvesXp}</p>
       ) : baseXp ? (
-        <p className="m-0 text-body text-fg-muted">
-          XP for this question: {Math.round(baseXp / 2)} instead of {baseXp}.
-        </p>
+        <p className="m-0 text-body text-fg-muted">{t.xpLine(Math.round(baseXp / 2), baseXp)}</p>
       ) : null}
     </div>
   )

@@ -8,6 +8,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { formatClock } from '@/components/learner/Timer'
+import { useT } from '@/lib/i18n/client'
 import { ActionError } from './common'
 
 /**
@@ -26,6 +27,8 @@ export function CompetitionIntroScreen({
   actions: CompetitionActions
   backHref?: string
 }): ReactElement {
+  const dict = useT().arena
+  const t = dict.competition.intro
   const router = useRouter()
   const [state, setState] = useState<{ kind: 'idle' | 'busy' | 'going' } | { kind: 'error'; message: string; reference: string }>({ kind: 'idle' })
   const name = data.title.replace(/\s+practice$/i, '')
@@ -41,16 +44,16 @@ export function CompetitionIntroScreen({
         router.push(res.data.redirectTo)
       } else setState({ kind: 'error', message: res.message, reference: res.reference })
     } catch {
-      setState({ kind: 'error', message: 'The practice could not start. Check the internet and try again.', reference: 'KRA-SIM-NET' })
+      setState({ kind: 'error', message: dict.errors.practiceNet, reference: 'KRA-SIM-NET' })
     }
   }
 
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
       <header className="flex min-h-18 flex-none items-center gap-4 px-4 py-2 md:h-22 md:px-8 md:py-0">
-        <IconLink href={backHref} icon="arrow-left" label="Back to competition practice" />
+        <IconLink href={backHref} icon="arrow-left" label={t.back} />
         <div className="flex min-w-0 flex-col">
-          <h1 className="m-0 text-h3 font-bold">{data.title}</h1>
+          <h1 lang="en-GB" className="m-0 text-h3 font-bold">{data.title}</h1>
           <span className="text-body text-fg-muted">{data.sub}</span>
         </div>
       </header>
@@ -61,18 +64,18 @@ export function CompetitionIntroScreen({
             <div role="note" className="flex items-start gap-2.5 rounded-control border-2 border-warn bg-surface px-4 py-3.5">
               <UiIcon name="warning" size={24} className="mt-0.5 flex-none text-warn" />
               <span className="text-body-lg font-semibold">
-                Your tutor is still checking these rules. This practice may be a little different from the real {name}, and the score is not counted.
+                {t.unverified(name)}
               </span>
             </div>
           )}
           <h2 id="how-it-works" className="m-0 text-h2 font-bold">
-            How it works
+            {t.how}
           </h2>
           <ol className="m-0 flex list-none flex-col gap-3 p-0">
             {data.rules.map((r, i) => (
               <li key={r} className="flex items-start gap-3.5">
                 <span className="mt-0.5 inline-flex h-7.5 min-w-9 flex-none items-center justify-center rounded-pill bg-fg px-2.5 text-body font-bold text-white">{i + 1}</span>
-                <span className="font-reading text-h3 font-normal">{r}</span>
+                <span lang="en-GB" className="font-reading text-h3 font-normal">{r}</span>
               </li>
             ))}
           </ol>
@@ -80,16 +83,16 @@ export function CompetitionIntroScreen({
             <div className="flex items-start gap-2.5 rounded-control bg-lavender px-3.5 py-3">
               <UiIcon name="hint" size={22} className="mt-1 flex-none" />
               <div className="flex flex-col">
-                <span className="text-body font-bold">Tip</span>
-                <span className="font-reading text-body-lg">{data.tip}</span>
+                <span className="text-body font-bold">{t.tip}</span>
+                <span lang="en-GB" className="font-reading text-body-lg">{data.tip}</span>
               </div>
             </div>
           ) : null}
         </section>
 
-        <aside aria-label="Ready" className="flex min-w-0 flex-col items-center gap-4 rounded-card bg-surface shadow-soft p-5 text-center md:p-7 lg:flex-1">
+        <aside aria-label={t.readyAria} className="flex min-w-0 flex-col items-center gap-4 rounded-card bg-surface shadow-soft p-5 text-center md:p-7 lg:flex-1">
           <div aria-hidden="true" className="flex w-55 flex-col gap-2 rounded-control border-2 border-fg bg-surface px-4 py-3.5">
-            <span className="text-left text-small font-bold">Answer sheet</span>
+            <span className="text-left text-small font-bold">{t.sheet}</span>
             {SAMPLE.map((filled, row) => (
               <div key={row} className="flex items-center gap-1.5">
                 <span className="w-4.5 text-right text-small font-bold">{row + 1}</span>
@@ -101,11 +104,11 @@ export function CompetitionIntroScreen({
           </div>
           <div className="inline-flex h-14 items-center gap-2.5 rounded-control border-2 border-border bg-surface px-4.5">
             <UiIcon name="clock" size={24} />
-            <span className="font-numbers text-h1 font-semibold tabular-nums">{data.timeLimitSec > 0 ? formatClock(data.timeLimitSec) : 'No clock'}</span>
+            <span className="font-numbers text-h1 font-semibold tabular-nums">{data.timeLimitSec > 0 ? formatClock(data.timeLimitSec) : t.noClock}</span>
           </div>
           <p className="m-0 text-body-lg">
-            {data.questionCount} questions.{' '}
-            {data.verified ? 'Find a quiet place and a pencil for working out.' : 'You can still practise. Your tutor will tell you when the real rules are ready.'}
+            {t.questions(data.questionCount)}{' '}
+            {data.verified ? t.verifiedNote : t.unverifiedNote}
           </p>
           {state.kind === 'error' ? <ActionError message={state.message} reference={state.reference} className="self-stretch text-left" /> : null}
           <Button

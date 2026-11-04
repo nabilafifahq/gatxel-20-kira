@@ -1,19 +1,21 @@
 import 'server-only'
 import { and, asc, desc, eq, gte, isNull, like } from 'drizzle-orm'
 import { createRng, daysBetween, formatDateEn, jakartaDate, type PresetRules } from '@kira/core'
+import { olympiadOn } from '@kira/core/features'
 import { tables } from '@kira/db'
 import { GENERATORS, genRef, newSeed } from '@kira/content/math'
 import { isPaperType, type Item, type Preset } from '@kira/content'
-import type { CompetitionIntroDTO, CompetitionPickDTO, EsmoDTO, EsmoPack, Subject } from '@/lib/dto'
+import type { CompetitionIntroDTO, CompetitionPickDTO, EsmoDTO, EsmoPack } from '@/lib/dto'
+import { dictFor, htmlLang } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { content, preset, presets, skillsFor } from './content'
 import { guardAttemptItems } from './session-guard'
+import { requestDict, requestLang } from './arena-session'
 import { learnerShell, loadLearner, type LearnerRow } from './learner-core'
+import { featureMapFor } from './learner-features'
 
 const { attempt, orgItem, competitionEvent } = tables
-
-const SUBJECT_LINE: Record<Subject, string> = { math: 'Math', english: 'English', science: 'Science' }
 
 /** Preset yang dipakai untuk menilai attempt lomba atau paket ESMO. */
 export function presetForAttempt(a: { kind: string; refId: string | null; subject: string }): Preset | undefined {
@@ -35,8 +37,11 @@ function eligible(p: Preset, learner: LearnerRow): boolean {
 }
 
 export async function competitionPickDTO(tx: Tx, learnerId: string): Promise<CompetitionPickDTO> {
+  const t = await requestDict()
+  const copy = t.arena.competition
   const learner = await loadLearner(tx, learnerId)
-  const list = presets().filter((p) => !p.id.startsWith('esmo-practice') && eligible(p, learner))
+  const features = await featureMapFor(tx, learnerId)
+  const list = presets().filter((p) => !p.id.startsWith('esmo-practice') && eligible(p, learner) && olympiadOn(features, p.subject))
   const last = await tx
     .select({ refId: attempt.refId, scaled: attempt.scoreScaled, raw: attempt.scoreRaw, max: attempt.scoreMax, at: attempt.submittedAt })
     .from(attempt)
@@ -49,10 +54,10 @@ export async function competitionPickDTO(tx: Tx, learnerId: string): Promise<Com
       return {
         presetId: p.id,
         title: p.title,
-        subjectLine: `${SUBJECT_LINE[p.subject]}, in ${p.lang === 'id' ? 'Indonesian' : 'English'}`,
-        formatLines: [`${p.rules.questionCount} questions, ${p.rules.timeLimitMin} minutes`, ...(p.rules.sections.length > 1 ? [`${p.rules.sections.length} parts: ${p.rules.sections.map((s) => s.points).join(', ')} points`] : [])],
+        subjectLine: copy.subjectLine(t.common.subject[p.subject], p.lang),
+        formatLines: [copy.format(p.rules.questionCount, p.rules.timeLimitMin), ...(p.rules.sections.length > 1 ? [copy.parts(p.rules.sections.length, p.rules.sections.map((s) => s.points).join(', '))] : [])],
         verified: p.verified,
-        lastTry: l ? (l.scaled !== null ? `Last try: ${Math.round(l.scaled)} of 100` : `Last try: ${Math.round(l.raw ?? 0)} of ${Math.round(l.max ?? 0)}`) : null,
+        lastTry: l ? (l.scaled !== null ? copy.lastScaled(Math.round(l.scaled)) : copy.lastRaw(Math.round(l.raw ?? 0), Math.round(l.max ?? 0))) : null,
         href: `/competitions/${p.id}`,
       }
     }),
@@ -60,21 +65,22 @@ export async function competitionPickDTO(tx: Tx, learnerId: string): Promise<Com
 }
 
 export async function competitionIntroDTO(tx: Tx, learnerId: string, presetId: string): Promise<CompetitionIntroDTO> {
+  const t = await requestDict()
   const learner = await loadLearner(tx, learnerId)
   const p = preset(presetId)
-  if (!p) throw notFound()
+  if (!p || !olympiadOn(await featureMapFor(tx, learnerId), p.subject)) throw notFound()
   return {
     shell: await learnerShell(tx, learner),
     presetId: p.id,
     title: p.title,
-    sub: `${SUBJECT_LINE[p.subject]}, ${p.rules.questionCount} questions, ${p.rules.timeLimitMin} minutes`,
+    sub: t.arena.competition.sub(t.common.subject[p.subject], p.rules.questionCount, p.rules.timeLimitMin),
     verified: p.verified,
     rules: p.howItWorks,
     tip: p.tip ?? null,
     questionCount: p.rules.questionCount,
     timeLimitSec: p.rules.timeLimitMin * 60,
     optionCount: p.rules.optionCount,
-    startLabel: 'Start the practice',
+    startLabel: t.arena.competition.startLabel,
   }
 }
 
@@ -123,7 +129,7 @@ export async function pickSimulationItems(tx: Tx, learner: LearnerRow, p: Preset
 export async function startSimulation(tx: Tx, ctx: OrgContext, learnerId: string, presetId: string): Promise<string> {
   const learner = await loadLearner(tx, learnerId)
   const p = preset(presetId)
-  if (!p) throw notFound()
+  if (!p || !olympiadOn(await featureMapFor(tx, learnerId), p.subject)) throw notFound()
   const open = await tx
     .select({ id: attempt.id })
     .from(attempt)
@@ -131,7 +137,7 @@ export async function startSimulation(tx: Tx, ctx: OrgContext, learnerId: string
     .limit(1)
   if (open[0]) return open[0].id
   const picked = await pickSimulationItems(tx, learner, p, `${learnerId}:${presetId}:${Date.now()}`)
-  if (picked.length === 0) throw invalid('No questions are ready for this practice yet.')
+  if (picked.length === 0) throw invalid((await requestDict()).arena.errors.noSimQuestions)
   const simItems = await guardAttemptItems(tx, picked.map((x, i) => ({ ref: x.ref, section: 'core' as const, position: i + 1, difficulty: x.difficulty })), { seed: `${learnerId}:${presetId}:sim`, mode: 'simulasi' })
   const [row] = await tx
     .insert(attempt)
@@ -183,8 +189,11 @@ export async function esmoPacks(tx: Tx, learner: LearnerRow): Promise<Pack[]> {
 }
 
 export async function esmoDTO(tx: Tx, learnerId: string): Promise<EsmoDTO> {
+  const lang = await requestLang()
+  const t = dictFor(lang).arena.esmo
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
+  const features = await featureMapFor(tx, learnerId)
   const packs = await esmoPacks(tx, learner)
   const atts = await tx
     .select({ id: attempt.id, refId: attempt.refId, status: attempt.status, scaled: attempt.scoreScaled, kind: attempt.kind })
@@ -209,27 +218,27 @@ export async function esmoDTO(tx: Tx, learnerId: string): Promise<EsmoDTO> {
     return {
       subject,
       name: subject === 'math' ? 'ESMO Math' : 'ESMO English',
-      langNote: subject === 'math' ? 'Questions in Indonesian. Tap Terms for English words.' : 'Questions in English.',
-      doneLine: `${done} of ${mapped.length} packs done`,
+      langNote: subject === 'math' ? t.langMath : t.langEnglish,
+      doneLine: t.doneLine(done, mapped.length),
       packs: mapped,
-      mockMeta: mock ? `${mock.rules.questionCount} questions, ${mock.rules.timeLimitMin} minutes` : '40 questions',
+      mockMeta: mock ? t.mockMeta(mock.rules.questionCount, mock.rules.timeLimitMin) : t.mockDefault,
       mockHref: `/esmo/mock/${subject}`,
     }
   }
   const f = final[0]
   return {
     shell: await learnerShell(tx, learner, today),
-    finalName: f?.name ?? 'ESMO final',
-    finalDate: f?.date && !f.estimate ? formatDateEn(f.date, true) : null,
+    finalName: f?.name ?? t.finalName,
+    finalDate: f?.date && !f.estimate ? (lang === 'en' ? formatDateEn(f.date, true) : new Intl.DateTimeFormat(htmlLang(lang), { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${f.date}T00:00:00Z`))) : null,
     daysToGo: f?.date && !f.estimate ? daysBetween(today, f.date) : null,
-    columns: [column('math'), column('english')],
+    columns: (['math', 'english'] as const).filter((s) => olympiadOn(features, s)).map(column),
   }
 }
 
 export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, packId: string): Promise<string> {
   const learner = await loadLearner(tx, learnerId)
   const pack = (await esmoPacks(tx, learner)).find((p) => p.id === packId)
-  if (!pack) throw notFound()
+  if (!pack || !olympiadOn(await featureMapFor(tx, learnerId), pack.subject)) throw notFound()
   const open = await tx
     .select({ id: attempt.id })
     .from(attempt)
@@ -247,7 +256,7 @@ export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, 
       refId: pack.id,
       mode: 'tes',
       subject: pack.subject,
-      title: `${pack.subject === 'math' ? 'ESMO Math' : 'ESMO English'} practice pack ${pack.num}`,
+      title: (await requestDict()).arena.esmo.packTitle(pack.subject === 'math' ? 'ESMO Math' : 'ESMO English', pack.num),
       items: packItems,
       timeLimitS: (p?.rules.timeLimitMin ?? (pack.subject === 'math' ? 13 : 10)) * 60,
     })
@@ -258,11 +267,11 @@ export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, 
 export async function startEsmoMock(tx: Tx, ctx: OrgContext, learnerId: string, subject: 'math' | 'english'): Promise<string> {
   const learner = await loadLearner(tx, learnerId)
   const p = preset(`esmo-${subject}-2026`)
-  if (!p) throw notFound()
+  if (!p || !olympiadOn(await featureMapFor(tx, learnerId), subject)) throw notFound()
   const packs = (await esmoPacks(tx, learner)).filter((x) => x.subject === subject)
   const rng = createRng(`${learnerId}:esmo-mock:${Date.now()}`)
   const refs = rng.shuffle(packs.flatMap((x) => x.refs)).slice(0, p.rules.questionCount)
-  if (refs.length === 0) throw invalid('No ESMO questions are ready yet.')
+  if (refs.length === 0) throw invalid((await requestDict()).arena.errors.noEsmoQuestions)
   const mockItems = await guardAttemptItems(tx, refs.map((ref, i) => ({ ref, section: 'core' as const, position: i + 1, difficulty: 3 })), { seed: `${learnerId}:esmo-mock:${subject}`, mode: 'simulasi' })
   const [row] = await tx
     .insert(attempt)
@@ -273,7 +282,7 @@ export async function startEsmoMock(tx: Tx, ctx: OrgContext, learnerId: string, 
       refId: p.id,
       mode: 'simulasi',
       subject,
-      title: `${subject === 'math' ? 'ESMO Math' : 'ESMO English'} mock test`,
+      title: (await requestDict()).arena.esmo.mockTitle(subject === 'math' ? 'ESMO Math' : 'ESMO English'),
       items: mockItems,
       timeLimitS: p.rules.timeLimitMin * 60,
     })

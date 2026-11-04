@@ -54,9 +54,10 @@ await sql.begin(async (tx) => {
   await tx`insert into auth.user_account (id, org_id, kind, role, email, name, password_hash, password_changed_at) values
     (${tutorId}, ${orgId}, 'adult', 'tutor', 'tutor@contoh.test', 'Tutor Contoh', ${await hash('kira-tutor-contoh-2026', ARGON)}, now()),
     (${mamaId}, ${orgId}, 'adult', 'guardian', 'mama@contoh.test', 'Mama Contoh', ${await hash('kira-mama-contoh-2026', ARGON)}, now())`
-  await tx`insert into auth.user_account (id, org_id, kind, role, email, name) values
-    (${aishaId}, ${orgId}, 'learner', 'learner', null, 'Aisha'),
-    (${rakaId}, ${orgId}, 'learner', 'learner', null, 'Raka')`
+  // Data contoh memakai tampilan Inggris supaya tes e2e lama tetap berlaku; anak baru mulai dengan tampilan Indonesia.
+  await tx`insert into auth.user_account (id, org_id, kind, role, email, name, ui_lang) values
+    (${aishaId}, ${orgId}, 'learner', 'learner', null, 'Aisha', 'en'),
+    (${rakaId}, ${orgId}, 'learner', 'learner', null, 'Raka', 'en')`
   await tx`insert into auth.learner_secret (user_id, pin_hash) values
     (${aishaId}, ${await hash('kira-pin:sun-moon-star-cat', ARGON)}),
     (${rakaId}, ${await hash('kira-pin:tree-apple-boat-ball', ARGON)})`
@@ -66,6 +67,8 @@ await sql.begin(async (tx) => {
   await tx`insert into learner_profile (user_id, org_id, name, avatar, grade, active) values
     (${aishaId}, ${orgId}, 'Aisha', 'fox', 2, true),
     (${rakaId}, ${orgId}, 'Raka', 'cat', 4, true)`
+  // Akun contoh sudah melewati onboarding dan walkthrough pertama.
+  await tx`update learner_profile set setup_path = 'custom', first_run_done_at = now() where org_id = ${orgId}`
   await tx`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgId}, ${mamaId}, ${aishaId}), (${orgId}, ${mamaId}, ${rakaId})`
   // Data contoh memakai hari Penuh (9 sesi wajib) supaya tes e2e lama tetap berlaku; learner baru memakai Seimbang.
   await tx`insert into day_rules (learner_id, org_id, preset) values (${aishaId}, ${orgId}, 'penuh'), (${rakaId}, ${orgId}, 'penuh')`

@@ -22,7 +22,7 @@ export function diminishing(table: readonly number[], doneToday: number): number
   return table[doneToday] ?? 0
 }
 
-/** Bintang bos: menang memberi 10 bintang sekali per minggu, mencoba lagi tidak memberi apa pun dan tidak mengurangi. */
+/** Bintang bos: kemenangan pertama tiap minggu memberi 10 bintang, lawan yang mana pun. Mencoba lagi tidak mengurangi apa pun. */
 export const BOSS_WIN_STARS = 10
 /** Menang bila benar sedikitnya 7 dari 10. */
 export const BOSS_WIN_AT = 7
@@ -35,9 +35,4 @@ export type CertificateDays = (typeof CERTIFICATE_DAYS)[number]
 /** Hari sebuah tonggak streak sudah tercapai oleh streak terbaik. */
 export function certificatesFor(bestStreak: number): CertificateDays[] {
   return CERTIFICATE_DAYS.filter((d) => bestStreak >= d)
-}
-
-/** Menang bila benar sedikitnya 70 persen dari soal yang ada (7 dari 10, 6 dari 8). */
-export function bossWinAt(total: number): number {
-  return Math.max(3, Math.ceil(total * 0.7))
 }

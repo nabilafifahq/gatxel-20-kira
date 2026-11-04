@@ -429,7 +429,40 @@
         "kmnr"
       ],
       "points": 3,
-      "expectedSeconds": 75
+      "expectedSeconds": 75,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many more rupiah does she need?"
+          ]
+        },
+        {
+          "say": "Mia needs Rp7.000 - Rp4.500 = Rp2.500 more.",
+          "mark": [
+            "Rp7.000",
+            "Rp4.500"
+          ],
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4500
+              },
+              {
+                "v": 2500,
+                "q": true
+              }
+            ],
+            "total": 7000,
+            "cur": "Rp"
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "2500 rupiah"
+        }
+      ]
     },
     {
       "id": "m2.oly-money.010",
@@ -965,7 +998,40 @@
         "kmnr"
       ],
       "points": 3,
-      "expectedSeconds": 75
+      "expectedSeconds": 75,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rupiah is the other note?"
+          ]
+        },
+        {
+          "say": "The other note is Rp7.000 - Rp2.000 = Rp5.000.",
+          "mark": [
+            "Rp7.000",
+            "Rp2.000"
+          ],
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 2000
+              },
+              {
+                "v": 5000,
+                "q": true
+              }
+            ],
+            "total": 7000,
+            "cur": "Rp"
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "5000 rupiah"
+        }
+      ]
     },
     {
       "id": "m2.oly-money.020",
