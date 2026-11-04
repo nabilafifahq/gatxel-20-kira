@@ -47,6 +47,8 @@ const baseConfig: NextConfig = {
     ],
   },
   poweredByHeader: false,
+  // Kira tidak memakai next/image. Pengoptimal gambar (/_next/image) dimatikan, jadi SVG dan sumber luar tidak pernah diproses.
+  images: { unoptimized: true, dangerouslyAllowSVG: false },
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
   devIndicators: false,

@@ -1,6 +1,7 @@
 'use server'
 
 import { refresh } from 'next/cache'
+import { throttleIp } from '../auth/ratelimit'
 import { z } from 'zod'
 import type { ActionResult, ConsentPurpose } from '@/lib/dto'
 import { inOrg } from '../db'
@@ -29,6 +30,7 @@ const uuid = z.string().uuid()
 export async function setConsentAction(input: { learnerId: string; purpose: ConsentPurpose['id']; granted: boolean }): Promise<ActionResult> {
   return runAction('setConsent', async () => {
     const actor = await requireGuardian()
+    await throttleIp('consent', 30, actor.userId)
     const data = z.object({ learnerId: uuid, purpose: z.enum(CONSENT_PURPOSES), granted: z.boolean() }).strict().parse(input)
     const ctx = orgCtx(actor)
     const r = await inOrg(ctx, (tx) => setConsentTx(tx, ctx, { guardianId: actor.userId, learnerId: data.learnerId, purpose: data.purpose, granted: data.granted }))

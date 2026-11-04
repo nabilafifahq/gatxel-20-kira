@@ -8,7 +8,9 @@ import { AppError, conflict, invalid, notFound } from '../errors'
 import { auditTx, systemCtx } from '../audit'
 import { queueEmail, simpleEmail } from '../dal/outbox'
 import { burnVerify, hashSecret, passwordProblem, verifySecret } from './password'
-import { ACCOUNT_LOCK_AFTER, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
+import { ACCOUNT_LOCK_AFTER, clientIp, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
+import { ipPrefix } from '@/lib/access-log'
+import { log } from '../log'
 import { randomToken, safeEqual, sha256hex } from './crypto'
 import { revokeUserSessions } from './session'
 import { setPin } from './pin'
@@ -32,15 +34,16 @@ export async function orgCount(): Promise<number> {
 
 /**
  * Login password. Akun tidak dikenal dan password salah menghasilkan pesan dan waktu yang sama.
- * Kegagalan dihitung per email (bukan per IP); setelah 100 kegagalan dalam 15 menit email itu dikunci 15 menit.
+ * Kegagalan dihitung per email (bukan per IP); setelah 20 kegagalan dalam 15 menit email itu dikunci 15 menit.
  */
 export async function loginWithPassword(emailRaw: string, password: string): Promise<{ id: string; orgId: string; role: 'tutor' | 'guardian' | 'learner' }> {
-  await throttleIp('login', 30)
+  await throttleIp('login', 120)
   const email = normaliseEmail(emailRaw)
   const key = `email:${sha256hex(email)}`
   const failures = await recentFailures(key)
   if (failures >= ACCOUNT_LOCK_AFTER) {
     await burnVerify(password)
+    log.warn('keamanan: akun dikunci karena terlalu banyak kegagalan', { event: 'login.locked', ipPrefix: ipPrefix(await clientIp()) })
     throw new AppError('locked', 'Terlalu banyak percobaan masuk untuk email ini. Akun dikunci 15 menit. Coba lagi nanti atau pakai Lupa password.')
   }
   await escalatingDelay(failures)
@@ -58,10 +61,12 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
     }
     if (!pending) await burnVerify(password)
     await recordAttempt(key, false)
+    log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
   if (!(await verifySecret(user.hash, password))) {
     await recordAttempt(key, false)
+    log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
   await recordAttempt(key, true)
@@ -178,7 +183,17 @@ export async function acceptInvite(input: { token: string; name: string; passwor
 
 /** Selalu berhasil dari sisi pengguna, ada atau tidak ada akunnya (tidak membocorkan akun). */
 export async function requestPasswordReset(emailRaw: string): Promise<void> {
-  await throttleIp('reset', 5)
+  await throttleIp('reset', 20)
+  const started = Date.now()
+  try {
+    await requestPasswordResetInner(emailRaw)
+  } finally {
+    // Waktu jawaban sama untuk email terdaftar dan tidak: tidak ada petunjuk akun dari lamanya respons.
+    await new Promise((r) => setTimeout(r, Math.max(0, 900 - (Date.now() - started)) + Math.random() * 100))
+  }
+}
+
+async function requestPasswordResetInner(emailRaw: string): Promise<void> {
   const email = normaliseEmail(emailRaw)
   const rows = await authDb()
     .select({ id: userAccount.id, orgId: userAccount.orgId, name: userAccount.name })
@@ -186,10 +201,7 @@ export async function requestPasswordReset(emailRaw: string): Promise<void> {
     .where(and(sql`lower(${userAccount.email}) = ${email}`, eq(userAccount.kind, 'adult'), isNull(userAccount.disabledAt)))
     .limit(1)
   const user = rows[0]
-  if (!user) {
-    await new Promise((r) => setTimeout(r, 300 + Math.random() * 300))
-    return
-  }
+  if (!user) return
   const link = await createResetLink(user.id)
   const mail = simpleEmail({
     title: 'Atur ulang password Kira',
@@ -217,7 +229,7 @@ export async function resetTokenValid(token: string): Promise<boolean> {
 }
 
 export async function resetPassword(token: string, password: string): Promise<void> {
-  await throttleIp('reset-confirm', 10)
+  await throttleIp('reset-confirm', 30)
   const rows = await authDb()
     .select({ id: resetToken.id, userId: resetToken.userId, email: userAccount.email, name: userAccount.name, orgId: userAccount.orgId })
     .from(resetToken)
@@ -228,8 +240,12 @@ export async function resetPassword(token: string, password: string): Promise<vo
   if (!row) throw notFound('Tautan atur ulang sudah tidak berlaku. Minta tautan baru dari halaman masuk.')
   const problem = await passwordProblem(password, { email: row.email ?? undefined, name: row.name })
   if (problem) throw invalid(problem, { password: problem })
+  // Klaim token secara atomik dulu: dua permintaan serentak dengan tautan yang sama hanya satu yang lolos.
+  const claimed = await authDb().update(resetToken).set({ usedAt: new Date() }).where(and(eq(resetToken.id, row.id), isNull(resetToken.usedAt))).returning({ id: resetToken.id })
+  if (!claimed[0]) throw notFound('Tautan atur ulang sudah tidak berlaku. Minta tautan baru dari halaman masuk.')
   await authDb().update(userAccount).set({ passwordHash: await hashSecret(password), passwordChangedAt: new Date(), failedLogins: 0, lockedUntil: null }).where(eq(userAccount.id, row.userId))
-  await authDb().update(resetToken).set({ usedAt: new Date() }).where(eq(resetToken.id, row.id))
+  // Tautan lain yang masih beredar untuk akun ini ikut hangus.
+  await authDb().update(resetToken).set({ usedAt: new Date() }).where(and(eq(resetToken.userId, row.userId), isNull(resetToken.usedAt)))
   await revokeUserSessions(row.userId)
   await inOrg(systemCtx(row.orgId), (tx) => auditTx(tx, systemCtx(row.orgId), 'password.reset', row.userId))
 }

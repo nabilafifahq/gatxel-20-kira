@@ -1,0 +1,38 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "Kira API (rute Route Handler)", "version": "1.0.0", "description": "Daftar rute /api untuk pemindaian ZAP. Server Action tidak punya URL tetap dan dicakup tes e2e." },
+  "servers": [{ "url": "http://10.77.0.1:3136" }],
+  "paths": {
+    "/api/health": { "get": { "responses": { "200": { "description": "ok" } } } },
+    "/api/heartbeat": { "post": { "responses": { "200": { "description": "ok" } } } },
+    "/api/sync": {
+      "post": {
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "answers": { "type": "array", "items": { "type": "object" } }, "submits": { "type": "array", "items": { "type": "object", "properties": { "attemptId": { "type": "string", "format": "uuid" }, "clientId": { "type": "string" } } } } } }, "example": { "answers": [], "submits": [] } } } },
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/tts/request": {
+      "post": {
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "clips": { "type": "array", "items": { "type": "object", "properties": { "text": { "type": "string" }, "style": { "type": "string" } } } } } }, "example": { "clips": [{ "text": "hello", "style": "normal" }] } } } },
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/tts/today": { "get": { "responses": { "200": { "description": "ok" } } } },
+    "/api/media/{id}": { "get": { "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }], "responses": { "200": { "description": "ok" }, "404": { "description": "tidak ada" } } } },
+    "/api/media": {
+      "post": {
+        "requestBody": { "required": true, "content": { "multipart/form-data": { "schema": { "type": "object", "properties": { "kind": { "type": "string", "enum": ["audio", "drawing", "image"] }, "attemptId": { "type": "string", "format": "uuid" }, "position": { "type": "integer" }, "file": { "type": "string", "format": "binary" } } } } } },
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/api/internal/weekly-report": {
+      "post": {
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "orgId": { "type": "string", "format": "uuid" }, "learnerId": { "type": "string", "format": "uuid" }, "weekStart": { "type": "string" } } }, "example": { "orgId": "00000000-0000-4000-8000-000000000000", "learnerId": "00000000-0000-4000-8000-000000000000", "weekStart": "2026-11-02" } } } },
+        "responses": { "401": { "description": "token salah" } }
+      }
+    },
+    "/api/mcp": { "post": { "requestBody": { "content": { "application/json": { "schema": { "type": "object" } } } }, "responses": { "404": { "description": "mati" } } } },
+    "/api/apk": { "get": { "responses": { "401": { "description": "tanpa sesi" } } } },
+    "/tts/{file}": { "get": { "parameters": [{ "name": "file", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "404": { "description": "tidak ada" } } } }
+  }
+}

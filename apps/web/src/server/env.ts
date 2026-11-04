@@ -35,7 +35,7 @@ const schema = z.object({
   /** Alamat layanan suara (Qwen3-TTS) untuk worker. Web hanya memeriksa apakah ada: kosong berarti tablet memakai suara bawaan. */
   TTS_URL: z.string().url().optional(),
   /** Endpoint MCP di /api/mcp untuk Claude (Claude Code atau Claude Desktop) dengan token dari konsol. */
-  KIRA_MCP: z.enum(['on', 'off']).default('on'),
+  KIRA_MCP: z.enum(['on', 'off']).default('off'),
   /** Folder cadangan yang dipasang read-only ke container web (berisi status.json dari layanan backup). */
   KIRA_BACKUP_DIR: z.string().optional(),
   /** Nama folder cadangan yang ditampilkan di konsol, misalnya D:\\Kira\\backups. */

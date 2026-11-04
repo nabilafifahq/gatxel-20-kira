@@ -1,4 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { httpsRedirectTarget } from '@/lib/https-redirect'
+import { accessLogLine } from '@/lib/access-log'
 
 /**
  * CSP ber-nonce untuk semua halaman (GTX-ENG-001, aplikasi terautentikasi).
@@ -11,6 +13,11 @@ const SESSION_COOKIE = '__Host-kira.session'
 const DEVICE_COOKIE = '__Host-kira.device'
 
 export function proxy(request: NextRequest) {
+  const redirect = httpsRedirectTarget(request.headers, request.nextUrl.pathname + request.nextUrl.search, process.env.NODE_ENV === 'production', process.env.KIRA_ORIGIN)
+  // eslint-disable-next-line no-console -- log akses JSON satu baris; proxy tidak bisa memakai server/log (server-only)
+  if (process.env.KIRA_ACCESS_LOG !== 'off') console.log(accessLogLine(request.method, request.nextUrl.pathname, request.headers))
+  if (redirect) return NextResponse.redirect(redirect, 308)
+  if (request.nextUrl.pathname.startsWith('/api/')) return NextResponse.next()
   const path = request.nextUrl.pathname
   const anonymousHome = path === '/' && !request.cookies.has(SESSION_COOKIE) && !request.cookies.has(DEVICE_COOKIE)
   const turnstile = Boolean(process.env.KIRA_TURNSTILE_SITE_KEY && process.env.KIRA_TURNSTILE_SECRET) && (path === '/' ? anonymousHome : TURNSTILE_PATHS.some((re) => re.test(path)))
@@ -49,7 +56,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     {
-      source: '/((?!api|_next/static|_next/image|favicon.ico|icons|sounds|sw.js|manifest.webmanifest|fonts).*)',
+      source: '/((?!_next/static|_next/image|favicon.ico|icons|sounds|sw.js|manifest.webmanifest|fonts).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },
