@@ -6,9 +6,6 @@ import { GUARDIAN, loginAdult, noHorizontalScroll, watchErrors } from './helpers
 
 const GUIDES = ['/panduan', '/panduan/anak', '/panduan/aplikasi'] as const
 
-/** Halaman bantuan dibuat di cabang pilot/dukungan. Hapus dari daftar ini setelah cabang itu tergabung. */
-const NOT_MERGED_YET = new Set(['/feedback'])
-
 /** Semua alamat internal di halaman, tanpa duplikat. */
 async function internalLinks(page: Page): Promise<string[]> {
   const hrefs = await page.locator('a[href]').evaluateAll((els) => els.map((e) => e.getAttribute('href') ?? ''))
@@ -28,7 +25,7 @@ test('ketiga panduan terbuka tanpa masuk, tanpa pelanggaran axe, dan muat di lay
       await noHorizontalScroll(page)
     }
   }
-  expect(errors.filter((e) => !e.includes('/feedback'))).toEqual([])
+  expect(errors).toEqual([])
 })
 
 test('tautan internal, jangkar, dan gambar di panduan semuanya hidup', async ({ page, request }) => {
@@ -36,7 +33,7 @@ test('tautan internal, jangkar, dan gambar di panduan semuanya hidup', async ({ 
     await page.goto(path)
     for (const link of await internalLinks(page)) {
       const [target, hash] = link.split('#')
-      if (target && !NOT_MERGED_YET.has(target)) {
+      if (target) {
         const res = await request.get(target)
         expect(res.status(), `${path} menaut ke ${link}`).toBeLessThan(400)
       }

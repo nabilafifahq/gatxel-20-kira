@@ -65,7 +65,7 @@ export const MULAI: { title: string; body: ReactNode }[] = [
     title: 'Berikan akses ke anak',
     body: (
       <>
-        Di tablet atau HP anak, buka Kira dan masuk dengan akun Ayah/Bunda sekali saja, lalu tekan <L>Buka Kira untuk anak</L>. Akun orang tua keluar otomatis dari perangkat itu. Beri tahu anak urutan empat gambarnya.
+        Di tablet atau HP anak, buka Kira dan masuk dengan akun Ayah/Bunda sekali saja, lalu tekan <L>Mulai belajar sebagai anak</L>. Perangkat lain bisa ditambah lewat <L>Daftarkan perangkat ini</L> di halaman Keluarga. Akun orang tua keluar otomatis dari perangkat itu. Beri tahu anak urutan empat gambarnya.
       </>
     ),
   },
