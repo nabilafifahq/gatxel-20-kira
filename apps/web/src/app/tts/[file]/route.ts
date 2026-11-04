@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { ttsKeyFromFile } from '@kira/core/tts'
 import { getActor } from '@/server/auth/actor'
+import { throttleResponse } from '@/server/auth/ratelimit'
 import { readClip } from '@/server/tts'
 
 export const dynamic = 'force-dynamic'
@@ -13,6 +14,9 @@ export const dynamic = 'force-dynamic'
 export async function GET(_req: Request, { params }: { params: Promise<{ file: string }> }) {
   const actor = await getActor()
   if (!actor) return new NextResponse('Masuk dulu', { status: 401, headers: { 'Cache-Control': 'no-store' } })
+  // Klip yang sudah ada dilayani proxy tanpa sampai ke sini. Service worker bisa meminta ratusan klip sekaligus.
+  const limited = await throttleResponse('tts-file', 900, actor.userId)
+  if (limited) return limited
   const key = ttsKeyFromFile((await params).file)
   if (!key) return new NextResponse('Tidak ditemukan', { status: 404, headers: { 'Cache-Control': 'no-store' } })
   const buf = await readClip(key)

@@ -6,7 +6,7 @@ import { AppError, newReference } from '@/server/errors'
 import { log } from '@/server/log'
 import { answerPayloadSchema, saveAnswer, submitAttempt } from '@/server/dal/learner-runner'
 import type { AnswerPayload } from '@/lib/dto'
-import { sameOrigin } from '@/server/http'
+import { parseJson, readTextCapped, sameOrigin } from '@/server/http'
 import { throttleResponse } from '@/server/auth/ratelimit'
 import { invalidateLearnerToday } from '@/server/today-cache'
 
@@ -26,9 +26,9 @@ export async function POST(req: Request) {
   if (!sameOrigin(req)) return NextResponse.json({ error: 'origin' }, { status: 403 })
   const limited = await throttleResponse('sync', 60, actor.userId)
   if (limited) return limited
-  const len = Number(req.headers.get('content-length') ?? '0')
-  if (len > 1_500_000) return NextResponse.json({ error: 'too-large' }, { status: 413 })
-  const parsed = body.safeParse(await req.json().catch(() => null))
+  const text = await readTextCapped(req, 1_500_000)
+  if (text === null) return NextResponse.json({ error: 'too-large' }, { status: 413 })
+  const parsed = body.safeParse(parseJson(text))
   if (!parsed.success) return NextResponse.json({ error: 'invalid', reference: newReference() }, { status: 400 })
   const ctx = orgCtx(actor)
   const answers: { clientId: string; ok: boolean; retry: boolean }[] = []
