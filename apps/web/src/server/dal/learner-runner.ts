@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, eq, inArray, isNull } from 'drizzle-orm'
+import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
@@ -352,6 +352,8 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
 type Topic = { label: string; right: number; total: number }
 
 export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, attemptId: string): Promise<{ redirectTo: string }> {
+  // Kunci baris attempt: kumpul ganda (klik dua kali, sinkron offline bersamaan) menunggu, lalu melihat status sudah selesai.
+  await tx.execute(sql`select 1 from attempt where id = ${attemptId} and learner_id = ${learnerId} for update`)
   const a = await loadAttempt(tx, learnerId, attemptId)
   const redirectTo = a.refId?.startsWith('boss:') ? `/world/boss/result/${a.id}` : `/results/${a.id}`
   if (a.status !== 'in_progress') return { redirectTo }

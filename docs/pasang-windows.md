@@ -9,7 +9,10 @@ Yang berjalan di Docker:
 | `db` | Postgres 17 dengan TLS. Hanya terhubung ke jaringan internal Docker, tanpa akses internet. |
 | `certs` | Membuat sertifikat TLS lokal untuk database sekali di awal. |
 | `migrate` | Menjalankan migrasi database setiap kali stack dinyalakan, lalu berhenti. Dipakai juga untuk perintah admin. |
-| `web` | Aplikasi Next.js di `127.0.0.1:3000` (di PC server Kira dibuat 3030 lewat `docker-compose.override.yml`). Cloudflare Tunnel meneruskan alamat https ke sini. |
+| `proxy` | Caddy di `127.0.0.1:3030` (ubah lewat `KIRA_PROXY_PORT`). Cloudflare Tunnel meneruskan alamat https ke sini. Membagi beban ke replika web, menyajikan berkas statis dan klip suara langsung, menutup `/api/internal`. |
+| `web` | Aplikasi Next.js, beberapa replika (`KIRA_WEB_REPLICAS`, bawaan 4), tanpa port ke host. |
+| `pgbouncer` | Pooling sambungan database (mode transaksi) antara web dan Postgres. Hanya jaringan internal. |
+| `valkey` | Pembatas laju dan cache sesi bersama semua replika. Hanya jaringan internal, password dari `.env`. Hanya cache: bila mati, Kira tetap jalan. |
 | `worker` | Job AI (Claude Max lewat Claude Code, atau ai.gatxel.com), impor PDF, email, laporan mingguan, retensi data, penghapusan akun. |
 | `backup` | `pg_dump` setiap hari pukul 02.00 WIB ke folder Windows, simpan 14 harian dan 8 mingguan. |
 
@@ -51,7 +54,7 @@ cd C:\Kira\app
 
 Alamat Kira adalah `https://kira.gatxel.com`. Salin alamat itu (tanpa garis miring di akhir) ke `KIRA_ORIGIN` di `.env`. Alamat ini juga dipakai untuk passkey, tautan email, dan APK tablet, jadi jangan diganti setelah keluarga mulai memakai Kira.
 
-Hubungkan nama itu ke web di PC. Port web bawaan compose adalah 3000. Bila port itu sudah dipakai proses lain, terbitkan port lain lewat `docker-compose.override.yml` (di server Kira: `127.0.0.1:3030:3000`) dan pakai port itu di bawah.
+Hubungkan nama itu ke proxy di PC. Port proxy bawaan compose adalah 3030 (`KIRA_PROXY_PORT` di `.env`). Web sendiri tidak punya port ke host.
 
 **Lewat dasbor Cloudflare** (cara paling mudah): Zero Trust, Networks, Tunnels, pilih tunnel PC ini, tab Published application routes, Add. Hostname `kira.gatxel.com`, Service type HTTP, URL `127.0.0.1:3030`. Cloudflare membuat catatan DNS-nya sendiri.
 
@@ -234,7 +237,7 @@ Next.js merilis pembaruan keamanan setiap bulan. Repo memakai Dependabot dengan 
 
 ## 14. Keamanan
 
-- Akses lewat Cloudflare Tunnel. Web hanya terbuka di `127.0.0.1` (port 3000, atau 3030 di server Kira), tidak ada port masuk di router, database tidak punya port di host, dan database tidak bisa mengakses internet. Lalu lintas lewat pusat data Cloudflare, sebagian di luar Indonesia; Kebijakan Privasi menyebut hal ini.
+- Akses lewat Cloudflare Tunnel. Hanya proxy yang terbuka, di `127.0.0.1` (port 3030), tidak ada port masuk di router, database tidak punya port di host, dan database tidak bisa mengakses internet. Lalu lintas lewat pusat data Cloudflare, sebagian di luar Indonesia; Kebijakan Privasi menyebut hal ini.
 - Database dipakai lewat empat role dengan RLS (lihat ADR 0002). Koneksi ke database memakai TLS dengan verifikasi sertifikat lokal.
 - Rahasia hanya ada di `.env`. Kalau `.env` pernah terkirim ke tempat lain, ganti semua nilainya. Password database hanya dipakai saat database pertama kali dibuat, jadi password role juga harus diganti di database:
 
@@ -320,3 +323,74 @@ Hapus `COMPOSE_PROFILES`, `COMPOSE_FILE`, dan `TTS_URL` dari `.env`, lalu `docke
 | Log `tts` berisi "belum diunduh" | Jalankan langkah 1 (`tts-fetch`). |
 | Log `tts` berisi "GPU hanya punya ... MiB kosong" | Program lain memakai GPU. Tunggu atau hentikan program itu; batch lanjut sendiri. |
 | `selftest.py` sangat lambat | Kontainer tidak melihat GPU. Pastikan `docker-compose.tts-gpu.yml` ikut di `COMPOSE_FILE` dan `docker compose exec tts python -c "import torch; print(torch.cuda.is_available())"` mencetak True. |
+
+## 16. Kapasitas, staging, dan uji beban
+
+Bagian ini menjelaskan susunan yang membuat Kira tetap cepat saat banyak keluarga aktif bersamaan, cara menjalankan salinan uji (staging) di PC yang sama, dan langkah pindah dari susunan lama ke susunan ini. Hasil uji ada di `docs/laporan-beban.md`.
+
+### Susunan
+
+```
+Cloudflare Tunnel -> proxy (Caddy, 127.0.0.1:3030) -> web x N -> pgbouncer -> db (Postgres, TLS)
+                                                        |-> valkey (pembatas laju, cache sesi dan Today)
+worker -> web:3000 (jaringan internal, tanpa proxy);   worker, migrate, backup -> db langsung
+```
+
+- **Proxy** menyajikan langsung dari disk: `/_next/static` (cache setahun, immutable), `/sounds`, `/flags`, `/fonts`, `/icons`, `/maps` (cache 7 hari), dan `/tts/<sha256>.mp3` dari folder data yang dipasang read-only (cache setahun, immutable). Jadi Cloudflare menyimpan semuanya dan unggahan rumah (sekitar 29 Mbps) tidak terpakai untuk berkas statis. Klip yang belum ada diteruskan ke web. Batas isi permintaan: 8 MB di semua jalur, 62 MB hanya untuk `/konsol/impor` dan `/api/media` (jenis dan ukuran tetap diperiksa web). `/api/internal/*` dijawab 404 oleh proxy; worker memanggilnya langsung ke `web:3000`. IP klien dibaca dari `CF-Connecting-IP` dan diteruskan sebagai `X-Forwarded-For`.
+- **Image proxy memuat salinan berkas statis dari image web.** Bangun keduanya bersama (`docker compose build web proxy`, atau `up -d --build`); jangan membangun web saja.
+- **PgBouncer** mode transaksi, TLS terverifikasi ke Postgres, tanpa pernyataan prepared (`KIRA_DB_PREPARE=off` untuk web). `withOrg` aman karena memakai `set_config(..., true)` di dalam transaksi, dan kunci advisory yang dipakai bersifat transaksi (`pg_advisory_xact_lock`). Role tetap terpisah: web memakai `kira_app` dan `kira_auth` lewat PgBouncer; `kira_worker` dan `kira_owner` (migrate, backup) langsung ke db. Pool server: 30 untuk kira_app dan 15 untuk kira_auth (batas role di Postgres 40 dan 20).
+- **Valkey** menyimpan ember token (pembatas laju IP, MCP, permintaan suara), cache sesi 15 detik, dan cache layar Today 30 detik. Tanpa Valkey, tiap replika memakai memori sendiri dan batasnya menjadi per replika; tidak ada data yang hilang karena semuanya cache.
+
+### Variabel baru di .env
+
+| Variabel | Bawaan | Arti |
+|---|---|---|
+| `KIRA_VALKEY_PASSWORD` | `KIRA_INTERNAL_TOKEN` | Password Valkey, hex acak (`kira.ps1 init` mengisinya). Bila kosong, memakai `KIRA_INTERNAL_TOKEN`. |
+| `KIRA_PROXY_PORT` | 3030 | Port proxy di 127.0.0.1. |
+| `KIRA_WEB_REPLICAS` | 4 | Jumlah replika web. |
+| `KIRA_POOL_APP`, `KIRA_POOL_AUTH` | 12, 6 | Sambungan per replika ke PgBouncer. |
+| `PGB_POOL_APP`, `PGB_POOL_AUTH` | 30, 15 | Sambungan PgBouncer ke Postgres per role. |
+| `KIRA_WEB_HEAP_MB` | 1024 | Batas heap Node per replika. |
+| `PG_MAX_CONNECTIONS`, `PG_SHARED_BUFFERS`, `PG_EFFECTIVE_CACHE_SIZE`, `PG_WORK_MEM` | 150, 1GB, 6GB, 16MB | Penyetelan Postgres. |
+| `KIRA_WEB_IMAGE`, `KIRA_WORKER_IMAGE`, `KIRA_PROXY_IMAGE` | kira-web:latest, kira-worker:latest, kira-proxy:latest | Nama image; staging memakai nama lain supaya tidak menimpa produksi. |
+
+Penyetelan Postgres lain ada di `docker-compose.yml` (WAL: `wal_compression`, `max_wal_size=4GB`, `checkpoint_timeout=15min`; `random_page_cost=1.1`; `idle_in_transaction_session_timeout=60s`; `log_min_duration_statement=500`; `pg_stat_statements` dimuat). Mengubah flag membuat `db` restart sekitar 10 detik. `synchronous_commit` tetap on: data anak tidak boleh hilang karena listrik padam.
+
+### Staging (project kirastg)
+
+Staging adalah salinan lengkap dengan volume, jaringan, nama image, dan port sendiri (web 3135, Mailpit 8135), jalan di PC yang sama. Salin `deploy/load/env.staging.example` ke `C:kw4stgenv.staging` (di luar repo). Isi berkas env staging dengan nilai acak baru (jangan memakai kata sandi produksi), `KIRA_ORIGIN=http://127.0.0.1:3135`, `KIRA_PROXY_PORT=3135`, `KIRA_HOST_DATA` dan `KIRA_HOST_BACKUPS` ke folder lain, `KIRA_WEB_IMAGE=kirastg-web:latest`, `KIRA_WORKER_IMAGE=kirastg-worker:latest`, `KIRA_PROXY_IMAGE=kirastg-proxy:latest`, `SMTP_URL=smtp://mailpit:1025`, `AI_PROVIDER=none`.
+
+```powershell
+$E = '--env-file','C:\kw4\stg\env.staging'
+docker compose -p kirastg @E --profile loadtest up -d --build     # nyalakan (dengan Mailpit)
+docker compose -p kirastg @E --profile loadtest down              # matikan, data tetap
+docker compose -p kirastg @E --profile loadtest down -v           # matikan dan hapus data staging
+```
+
+`-p kirastg` mengalahkan `name: kira` di compose, jadi kontainer, volume, dan jaringan bernama kirastg-*. Jangan menjalankan perintah compose untuk staging tanpa `-p kirastg`. Seed uji beban menolak jalan kecuali `KIRA_ORIGIN` diawali `http://127.0.0.1`.
+
+### Uji beban (k6)
+
+Skenario ada di `deploy/load/` (lihat kepala `kira.js`). Alurnya:
+
+```powershell
+node deploy/load/actions.mjs                    # ID Server Action dari kontainer web yang sedang jalan (ulangi setiap build)
+node deploy/load/prep.mjs C:\kw4\stg\data 200   # klip suara palsu untuk skenario audio
+docker compose -p kirastg @E --profile loadtest --profile loadrun run --rm -e FAMILIES=500 seed --reset --and-create
+node deploy/load/run.mjs --scenario mixed --stage 300
+```
+
+`run.mjs` menjalankan k6 di jaringan staging, mencuplik CPU, RAM, sambungan Postgres dan PgBouncer tiap 5 detik, dan menulis `deploy/load/out/<nama>/result.md`. Skenario: `signup` (daftar lalu verifikasi lewat Mailpit), `signin`, `pin`, `today`, `latihan`, `tes`, `paper`, `audio`, `qm`, `quiz`, `parent`, `mixed`, `spike`. Tahap: `--stage 100|300|500|1000|soak` (`--soak-min 30`); `spike` naik dari 0 ke 500 VU dalam 30 detik. Seed ulang sebelum tiap tahap supaya setiap anak mulai dari hari yang segar.
+
+### Pindah dari susunan lama ke susunan ini (produksi)
+
+Di PC server Kira ada `docker-compose.override.yml` lokal (tidak ada di git) yang menerbitkan web di 3030, dan `COMPOSE_FILE` di `.env` memuatnya bersama `docker-compose.tts-gpu.yml`; profil `tts` juga aktif. Semua itu tetap dipakai, kecuali bagian port web di override.
+
+1. Cadangan dulu: `.\deploy\windows\kira.ps1 backup`. Pastikan berkas hasilnya ada.
+2. Tambahkan ke `.env`: `KIRA_VALKEY_PASSWORD=<hex acak 48 karakter>`, `KIRA_PROXY_PORT=3030`, `KIRA_WEB_REPLICAS=4`. Untuk pilot: `AI_PROVIDER=none`.
+3. Edit `docker-compose.override.yml`: hapus bagian `web: ports: - "127.0.0.1:3030:3000"`. Bila dibiarkan, port 3030 bentrok antara web dan proxy, dan beberapa replika tidak bisa berbagi satu port. Biarkan bagian lain (GPU, tts) dan biarkan `COMPOSE_FILE` serta `COMPOSE_PROFILES` apa adanya. Cloudflare Tunnel tidak perlu diubah (tetap `127.0.0.1:3030`).
+4. `git pull` (kode yang sudah digabung), lalu `docker compose up -d --build`. Compose membangun web, worker, dan proxy bersama, menjalankan migrasi 0015, merestart `db` (flag baru), membuat pgbouncer dan valkey, empat replika web, lalu proxy. Situs tidak tersedia sekitar 1 sampai 2 menit.
+5. Periksa: `docker compose ps` (semua healthy), `curl http://127.0.0.1:3030/api/health` memberi `{"ok":true}`, `curl -i http://127.0.0.1:3030/api/internal/weekly-report` memberi 404, buka situs lewat Cloudflare dan masuk sebagai Syakira, jawab satu soal, putar satu suara. Worker: `docker compose logs --tail 20 worker`.
+6. Setelah satu hari stabil, buat `pg_stat_statements` bila belum: `docker compose exec db psql -U postgres -d kira -c "create extension if not exists pg_stat_statements"`.
+
+Pemulihan ke susunan lama: kembalikan bagian port web di override, `git checkout` ke commit sebelumnya, `docker compose up -d --build`. Data tidak berubah bentuk (migrasi 0015 hanya menambah fungsi dan satu penanda di `org.settings`), jadi pemulihan aman.

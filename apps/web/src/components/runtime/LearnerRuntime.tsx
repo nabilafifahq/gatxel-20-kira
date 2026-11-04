@@ -45,7 +45,7 @@ export function LearnerRuntime({ screenLimitMin }: { screenLimitMin: number }) {
       }
     }
     void ping()
-    const t = window.setInterval(ping, 60000)
+    const t = window.setInterval(ping, 120000)
     return () => {
       stopped = true
       window.clearInterval(t)

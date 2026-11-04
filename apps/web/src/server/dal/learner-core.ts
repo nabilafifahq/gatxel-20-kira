@@ -142,7 +142,8 @@ export async function addMinutes(tx: Tx, ctx: OrgContext, learnerId: string, dat
     .onConflictDoUpdate({
       target: [dayRecord.learnerId, dayRecord.date],
       set: {
-        minutes: sql`case when ${dayRecord.lastPingAt} is null or ${dayRecord.lastPingAt} < now() - interval '50 seconds' then ${dayRecord.minutes} + 1 else ${dayRecord.minutes} end`,
+        // Detak tiap 2 menit: selisih sampai 2,5 menit dihitung menurut lamanya (1 sampai 2 menit); selisih lebih lama dihitung 1.
+        minutes: sql`case when ${dayRecord.lastPingAt} is null or ${dayRecord.lastPingAt} < now() - interval '50 seconds' then ${dayRecord.minutes} + (case when ${dayRecord.lastPingAt} is not null and ${dayRecord.lastPingAt} >= now() - interval '150 seconds' then least(2, greatest(1, round(extract(epoch from now() - ${dayRecord.lastPingAt}) / 60)::int)) else 1 end) else ${dayRecord.minutes} end`,
         lastPingAt: sql`case when ${dayRecord.lastPingAt} is null or ${dayRecord.lastPingAt} < now() - interval '50 seconds' then now() else ${dayRecord.lastPingAt} end`,
       },
     })
@@ -195,6 +196,8 @@ export async function applyOutcome(
 ): Promise<number> {
   const { learner, item } = input
   if (input.attemptNo === 1 && !input.retry) {
+    // Jawaban paralel pada skill yang sama (dua tab, sinkron offline bersamaan) tidak boleh saling menimpa theta dan kartu koreksi.
+    await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`kira-skill:${learner.userId}:${item.skill}`}))`)
     const rows = await tx
       .select()
       .from(skillState)

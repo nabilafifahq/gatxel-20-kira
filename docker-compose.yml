@@ -1,7 +1,8 @@
 # Kira di server rumah (Windows 11 + Docker Desktop). Panduan: docs/pasang-windows.md
-# Semua nilai rahasia ada di .env (salin dari .env.example). Hanya web yang terbuka, di 127.0.0.1:3000,
-# lalu Cloudflare Tunnel (cloudflared) meneruskan https://kira.gatxel.com ke sana. Bila port 3000 sudah
-# dipakai proses lain, terbitkan port lain lewat docker-compose.override.yml (server Kira: 127.0.0.1:3030).
+# Semua nilai rahasia ada di .env (salin dari .env.example). Hanya proxy (Caddy) yang terbuka, di 127.0.0.1:${KIRA_PROXY_PORT:-3030},
+# lalu Cloudflare Tunnel (cloudflared) meneruskan https://kira.gatxel.com ke sana. Proxy membagi beban ke beberapa replika web
+# (KIRA_WEB_REPLICAS), web bicara ke database lewat PgBouncer, dan Valkey menyimpan pembatas laju serta cache sesi bersama.
+# Staging: docker compose -p kirastg --env-file .env.staging ... (lihat docs/pasang-windows.md bagian "Kapasitas dan staging").
 
 name: kira
 
@@ -44,6 +45,44 @@ services:
       - hba_file=/etc/kira/pg_hba.conf
       - -c
       - password_encryption=scram-sha-256
+      # Penyetelan untuk VM Docker Desktop 31 GB yang dibagi dengan layanan lain (lihat docs/pasang-windows.md).
+      - -c
+      - max_connections=${PG_MAX_CONNECTIONS:-150}
+      - -c
+      - shared_buffers=${PG_SHARED_BUFFERS:-1GB}
+      - -c
+      - effective_cache_size=${PG_EFFECTIVE_CACHE_SIZE:-6GB}
+      - -c
+      - work_mem=${PG_WORK_MEM:-16MB}
+      - -c
+      - maintenance_work_mem=256MB
+      - -c
+      - wal_compression=on
+      - -c
+      - wal_buffers=16MB
+      - -c
+      - max_wal_size=4GB
+      - -c
+      - min_wal_size=512MB
+      - -c
+      - checkpoint_timeout=15min
+      - -c
+      - checkpoint_completion_target=0.9
+      - -c
+      - random_page_cost=1.1
+      - -c
+      - effective_io_concurrency=200
+      - -c
+      - idle_in_transaction_session_timeout=60s
+      - -c
+      - log_min_duration_statement=500
+      - -c
+      - track_io_timing=on
+      - -c
+      - shared_preload_libraries=pg_stat_statements
+      - -c
+      - pg_stat_statements.track=top
+    shm_size: 512mb
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?isi POSTGRES_PASSWORD di .env}
       KIRA_OWNER_PASSWORD: ${KIRA_OWNER_PASSWORD:?isi KIRA_OWNER_PASSWORD di .env}
@@ -63,7 +102,7 @@ services:
     networks: [internal]
 
   migrate:
-    image: kira-web:latest
+    image: ${KIRA_WEB_IMAGE:-kira-web:latest}
     pull_policy: never
     restart: "no"
     depends_on:
@@ -84,20 +123,33 @@ services:
       dockerfile: deploy/docker/web.Dockerfile
       args:
         KIRA_ORIGIN: ${KIRA_ORIGIN}
-    image: kira-web:latest
+    image: ${KIRA_WEB_IMAGE:-kira-web:latest}
     restart: unless-stopped
+    # Beberapa replika di belakang proxy. Tanpa port ke host: hanya proxy (dan worker lewat jaringan internal) yang menjangkau web.
+    deploy:
+      replicas: ${KIRA_WEB_REPLICAS:-4}
     depends_on:
       migrate:
         condition: service_completed_successfully
+      pgbouncer:
+        condition: service_started
+      valkey:
+        condition: service_healthy
     environment:
       KIRA_ORIGIN: ${KIRA_ORIGIN:?isi KIRA_ORIGIN di .env dengan alamat https publik Kira}
       KIRA_RP_NAME: ${KIRA_RP_NAME:-Kira}
       KIRA_SECRET: ${KIRA_SECRET:?isi KIRA_SECRET di .env}
       KIRA_SETUP_TOKEN: ${KIRA_SETUP_TOKEN:-}
       KIRA_INTERNAL_TOKEN: ${KIRA_INTERNAL_TOKEN:?isi KIRA_INTERNAL_TOKEN di .env}
-      DATABASE_URL_APP: postgres://kira_app:${KIRA_APP_PASSWORD}@db:5432/kira
-      DATABASE_URL_AUTH: postgres://kira_auth:${KIRA_AUTH_PASSWORD}@db:5432/kira
-      PGSSLROOTCERT: /certs/ca.crt
+      # Lewat PgBouncer (mode transaksi): tanpa pernyataan prepared. TLS ke Postgres dilakukan PgBouncer.
+      DATABASE_URL_APP: postgres://kira_app:${KIRA_APP_PASSWORD}@pgbouncer:6432/kira
+      DATABASE_URL_AUTH: postgres://kira_auth:${KIRA_AUTH_PASSWORD}@pgbouncer:6432/kira
+      KIRA_DB_PREPARE: ${KIRA_DB_PREPARE:-off}
+      KIRA_POOL_APP: ${KIRA_POOL_APP:-12}
+      KIRA_POOL_AUTH: ${KIRA_POOL_AUTH:-6}
+      KIRA_TODAY_CACHE: ${KIRA_TODAY_CACHE:-on}
+      KIRA_VALKEY_URL: redis://:${KIRA_VALKEY_PASSWORD:-${KIRA_INTERNAL_TOKEN}}@valkey:6379
+      NODE_OPTIONS: --max-old-space-size=${KIRA_WEB_HEAP_MB:-1024}
       KIRA_DATA_DIR: /data
       # Kosong: suara bahasa Inggris memakai suara bawaan tablet. Diisi http://tts:8000 saat profil tts dipakai.
       TTS_URL: ${TTS_URL:-}
@@ -126,10 +178,7 @@ services:
     logging:
       driver: json-file
       options: { max-size: "10m", max-file: "5" }
-    ports:
-      - "127.0.0.1:3000:3000"
     volumes:
-      - *ca-mount
       - ${KIRA_HOST_DATA:-./data}:/data
       - type: bind
         source: ${KIRA_HOST_BACKUPS:-./backups}
@@ -137,11 +186,81 @@ services:
         read_only: true
     networks: [internal, egress]
 
+  # PgBouncer (mode transaksi) antara web dan Postgres. Role kira_app dan kira_auth lewat sini; migrate, backup, dan worker langsung ke db.
+  # Hanya di jaringan internal, tanpa port ke host.
+  pgbouncer:
+    image: edoburu/pgbouncer@sha256:8638aa563607256d3c7440437534195f1066a92b68015d89ae9d6b935b444a6d
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "/entrypoint.sh"]
+    environment:
+      KIRA_APP_PASSWORD: ${KIRA_APP_PASSWORD}
+      KIRA_AUTH_PASSWORD: ${KIRA_AUTH_PASSWORD}
+      PGB_POOL_APP: ${PGB_POOL_APP:-30}
+      PGB_POOL_AUTH: ${PGB_POOL_AUTH:-15}
+      PGB_MAX_PREPARED: ${PGB_MAX_PREPARED:-0}
+    volumes:
+      - ./deploy/pgbouncer/entrypoint.sh:/entrypoint.sh:ro
+      - *ca-mount
+    networks: [internal]
+
+  # Valkey: pembatas laju bersama, cache sesi dan layar Today. Tanpa persistensi (semua data hanya cache), password dari .env,
+  # jaringan internal saja. Bila mati, web memakai cadangan di memori dan database.
+  valkey:
+    image: valkey/valkey@sha256:2602ace2be6569bc2bbb06f873776516ab9089821525be34f4305c67eb9db02a
+    restart: unless-stopped
+    command:
+      - valkey-server
+      - --requirepass
+      - ${KIRA_VALKEY_PASSWORD:-${KIRA_INTERNAL_TOKEN:?isi KIRA_INTERNAL_TOKEN di .env}}
+      - --save
+      - ""
+      - --appendonly
+      - "no"
+      - --maxmemory
+      - 256mb
+      - --maxmemory-policy
+      - allkeys-lru
+    healthcheck:
+      test: ["CMD-SHELL", "valkey-cli -a ${KIRA_VALKEY_PASSWORD:-${KIRA_INTERNAL_TOKEN}} --no-auth-warning ping | grep -q PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks: [internal]
+
+  # Pintu depan. Caddy membagi beban ke replika web (cek kesehatan /api/health), menyajikan berkas statis langsung
+  # (_next/static, sounds, flags, fonts, klip /tts dari volume data read-only), menutup /api/internal, dan membaca
+  # IP klien dari CF-Connecting-IP. Cloudflare Tunnel menunjuk ke port ini.
+  proxy:
+    build:
+      context: .
+      dockerfile: deploy/docker/proxy.Dockerfile
+      additional_contexts:
+        web: service:web
+    image: ${KIRA_PROXY_IMAGE:-kira-proxy:latest}
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_healthy
+    environment:
+      KIRA_PROJECT: ${COMPOSE_PROJECT_NAME:-kira}
+      KIRA_WEB_REPLICAS: ${KIRA_WEB_REPLICAS:-4}
+    ports:
+      - "127.0.0.1:${KIRA_PROXY_PORT:-3030}:8080"
+    volumes:
+      - type: bind
+        source: ${KIRA_HOST_DATA:-./data}
+        target: /srv/media
+        read_only: true
+    networks: [internal, egress]
+
   worker:
     build:
       context: .
       dockerfile: deploy/docker/worker.Dockerfile
-    image: kira-worker:latest
+    image: ${KIRA_WORKER_IMAGE:-kira-worker:latest}
     restart: unless-stopped
     depends_on:
       migrate:
@@ -236,6 +355,53 @@ services:
     volumes:
       - kira-tts-models:/models
     networks: [egress]
+
+  # Uji beban (profil loadtest): Mailpit menangkap email verifikasi, k6 menembak proxy lewat jaringan Docker.
+  # Hanya untuk staging (docker compose -p kirastg --profile loadtest ...). Jangan dinyalakan di produksi.
+  mailpit:
+    profiles: ["loadtest"]
+    image: axllent/mailpit@sha256:9b3a463be15354c0f0eba91697d80e3e0d8a5623ef0e627cacc836bc17fd5231
+    restart: unless-stopped
+    environment:
+      MP_MAX_MESSAGES: "5000"
+    ports:
+      - "127.0.0.1:${MAILPIT_UI_PORT:-8135}:8025"
+    networks: [internal, egress]
+
+  # Seed keluarga uji (hanya staging; menolak jalan bila KIRA_ORIGIN bukan http://127.0.0.1).
+  seed:
+    profiles: ["loadrun"]
+    image: ${KIRA_WEB_IMAGE:-kira-web:latest}
+    pull_policy: never
+    restart: "no"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    entrypoint: ["node", "/load/seed-load.mjs"]
+    environment:
+      KIRA_LOADTEST_OK: "1"
+      KIRA_ORIGIN: ${KIRA_ORIGIN}
+      DATABASE_URL_OWNER: postgres://kira_owner:${KIRA_OWNER_PASSWORD}@db:5432/kira
+      PGSSLROOTCERT: /certs/ca.crt
+      FAMILIES: ${FAMILIES:-100}
+      CHILDREN: ${CHILDREN:-2}
+    volumes:
+      - *ca-mount
+      - ./deploy/load:/load:ro
+      - ${KIRA_LOAD_OUT:-./deploy/load/out}:/out
+    networks: [internal]
+
+  k6:
+    profiles: ["loadrun"]
+    image: grafana/k6@sha256:3e4186aea62e11a45560bfc51e19eeafe82fc07ce069c78aff44b7ff893d9a5e
+    entrypoint: ["k6"]
+    environment:
+      BASE_URL: http://proxy:8080
+      MAILPIT_URL: http://mailpit:8025
+    volumes:
+      - ./deploy/load:/load:ro
+      - ${KIRA_LOAD_OUT:-./deploy/load/out}:/out
+    networks: [internal]
 
 networks:
   # Database hanya di jaringan internal tanpa akses internet.

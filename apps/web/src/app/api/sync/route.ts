@@ -8,6 +8,7 @@ import { answerPayloadSchema, saveAnswer, submitAttempt } from '@/server/dal/lea
 import type { AnswerPayload } from '@/lib/dto'
 import { sameOrigin } from '@/server/http'
 import { throttleResponse } from '@/server/auth/ratelimit'
+import { invalidateLearnerToday } from '@/server/today-cache'
 
 export const dynamic = 'force-dynamic'
 
@@ -55,5 +56,6 @@ export async function POST(req: Request) {
       submits.push({ attemptId: s.attemptId, ok: false, retry: !(e instanceof AppError) })
     }
   }
+  if (answers.some((a) => a.ok) || submits.some((x) => x.ok)) await invalidateLearnerToday(actor.userId)
   return NextResponse.json({ answers, submits }, { headers: { 'Cache-Control': 'no-store' } })
 }

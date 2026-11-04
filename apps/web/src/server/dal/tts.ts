@@ -8,6 +8,7 @@ import type { OrgContext, Tx } from '../db'
 import { clipExists, clipKeyOf, ttsEnabled } from '../tts'
 import { lesson, passage, resolveItems } from './content'
 import { enqueueJobTx } from './jobs'
+import { claimOnce, takeWindow } from '../limiter'
 import type { AttemptItem } from './learner-runner'
 
 const { quest, attempt, job } = tables
@@ -15,36 +16,22 @@ const { quest, attempt, job } = tables
 /** Paling banyak klip yang menunggu di antrean per org. Melindungi antrean dari layar yang meminta terus. */
 const MAX_QUEUED = 150
 const RECENT_MS = 10 * 60 * 1000
-const recent = new Map<string, number>()
-/** Paling banyak klip baru yang boleh diminta satu pengguna dalam satu jam. */
+/** Paling banyak klip baru yang boleh diminta satu pengguna dalam satu jam (dibagi semua replika lewat Valkey). */
 const PER_USER_HOURLY = 60
-const byUser = new Map<string, number[]>()
-
-function withinUserLimit(userId: string, n: number, now: number): boolean {
-  const recentAsks = (byUser.get(userId) ?? []).filter((t) => now - t < 3_600_000)
-  if (recentAsks.length + n > PER_USER_HOURLY) {
-    byUser.set(userId, recentAsks)
-    return false
-  }
-  byUser.set(userId, [...recentAsks, ...Array<number>(n).fill(now)])
-  return true
-}
 
 /** Minta worker membuat klip yang belum ada. Mengembalikan jumlah klip yang benar-benar diantrekan. */
 export async function requestClips(tx: Tx, ctx: OrgContext, clips: TtsClipRequest[]): Promise<number> {
   if (!ttsEnabled()) return 0
-  const now = Date.now()
-  for (const [k, at] of recent) if (now - at > RECENT_MS) recent.delete(k)
   const fresh: TtsClipRequest[] = []
   for (const c of clips) {
     if (!isClipText(c.text)) continue
     const key = clipKeyOf(c.text, c.style)
-    if (recent.has(key) || (await clipExists(key))) continue
-    recent.set(key, now)
+    if (await clipExists(key)) continue
+    if (!(await claimOnce(`tts:${key}`, RECENT_MS))) continue
     fresh.push(c)
   }
   if (fresh.length === 0) return 0
-  if (!withinUserLimit(ctx.userId, fresh.length, now)) return 0
+  if (!(await takeWindow(`tts:${ctx.userId}`, PER_USER_HOURLY, 3_600_000, fresh.length))) return 0
   const [waiting] = await tx
     .select({ n: sql<number>`count(*)::int` })
     .from(job)
