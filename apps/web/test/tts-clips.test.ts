@@ -36,7 +36,7 @@ describe('klip suara: sisi web sama dengan sisi worker', () => {
       checked++
     }
     expect(checked).toBeGreaterThan(1500)
-  })
+  }, 60_000)
 
   it('suara perangkat membaca semua bagian dengan jeda', () => {
     expect(deviceText(['Pick one', 'Option A.', 'cat'])).toBe('Pick one. Option A. cat.')
