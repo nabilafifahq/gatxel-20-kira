@@ -7,6 +7,7 @@ import { GENERATORS, generateItem, isGenRef } from '@kira/content/math'
 import { loadContent, type ContentIndex } from '@kira/content/load'
 import type { Tx } from '../db'
 import { log } from '../log'
+import { spokenClipRefs } from './tts'
 
 /**
  * Konten repo dimuat sekali per proses dari folder content/ (KIRA_CONTENT_DIR).
@@ -104,13 +105,14 @@ function lessonCheckItem(ref: string): Item | undefined {
 }
 
 /** Soal untuk perangkat learner. includeKey hanya untuk mode latihan. */
-export function toClient(item: Item, opts: { ref: string; seed: string; includeKey: boolean; includeHints: boolean; labels?: LabelPerm | null }): ClientItem {
+export function toClient(item: Item, opts: { ref: string; seed: string; includeKey: boolean; includeHints: boolean; labels?: LabelPerm | null; hideSpoken?: boolean }): ClientItem {
   return presentItem(item, {
     ref: opts.ref,
     seed: opts.seed,
     includeKey: opts.includeKey,
     includeHints: opts.includeHints,
     ...(opts.labels ? { labels: opts.labels } : {}),
+    ...(opts.hideSpoken ? { hideSpoken: true } : {}),
     answerText: answerText(item),
     ...(item.passage && passage(item.passage) ? { passage: passage(item.passage)! } : {}),
   })
@@ -123,7 +125,7 @@ export async function poolForSkill(
   tx: Tx,
   orgId: string,
   skillId: string,
-  opts: { allowManual: boolean; paperOnly?: boolean; /** Soal foto jawaban boleh ikut walau soal manual lain tidak (sesi dari tutor). */ allowPhoto?: boolean; /** false bila fitur alat peraga dimatikan untuk learner ini. */ manipulatives?: boolean },
+  opts: { allowManual: boolean; paperOnly?: boolean; playableOnly?: boolean; /** Soal foto jawaban boleh ikut walau soal manual lain tidak (sesi dari tutor). */ allowPhoto?: boolean; /** false bila fitur alat peraga dimatikan untuk learner ini. */ manipulatives?: boolean },
 ): Promise<PoolCandidate[]> {
   const out: PoolCandidate[] = []
   for (const item of content().itemsBySkill.get(skillId) ?? []) {
@@ -133,6 +135,8 @@ export async function poolForSkill(
     if (opts.manipulatives === false && MANIPULATIVE_TYPES.has(item.type)) continue
     if (opts.paperOnly && !isPaperType(item.type)) continue
     if (item.lang === 'id' && !item.tags.includes('esmo') && !item.tags.includes('kmnr')) continue
+    // Mode tanpa umpan balik hanya memutar klip yang sudah ada: soal dengar tanpa klip diganti soal lain saat sesi disusun.
+    if (opts.playableOnly && (item.type === 'listen' || item.type === 'spell') && !(await spokenClipRefs(item, orgId))?.ready) continue
     out.push({ ref: item.id, difficulty: item.difficulty, manual })
   }
   const orgRows = await tx

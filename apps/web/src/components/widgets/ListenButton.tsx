@@ -24,6 +24,8 @@ export function ListenButton({
   disabled = false,
   style,
   className,
+  clips,
+  missing = false,
 }: {
   text: string
   lang?: SpeechLang
@@ -33,23 +35,36 @@ export function ListenButton({
   /** Gaya suara klip (soal eja memakai suara dikte yang pelan). Harus sama dengan gaya klip batch di worker. */
   style?: TtsStyleId
   className?: string
+  /** Mode tanpa umpan balik: kunci klip pengganti teks. Tidak jatuh ke suara perangkat. */
+  clips?: readonly string[]
+  /** Mode tanpa umpan balik: klip belum ada. */
+  missing?: boolean
 }): ReactElement {
-  const { status, toggle } = useSpeech(lang)
+  const { status, toggle, playKeys, stop } = useSpeech(lang)
   const [played, setPlayed] = useState(false)
+  const [loadFailed, setLoadFailed] = useState(false)
   const noteId = useId()
   const t = useT()
   const playing = status === 'reading'
-  const off = status === 'unavailable'
+  const off = missing || (clips === undefined && status === 'unavailable')
+  const note = missing ? t.widgets.shared.audioNotReady : off ? t.widgets.shared.noVoice : loadFailed ? t.widgets.shared.audioFailed : null
   return (
     <span className={cx('inline-flex flex-wrap items-center gap-2.5', className)}>
       <button
         type="button"
         aria-pressed={off ? undefined : playing}
-        aria-describedby={off ? noteId : undefined}
+        aria-describedby={note ? noteId : undefined}
         disabled={off || disabled}
         onClick={() => {
           setPlayed(true)
-          toggle(text, style ? { style } : undefined)
+          if (clips === undefined) {
+            toggle(text, style ? { style } : undefined)
+          } else if (playing) {
+            stop()
+          } else {
+            setLoadFailed(false)
+            playKeys(clips, () => setLoadFailed(true))
+          }
         }}
         className={cx(
           'inline-flex h-16 min-w-16 flex-none items-center justify-center gap-3 rounded-control px-6 text-body-lg font-bold transition-transform duration-150 ease-kira',
@@ -63,9 +78,9 @@ export function ListenButton({
         <UiIcon name={off ? 'speaker-off' : playing ? 'waveform' : 'speaker'} size={28} />
         {playing ? t.widgets.shared.playing : played ? t.widgets.listen.again : (label ?? t.widgets.listen.play)}
       </button>
-      {off ? (
+      {note ? (
         <span id={noteId} className="text-body text-fg-muted">
-          {t.widgets.shared.noVoice}
+          {note}
         </span>
       ) : null}
     </span>

@@ -16,6 +16,21 @@ describe('emailKey', () => {
   })
 })
 
+describe('bentuk alamat (uji tembus 5 November)', () => {
+  it('karakter yang dibersihkan parser email atau IDNA tidak bisa melewati daftar sekali pakai', async () => {
+    for (const raw of ['a@mailinator.com。', 'a@mailinator。com', 'a@mailinator.com​', 'a@mailinator.com(komentar)', 'a(komentar)@mailinator.com', '"a"@mailinator.com', 'a@[127.0.0.1]', 'a@mailinator.com%00', 'a%mailinator.com@gmail.com', 'a@mailinator.com..', 'b@gmail.com,a@mailinator.com', 'a b@gmail.com', 'a@-gmail.com', 'a@gmail.c0m'])
+      expect((await checkEmail(raw, { resolver: mx })).ok, JSON.stringify(raw)).toBe(false)
+  })
+  it('alamat biasa tetap diterima, termasuk titik akhir dan huruf besar', async () => {
+    for (const raw of ['Ibu.Budi+sd@kantor.co.id', 'a_b-c@sekolah.sch.id', "o'neil@gmail.com", 'orang.tua@gmail.com.', ' spasi@gmail.com '])
+      expect((await checkEmail(raw, { resolver: mx })).ok, JSON.stringify(raw)).toBe(true)
+  })
+  it('titik akhir dan huruf besar tetap dikenali sebagai domain sekali pakai', async () => {
+    for (const raw of ['a@MAILINATOR.COM', 'a@mailinator.com.', 'a@sub.mailinator.com'])
+      expect(await checkEmail(raw, { resolver: mx })).toMatchObject({ ok: false, reason: 'disposable' })
+  })
+})
+
 describe('domain sekali pakai', () => {
   it('daftar tambahan dan snapshot', () => {
     for (const d of ['temp-mail.org', 'tmailor.com', 'tmail.pk', 'noopmail.org', 'mailinator.com']) expect(isDisposableDomain(d), d).toBe(true)

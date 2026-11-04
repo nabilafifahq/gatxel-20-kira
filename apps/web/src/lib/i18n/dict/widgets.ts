@@ -30,6 +30,8 @@ const en = {
     loadingTool: 'Loading the tool',
     playing: 'Playing',
     noVoice: 'No English voice on this device.',
+    audioNotReady: 'The audio for this question is not ready yet. Skip it and carry on.',
+    audioFailed: 'The audio did not load. Check the connection and try again.',
   },
   question: {
     termsTitle: 'Terms in this question',
@@ -380,6 +382,8 @@ const id: typeof en = {
     loadingTool: 'Memuat alat peraga',
     playing: 'Sedang diputar',
     noVoice: 'Perangkat ini belum punya suara bahasa Inggris.',
+    audioNotReady: 'Suara soal ini belum siap. Lewati dulu dan lanjutkan.',
+    audioFailed: 'Suaranya gagal dimuat. Periksa sambungan lalu coba lagi.',
   },
   question: {
     termsTitle: 'Istilah di soal ini',

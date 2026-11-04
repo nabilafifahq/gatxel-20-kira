@@ -8,6 +8,7 @@ import { auditTx } from '../audit'
 import { inOrg } from '../db'
 import { orgCtx, requireLearner } from '../auth/actor'
 import { requireParent, withFamilyAdmin } from '../auth/parent'
+import { assertFeatureOn } from '../dal/learner-features'
 import { runAction } from '../errors'
 import { answerPlacement, placementAnswerSchema, requestPlacement, skipPlacement } from '../dal/placement'
 
@@ -23,6 +24,7 @@ export async function answerPlacementAction(input: unknown): Promise<ActionResul
     'answerPlacement',
     async () => {
       const actor = await requireLearner()
+      await assertFeatureOn(actor.userId, 'placement')
       const data = placementAnswerSchema.parse(input)
       return inOrg(orgCtx(actor), (tx) => answerPlacement(tx, orgCtx(actor), actor.userId, data))
     },

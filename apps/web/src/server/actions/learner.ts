@@ -98,6 +98,7 @@ export async function reportProblemAction(input: { itemRef: string; reason: 'wro
     'reportProblem',
     async () => {
       const actor = await requireActor()
+      await throttleIp('report-problem', 20, actor.userId)
       const data = reportSchema.parse(input)
       await throttleIp('problem-report', 10, actor.userId)
       const reference = newReference()

@@ -6,11 +6,14 @@ import { AppError, newReference } from '@/server/errors'
 import { log } from '@/server/log'
 import { answerPayloadSchema, saveAnswer, submitAttempt } from '@/server/dal/learner-runner'
 import type { AnswerPayload } from '@/lib/dto'
-import { sameOrigin } from '@/server/http'
+import { parseJson, readTextCapped, sameOrigin } from '@/server/http'
 import { throttleResponse } from '@/server/auth/ratelimit'
+import { takeWindow } from '@/server/limiter'
 import { invalidateLearnerToday } from '@/server/today-cache'
 
 export const dynamic = 'force-dynamic'
+
+const SYNC_ITEMS_PER_MINUTE = 1200
 
 const body = z
   .object({
@@ -26,10 +29,15 @@ export async function POST(req: Request) {
   if (!sameOrigin(req)) return NextResponse.json({ error: 'origin' }, { status: 403 })
   const limited = await throttleResponse('sync', 60, actor.userId)
   if (limited) return limited
-  const len = Number(req.headers.get('content-length') ?? '0')
-  if (len > 1_500_000) return NextResponse.json({ error: 'too-large' }, { status: 413 })
-  const parsed = body.safeParse(await req.json().catch(() => null))
+  const text = await readTextCapped(req, 1_500_000)
+  if (text === null) return NextResponse.json({ error: 'too-large' }, { status: 413 })
+  const parsed = body.safeParse(parseJson(text))
   if (!parsed.success) return NextResponse.json({ error: 'invalid', reference: newReference() }, { status: 400 })
+  // Satu permintaan bisa membawa 120 transaksi. Anggaran per menit dihitung per butir, bukan per permintaan, supaya sinkron
+  // tidak melewati batas simpan jawaban biasa. Klien menyimpan antreannya dan mengirim lagi nanti.
+  if (!(await takeWindow(`sync-items:${actor.userId}`, SYNC_ITEMS_PER_MINUTE, 60_000, parsed.data.answers.length + parsed.data.submits.length))) {
+    return NextResponse.json({ error: 'rate-limited' }, { status: 429, headers: { 'Retry-After': '60', 'Cache-Control': 'no-store' } })
+  }
   const ctx = orgCtx(actor)
   const answers: { clientId: string; ok: boolean; retry: boolean }[] = []
   for (const raw of parsed.data.answers) {

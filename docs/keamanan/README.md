@@ -10,6 +10,7 @@ Isi folder ini:
 | `openapi-kira.json` | Daftar rute `/api` untuk ZAP API scan |
 | `zap-baseline-*.html/json/md` | ZAP baseline (pasif) tanpa sesi, dengan sesi tutor, dan dengan sesi anak |
 | `zap-api-*.html/json/md` | ZAP API scan berdasarkan `openapi-kira.json` |
+| `sqlmap2.py`, `sqlmap-hasil2.txt`, `zap2-*.md` | Uji tembus internal 5 November 2026 pada stack lokal `kirasec` lewat proxy (lihat `docs/laporan-keamanan.md`) |
 | `strix.md` | Perintah Strix (belum dijalankan, menunggu kunci LLM) |
 
 ## Menyiapkan instance lokal

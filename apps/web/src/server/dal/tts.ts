@@ -1,7 +1,9 @@
 import 'server-only'
 import { and, eq, inArray, sql } from 'drizzle-orm'
 import { jakartaDate, type IsoDate } from '@kira/core'
-import { isClipText, QUIZ_HOST_LINES, type TtsClipRequest } from '@kira/core/tts'
+import { isClipText, QUIZ_HOST_LINES, splitClipText, styleForSkill, type TtsClipRequest } from '@kira/core/tts'
+import { listenTextOf } from '@kira/content/present'
+import type { Item } from '@kira/content'
 import { tables } from '@kira/db'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips } from '@kira/content/speech'
 import type { OrgContext, Tx } from '../db'
@@ -18,6 +20,20 @@ const MAX_QUEUED = 150
 const RECENT_MS = 10 * 60 * 1000
 /** Paling banyak klip baru yang boleh diminta satu pengguna dalam satu jam (dibagi semua replika lewat Valkey). */
 const PER_USER_HOURLY = 60
+
+/**
+ * Klip teks dengar satu soal (soal dengar dan eja), dengan aturan pecah dan gaya yang sama dengan tombol dengar. Null bila soal
+ * ini tidak punya teks dengar. ready false bila ada klip yang belum dibuat: mode tanpa umpan balik tidak boleh jatuh ke suara
+ * perangkat, karena suara perangkat butuh teksnya, dan teks itu adalah jawabannya.
+ */
+export async function spokenClipRefs(item: Item, orgId: string): Promise<{ keys: string[]; ready: boolean } | null> {
+  const heard = listenTextOf(item)
+  if (heard === null) return null
+  const style = styleForSkill(item.skill)
+  const keys = splitClipText(heard).filter(isClipText).map((text) => clipKeyOf(text, style))
+  const found = await Promise.all(keys.map((k) => clipExistsFor(k, orgId)))
+  return { keys, ready: item.lang === 'en-GB' && keys.length > 0 && found.every(Boolean) }
+}
 
 /** Minta worker membuat klip yang belum ada. Mengembalikan jumlah klip yang benar-benar diantrekan. */
 export async function requestClips(tx: Tx, ctx: OrgContext, clips: TtsClipRequest[]): Promise<number> {

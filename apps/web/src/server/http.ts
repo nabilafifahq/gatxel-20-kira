@@ -74,6 +74,15 @@ export function seeOther(path: string): Response {
   return new Response(null, { status: 303, headers: { Location: path, 'Cache-Control': 'no-store' } })
 }
 
+/** JSON dari teks; null bila tidak sah (pemanggil menolak lewat Zod). */
+export function parseJson(text: string): unknown {
+  try {
+    return JSON.parse(text)
+  } catch {
+    return null
+  }
+}
+
 /**
  * Baca isi permintaan sebagai teks dan berhenti begitu melebihi `max` byte, juga untuk body chunked
  * tanpa Content-Length. Mengembalikan null bila terlalu besar.

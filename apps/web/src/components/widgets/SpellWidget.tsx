@@ -35,7 +35,7 @@ export function SpellWidget({ item, value, onChange, disabled = false, feedback 
   const boxes = Math.max(length, letters.length)
   return (
     <div className="flex w-full flex-col items-center gap-4">
-      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} label={t.widgets.spell.hearWord} />
+      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} label={t.widgets.spell.hearWord} {...(item.listenClips ? { clips: item.listenClips } : {})} missing={item.listenMissing ?? false} />
       <output
         aria-live="polite"
         aria-label={letters === '' ? t.widgets.spell.emptyAria : t.widgets.spell.spellingAria(letters.split('').join(' '))}

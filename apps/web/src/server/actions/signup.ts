@@ -8,6 +8,7 @@ import { clientIp, throttleIp } from '../auth/ratelimit'
 import { ipHash } from '../auth/crypto'
 import { audit } from '../audit'
 import { verifyTurnstile } from '../auth/turnstile'
+import { evenTime } from '@/lib/even-time'
 import { confirmWaitlist, joinWaitlist, resendVerification, startSignup, verifySignup } from '../signup/service'
 
 const turnstile = z.string().max(2048).optional()
@@ -22,7 +23,8 @@ export async function signUpAction(input: { name: string; email: string; passwor
     const data = z.object({ name: z.string().trim().max(120), email, password: z.string().max(128), consent: z.boolean(), turnstile }).strict().parse(input)
     await throttleIp('signup', 6)
     await verifyTurnstile(data.turnstile, await clientIp())
-    await startSignup({ name: data.name, email: data.email, password: data.password, consent: data.consent, ipHash: ipHash(await clientIp()) })
+    const hash = ipHash(await clientIp())
+    await evenTime(900, () => startSignup({ name: data.name, email: data.email, password: data.password, consent: data.consent, ipHash: hash }))
     return { email: data.email.toLowerCase() }
   })
 }
@@ -32,7 +34,7 @@ export async function resendVerificationAction(input: { email: string; turnstile
     const data = z.object({ email, turnstile }).strict().parse(input)
     await throttleIp('signup-resend', 4)
     await verifyTurnstile(data.turnstile, await clientIp())
-    await resendVerification(data.email)
+    await evenTime(600, () => resendVerification(data.email))
     return undefined
   })
 }
@@ -57,7 +59,7 @@ export async function joinWaitlistAction(input: { email: string; consent: boolea
     const data = z.object({ email, consent: z.boolean(), turnstile }).strict().parse(input)
     await throttleIp('waitlist', 5)
     await verifyTurnstile(data.turnstile, await clientIp())
-    await joinWaitlist({ email: data.email, consent: data.consent })
+    await evenTime(600, () => joinWaitlist({ email: data.email, consent: data.consent }))
     return undefined
   })
 }

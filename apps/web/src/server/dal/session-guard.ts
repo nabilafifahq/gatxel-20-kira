@@ -1,8 +1,27 @@
+import { sql } from 'drizzle-orm'
 import { guardSet } from '@kira/content'
 import type { Tx } from '../db'
 import { content, resolveItems } from './content'
+import { spokenClipRefs } from './tts'
 
 type Entry = { ref: string; difficulty: number; position: number }
+
+/**
+ * Buang soal dengar dan eja yang klipnya belum ada, untuk set bebas seperti bos. Set dengan jumlah tetap (paper berpreset) tidak
+ * memakai ini: tes memilih soal lewat poolForSkill playableOnly, dan paper menampilkan pesan pada soal yang klipnya hilang.
+ */
+export async function dropUnplayableAudio<T extends { ref: string; position: number }>(tx: Tx, items: readonly T[]): Promise<T[]> {
+  const resolved = await resolveItems(tx, items.map((i) => i.ref))
+  const [org] = (await tx.execute(sql`select app_org_id()::text as id`)) as unknown as { id: string }[]
+  const kept: T[] = []
+  for (const it of items) {
+    const item = resolved.get(it.ref)
+    const spoken = item ? await spokenClipRefs(item, org!.id) : null
+    if (!spoken || spoken.ready) kept.push(it)
+  }
+  if (kept.length === 0 || kept.length === items.length) return [...items]
+  return kept.map((e, i) => ({ ...e, position: i + 1 }))
+}
 
 /**
  * Pintu tunggal untuk semua pembuat sesi: tidak ada dua soal yang sama dalam satu set (tanda tampilan, operan Math

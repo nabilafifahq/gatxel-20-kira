@@ -53,7 +53,7 @@ export const PLACEMENT_SUBJECTS: Subject[] = ['math', 'english', 'science']
 const LABEL: Record<Subject, string> = { math: 'Math', english: 'English', science: 'Science' }
 const MANUAL_STRANDS = new Set(['Wc', 'SL', 'Wp'])
 /** Jenis soal yang tidak dipakai di tes ini: dinilai manusia, butuh suara, atau terlalu panjang untuk 5 menit. */
-const SKIP_TYPES = new Set<string>([...MANUAL_TYPES, 'listen', 'story'])
+const SKIP_TYPES = new Set<string>([...MANUAL_TYPES, 'listen', 'spell', 'story'])
 const ABOUT = 10
 
 // ---------------------------------------------------------------------------

@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { tOf } from '@/lib/i18n'
 import { certificatePdf } from '@/server/certificate-pdf'
 import { getActor, orgCtx } from '@/server/auth/actor'
+import { throttleResponse } from '@/server/auth/ratelimit'
 import { inOrg } from '@/server/db'
 import { certificateData } from '@/server/dal/kira-world'
 import { isFeatureOn } from '@/server/dal/learner-features'
@@ -14,6 +15,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ days: st
   if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return seeOther('/')
+  const limited = await throttleResponse('certificate', 20, actor.userId)
+  if (limited) return limited
   // Saklar mati atau tonggak belum tercapai: arahkan ke layar anak. Respons 404 kosong membuat ponsel mengunduh berkas kosong.
   if (!(await isFeatureOn(actor.userId, 'kira-world'))) return seeOther('/today')
   const days = z.coerce.number().int().safeParse((await params).days)

@@ -1,4 +1,7 @@
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
+import { evenTime } from '@/lib/even-time'
 import { httpsRedirectTarget, viaCloudflare, visitorScheme } from '@/lib/https-redirect'
 import { cleanJpeg, cleanPng, cleanWebp } from '@/lib/image-clean'
 import { pickClientIp } from '@/server/auth/ratelimit'
@@ -94,6 +97,33 @@ describe('pembersih gambar', () => {
 import { simpleEmail } from '@/server/dal/outbox'
 import { safeNext } from '@/server/auth/actor'
 
+describe('proxy dan image (uji tembus 5 November)', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const caddy = readFileSync(root + 'deploy/proxy/Caddyfile', 'utf8')
+  it('X-Forwarded-Host dari klien tidak diteruskan ke aplikasi', () => {
+    expect(caddy).toContain('header_up X-Forwarded-Host {host}')
+  })
+  it('body 62 MB hanya untuk permintaan bersesi', () => {
+    expect(caddy).toMatch(/@big \{[^}]*header Cookie \*__Host-kira\.session=\*[^}]*\}/)
+  })
+  it('keep-alive web lebih lama dari keep-alive proxy (tanpa 502 sesekali)', () => {
+    const web = /KEEP_ALIVE_TIMEOUT=(\d+)/.exec(readFileSync(root + 'deploy/docker/web.Dockerfile', 'utf8'))
+    const proxy = /keepalive (\d+)s/.exec(caddy)
+    expect(Number(web?.[1])).toBeGreaterThan(Number(proxy?.[1]) * 1000)
+  })
+})
+
+describe('jawaban publik sama lamanya', () => {
+  it('evenTime menunggu sampai batas bawah, juga bila fn gagal', async () => {
+    const t0 = Date.now()
+    await evenTime(60, async () => 1, 0)
+    expect(Date.now() - t0).toBeGreaterThanOrEqual(55)
+    const t1 = Date.now()
+    await expect(evenTime(60, async () => { throw new Error('gagal') }, 0)).rejects.toThrow('gagal')
+    expect(Date.now() - t1).toBeGreaterThanOrEqual(55)
+  })
+})
+
 describe('email dan pengalihan', () => {
   it('simpleEmail meng-escape judul, baris, tombol, dan tautan (nama anak berisi HTML)', () => {
     const evil = '<img src=x onerror=alert(1)>"\'&'
@@ -107,5 +137,12 @@ describe('email dan pengalihan', () => {
     for (const bad of ['//evil.com', 'https://evil.com', '/' + String.fromCharCode(92) + 'evil.com', 'javascript:alert(1)', 'evil', '/' + 'a'.repeat(400)])
       expect(safeNext(bad, '/ok')).toBe('/ok')
     expect(safeNext('/keluarga?x=1', '/ok')).toBe('/keluarga?x=1')
+  })
+  it('safeNext menolak karakter yang dibuang browser (uji tembus 5 November)', () => {
+    const backslash = String.fromCharCode(92)
+    for (const bad of ['/\t/evil.example', '/\n/evil.example', '/\r/evil.example', '/./' + backslash + 'evil.example', '/a' + backslash + 'b', '/\u0000x', '/\u007fx'])
+      expect(safeNext(bad, '/ok'), JSON.stringify(bad)).toBe('/ok')
+    // Bentuk yang tetap di dalam Kira (dibaca browser sebagai path biasa) masih boleh.
+    expect(safeNext('/%2F/evil.example', '/ok')).toBe('/%2F/evil.example')
   })
 })

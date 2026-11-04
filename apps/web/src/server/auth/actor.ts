@@ -77,8 +77,14 @@ export async function pageActor(roles: Role[], next?: string): Promise<Actor> {
   return actor
 }
 
-/** Hanya izinkan alamat relatif di dalam Kira untuk parameter next. */
+/**
+ * Hanya izinkan alamat relatif di dalam Kira untuk parameter next. Browser membuang tab dan baris baru dari URL dan
+ * membaca garis miring terbalik sebagai garis miring, jadi `/<tab>/situs-lain` sama dengan `//situs-lain`.
+ * Karakter kontrol dan garis miring terbalik di mana pun ditolak.
+ */
 export function safeNext(next: string | null | undefined, fallback: string): string {
-  if (!next || !next.startsWith('/') || next.startsWith('//') || next.startsWith('/\\') || next.length > 300) return fallback
+  if (!next || typeof next !== 'string' || next.length > 300 || !next.startsWith('/') || next.startsWith('//')) return fallback
+  // eslint-disable-next-line no-control-regex -- justru karakter kontrol yang ditolak
+  if (/[\\\u0000-\u001f\u007f]/.test(next)) return fallback
   return next
 }
