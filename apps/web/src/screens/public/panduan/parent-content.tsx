@@ -318,7 +318,7 @@ const HARI: GuideFeature[] = [
   },
 ]
 
-/** Contoh dari pemilik Kira: apa yang tetap dicentang dan apa yang dihapus. */
+/** Contoh dari pemilik Kira: saklar yang menyala dan yang mati. */
 function SwitchExample() {
   const keep = ['Sains', 'Olimpiade Sains', 'Bahasa Inggris', 'Drill kosakata']
   return (
@@ -326,7 +326,7 @@ function SwitchExample() {
       <p className="m-0 font-bold">Contoh: Science harian, olimpiade Science, English harian, dan drill kosakata saja, tanpa drill Math</p>
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="flex flex-col gap-1">
-          <p className="m-0 font-bold">Dicentang</p>
+          <p className="m-0 font-bold">Menyala</p>
           <ul className="m-0 flex list-none flex-col gap-1 p-0">
             {keep.map((k) => (
               <li key={k} className="flex items-center gap-2">
@@ -337,7 +337,7 @@ function SwitchExample() {
           </ul>
         </div>
         <div className="flex flex-col gap-1">
-          <p className="m-0 font-bold">Tidak dicentang</p>
+          <p className="m-0 font-bold">Mati</p>
           <ul className="m-0 flex list-none flex-col gap-1 p-0">
             <li className="flex items-center gap-2">
               <UiIcon name="close" size={20} />
@@ -350,7 +350,7 @@ function SwitchExample() {
           </ul>
         </div>
       </div>
-      <p className="m-0">English harian di sini mengacu pada kerangka Cambridge Primary. Kalau Math juga tidak diinginkan di layar Hari ini, hapus centang Matematika.</p>
+      <p className="m-0">English harian di sini mengacu pada kerangka Cambridge Primary. Kalau Math juga tidak diinginkan di layar Hari ini, matikan juga saklar Matematika.</p>
     </div>
   )
 }
@@ -371,14 +371,14 @@ const SAKLAR: GuideFeature[] = [
         Cari <L>Fitur yang dipakai</L>.
       </>,
       <>
-        Pakai pilihan cepat <L>Lengkap</L>, <L>Fokus sekolah</L>, atau <L>Persiapan olimpiade</L>, atau centang satu per satu.
+        Pakai pilihan cepat <L>Lengkap</L>, <L>Fokus sekolah</L>, atau <L>Persiapan olimpiade</L>, atau atur saklarnya satu per satu.
       </>,
       <>
         Tekan <L>Simpan pilihan fitur</L>. Sesi hari ini yang belum dimulai ikut disesuaikan.
       </>,
     ],
     control: 'Fokus sekolah mematikan olimpiade, Quiz Arena, dan Dunia Kira. Persiapan olimpiade mematikan Quiz Arena, Dunia Kira, dan Ruang Baca. Mematikan satu mapel ikut mematikan olimpiade mapel itu, dan untuk Matematika juga drill dan hitung cepatnya.',
-    shot: shot('saklar-fitur', 'Bagian Fitur yang dipakai: pilihan cepat dan daftar centang untuk mapel, olimpiade, drill, dan fitur lain.'),
+    shot: shot('saklar-fitur', 'Bagian Fitur yang dipakai: pilihan cepat dan daftar saklar untuk mapel, olimpiade, drill, dan fitur lain.'),
   },
 ]
 
@@ -855,7 +855,7 @@ const ORTU: GuideFeature[] = [
     ],
     control: (
       <>
-        Email laporan mingguan dikirim Minggu pukul 19.00 WIB kalau izin <L>Laporan mingguan lewat email</L> dicentang. Lembar kerja dibatasi 10 lembar per keluarga per hari.
+        Email laporan mingguan dikirim Minggu pukul 19.00 WIB kalau izin <L>Laporan mingguan lewat email</L> menyala. Lembar kerja dibatasi 10 lembar per keluarga per hari.
       </>
     ),
     shot: shot('rapor', 'Halaman Rapor bulanan: pilihan anak dan bulan, dengan waktu belajar dan hari belajar.'),
