@@ -15,6 +15,7 @@ import { effectiveRules, presetForAttempt } from './learner-competition'
 import { areaOfSessionRef, isReadingAttempt } from '@kira/core/english-skills'
 import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, refreshDayRecord } from './learner-core'
 import { awardReadingStars, awardSessionStars, finishBoss } from './kira-world'
+import { spokenClipRefs } from './tts'
 import { completeLinkedSession, isTesLocked, questOfAttempt, scoreOf, submittedFamily, type AttemptItem } from './learner-session'
 
 export type { AttemptItem }
@@ -126,8 +127,12 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     const perm = hidden ? labelPerm(a.id, it.ref, labelCount(item)) : null
     byPosition.set(it.position, { item, perm })
     // Tantangan bos memberi bintang dan kartu: kunci dan pembahasan tidak dikirim ke perangkat, jawaban dinilai server.
-    const client = lazySolution(toClient(item, { ref: it.ref, seed, includeKey: feedback && !boss, includeHints: hints, labels: perm }))
-    runnerItems.push({ ...client, position: it.position, section: it.section, ...(it.remedialOf !== undefined ? { remedialOf: it.remedialOf } : {}) })
+    const hideSpoken = hidden || boss
+    const client = lazySolution(toClient(item, { ref: it.ref, seed, includeKey: feedback && !boss, includeHints: hints, labels: perm, hideSpoken }))
+    // Soal dengar dan eja: perangkat hanya menerima kunci klip. Teksnya adalah jawabannya.
+    const spoken = hideSpoken ? await spokenClipRefs(item) : null
+    const audio = spoken ? (spoken.ready ? { listenClips: spoken.keys } : { listenMissing: true }) : {}
+    runnerItems.push({ ...client, ...audio, position: it.position, section: it.section, ...(it.remedialOf !== undefined ? { remedialOf: it.remedialOf } : {}) })
   }
   const resp = await tx.select().from(response).where(eq(response.attemptId, a.id))
   const latest = latestByPosition(resp)

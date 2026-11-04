@@ -104,13 +104,14 @@ function lessonCheckItem(ref: string): Item | undefined {
 }
 
 /** Soal untuk perangkat learner. includeKey hanya untuk mode latihan. */
-export function toClient(item: Item, opts: { ref: string; seed: string; includeKey: boolean; includeHints: boolean; labels?: LabelPerm | null }): ClientItem {
+export function toClient(item: Item, opts: { ref: string; seed: string; includeKey: boolean; includeHints: boolean; labels?: LabelPerm | null; hideSpoken?: boolean }): ClientItem {
   return presentItem(item, {
     ref: opts.ref,
     seed: opts.seed,
     includeKey: opts.includeKey,
     includeHints: opts.includeHints,
     ...(opts.labels ? { labels: opts.labels } : {}),
+    ...(opts.hideSpoken ? { hideSpoken: true } : {}),
     answerText: answerText(item),
     ...(item.passage && passage(item.passage) ? { passage: passage(item.passage)! } : {}),
   })

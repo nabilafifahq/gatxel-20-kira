@@ -33,7 +33,7 @@ export function SpellWidget({ item, value, onChange, disabled = false, feedback 
   const boxes = Math.max(length, letters.length)
   return (
     <div className="flex w-full flex-col items-center gap-4">
-      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} label="Hear the word" />
+      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} label="Hear the word" {...(item.listenClips ? { clips: item.listenClips } : {})} missing={item.listenMissing ?? false} />
       <output
         aria-live="polite"
         aria-label={letters === '' ? 'Your spelling is empty' : `Your spelling: ${letters.split('').join(' ')}`}

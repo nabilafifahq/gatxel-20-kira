@@ -1,4 +1,7 @@
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { expect, test } from '@playwright/test'
+import { isClipText, splitClipText, styleForSkill, ttsKeyInput } from '../../packages/core/src/tts'
 import { closeDb, createPracticeAttempt, db, GUARDIAN, loginAdult, mcqItems, TUTOR } from './helpers'
 import { api, BASE, familyA, learnerSession, SESSION_COOKIE, sha256, uploadPng } from './security-helpers'
 
@@ -376,6 +379,61 @@ test.describe('uji tembus 5 November', () => {
     for (let i = 0; i < 70; i++) statuses.push((await ctx.get('/practice/start?subject=science&mode=tidak-ada', { maxRedirects: 0 })).status())
     expect(statuses).toContain(429)
     expect(statuses.filter((s) => s === 303).length).toBeLessThanOrEqual(62)
+  })
+
+  test('tes berwaktu: soal dengar dan eja diputar dari klip, kata tidak ada di halaman, jawaban dinilai', async ({ browser }) => {
+    const dataDir = process.env.KIRA_DATA_DIR
+    test.skip(!dataDir, 'Butuh KIRA_DATA_DIR yang sama dengan server')
+    const listen = { id: 'e1.digraphs.014', skill: 'e1.digraphs', text: 'chop' }
+    const spell = { id: 'e1.digraphs.016', skill: 'e1.digraphs', text: 'ship. The ship sails on the sea. ship.' }
+    const keysOf = (t: { skill: string; text: string }) => splitClipText(t.text).filter(isClipText).map((c) => sha256(ttsKeyInput(c, styleForSkill(t.skill))))
+    const keys = [...keysOf(listen), ...keysOf(spell)]
+    const dir = join(dataDir!, 'tts')
+    mkdirSync(dir, { recursive: true })
+    // Beberapa frame MP3 hening yang sah, supaya browser benar-benar bisa memutarnya.
+    const frame = Buffer.alloc(417)
+    Buffer.from([0xff, 0xfb, 0x90, 0x64]).copy(frame)
+    const silence = Buffer.concat(Array.from({ length: 40 }, () => frame))
+    for (const k of keys) writeFileSync(join(dir, `${k}.mp3`), silence)
+    const attemptId = await createPracticeAttempt('Aisha', [{ id: listen.id, difficulty: 2 }, { id: spell.id, difficulty: 2 }], { mode: 'tes', timeLimitS: 600 })
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const context = await browser.newContext({ baseURL: BASE, extraHTTPHeaders: { Cookie: `${SESSION_COOKIE}=${kid.token}` } })
+    const page = await context.newPage()
+    await page.addInitScript(() => {
+      const w = window as unknown as { __deviceSpeech: number }
+      w.__deviceSpeech = 0
+      if ('speechSynthesis' in window) window.speechSynthesis.speak = () => void w.__deviceSpeech++
+    })
+    const heard: string[] = []
+    page.on('response', (r) => {
+      if (r.url().includes('/tts/') && r.ok()) heard.push(r.url().split('/').pop()!.replace('.mp3', ''))
+    })
+    try {
+      const res = await page.goto(`/run/${attemptId}`)
+      const html = (await res!.text()).replace(/\\"/g, '"')
+      for (const leak of ['"listenText":', 'chop', 'The ship sails']) expect(html, leak).not.toContain(leak)
+      expect(html).toContain('"listenClips":')
+
+      await page.getByRole('button', { name: 'Play the audio' }).click()
+      await expect.poll(() => keysOf(listen).every((k) => heard.includes(k))).toBe(true)
+      await page.getByRole('radio', { name: 'ch', exact: true }).or(page.getByRole('button', { name: /^(?:[A-E]\.?\s*)?ch$/ })).first().click()
+      await page.getByRole('button', { name: 'Next', exact: true }).click()
+
+      await page.getByRole('button', { name: 'Hear the word' }).click()
+      await expect.poll(() => keysOf(spell).every((k) => heard.includes(k))).toBe(true)
+      for (const letter of 'ship') await page.getByRole('button', { name: letter, exact: true }).click()
+      await expect(page.getByText(/did not load|not ready yet/)).toHaveCount(0)
+      expect(await page.evaluate(() => (window as unknown as { __deviceSpeech: number }).__deviceSpeech)).toBe(0)
+
+      await page.getByRole('button', { name: 'Hand in', exact: true }).click()
+      await page.getByRole('dialog').getByRole('button', { name: 'Hand in', exact: true }).click()
+      await expect.poll(async () => (await db()`select status from attempt where id = ${attemptId}`)[0]!.status, { timeout: 30_000 }).toBe('submitted')
+      const [row] = await db()`select score_raw from attempt where id = ${attemptId}`
+      expect(row!.score_raw).toBe(2)
+    } finally {
+      await context.close()
+      for (const k of keys) rmSync(join(dir, `${k}.mp3`), { force: true })
+    }
   })
 
   test('/api/sync menghitung anggaran per butir, bukan per permintaan', async () => {

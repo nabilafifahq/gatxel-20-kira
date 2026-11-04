@@ -47,6 +47,7 @@ import { subjectOfSkill } from './content'
 import { learnerShell, loadLearner, skillStates, streakFor } from './learner-core'
 import { autoSkill, buildQuestItems, type AttemptItem } from './learner-session'
 import { isFeatureOn } from './learner-features'
+import { dropUnplayableAudio } from './session-guard'
 import type { LearnerShell } from '@/lib/dto'
 import type { AlbumDTO, BossDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
 
@@ -601,7 +602,8 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
     }
   }
   if (items.length < 5) throw invalid('The robot is still warming up. Try again soon.')
-  const final = items.map((it, i) => ({ ...it, position: i + 1 }))
+  // Bos tidak mengirim kunci atau teks dengar, jadi soal dengar tanpa klip tidak bisa dikerjakan.
+  const final = (await dropUnplayableAudio(tx, items)).map((it, i) => ({ ...it, position: i + 1 }))
   const [row] = await tx
     .insert(attempt)
     .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: 'math', title: 'Puzzle Robot', refId: `boss:${week}:${tries + 1}`, items: final })

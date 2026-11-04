@@ -71,6 +71,19 @@ export async function fetchClips(plan: TtsClipRequest[]): Promise<ClipSet> {
   return { blobs, missing, failed }
 }
 
+/** Ambil klip menurut kuncinya (soal tanpa teks di perangkat). Null bila ada yang tidak bisa diambil. */
+export async function fetchClipKeys(keys: readonly string[]): Promise<Blob[] | null> {
+  try {
+    const all = await Promise.all(keys.map(async (k) => {
+      const res = await fetch(`/tts/${k}.mp3`, { credentials: 'same-origin' })
+      return res.ok ? res.blob() : null
+    }))
+    return all.every((b) => b !== null) ? (all as Blob[]) : null
+  } catch {
+    return null
+  }
+}
+
 const requested = new Set<string>()
 
 /** Minta worker membuat klip yang belum ada. Satu teks hanya diminta sekali per halaman; hasilnya tidak ditunggu. */

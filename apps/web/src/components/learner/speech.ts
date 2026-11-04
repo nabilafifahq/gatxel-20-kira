@@ -4,7 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
 import { hasNativeBridge, nativeReady, nativeSpeak, nativeStop, nativeTtsReady } from '@/lib/native'
 import { duckMusic } from './music'
-import { clipPlan, deviceText, fetchClips, requestClips, ttsStatus } from './tts-client'
+import { clipPlan, deviceText, fetchClipKeys, fetchClips, requestClips, ttsStatus } from './tts-client'
 
 /**
  * Baca suara, hanya untuk teks bahasa Inggris (rencana bagian 11.4: teks Indonesia tidak dibacakan).
@@ -94,6 +94,8 @@ export function useSpeech(lang: SpeechLang): {
   status: SpeechStatus
   toggle: (input: SpeechInput, opts?: SpeakOptions) => void
   speak: (input: SpeechInput, onEnd?: () => void, opts?: SpeakOptions) => void
+  /** Putar klip menurut kuncinya. Tanpa suara perangkat, karena perangkat tidak memegang teksnya. onFail bila gagal diputar. */
+  playKeys: (keys: readonly string[], onFail: () => void) => void
   stop: () => void
 } {
   const id = useId()
@@ -270,6 +272,33 @@ export function useSpeech(lang: SpeechLang): {
     [id, lang],
   )
 
+  const playKeys = useCallback(
+    (keys: readonly string[], onFail: () => void) => {
+      const my = ++token.current
+      window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
+      setReading(true)
+      void (async () => {
+        const blobs = await fetchClipKeys(keys)
+        if (token.current !== my) return
+        if (!blobs || blobs.length === 0) {
+          setReading(false)
+          onFail()
+          return
+        }
+        playChain(
+          blobs,
+          () => token.current === my,
+          (ok) => {
+            if (token.current !== my) return
+            setReading(false)
+            if (!ok) onFail()
+          },
+        )
+      })()
+    },
+    [id],
+  )
+
   const toggle = useCallback(
     (input: SpeechInput, opts?: SpeakOptions) => {
       if (reading) stop()
@@ -279,6 +308,6 @@ export function useSpeech(lang: SpeechLang): {
   )
 
   const unavailable = available === false && !(clipsReady && lang === 'en-GB')
-  const status: SpeechStatus = unavailable ? 'unavailable' : reading ? 'reading' : 'idle'
-  return { status, toggle, speak, stop }
+  const status: SpeechStatus = reading ? 'reading' : unavailable ? 'unavailable' : 'idle'
+  return { status, toggle, speak, playKeys, stop }
 }

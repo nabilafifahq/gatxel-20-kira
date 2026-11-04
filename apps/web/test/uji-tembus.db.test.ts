@@ -1,4 +1,6 @@
 import { randomUUID } from 'node:crypto'
+import { mkdir, rm, writeFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import postgres from 'postgres'
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 import { jakartaDate } from '@kira/core'
@@ -188,6 +190,97 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
     await expect(inKid((tx) => competition.startEsmoMock(tx, ctx, kid, 'math'))).rejects.toMatchObject(refused)
     await dbm.inOrg(tutorCtx, (tx) => feats.saveFeatureMap(tx, orgId, kid, {}))
   }, 120_000)
+
+  describe('soal dengar dan eja di mode tanpa umpan balik', () => {
+    const LISTEN = 'e1.digraphs.014'
+    const SPELL = 'e1.digraphs.016'
+    const tesAttempt = async (refs: string[]) => {
+      const [a] = await owner`insert into attempt (org_id, learner_id, kind, mode, subject, title, items, time_limit_s) values (${orgId}, ${kid}, 'test', 'tes', 'english', 'Tes dengar', ${owner.json(refs.map((ref, i) => ({ ref, section: 'core', position: i + 1, difficulty: 2 })))}, 600) returning id`
+      return a!.id as string
+    }
+    const clipFiles = async (refs: string[]) => {
+      const content = await import('@/server/dal/content')
+      const ttsDal = await import('@/server/dal/tts')
+      const items = await inKid((tx) => content.resolveItems(tx, refs))
+      const dir = join(process.env.KIRA_DATA_DIR!, 'tts')
+      await mkdir(dir, { recursive: true })
+      const files: string[] = []
+      const keys = new Map<string, string[]>()
+      for (const ref of refs) {
+        const spoken = await ttsDal.spokenClipRefs(items.get(ref)!)
+        keys.set(ref, spoken!.keys)
+        for (const k of spoken!.keys) files.push(join(dir, `${k}.mp3`))
+      }
+      return { files, keys, items, write: () => Promise.all(files.map((f) => writeFile(f, 'klip uji'))), remove: () => Promise.all(files.map((f) => rm(f, { force: true }))) }
+    }
+
+    it('hanya kunci klip yang dikirim, kata tidak; jawaban tetap dinilai server', async () => {
+      const { labelPerm } = await import('@/server/labels')
+      const { labelCount } = await import('@kira/content')
+      const clips = await clipFiles([LISTEN, SPELL])
+      await clips.write()
+      try {
+        const id = await tesAttempt([LISTEN, SPELL])
+        const dto = await inKid((tx) => runner.runnerDTO(tx, kid, id, { markOpened: true }))
+        expect('items' in dto).toBe(true)
+        if (!('items' in dto)) return
+        const [listen, spell] = dto.items
+        expect(listen!.listenText).toBeUndefined()
+        expect(spell!.listenText).toBeUndefined()
+        expect(listen!.listenClips).toEqual(clips.keys.get(LISTEN))
+        expect(spell!.listenClips).toEqual(clips.keys.get(SPELL))
+        expect(listen!.listenMissing).toBeUndefined()
+        const body = JSON.stringify(dto.items)
+        for (const word of ['chop', 'The ship sails', '"ship', 'ship.']) expect(body, word).not.toContain(word)
+        const item = clips.items.get(LISTEN) as { answer: number }
+        const label = labelPerm(id, LISTEN, labelCount(clips.items.get(LISTEN)!))![item.answer]
+        const save = (position: number, answer: unknown) => inKid((tx) => runner.saveAnswer(tx, ctx, kid, { attemptId: id, position, answer: answer as never, hintsUsed: 0, attemptNo: 1, timeMs: 1000, flagged: false, clientId: randomUUID(), answeredAt: new Date().toISOString() }))
+        expect((await save(1, { choice: label })).status).toBe('answered')
+        expect((await save(2, { value: 'ship' })).status).toBe('answered')
+        await inKid((tx) => runner.submitAttempt(tx, ctx, kid, id))
+        const [row] = await owner`select status, score_raw from attempt where id = ${id}`
+        expect(row!.status).toBe('submitted')
+        expect(row!.score_raw).toBe(2)
+      } finally {
+        await clips.remove()
+      }
+    }, 120_000)
+
+    it('klip belum ada: kata tetap tidak dikirim, layar diberi tanda', async () => {
+      const clips = await clipFiles([LISTEN, SPELL])
+      await clips.remove()
+      const id = await tesAttempt([LISTEN, SPELL])
+      const dto = await inKid((tx) => runner.runnerDTO(tx, kid, id, { markOpened: true }))
+      if (!('items' in dto)) throw new Error('runner kosong')
+      for (const item of dto.items) {
+        expect(item.listenMissing).toBe(true)
+        expect(item.listenText).toBeUndefined()
+        expect(item.listenClips).toBeUndefined()
+      }
+      expect(JSON.stringify(dto.items)).not.toContain('The ship sails')
+    }, 60_000)
+
+    it('pembuat sesi membuang soal dengar tanpa klip dari tes, dan membiarkannya di latihan', async () => {
+      const guard = await import('@/server/dal/session-guard')
+      const clips = await clipFiles([LISTEN, SPELL])
+      await clips.remove()
+      const entries = [LISTEN, SPELL, 'e1.digraphs.001'].map((ref, i) => ({ ref, difficulty: 2, position: i + 1 }))
+      const tes = await inKid((tx) => guard.dropUnplayableAudio(tx, entries))
+      expect(tes.map((e) => e.ref)).toEqual(['e1.digraphs.001'])
+      expect(tes[0]!.position).toBe(1)
+      const guarded = await inKid((tx) => guard.guardAttemptItems(tx, entries, { seed: 'uji', mode: 'tes' }))
+      expect(guarded.some((e) => e.ref === LISTEN || e.ref === SPELL)).toBe(false)
+      const latihan = await inKid((tx) => guard.guardAttemptItems(tx, entries, { seed: 'uji', mode: 'latihan' }))
+      expect(latihan.length).toBeGreaterThan(1)
+      await clips.write()
+      try {
+        const ada = await inKid((tx) => guard.dropUnplayableAudio(tx, entries))
+        expect(ada).toHaveLength(3)
+      } finally {
+        await clips.remove()
+      }
+    }, 60_000)
+  })
 
   it('masuk serentak: paling banyak 20 percobaan sampai ke pemeriksaan password', async () => {
     const email = `tembus-${randomUUID()}@example.test`
