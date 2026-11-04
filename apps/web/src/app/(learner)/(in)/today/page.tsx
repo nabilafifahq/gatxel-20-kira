@@ -6,6 +6,8 @@ import { ensureStarted } from '@/server/dal/learner-entry'
 import { offlineUrlsForToday, todayDTO } from '@/server/dal/learner-today'
 import { xpTracksDTO } from '@/server/dal/arena-tracks'
 import { load } from '@/server/page'
+import { isFeatureOn } from '@/server/dal/learner-features'
+import { worldPeek } from '@/server/dal/kira-world'
 import { chestDTO } from '@/server/dal/learner-motion'
 import { equipChestRewardAction, openChestAction } from '@/server/actions/chest'
 
@@ -14,16 +16,17 @@ export const dynamic = 'force-dynamic'
 export default async function TodayPage() {
   const actor = await pageActor(['learner'])
   await ensureStarted(actor.orgId, actor.userId)
-  const { data, urls } = await load(() =>
+  const { data, urls, world } = await load(() =>
     inOrg(orgCtx(actor), async (tx) => {
       const today = await todayDTO(tx, orgCtx(actor), actor.userId)
       const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today) }
-      return { data, urls: await offlineUrlsForToday(tx, actor.userId) }
+      const world = (await isFeatureOn(actor.userId, 'kira-world')) ? await worldPeek(tx, actor.userId).catch(() => null) : null
+      return { data, world, urls: await offlineUrlsForToday(tx, actor.userId) }
     }),
   )
   return (
     <>
-      <TodayScreen data={data} chestActions={{ open: openChestAction, equip: equipChestRewardAction }} />
+      <TodayScreen data={data} world={world} chestActions={{ open: openChestAction, equip: equipChestRewardAction }} />
       <OfflinePrecache urls={urls} />
     </>
   )

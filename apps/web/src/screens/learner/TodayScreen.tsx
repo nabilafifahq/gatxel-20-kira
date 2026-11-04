@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import type { WorldPeekDTO } from '@/lib/dto-world'
+import { WorldPeek } from '@/components/learner/world/WorldPeek'
 import type { ReactElement } from 'react'
 import type { TodayDTO, TodayGroupDTO } from '@/lib/dto'
 import { ButtonLink } from '@/components/ui/Button'
@@ -97,7 +99,7 @@ function GroupHeading({ group }: { group: TodayGroupDTO }): ReactElement {
   )
 }
 
-export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions }): ReactElement {
+export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions, world }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions; world?: WorldPeekDTO | null }): ReactElement {
   const note = noteFor(data, doneHref)
   const streak = data.streak
   // Batas waktu: hanya sesi yang sudah selesai tetap tampil di jalur.
@@ -121,6 +123,8 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
             </div>
           }
         />
+
+        {world ? <WorldPeek world={world} /> : null}
 
         <section aria-label="Streak" className="flex flex-col gap-2.5 rounded-card border border-divider bg-surface px-3 py-3.5 sm:px-4 md:hidden">
           <div className="flex items-center justify-between gap-3">

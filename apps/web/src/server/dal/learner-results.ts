@@ -11,6 +11,7 @@ import { presetForAttempt } from './learner-competition'
 import { learnerShell, loadLearner, markerFor } from './learner-core'
 import { xpBarFor } from './learner-xpbar'
 import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
+import { worldPeek } from './kira-world'
 import { familyOf, retryInfo, scoreOf, scoreText } from './learner-session'
 
 const { response } = tables
@@ -116,7 +117,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const items = (a.items as AttemptItem[]) ?? []
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
   const latest = latestByPosition(await tx.select().from(response).where(eq(response.attemptId, a.id)))
-  const result = (a.result as { byTopic?: Topic[]; timeUsedSec?: number; pending?: number; newBadges?: ResultsDTO['newBadges'] } | null) ?? {}
+  const result = (a.result as { byTopic?: Topic[]; timeUsedSec?: number; pending?: number; newBadges?: ResultsDTO['newBadges']; world?: { stars: number; cards: string[] } } | null) ?? {}
   const questions = items.map((it) => {
     const r = latest.get(it.position)
     const item = resolved.get(it.ref)
@@ -158,6 +159,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     timeUsedSec: result.timeUsedSec ?? a.elapsedS,
     timeLimitSec: a.timeLimitS,
     xp: a.xp,
+    ...(result.world ? { world: { ...result.world, pet: (await worldPeek(tx, learnerId).catch(() => null))?.pet ?? null } } : {}),
     newBadges: result.newBadges ?? [],
     questions,
     strongest: strongest ? { topic: strongest.label, line: `${strongest.right} of ${strongest.total} right` } : null,

@@ -248,6 +248,8 @@ export type ResultsDTO = {
   timeUsedSec: number
   timeLimitSec: number | null
   xp: number
+  /** Bintang Kira World dari sesi ini dan kartu baru (id). */
+  world?: { stars: number; cards: string[]; pet: { kind: string; name: string; stage: 1 | 2 | 3; costume: string | null } | null }
   newBadges: { id: string; title: string; description: string }[]
   questions: ResultQuestion[]
   strongest: { topic: string; line: string } | null
