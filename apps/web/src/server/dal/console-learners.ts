@@ -103,7 +103,7 @@ async function assertLearner(tx: Tx, learnerId: string): Promise<{ id: string; n
   return rows[0]
 }
 
-async function assertNameFree(tx: Tx, name: string, selfId: string | null): Promise<void> {
+export async function assertNameFree(tx: Tx, name: string, selfId: string | null): Promise<void> {
   const rows = await tx
     .select({ id: learnerProfile.userId })
     .from(learnerProfile)
