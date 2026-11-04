@@ -30,7 +30,7 @@ type Guarded = { a: Awaited<ReturnType<typeof loadAttempt>>; slot: AttemptItem; 
 async function guard(tx: Tx, learnerId: string, attemptId: string, position: number): Promise<Guarded> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status !== 'in_progress') throw invalid('This quest is already handed in.')
-  if (!modeShowsFeedback(a.mode as Mode) || ['tes', 'simulasi', 'kertas', 'kilat'].includes(a.mode)) throw invalid('Extra help is for practice only.')
+  if (a.refId?.startsWith('boss:') || !modeShowsFeedback(a.mode as Mode) || ['tes', 'simulasi', 'kertas', 'kilat'].includes(a.mode)) throw invalid('Extra help is for practice only.')
   const all = (a.items as AttemptItem[]) ?? []
   const slot = all.find((i) => i.position === position)
   if (!slot) throw notFound('That question is not in this quest.')
@@ -103,7 +103,7 @@ export async function walkthroughFor(tx: Tx, learnerId: string, attemptId: strin
   const slot = all.find((i) => i.position === position)
   if (!slot) throw notFound('That question is not in this quest.')
   if (a.status === 'in_progress') {
-    const hidden = ['tes', 'simulasi', 'kertas'].includes(a.mode)
+    const hidden = ['tes', 'simulasi', 'kertas'].includes(a.mode) || (a.refId?.startsWith('boss:') ?? false)
     if (hidden || !modeShowsFeedback(a.mode as Mode) || a.mode === 'kilat') throw invalid('The steps open after you hand in.')
     const rows = await tx.select().from(response).where(eq(response.attemptId, a.id))
     if (!latestByPosition(rows).has(position)) throw invalid('Answer the question first.')

@@ -116,6 +116,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
   const hints = modeAllowsHints(mode)
   // Mode tanpa umpan balik: urutan tampil dan label pilihan dihitung dari KIRA_SECRET (lihat server/labels.ts).
   const hidden = HIDDEN_MODES.has(a.mode)
+  const boss = a.refId?.startsWith('boss:') ?? false
   const seed = presentationSeed(a)
   const byPosition = new Map<number, { item: Item; perm: LabelPerm | null }>()
   const runnerItems: RunnerItem[] = []
@@ -124,7 +125,8 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     if (!item) continue
     const perm = hidden ? labelPerm(a.id, it.ref, labelCount(item)) : null
     byPosition.set(it.position, { item, perm })
-    const client = lazySolution(toClient(item, { ref: it.ref, seed, includeKey: feedback, includeHints: hints, labels: perm }))
+    // Tantangan bos memberi bintang dan kartu: kunci dan pembahasan tidak dikirim ke perangkat, jawaban dinilai server.
+    const client = lazySolution(toClient(item, { ref: it.ref, seed, includeKey: feedback && !boss, includeHints: hints, labels: perm }))
     runnerItems.push({ ...client, position: it.position, section: it.section, ...(it.remedialOf !== undefined ? { remedialOf: it.remedialOf } : {}) })
   }
   const resp = await tx.select().from(response).where(eq(response.attemptId, a.id))
@@ -428,6 +430,8 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
   }
 
   const olympiad = items.some((it) => resolved.get(it.ref)?.tags.includes('olympiad'))
+  // Sesi tanpa satu jawaban pun tetap bisa selesai (waktu habis, soal manual dilewati), tetapi tidak memberi XP selesai atau bintang.
+  const answeredAny = items.some((it) => ['correct', 'wrong', 'pending', 'answered'].includes(latest.get(it.position)?.status ?? 'blank'))
   const perfect = total > 0 && correct === total && firstTryAll
   const topics = [...byTopic.values()]
   const isRetry = a.retryOf !== null
@@ -453,15 +457,15 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
       xp += gained
     } else if (q && q.status !== 'done') {
       await tx.update(quest).set({ status: 'done', completedAt: new Date() }).where(eq(quest.id, q.id))
-      const gained = sessionCompletionXp({ session: q.session, perfect })
+      const gained = answeredAny ? sessionCompletionXp({ session: q.session, perfect }) : 0
       await grantXp(tx, ctx, learnerId, gained, 'quest', a.id, date)
       xp += gained
       await refreshDayRecord(tx, ctx, learnerId, q.date)
-      worldGain = await awardSessionStars(tx, learnerId, { attemptId: a.id, required: q.kind === 'daily', perfect, retry: false, date })
+      if (answeredAny) worldGain = await awardSessionStars(tx, learnerId, { attemptId: a.id, required: q.kind === 'daily', perfect, retry: false, date })
     }
   } else if (a.kind === 'simulation' || a.kind === 'esmo-mock' || a.kind === 'esmo-pack' || a.kind === 'review' || a.kind === 'paper' || a.kind === 'test') {
     const isBoss = a.refId?.startsWith('boss:') ?? false
-    const done = isBoss ? 0 : a.kind === 'review' ? 10 : 20
+    const done = isBoss || !answeredAny ? 0 : a.kind === 'review' ? 10 : 20
     await grantXp(tx, ctx, learnerId, done, `${a.kind}-done`, a.id, date)
     xp += done
     if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct, total)
