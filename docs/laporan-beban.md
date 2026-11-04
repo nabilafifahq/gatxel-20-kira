@@ -54,7 +54,34 @@ Tabel lengkap per endpoint untuk setiap tahap ditulis `deploy/load/run.mjs` ke `
 
 ## 4. Per skenario (100 anak, tahan 60 detik)
 
-SKENARIO_TABEL
+| Skenario | Permintaan/detik | p50 | p95 | p99 | Galat HTTP | Bisnis OK | CPU web | RAM web |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Today | 10,9 | 35 ms | 260 ms | 430 ms | 0,00% | 0,00% | 138% | 1329 MiB |
+| Klip suara | 143,9 | 15 ms | 327 ms | 504 ms | 0,00% | 0,00% | 15% | 1328 MiB |
+| Masuk PIN | 20,7 | 70 ms | 357 ms | 860 ms | 0,00% | 100,00% | 291% | 1373 MiB |
+| Masuk password | 16,9 | 55 ms | 324 ms | 1101 ms | 0,00% | 100,00% | 163% | 1403 MiB |
+| Dasbor orang tua | 4,4 | 32 ms | 83 ms | 149 ms | 0,00% | 0,00% | 59% | 1387 MiB |
+| Ronde Quick Maths | 22,5 | 58 ms | 287 ms | 1000 ms | 0,00% | 100,00% | 150% | 1414 MiB |
+| Ronde Quiz | 18,8 | 58 ms | 147 ms | 226 ms | 0,00% | 100,00% | 164% | 1415 MiB |
+| Sesi Latihan penuh | 14,5 | 90 ms | 297 ms | 596 ms | 0,00% | 100,00% | 77% | 1383 MiB |
+| Tes dengan batas waktu (Latihan dikerjakan dulu tanpa jeda) | 27,7 | 77 ms | 226 ms | 347 ms | 0,00% | 100,00% | 187% | 1444 MiB |
+| Paper (Latihan dikerjakan dulu tanpa jeda) | 20,2 | 45 ms | 205 ms | 409 ms | 0,00% | 100,00% | 70% | 1443 MiB |
+
+Endpoint utama per skenario (p50 / p95 / p99):
+
+- **Today**: heartbeat 900x p50 16 / p95 67 / p99 102 ms; today 900x p50 61 / p95 348 / p99 480 ms
+- **Klip suara**: audio_clip 21900x p50 15 / p95 327 / p99 504 ms
+- **Masuk PIN**: pin 1605x p50 120 / p95 461 / p99 1531 ms; pin_page 1605x p50 37 / p95 125 / p99 322 ms
+- **Masuk password**: login 1330x p50 115 / p95 463 / p99 1551 ms; login_page 1330x p50 21 / p95 93 / p99 300 ms
+- **Dasbor orang tua**: parent_dashboard 600x p50 34 / p95 86 / p99 155 ms; parent_privacy 181x p50 27 / p95 78 / p99 115 ms
+- **Ronde Quick Maths**: qm_answer 3354x p50 54 / p95 256 / p99 884 ms; qm_page 368x p50 67 / p95 426 / p99 1145 ms; qm_start 184x p50 80 / p95 480 / p99 2134 ms; qm_finish 136x p50 144 / p95 261 / p99 396 ms
+- **Ronde Quiz**: quiz_answer 2372x p50 57 / p95 129 / p99 219 ms; quiz_page 492x p50 51 / p95 110 / p99 165 ms; quiz_start 246x p50 59 / p95 129 / p99 166 ms; quiz_finish 209x p50 129 / p95 232 / p99 286 ms
+- **Sesi Latihan penuh**: save_answer 1426x p50 85 / p95 220 / p99 309 ms; audio_clip 324x p50 142 / p95 665 / p99 902 ms; today 162x p50 143 / p95 346 / p99 475 ms; run_page 162x p50 78 / p95 213 / p99 302 ms; heartbeat 162x p50 50 / p95 141 / p99 234 ms; quest_intro 162x p50 63 / p95 139 / p99 215 ms
+- **Tes dengan batas waktu (Latihan dikerjakan dulu tanpa jeda)**: save_answer 1547x p50 63 / p95 148 / p99 187 ms; audio_clip 396x p50 81 / p95 347 / p99 523 ms; today 371x p50 137 / p95 274 / p99 326 ms; heartbeat 279x p50 38 / p95 116 / p99 168 ms; run_page 198x p50 80 / p95 173 / p99 218 ms; quest_intro 198x p50 60 / p95 117 / p99 143 ms
+- **Paper (Latihan dikerjakan dulu tanpa jeda)**: save_answer 1815x p50 40 / p95 158 / p99 279 ms; audio_clip 476x p50 34 / p95 325 / p99 901 ms; today 238x p50 105 / p95 226 / p99 376 ms; run_page 238x p50 51 / p95 163 / p99 251 ms; quest_intro 238x p50 41 / p95 90 / p99 113 ms; heartbeat 238x p50 30 / p95 113 / p99 207 ms
+
+Catatan: kolom Bisnis OK 0,00 persen pada skenario yang hanya membaca halaman (Today, klip suara, dasbor) berarti tidak ada Server Action yang dihitung, bukan kegagalan. Satu cuplikan `docker stats` pada skenario PIN menunjuk 1313 persen CPU web; itu meleset (cuplikan lain pada uji yang sama paling tinggi 291 persen), jadi tabel memakai 291 persen. Pada skenario Tes dan Paper, Latihan mapel itu dikerjakan lebih dulu tanpa jeda (Tes terkunci sebelum Latihan selesai); permintaan persiapan itu ikut dalam hitungan permintaan per detik tetapi ditandai `prep_` dan tidak ada di daftar endpoint.
+
 
 ## 5. Soak
 

@@ -51,7 +51,8 @@ async function main(): Promise<void> {
   }
 
   const ai = createProvider(env)
-  if (!ai.ready) log.warn('AI belum siap, job AI akan gagal dengan pesan ini', { provider: ai.name, reason: ai.notReadyReason })
+  if (env.AI_PROVIDER === 'none') log.info('AI dimatikan (AI_PROVIDER=none): tidak ada data yang keluar ke penyedia AI, pembaruan sumber soal mingguan dilewati')
+  else if (!ai.ready) log.warn('AI belum siap, job AI akan gagal dengan pesan ini', { provider: ai.name, reason: ai.notReadyReason })
   const mailer = smtpMailer(env)
   if (!mailer) log.warn('SMTP_URL kosong, email masuk status no-smtp')
 
