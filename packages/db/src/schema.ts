@@ -1032,3 +1032,16 @@ export const LEARNER_SCOPED_TABLES = [
   'arena_session', 'arena_state', 'daily_chest',
   'paper_pick',
 ] as const
+
+/** Saklar fitur per learner (migrasi 0017). Tanpa baris berarti menyala. */
+export const learnerFeature = pgTable(
+  'learner_feature',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    key: text('key').notNull(),
+    enabled: boolean('enabled').notNull(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.key] })],
+)
