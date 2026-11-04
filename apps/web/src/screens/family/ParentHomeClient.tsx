@@ -90,6 +90,12 @@ export function ChildCard({ c }: { c: ParentChildCard }) {
           </li>
         ))}
       </ul>
+      {c.reading && (c.reading.minutesWeek > 0 || c.reading.booksFinished > 0 || c.reading.reading) ? (
+        <p className="m-0 rounded-control bg-bg p-3 text-small" data-testid="ruang-baca">
+          <span className="font-bold">Ruang Baca.</span> {c.reading.minutesWeek} menit membaca dalam 7 hari terakhir, {c.reading.booksFinished} buku selesai.
+          {c.reading.reading ? ` Sedang membaca ${c.reading.reading}.` : ''}
+        </p>
+      ) : null}
       <ButtonLink href={c.href} variant="primary" className="h-12 w-full">
         Lihat {c.name}
       </ButtonLink>

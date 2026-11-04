@@ -25,6 +25,7 @@ const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string; 
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
   { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions, features: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
   { key: 'practice', label: 'Practice', icon: 'pencil', href: LEARNER_ROUTES.practice },
+  { key: 'reading', label: 'Reading Room', icon: 'book', href: LEARNER_ROUTES.reading },
   { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
   { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
   { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },

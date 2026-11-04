@@ -275,3 +275,7 @@ Generator ditulis di `packages/content/src/math/g<grade>.ts` dan mengembalikan i
 - Skill sesi English Skills (`<grade>.starters-listening`, `movers-listening`, `starters-speaking`, `movers-speaking`, `starters-writing`, `movers-writing`) dijaga oleh uji: listening hanya mcq (naskah ada di prompt), speaking hanya `speak` dengan rubrik berjumlah 5 poin, writing hanya `write`. Soal `listen` dengan `listenText` tersembunyi ditaruh di skill `speaking` atau skill baca yang sesuai.
 - Tag lomba untuk simulasi: `esmo` (Grade 1-2, hanya mcq yang dipilih pembuat paket ESMO) dan `iklc`. Soal gaya lomba bergenre odd-one-out, analogi, anagram, dan tata bahasa dalam konteks memakai tag itu.
 - Daftar kata Spelling Bee: tiap kata unik dalam satu berkas dan kalimat contoh harus memuat kata itu sebagai kata utuh.
+
+## Buku Ruang Baca
+
+Buku bab asli ada di `content/books/<kelas>/<id>.json` (skema dan aturan di `packages/content/src/books.ts`). Setiap kelas minimal tiga buku, campuran cerita dan nonfiksi. Jumlah bab: kelas 1 dan 2 tiga sampai empat, kelas 3 dan 4 lima sampai enam, kelas 5 dan 6 enam sampai delapan. Tiap bab punya 6 sampai 8 pertanyaan pilihan ganda, satu jawaban benar, dan kalimat `why` yang menunjuk ke teks. Satu kalimat bacaan menjadi satu klip suara pencerita (`bookSpeechClips`), jadi kalimat dijaga di bawah 260 huruf. Periksa dengan `pnpm exec tsx packages/content/scripts/check-books.ts [kelas]`; `pnpm content:check` ikut memeriksanya.
