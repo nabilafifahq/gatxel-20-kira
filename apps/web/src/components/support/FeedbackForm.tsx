@@ -325,6 +325,7 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
               onClick={() => {
                 setFile(null)
                 clear('attachment')
+                setFailure(null)
               }}
             />
           </div>
