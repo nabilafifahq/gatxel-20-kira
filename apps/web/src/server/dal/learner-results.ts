@@ -115,6 +115,12 @@ export function yourAnswerText(item: Item, answer: unknown): string {
   }
 }
 
+/** "1 minute" dan "2 minutes" dari batas waktu dalam detik. */
+function minutesOf(seconds: number): string {
+  const m = Math.round(seconds / 60)
+  return `${m} ${m === 1 ? 'minute' : 'minutes'}`
+}
+
 function headlineFor(pct: number, pending: number, marker: 'tutor' | 'grownup' = 'tutor'): { headline: string; detail: string; tone: ResultsDTO['tone'] } {
   if (pending > 0 && pct >= 0.5) return { headline: 'Great work so far', detail: marker === 'grownup' ? 'Your grown-up can look at the rest.' : 'Your tutor will mark the rest.', tone: 'normal' }
   if (pct >= 1) return { headline: 'Every one right', detail: 'That is a full score. Brilliant.', tone: 'full' }
@@ -171,7 +177,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     attemptId: a.id,
     subject,
     title: a.title,
-    meta: `${total} questions${a.timeLimitS ? `, ${Math.round(a.timeLimitS / 60)} minutes` : ''}${date ? `, ${date}` : ''}`,
+    meta: `${total} ${total === 1 ? 'question' : 'questions'}${a.timeLimitS ? `, ${minutesOf(a.timeLimitS)}` : ''}${date ? `, ${date}` : ''}`,
     scoreLabel: a.scoreScaled !== null && a.scoreScaled !== undefined ? `${Math.round(a.scoreScaled)} out of 100` : `${correct} out of ${total}`,
     scoreValue: a.scoreScaled !== null && a.scoreScaled !== undefined ? Math.round(a.scoreScaled) : p ? Math.round(a.scoreRaw ?? correct) : correct,
     scoreMax: a.scoreScaled !== null && a.scoreScaled !== undefined ? 100 : p ? Math.round(a.scoreMax ?? total) : total,

@@ -132,7 +132,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
   const timeLine = esmo ? (
     <>
       <span className="font-numbers text-h1 font-semibold tabular-nums">{usedMin}</span>
-      <span className="text-body font-semibold">{limitMin ? `of ${limitMin} minutes` : usedMin === 1 ? 'minute' : 'minutes'}</span>
+      <span className="text-body font-semibold">{limitMin ? `of ${limitMin} ${limitMin === 1 ? 'minute' : 'minutes'}` : usedMin === 1 ? 'minute' : 'minutes'}</span>
     </>
   ) : (
     <>
