@@ -380,7 +380,7 @@
       "skill": "m3.oly-logic",
       "type": "numeric",
       "difficulty": 5,
-      "prompt": "There are 9 coins that look the same. One coin is fake and lighter than the others. What is the smallest number of weighings on a balance that always finds the fake?",
+      "prompt": "There are 9 coins that look the same. One coin is lighter than the others. What is the smallest number of weighings on a balance that always finds the lighter coin?",
       "figure": {
         "kind": "balance",
         "left": [
@@ -398,14 +398,14 @@
         "Split the 9 coins into 3 groups of 3.",
         "Weigh one group of 3 against another. What does each result tell you?"
       ],
-      "explanation": "Weigh 3 coins against 3: the lighter side holds the fake, or if they balance it is among the 3 left over. Then weigh 1 coin against 1 from that group in the same way. So 2 weighings always find it.",
+      "explanation": "Weigh 3 coins against 3: the lighter side holds the lighter coin, or if they balance it is among the 3 left over. Then weigh 1 coin against 1 from that group in the same way. So 2 weighings always find it.",
       "solution": [
         {
           "say": "Split into 3 groups of 3. Weigh two groups.",
           "show": "3 against 3"
         },
         {
-          "say": "The lighter side holds the fake. If level, the group left out holds it.",
+          "say": "The lighter side holds the lighter coin. If level, the group left out holds it.",
           "show": "3 coins left"
         },
         {
@@ -413,7 +413,7 @@
           "show": "1 against 1"
         },
         {
-          "say": "The lighter coin is fake. If level, the coin left out is fake.",
+          "say": "The lighter one is the coin we want. If level, the coin left out is the one.",
           "show": "2 weighings"
         }
       ],
