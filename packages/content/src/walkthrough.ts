@@ -198,8 +198,15 @@ export function withWalkthrough<T extends Item>(item: T): T {
     return full
   }
   const derived = deriveSteps(item)
-  return derived ? { ...item, solution: animateSteps(item, derived) } : item
+  if (!derived) return item
+  const solution = animateSteps(item, derived)
+  DERIVED.add(solution)
+  return { ...item, solution }
 }
+
+/** Langkah yang diturunkan otomatis (bukan tulisan penulis soal). Dipakai supaya klip suara tidak dibuat massal untuknya. */
+const DERIVED = new WeakSet<object>()
+export const isDerivedSolution = (solution: readonly SolutionStep[] | undefined): boolean => solution !== undefined && DERIVED.has(solution)
 
 /** Semua bilangan yang ditunjukkan satu gerakan. */
 function animNumbers(a: Anim): number[] {
