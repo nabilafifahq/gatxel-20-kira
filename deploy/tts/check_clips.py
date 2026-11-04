@@ -36,6 +36,7 @@ import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import get_context
 from typing import Any
 
 import numpy as np
@@ -160,13 +161,37 @@ def silence_stats(y: np.ndarray) -> tuple[float, float, float, float]:
     return first * hop / SR, (len(quiet) - 1 - last) * hop / SR, inner * hop / SR, float(quiet.mean())
 
 
+def f0_track(y: np.ndarray) -> np.ndarray:
+    """F0 (Hz) tiap bingkai 20 md dengan autokorelasi (FFT, vektor); NaN bila tak bersuara.
+
+    Tanpa librosa/numba: pYIN macet atau mematikan proses pekerja pada ribuan klip pendek, dan jauh lebih lambat. Untuk
+    tujuan di sini (median nada per frasa, lompatan suara) pelacak autokorelasi cukup; salah oktaf jarang dan tidak
+    mengubah median frasa.
+    """
+    hop, win = 320, 640  # 20 md hop, bingkai 40 md pada 16 kHz
+    if len(y) < win:
+        return np.array([])
+    n = 1 + (len(y) - win) // hop
+    idx = np.arange(win)[None, :] + hop * np.arange(n)[:, None]
+    fr = y[idx].astype(np.float64)
+    fr -= fr.mean(axis=1, keepdims=True)
+    fr *= np.hanning(win)[None, :]
+    spec = np.fft.rfft(fr, n=2 * win, axis=1)
+    ac = np.fft.irfft(spec * np.conj(spec), axis=1)[:, :win]
+    ac0 = ac[:, 0] + 1e-9
+    lo, hi = SR // 450, SR // 65  # lag untuk 450 Hz dan 65 Hz
+    seg = ac[:, lo:hi] / ac0[:, None]
+    lag = seg.argmax(axis=1) + lo
+    peak = seg.max(axis=1)
+    rms = np.sqrt(np.mean(fr**2, axis=1))
+    voiced = (peak > 0.35) & (rms > 0.01)
+    return np.where(voiced, SR / lag, np.nan)
+
+
 def f0_phrases(y: np.ndarray) -> list[float]:
     """Median F0 (semiton terhadap 100 Hz) tiap frasa bersuara. Frasa dipisah oleh bagian tak bersuara lebih dari 200 md."""
-    import librosa
-
-    hop = 320  # 20 md
-    f0, voiced, _ = librosa.pyin(y, fmin=65, fmax=450, sr=SR, frame_length=1024, hop_length=hop, resolution=0.25, n_thresholds=20, fill_na=np.nan)
-    st = 12 * np.log2(np.where(voiced & np.isfinite(f0), f0, np.nan) / 100.0)
+    f0 = f0_track(y)
+    st = 12 * np.log2(f0 / 100.0)
     phrases: list[list[float]] = []
     cur: list[float] = []
     gap = 0
@@ -334,7 +359,8 @@ class Analyzer:
     def _fresh(self) -> ProcessPoolExecutor:
         if self.ex:
             self.ex.shutdown(wait=False, cancel_futures=True)
-        self.ex = ProcessPoolExecutor(self.procs)
+        # spawn, bukan fork: proses yang sudah memuat numpy/numba/BLAS lalu di-fork bisa saling mengunci.
+        self.ex = ProcessPoolExecutor(self.procs, mp_context=get_context("spawn"))
         return self.ex
 
     def map(self, fn: Any, jobs: list[Any], chunksize: int = 1) -> list[dict[str, Any]]:
@@ -344,7 +370,7 @@ class Analyzer:
         redo: list[int] = []
         for i, f in enumerate(futs):
             try:
-                results[i] = f.result(timeout=600)
+                results[i] = f.result(timeout=300)
             except Exception:  # noqa: BLE001 - pekerja mati atau waktu habis
                 redo.append(i)
         for i in redo:
