@@ -34,7 +34,9 @@ RUN mkdir -p /repo/tools-dist \
     done
 
 FROM ${NODE_IMAGE} AS run
-ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0 \
+# KEEP_ALIVE_TIMEOUT lebih lama dari keepalive 30 detik di Caddyfile: tanpa ini Node menutup sambungan setelah 5 detik dan
+# POST yang kebetulan memakai sambungan itu dijawab 502 oleh proxy (tidak diulang karena bukan idempoten).
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0 KEEP_ALIVE_TIMEOUT=65000 \
     KIRA_CONTENT_DIR=/app/content KIRA_MIGRATIONS_DIR=/app/migrations KIRA_DATA_DIR=/data
 WORKDIR /app
 COPY --from=build --chown=node:node /repo/apps/web/.next/standalone ./

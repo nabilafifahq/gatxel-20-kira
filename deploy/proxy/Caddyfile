@@ -35,6 +35,8 @@
 		flush_interval -1
 		header_up X-Forwarded-For {client_ip}
 		header_up X-Real-IP {client_ip}
+		# Cloudflare meneruskan header buatan klien. Next dan sameOrigin membaca X-Forwarded-Host, jadi nilainya ditentukan di sini.
+		header_up X-Forwarded-Host {host}
 		# Aplikasi memberi no-transform supaya Cloudflare tidak mengubah isi halaman, tetapi Caddy tidak mau memampatkan
 		# respons bertanda itu. Tanda dilepas di sini agar HTML (sekitar 100 KB, jadi 15 KB bila dimampatkan) dikirim
 		# terkompresi lewat unggahan rumah, lalu dipasang lagi sebelum respons keluar (lihat header >Cache-Control di bawah).
