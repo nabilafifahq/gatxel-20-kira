@@ -112,6 +112,24 @@
       }
     },
     {
+      "id": "m2.shapes-2d.701",
+      "skill": "m2.shapes-2d",
+      "difficulty": 1,
+      "prompt": "How many vertices (corners) does a rectangle have?",
+      "hints": [
+        "Picture a rectangle.",
+        "Count the corners.",
+        "It has 4 sides."
+      ],
+      "explanation": "A rectangle has 4 sides and 4 vertices.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 4
+    },
+    {
       "id": "m2.shapes-2d.801",
       "skill": "m2.shapes-2d",
       "type": "mcq",
@@ -162,24 +180,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m2.shapes-2d.701",
-      "skill": "m2.shapes-2d",
-      "difficulty": 1,
-      "prompt": "How many vertices (corners) does a rectangle have?",
-      "hints": [
-        "Picture a rectangle.",
-        "Count the corners.",
-        "It has 4 sides."
-      ],
-      "explanation": "A rectangle has 4 sides and 4 vertices.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 4
     }
   ]
 }

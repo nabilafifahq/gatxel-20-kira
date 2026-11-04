@@ -1,0 +1,57 @@
+{
+  "skill": "m3.length",
+  "items": [
+    {
+      "id": "m3.length.801",
+      "skill": "m3.length",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 3 metres is the same as 300 centimetres.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many cm in 1 metre?",
+        "Multiply by 3.",
+        "3 × 100 = 300."
+      ],
+      "explanation": "1 metre is 100 cm, so 3 metres is 3 × 100 = 300 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.length.802",
+      "skill": "m3.length",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 5 metres is the same as 50 centimetres.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many cm in 1 metre?",
+        "5 × 100.",
+        "5 metres is 500 cm."
+      ],
+      "explanation": "1 metre is 100 cm, so 5 metres is 500 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

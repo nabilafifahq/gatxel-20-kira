@@ -1,0 +1,57 @@
+{
+  "skill": "m3.chance",
+  "items": [
+    {
+      "id": "m3.chance.801",
+      "skill": "m3.chance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: It is impossible to roll a 7 on an ordinary 1 to 6 dice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What numbers are on a dice?",
+        "Is there a 7?",
+        "It cannot happen."
+      ],
+      "explanation": "An ordinary dice only has the numbers 1 to 6, so 7 can never come up.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.chance.802",
+      "skill": "m3.chance",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A bag has 1 red counter and 9 blue counters. It is certain that you pick a red one.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many red counters are there?",
+        "How many counters altogether?",
+        "1 out of 10 is unlikely."
+      ],
+      "explanation": "There is only 1 red out of 10, so picking red is unlikely. It is not certain.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

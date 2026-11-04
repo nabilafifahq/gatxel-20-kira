@@ -1,0 +1,57 @@
+{
+  "skill": "m3.pictograms-bars",
+  "items": [
+    {
+      "id": "m3.pictograms-bars.801",
+      "skill": "m3.pictograms-bars",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If a key says one symbol stands for 4 books, 3 symbols show 12 books.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does one symbol mean?",
+        "Count in 4s.",
+        "3 × 4 = 12."
+      ],
+      "explanation": "Each symbol is 4, so 3 symbols is 4 + 4 + 4 = 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.pictograms-bars.802",
+      "skill": "m3.pictograms-bars",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If a key says one symbol stands for 5 pupils, 4 symbols show 9 pupils.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does one symbol mean?",
+        "Count in 5s.",
+        "4 × 5 = 20."
+      ],
+      "explanation": "Each symbol is 5, so 4 symbols is 4 × 5 = 20 pupils.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

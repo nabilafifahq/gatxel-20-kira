@@ -421,6 +421,24 @@
       "explanation": "The digits are 1 hundred, 4 tens and 0 ones, so the number is 140."
     },
     {
+      "id": "m3.complements-multiples.701",
+      "skill": "m3.complements-multiples",
+      "difficulty": 2,
+      "prompt": "__ + 640 = 1,000",
+      "hints": [
+        "How far is 640 from 1,000?",
+        "640 + 60 = 700.",
+        "Then 700 + 300 = 1,000."
+      ],
+      "explanation": "60 + 300 = 360, so 640 + 360 = 1,000.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 360
+    },
+    {
       "id": "m3.complements-multiples.801",
       "skill": "m3.complements-multiples",
       "type": "mcq",
@@ -497,24 +515,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m3.complements-multiples.701",
-      "skill": "m3.complements-multiples",
-      "difficulty": 2,
-      "prompt": "__ + 640 = 1,000",
-      "hints": [
-        "How far is 640 from 1,000?",
-        "640 + 60 = 700.",
-        "Then 700 + 300 = 1,000."
-      ],
-      "explanation": "60 + 300 = 360, so 640 + 360 = 1,000.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 10,
-      "type": "numeric",
-      "answer": 360
     }
   ]
 }

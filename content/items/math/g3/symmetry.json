@@ -1,0 +1,57 @@
+{
+  "skill": "m3.symmetry",
+  "items": [
+    {
+      "id": "m3.symmetry.801",
+      "skill": "m3.symmetry",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A circle can be folded exactly in half in many different ways.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of folding a paper circle.",
+        "Does it matter which way you fold through the middle?",
+        "Every fold through the centre works."
+      ],
+      "explanation": "A circle has many lines of symmetry. Any line through the centre folds it into two matching halves.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.symmetry.802",
+      "skill": "m3.symmetry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The capital letter E has a vertical line of symmetry.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Fold E top to bottom.",
+        "Fold E left to right.",
+        "Only the top and bottom match."
+      ],
+      "explanation": "E has a horizontal line of symmetry across the middle. A vertical line down the middle does not match.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

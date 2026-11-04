@@ -1,0 +1,83 @@
+{
+  "skill": "m1.compare-order",
+  "items": [
+    {
+      "id": "m1.compare-order.801",
+      "skill": "m1.compare-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: 9 is less than 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which one is later when you count?",
+        "Count 6, 7, 8, 9.",
+        "9 is later, so it is bigger."
+      ],
+      "explanation": "9 comes after 6 when you count, so 9 is greater than 6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.compare-order.802",
+      "skill": "m1.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 12 is less than 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count from 8 up.",
+        "Do you pass 12 on the way?",
+        "12 is bigger."
+      ],
+      "explanation": "12 comes after 8 when you count, so 12 is greater than 8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.compare-order.803",
+      "skill": "m1.compare-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The numbers 4, 11 and 7 in order from smallest to largest are 4, 7, 11.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the smallest first.",
+        "Then find the biggest.",
+        "4, 7, 11."
+      ],
+      "explanation": "4 is the smallest, then 7, then 11 is the largest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

@@ -19,6 +19,32 @@
       "answer": 350
     },
     {
+      "id": "m3.compare-order.701",
+      "skill": "m3.compare-order",
+      "difficulty": 1,
+      "prompt": "Which number is bigger?",
+      "hints": [
+        "Compare the hundreds first.",
+        "3 hundreds or 4 hundreds?",
+        "More hundreds means bigger."
+      ],
+      "explanation": "412 has 4 hundreds and 398 has only 3 hundreds, so 412 is bigger.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "398"
+        },
+        {
+          "text": "412"
+        }
+      ],
+      "answer": 1
+    },
+    {
       "id": "m3.compare-order.801",
       "skill": "m3.compare-order",
       "type": "mcq",
@@ -69,32 +95,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m3.compare-order.701",
-      "skill": "m3.compare-order",
-      "difficulty": 1,
-      "prompt": "Which number is bigger?",
-      "hints": [
-        "Compare the hundreds first.",
-        "3 hundreds or 4 hundreds?",
-        "More hundreds means bigger."
-      ],
-      "explanation": "412 has 4 hundreds and 398 has only 3 hundreds, so 412 is bigger.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "mcq",
-      "options": [
-        {
-          "text": "398"
-        },
-        {
-          "text": "412"
-        }
-      ],
-      "answer": 1
     }
   ]
 }

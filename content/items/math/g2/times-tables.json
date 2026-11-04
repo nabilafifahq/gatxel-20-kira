@@ -79,6 +79,42 @@
       ]
     },
     {
+      "id": "m2.times-tables.701",
+      "skill": "m2.times-tables",
+      "difficulty": 1,
+      "prompt": "5 × 7 = ?",
+      "hints": [
+        "Count in 5s seven times.",
+        "5, 10, 15, 20, ...",
+        "Half of 10 × 7."
+      ],
+      "explanation": "Counting in 5s seven times gives 35.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 35
+    },
+    {
+      "id": "m2.times-tables.702",
+      "skill": "m2.times-tables",
+      "difficulty": 1,
+      "prompt": "2 × 8 = ?",
+      "hints": [
+        "Double 8.",
+        "8 + 8.",
+        "Count in 2s eight times."
+      ],
+      "explanation": "Double 8 is 16.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 16
+    },
+    {
       "id": "m2.times-tables.801",
       "skill": "m2.times-tables",
       "type": "mcq",
@@ -155,42 +191,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m2.times-tables.701",
-      "skill": "m2.times-tables",
-      "difficulty": 1,
-      "prompt": "5 × 7 = ?",
-      "hints": [
-        "Count in 5s seven times.",
-        "5, 10, 15, 20, ...",
-        "Half of 10 × 7."
-      ],
-      "explanation": "Counting in 5s seven times gives 35.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 35
-    },
-    {
-      "id": "m2.times-tables.702",
-      "skill": "m2.times-tables",
-      "difficulty": 1,
-      "prompt": "2 × 8 = ?",
-      "hints": [
-        "Double 8.",
-        "8 + 8.",
-        "Count in 2s eight times."
-      ],
-      "explanation": "Double 8 is 16.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 16
     }
   ]
 }

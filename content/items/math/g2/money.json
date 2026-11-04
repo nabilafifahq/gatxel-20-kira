@@ -42,6 +42,24 @@
       ]
     },
     {
+      "id": "m2.money.701",
+      "skill": "m2.money",
+      "difficulty": 2,
+      "prompt": "Rp2.000 + Rp500 + Rp500 = Rp?",
+      "hints": [
+        "Add the two Rp500 coins first.",
+        "500 + 500 = 1000.",
+        "Then add 2000."
+      ],
+      "explanation": "500 + 500 = 1000 and 2000 + 1000 = 3000, so the total is Rp3.000.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 3000
+    },
+    {
       "id": "m2.money.801",
       "skill": "m2.money",
       "type": "mcq",
@@ -92,24 +110,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m2.money.701",
-      "skill": "m2.money",
-      "difficulty": 2,
-      "prompt": "Rp2.000 + Rp500 + Rp500 = Rp?",
-      "hints": [
-        "Add the two Rp500 coins first.",
-        "500 + 500 = 1000.",
-        "Then add 2000."
-      ],
-      "explanation": "500 + 500 = 1000 and 2000 + 1000 = 3000, so the total is Rp3.000.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 10,
-      "type": "numeric",
-      "answer": 3000
     }
   ]
 }

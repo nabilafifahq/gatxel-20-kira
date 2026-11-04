@@ -1,0 +1,57 @@
+{
+  "skill": "m3.position-direction",
+  "items": [
+    {
+      "id": "m3.position-direction.801",
+      "skill": "m3.position-direction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: North is the opposite direction to south.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a compass.",
+        "North is up and south is down.",
+        "They are opposites."
+      ],
+      "explanation": "North and south are opposites, like east and west.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.position-direction.802",
+      "skill": "m3.position-direction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: East is the opposite direction to north.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which pairs are opposites?",
+        "Think of a compass.",
+        "East and west are opposites."
+      ],
+      "explanation": "The opposite of east is west. The opposite of north is south.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

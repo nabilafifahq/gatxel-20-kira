@@ -148,6 +148,24 @@
       ]
     },
     {
+      "id": "m1.shapes-2d.701",
+      "skill": "m1.shapes-2d",
+      "difficulty": 1,
+      "prompt": "How many sides does a triangle have?",
+      "hints": [
+        "Tri means three.",
+        "Picture a triangle and count its edges.",
+        "Count with your finger."
+      ],
+      "explanation": "A triangle has 3 straight sides.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 5,
+      "type": "numeric",
+      "answer": 3
+    },
+    {
       "id": "m1.shapes-2d.801",
       "skill": "m1.shapes-2d",
       "type": "mcq",
@@ -224,24 +242,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m1.shapes-2d.701",
-      "skill": "m1.shapes-2d",
-      "difficulty": 1,
-      "prompt": "How many sides does a triangle have?",
-      "hints": [
-        "Tri means three.",
-        "Picture a triangle and count its edges.",
-        "Count with your finger."
-      ],
-      "explanation": "A triangle has 3 straight sides.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 5,
-      "type": "numeric",
-      "answer": 3
     }
   ]
 }

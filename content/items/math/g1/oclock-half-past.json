@@ -38,6 +38,24 @@
       "stepMinutes": 30
     },
     {
+      "id": "m1.oclock-half-past.701",
+      "skill": "m1.oclock-half-past",
+      "difficulty": 2,
+      "prompt": "At half past 3 the minute hand points to which number?",
+      "hints": [
+        "Half past means half way round the clock.",
+        "The clock face has 12 numbers.",
+        "Half of 12."
+      ],
+      "explanation": "Half past is half way round the clock, so the minute hand points to 6.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 6
+    },
+    {
       "id": "m1.oclock-half-past.801",
       "skill": "m1.oclock-half-past",
       "type": "mcq",
@@ -114,24 +132,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m1.oclock-half-past.701",
-      "skill": "m1.oclock-half-past",
-      "difficulty": 2,
-      "prompt": "At half past 3 the minute hand points to which number?",
-      "hints": [
-        "Half past means half way round the clock.",
-        "The clock face has 12 numbers.",
-        "Half of 12."
-      ],
-      "explanation": "Half past is half way round the clock, so the minute hand points to 6.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 8,
-      "type": "numeric",
-      "answer": 6
     }
   ]
 }

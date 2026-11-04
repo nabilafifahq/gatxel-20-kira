@@ -21,6 +21,24 @@
       }
     },
     {
+      "id": "m1.quarters.701",
+      "skill": "m1.quarters",
+      "difficulty": 2,
+      "prompt": "How many quarters make one whole?",
+      "hints": [
+        "A whole is cut into equal parts.",
+        "Each part is one quarter.",
+        "Quarter means four equal parts."
+      ],
+      "explanation": "A whole cut into 4 equal parts has 4 quarters.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 4
+    },
+    {
       "id": "m1.quarters.801",
       "skill": "m1.quarters",
       "type": "mcq",
@@ -97,24 +115,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m1.quarters.701",
-      "skill": "m1.quarters",
-      "difficulty": 2,
-      "prompt": "How many quarters make one whole?",
-      "hints": [
-        "A whole is cut into equal parts.",
-        "Each part is one quarter.",
-        "Quarter means four equal parts."
-      ],
-      "explanation": "A whole cut into 4 equal parts has 4 quarters.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 4
     }
   ]
 }

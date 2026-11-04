@@ -1,0 +1,57 @@
+{
+  "skill": "m3.venn-carroll",
+  "items": [
+    {
+      "id": "m3.venn-carroll.801",
+      "skill": "m3.venn-carroll",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a Venn diagram of multiples of 2 and multiples of 5, the number 10 goes in the overlap.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is 10 in the 2 times table?",
+        "Is 10 in the 5 times table?",
+        "Both, so it goes in the overlap."
+      ],
+      "explanation": "10 is a multiple of 2 and a multiple of 5, so it belongs to both circles.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.venn-carroll.802",
+      "skill": "m3.venn-carroll",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a Venn diagram of multiples of 2 and multiples of 5, the number 15 goes in the overlap.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is 15 in the 2 times table?",
+        "15 is odd.",
+        "It is only in the multiples of 5 circle."
+      ],
+      "explanation": "15 is a multiple of 5 but not of 2, because it is odd. So it goes in the 5 circle only.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

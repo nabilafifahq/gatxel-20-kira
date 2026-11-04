@@ -1,0 +1,83 @@
+{
+  "skill": "m1.number-bonds-10",
+  "items": [
+    {
+      "id": "m1.number-bonds-10.801",
+      "skill": "m1.number-bonds-10",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: 6 + 4 = 10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count on 4 from 6.",
+        "Use your fingers.",
+        "6, then 7, 8, 9, 10."
+      ],
+      "explanation": "6 and 4 are a pair that make 10. Count on 4 from 6: 7, 8, 9, 10.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.number-bonds-10.802",
+      "skill": "m1.number-bonds-10",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 7 and 2 make 10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add 7 and 2 first.",
+        "Is it 10?",
+        "The pair is 7 and 3."
+      ],
+      "explanation": "7 + 2 = 9. You need 3 more, so 7 and 3 make 10.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.number-bonds-10.803",
+      "skill": "m1.number-bonds-10",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If 3 + 7 = 10, then 7 + 3 = 11.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the order change the total?",
+        "Think of 3 apples and 7 pears.",
+        "The total is still 10."
+      ],
+      "explanation": "You can add in any order and get the same total. So 7 + 3 is also 10.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

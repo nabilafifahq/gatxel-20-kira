@@ -21,6 +21,24 @@
       }
     },
     {
+      "id": "m1.halves.701",
+      "skill": "m1.halves",
+      "difficulty": 1,
+      "prompt": "Half of 8 is what?",
+      "hints": [
+        "Share 8 into 2 equal groups.",
+        "4 + 4 makes?",
+        "Half is one of two equal parts."
+      ],
+      "explanation": "8 shared into 2 equal groups is 4 each, so half of 8 is 4.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 4
+    },
+    {
       "id": "m1.halves.801",
       "skill": "m1.halves",
       "type": "mcq",
@@ -97,24 +115,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m1.halves.701",
-      "skill": "m1.halves",
-      "difficulty": 1,
-      "prompt": "Half of 8 is what?",
-      "hints": [
-        "Share 8 into 2 equal groups.",
-        "4 + 4 makes?",
-        "Half is one of two equal parts."
-      ],
-      "explanation": "8 shared into 2 equal groups is 4 each, so half of 8 is 4.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 4
     }
   ]
 }

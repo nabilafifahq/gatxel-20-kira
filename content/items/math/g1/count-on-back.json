@@ -19,6 +19,42 @@
       "answer": 7
     },
     {
+      "id": "m1.count-on-back.701",
+      "skill": "m1.count-on-back",
+      "difficulty": 1,
+      "prompt": "What number comes after 14?",
+      "hints": [
+        "Count: 13, 14, ...",
+        "It is one more than 14.",
+        "14 + 1."
+      ],
+      "explanation": "One more than 14 is 15.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 15
+    },
+    {
+      "id": "m1.count-on-back.702",
+      "skill": "m1.count-on-back",
+      "difficulty": 2,
+      "prompt": "What is one less than 20?",
+      "hints": [
+        "Count back from 20.",
+        "Say 20, then the next number down.",
+        "20 - 1."
+      ],
+      "explanation": "One less than 20 is 19.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 19
+    },
+    {
       "id": "m1.count-on-back.801",
       "skill": "m1.count-on-back",
       "type": "mcq",
@@ -95,42 +131,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m1.count-on-back.701",
-      "skill": "m1.count-on-back",
-      "difficulty": 1,
-      "prompt": "What number comes after 14?",
-      "hints": [
-        "Count: 13, 14, ...",
-        "It is one more than 14.",
-        "14 + 1."
-      ],
-      "explanation": "One more than 14 is 15.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 15
-    },
-    {
-      "id": "m1.count-on-back.702",
-      "skill": "m1.count-on-back",
-      "difficulty": 2,
-      "prompt": "What is one less than 20?",
-      "hints": [
-        "Count back from 20.",
-        "Say 20, then the next number down.",
-        "20 - 1."
-      ],
-      "explanation": "One less than 20 is 19.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 19
     }
   ]
 }

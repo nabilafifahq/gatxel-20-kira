@@ -1,0 +1,57 @@
+{
+  "skill": "m2.shapes-3d",
+  "items": [
+    {
+      "id": "m2.shapes-3d.801",
+      "skill": "m2.shapes-3d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A cube has 6 faces.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count top and bottom.",
+        "Count the four sides.",
+        "2 + 4 = 6."
+      ],
+      "explanation": "A cube has a top, a bottom and four sides, so 6 faces.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.shapes-3d.802",
+      "skill": "m2.shapes-3d",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A cube has 6 edges.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the edges on the top face.",
+        "Count the bottom edges.",
+        "4 + 4 + 4 = 12."
+      ],
+      "explanation": "A cube has 12 edges: 4 on top, 4 on the bottom and 4 going up the sides.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

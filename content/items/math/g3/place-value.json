@@ -28,6 +28,24 @@
       "answer": 2
     },
     {
+      "id": "m3.place-value.701",
+      "skill": "m3.place-value",
+      "difficulty": 1,
+      "prompt": "What is the 5 worth in 352?",
+      "hints": [
+        "Which column is the 5 in?",
+        "352 is hundreds, tens and ones.",
+        "The 5 is in the tens place."
+      ],
+      "explanation": "The 5 is in the tens place, so it is worth 50.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 50
+    },
+    {
       "id": "m3.place-value.801",
       "skill": "m3.place-value",
       "type": "mcq",
@@ -78,24 +96,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m3.place-value.701",
-      "skill": "m3.place-value",
-      "difficulty": 1,
-      "prompt": "What is the 5 worth in 352?",
-      "hints": [
-        "Which column is the 5 in?",
-        "352 is hundreds, tens and ones.",
-        "The 5 is in the tens place."
-      ],
-      "explanation": "The 5 is in the tens place, so it is worth 50.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 7,
-      "type": "numeric",
-      "answer": 50
     }
   ]
 }

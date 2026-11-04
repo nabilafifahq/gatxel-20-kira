@@ -29,6 +29,24 @@
       ]
     },
     {
+      "id": "m2.time-durations.701",
+      "skill": "m2.time-durations",
+      "difficulty": 1,
+      "prompt": "How many minutes are there in 1 hour?",
+      "hints": [
+        "Think of a clock.",
+        "The minute hand goes all the way round.",
+        "Half an hour is 30 minutes."
+      ],
+      "explanation": "There are 60 minutes in 1 hour.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 60
+    },
+    {
       "id": "m2.time-durations.801",
       "skill": "m2.time-durations",
       "type": "mcq",
@@ -79,24 +97,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m2.time-durations.701",
-      "skill": "m2.time-durations",
-      "difficulty": 1,
-      "prompt": "How many minutes are there in 1 hour?",
-      "hints": [
-        "Think of a clock.",
-        "The minute hand goes all the way round.",
-        "Half an hour is 30 minutes."
-      ],
-      "explanation": "There are 60 minutes in 1 hour.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 60
     }
   ]
 }

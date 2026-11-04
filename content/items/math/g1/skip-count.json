@@ -54,6 +54,24 @@
       ]
     },
     {
+      "id": "m1.skip-count.701",
+      "skill": "m1.skip-count",
+      "difficulty": 1,
+      "prompt": "Count in 2s: 2, 4, 6, __",
+      "hints": [
+        "Add 2 each time.",
+        "6 + 2.",
+        "Count on two more."
+      ],
+      "explanation": "Each number is 2 more than the one before, so 6 + 2 = 8.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 8
+    },
+    {
       "id": "m1.skip-count.801",
       "skill": "m1.skip-count",
       "type": "mcq",
@@ -130,24 +148,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m1.skip-count.701",
-      "skill": "m1.skip-count",
-      "difficulty": 1,
-      "prompt": "Count in 2s: 2, 4, 6, __",
-      "hints": [
-        "Add 2 each time.",
-        "6 + 2.",
-        "Count on two more."
-      ],
-      "explanation": "Each number is 2 more than the one before, so 6 + 2 = 8.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 8
     }
   ]
 }

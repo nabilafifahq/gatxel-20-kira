@@ -1,0 +1,57 @@
+{
+  "skill": "m3.angles-turns",
+  "items": [
+    {
+      "id": "m3.angles-turns.801",
+      "skill": "m3.angles-turns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A right angle is a quarter turn.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many right angles make a whole turn?",
+        "The corner of a book is a right angle.",
+        "It is a quarter turn."
+      ],
+      "explanation": "A whole turn is 4 right angles, so a right angle is a quarter turn.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.angles-turns.802",
+      "skill": "m3.angles-turns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A half turn is the same as a right angle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many quarter turns make a half turn?",
+        "A half turn is bigger than a quarter turn.",
+        "It is 2 right angles."
+      ],
+      "explanation": "A half turn is 2 right angles, because 2 quarter turns make a half turn. A right angle is a quarter turn.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

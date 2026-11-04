@@ -19,58 +19,6 @@
       "answer": 70
     },
     {
-      "id": "m3.round-10-100.801",
-      "skill": "m3.round-10-100",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "True or false: 47 rounds to 50 when rounded to the nearest 10.",
-      "options": [
-        {
-          "text": "True"
-        },
-        {
-          "text": "False"
-        }
-      ],
-      "answer": 0,
-      "hints": [
-        "Which two tens is 47 between?",
-        "Look at the ones digit.",
-        "7 is 5 or more, so round up."
-      ],
-      "explanation": "47 is between 40 and 50. The ones digit 7 is 5 or more, so round up to 50.",
-      "tags": [
-        "true-false"
-      ],
-      "expectedSeconds": 15
-    },
-    {
-      "id": "m3.round-10-100.802",
-      "skill": "m3.round-10-100",
-      "type": "mcq",
-      "difficulty": 3,
-      "prompt": "True or false: 350 rounds to 300 when rounded to the nearest 100.",
-      "options": [
-        {
-          "text": "True"
-        },
-        {
-          "text": "False"
-        }
-      ],
-      "answer": 1,
-      "hints": [
-        "Look at the tens digit.",
-        "The tens digit is 5.",
-        "5 means round up to 400."
-      ],
-      "explanation": "350 is halfway between 300 and 400. When it is halfway, we round up to 400.",
-      "tags": [
-        "true-false"
-      ],
-      "expectedSeconds": 15
-    },
-    {
       "id": "m3.round-10-100.701",
       "skill": "m3.round-10-100",
       "difficulty": 2,
@@ -144,6 +92,58 @@
           "answer": 744
         }
       ]
+    },
+    {
+      "id": "m3.round-10-100.801",
+      "skill": "m3.round-10-100",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 47 rounds to 50 when rounded to the nearest 10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which two tens is 47 between?",
+        "Look at the ones digit.",
+        "7 is 5 or more, so round up."
+      ],
+      "explanation": "47 is between 40 and 50. The ones digit 7 is 5 or more, so round up to 50.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.round-10-100.802",
+      "skill": "m3.round-10-100",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 350 rounds to 300 when rounded to the nearest 100.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the tens digit.",
+        "The tens digit is 5.",
+        "5 means round up to 400."
+      ],
+      "explanation": "350 is halfway between 300 and 400. When it is halfway, we round up to 400.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

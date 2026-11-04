@@ -54,6 +54,24 @@
       ]
     },
     {
+      "id": "m2.number-bonds.701",
+      "skill": "m2.number-bonds",
+      "difficulty": 2,
+      "prompt": "__ + 64 = 100",
+      "hints": [
+        "What does 64 need to reach 100?",
+        "Make 70 first, then 100.",
+        "6 + 30."
+      ],
+      "explanation": "64 + 6 = 70 and 70 + 30 = 100, so the missing number is 36.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 36
+    },
+    {
       "id": "m2.number-bonds.801",
       "skill": "m2.number-bonds",
       "type": "mcq",
@@ -104,24 +122,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m2.number-bonds.701",
-      "skill": "m2.number-bonds",
-      "difficulty": 2,
-      "prompt": "__ + 64 = 100",
-      "hints": [
-        "What does 64 need to reach 100?",
-        "Make 70 first, then 100.",
-        "6 + 30."
-      ],
-      "explanation": "64 + 6 = 70 and 70 + 30 = 100, so the missing number is 36.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 10,
-      "type": "numeric",
-      "answer": 36
     }
   ]
 }

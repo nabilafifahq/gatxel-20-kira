@@ -1,0 +1,57 @@
+{
+  "skill": "m2.division",
+  "items": [
+    {
+      "id": "m2.division.801",
+      "skill": "m2.division",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 12 shared equally between 3 children gives 4 each.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Share 12 into 3 equal groups.",
+        "Use 3 times table.",
+        "3 × 4 = 12."
+      ],
+      "explanation": "Share 12 one at a time into 3 groups. Each group gets 4, since 3 × 4 = 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.division.802",
+      "skill": "m2.division",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 20 ÷ 5 = 5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which number times 5 makes 20?",
+        "Count in 5s to reach 20.",
+        "It takes 4 jumps."
+      ],
+      "explanation": "20 ÷ 5 = 4 because 5 × 4 = 20. 5 × 5 is 25.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

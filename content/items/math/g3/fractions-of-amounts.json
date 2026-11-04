@@ -43,58 +43,6 @@
       ]
     },
     {
-      "id": "m3.fractions-of-amounts.801",
-      "skill": "m3.fractions-of-amounts",
-      "type": "mcq",
-      "difficulty": 3,
-      "prompt": "True or false: One fifth of 30 is 6.",
-      "options": [
-        {
-          "text": "True"
-        },
-        {
-          "text": "False"
-        }
-      ],
-      "answer": 0,
-      "hints": [
-        "Divide 30 by 5.",
-        "Use the 5 times table.",
-        "5 × 6 = 30."
-      ],
-      "explanation": "Share 30 into 5 equal groups. 5 × 6 = 30, so each group is 6.",
-      "tags": [
-        "true-false"
-      ],
-      "expectedSeconds": 15
-    },
-    {
-      "id": "m3.fractions-of-amounts.802",
-      "skill": "m3.fractions-of-amounts",
-      "type": "mcq",
-      "difficulty": 3,
-      "prompt": "True or false: Two thirds of 12 is 6.",
-      "options": [
-        {
-          "text": "True"
-        },
-        {
-          "text": "False"
-        }
-      ],
-      "answer": 1,
-      "hints": [
-        "Find one third first.",
-        "12 ÷ 3 = 4.",
-        "Then double it."
-      ],
-      "explanation": "One third of 12 is 4. Two thirds is 4 + 4 = 8, not 6.",
-      "tags": [
-        "true-false"
-      ],
-      "expectedSeconds": 15
-    },
-    {
       "id": "m3.fractions-of-amounts.701",
       "skill": "m3.fractions-of-amounts",
       "difficulty": 2,
@@ -145,6 +93,58 @@
           "answer": 15
         }
       ]
+    },
+    {
+      "id": "m3.fractions-of-amounts.801",
+      "skill": "m3.fractions-of-amounts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: One fifth of 30 is 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide 30 by 5.",
+        "Use the 5 times table.",
+        "5 × 6 = 30."
+      ],
+      "explanation": "Share 30 into 5 equal groups. 5 × 6 = 30, so each group is 6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.fractions-of-amounts.802",
+      "skill": "m3.fractions-of-amounts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Two thirds of 12 is 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find one third first.",
+        "12 ÷ 3 = 4.",
+        "Then double it."
+      ],
+      "explanation": "One third of 12 is 4. Two thirds is 4 + 4 = 8, not 6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

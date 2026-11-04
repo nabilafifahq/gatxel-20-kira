@@ -1,0 +1,83 @@
+{
+  "skill": "m2.fractions-amounts",
+  "items": [
+    {
+      "id": "m2.fractions-amounts.801",
+      "skill": "m2.fractions-amounts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Half of 18 is 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which number doubled is 18?",
+        "Share 18 equally between 2.",
+        "9 + 9 = 18."
+      ],
+      "explanation": "Share 18 into 2 equal groups. 9 + 9 = 18.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.fractions-amounts.802",
+      "skill": "m2.fractions-amounts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A quarter of 20 is 10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Share 20 into 4 equal groups.",
+        "Use the 5 times table.",
+        "4 × 5 = 20."
+      ],
+      "explanation": "A quarter of 20 is 20 ÷ 4 = 5. Half of 20 is 10.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.fractions-amounts.803",
+      "skill": "m2.fractions-amounts",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Three quarters of 12 is 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find one quarter first.",
+        "12 ÷ 4 = 3.",
+        "Three of those is 9."
+      ],
+      "explanation": "A quarter of 12 is 3 because 12 ÷ 4 = 3. Three quarters is 3 × 3 = 9.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    }
+  ]
+}

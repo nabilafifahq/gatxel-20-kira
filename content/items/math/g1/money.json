@@ -28,6 +28,24 @@
       ]
     },
     {
+      "id": "m1.money.701",
+      "skill": "m1.money",
+      "difficulty": 2,
+      "prompt": "Two Rp500 coins make how many rupiah?",
+      "hints": [
+        "Count 500, then 500 more.",
+        "500 + 500.",
+        "5 hundreds and 5 hundreds make 10 hundreds."
+      ],
+      "explanation": "500 + 500 = 1000, so two Rp500 coins make Rp1.000.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 1000
+    },
+    {
       "id": "m1.money.801",
       "skill": "m1.money",
       "type": "mcq",
@@ -104,24 +122,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m1.money.701",
-      "skill": "m1.money",
-      "difficulty": 2,
-      "prompt": "Two Rp500 coins make how many rupiah?",
-      "hints": [
-        "Count 500, then 500 more.",
-        "500 + 500.",
-        "5 hundreds and 5 hundreds make 10 hundreds."
-      ],
-      "explanation": "500 + 500 = 1000, so two Rp500 coins make Rp1.000.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 8,
-      "type": "numeric",
-      "answer": 1000
     }
   ]
 }

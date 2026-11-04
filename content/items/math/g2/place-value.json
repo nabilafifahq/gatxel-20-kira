@@ -28,6 +28,24 @@
       "answer": 2
     },
     {
+      "id": "m2.place-value.701",
+      "skill": "m2.place-value",
+      "difficulty": 1,
+      "prompt": "How many tens are there in 83?",
+      "hints": [
+        "83 is tens and ones.",
+        "Look at the first digit.",
+        "80 is how many tens?"
+      ],
+      "explanation": "83 is 80 + 3, and 80 is 8 tens.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 8
+    },
+    {
       "id": "m2.place-value.801",
       "skill": "m2.place-value",
       "type": "mcq",
@@ -78,24 +96,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m2.place-value.701",
-      "skill": "m2.place-value",
-      "difficulty": 1,
-      "prompt": "How many tens are there in 83?",
-      "hints": [
-        "83 is tens and ones.",
-        "Look at the first digit.",
-        "80 is how many tens?"
-      ],
-      "explanation": "83 is 80 + 3, and 80 is 8 tens.",
-      "tags": [
-        "quick-fire"
-      ],
-      "expectedSeconds": 6,
-      "type": "numeric",
-      "answer": 8
     }
   ]
 }

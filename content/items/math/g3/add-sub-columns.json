@@ -30,6 +30,40 @@
       }
     },
     {
+      "id": "m3.add-sub-columns.701",
+      "skill": "m3.add-sub-columns",
+      "difficulty": 4,
+      "prompt": "A bus leaves Bandung with 187 passengers. At Garut, 64 passengers get off and 98 get on. At the last stop, 135 passengers get off.",
+      "hints": [
+        "Start with 187 and take away 64.",
+        "Then add 98.",
+        "Take away 135 from your last total."
+      ],
+      "explanation": "187 - 64 = 123. Then 123 + 98 = 221. At the last stop 221 - 135 = 86 passengers stay on the bus.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many passengers are on the bus after 64 get off at Garut?",
+          "answer": 123
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many are on the bus after 98 get on?",
+          "answer": 221
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many passengers stay on the bus after the last stop?",
+          "answer": 86
+        }
+      ]
+    },
+    {
       "id": "m3.add-sub-columns.801",
       "skill": "m3.add-sub-columns",
       "type": "mcq",
@@ -80,40 +114,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m3.add-sub-columns.701",
-      "skill": "m3.add-sub-columns",
-      "difficulty": 4,
-      "prompt": "A bus leaves Bandung with 187 passengers. At Garut, 64 passengers get off and 98 get on. At the last stop, 135 passengers get off.",
-      "hints": [
-        "Start with 187 and take away 64.",
-        "Then add 98.",
-        "Take away 135 from your last total."
-      ],
-      "explanation": "187 - 64 = 123. Then 123 + 98 = 221. At the last stop 221 - 135 = 86 passengers stay on the bus.",
-      "tags": [
-        "multi-part",
-        "word-problem"
-      ],
-      "type": "story",
-      "parts": [
-        {
-          "type": "numeric",
-          "prompt": "How many passengers are on the bus after 64 get off at Garut?",
-          "answer": 123
-        },
-        {
-          "type": "numeric",
-          "prompt": "How many are on the bus after 98 get on?",
-          "answer": 221
-        },
-        {
-          "type": "numeric",
-          "prompt": "How many passengers stay on the bus after the last stop?",
-          "answer": 86
-        }
-      ]
     }
   ]
 }

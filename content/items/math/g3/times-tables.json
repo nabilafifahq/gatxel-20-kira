@@ -86,58 +86,6 @@
       ]
     },
     {
-      "id": "m3.times-tables.801",
-      "skill": "m3.times-tables",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "True or false: 6 × 7 = 42.",
-      "options": [
-        {
-          "text": "True"
-        },
-        {
-          "text": "False"
-        }
-      ],
-      "answer": 0,
-      "hints": [
-        "Count in 7s.",
-        "Or use 6 × 6 = 36 and add 6.",
-        "36 + 6 = 42."
-      ],
-      "explanation": "6 × 7 is 6 sevens: 7, 14, 21, 28, 35, 42. So the answer is 42.",
-      "tags": [
-        "true-false"
-      ],
-      "expectedSeconds": 15
-    },
-    {
-      "id": "m3.times-tables.802",
-      "skill": "m3.times-tables",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "True or false: 8 × 9 = 81.",
-      "options": [
-        {
-          "text": "True"
-        },
-        {
-          "text": "False"
-        }
-      ],
-      "answer": 1,
-      "hints": [
-        "Use 10 × 8 = 80.",
-        "Take away one 8.",
-        "80 - 8 = 72."
-      ],
-      "explanation": "8 × 9 = 72. 9 × 9 = 81. Check: 10 × 8 = 80, take away 8 gives 72.",
-      "tags": [
-        "true-false"
-      ],
-      "expectedSeconds": 15
-    },
-    {
       "id": "m3.times-tables.701",
       "skill": "m3.times-tables",
       "difficulty": 2,
@@ -206,6 +154,58 @@
           "answer": 96
         }
       ]
+    },
+    {
+      "id": "m3.times-tables.801",
+      "skill": "m3.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 6 × 7 = 42.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count in 7s.",
+        "Or use 6 × 6 = 36 and add 6.",
+        "36 + 6 = 42."
+      ],
+      "explanation": "6 × 7 is 6 sevens: 7, 14, 21, 28, 35, 42. So the answer is 42.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.times-tables.802",
+      "skill": "m3.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 8 × 9 = 81.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Use 10 × 8 = 80.",
+        "Take away one 8.",
+        "80 - 8 = 72."
+      ],
+      "explanation": "8 × 9 = 72. 9 × 9 = 81. Check: 10 × 8 = 80, take away 8 gives 72.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }
