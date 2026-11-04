@@ -2,6 +2,7 @@
 
 import { refresh, revalidatePath } from 'next/cache'
 import type { ActionResult, PlanChangeResult } from '@/lib/dto'
+import type { ParentSkillChangeResult, ParentSkillOptionsDTO } from '@/lib/dto-parent'
 import { requireParent } from '../auth/parent'
 import { runAction } from '../errors'
 import {
@@ -20,6 +21,7 @@ import {
   parentSetSessionRequired,
   parentUnlock,
 } from '../dal/parent-control'
+import { parentChangeSessionSkill, parentSkillOptions } from '../dal/parent-skill-change'
 import { parentSchemas as S } from './parent-schemas'
 
 /**
@@ -99,6 +101,25 @@ export async function parentSetQuestionCountAction(input: unknown): Promise<Acti
     const change = await parentSetQuestionCount(actor, data)
     after(change)
     return change
+  })
+}
+
+/** Daftar pilihan Ganti pelajaran, dimuat saat dialog dibuka supaya halaman anak tetap ringan. */
+export async function parentSkillOptionsAction(input: unknown): Promise<ActionResult<ParentSkillOptionsDTO>> {
+  return runAction('parentSkillOptions', async () => {
+    const actor = await requireParent()
+    const data = S.quest.parse(input)
+    return parentSkillOptions(actor, data)
+  })
+}
+
+export async function parentChangeSessionSkillAction(input: unknown): Promise<ActionResult<ParentSkillChangeResult>> {
+  return runAction('parentChangeSessionSkill', async () => {
+    const actor = await requireParent()
+    const data = S.sessionSkill.parse(input)
+    const r = await parentChangeSessionSkill(actor, data)
+    after(r.change)
+    return r
   })
 }
 

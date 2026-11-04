@@ -15,6 +15,7 @@ import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
+import { ChangeSkill } from '@/components/family/ChangeSkill'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
 import { FamilyShell } from '@/components/family/FamilyShell'
 import { WeekSummary } from '@/components/family/WeekSummary'
@@ -297,6 +298,19 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
         <span className="text-small text-fg-muted">{state}</span>
         {s.score ? <span className="text-small font-bold">{s.score}</span> : null}
       </div>
+      {s.skill ? (
+        <p className="m-0 flex flex-col">
+          <span className="text-body">{s.skill.title}</span>
+          <span className="text-small text-fg-muted">{s.skill.titleEn}</span>
+        </p>
+      ) : s.contentTitle ? (
+        <p className="m-0 flex flex-col">
+          <span className="text-body">{s.contentTitle}</span>
+          {s.session === 'paper' ? <span className="text-small text-fg-muted">Campuran beberapa topik</span> : null}
+        </p>
+      ) : null}
+      {s.skillNote ? <p className="m-0 text-small text-fg-muted">{s.skillNote}</p> : null}
+      {s.canChangeSkill ? <ChangeSkill questId={s.questId} label={`${s.label} ${SUBJECT_NAME[s.subject]}`} disabled={busy} onNote={onNote} /> : null}
       {s.resultHref ? (
         <Link href={s.resultHref} className="text-small font-bold">
           Lihat soal dan jawaban
@@ -311,7 +325,7 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
             <Button variant="quiet" size="S" tone="danger" disabled={busy} onClick={() => setConfirm(true)}>
               Hapus sesi
             </Button>
-          ) : (
+          ) : s.skillNote ? null : (
             <span className="text-small text-fg-muted">Sudah dimulai: isi dan jawaban tetap, hanya wajib atau opsional yang bisa berubah.</span>
           )}
           {!s.started && s.session !== 'paper' ? (
