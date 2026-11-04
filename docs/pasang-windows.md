@@ -358,7 +358,7 @@ Penyetelan Postgres lain ada di `docker-compose.yml` (WAL: `wal_compression`, `m
 
 ### Staging (project kirastg)
 
-Staging adalah salinan lengkap dengan volume, jaringan, nama image, dan port sendiri (web 3135, Mailpit 8135), jalan di PC yang sama. Isi berkas env staging dengan nilai acak baru (jangan memakai kata sandi produksi), `KIRA_ORIGIN=http://127.0.0.1:3135`, `KIRA_PROXY_PORT=3135`, `KIRA_HOST_DATA` dan `KIRA_HOST_BACKUPS` ke folder lain, `KIRA_WEB_IMAGE=kirastg-web:latest`, `KIRA_WORKER_IMAGE=kirastg-worker:latest`, `KIRA_PROXY_IMAGE=kirastg-proxy:latest`, `SMTP_URL=smtp://mailpit:1025`, `AI_PROVIDER=none`.
+Staging adalah salinan lengkap dengan volume, jaringan, nama image, dan port sendiri (web 3135, Mailpit 8135), jalan di PC yang sama. Salin `deploy/load/env.staging.example` ke `C:kw4stgenv.staging` (di luar repo). Isi berkas env staging dengan nilai acak baru (jangan memakai kata sandi produksi), `KIRA_ORIGIN=http://127.0.0.1:3135`, `KIRA_PROXY_PORT=3135`, `KIRA_HOST_DATA` dan `KIRA_HOST_BACKUPS` ke folder lain, `KIRA_WEB_IMAGE=kirastg-web:latest`, `KIRA_WORKER_IMAGE=kirastg-worker:latest`, `KIRA_PROXY_IMAGE=kirastg-proxy:latest`, `SMTP_URL=smtp://mailpit:1025`, `AI_PROVIDER=none`.
 
 ```powershell
 $E = '--env-file','C:\kw4\stg\env.staging'
