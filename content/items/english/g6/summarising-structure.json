@@ -380,6 +380,924 @@
         "checkpoint"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e6.summarising-structure.011",
+      "skill": "e6.summarising-structure",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these events from the story in the order they happened.",
+      "passage": "e6.p.borrowed-gloves",
+      "items": [
+        "Leo’s gloves split two weeks before the final.",
+        "Rangga lent Leo his brother’s old gloves.",
+        "The match ended one all and went to penalties.",
+        "Leo’s team lost four goals to three.",
+        "Rangga told Leo to keep the gloves until Wednesday."
+      ],
+      "hints": [
+        "Stories usually move forward in time.",
+        "The loan of the gloves comes before the match.",
+        "Start with the problem at the very beginning of the story."
+      ],
+      "explanation": "The story moves from the problem with the gloves, to the loan, to the match, to the loss and the kind ending.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.012",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is the best summary of the whole story?",
+      "passage": "e6.p.borrowed-gloves",
+      "options": [
+        {
+          "text": "A goalkeeper with broken gloves is lent a pair by his rival and finds that fair play matters more than winning."
+        },
+        {
+          "text": "Rangga’s team won because his gloves were better.",
+          "why": "The result came from penalties, not from the gloves."
+        },
+        {
+          "text": "Leo’s mum bought him new gloves on Wednesday.",
+          "why": "The story only says she promised to buy them after payday."
+        },
+        {
+          "text": "Leo’s team lost the final on penalties.",
+          "why": "This is true but leaves out the gloves and Rangga’s kindness, which matter most."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A good summary covers the beginning, middle and end in one sentence.",
+        "Cross out choices that leave out a main part of the story.",
+        "Ask: which choice mentions the problem and the kindness?"
+      ],
+      "explanation": "The best summary includes the problem (broken gloves), the rival’s kindness and the lesson. The other choices are too narrow or wrong.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.013",
+      "skill": "e6.summarising-structure",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each detail into the group it describes.",
+      "passage": "e6.p.sea-turtle-journeys",
+      "groups": [
+        "Adult female turtles",
+        "Hatchlings"
+      ],
+      "items": [
+        {
+          "text": "Dig a nest with back flippers",
+          "group": 0
+        },
+        {
+          "text": "Lay about a hundred eggs",
+          "group": 0
+        },
+        {
+          "text": "May use magnetism to steer",
+          "group": 0
+        },
+        {
+          "text": "Head for the brightest horizon",
+          "group": 1
+        },
+        {
+          "text": "Hatch mostly at night",
+          "group": 1
+        },
+        {
+          "text": "Are fooled by streetlamps",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Decide who is doing each thing: a grown turtle or a baby.",
+        "Think about the order of the turtle’s life.",
+        "Start with the nest: who digs it?"
+      ],
+      "explanation": "Adult females dig nests, lay eggs and find their way home. Hatchlings emerge at night and head for the brightest horizon.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.014",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which heading would suit the third paragraph best?",
+      "passage": "e6.p.sea-turtle-journeys",
+      "options": [
+        {
+          "text": "How turtles find their way to a beach",
+          "why": "That is the subject of the second paragraph."
+        },
+        {
+          "text": "Dangers on the way to the sea",
+          "why": "That is the subject of the fourth paragraph."
+        },
+        {
+          "text": "People who help the turtles",
+          "why": "That is the subject of the fifth paragraph."
+        },
+        {
+          "text": "How warm sand changes the hatchlings"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A heading sums up the main idea of one paragraph.",
+        "Find the paragraph that begins The eggs stay buried.",
+        "Read it and look for the main topic, sand temperature."
+      ],
+      "explanation": "The third paragraph is about how the temperature of the sand affects whether more females or males hatch.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.015",
+      "skill": "e6.summarising-structure",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each part of the letter to its job.",
+      "passage": "e6.p.first-snow-letter",
+      "pairs": [
+        [
+          "14 Ginkgo Street, Sapporo, Hokkaido, Japan",
+          "The writer’s address"
+        ],
+        [
+          "18 November",
+          "The date"
+        ],
+        [
+          "Dear Citra,",
+          "The greeting"
+        ],
+        [
+          "Please write soon",
+          "A request for a reply"
+        ],
+        [
+          "Your friend, Yuki",
+          "The sign-off"
+        ]
+      ],
+      "hints": [
+        "Letters have a standard layout.",
+        "The address and date come first.",
+        "Start with the greeting. Which words begin the letter itself?"
+      ],
+      "explanation": "A friendly letter has an address, a date, a greeting, the main message and a sign-off. The writer also asks for a reply.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.016",
+      "skill": "e6.summarising-structure",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Complete the summary. Yuki thanks Citra and describes the first ___ of the year. She mentions the ___ in February and asks Citra about ___.",
+      "passage": "e6.p.first-snow-letter",
+      "gaps": [
+        {
+          "options": [
+            "snowfall",
+            "sunrise",
+            "mango"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "snow festival",
+            "maths lesson",
+            "school trip"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "mangoes and the rainy season",
+            "the price of boots",
+            "her cousin’s rabbit"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "A summary keeps the main ideas only.",
+        "Think of the three big topics in the letter.",
+        "Look for what Yuki asks at the end of the letter."
+      ],
+      "explanation": "The letter is about the first snow, the February snow festival, and Yuki’s questions about mangoes and the rainy season.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.017",
+      "skill": "e6.summarising-structure",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps of making a batik cloth in order.",
+      "passage": "e6.p.batik-diary",
+      "items": [
+        "Draw a pattern on the cloth with hot wax.",
+        "Dip the cloth in the first dye.",
+        "Cover new parts of the cloth with wax.",
+        "Dip the cloth in the next colour.",
+        "Boil the cloth to melt the wax away."
+      ],
+      "hints": [
+        "The wax comes before any dye.",
+        "The wax is removed only when the colours are finished.",
+        "Start with the first thing Ibu Lestari did."
+      ],
+      "explanation": "Wax goes on first, then dye. New waxing and dyeing repeat for each colour, and the wax is boiled out at the end.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.018",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which paragraph tells the reader who, what, when and where?",
+      "passage": "e6.p.mangrove-planting-report",
+      "options": [
+        {
+          "text": "The last paragraph",
+          "why": "The last paragraph looks ahead to the future."
+        },
+        {
+          "text": "The paragraph about the headteacher",
+          "why": "That paragraph gives the reason for the project, with a quotation."
+        },
+        {
+          "text": "The paragraph about the villagers’ doubts",
+          "why": "That paragraph gives a different point of view."
+        },
+        {
+          "text": "The first paragraph"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A news report usually opens with the key facts.",
+        "Look for the pupils, the place, the day and the activity.",
+        "Check the opening paragraph first."
+      ],
+      "explanation": "The first paragraph names the pupils, the school, the day, the place and the planting, so it gives who, what, when and where.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.019",
+      "skill": "e6.summarising-structure",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the ideas that belong in a short summary of this report.",
+      "passage": "e6.p.mangrove-planting-report",
+      "options": [
+        {
+          "text": "Sekar named her seedling Gajah.",
+          "why": "This is a small detail, not a main idea."
+        },
+        {
+          "text": "Pupils planted 500 mangrove seedlings on their village coast."
+        },
+        {
+          "text": "The seedlings were marked with bamboo sticks.",
+          "why": "This is a small detail."
+        },
+        {
+          "text": "Mangrove roots slow waves and shelter young sea animals."
+        },
+        {
+          "text": "The planting started at seven in the morning.",
+          "why": "This is a small detail."
+        },
+        {
+          "text": "The school will check the trees every month and replace any that fail."
+        }
+      ],
+      "answers": [
+        1,
+        3,
+        5
+      ],
+      "hints": [
+        "A summary keeps the key facts and leaves out small details.",
+        "Ask of each choice: is this a main idea or a small detail?",
+        "Cross out names, times and equipment first."
+      ],
+      "explanation": "A summary needs the planting event, why mangroves matter and what happens next. Names, times and sticks are small details.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.020",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The last stanza of “Pasar Sore” says the night market is “waking up to begin the whole thing again”. What does this ending do for the three poems?",
+      "passage": "e6.p.market-poems",
+      "options": [
+        {
+          "text": "It links the end back to the start and shows that the day is a cycle."
+        },
+        {
+          "text": "It shows the poet is tired of markets.",
+          "why": "The ending is gentle, not tired of markets."
+        },
+        {
+          "text": "It introduces a new, unrelated place.",
+          "why": "It returns to the market of the first poem."
+        },
+        {
+          "text": "It says the markets will close for ever.",
+          "why": "The opposite is true. It says the whole thing begins again."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about which poem comes first.",
+        "The words begin again suggest repeating.",
+        "Ask: which market in the three poems is the night market?"
+      ],
+      "explanation": "The night market was the first poem, so the ending loops back to the start and shows the day repeating.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.021",
+      "skill": "e6.summarising-structure",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the three markets in the order they happen during one day, earliest first.",
+      "passage": "e6.p.market-poems",
+      "items": [
+        "Pasar Pagi",
+        "Pasar Sore",
+        "Pasar Malam"
+      ],
+      "hints": [
+        "Think about morning, afternoon and night.",
+        "The poems are not printed in time order.",
+        "Pagi means morning."
+      ],
+      "explanation": "Pagi is morning, sore is late afternoon and malam is night.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.022",
+      "skill": "e6.summarising-structure",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the features that show this text is an interview script.",
+      "passage": "e6.p.lighthouse-interview",
+      "options": [
+        {
+          "text": "Each speaker’s name is in capitals, followed by a colon."
+        },
+        {
+          "text": "Brackets tell us how a line is said."
+        },
+        {
+          "text": "Speech is inside quotation marks with he said.",
+          "why": "In a script, the speaker’s name shows who talks, so quotation marks are not needed."
+        },
+        {
+          "text": "It is made of questions and answers."
+        },
+        {
+          "text": "It is divided into numbered steps.",
+          "why": "Numbered steps are a feature of instructions."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "Look at how each line begins.",
+        "Think about what a script has that a story does not.",
+        "Look at INES: and (laughing)."
+      ],
+      "explanation": "An interview script uses speaker names with colons, brackets for stage directions, and questions and answers.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.023",
+      "skill": "e6.summarising-structure",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the events of the storm rescue in the order they happened.",
+      "passage": "e6.p.lighthouse-interview",
+      "items": [
+        "A fishing boat lost its engine in a storm.",
+        "Mr Okafor called the coastguard on the radio.",
+        "He kept the light shining as brightly as he could.",
+        "The coastguard towed the boat to safety at dawn.",
+        "Four fishermen shook his hand."
+      ],
+      "hints": [
+        "Read his answer about the frightening event.",
+        "The problem comes first and the thanks come last.",
+        "Start with what happened to the boat."
+      ],
+      "explanation": "The events follow cause and effect: the boat loses power, help is called, the light guides it, and the boat is towed at dawn.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.024",
+      "skill": "e6.summarising-structure",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a one-sentence summary of the text.",
+      "passage": "e6.p.bamboo-wonder-grass",
+      "answer": "Bamboo is a strong grass with many uses.",
+      "distractors": [
+        "tree",
+        "slow"
+      ],
+      "hints": [
+        "A summary gives the main idea in a few words.",
+        "Bamboo is not a tree. What is it?",
+        "Start with the word that begins the sentence."
+      ],
+      "explanation": "The text says bamboo is a giant, strong grass with many uses. The summary keeps only the main idea.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.025",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: Honeybees live in large groups called colonies. Each bee has a job. Some collect nectar, some guard the entrance and others look after the young. By sharing the work, the colony stays safe and well fed. Which sentence is the best summary?",
+      "options": [
+        {
+          "text": "Honeybees live in colonies where every bee has a job, which keeps the group safe and fed."
+        },
+        {
+          "text": "Honeybees guard their hive against bears.",
+          "why": "Bears are not mentioned."
+        },
+        {
+          "text": "Honeybees collect nectar from flowers.",
+          "why": "This is only one small part of the text."
+        },
+        {
+          "text": "Honeybees are insects that make a lot of honey.",
+          "why": "Honey is not mentioned in the text."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A summary covers the whole text, not just one part.",
+        "Cross out choices with ideas the text does not mention.",
+        "Which choice gives the colony, the jobs and the result?"
+      ],
+      "explanation": "The best summary includes the colony, the jobs and the result. The others are too narrow or add new facts.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.026",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: At SD Mekar each class looks after its own vegetable bed. Pupils water the plants, pull up weeds and record growth in a notebook. Last term the sixth graders grew enough spinach to share with every class. The head says the garden teaches responsibility and teamwork. What is the main idea?",
+      "options": [
+        {
+          "text": "Sixth graders grew too much spinach.",
+          "why": "This is one detail, and the text does not say too much."
+        },
+        {
+          "text": "Pupils must write in notebooks.",
+          "why": "The notebook is only a small detail."
+        },
+        {
+          "text": "Vegetables grow best in school beds.",
+          "why": "The text does not compare beds."
+        },
+        {
+          "text": "A school garden teaches pupils responsibility and teamwork."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The main idea covers the whole paragraph.",
+        "Details such as spinach and notebooks support it.",
+        "Look at the last sentence for the headteacher’s opinion."
+      ],
+      "explanation": "The paragraph shows the pupils working together on the garden, and the last sentence names the lesson it teaches.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.027",
+      "skill": "e6.summarising-structure",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these sentences in the best order to make a clear paragraph.",
+      "items": [
+        "Plastic bags are cheap and easy to use.",
+        "However, they can take hundreds of years to break down.",
+        "Many sea animals mistake them for food.",
+        "For this reason, many shops now charge for bags or offer cloth ones."
+      ],
+      "hints": [
+        "Look at linking words such as However and For this reason.",
+        "The paragraph moves from good points to a problem to a solution.",
+        "Start with the sentence that introduces the topic."
+      ],
+      "explanation": "The paragraph begins with the topic, shows the problem, gives a result and ends with a response. Linking words help to show the order.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.028",
+      "skill": "e6.summarising-structure",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the sentences from a paragraph about coral reefs into the main idea or a supporting detail.",
+      "groups": [
+        "Main idea",
+        "Supporting detail"
+      ],
+      "items": [
+        {
+          "text": "Reefs are home to many sea creatures.",
+          "group": 0
+        },
+        {
+          "text": "Parrotfish eat algae off the coral.",
+          "group": 1
+        },
+        {
+          "text": "Clownfish live among sea anemones.",
+          "group": 1
+        },
+        {
+          "text": "Crabs hide in the gaps in the reef.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "The main idea covers the whole paragraph.",
+        "Details give examples of the main idea.",
+        "Ask: which sentence could the others be examples of?"
+      ],
+      "explanation": "The first sentence is the big idea. The others give examples of creatures that live on a reef.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.029",
+      "skill": "e6.summarising-structure",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Read: Lake Toba in North Sumatra is the largest volcanic lake in the world. It formed after a huge eruption left a giant hole, called a caldera, which filled with water. Today many people live on Samosir Island in the middle of the lake. Complete the summary. Lake Toba is the world’s largest ___ lake. It formed in a ___ that filled with water. People now live on ___ Island.",
+      "gaps": [
+        {
+          "options": [
+            "glacier",
+            "volcanic",
+            "salt"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "giant caldera",
+            "mountain village",
+            "coral reef"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "Komodo",
+            "Bali",
+            "Samosir"
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "A summary keeps the key words from the text.",
+        "Use the text to match each gap.",
+        "Find the island named in the last sentence."
+      ],
+      "explanation": "Lake Toba is a volcanic lake in a caldera, with Samosir Island in the middle.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.030",
+      "skill": "e6.summarising-structure",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Read: Plastic bags are light, so the wind carries them into rivers and seas. Turtles and seabirds mistake them for food, and one bag can last for hundreds of years. Build a one-sentence summary.",
+      "answer": "Plastic bags harm sea animals and last for years.",
+      "distractors": [
+        "help",
+        "fish"
+      ],
+      "hints": [
+        "A summary keeps the main idea only.",
+        "Think about who is harmed and how long bags last.",
+        "Start with the subject, plastic bags."
+      ],
+      "explanation": "The summary covers the harm to sea animals and how long the bags last.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.031",
+      "skill": "e6.summarising-structure",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each type of text to a feature you would expect to find.",
+      "pairs": [
+        [
+          "Recipe",
+          "A list of ingredients and numbered steps"
+        ],
+        [
+          "Diary",
+          "Dated entries written in the first person"
+        ],
+        [
+          "News report",
+          "A headline and facts about who, what, when and where"
+        ],
+        [
+          "Poem",
+          "Lines and verses, sometimes with rhyme"
+        ]
+      ],
+      "hints": [
+        "Think about how each type of text looks on the page.",
+        "A diary is about the writer’s own day.",
+        "Start with the recipe: what do you need before you cook?"
+      ],
+      "explanation": "Each type of text has typical features that help the reader know what to expect.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.032",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: Many pupils arrive at school hungry, and hungry pupils find it hard to concentrate. To solve this, the school started a free breakfast club. Since then, teachers say morning lessons are calmer. How is the paragraph organised?",
+      "options": [
+        {
+          "text": "It lists instructions for making breakfast.",
+          "why": "There are no instructions or steps."
+        },
+        {
+          "text": "It compares two different schools.",
+          "why": "Only one school is mentioned."
+        },
+        {
+          "text": "It states a problem, then a solution, then the result."
+        },
+        {
+          "text": "It tells a story in time order only.",
+          "why": "The structure is problem and solution, not just a sequence of events."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the first, middle and last sentences.",
+        "The words To solve this are a clue.",
+        "Ask: what is the problem, and what is done about it?"
+      ],
+      "explanation": "The text has a problem (hungry pupils), a solution (breakfast club) and a result (calmer lessons).",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.033",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: Mount Bromo is an active volcano in East Java. Visitors often travel there before sunrise to watch the sky change colour. My cousin Ines took forty photos there last year. The volcano is monitored closely, so visitors can be warned if it becomes dangerous. Which sentence could be left out of a summary?",
+      "options": [
+        {
+          "text": "My cousin Ines took forty photos there last year."
+        },
+        {
+          "text": "Visitors often travel there before sunrise.",
+          "why": "This describes why people visit."
+        },
+        {
+          "text": "Mount Bromo is an active volcano in East Java.",
+          "why": "This gives the topic, so it must stay."
+        },
+        {
+          "text": "The volcano is monitored closely.",
+          "why": "This gives an important safety fact."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Decide which sentence is a personal detail.",
+        "A summary keeps only information about the main topic.",
+        "Which sentence tells you about one person’s trip?"
+      ],
+      "explanation": "Ines’s photos are a personal detail that does not help explain the volcano or why people visit.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.034",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why might a writer begin an information text with the question “Have you ever wondered why the sea is salty?”",
+      "options": [
+        {
+          "text": "To give the final answer first.",
+          "why": "A question does not give the answer."
+        },
+        {
+          "text": "To show the writer is unsure.",
+          "why": "The writer asks to interest the reader, not from doubt."
+        },
+        {
+          "text": "To catch the reader’s interest and introduce the topic."
+        },
+        {
+          "text": "To list the steps of an experiment.",
+          "why": "This is not instructions."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the effect a question has on the reader.",
+        "The question introduces the topic of the text.",
+        "Ask: does it make you want to read on?"
+      ],
+      "explanation": "An opening question grabs interest and shows what the text will be about.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.035",
+      "skill": "e6.summarising-structure",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the headings of a report on a school trip in a logical order.",
+      "items": [
+        "Introduction: what the trip was and when it happened",
+        "Main events: what the class saw and did",
+        "What the pupils learned",
+        "Conclusion: whether the trip was worthwhile"
+      ],
+      "hints": [
+        "A report moves from the beginning to the end.",
+        "The conclusion comes last.",
+        "Start with the introduction."
+      ],
+      "explanation": "A report starts by introducing the topic, then gives the events, then the learning, and ends with a conclusion.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.036",
+      "skill": "e6.summarising-structure",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Read: Tides rise and fall twice a day. High tide covers the beach. Low tide uncovers rock pools. Tides are caused by the pull of the Moon. Which one word is the topic of every sentence?",
+      "blanks": [
+        {
+          "answers": [
+            "tides",
+            "tide"
+          ]
+        }
+      ],
+      "hints": [
+        "Look for a word that appears in more than one sentence.",
+        "The topic is what the whole text is about.",
+        "Check the first word of the first sentence."
+      ],
+      "explanation": "Every sentence is about tides, so tides is the topic.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.037",
+      "skill": "e6.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read: Aluminium cans can be recycled again and again. Making a can from recycled metal uses far less energy than making one from new metal. Recycling also keeps cans out of landfill. Even so, many cans are still thrown away. Which is the best summary?",
+      "options": [
+        {
+          "text": "Aluminium cans can be recycled again and again.",
+          "why": "This is true but leaves out the energy saving and the problem at the end."
+        },
+        {
+          "text": "Recycling aluminium cans saves energy and reduces landfill, yet many cans are still thrown away."
+        },
+        {
+          "text": "Cans use less energy than new metal, and metal is mined in many countries.",
+          "why": "Mining in many countries is not in the text."
+        },
+        {
+          "text": "Cans are thrown away because recycling is bad for the Earth.",
+          "why": "The text says recycling is useful."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A good summary covers every main idea in a short form.",
+        "Check that the summary adds nothing new.",
+        "Which choice mentions energy, landfill and the final problem?"
+      ],
+      "explanation": "The best summary has the main points (energy, landfill) and the contrast at the end without adding anything new.",
+      "tags": [
+        "reading"
+      ]
+    },
+    {
+      "id": "e6.summarising-structure.038",
+      "skill": "e6.summarising-structure",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the features of a good summary.",
+      "options": [
+        {
+          "text": "It keeps the main ideas."
+        },
+        {
+          "text": "It adds the summariser’s own opinion.",
+          "why": "A summary reports the writer’s ideas, not your own."
+        },
+        {
+          "text": "It is shorter than the original text."
+        },
+        {
+          "text": "It includes every small example.",
+          "why": "Small examples make a summary too long."
+        },
+        {
+          "text": "It uses your own words where possible."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Think about what a summary is for.",
+        "It should be short and focused.",
+        "Cross out choices that add or repeat too much."
+      ],
+      "explanation": "A good summary is short, keeps the main ideas and uses the summariser’s own words.",
+      "tags": [
+        "reading"
+      ]
     }
   ]
 }
