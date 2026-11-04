@@ -1,0 +1,64 @@
+{
+  "skill": "m4.square-numbers",
+  "title": "Square numbers",
+  "steps": [
+    {
+      "say": "A square number is what you get when you multiply a number by itself. 3 × 3 = 9, so 9 is a square number."
+    },
+    {
+      "say": "You can show square numbers as dots in a square: 1 dot, 4 dots (2 by 2), 9 dots (3 by 3), 16 dots (4 by 4)."
+    },
+    {
+      "say": "The first ten square numbers are 1, 4, 9, 16, 25, 36, 49, 64, 81 and 100."
+    },
+    {
+      "say": "The gaps between square numbers grow by 2 each time: 3, 5, 7, 9, and so on."
+    },
+    {
+      "say": "A symbol can stand for a missing number. In ? × ? = 25 both ? are 5."
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.square-numbers.901",
+      "skill": "m4.square-numbers",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "What is 4 × 4?",
+      "answer": 16,
+      "hints": [
+        "Multiply 4 by itself.",
+        "Count in fours.",
+        "4, 8, 12, ..."
+      ],
+      "explanation": "4 × 4 = 16."
+    },
+    {
+      "id": "m4.square-numbers.902",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which of these is a square number?",
+      "options": [
+        {
+          "text": "24",
+          "why": "24 is not a number multiplied by itself."
+        },
+        {
+          "text": "25"
+        },
+        {
+          "text": "26",
+          "why": "26 is not a number multiplied by itself."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "5 × 5 is a square number.",
+        "Try multiplying a number by itself.",
+        "Square numbers are 1, 4, 9, 16, ..."
+      ],
+      "explanation": "5 × 5 = 25, so 25 is a square number."
+    }
+  ]
+}

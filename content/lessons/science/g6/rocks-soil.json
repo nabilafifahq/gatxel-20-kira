@@ -1,0 +1,77 @@
+{
+  "skill": "s6.rocks-soil",
+  "title": "Rocks, fossils and soil",
+  "steps": [
+    {
+      "say": "Rocks are grouped by how they form. Igneous rocks form when hot melted rock cools and hardens. Granite and basalt are igneous."
+    },
+    {
+      "say": "Sedimentary rocks form when layers of sand, mud or shells are pressed together over a very long time. Sandstone and limestone are sedimentary, and they often contain fossils."
+    },
+    {
+      "say": "Metamorphic rocks form when heat and pressure change other rocks. Marble and slate are metamorphic."
+    },
+    {
+      "say": "A fossil forms when a dead plant or animal is buried quickly in sediment. Soft parts rot away, and the hard parts or an imprint stay in the sedimentary rock."
+    },
+    {
+      "say": "In the rock cycle, rocks are weathered, laid down, buried, heated, melted and cooled again over millions of years. Soil is broken rock plus the remains of living things."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.rocks-soil.901",
+      "skill": "s6.rocks-soil",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which kind of rock forms when melted rock cools and hardens?",
+      "options": [
+        {
+          "text": "sedimentary",
+          "why": "Sedimentary rock forms from layers."
+        },
+        {
+          "text": "igneous"
+        },
+        {
+          "text": "metamorphic",
+          "why": "Metamorphic rock is changed by heat and pressure."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It begins with the letter i.",
+        "Volcanoes make it.",
+        "It is formed from hot, melted rock."
+      ],
+      "explanation": "Igneous rock forms when melted rock cools and becomes solid."
+    },
+    {
+      "id": "s6.rocks-soil.902",
+      "skill": "s6.rocks-soil",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "In which kind of rock are fossils usually found?",
+      "options": [
+        {
+          "text": "igneous",
+          "why": "The heat would destroy a fossil."
+        },
+        {
+          "text": "sedimentary"
+        },
+        {
+          "text": "metamorphic",
+          "why": "The heat and pressure would damage fossils."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Fossils form in layers of mud and sand.",
+        "The rock is pressed together.",
+        "Think of limestone."
+      ],
+      "explanation": "Fossils form in sedimentary rocks."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "skill": "s5.air-water-pollution",
+  "title": "Air, water and pollution",
+  "steps": [
+    {
+      "say": "The Earth is surrounded by a layer of air called the atmosphere. It is a mixture of gases."
+    },
+    {
+      "say": "About four fifths of the air is nitrogen. About one fifth is oxygen, which living things need to breathe. There are small amounts of other gases such as carbon dioxide."
+    },
+    {
+      "say": "Most water on Earth is not pure. Seawater has salt dissolved in it, and rainwater and river water contain dissolved substances too."
+    },
+    {
+      "say": "Pollution is when humans add substances to the environment that harm living things."
+    },
+    {
+      "say": "Smoke pollutes air. Rubbish and chemicals pollute water and soil. We can reduce pollution by reusing, recycling and cleaning up."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.air-water-pollution.901",
+      "skill": "s5.air-water-pollution",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What is the layer of air around the Earth called?",
+      "options": [
+        {
+          "text": "the crust",
+          "why": "The crust is the solid outer layer of the Earth."
+        },
+        {
+          "text": "the atmosphere"
+        },
+        {
+          "text": "the ocean",
+          "why": "The ocean is water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is made of gases.",
+        "It surrounds the Earth.",
+        "It keeps us alive."
+      ],
+      "explanation": "The atmosphere is the layer of gases around the Earth."
+    },
+    {
+      "id": "s5.air-water-pollution.902",
+      "skill": "s5.air-water-pollution",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "What is pollution?",
+      "options": [
+        {
+          "text": "any rain that falls on a city",
+          "why": "Rain is natural."
+        },
+        {
+          "text": "substances added by humans that harm the environment"
+        },
+        {
+          "text": "water that is very cold",
+          "why": "Cold water is not pollution."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Pollution is caused by people.",
+        "It harms living things.",
+        "Smoke and litter are examples."
+      ],
+      "explanation": "Pollution is when humans add substances to the environment that cause harm."
+    }
+  ]
+}

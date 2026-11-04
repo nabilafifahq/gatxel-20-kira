@@ -1,0 +1,77 @@
+{
+  "skill": "s4.energy",
+  "title": "Energy and transfers",
+  "steps": [
+    {
+      "say": "Energy is needed to make anything happen. Moving, lighting a bulb and cooking all need energy."
+    },
+    {
+      "say": "Energy is found in many things, such as sound, light, heat and moving objects."
+    },
+    {
+      "say": "Energy cannot be made or destroyed. It is transferred from one place or form to another."
+    },
+    {
+      "say": "A torch changes energy stored in a battery into light. Some energy also spreads out as heat."
+    },
+    {
+      "say": "Energy that spreads out as heat or sound is not useful for the job. We say it is wasted, but it is not lost."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.energy.901",
+      "skill": "s4.energy",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which of these needs energy to happen?",
+      "options": [
+        {
+          "text": "a ball lying still",
+          "why": "A ball that is not moving is not using energy to move."
+        },
+        {
+          "text": "a ball rolling along the ground"
+        },
+        {
+          "text": "a closed book on a table",
+          "why": "Nothing is happening to it."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Energy is needed for any movement.",
+        "Look for the thing that is moving.",
+        "One option shows nothing changing."
+      ],
+      "explanation": "Any movement or action needs energy."
+    },
+    {
+      "id": "s4.energy.902",
+      "skill": "s4.energy",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "A torch is switched on. Which is the best description of the energy changes?",
+      "options": [
+        {
+          "text": "Energy is made by the bulb.",
+          "why": "Energy is not made. It is transferred."
+        },
+        {
+          "text": "Energy in the battery is transferred to light, and some also to heat."
+        },
+        {
+          "text": "Energy disappears when the light shines.",
+          "why": "Energy is never destroyed."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Energy cannot be made or destroyed.",
+        "Think about where the energy comes from.",
+        "A bulb also gets warm."
+      ],
+      "explanation": "The battery stores energy. It is transferred to light, and some spreads out as heat."
+    }
+  ]
+}

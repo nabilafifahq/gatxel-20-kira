@@ -1,0 +1,77 @@
+{
+  "skill": "s4.particles",
+  "title": "The particle model",
+  "steps": [
+    {
+      "say": "Everything is made of particles that are far too small to see. A particle is a tiny piece of a substance."
+    },
+    {
+      "say": "In a solid the particles are packed close together in a regular pattern. They cannot move around, but they vibrate on the spot."
+    },
+    {
+      "say": "In a liquid the particles are close together but not in a pattern. They slide past each other, so a liquid can be poured."
+    },
+    {
+      "say": "In a gas the particles are far apart and move quickly in all directions. A gas spreads out to fill any container."
+    },
+    {
+      "say": "Particles never stop moving, even in a solid. Heating makes them move more."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.particles.901",
+      "skill": "s4.particles",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "Which state of matter has particles that are packed closely in a regular pattern?",
+      "options": [
+        {
+          "text": "liquid",
+          "why": "Liquid particles are close but they are not in a pattern."
+        },
+        {
+          "text": "solid"
+        },
+        {
+          "text": "gas",
+          "why": "Gas particles are far apart."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about a state that keeps its own shape.",
+        "Particles in this state can only vibrate.",
+        "It is not a state that flows."
+      ],
+      "explanation": "In a solid the particles are held in a regular pattern and can only vibrate."
+    },
+    {
+      "id": "s4.particles.902",
+      "skill": "s4.particles",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Why can you pour water but not a block of ice?",
+      "options": [
+        {
+          "text": "Water particles are much smaller than ice particles.",
+          "why": "The particles are the same. Only the way they are arranged is different."
+        },
+        {
+          "text": "Water particles can slide past each other but ice particles cannot."
+        },
+        {
+          "text": "Ice particles are not moving at all.",
+          "why": "Ice particles still vibrate."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about how the particles move in each state.",
+        "Pouring needs particles that can move past each other.",
+        "Ice is a solid, water is a liquid."
+      ],
+      "explanation": "Liquid particles slide past each other, so a liquid flows. Solid particles are locked in place."
+    }
+  ]
+}

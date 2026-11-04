@@ -1,0 +1,77 @@
+{
+  "skill": "s4.solar-system",
+  "title": "Our Solar System",
+  "steps": [
+    {
+      "say": "The Sun is a star. It is at the centre of the Solar System, and everything else travels around it."
+    },
+    {
+      "say": "There are eight planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune."
+    },
+    {
+      "say": "The four planets nearest the Sun are small and rocky. The four furthest away are much bigger and mostly gas or ice."
+    },
+    {
+      "say": "Asteroids are lumps of rock and comets are balls of ice and dust. They also travel around the Sun."
+    },
+    {
+      "say": "Other stars can have their own planets. A star with its planets and other objects is a planetary system."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.solar-system.901",
+      "skill": "s4.solar-system",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What is at the centre of the Solar System?",
+      "options": [
+        {
+          "text": "the Earth",
+          "why": "The Earth travels around the Sun."
+        },
+        {
+          "text": "the Sun"
+        },
+        {
+          "text": "the Moon",
+          "why": "The Moon travels around the Earth."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a star.",
+        "It gives us light and heat.",
+        "Everything else travels around it."
+      ],
+      "explanation": "The Sun is at the centre of the Solar System."
+    },
+    {
+      "id": "s4.solar-system.902",
+      "skill": "s4.solar-system",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which planet do we live on?",
+      "options": [
+        {
+          "text": "Mars",
+          "why": "Mars is the fourth planet from the Sun."
+        },
+        {
+          "text": "Earth"
+        },
+        {
+          "text": "Venus",
+          "why": "Venus is the second planet from the Sun."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is the third planet from the Sun.",
+        "It has liquid water on its surface.",
+        "We call our home by this name."
+      ],
+      "explanation": "We live on Earth, the third planet from the Sun."
+    }
+  ]
+}

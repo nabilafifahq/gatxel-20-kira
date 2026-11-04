@@ -1,0 +1,65 @@
+{
+  "skill": "m6.probability-events",
+  "title": "Events and simulations",
+  "steps": [
+    {
+      "say": "Probability is a number from 0 to 1. 0 means it cannot happen, 1 means it is certain, and 0.5 means even chance."
+    },
+    {
+      "say": "Two events that cannot happen at the same time are mutually exclusive. When you roll one die you cannot get a 2 and a 5 at once."
+    },
+    {
+      "say": "Two events can happen at the same time if they can both be true. Rolling an even number and rolling a number greater than 3 can both be true when you roll a 6."
+    },
+    {
+      "say": "The probabilities of all the possible outcomes add up to 1. If the chance of rain is 0.35, the chance of no rain is 1 − 0.35 = 0.65."
+    },
+    {
+      "say": "To estimate a probability, do an experiment many times. The probability is about the number of times it happened divided by the number of trials. More trials give a better estimate."
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.probability-events.901",
+      "skill": "m6.probability-events",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "The probability of rain tomorrow is 0.3. What is the probability that it does not rain? Give a decimal.",
+      "answer": 0.7,
+      "allowDecimal": true,
+      "hints": [
+        "The two probabilities add to 1.",
+        "Take 0.3 from 1.",
+        "Work out 1 − 0.3."
+      ],
+      "explanation": "1 − 0.3 = 0.7."
+    },
+    {
+      "id": "m6.probability-events.902",
+      "skill": "m6.probability-events",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "You roll one die. Which two events cannot happen at the same time?",
+      "options": [
+        {
+          "text": "rolling an even number and rolling a 6",
+          "why": "A 6 is even, so both can happen."
+        },
+        {
+          "text": "rolling a 2 and rolling a 5"
+        },
+        {
+          "text": "rolling a number less than 4 and rolling a 3",
+          "why": "A 3 is less than 4, so both can happen."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "One roll gives only one number.",
+        "Check if any number fits both events.",
+        "A 2 is never a 5."
+      ],
+      "explanation": "You cannot roll a 2 and a 5 on a single roll, so these cannot happen together."
+    }
+  ]
+}

@@ -4429,6 +4429,186 @@
    "partial": [
     "6TWSa.03"
    ]
+  },
+  "s4.particles": {
+   "match": "direct",
+   "direct": [
+    "4Cm.01",
+    "4Cm.02",
+    "4Cm.03",
+    "4Cp.01",
+    "4Cp.02"
+   ],
+   "partial": []
+  },
+  "s4.energy": {
+   "match": "direct",
+   "direct": [
+    "4Pf.01",
+    "4Pf.02",
+    "4Pf.03",
+    "4Pf.04"
+   ],
+   "partial": []
+  },
+  "s4.solar-system": {
+   "match": "direct",
+   "direct": [
+    "4ESs.03",
+    "4ESs.04",
+    "4ESs.02"
+   ],
+   "partial": []
+  },
+  "s4.medicines-germs": {
+   "match": "direct",
+   "direct": [
+    "4Bp.01",
+    "4Bp.02",
+    "4Bp.03",
+    "4Bp.04"
+   ],
+   "partial": []
+  },
+  "s5.adaptations": {
+   "match": "direct",
+   "direct": [
+    "5Be.01",
+    "5Be.02",
+    "5Be.03"
+   ],
+   "partial": []
+  },
+  "s5.flowers": {
+   "match": "direct",
+   "direct": [
+    "5Bs.01",
+    "5Bs.02",
+    "5Bs.03"
+   ],
+   "partial": []
+  },
+  "s5.air-water-pollution": {
+   "match": "direct",
+   "direct": [
+    "5ESp.01",
+    "5ESp.02",
+    "5ESp.03"
+   ],
+   "partial": []
+  },
+  "s5.magnets-strength": {
+   "match": "direct",
+   "direct": [
+    "5Pe.01",
+    "5Pe.02",
+    "5Pe.03"
+   ],
+   "partial": []
+  },
+  "s5.gases-water": {
+   "match": "direct",
+   "direct": [
+    "5Cm.01",
+    "5Cm.02",
+    "5Cp.02"
+   ],
+   "partial": []
+  },
+  "s6.rocks-soil": {
+   "match": "direct",
+   "direct": [
+    "6ESp.01",
+    "6ESp.02",
+    "6ESp.04",
+    "6ESc.01"
+   ],
+   "partial": []
+  },
+  "s6.germs-defences": {
+   "match": "direct",
+   "direct": [
+    "6Bp.02",
+    "6Bp.03",
+    "6Bp.04"
+   ],
+   "partial": []
+  },
+  "s6.dissolving-boiling": {
+   "match": "direct",
+   "direct": [
+    "6Cc.02",
+    "6Cc.03",
+    "6Cp.01",
+    "6Cp.02"
+   ],
+   "partial": []
+  },
+  "m3.complements-multiples": {
+   "match": "direct",
+   "direct": [
+    "3Ni.03",
+    "3Ni.10",
+    "3Ni.01"
+   ],
+   "partial": []
+  },
+  "m3.unknown-patterns": {
+   "match": "direct",
+   "direct": [
+    "3Nc.04",
+    "3Nc.05",
+    "3Nc.06"
+   ],
+   "partial": []
+  },
+  "m4.percent-intro": {
+   "match": "direct",
+   "direct": [
+    "4Nf.06",
+    "4Nf.01",
+    "4Nf.02"
+   ],
+   "partial": []
+  },
+  "m4.time-units": {
+   "match": "direct",
+   "direct": [
+    "4Gt.01"
+   ],
+   "partial": []
+  },
+  "m4.square-numbers": {
+   "match": "direct",
+   "direct": [
+    "4Nc.05",
+    "4Nc.03"
+   ],
+   "partial": []
+  },
+  "m5.order-divisibility": {
+   "match": "direct",
+   "direct": [
+    "5Ni.03",
+    "5Ni.07",
+    "5Nc.03"
+   ],
+   "partial": []
+  },
+  "m6.rotational-symmetry": {
+   "match": "direct",
+   "direct": [
+    "6Gg.08"
+   ],
+   "partial": []
+  },
+  "m6.probability-events": {
+   "match": "direct",
+   "direct": [
+    "6Sp.02",
+    "6Sp.04"
+   ],
+   "partial": []
   }
  },
  "gapNotes": {
@@ -4591,27 +4771,15 @@
     "3Gp.02",
     "3Gt.01",
     "3Nc.01",
-    "3Nc.04",
-    "3Nc.05",
-    "3Nc.06",
     "3Nf.02",
     "3Nf.04",
     "3Nf.07",
-    "3Ni.01",
-    "3Ni.03",
-    "3Ni.10",
     "3Np.02",
     "3Sp.02"
    ],
    "4": [
     "4Gg.04",
     "4Gp.03",
-    "4Gt.01",
-    "4Nc.03",
-    "4Nc.05",
-    "4Nf.01",
-    "4Nf.02",
-    "4Nf.06",
     "4Ss.01"
    ],
    "5": [
@@ -4619,23 +4787,17 @@
     "5Gt.01",
     "5Gt.04",
     "5Nc.02",
-    "5Nc.03",
     "5Nc.04",
     "5Nf.01",
     "5Nf.06",
-    "5Ni.03",
-    "5Ni.07",
     "5Np.04",
     "5Sp.03",
     "5Ss.01",
     "5Ss.04"
    ],
    "6": [
-    "6Gg.08",
     "6Gg.11",
     "6Nf.01",
-    "6Sp.02",
-    "6Sp.04",
     "6Ss.01"
    ]
   },
@@ -5069,22 +5231,8 @@
     "3TWSp.04"
    ],
    "4": [
-    "4Bp.01",
-    "4Bp.02",
-    "4Bp.03",
-    "4Bp.04",
     "4Bs.04",
-    "4Cm.02",
-    "4Cm.03",
-    "4Cp.01",
-    "4Cp.02",
-    "4ESs.03",
-    "4ESs.04",
     "4Pe.03",
-    "4Pf.01",
-    "4Pf.02",
-    "4Pf.03",
-    "4Pf.04",
     "4SIC.01",
     "4SIC.02",
     "4SIC.03",
@@ -5107,23 +5255,8 @@
     "4TWSp.05"
    ],
    "5": [
-    "5Be.01",
-    "5Be.02",
-    "5Be.03",
-    "5Bs.01",
-    "5Bs.02",
-    "5Bs.03",
-    "5Cm.01",
-    "5Cm.02",
-    "5Cp.02",
-    "5ESp.01",
-    "5ESp.02",
-    "5ESp.03",
     "5ESs.01",
     "5ESs.03",
-    "5Pe.01",
-    "5Pe.02",
-    "5Pe.03",
     "5SIC.01",
     "5SIC.02",
     "5SIC.03",
@@ -5149,18 +5282,7 @@
    ],
    "6": [
     "6Bp.01",
-    "6Bp.02",
-    "6Bp.03",
-    "6Bp.04",
     "6Bs.03",
-    "6Cc.02",
-    "6Cc.03",
-    "6Cp.01",
-    "6Cp.02",
-    "6ESc.01",
-    "6ESp.01",
-    "6ESp.02",
-    "6ESp.04",
     "6Pf.05",
     "6SIC.01",
     "6SIC.02",

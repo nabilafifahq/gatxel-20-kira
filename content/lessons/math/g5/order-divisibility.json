@@ -1,0 +1,64 @@
+{
+  "skill": "m5.order-divisibility",
+  "title": "Order of operations and divisibility",
+  "steps": [
+    {
+      "say": "When a calculation has more than one operation, multiply and divide before you add and subtract. 6 + 4 × 3 = 6 + 12 = 18, not 30."
+    },
+    {
+      "say": "If there are only additions and subtractions, work from left to right. 20 − 5 + 3 = 15 + 3 = 18."
+    },
+    {
+      "say": "To test for divisibility by 4, look at the last two digits. If they make a number that 4 divides into, the whole number is divisible by 4. 316 works because 16 ÷ 4 = 4."
+    },
+    {
+      "say": "To test for divisibility by 8, look at the last three digits. 1,128 works because 128 ÷ 8 = 16."
+    },
+    {
+      "say": "In a sequence that starts at a and adds the same step d each time, the nth term is a + (n − 1) × d."
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.order-divisibility.901",
+      "skill": "m5.order-divisibility",
+      "difficulty": 1,
+      "type": "numeric",
+      "prompt": "What is 6 + 4 × 3?",
+      "answer": 18,
+      "hints": [
+        "Multiply before you add.",
+        "4 × 3 first.",
+        "Then add 6."
+      ],
+      "explanation": "4 × 3 = 12. 6 + 12 = 18."
+    },
+    {
+      "id": "m5.order-divisibility.902",
+      "skill": "m5.order-divisibility",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Is 316 divisible by 4?",
+      "options": [
+        {
+          "text": "No, because it is even.",
+          "why": "Even numbers are not always divisible by 4."
+        },
+        {
+          "text": "Yes, because 16 is divisible by 4."
+        },
+        {
+          "text": "No, because 3 + 1 + 6 is 10.",
+          "why": "The digit sum is not the test for 4."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the last two digits.",
+        "16 ÷ 4.",
+        "The test for 4 uses the last two digits."
+      ],
+      "explanation": "The last two digits are 16, and 16 ÷ 4 = 4, so 316 is divisible by 4."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "skill": "s6.germs-defences",
+  "title": "Germs and defences",
+  "steps": [
+    {
+      "say": "Some diseases are caused by tiny living things: viruses, bacteria, parasites and fungi. They are called microbes or germs."
+    },
+    {
+      "say": "Germs spread in different ways. Some spread through dirty water or food. Others spread through the air when people cough, or by touch."
+    },
+    {
+      "say": "Good hygiene helps stop disease. Wash your hands, use clean water, cook food well and keep food covered."
+    },
+    {
+      "say": "The body has defences. Skin forms a barrier. Stomach acid kills many germs, and tiny hairs and mucus in the nose catch dirt and germs."
+    },
+    {
+      "say": "The body also has white blood cells that fight germs, and vaccines help the body get ready to fight a germ in advance."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.germs-defences.901",
+      "skill": "s6.germs-defences",
+      "difficulty": 1,
+      "type": "mcq",
+      "prompt": "What causes infectious diseases?",
+      "options": [
+        {
+          "text": "eating too much sugar",
+          "why": "Sugar does not cause infection."
+        },
+        {
+          "text": "tiny living things called germs"
+        },
+        {
+          "text": "being cold",
+          "why": "Cold weather does not cause infection by itself."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Germs are too small to see.",
+        "They can spread from person to person.",
+        "They include bacteria and viruses."
+      ],
+      "explanation": "Infectious diseases are caused by germs such as bacteria and viruses."
+    },
+    {
+      "id": "s6.germs-defences.902",
+      "skill": "s6.germs-defences",
+      "difficulty": 2,
+      "type": "mcq",
+      "prompt": "Which of these helps stop diseases spreading?",
+      "options": [
+        {
+          "text": "sharing a cup",
+          "why": "Sharing a cup can pass on germs."
+        },
+        {
+          "text": "washing your hands with soap"
+        },
+        {
+          "text": "sneezing without a tissue",
+          "why": "This spreads germs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Germs are on our hands.",
+        "Soap helps remove them.",
+        "Think about hygiene."
+      ],
+      "explanation": "Washing hands with soap removes germs and helps stop diseases spreading."
+    }
+  ]
+}
