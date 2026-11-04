@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import postgres from 'postgres'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { addDays, jakartaDate, weekStart, weekday } from '@kira/core'
+import { addDays, jakartaDate, weekStart } from '@kira/core'
 
 /**
  * Perencana mingguan di Postgres sungguhan: sesi wajib dari template, slot yang menggantikan sesi dasar,
@@ -62,6 +62,7 @@ describe.skipIf(!ready)('perencana sesi', () => {
     await owner`insert into member_profile (user_id, org_id, name, role, email) values (${tutorId}, ${orgId}, 'Tutor uji', 'tutor', 'uji-rencana@example.test')`
     await owner`insert into learner_profile (user_id, org_id, name, grade, active, screen_limit_min, rest_weekdays, started_on)
       values (${learnerId}, ${orgId}, 'Anak uji', 2, true, 120, '{0}', '2026-10-01')`
+    await owner`insert into day_rules (learner_id, org_id, preset) values (${learnerId}, ${orgId}, 'penuh')`
   })
 
   afterAll(async () => {
@@ -194,21 +195,19 @@ describe.skipIf(!ready)('perencana sesi', () => {
     await expect(planner.copyWeek(actor(), { learnerId, fromWeekStart: addDays(monday2, 14), toWeekStart: addDays(monday2, 21) })).rejects.toMatchObject({ code: 'conflict' })
   })
 
-  it('hari ini yang sesinya sudah dibuat: sesi wajib ditolak, sesi opsional boleh, Hari ringan membuang Tes dan Paper', async () => {
-    if (weekday(today) === 0) return // Minggu istirahat, tidak ada sesi hari ini
+  it('hari ini yang sesinya sudah dibuat: perubahan langsung dipakai, Hari ringan membuang Tes dan Paper yang belum dimulai', async () => {
+    // Berlaku di hari apa pun, termasuk Minggu: learner uji tidak punya hari istirahat di tes ini.
+    await owner`update learner_profile set rest_weekdays = '{}' where user_id = ${learnerId}`
     await ensureOn(today)
-    await expect(planner.upsertSlot(actor(), base({ date: today, required: true, skillId: 'm2.place-value' }))).rejects.toMatchObject({ code: 'conflict' })
+    const r = await planner.upsertSlot(actor(), base({ date: today, required: true, skillId: 'm2.place-value' }))
+    expect(r.today).toBe(true)
     await planner.upsertSlot(actor(), base({ date: today, session: 'review' }))
-    // Template lain tidak berlaku untuk hari ini, dan Hari ringan hanya setelah minggu itu terbit.
-    await expect(planner.setDayTemplate(actor(), { learnerId, date: today, template: 'school' })).rejects.toMatchObject({ code: 'conflict' })
-    await expect(planner.setDayTemplate(actor(), { learnerId, date: today, template: 'light' })).rejects.toMatchObject({ code: 'conflict' })
     await planner.publishWeek(actor(), { learnerId, weekStart: weekStart(today) })
     await planner.setDayTemplate(actor(), { learnerId, date: today, template: 'light' })
     const [dr] = await owner`select quests_required from day_record where learner_id = ${learnerId} and date = ${today}`
     expect(dr!.quests_required).toBe(3)
     const left = await owner`select session from quest where learner_id = ${learnerId} and date = ${today} and kind = 'daily'`
     expect(left.every((q) => q.session === 'latihan')).toBe(true)
-    // Today berikutnya tidak membuat Tes dan Paper lagi, dan sesi opsional yang ditambah tutor ikut dibuat.
     const again = await ensureOn(today)
     expect(again.filter((q) => q.kind === 'daily')).toHaveLength(3)
     expect(again.some((q) => q.kind === 'extra' && q.session === 'review')).toBe(true)

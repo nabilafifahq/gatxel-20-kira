@@ -313,7 +313,7 @@ describe('lencana sesi', () => {
 
 describe('dropTaperEntries', () => {
   const mk = (subject: 'math' | 'english', session: 'latihan' | 'tes' | 'paper', slotId: string | null) =>
-    ({ key: `${subject}${session}${slotId}`, slotId, subject, session, required: true, paper: null, seq: 0 }) as const
+    ({ key: `${subject}${session}${slotId}`, slotId, subject, session, required: true, paper: null, seq: 0, baseline: true }) as const
   it('membuang Tes dan Paper otomatis mapel taper, Latihan dan sesi tutor tetap', () => {
     const entries = [mk('math', 'latihan', null), mk('math', 'tes', null), mk('math', 'paper', null), mk('math', 'tes', 's1'), mk('english', 'tes', null)]
     const out = dropTaperEntries(entries, new Set(['math'] as const))

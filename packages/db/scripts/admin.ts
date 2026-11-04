@@ -10,6 +10,7 @@ import postgres from 'postgres'
  *   reset-link <email>     tautan atur ulang password (berlaku 30 menit), bila email belum diatur
  *   unlock <email>         hapus kunci masuk setelah terlalu banyak percobaan salah
  *   pin-unlock <nama>      buka kunci PIN learner (nama persis seperti di konsol)
+ *   reset-streak <nama>    hapus riwayat hari dan pembeku streak learner itu saja, lalu hitung ulang hari ini (XP dan jawaban tetap)
  *   tts-batch              jadwalkan job tts.batch (membuat suara bahasa Inggris yang belum ada) untuk setiap org
  *   tts-status             jumlah klip suara yang sudah jadi dan yang masih menunggu, dari job tts.batch terakhir tiap org
  *   waitlist-count         jumlah daftar tunggu (terkonfirmasi, menunggu konfirmasi, berhenti, sudah diundang) dan sisa kursi
@@ -88,6 +89,32 @@ async function pinUnlock(name: string | undefined): Promise<void> {
   if (rows.length !== 1) throw new Error(rows.length === 0 ? 'Learner dengan nama itu tidak ditemukan.' : 'Ada lebih dari satu learner dengan nama itu. Buka kunci dari konsol (Learner).')
   await sql`update auth.learner_secret set failed_pins = 0, locked_until = null where user_id = ${rows[0]!.user_id}`
   console.log(`PIN ${name} bisa dipakai lagi.`)
+}
+
+/**
+ * Atur ulang streak satu learner: hapus riwayat day_record sebelum hari ini dan mulai hitungan streak dari hari ini
+ * (pembeku streak dihitung dari riwayat, jadi ikut kosong), lalu hitung ulang hari ini dari sesinya.
+ * XP, lencana, penguasaan skill, dan jawaban tidak disentuh. Dicatat di audit_log.
+ */
+async function resetStreak(name: string | undefined): Promise<void> {
+  if (!name) throw new Error('Pakai: admin reset-streak <nama learner>')
+  const rows = await sql`select user_id, org_id from learner_profile where name = ${name} and deleted_at is null`
+  if (rows.length !== 1) throw new Error(rows.length === 0 ? 'Learner dengan nama itu tidak ditemukan.' : 'Ada lebih dari satu learner dengan nama itu. Atur ulang dari konsol atau dashboard orang tua.')
+  const { user_id: id, org_id: org } = rows[0]!
+  const [row0] = await sql<{ today: string }[]>`select to_char((now() at time zone 'Asia/Jakarta')::date, 'YYYY-MM-DD') as today`
+  const today = row0!.today
+  await sql.begin(async (tx) => {
+    const gone = await tx`delete from day_record where learner_id = ${id} and date < ${today}::date returning date`
+    await tx`update learner_profile set streak_since = ${today}::date, updated_at = now() where user_id = ${id}`
+    await tx`
+      insert into day_record (org_id, learner_id, date, quests_done, quests_required)
+      select ${org}, ${id}, ${today}::date, count(*) filter (where status = 'done' and kind = 'daily')::int, count(*) filter (where kind = 'daily')::int
+      from quest where learner_id = ${id} and date = ${today}::date
+      having count(*) > 0
+      on conflict (learner_id, date) do update set quests_done = excluded.quests_done, quests_required = excluded.quests_required`
+    await tx`insert into audit_log (org_id, actor_kind, action, target, meta) values (${org}, 'system', 'learner.streak.reset', ${id}::text, ${tx.json({ removedDays: gone.length, since: today, via: 'admin' })})`
+    console.log(`Streak ${name} diatur ulang: ${gone.length} hari riwayat dihapus, hitungan mulai ${today}.`)
+  })
 }
 
 /** Antrekan job tts.batch bila belum ada yang menunggu atau berjalan. Worker butuh TTS_URL dan layanan tts jalan. */
@@ -207,6 +234,7 @@ try {
   else if (cmd === 'reset-link') await resetLink(arg)
   else if (cmd === 'unlock') await unlock(arg)
   else if (cmd === 'pin-unlock') await pinUnlock(arg)
+  else if (cmd === 'reset-streak') await resetStreak(arg)
   else if (cmd === 'tts-batch') await ttsBatch()
   else if (cmd === 'tts-status') await ttsStatus()
   else if (cmd === 'waitlist-count') await waitlistCount()
@@ -214,7 +242,7 @@ try {
   else if (cmd === 'waitlist-notify') await waitlistNotify(arg)
   else if (cmd === 'sourcing-now') await sourcingNow()
   else {
-    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n>')
+    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | reset-streak <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n>')
     process.exitCode = cmd ? 1 : 0
   }
 } catch (e) {

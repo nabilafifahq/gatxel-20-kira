@@ -17,7 +17,7 @@ import { DailyChest, type ChestActions } from '@/components/learner/DailyChest'
 /**
  * L02 Today (papan TodayA dan variannya, TodayAHP untuk HP). Jalur sesi wajib dikelompokkan per mapel
  * (Practice, Test, Paper), sesi yang sebaiknya dikerjakan sekarang tampil dua kali lebih besar, dan sesi
- * opsional dari tutor ada di bagian "Extra today". Hari istirahat dan batas waktu mengganti jalur dengan catatan besar.
+ * opsional dari tutor ada di bagian "Optional today". Hari istirahat dan batas waktu mengganti jalur dengan catatan besar.
  *
  * `headline` dari DTO menjadi judul bagian sesi (tersembunyi secara visual) karena papan
  * memakai sapaan "Hi, nama" sebagai h1. Tombol "See today's work" memakai `doneHref`
@@ -73,7 +73,7 @@ function Progress({ data }: { data: TodayDTO }): ReactElement {
         {done} of {total} sessions done
         {extraTotal > 0 ? (
           <span className="font-semibold text-fg-muted">
-            , extra {extraDone} of {extraTotal}
+            , optional {extraDone} of {extraTotal}
           </span>
         ) : null}
       </p>
@@ -142,6 +142,14 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           <h2 id="today-quests" className="visually-hidden">
             {data.headline}
           </h2>
+          {shown.length > 0 ? (
+            <div className="flex flex-col gap-1 pl-28 md:pl-36">
+              <h2 id="today-required" className="m-0 text-h2 font-bold">
+                Required today
+              </h2>
+              <p className="m-0 text-body text-fg-muted">Finish the required ones to keep your streak.</p>
+            </div>
+          ) : null}
           {note ? <NoteStop row={note} /> : null}
           {shown.length > 0 ? <div aria-hidden="true" className="absolute top-8 bottom-10 left-[54px] w-0 border-l-3 border-dashed border-fg md:left-[70px]" /> : null}
           {shown.length > 0 && data.progress.total > 0 ? (
@@ -173,9 +181,9 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           <section aria-labelledby="today-extra" className="flex flex-col gap-4 rounded-card border border-divider bg-surface px-4 py-5 md:px-6">
             <div className="flex flex-col gap-1">
               <h2 id="today-extra" className="m-0 text-h2 font-bold">
-                Extra today
+                Optional today
               </h2>
-              <p className="m-0 text-body text-fg-muted">From your tutor. Optional, and your streak does not change.</p>
+              <p className="m-0 text-body text-fg-muted">Only if you want more. Your streak does not change.</p>
             </div>
             {extras.map((stop) => (
               <QuestStopRow key={stop.questId ?? stop.href ?? stop.session} stop={stop} size="auto" />

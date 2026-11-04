@@ -143,6 +143,8 @@ export const planner: PlannerDTO = {
     { id: 'iksc-2027', subject: 'science', title: 'IKSC Level 1 practice', minutes: 75 },
   ],
   screenLimitMin: 120,
+  dayPresetLabel: 'Seimbang',
+  rulesHref: '/dev/konsol/pengaturan',
   prevWeekHref: '/dev/konsol/rencana?minggu=2026-10-12',
   nextWeekHref: '/dev/konsol/rencana?minggu=2026-10-26',
 }

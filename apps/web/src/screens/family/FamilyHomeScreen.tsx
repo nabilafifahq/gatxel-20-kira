@@ -21,7 +21,7 @@ export function FamilyHomeScreen({ data }: FamilyHomeScreenProps) {
   const s = data.summary
   const current = data.learners.find((l) => l.id === data.selectedLearnerId)
   return (
-    <FamilyShell shell={data.shell} active="home" learnerName={current?.name ?? s.learnerName}>
+    <FamilyShell shell={data.shell} active="week" learnerName={current?.name ?? s.learnerName}>
       {data.learners.length > 1 ? (
         <nav aria-label="Pilih anak" className="relative -mb-2 flex gap-2 overflow-x-auto">
           {data.learners.map((l) => {

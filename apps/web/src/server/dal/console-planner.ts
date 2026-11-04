@@ -2,9 +2,15 @@ import 'server-only'
 import { and, asc, eq, gte, inArray, isNull, lte, ne, notInArray, sql } from 'drizzle-orm'
 import {
   DAY_TEMPLATES,
+  DAY_PRESET_LABEL_ID,
+  LATIHAN_COUNT,
+  TES_COUNT,
   MAX_EXTRA_PER_DAY,
   addDays,
+  baselineSessions,
   composeDay,
+  type DayPreset,
+  type DayRules,
   defaultTemplate,
   jakartaDate,
   sessionMinutes,
@@ -16,7 +22,7 @@ import {
   type SessionType,
 } from '@kira/core'
 import { tables } from '@kira/db'
-import type { DayTemplateId, PlannerDTO, PlannerDay, PlanSlotConfig, PlanSlotDTO, Subject, UpsertSlotInput } from '@/lib/dto'
+import type { DayTemplateId, PlanChangeResult, PlannerDTO, PlannerDay, PlanSlotConfig, PlanSlotDTO, SessionTarget, Subject, UpsertSlotInput } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
 import { orgCtx } from '../auth/actor'
 import type { OrgContext, Tx } from '../db'
@@ -27,12 +33,12 @@ import { content, preset, presets, skill as skillById } from './content'
 import { skillTitle, SUBJECT_ORDER } from './console-common'
 import { shellIn } from './console-shell'
 import { paperPresetFor } from './daily-paper-scoring'
-import { dropUnstartedHeavySessions } from './learner-session'
+import { dayRulesFor } from './learner-rules'
+import { questContentDiffers, questSlotValues, questStarted, syncTodayIfCreated, type QuestRow } from './learner-session'
 import {
   SESSION_LABEL_ID,
   TEMPLATE_LABEL_ID,
   dayLabelId,
-  firstPlannableDate,
   isRestDate,
   normaliseSlot,
   normaliseWeek,
@@ -57,6 +63,9 @@ import {
  */
 
 const { planWeek, planSlot, restDay, paper, learnerProfile, skillState, competitionEvent, quest } = tables
+
+const CORE_SESSIONS: readonly SessionType[] = ['latihan', 'tes', 'paper']
+const CONSOLE_ROUTES_SETTINGS = '/konsol/pengaturan'
 
 type PlanLearner = { id: string; name: string; grade: number; restWeekdays: number[]; screenLimitMin: number }
 
@@ -90,6 +99,8 @@ type SlotRow = {
   paperId: string | null
   mode: PlanMode
   questionCount: number
+  base: boolean
+  off: boolean
   createdAt: Date
   paperTitle: string | null
   paperMinutes: number | null
@@ -113,6 +124,8 @@ function slotQuery(tx: Tx) {
       paperId: planSlot.paperId,
       mode: planSlot.mode,
       questionCount: planSlot.questionCount,
+      base: planSlot.base,
+      off: planSlot.off,
       createdAt: planSlot.createdAt,
       paperTitle: paper.title,
       paperMinutes: paper.minutes,
@@ -163,7 +176,7 @@ function titleOf(r: SlotRow): string {
     case 'tes':
     case 'reading':
     case 'lesson':
-      return r.skillId ? skillTitle(r.skillId) : r.session === 'tes' ? 'Skill sama dengan Latihan' : SESSION_LABEL_ID[r.session]
+      return r.skillId ? skillTitle(r.skillId) : r.session === 'tes' ? 'Skill sama dengan Latihan' : r.session === 'latihan' ? 'Skill dipilih Kira' : SESSION_LABEL_ID[r.session]
     case 'paper':
       return r.paperKind === 'full' ? 'Paper penuh gaya lomba' : 'Paper mini gaya lomba'
     case 'simulation':
@@ -208,7 +221,7 @@ function autoDTO(e: DayEntry, date: IsoDate, fullMinutes: number | null): PlanSl
     subject: e.subject,
     kind: 'quest',
     session: e.session,
-    required: true,
+    required: e.required,
     paperKind: e.paper,
     skillId: null,
     title: e.session === 'paper' ? (e.paper === 'full' ? 'Paper penuh, dipilih Kira' : 'Paper mini, dipilih Kira') : 'Skill dipilih Kira',
@@ -227,13 +240,12 @@ async function restOverrides(tx: Tx, learnerId: string, from: IsoDate, to: IsoDa
   return new Map(rows.map((r) => [r.date, r.rest]))
 }
 
-async function todayQuestsCreated(tx: Tx, learnerId: string, today: IsoDate): Promise<boolean> {
-  const rows = await tx
-    .select({ id: quest.id })
-    .from(quest)
-    .where(and(eq(quest.learnerId, learnerId), eq(quest.date, today), eq(quest.kind, 'daily')))
-    .limit(1)
-  return rows.length > 0
+/** Sesi hari ini yang sudah dimulai atau selesai di tablet. */
+async function startedQuestsOn(tx: Tx, learnerId: string, date: IsoDate): Promise<QuestRow[]> {
+  const rows = await tx.select().from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
+  const out: QuestRow[] = []
+  for (const q of rows) if (await questStarted(tx, q)) out.push(q)
+  return out
 }
 
 function toMeta(s: { id: string; subject: Subject; grade: number; title: string; order: number; strand: string; prerequisites: string[]; competitions: string[] }): SkillMeta {
@@ -286,10 +298,12 @@ type WeekView = {
   suggestions: Suggestion[]
   /** Semua sesi per hari (slot dan sesi dasar dari template), siap ditampilkan. */
   sessions: PlanSlotDTO[]
+  preset: DayPreset
+  rules: DayRules
 }
 
 function plannedOf(rows: readonly SlotRow[]): PlannedSlot[] {
-  return rows.map((r, i) => ({ id: r.id, subject: r.subject, session: r.session, required: r.kind === 'bonus' ? false : r.required, paperKind: r.paperKind, order: i }))
+  return rows.map((r, i) => ({ id: r.id, subject: r.subject, session: r.session, required: r.kind === 'bonus' ? false : r.required, paperKind: r.paperKind, order: i, base: r.base, off: r.off }))
 }
 
 /** Semua yang dibutuhkan layar dan applySuggestions untuk satu learner dan satu minggu. */
@@ -307,6 +321,8 @@ async function weekView(tx: Tx, learnerId: string, monday: IsoDate, today: IsoDa
     .limit(1)
   const templates = (weekRow?.templates as Record<string, string> | undefined) ?? {}
   const states = await statesOf(tx, learner.id)
+  const { rules, preset } = await dayRulesFor(tx, learner.id)
+  const startedToday = monday <= today && today <= sunday ? await startedQuestsOn(tx, learner.id, today) : []
 
   const sessions: PlanSlotDTO[] = []
   for (const date of week) {
@@ -314,12 +330,13 @@ async function weekView(tx: Tx, learnerId: string, monday: IsoDate, today: IsoDa
     const rows = slots.filter((s) => s.date === date)
     const byId = new Map(rows.map((r) => [r.id, r]))
     const fullMinutes = (subject: Subject) => paperPresetFor(subject, learner.grade, date)?.rules.timeLimitMin ?? null
-    for (const e of composeDay({ template: templateAt(templates, date), date, slots: plannedOf(rows) })) {
+    for (const e of composeDay({ template: templateAt(templates, date), date, slots: plannedOf(rows), rules })) {
       const row = e.slotId ? byId.get(e.slotId) : undefined
-      sessions.push(row ? { ...toSlotDTO(row, fullMinutes(row.subject)), required: e.required, paperKind: e.paper ?? row.paperKind } : autoDTO(e, date, fullMinutes(e.subject)))
+      const dto = row ? { ...toSlotDTO(row, fullMinutes(row.subject)), required: e.required, paperKind: e.paper ?? row.paperKind } : autoDTO(e, date, fullMinutes(e.subject))
+      sessions.push(date === today ? { ...dto, started: startedToday.some((q) => (e.slotId ? q.planSlotId === e.slotId : q.planSlotId === null && q.subject === e.subject && q.session === e.session)) } : dto)
     }
     // Slot yang tidak masuk susunan hari (melebihi batas sesi opsional) tetap terlihat supaya bisa dihapus.
-    for (const r of rows) if (!sessions.some((s) => s.id === r.id)) sessions.push(toSlotDTO(r, fullMinutes(r.subject)))
+    for (const r of rows) if (!r.off && !sessions.some((s) => s.id === r.id)) sessions.push(toSlotDTO(r, fullMinutes(r.subject)))
   }
 
   const c = content()
@@ -328,7 +345,8 @@ async function weekView(tx: Tx, learnerId: string, monday: IsoDate, today: IsoDa
   const curriculum = SUBJECT_ORDER.flatMap((subject) => (c.skillsByKey.get(`${subject}:${learner.grade}`) ?? []).map((s) => skills.get(s.id)!))
   const suggestions = suggestWeek({
     today,
-    firstPlannable: firstPlannableDate(today, await todayQuestsCreated(tx, learner.id, today)),
+    // Hari ini juga bisa diubah: sesi yang belum dimulai di tablet disamakan, yang sudah dimulai dipertahankan.
+    firstPlannable: today,
     days: week.map((date) => ({ date, rest: rest.has(date) })),
     learnerGrade: learner.grade,
     screenLimitMin: learner.screenLimitMin,
@@ -347,7 +365,7 @@ async function weekView(tx: Tx, learnerId: string, monday: IsoDate, today: IsoDa
     })),
     competitions: await upcomingCompetitions(tx, learner.id, today),
   })
-  return { learner, monday, week, rest, slots, status: weekRow?.status ?? 'draft', templates, states, suggestions, sessions }
+  return { learner, monday, week, rest, slots, status: weekRow?.status ?? 'draft', templates, states, suggestions, sessions, preset, rules }
 }
 
 /** Skill untuk pemilih slot: grade learner dulu, lalu grade di bawah dan di atasnya, plus skill yang punya data. */
@@ -413,6 +431,8 @@ export async function plannerDTO(actor: Actor, learnerParam: string | null, week
         .filter((p) => !p.id.startsWith('esmo-practice') && (p.grades.includes(v.learner.grade) || p.grades.some((g) => Math.abs(g - v.learner.grade) <= 1)))
         .map((p) => ({ id: p.id, subject: p.subject, title: p.title, minutes: p.rules.timeLimitMin })),
       screenLimitMin: v.learner.screenLimitMin,
+      dayPresetLabel: DAY_PRESET_LABEL_ID[v.preset],
+      rulesHref: `${CONSOLE_ROUTES_SETTINGS}?learner=${encodeURIComponent(v.learner.id)}#aturan-hari`,
       prevWeekHref: weekHref(v.learner.id, addDays(monday, -7)),
       nextWeekHref: weekHref(v.learner.id, addDays(monday, 7)),
     }
@@ -425,16 +445,12 @@ export async function plannerDTO(actor: Actor, learnerParam: string | null, week
 const MAX_AHEAD_DAYS = 366
 const MAX_REQUIRED_PER_DAY = 15
 
-/**
- * Tanggal masih berpengaruh: tidak lewat, tidak lebih dari setahun lagi, dan bukan hari ini yang quest-nya
- * sudah dibuat. Sesi opsional boleh ditambah di hari ini walau quest hari ini sudah dibuat.
- */
-async function assertPlannable(tx: Tx, learner: PlanLearner, date: IsoDate, today: IsoDate, opts: { optionalOnly?: boolean } = {}): Promise<void> {
+const NO_CHANGE: PlanChangeResult = { today: false, published: false, created: 0, removed: 0, regenerated: 0, kept: 0 }
+
+/** Tanggal masih berpengaruh: tidak lewat dan tidak lebih dari setahun lagi. Hari ini boleh diubah (lihat applyToday). */
+function assertPlannable(date: IsoDate, today: IsoDate): void {
   if (date < today) throw invalid(`${dayLabelId(date)} sudah lewat. Rencana hanya bisa diubah untuk hari ini dan hari berikutnya.`)
   if (date > addDays(today, MAX_AHEAD_DAYS)) throw invalid('Rencana paling jauh satu tahun ke depan. Pilih tanggal yang lebih dekat.')
-  if (date === today && !opts.optionalOnly && (await todayQuestsCreated(tx, learner.id, today))) {
-    throw conflict(`Sesi wajib hari ini sudah dibuat di tablet ${learner.name}, jadi perubahan sesi wajib untuk hari ini tidak dipakai lagi. Pilih besok atau hari berikutnya, atau tambahkan sesi opsional.`)
-  }
 }
 
 async function assertNotRest(tx: Tx, learner: PlanLearner, date: IsoDate): Promise<void> {
@@ -460,20 +476,24 @@ async function touchWeek(tx: Tx, weekId: string): Promise<void> {
   await tx.update(planWeek).set({ updatedAt: new Date() }).where(eq(planWeek.id, weekId))
 }
 
-/** Jumlah slot wajib dan opsional di sebuah hari, tanpa slot yang sedang diubah. */
+/**
+ * Jumlah slot wajib dan opsional tambahan di sebuah hari, tanpa slot yang sedang diubah. Slot yang menggantikan
+ * atau mematikan sesi dasar tidak dihitung: batasnya hanya untuk sesi yang ditambahkan tutor.
+ */
 async function slotCounts(tx: Tx, learnerId: string, date: IsoDate, exceptId: string | null): Promise<{ required: number; optional: number }> {
   const rows = await tx
-    .select({ required: planSlot.required, kind: planSlot.kind })
+    .select({ required: planSlot.required, kind: planSlot.kind, base: planSlot.base, off: planSlot.off })
     .from(planSlot)
     .where(and(eq(planSlot.learnerId, learnerId), eq(planSlot.date, date), exceptId ? ne(planSlot.id, exceptId) : undefined))
-  const optional = rows.filter((r) => !r.required || r.kind === 'bonus').length
-  return { required: rows.length - optional, optional }
+  const added = rows.filter((r) => !r.base && !r.off)
+  const optional = added.filter((r) => !r.required || r.kind === 'bonus').length
+  return { required: added.length - optional, optional }
 }
 
 async function assertRoom(tx: Tx, learnerId: string, date: IsoDate, required: boolean, exceptId: string | null): Promise<void> {
   const n = await slotCounts(tx, learnerId, date, exceptId)
   if (!required && n.optional >= MAX_EXTRA_PER_DAY) {
-    throw conflict(`${dayLabelId(date)} sudah punya ${MAX_EXTRA_PER_DAY} sesi opsional, batas sehari. Hapus atau pindahkan satu dulu.`)
+    throw conflict(`${dayLabelId(date)} sudah punya ${MAX_EXTRA_PER_DAY} sesi opsional tambahan, batas sehari. Hapus atau pindahkan satu dulu.`)
   }
   if (required && n.required >= MAX_REQUIRED_PER_DAY) {
     throw conflict(`${dayLabelId(date)} sudah punya ${MAX_REQUIRED_PER_DAY} slot sesi wajib. Hapus atau pindahkan satu dulu.`)
@@ -482,12 +502,95 @@ async function assertRoom(tx: Tx, learnerId: string, date: IsoDate, required: bo
 
 export type { UpsertSlotInput }
 
+/** Susunan sesi sebuah hari menurut aturan hari, template, dan slot saat ini. */
+async function dayEntries(tx: Tx, learner: PlanLearner, date: IsoDate): Promise<{ entries: DayEntry[]; template: DayTemplate; rules: DayRules }> {
+  const [weekRow] = await tx
+    .select({ templates: planWeek.dayTemplates })
+    .from(planWeek)
+    .where(and(eq(planWeek.learnerId, learner.id), eq(planWeek.weekStart, weekStart(date))))
+    .limit(1)
+  const rows = await slotsBetween(tx, learner.id, date, date)
+  const { rules } = await dayRulesFor(tx, learner.id)
+  const template = templateAt(weekRow?.templates, date)
+  return { entries: composeDay({ template, date, slots: plannedOf(rows), rules }), template, rules }
+}
+
+// ---------------------------------------------------------------------------
+// Hari ini: sesi yang sudah dibuat di tablet
+
 /**
- * Tambah atau ubah slot. Slot wajib menggantikan sesi dasar template dengan mapel dan jenis yang sama; slot wajib
- * kedua dengan mapel dan jenis yang sama menjadi sesi wajib tambahan. Slot opsional menjadi sesi tambahan yang
- * tidak dihitung streak. Slot paper dari Penyusun paper diisi oleh Penyusun paper.
+ * Sesi hari ini milik sebuah slot atau sesi otomatis: yang terhubung ke slot itu, atau (untuk sesi lama dan sesi
+ * otomatis) sesi mapel dan jenis yang sama yang belum terhubung ke slot. Yang sudah dimulai didahulukan.
  */
-export async function upsertSlot(actor: Actor, input: UpsertSlotInput): Promise<void> {
+async function questForTarget(tx: Tx, learnerId: string, date: IsoDate, t: { slotId: string | null; subject: Subject; session: SessionType }): Promise<QuestRow | null> {
+  const rows = await tx
+    .select()
+    .from(quest)
+    .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus'), eq(quest.subject, t.subject), eq(quest.session, t.session)))
+  if (t.slotId) {
+    const bySlot = rows.find((q) => q.planSlotId === t.slotId)
+    if (bySlot) return bySlot
+  }
+  const free = rows.filter((q) => q.planSlotId === null)
+  for (const q of free) if (await questStarted(tx, q)) return q
+  return free[0] ?? null
+}
+
+function startedText(q: Pick<QuestRow, 'status'>, name: string): string {
+  const state = q.status === 'done' ? 'sudah selesai' : 'sudah dimulai'
+  return `Sesi ini ${state} di tablet ${name}. Soal dan jawaban yang sudah masuk dipertahankan, jadi isinya (skill, mode, jumlah soal, atau paper) tidak bisa diubah hari ini.`
+}
+
+/**
+ * Setelah perubahan yang mengenai hari ini: terbitkan minggu itu bila masih draf (supaya tablet memakai perubahan
+ * itu), lalu samakan sesi hari ini. Sesi yang belum dimulai dibuat ulang, dihapus, atau ditambah; sesi yang sedang
+ * berjalan atau selesai dipertahankan isinya. day_record dan streak dihitung ulang di transaksi yang sama.
+ */
+async function applyToday(tx: Tx, ctx: OrgContext, learnerId: string, dates: readonly IsoDate[], today: IsoDate, opts: { publish: boolean }): Promise<PlanChangeResult> {
+  if (!dates.includes(today)) return NO_CHANGE
+  let published = false
+  if (opts.publish) {
+    const [wk] = await tx
+      .select({ id: planWeek.id, status: planWeek.status })
+      .from(planWeek)
+      .where(and(eq(planWeek.learnerId, learnerId), eq(planWeek.weekStart, weekStart(today))))
+      .limit(1)
+    if (wk && wk.status !== 'published') {
+      const now = new Date()
+      await tx.update(planWeek).set({ status: 'published', publishedAt: now, updatedAt: now }).where(eq(planWeek.id, wk.id))
+      await auditTx(tx, ctx, 'plan.week.published', wk.id, { learnerId, weekStart: weekStart(today), auto: true })
+      published = true
+    }
+  }
+  const r = await syncTodayIfCreated(tx, ctx, learnerId, today)
+  return { today: true, published, created: r?.created ?? 0, removed: r?.removed ?? 0, regenerated: r?.regenerated ?? 0, kept: r?.kept ?? 0 }
+}
+
+/** Isi slot untuk sesi otomatis: sama dengan sesi hari ini bila sudah dibuat, atau bawaan bila belum. */
+async function autoSlotValues(tx: Tx, learner: PlanLearner, date: IsoDate, today: IsoDate, entry: DayEntry) {
+  const fallback = {
+    mode: (entry.session === 'tes' ? 'tes' : 'latihan') as PlanMode,
+    questionCount: entry.session === 'tes' ? TES_COUNT : LATIHAN_COUNT,
+    paperKind: entry.session === 'paper' ? (entry.paper ?? 'mini') : null,
+    config: null as Record<string, string | number> | null,
+  }
+  if (date !== today) return fallback
+  const q = await questForTarget(tx, learner.id, date, { slotId: null, subject: entry.subject, session: entry.session })
+  if (!q) return fallback
+  const v = questSlotValues(q)
+  return { mode: v.mode as PlanMode, questionCount: v.questionCount, paperKind: entry.session === 'paper' ? (entry.paper ?? v.paperKind) : null, config: v.config }
+}
+
+// ---------------------------------------------------------------------------
+// Tambah, ubah, pindah, hapus
+
+/**
+ * Tambah atau ubah slot. Slot dasar (dari sesi otomatis, atau slot wajib yang menggantikan sesi dasar) menggantikan
+ * sesi dasar dengan mapel dan jenis yang sama dan membawa pilihan Wajib atau Opsional sendiri; slot lain menjadi
+ * sesi tambahan. Untuk hari ini, sesi yang belum dimulai di tablet langsung dibuat ulang; sesi yang sudah dimulai
+ * atau selesai hanya boleh berganti Wajib atau Opsional. Slot paper dari Penyusun paper diisi oleh Penyusun paper.
+ */
+export async function upsertSlot(actor: Actor, input: UpsertSlotInput): Promise<PlanChangeResult> {
   const norm = normaliseSlot({
     session: input.session,
     subject: input.subject,
@@ -503,15 +606,49 @@ export async function upsertSlot(actor: Actor, input: UpsertSlotInput): Promise<
   })
   const ctx = orgCtx(actor)
   const today = jakartaDate()
-  await inOrg(ctx, async (tx) => {
+  return inOrg(ctx, async (tx) => {
     const learner = await planLearner(tx, input.learnerId)
     const existing = input.slotId ? await slotById(tx, input.slotId) : null
     if (existing && existing.learnerId !== learner.id) throw notFound('Slot tidak ditemukan untuk learner ini. Muat ulang halaman rencana.')
     if (existing?.paperId) throw conflict('Slot ini berisi paper. Isi paper diubah di Penyusun paper; di rencana slot paper hanya bisa dipindah atau dihapus.')
-    // Hanya perubahan yang menyentuh sesi wajib hari ini yang menunggu hari berikutnya.
-    await assertPlannable(tx, learner, input.date, today, { optionalOnly: !norm.required && !(existing?.required ?? false) })
+    assertPlannable(input.date, today)
     await assertNotRest(tx, learner, input.date)
-    await assertRoom(tx, learner.id, input.date, norm.required, existing?.id ?? null)
+
+    // Sesi hari ini yang sudah dimulai: isinya tidak boleh berubah.
+    if (input.date === today) {
+      const q = await questForTarget(tx, learner.id, input.date, {
+        slotId: existing?.id ?? null,
+        subject: existing?.subject ?? input.subject,
+        session: existing?.session ?? input.session,
+      })
+      const editsThis = existing !== null || input.fromAuto === true
+      if (q && editsThis && (await questStarted(tx, q))) {
+        const differs = questContentDiffers(q, {
+          session: norm.session,
+          subject: norm.subject,
+          skillId: norm.skillId,
+          mode: norm.mode,
+          questionCount: norm.questionCount,
+          paperKind: norm.paperKind,
+          paperId: null,
+          config: norm.config,
+        })
+        if (differs) throw conflict(`${startedText(q, learner.name)} Yang masih bisa diubah: Wajib atau Opsional.`)
+      }
+    }
+
+    // Slot baru menggantikan sesi dasar yang belum punya slot bila dibuka dari sesi otomatis, atau bila wajib.
+    const { entries } = await dayEntries(tx, learner, input.date)
+    const unclaimed = entries.find((e) => e.baseline && e.slotId === null && e.subject === norm.subject && e.session === norm.session)
+    const [offRow] = existing
+      ? []
+      : await tx
+          .select({ id: planSlot.id })
+          .from(planSlot)
+          .where(and(eq(planSlot.learnerId, learner.id), eq(planSlot.date, input.date), eq(planSlot.subject, norm.subject), eq(planSlot.session, norm.session), eq(planSlot.off, true)))
+          .limit(1)
+    const base = existing ? existing.base : offRow ? true : Boolean(unclaimed) && (input.fromAuto === true || norm.required)
+    if (!base) await assertRoom(tx, learner.id, input.date, norm.required, existing?.id ?? null)
     const weekId = await ensureWeek(tx, ctx, learner.id, weekStart(input.date))
     const values = {
       planWeekId: weekId,
@@ -526,11 +663,14 @@ export async function upsertSlot(actor: Actor, input: UpsertSlotInput): Promise<
       paperId: null,
       mode: norm.mode,
       questionCount: norm.questionCount,
+      base,
+      off: false,
     }
+    const targetId = existing?.id ?? offRow?.id ?? null
     let slotId: string
-    if (existing) {
-      await tx.update(planSlot).set(values).where(eq(planSlot.id, existing.id))
-      slotId = existing.id
+    if (targetId) {
+      await tx.update(planSlot).set(values).where(eq(planSlot.id, targetId))
+      slotId = targetId
     } else {
       const [row] = await tx
         .insert(planSlot)
@@ -547,35 +687,166 @@ export async function upsertSlot(actor: Actor, input: UpsertSlotInput): Promise<
       required: norm.required,
       skillId: norm.skillId,
     })
+    return applyToday(tx, ctx, learner.id, [input.date], today, { publish: true })
   })
 }
 
-export async function moveSlot(actor: Actor, input: { slotId: string; date: IsoDate }): Promise<void> {
+/** Jadikan satu sesi Wajib (dihitung streak) atau Opsional. Boleh untuk sesi yang sudah dimulai atau selesai hari ini. */
+export async function setSessionRequired(actor: Actor, input: SessionTarget & { required: boolean }): Promise<PlanChangeResult> {
+  if (!CORE_SESSIONS.includes(input.session)) throw invalid('Hanya Latihan, Tes, dan Paper yang bisa dijadikan wajib. Sesi jenis lain selalu opsional.')
   const ctx = orgCtx(actor)
   const today = jakartaDate()
-  await inOrg(ctx, async (tx) => {
+  return inOrg(ctx, async (tx) => {
+    const learner = await planLearner(tx, input.learnerId)
+    assertPlannable(input.date, today)
+    await assertNotRest(tx, learner, input.date)
+    const weekId = await ensureWeek(tx, ctx, learner.id, weekStart(input.date))
+    let slotId: string
+    // Tanpa slotId: pakai slot dasar yang sudah menggantikan sesi otomatis itu (misalnya setelah dijadikan Opsional).
+    const claimed = input.slotId ? null : (await dayEntries(tx, learner, input.date)).entries.find((e) => e.baseline && e.slotId !== null && e.subject === input.subject && e.session === input.session)
+    const useSlotId = input.slotId ?? claimed?.slotId ?? null
+    if (useSlotId) {
+      const slot = await slotById(tx, useSlotId)
+      if (slot.learnerId !== learner.id || slot.date !== input.date) throw notFound('Slot tidak ditemukan untuk hari itu. Muat ulang halaman rencana.')
+      if (!slot.base) await assertRoom(tx, learner.id, slot.date, input.required, slot.id)
+      await tx.update(planSlot).set({ required: input.required }).where(eq(planSlot.id, slot.id))
+      slotId = slot.id
+    } else {
+      const { entries } = await dayEntries(tx, learner, input.date)
+      const entry = entries.find((e) => e.baseline && e.slotId === null && e.subject === input.subject && e.session === input.session)
+      if (!entry) throw conflict('Sesi ini sudah tidak ada di hari itu. Muat ulang halaman rencana.')
+      const v = await autoSlotValues(tx, learner, input.date, today, entry)
+      const [row] = await tx
+        .insert(planSlot)
+        .values({
+          orgId: ctx.orgId,
+          planWeekId: weekId,
+          learnerId: learner.id,
+          date: input.date,
+          subject: input.subject,
+          kind: 'quest',
+          session: input.session,
+          required: input.required,
+          paperKind: v.paperKind,
+          config: v.config,
+          skillId: null,
+          paperId: null,
+          mode: v.mode,
+          questionCount: v.questionCount,
+          base: true,
+          off: false,
+        })
+        .returning({ id: planSlot.id })
+      slotId = row!.id
+    }
+    await touchWeek(tx, weekId)
+    await auditTx(tx, ctx, 'plan.session.required', slotId, { learnerId: learner.id, date: input.date, subject: input.subject, session: input.session, required: input.required })
+    return applyToday(tx, ctx, learner.id, [input.date], today, { publish: true })
+  })
+}
+
+/**
+ * Hapus satu sesi dari sebuah hari. Slot tambahan dihapus; slot yang menggantikan sesi dasar, dan sesi otomatis,
+ * dimatikan (Mati) supaya sesi dasarnya tidak muncul lagi. Sesi hari ini yang sudah dimulai atau selesai tidak
+ * bisa dihapus (jadikan Opsional).
+ */
+async function removeSessionIn(
+  tx: Tx,
+  ctx: OrgContext,
+  learner: PlanLearner,
+  today: IsoDate,
+  t: { date: IsoDate; subject: Subject; session: SessionType; slot: SlotRow | null },
+): Promise<PlanChangeResult> {
+  if (t.date === today) {
+    const q = await questForTarget(tx, learner.id, t.date, { slotId: t.slot?.id ?? null, subject: t.subject, session: t.session })
+    if (q && (await questStarted(tx, q))) throw conflict(`${startedText(q, learner.name)} Sesi ini tidak bisa dihapus, tetapi bisa dijadikan Opsional supaya tidak dihitung streak.`)
+  }
+  const weekId = await ensureWeek(tx, ctx, learner.id, weekStart(t.date))
+  const { entries, template, rules } = await dayEntries(tx, learner, t.date)
+  const hasBaseline = baselineSessions(template, t.date, rules).some((b) => b.subject === t.subject && b.session === t.session)
+  let id: string
+  if (t.slot) {
+    id = t.slot.id
+    if (t.slot.base && hasBaseline && !t.slot.off) await tx.update(planSlot).set({ off: true }).where(eq(planSlot.id, t.slot.id))
+    else await tx.delete(planSlot).where(eq(planSlot.id, t.slot.id))
+  } else {
+    const entry = entries.find((e) => e.baseline && e.slotId === null && e.subject === t.subject && e.session === t.session)
+    if (!entry) throw conflict('Sesi ini sudah tidak ada di hari itu. Muat ulang halaman rencana.')
+    const [row] = await tx
+      .insert(planSlot)
+      .values({
+        orgId: ctx.orgId,
+        planWeekId: weekId,
+        learnerId: learner.id,
+        date: t.date,
+        subject: t.subject,
+        kind: 'quest',
+        session: t.session,
+        required: true,
+        skillId: null,
+        mode: 'latihan',
+        questionCount: LATIHAN_COUNT,
+        base: true,
+        off: true,
+      })
+      .returning({ id: planSlot.id })
+    id = row!.id
+  }
+  await touchWeek(tx, weekId)
+  await auditTx(tx, ctx, 'plan.slot.deleted', id, { learnerId: learner.id, date: t.date, subject: t.subject, session: t.session, off: !t.slot || (t.slot.base && hasBaseline) })
+  return applyToday(tx, ctx, learner.id, [t.date], today, { publish: true })
+}
+
+export async function removeSession(actor: Actor, input: SessionTarget): Promise<PlanChangeResult> {
+  const ctx = orgCtx(actor)
+  const today = jakartaDate()
+  return inOrg(ctx, async (tx) => {
+    const learner = await planLearner(tx, input.learnerId)
+    assertPlannable(input.date, today)
+    await assertNotRest(tx, learner, input.date)
+    const slot = input.slotId ? await slotById(tx, input.slotId) : null
+    if (slot && (slot.learnerId !== learner.id || slot.date !== input.date)) throw notFound('Slot tidak ditemukan untuk hari itu. Muat ulang halaman rencana.')
+    return removeSessionIn(tx, ctx, learner, today, { date: input.date, subject: slot?.subject ?? input.subject, session: slot?.session ?? input.session, slot })
+  })
+}
+
+export async function deleteSlot(actor: Actor, slotId: string): Promise<PlanChangeResult> {
+  const ctx = orgCtx(actor)
+  const today = jakartaDate()
+  return inOrg(ctx, async (tx) => {
+    const slot = await slotById(tx, slotId)
+    const learner = await planLearner(tx, slot.learnerId)
+    if (slot.date < today) {
+      // Hari yang sudah lewat tidak berpengaruh lagi pada sesi; slotnya tetap boleh dibersihkan.
+      const [row] = await tx.delete(planSlot).where(eq(planSlot.id, slot.id)).returning({ weekId: planSlot.planWeekId })
+      if (row) await touchWeek(tx, row.weekId)
+      await auditTx(tx, ctx, 'plan.slot.deleted', slot.id, { learnerId: slot.learnerId, date: slot.date })
+      return NO_CHANGE
+    }
+    return removeSessionIn(tx, ctx, learner, today, { date: slot.date, subject: slot.subject, session: slot.session, slot })
+  })
+}
+
+export async function moveSlot(actor: Actor, input: { slotId: string; date: IsoDate }): Promise<PlanChangeResult> {
+  const ctx = orgCtx(actor)
+  const today = jakartaDate()
+  return inOrg(ctx, async (tx) => {
     const slot = await slotById(tx, input.slotId)
-    if (slot.date === input.date) return
+    if (slot.date === input.date) return NO_CHANGE
     const learner = await planLearner(tx, slot.learnerId)
     const required = slot.kind === 'bonus' ? false : slot.required
-    await assertPlannable(tx, learner, input.date, today, { optionalOnly: !required })
+    assertPlannable(input.date, today)
     await assertNotRest(tx, learner, input.date)
-    await assertRoom(tx, learner.id, input.date, required, slot.id)
+    if (slot.date === today) {
+      const q = await questForTarget(tx, learner.id, slot.date, { slotId: slot.id, subject: slot.subject, session: slot.session })
+      if (q && (await questStarted(tx, q))) throw conflict(`${startedText(q, learner.name)} Sesi ini tidak bisa dipindah ke hari lain.`)
+    }
+    if (!slot.base) await assertRoom(tx, learner.id, input.date, required, slot.id)
     const weekId = await ensureWeek(tx, ctx, learner.id, weekStart(input.date))
     await tx.update(planSlot).set({ date: input.date, planWeekId: weekId }).where(eq(planSlot.id, slot.id))
     await touchWeek(tx, weekId)
     await auditTx(tx, ctx, 'plan.slot.moved', slot.id, { learnerId: learner.id, from: slot.date, to: input.date })
-  })
-}
-
-export async function deleteSlot(actor: Actor, slotId: string): Promise<void> {
-  const ctx = orgCtx(actor)
-  await inOrg(ctx, async (tx) => {
-    const rows = await tx.delete(planSlot).where(eq(planSlot.id, slotId)).returning({ id: planSlot.id, learnerId: planSlot.learnerId, date: planSlot.date, weekId: planSlot.planWeekId })
-    const row = rows[0]
-    if (!row) throw notFound('Slot tidak ditemukan. Mungkin sudah dihapus; muat ulang halaman rencana.')
-    await touchWeek(tx, row.weekId)
-    await auditTx(tx, ctx, 'plan.slot.deleted', row.id, { learnerId: row.learnerId, date: row.date })
+    return applyToday(tx, ctx, learner.id, [slot.date, input.date], today, { publish: true })
   })
 }
 
@@ -596,7 +867,7 @@ export async function setRestDay(actor: Actor, input: { learnerId: string; date:
 }
 
 /** Hitung ulang usulan di server dan terapkan hanya id yang masih berlaku. Mengembalikan jumlah yang diterapkan. */
-export async function applySuggestions(actor: Actor, input: { learnerId: string; weekStart: IsoDate; ids: string[] }): Promise<number> {
+export async function applySuggestions(actor: Actor, input: { learnerId: string; weekStart: IsoDate; ids: string[] }): Promise<PlanChangeResult> {
   const ctx = orgCtx(actor)
   const today = jakartaDate()
   return inOrg(ctx, async (tx) => {
@@ -618,6 +889,7 @@ export async function applySuggestions(actor: Actor, input: { learnerId: string;
         kind: 'quest' as const,
         session: 'latihan' as const,
         required: true,
+        base: true,
         skillId: s.skillId,
         mode: s.mode,
         questionCount: s.questionCount,
@@ -625,14 +897,14 @@ export async function applySuggestions(actor: Actor, input: { learnerId: string;
     )
     await touchWeek(tx, weekId)
     await auditTx(tx, ctx, 'plan.suggestions.applied', weekId, { learnerId: v.learner.id, weekStart: monday, applied: valid.length, requested: input.ids.length })
-    return valid.length
+    return applyToday(tx, ctx, v.learner.id, valid.map((s) => s.date), today, { publish: true })
   })
 }
 
-export async function publishWeek(actor: Actor, input: { learnerId: string; weekStart: IsoDate }): Promise<void> {
+export async function publishWeek(actor: Actor, input: { learnerId: string; weekStart: IsoDate }): Promise<PlanChangeResult> {
   const ctx = orgCtx(actor)
   const today = jakartaDate()
-  await inOrg(ctx, async (tx) => {
+  return inOrg(ctx, async (tx) => {
     const learner = await planLearner(tx, input.learnerId)
     const monday = weekStart(input.weekStart)
     if (addDays(monday, 6) < today) throw invalid('Minggu itu sudah lewat, jadi rencananya tidak dipakai lagi. Pilih minggu ini atau minggu berikutnya.')
@@ -643,50 +915,43 @@ export async function publishWeek(actor: Actor, input: { learnerId: string; week
       .onConflictDoUpdate({ target: [planWeek.learnerId, planWeek.weekStart], set: { status: 'published', publishedAt: now, updatedAt: now } })
       .returning({ id: planWeek.id })
     await auditTx(tx, ctx, 'plan.week.published', row!.id, { learnerId: learner.id, weekStart: monday })
+    // Bila minggu ini punya sesi hari ini yang sudah dibuat, samakan dengan rencana yang baru terbit.
+    return applyToday(tx, ctx, learner.id, weekOf(monday), today, { publish: false })
   })
 }
 
 /**
- * Template untuk satu hari: Hari sekolah, Sabtu paper penuh, atau Hari ringan. Template menentukan sesi wajib
- * dasar hari itu. Hari ini yang sesinya sudah dibuat hanya bisa menjadi Hari ringan, dan hanya bila minggu itu
- * sudah terbit: Tes dan Paper yang belum dikerjakan dibuang supaya hari tetap lengkap dengan Latihan saja.
+ * Template untuk satu hari: Hari sekolah, Sabtu paper penuh, atau Hari ringan. Template menimpa aturan hari learner
+ * untuk hari itu. Untuk hari ini, sesi yang belum dimulai di tablet langsung disamakan (Hari ringan membuang Tes dan
+ * Paper yang belum dikerjakan); sesi yang sudah dimulai atau selesai dipertahankan.
  */
-export async function setDayTemplate(actor: Actor, input: { learnerId: string; date: IsoDate; template: DayTemplateId }): Promise<void> {
+export async function setDayTemplate(actor: Actor, input: { learnerId: string; date: IsoDate; template: DayTemplateId }): Promise<PlanChangeResult> {
   const ctx = orgCtx(actor)
   const today = jakartaDate()
-  await inOrg(ctx, async (tx) => {
+  return inOrg(ctx, async (tx) => {
     const learner = await planLearner(tx, input.learnerId)
     if (input.date < today) throw invalid(`${dayLabelId(input.date)} sudah lewat. Template hanya bisa diubah untuk hari ini dan hari berikutnya.`)
     if (input.date > addDays(today, MAX_AHEAD_DAYS)) throw invalid('Rencana paling jauh satu tahun ke depan. Pilih tanggal yang lebih dekat.')
     await assertNotRest(tx, learner, input.date)
-    const created = input.date === today && (await todayQuestsCreated(tx, learner.id, today))
     const weekId = await ensureWeek(tx, ctx, learner.id, weekStart(input.date))
-    const [row] = await tx.select({ templates: planWeek.dayTemplates, status: planWeek.status }).from(planWeek).where(eq(planWeek.id, weekId)).limit(1)
-    if (created) {
-      if (input.template !== 'light') {
-        throw conflict(`Sesi hari ini sudah dibuat di tablet ${learner.name}. Hari ini hanya bisa dijadikan Hari ringan; template lain berlaku mulai besok.`)
-      }
-      if (row?.status !== 'published') {
-        throw conflict('Terbitkan rencana minggu ini dulu supaya Hari ringan langsung berlaku di tablet hari ini.')
-      }
-    }
+    const [row] = await tx.select({ templates: planWeek.dayTemplates }).from(planWeek).where(eq(planWeek.id, weekId)).limit(1)
     const templates = { ...((row?.templates as Record<string, string> | undefined) ?? {}) }
     // Template bawaan hari itu (Senin sampai Jumat sekolah, Sabtu paper penuh) tidak perlu disimpan.
     if (input.template === defaultTemplate(input.date)) delete templates[input.date]
     else templates[input.date] = input.template
     await tx.update(planWeek).set({ dayTemplates: templates, updatedAt: new Date() }).where(eq(planWeek.id, weekId))
-    let dropped = 0
-    if (created && input.template === 'light') dropped = await dropUnstartedHeavySessions(tx, ctx, learner.id, input.date)
-    await auditTx(tx, ctx, 'plan.day.template', weekId, { learnerId: learner.id, date: input.date, template: input.template, dropped })
+    const change = await applyToday(tx, ctx, learner.id, [input.date], today, { publish: true })
+    await auditTx(tx, ctx, 'plan.day.template', weekId, { learnerId: learner.id, date: input.date, template: input.template, removed: change.removed, regenerated: change.regenerated })
+    return change
   })
 }
 
 /**
  * Salin rencana satu minggu ke minggu lain: slot (selain paper Kertas, yang terikat lembar cetak per tanggal)
- * dan template hari. Slot di minggu tujuan pada hari yang masih bisa diubah diganti; hari yang sudah lewat,
- * hari istirahat, dan hari ini yang sesinya sudah dibuat dilewati.
+ * dan template hari. Slot di minggu tujuan pada hari yang masih bisa diubah diganti; hari yang sudah lewat dan
+ * hari istirahat dilewati. Hari ini ikut diganti dan disamakan dengan tablet (sesi yang sudah dimulai dipertahankan).
  */
-export async function copyWeek(actor: Actor, input: { learnerId: string; fromWeekStart: IsoDate; toWeekStart: IsoDate }): Promise<{ copied: number; skipped: number }> {
+export async function copyWeek(actor: Actor, input: { learnerId: string; fromWeekStart: IsoDate; toWeekStart: IsoDate }): Promise<{ copied: number; skipped: number; change: PlanChangeResult }> {
   const ctx = orgCtx(actor)
   const today = jakartaDate()
   const from = weekStart(input.fromWeekStart)
@@ -708,8 +973,7 @@ export async function copyWeek(actor: Actor, input: { learnerId: string; fromWee
     const diff = Math.round((Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86400000)
     const weekId = await ensureWeek(tx, ctx, learner.id, to)
     const overrides = await restOverrides(tx, learner.id, to, addDays(to, 6))
-    const startedToday = await todayQuestsCreated(tx, learner.id, today)
-    const plannable = (date: IsoDate) => date >= today && !(date === today && startedToday) && !isRestDate(date, learner.restWeekdays, overrides)
+    const plannable = (date: IsoDate) => date >= today && !isRestDate(date, learner.restWeekdays, overrides)
     const targetDates = weekOf(to).filter(plannable)
     if (targetDates.length > 0) {
       await tx.delete(planSlot).where(and(eq(planSlot.learnerId, learner.id), inArray(planSlot.date, targetDates), ne(planSlot.mode, 'kertas')))
@@ -737,6 +1001,8 @@ export async function copyWeek(actor: Actor, input: { learnerId: string; fromWee
         paperId: s.paperId,
         mode: s.mode,
         questionCount: s.questionCount,
+        base: s.base,
+        off: s.off,
       })
     }
     if (rows.length > 0) await tx.insert(planSlot).values(rows)
@@ -749,6 +1015,7 @@ export async function copyWeek(actor: Actor, input: { learnerId: string; fromWee
     }
     await tx.update(planWeek).set({ dayTemplates: templates, updatedAt: new Date() }).where(eq(planWeek.id, weekId))
     await auditTx(tx, ctx, 'plan.week.copied', weekId, { learnerId: learner.id, from, to, copied: rows.length, skipped })
-    return { copied: rows.length, skipped }
+    const change = await applyToday(tx, ctx, learner.id, targetDates, today, { publish: false })
+    return { copied: rows.length, skipped, change }
   })
 }

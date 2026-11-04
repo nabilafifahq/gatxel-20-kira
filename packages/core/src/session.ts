@@ -1,6 +1,7 @@
 import { daysBetween, weekStart, weekday, type IsoDate } from './time'
 import { SUBJECTS, type Subject } from './quest'
 import type { PresetRules, ScoringSection } from './scoring'
+import { ruleLevel, type DayRules, type RuleLevel } from './day-rules'
 
 /**
  * Struktur harian (rencana Kira Juara, bagian 3): 9 sesi wajib per hari (Latihan, Tes, dan Paper untuk
@@ -76,20 +77,25 @@ export function saturdayFullSubject(date: IsoDate): Subject {
   return SUBJECTS[i]!
 }
 
-export type BaselineSession = { subject: Subject; session: CoreSession; paper: PaperKind | null }
+export type BaselineSession = { subject: Subject; session: CoreSession; paper: PaperKind | null; required: boolean }
 
 /**
- * Sesi wajib dasar sebuah hari. Hari sekolah dan Sabtu punya 9 sesi; Hari ringan hanya satu Latihan
- * per mapel, jadi hari sakit atau hari sekolah yang berat tetap bisa lengkap dan tidak memutus streak.
+ * Sesi dasar sebuah hari dari aturan hari learner dan template hari. Aturan (Mati, Opsional, Wajib per mapel dan
+ * sesi) menentukan sesi apa yang dibuat dan mana yang dihitung streak; tanpa aturan semua sesi wajib (seperti dulu).
+ * Template menimpa per hari: Hari ringan hanya menyisakan Latihan, dan Sabtu paper penuh memberi paper penuh pada
+ * satu mapel bergiliran selama Paper tidak Mati.
  */
-export function baselineSessions(template: DayTemplate, date: IsoDate): BaselineSession[] {
+export function baselineSessions(template: DayTemplate, date: IsoDate, rules?: DayRules): BaselineSession[] {
   const out: BaselineSession[] = []
   const fullSubject = template === 'saturday' ? saturdayFullSubject(date) : null
+  const level = (subject: Subject, session: CoreSession): RuleLevel => (rules ? ruleLevel(rules, date, subject, session) : 'required')
   for (const subject of SUBJECTS) {
-    out.push({ subject, session: 'latihan', paper: null })
-    if (template === 'light') continue
-    out.push({ subject, session: 'tes', paper: null })
-    out.push({ subject, session: 'paper', paper: subject === fullSubject ? 'full' : 'mini' })
+    for (const session of CORE_SESSIONS) {
+      if (template === 'light' && session !== 'latihan') continue
+      const lv = level(subject, session)
+      if (lv === 'off') continue
+      out.push({ subject, session, paper: session === 'paper' ? (subject === fullSubject ? 'full' : 'mini') : null, required: lv === 'required' })
+    }
   }
   return out
 }
@@ -106,6 +112,13 @@ export type PlannedSlot = {
   paperKind: PaperKind | null
   /** Urutan pembuatan, supaya susunan stabil. */
   order: number
+  /**
+   * Slot menggantikan sesi dasar yang mapel dan jenisnya sama (Wajib atau Opsional). Bila kosong, slot wajib
+   * menggantikan dan slot opsional menjadi sesi tambahan (perilaku slot lama).
+   */
+  base?: boolean | undefined
+  /** Sesi dasar yang sama dimatikan untuk hari itu: tidak ada sesi sama sekali. */
+  off?: boolean | undefined
 }
 
 export type DayEntry = {
@@ -118,13 +131,17 @@ export type DayEntry = {
   paper: PaperKind | null
   /** Nomor urut dalam kelompok (mapel, sesi, wajib atau opsional). */
   seq: number
+  /** Sesi ini mengisi tempat sesi dasar (dari aturan hari dan template), bukan sesi tambahan. */
+  baseline: boolean
 }
 
 /**
- * Slot wajib menggantikan sesi dasar yang mapel dan jenisnya sama. Slot wajib lain menjadi sesi wajib tambahan,
- * slot opsional menjadi sesi tambahan (paling banyak MAX_EXTRA_PER_DAY). Sesi dasar tanpa slot dipilih otomatis.
+ * Susunan sesi satu hari. Sesi dasar datang dari aturan hari dan template. Slot dasar (atau slot wajib lama)
+ * menggantikan sesi dasar yang mapel dan jenisnya sama dan membawa pilihan Wajib atau Opsional sendiri; slot
+ * dengan `off` mematikan sesi dasar itu. Slot wajib lain menjadi sesi wajib tambahan, slot opsional menjadi sesi
+ * tambahan (paling banyak MAX_EXTRA_PER_DAY). Sesi dasar tanpa slot dipilih otomatis.
  */
-export function composeDay(input: { template: DayTemplate; date: IsoDate; slots: readonly PlannedSlot[] }): DayEntry[] {
+export function composeDay(input: { template: DayTemplate; date: IsoDate; slots: readonly PlannedSlot[]; rules?: DayRules }): DayEntry[] {
   const slots = [...input.slots].sort((a, b) => a.order - b.order || a.id.localeCompare(b.id))
   const used = new Set<string>()
   const seqOf = new Map<string, number>()
@@ -134,21 +151,32 @@ export function composeDay(input: { template: DayTemplate; date: IsoDate; slots:
     seqOf.set(k, n + 1)
     return n
   }
+  const claims = (s: PlannedSlot) => !s.off && (s.base ?? s.required)
+  const baseline = baselineSessions(input.template, input.date, input.rules)
+  const off = new Set<string>()
+  for (const s of slots) {
+    if (!s.off) continue
+    used.add(s.id)
+    const hit = baseline.find((b) => !off.has(`${b.subject}:${b.session}`) && b.subject === s.subject && b.session === s.session)
+    if (hit) off.add(`${hit.subject}:${hit.session}`)
+  }
   const entries: DayEntry[] = []
-  for (const b of baselineSessions(input.template, input.date)) {
-    const slot = slots.find((s) => !used.has(s.id) && s.required && s.subject === b.subject && s.session === b.session)
-    const seq = nextSeq(b.subject, b.session, true)
+  for (const b of baseline) {
+    if (off.has(`${b.subject}:${b.session}`)) continue
+    const slot = slots.find((s) => !used.has(s.id) && claims(s) && s.subject === b.subject && s.session === b.session)
     if (slot) {
       used.add(slot.id)
-      entries.push({ key: slot.id, slotId: slot.id, subject: b.subject, session: b.session, required: true, paper: b.session === 'paper' ? (slot.paperKind ?? b.paper) : null, seq })
+      const seq = nextSeq(b.subject, b.session, slot.required)
+      entries.push({ key: slot.id, slotId: slot.id, subject: b.subject, session: b.session, required: slot.required, paper: b.session === 'paper' ? (slot.paperKind ?? b.paper) : null, seq, baseline: true })
     } else {
-      entries.push({ key: `auto:${b.subject}:${b.session}:${seq}`, slotId: null, subject: b.subject, session: b.session, required: true, paper: b.paper, seq })
+      const seq = nextSeq(b.subject, b.session, b.required)
+      entries.push({ key: `auto:${b.subject}:${b.session}:${seq}`, slotId: null, subject: b.subject, session: b.session, required: b.required, paper: b.paper, seq, baseline: true })
     }
   }
   for (const s of slots) {
     if (used.has(s.id) || !s.required) continue
     used.add(s.id)
-    entries.push({ key: s.id, slotId: s.id, subject: s.subject, session: s.session, required: true, paper: s.session === 'paper' ? (s.paperKind ?? 'mini') : null, seq: nextSeq(s.subject, s.session, true) })
+    entries.push({ key: s.id, slotId: s.id, subject: s.subject, session: s.session, required: true, paper: s.session === 'paper' ? (s.paperKind ?? 'mini') : null, seq: nextSeq(s.subject, s.session, true), baseline: false })
   }
   let extras = 0
   for (const s of slots) {
@@ -156,7 +184,7 @@ export function composeDay(input: { template: DayTemplate; date: IsoDate; slots:
     if (extras >= MAX_EXTRA_PER_DAY) break
     extras++
     used.add(s.id)
-    entries.push({ key: s.id, slotId: s.id, subject: s.subject, session: s.session, required: false, paper: s.session === 'paper' ? (s.paperKind ?? 'mini') : null, seq: nextSeq(s.subject, s.session, false) })
+    entries.push({ key: s.id, slotId: s.id, subject: s.subject, session: s.session, required: false, paper: s.session === 'paper' ? (s.paperKind ?? 'mini') : null, seq: nextSeq(s.subject, s.session, false), baseline: false })
   }
   return entries
 }

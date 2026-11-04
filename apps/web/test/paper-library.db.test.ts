@@ -51,6 +51,7 @@ describe.skipIf(!ready)('DAL pustaka paper di Postgres', () => {
     await owner`insert into org (id, name) values (${orgId}, 'Org PL __GTX_SEED__')`
     await owner`insert into member_profile (user_id, org_id, name, role, email) values (${tutorId}, ${orgId}, 'Tutor PL', 'tutor', 'tutor-pl-dal@example.test')`
     await owner`insert into learner_profile (user_id, org_id, name, grade, active) values (${learnerId}, ${orgId}, 'Anak PL', 2, true)`
+    await owner`insert into day_rules (learner_id, org_id, preset) values (${learnerId}, ${orgId}, 'penuh')`
   })
 
   afterAll(async () => {

@@ -193,6 +193,7 @@ export async function startProgramTx(tx: Tx, ctx: OrgContext, input: StartProgra
         kind: 'quest' as const,
         session: s.session,
         required: true,
+        base: true,
         paperKind: s.paperKind,
         skillId: s.skillId,
         paperId: null,

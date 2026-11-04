@@ -108,7 +108,9 @@ export async function dayRecords(tx: Tx, learner: LearnerRow, since: IsoDate): P
 const DAY_LETTER: Record<string, string> = { Monday: 'Mon', Tuesday: 'Tue', Wednesday: 'Wed', Thursday: 'Thu', Friday: 'Fri', Saturday: 'Sat', Sunday: 'Sun' }
 
 export async function streakFor(tx: Tx, learner: LearnerRow, today: IsoDate) {
-  const since = learner.startedOn ?? today
+  const started = learner.startedOn ?? today
+  // Setelah atur ulang streak, hari sebelum streak_since tidak dihitung lagi.
+  const since = learner.streakSince && learner.streakSince > started ? learner.streakSince : started
   const days = await dayRecords(tx, learner, since)
   const result = computeStreak({ days, today, restWeekdays: learner.restWeekdays, since })
   return result
@@ -350,3 +352,13 @@ export async function badgesOf(tx: Tx, learnerId: string) {
 }
 
 export { BADGES }
+
+/**
+ * Siapa yang melihat jawaban tulis, bicara, gambar, dan foto. Keluarga tanpa tutor: orang dewasa di rumah,
+ * dengan kalimat yang ramah dan tidak pernah menunggu selamanya. Skor dan streak tidak menunggu penilaian itu.
+ */
+export async function markerFor(tx: Tx): Promise<'tutor' | 'grownup'> {
+  const r = await tx.execute(sql`select app_family_has_tutor() as t`)
+  const row = (r as unknown as { t: boolean }[])[0]
+  return row?.t === false ? 'grownup' : 'tutor'
+}

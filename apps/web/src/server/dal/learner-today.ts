@@ -288,6 +288,8 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
   const minutes = await minutesOn(tx, learner.userId, date)
   const streak = await streakDTO(tx, learner, date)
   const anyAnswers = [...flat, ...extras].some((s) => s.answered > 0) || streak.current > 0
+  // Hari tanpa sesi wajib (aturan hari Mati atau Opsional) netral: tidak ada yang perlu diselesaikan untuk streak.
+  const noRequired = total === 0 && !rest
   const variant: TodayDTO['variant'] = rest
     ? 'rest-day'
     : minutes >= learner.screenLimitMin
@@ -304,9 +306,13 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
         ? 'That is enough screen time for today. Well done.'
         : variant === 'all-done'
           ? extras.length > extraDone
-            ? `All ${total} sessions are done. Extra sessions are open if you want them.`
+            ? `All ${total} sessions are done. Optional sessions are open if you want them.`
             : `All ${total} sessions are done. See you tomorrow.`
-          : active?.state === 'in-progress'
+          : noRequired
+            ? extras.length > 0
+              ? 'No required sessions today. Your streak is safe, and you can try an optional one.'
+              : 'No sessions today. Your streak is safe.'
+            : active?.state === 'in-progress'
             ? `${SUBJECT_LABEL[active.subject as Subject]} ${active.sessionLabel.toLowerCase()} is ${active.answered * 2 >= active.total ? 'half done' : 'started'}.`
             : done === 0
               ? `${numberWord(total)} ${total === 1 ? 'session' : 'sessions'} today. Start with the big one.`

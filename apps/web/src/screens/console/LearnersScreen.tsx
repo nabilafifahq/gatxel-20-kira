@@ -31,8 +31,8 @@ export type LearnersScreenProps = { data: LearnersDTO; actions: LearnersActions 
 
 type Learner = LearnersDTO['learners'][number]
 
-const AVATARS: AvatarName[] = ['fox', 'cat', 'owl', 'bear', 'rabbit', 'turtle', 'penguin', 'frog']
-const AVATAR_LABEL: Record<AvatarName, string> = {
+export const AVATARS: AvatarName[] = ['fox', 'cat', 'owl', 'bear', 'rabbit', 'turtle', 'penguin', 'frog']
+export const AVATAR_LABEL: Record<AvatarName, string> = {
   fox: 'Rubah',
   cat: 'Kucing',
   owl: 'Burung hantu',
@@ -310,7 +310,7 @@ function LearnerCard({
 // ---------------------------------------------------------------------------
 // Kontrol bersama
 
-function AvatarPicker({ value, onChange, taken }: { value: AvatarName; onChange: (a: AvatarName) => void; taken: Partial<Record<AvatarName, string>> }) {
+export function AvatarPicker({ value, onChange, taken }: { value: AvatarName; onChange: (a: AvatarName) => void; taken: Partial<Record<AvatarName, string>> }) {
   const auto = useId()
   const name = `avatar${auto.replace(/:/g, '')}`
   return (

@@ -29,7 +29,7 @@ const MARK_WORD: Record<ResultQuestion['status'], string> = {
   correct: 'correct',
   wrong: 'not yet',
   blank: 'no answer',
-  pending: 'waiting for your tutor',
+  pending: 'waiting to be looked at',
 }
 
 function QuestionMarks({ data }: { data: ResultsDTO }): ReactElement {

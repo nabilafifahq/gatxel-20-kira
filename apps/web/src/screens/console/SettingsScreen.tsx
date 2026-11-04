@@ -17,6 +17,7 @@ import { CONSOLE_ROUTES, FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
 import { jakartaDate } from '@kira/core/time'
+import { DayRulesEditor, StreakResetControl } from '@/components/console/DayRulesEditor'
 
 /**
  * T10 Pengaturan (papan Pengaturan, PengaturanCabut): akun dan passkey, perangkat terdaftar
@@ -540,6 +541,22 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
               <Button variant="primary" className="self-start" onClick={doSaveLimits} loading={saveLimits.pending}>
                 Simpan batas
               </Button>
+              <div id="aturan-hari" className="flex flex-col gap-3 border-t border-divider pt-4">
+                <h3 className="m-0 text-body font-bold">Aturan hari {learner.name}</h3>
+                <DayRulesEditor
+                  key={learner.id}
+                  learnerName={learner.name}
+                  preset={learner.dayPreset ?? 'seimbang'}
+                  rules={learner.dayRules}
+                  onSave={(v) => (actions.updateLearnerDayRules ? actions.updateLearnerDayRules({ learnerId: learner.id, ...v }) : Promise.reject(new Error('tidak tersedia')))}
+                />
+              </div>
+              {actions.resetLearnerStreak ? (
+                <div className="flex flex-col gap-3 border-t border-divider pt-4">
+                  <h3 className="m-0 text-body font-bold">Streak {learner.name}</h3>
+                  <StreakResetControl key={learner.id} learnerName={learner.name} streak={learner.streak} onReset={(v) => actions.resetLearnerStreak!({ learnerId: learner.id, ...v })} />
+                </div>
+              ) : null}
             </>
           ) : (
             <p className="m-0 text-body text-fg-muted">

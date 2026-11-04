@@ -46,7 +46,7 @@ export const MODE_LABEL_ID: Record<string, string> = {
 type AttemptItem = { ref: string; section: string; position: number; difficulty: number }
 
 /** Jawaban tulisan bisa panjang; tabel cukup menampilkan awalnya. */
-function clip(text: string, max = 300): string {
+export function clip(text: string, max = 300): string {
   return text.length > max ? `${text.slice(0, max - 1)}…` : text
 }
 
@@ -130,7 +130,7 @@ async function heatmapFor(tx: Tx, learner: LearnerRow, weeks: IsoDate[]): Promis
   }).filter((g) => g.skills.length > 0)
 }
 
-async function recentAttempts(tx: Tx, learnerId: string): Promise<LearnerDetailDTO['attempts']> {
+export async function recentAttempts(tx: Tx, learnerId: string): Promise<LearnerDetailDTO['attempts']> {
   const rows = await tx
     .select({
       id: attempt.id,
