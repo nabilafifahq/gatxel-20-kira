@@ -8,7 +8,7 @@ set -u
 pip install --quiet --no-cache-dir sqlmap >/dev/null 2>&1
 : "${TARGET:?}" "${TUTOR_TOKEN:?}" "${LEARNER_TOKEN:?}"
 OUT=/out/sqlmap-hasil.txt
-: > "$OUT"
+[ -n "${SKIP_ACTIONS:-}" ] || : > "$OUT"
 S="sqlmap --batch --level=3 --risk=2 --random-agent --flush-session --threads=1 --timeout=20 --retries=1 --time-sec=6 --output-dir=/tmp/sqlmap"
 run() {
   name="$1"; shift
@@ -17,6 +17,7 @@ run() {
 }
 HOST_HDR="Cookie: __Host-kira.session=$LEARNER_TOKEN"
 TUTOR_HDR="Cookie: __Host-kira.session=$TUTOR_TOKEN"
+if [ -z "${SKIP_ACTIONS:-}" ]; then
 # Server Action masuk: [email, password, next]
 run "passwordLoginAction (email, password)" -u "$TARGET/masuk" --method=POST \
   --data='["a@b.co*","salah-salah-1*",null]' --headers="Next-Action: 40654aa357b5489143990eff8be001685f057d13f7
@@ -26,6 +27,7 @@ run "requestResetAction (email)" -u "$TARGET/masuk" --method=POST --data='["a@b.
   --headers="Next-Action: 40be07c06d2bb223e3ca0eb59a035b7b4f8bdb1987
 Content-Type: text/plain;charset=UTF-8
 Accept: text/x-component" --delay=1.5
+fi
 run "POST /api/sync (JSON, learner)" -u "$TARGET/api/sync" --method=POST --headers="$HOST_HDR
 Content-Type: application/json" \
   --data='{"answers":[],"submits":[{"attemptId":"00000000-0000-4000-8000-000000000000*","clientId":"c1*"}]}' --delay=1

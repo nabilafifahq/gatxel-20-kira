@@ -1,0 +1,2027 @@
+{
+	"@programName": "ZAP",
+	"@version": "2.17.0",
+	"@generated": "Wed, 4 Nov 2026 15:05:27",
+	"created": "2026-11-04T15:05:27.750734041Z",
+	"insights":[
+		{
+			"level": "Medium",
+			"reason": "Exceeded High",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.code.4xx",
+			"description": "Percentage of responses with status code 4xx",
+			"statistic": "97"
+		},
+		{
+			"level": "Low",
+			"reason": "Warning",
+			"site": "",
+			"key": "insight.log.error",
+			"description": "ZAP errors logged - see the zap.log file for details",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "",
+			"key": "insight.network.failure",
+			"description": "Percentage of network failures",
+			"statistic": "5"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.code.3xx",
+			"description": "Percentage of responses with status code 3xx",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.endpoint.ctype.application/json",
+			"description": "Percentage of endpoints with content type application/json",
+			"statistic": "8"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.endpoint.ctype.application/problem+json",
+			"description": "Percentage of endpoints with content type application/problem+json",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.endpoint.ctype.text/html",
+			"description": "Percentage of endpoints with content type text/html",
+			"statistic": "11"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.endpoint.ctype.text/plain",
+			"description": "Percentage of endpoints with content type text/plain",
+			"statistic": "3"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.endpoint.method.GET",
+			"description": "Percentage of endpoints with method GET",
+			"statistic": "17"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.endpoint.method.POST",
+			"description": "Percentage of endpoints with method POST",
+			"statistic": "82"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.endpoint.total",
+			"description": "Count of total endpoints",
+			"statistic": "160"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "http://10.77.0.1:3136",
+			"key": "insight.response.slow",
+			"description": "Percentage of slow responses",
+			"statistic": "3"
+		}
+	],
+	"site":[ 
+		{
+			"@name": "http://10.77.0.1:3136",
+			"@host": "10.77.0.1",
+			"@port": "3136",
+			"@ssl": "false",
+			"alerts": [ 
+				{
+					"pluginid": "90004",
+					"alertRef": "90004-1",
+					"alert": "Cross-Origin-Resource-Policy Header Missing or Invalid",
+					"name": "Cross-Origin-Resource-Policy Header Missing or Invalid",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.</p>",
+					"instances":[ 
+						{
+							"id": "32",
+							"uri": "http://10.77.0.1:3136/api/health",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/health",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"systemic": false,
+					"solution": "<p>Ensure that the application/web server sets the Cross-Origin-Resource-Policy header appropriately, and that it sets the Cross-Origin-Resource-Policy header to 'same-origin' for all web pages.</p><p>'same-site' is considered as less secured and should be avoided.</p><p>If resources must be shared, set the header to 'cross-origin'.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Resource-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-resource-policy).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
+					"cweid": "693",
+					"wascid": "14",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "100001",
+					"alertRef": "100001",
+					"alert": "Unexpected Content-Type was returned",
+					"name": "Unexpected Content-Type was returned",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>A Content-Type of text/html was returned by the server.</p><p>This is not one of the types expected to be returned by an API.</p><p>Raised by the 'Alert on Unexpected Content Types' script</p>",
+					"instances":[ 
+						{
+							"id": "43",
+							"uri": "http://10.77.0.1:3136",
+							"nodeName": "http:\/\/10.77.0.1:3136",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1385",
+							"uri": "http://10.77.0.1:3136/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "11",
+							"uri": "http://10.77.0.1:3136/8553102195967078687",
+							"nodeName": "http:\/\/10.77.0.1:3136\/8553102195967078687",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "47",
+							"uri": "http://10.77.0.1:3136/api",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1372",
+							"uri": "http://10.77.0.1:3136/api/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "13",
+							"uri": "http://10.77.0.1:3136/api/8347072173003286509",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/8347072173003286509",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1589",
+							"uri": "http://10.77.0.1:3136/api/actuator/health",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/actuator\/health",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "56",
+							"uri": "http://10.77.0.1:3136/api/internal",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1381",
+							"uri": "http://10.77.0.1:3136/api/internal/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "15",
+							"uri": "http://10.77.0.1:3136/api/internal/5537477059539652818",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/5537477059539652818",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "64",
+							"uri": "http://10.77.0.1:3136/api/tts",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1395",
+							"uri": "http://10.77.0.1:3136/api/tts/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "18",
+							"uri": "http://10.77.0.1:3136/api/tts/3142282363174186715",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/3142282363174186715",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1384",
+							"uri": "http://10.77.0.1:3136/masuk",
+							"nodeName": "http:\/\/10.77.0.1:3136\/masuk",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "71",
+							"uri": "http://10.77.0.1:3136/tts",
+							"nodeName": "http:\/\/10.77.0.1:3136\/tts",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1401",
+							"uri": "http://10.77.0.1:3136/tts/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/tts\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1057",
+							"uri": "http://10.77.0.1:3136/metadata/instance",
+							"nodeName": "http:\/\/10.77.0.1:3136\/metadata\/instance",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1062",
+							"uri": "http://10.77.0.1:3136/metadata/v1",
+							"nodeName": "http:\/\/10.77.0.1:3136\/metadata\/v1",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						},
+						{
+							"id": "1067",
+							"uri": "http://10.77.0.1:3136/openstack/latest/meta_data.json",
+							"nodeName": "http:\/\/10.77.0.1:3136\/openstack\/latest\/meta_data.json",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "text/html",
+							"otherinfo": ""
+						}
+					],
+					"count": "19",
+					"systemic": false,
+					"solution": "",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "40"
+				},
+				{
+					"pluginid": "100000",
+					"alertRef": "100000-1",
+					"alert": "A Client Error response code was returned by the server",
+					"name": "A Client Error response code was returned by the server",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>A response code of 404 was returned by the server.</p><p>This may indicate that the application is failing to handle unexpected input correctly.</p><p>Raised by the 'Alert on HTTP Response Code Error' script</p>",
+					"instances":[ 
+						{
+							"id": "10",
+							"uri": "http://10.77.0.1:3136/8553102195967078687",
+							"nodeName": "http:\/\/10.77.0.1:3136\/8553102195967078687",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "46",
+							"uri": "http://10.77.0.1:3136/api",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1371",
+							"uri": "http://10.77.0.1:3136/api/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "12",
+							"uri": "http://10.77.0.1:3136/api/8347072173003286509",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/8347072173003286509",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1588",
+							"uri": "http://10.77.0.1:3136/api/actuator/health",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/actuator\/health",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "8",
+							"uri": "http://10.77.0.1:3136/api/apk",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/apk",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1376",
+							"uri": "http://10.77.0.1:3136/api/apk/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/apk\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "55",
+							"uri": "http://10.77.0.1:3136/api/internal",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1380",
+							"uri": "http://10.77.0.1:3136/api/internal/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "14",
+							"uri": "http://10.77.0.1:3136/api/internal/5537477059539652818",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/5537477059539652818",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "57",
+							"uri": "http://10.77.0.1:3136/api/media",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/media",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "405",
+							"otherinfo": ""
+						},
+						{
+							"id": "1391",
+							"uri": "http://10.77.0.1:3136/api/media/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/media\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "405",
+							"otherinfo": ""
+						},
+						{
+							"id": "16",
+							"uri": "http://10.77.0.1:3136/api/media/4225455799642697925",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/media\/4225455799642697925",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "4",
+							"uri": "http://10.77.0.1:3136/api/media/id",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/media\/id",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1387",
+							"uri": "http://10.77.0.1:3136/api/media/id/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/media\/id\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "63",
+							"uri": "http://10.77.0.1:3136/api/tts",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1394",
+							"uri": "http://10.77.0.1:3136/api/tts/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "17",
+							"uri": "http://10.77.0.1:3136/api/tts/3142282363174186715",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/3142282363174186715",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "3",
+							"uri": "http://10.77.0.1:3136/api/tts/today",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/today",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1397",
+							"uri": "http://10.77.0.1:3136/api/tts/today/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/today\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "70",
+							"uri": "http://10.77.0.1:3136/tts",
+							"nodeName": "http:\/\/10.77.0.1:3136\/tts",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1400",
+							"uri": "http://10.77.0.1:3136/tts/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/tts\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "19",
+							"uri": "http://10.77.0.1:3136/tts/3403273164146277667",
+							"nodeName": "http:\/\/10.77.0.1:3136\/tts\/3403273164146277667",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "9",
+							"uri": "http://10.77.0.1:3136/tts/file",
+							"nodeName": "http:\/\/10.77.0.1:3136\/tts\/file",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1403",
+							"uri": "http://10.77.0.1:3136/tts/file/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/tts\/file\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "0",
+							"uri": "http://10.77.0.1:3136/api/heartbeat",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/heartbeat",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1365",
+							"uri": "http://10.77.0.1:3136/api/heartbeat/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/heartbeat\/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "6",
+							"uri": "http://10.77.0.1:3136/api/internal/weekly-report",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/weekly-report ()({orgId,learnerId,weekStart})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "516",
+							"uri": "http://10.77.0.1:3136/api/internal/weekly-report",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/weekly-report ()({orgId,learnerId,weekStart})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "429",
+							"otherinfo": ""
+						},
+						{
+							"id": "1357",
+							"uri": "http://10.77.0.1:3136/api/internal/weekly-report/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/weekly-report\/ ()({orgId,learnerId,weekStart})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1204",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"#set($engine=\\\"\\\")\\n#set($proc=$engine.getClass().forName(\\\"java.lang.Runtime\\\").getRuntime().exec(\\\"sleep 15\\\"))\\n#set($null=$proc.waitFor())\\n${null}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1242",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"#{%x(sleep 15)}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1217",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"#{global.process.mainModule.require('child_process').execSync('sleep 15').toString()}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "624",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "628",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"${@print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110))}\\\\\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1231",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"${__import__(\\\"subprocess\\\").check_output(\\\"sleep 15\\\", shell=True)}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "338",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "370",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"'(\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "622",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"';print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var='\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "642",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"+response.write({0}*{1})+\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "179",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"5;URL='https:\/\/6106829255658916244.owasp.org'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "195",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"5;URL='https:\/\/6106829255658916244.owasp.org\/?John Doe'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "163",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"6106829255658916244.owasp.org\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "357",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\";\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "634",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\";print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "964",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<!--\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "289",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<!--#EXEC cmd=\\\"dir \\\\\\\"-->\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "281",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<!--#EXEC cmd=\\\"ls \/\\\"-->\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1603",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1200",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<#assign ex=\\\"freemarker.template.utility.Execute\\\"?new()> ${ ex(\\\"sleep 15\\\") }\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1212",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<%= global.process.mainModule.require('child_process').execSync('sleep 15').toString()%>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1239",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<%=%x(sleep 15)%>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1625",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<xsl:value-of select=\\\"document('http:\/\/10.77.0.1:22')\\\"\/>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1636",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<xsl:value-of select=\\\"php:function('exec','erroneous_command 2>\u0026amp;1')\\\"\/>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1607",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<xsl:value-of select=\\\"system-property('xsl:vendor')\\\"\/>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1621",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<xsl:value-of select=\\\"system-property('xsl:vendor')\\\"\/><!--\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1631",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"<xsl:variable name=\\\"rtobject\\\" select=\\\"runtime:getRuntime()\\\"\/>\\n<xsl:variable name=\\\"process\\\" select=\\\"runtime:exec($rtobject,'erroneous_command')\\\"\/>\\n<xsl:variable name=\\\"waiting\\\" select=\\\"process:waitFor($process)\\\"\/>\\n<xsl:value-of select=\\\"$process\\\"\/>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "388",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe AND 1=1 -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "391",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe AND 1=2 -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "393",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe OR 1=1 -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "404",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe UNION ALL select NULL -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "7",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "726",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\u0026cat \/etc\/passwd\u0026\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "758",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\u0026type %SYSTEMROOT%\\\\win.ini\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "396",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe' AND '1'='1' -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "399",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe' AND '1'='2' -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "401",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe' OR '1'='1' -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "408",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe' UNION ALL select NULL -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "341",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "745",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe'\u0026cat \/etc\/passwd\u0026'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "770",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe'\u0026type %SYSTEMROOT%\\\\win.ini\u0026'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "374",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe'(\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "419",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe') UNION ALL select NULL -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "749",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe';cat \/etc\/passwd;'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "786",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe';get-help\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "771",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe'|type %SYSTEMROOT%\\\\win.ini\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "415",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe) UNION ALL select NULL -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "363",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe;\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "729",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe;cat \/etc\/passwd;\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "787",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe;get-help #\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "778",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe;get-help\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "412",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\\\" UNION ALL select NULL -- \")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "354",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\\\"\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "733",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\\\"\u0026cat \/etc\/passwd\u0026\\\"\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "764",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\\\"\u0026type %SYSTEMROOT%\\\\win.ini\u0026\\\"\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "736",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\\\";cat \/etc\/passwd;\\\"\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "781",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\\\";get-help\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "768",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe\\\"|type %SYSTEMROOT%\\\\win.ini\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "760",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"John Doe|type %SYSTEMROOT%\\\\win.ini\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1473",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"Set-cookie: Tamper=0f4ee506-a3ab-4dd9-b4fb-88472b7465d9\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "182",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"URL='http:\/\/6106829255658916244.owasp.org'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1432",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"ZAP %1!s%2!s%3!s%4!s%5!s%6!s%7!s%8!s%9!s%10!s%11!s%12!s%13!s%14!s%15!s%16!s%17!s%18!s%19!s%20!s%21!n%22!n%23!n%24!n%25!n%26!n%27!n%28!n%29!n%30!n%31!n%32!n%33!n%34!n%35!n%36!n%37!n%38!n%39!n%40!n\\n\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1426",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"ZAP\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1427",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"ZAP%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s\\n\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "346",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"\\\"\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "960",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"\\\"'\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "637",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"\\\"+response.write(855,451*81,543)+\\\"\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1616",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"\\\"\/><xsl:value-of select=\\\"system-property('xsl:vendor')\\\"\/><!--\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "617",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"\\\";print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(110));$var=\\\"\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "296",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"\\\"><!--#EXEC cmd=\\\"dir \\\\\\\"--><\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "285",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"\\\"><!--#EXEC cmd=\\\"ls \/\\\"--><\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "967",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"]]>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1491",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"any?\\nSet-cookie: Tamper=0f4ee506-a3ab-4dd9-b4fb-88472b7465d9\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1484",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"any?\\r\\nSet-cookie: Tamper=0f4ee506-a3ab-4dd9-b4fb-88472b7465d9\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1502",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"any?\\r\\nSet-cookie: Tamper=0f4ee506-a3ab-4dd9-b4fb-88472b7465d9\\r\\n\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1487",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"any\\nSet-cookie: Tamper=0f4ee506-a3ab-4dd9-b4fb-88472b7465d9\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1478",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"any\\r\\nSet-cookie: Tamper=0f4ee506-a3ab-4dd9-b4fb-88472b7465d9\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1495",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"any\\r\\nSet-cookie: Tamper=0f4ee506-a3ab-4dd9-b4fb-88472b7465d9\\r\\n\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "723",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"cat \/etc\/passwd\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "776",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"get-help\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "201",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"http:\/\/\\\\6106829255658916244.owasp.org\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "35",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"http:\/\/www.google.com\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "22",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"http:\/\/www.google.com\/\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "44",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"http:\/\/www.google.com\/search?q=ZAP\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "30",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"http:\/\/www.google.com:80\/\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "49",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"http:\/\/www.google.com:80\/search?q=ZAP\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "172",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"https:\/\/6106829255658916244%2eowasp%2eorg\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "168",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"https:\/\/6106829255658916244.owasp.org\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "188",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"https:\/\/6106829255658916244.owasp.org\/?John Doe\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "197",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"https:\/\/\\\\6106829255658916244.owasp.org\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "647",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"response.write(855,451*81,543)\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1612",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"system-property('xsl:vendor')\/>\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1404",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"tPFXKtRgxCrnQLoCWOdApPDgCchRsMAqOMjkGvHdsOBoxYlKfXxGoOtRNMTMdvdAFagLBvemjQUVrrriqOpuWjVkrloNSiRGOJBQPvYRELFflcVwYaMTpudBClGJeHDhvsgRXniuZKcSdJMbdhBDXtrLCciANuFAChPRAOFmHeIilrEBowmwsAgFpAfnjSlnLQsIgEclGqYPGossTTyKoDHVCdqqSeNZULrIVwLOSvOBabmJFYGSZVqVHWNLNsnsKjeaClfJggZqFcHhyWOvBwiNbMESqhZTNUdQJIflfxqswWvRYtmBIOeRwjXlZFArAfZGyxtoTkDWnEGaqeqDnvcElUWxUXZSpjlOgFBkPKkmPXVIuerjmXbxdLZrwvNlkgowSRTuXmscUGqXPvQBuTViwJvvAPXbWACqHhQTiGHgxgayTSrXWscpKYIIsAXHBmYJFuhfGhUdeHWIKutVDKTTKOiRwxKYPXZonkTsiAOWlfZeDSSWOAMmYQtxifN)",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "754",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"type %SYSTEMROOT%\\\\win.ini\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "66",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"www.google.com\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "54",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"www.google.com\/\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "69",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"www.google.com\/search?q=ZAP\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "60",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"www.google.com:80\/\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "73",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"www.google.com:80\/search?q=ZAP\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1017",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj 8078*7274 zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1059",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj#set($x=3570*7813)${x}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1033",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj#{9213*4674}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1028",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj${9877*9107}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1052",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj<%=5899*3563%>zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1065",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj<p th:text=\\\"${4269*6889}\\\"><\/p>zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1038",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{#8890*2346}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1026",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{9687*8847}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1043",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{@5898*2003}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1069",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{@math key=\\\"4957\\\" method=\\\"multiply\\\" operand=\\\"4318\\\"\/}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1049",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{{1651*5159}}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1074",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{{49530|add:84420}}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1051",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{{=7485*1917}}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1078",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"zj{{print \\\"7136\\\" \\\"3617\\\"}}zj\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1245",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"{system(\\\"sleep 15\\\")}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1208",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"{{= global.process.mainModule.require('child_process').execSync('sleep 15').toString() }}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1225",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"{{\\\"\\\".__class__.__mro__[1].__subclasses__()[157].__repr__.__globals__.get(\\\"__builtins__\\\").get(\\\"__import__\\\")(\\\"subprocess\\\").check_output(\\\"sleep 15\\\")}}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1233",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"{{__import__(\\\"subprocess\\\").check_output(\\\"sleep 15\\\", shell=True)}}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1222",
+							"uri": "http://10.77.0.1:3136/api/mcp",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp ()(\"{{range.constructor(\\\"return eval(\\\\\\\"global.process.mainModule.require('child_process').execSync('sleep 15').toString()\\\\\\\")\\\")()}}\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1355",
+							"uri": "http://10.77.0.1:3136/api/mcp/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/mcp\/ ()(\"John Doe\")",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "5",
+							"uri": "http://10.77.0.1:3136/api/media",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/media ()(multipart:kind,attemptId,position,file)",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1361",
+							"uri": "http://10.77.0.1:3136/api/media/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/media\/ ()(multipart:kind,attemptId,position,file)",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1",
+							"uri": "http://10.77.0.1:3136/api/sync",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/sync ()({answers:[],submits:[]})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1366",
+							"uri": "http://10.77.0.1:3136/api/sync/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/sync\/ ()({answers:[],submits:[]})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "2",
+							"uri": "http://10.77.0.1:3136/api/tts/request",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/request ()({clips:[{text,style}]})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1364",
+							"uri": "http://10.77.0.1:3136/api/tts/request/",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/request\/ ()({clips:[{text,style}]})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "401",
+							"otherinfo": ""
+						},
+						{
+							"id": "1056",
+							"uri": "http://10.77.0.1:3136/metadata/instance",
+							"nodeName": "http:\/\/10.77.0.1:3136\/metadata\/instance",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1061",
+							"uri": "http://10.77.0.1:3136/metadata/v1",
+							"nodeName": "http:\/\/10.77.0.1:3136\/metadata\/v1",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						},
+						{
+							"id": "1066",
+							"uri": "http://10.77.0.1:3136/openstack/latest/meta_data.json",
+							"nodeName": "http:\/\/10.77.0.1:3136\/openstack\/latest\/meta_data.json",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "404",
+							"otherinfo": ""
+						}
+					],
+					"count": "158",
+					"systemic": false,
+					"solution": "",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "388",
+					"wascid": "20",
+					"sourceid": "18"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049-1",
+					"alert": "Non-Storable Content",
+					"name": "Non-Storable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
+					"instances":[ 
+						{
+							"id": "27",
+							"uri": "http://10.77.0.1:3136/api/apk",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/apk",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "24",
+							"uri": "http://10.77.0.1:3136/api/heartbeat",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/heartbeat",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "28",
+							"uri": "http://10.77.0.1:3136/api/internal/weekly-report",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/internal\/weekly-report ()({orgId,learnerId,weekStart})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "23",
+							"uri": "http://10.77.0.1:3136/api/sync",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/sync ()({answers:[],submits:[]})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						},
+						{
+							"id": "29",
+							"uri": "http://10.77.0.1:3136/api/tts/request",
+							"nodeName": "http:\/\/10.77.0.1:3136\/api\/tts\/request ()({clips:[{text,style}]})",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).</p>",
+					"otherinfo": "",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "15"
+				}
+			]
+		}
+	],
+	"sequences":[
+	]
+
+}
