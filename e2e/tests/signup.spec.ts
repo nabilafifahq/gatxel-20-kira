@@ -171,7 +171,7 @@ test.describe('pendaftaran orang tua', () => {
       const consent = page.getByRole('checkbox', { name: /Kabari saya/ })
       await expect(consent).not.toBeChecked()
       await page.getByLabel('Email', { exact: true }).fill(wl)
-      await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click()
+      await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click({ force: true })
       await expect(page.getByText('Centang persetujuan supaya kami boleh mengirim kabar.')).toBeVisible()
       await consent.check()
       await page.getByRole('button', { name: 'Masuk daftar tunggu' }).click()

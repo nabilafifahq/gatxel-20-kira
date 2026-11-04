@@ -25,12 +25,15 @@ export function controlBorder(error?: string | null): string {
   return error ? 'border-danger' : 'border-border hover:border-fg'
 }
 
-/** Tanda kolom wajib: bintang merah yang terlihat, dan kata "wajib" untuk pembaca layar. */
-export function RequiredMark() {
+/**
+ * Tanda kolom wajib: bintang merah yang terlihat, dan kata "wajib" untuk pembaca layar.
+ * `id` dipakai kontrolnya di aria-describedby, supaya kata itu juga terbaca saat kontrol difokus.
+ */
+export function RequiredMark({ id }: { id?: string }) {
   return (
     <>
       <span aria-hidden="true" className="font-bold text-danger"> *</span>
-      <span className="visually-hidden"> wajib</span>
+      <span id={id} className="visually-hidden"> wajib</span>
     </>
   )
 }
@@ -95,10 +98,11 @@ export function FieldShell({ id, label, hint, error, labelAside, className, chil
   return (
     <div className={cx('flex min-w-0 flex-col gap-1.5', className)}>
       <div className={cx('flex items-baseline gap-2', hideLabel && 'visually-hidden')}>
-        <label htmlFor={id} className="text-small font-bold">
-          {label}
-          {required ? <RequiredMark /> : optional ? <OptionalMark /> : null}
-        </label>
+        {/* Tanda di luar <label>: nama kontrol tetap sama, tanda wajib dibaca lewat aria-required dan aria-describedby. */}
+        <span className="min-w-0 text-small font-bold">
+          <label htmlFor={id}>{label}</label>
+          {required ? <RequiredMark id={`${id}-req`} /> : optional ? <OptionalMark /> : null}
+        </span>
         {labelAside ? <span className="ml-auto">{labelAside}</span> : null}
       </div>
       {children}
@@ -112,8 +116,8 @@ export function FieldShell({ id, label, hint, error, labelAside, className, chil
   )
 }
 
-function describedBy(id: string, hint?: ReactNode, error?: string | null, extra?: string): string | undefined {
-  const ids = [hint ? `${id}-hint` : null, error ? `${id}-error` : null, extra ?? null].filter(Boolean)
+function describedBy(id: string, hint?: ReactNode, error?: string | null, extra?: string, required?: boolean): string | undefined {
+  const ids = [required ? `${id}-req` : null, hint ? `${id}-hint` : null, error ? `${id}-error` : null, extra ?? null].filter(Boolean)
   return ids.length ? ids.join(' ') : undefined
 }
 
@@ -145,7 +149,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
           type={type}
           aria-required={required || undefined}
           aria-invalid={error ? true : undefined}
-          aria-describedby={describedBy(fid, hint, error, rest['aria-describedby'])}
+          aria-describedby={describedBy(fid, hint, error, rest['aria-describedby'], required)}
           className={cx(CONTROL, controlBorder(error), trailing ? (trailingWidth === 'sm' ? 'pr-14' : 'pr-32') : null, className)}
           {...rest}
         />
@@ -179,7 +183,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
         rows={rows}
         aria-required={required || undefined}
         aria-invalid={error ? true : undefined}
-        aria-describedby={describedBy(fid, hint, error, rest['aria-describedby'])}
+        aria-describedby={describedBy(fid, hint, error, rest['aria-describedby'], required)}
         className={cx(
           'w-full min-w-0 resize-y rounded-md border-2 bg-surface px-3 py-2.5 text-body text-fg placeholder:text-fg-muted disabled:border-lavender disabled:bg-lavender',
           controlBorder(error),
@@ -217,7 +221,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
           id={fid}
           aria-required={required || undefined}
           aria-invalid={error ? true : undefined}
-          aria-describedby={describedBy(fid, hint, error, rest['aria-describedby'])}
+          aria-describedby={describedBy(fid, hint, error, rest['aria-describedby'], required)}
           className={cx(
             CONTROL,
             'cursor-pointer appearance-none pr-10',

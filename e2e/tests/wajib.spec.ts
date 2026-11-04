@@ -26,10 +26,11 @@ test.describe('isian wajib di form daftar', () => {
 
     const submit = page.getByRole('button', { name: 'Daftar', exact: true })
     await expect(submit).toHaveAttribute('aria-disabled', 'true')
-    await expect(submit).toBeEnabled()
+    await expect(submit).not.toHaveAttribute('disabled', /.*/)
 
     // Ketukan saat belum lengkap tidak mengirim: pesan muncul dan fokus pindah ke masalah pertama.
-    await submit.click()
+    // force: Playwright menganggap aria-disabled tidak bisa diklik, padahal tombol ini sengaja tetap menanggapi ketukan.
+    await submit.click({ force: true })
     await expect(page.getByText('Tulis nama Anda, paling sedikit 2 huruf.')).toBeVisible()
     await expect(page.getByText(TERMS)).toBeVisible()
     await expect(name).toBeFocused()
@@ -41,7 +42,7 @@ test.describe('isian wajib di form daftar', () => {
     await page.getByLabel('Password', { exact: true }).fill('Abcdefgh123!')
     await expect(page.getByText('Minimal 12 karakter')).toBeVisible()
     await expect(submit).toHaveAttribute('aria-disabled', 'true')
-    await submit.click()
+    await submit.click({ force: true })
     await expect(page.getByText(TERMS)).toBeVisible()
     await expect(terms).toBeFocused()
 

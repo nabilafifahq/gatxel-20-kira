@@ -117,12 +117,13 @@ describe('WhatsApp dan kategori', () => {
 describe('Kebijakan Privasi', () => {
   it('versi naik dan pesan bantuan beserta masa simpannya tercatat', () => {
     const notice = privacyNoticeData()
-    expect(notice.meta.version).toBe('2026-11-05')
+    expect(notice.meta.version).toBe('2026-11-05.2')
     const rows = notice.dataRows.map((r) => r.data)
     expect(rows).toContain('Pesan bantuan')
     expect(rows).toContain('Lampiran pesan bantuan')
     expect(notice.dataRows.find((r) => r.data === 'Pesan bantuan')?.retention).toContain('12 bulan')
     expect(notice.dataRows.find((r) => r.data === 'Lampiran pesan bantuan')?.retention).toContain('14 hari')
     expect(notice.recipients.some((r) => r.name.startsWith('WhatsApp'))).toBe(true)
+    expect(notice.dataRows.find((r) => r.data === 'Email kabar produk (opsional)')?.basis).toMatch(/Persetujuan, bisa ditarik kapan saja/)
   })
 })

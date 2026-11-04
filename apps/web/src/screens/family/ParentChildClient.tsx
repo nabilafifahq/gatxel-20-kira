@@ -10,7 +10,7 @@ import { cx } from '@/components/console/cx'
 import { DayRulesEditor, StreakResetControl, changeMessage } from '@/components/console/DayRulesEditor'
 import { ConfirmDialog } from '@/components/console/Dialog'
 import { ActionError, InlineAlert } from '@/components/console/Feedback'
-import { RadioGroup, Select, Switch, TextField } from '@/components/console/Field'
+import { RadioGroup, RequiredNote, Select, Switch, TextField } from '@/components/console/Field'
 import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
@@ -448,6 +448,7 @@ function Limits({ c, learnerId, name, onSaved }: { c: ParentChildDTO['controls']
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">Batas waktu layar</h3>
+      <RequiredNote />
       <TextField label="Paling lama per hari (menit)" required inputMode="numeric" value={minutes} onChange={(e) => setMinutes(e.target.value)} hint="Antara 15 dan 180 menit. Berlaku langsung, juga untuk hari ini." />
       <fieldset className="m-0 flex flex-wrap gap-2 border-0 p-0">
         <legend className="mb-1 p-0 text-small font-bold">Hari istirahat</legend>
@@ -549,6 +550,7 @@ function PinTools({ learnerId, name, onDone }: { learnerId: string; name: string
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">PIN {name}</h3>
+      <RequiredNote />
       <PinChooser required value={pin} onChange={setPin} legend={`PIN gambar baru untuk ${name}`} />
       {err ? <InlineAlert tone="danger" title={err} /> : null}
       <ActionError error={reset.error ?? unlock.error} />
@@ -596,9 +598,10 @@ function EditProfile({ learnerId, name, grade, avatar }: { learnerId: string; na
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">Nama, kelas, dan avatar</h3>
+      <RequiredNote />
       <TextField label="Nama" required value={n} onChange={(e) => (setN(e.target.value), setDone(false))} maxLength={40} />
-      <RadioGroup name="kelas-ubah" legend="Kelas" value={g} onChange={(v) => (setG(v), setDone(false))} options={['1', '2', '3', '4', '5', '6'].map((x) => ({ value: x, label: `Kelas ${x}` }))} layout="row" />
-      <AvatarPicker value={a} onChange={(v) => (setA(v), setDone(false))} taken={{}} />
+      <RadioGroup name="kelas-ubah" required legend="Kelas" value={g} onChange={(v) => (setG(v), setDone(false))} options={['1', '2', '3', '4', '5', '6'].map((x) => ({ value: x, label: `Kelas ${x}` }))} layout="row" />
+      <AvatarPicker required value={a} onChange={(v) => (setA(v), setDone(false))} taken={{}} />
       {Number(g) !== grade ? <InlineAlert tone="info" title="Mengganti kelas mengubah soal yang diberikan mulai hari berikutnya." live="none" /> : null}
       {done ? <InlineAlert tone="success" title="Profil tersimpan." /> : null}
       <ActionError error={save.error} />

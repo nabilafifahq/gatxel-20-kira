@@ -6,7 +6,7 @@ import { TurnstileField } from '@/components/auth/TurnstileField'
 import { Button, ButtonLink, IconButton } from '@/components/console/Button'
 import { cx } from '@/components/console/cx'
 import { InlineAlert } from '@/components/console/Feedback'
-import { RequiredMark, RequiredNote, TextArea, TextField } from '@/components/console/Field'
+import { OptionalMark, RequiredMark, RequiredNote, TextArea, TextField } from '@/components/console/Field'
 import { ConsoleIcon } from '@/components/console/icons'
 import type { ActionResult } from '@/lib/dto'
 import {
@@ -317,7 +317,8 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
 
       <div data-field="attachment" className="flex flex-col gap-1.5">
         <span className="text-small font-bold" id="lampiran-label">
-          Lampiran (boleh dikosongkan)
+          Lampiran
+          <OptionalMark />
         </span>
         {file ? (
           <div className="flex min-h-14 items-center gap-3 rounded-control border-2 border-lavender px-3 py-2">

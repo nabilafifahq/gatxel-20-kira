@@ -10,7 +10,7 @@ import { Button, ButtonLink } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
 import { cx } from '@/components/console/cx'
 import { Dialog } from '@/components/console/Dialog'
-import { Checkbox, FieldError, RadioGroup, TextField } from '@/components/console/Field'
+import { Checkbox, FieldError, RadioGroup, RequiredMark, TextField } from '@/components/console/Field'
 import { ActionError, EmptyState, InlineAlert } from '@/components/console/Feedback'
 import { dateId } from '@/components/console/format'
 import { ConsoleIcon } from '@/components/console/icons'
@@ -310,12 +310,15 @@ function LearnerCard({
 // ---------------------------------------------------------------------------
 // Kontrol bersama
 
-export function AvatarPicker({ value, onChange, taken }: { value: AvatarName; onChange: (a: AvatarName) => void; taken: Partial<Record<AvatarName, string>> }) {
+export function AvatarPicker({ value, onChange, taken, required }: { value: AvatarName; onChange: (a: AvatarName) => void; taken: Partial<Record<AvatarName, string>>; required?: boolean }) {
   const auto = useId()
   const name = `avatar${auto.replace(/:/g, '')}`
   return (
     <fieldset className="m-0 flex min-w-0 flex-col gap-2 border-0 p-0" aria-describedby={`${name}-hint`}>
-      <legend className="mb-1.5 p-0 text-small font-bold">Avatar</legend>
+      <legend className="mb-1.5 p-0 text-small font-bold">
+        Avatar
+        {required ? <RequiredMark /> : null}
+      </legend>
       <div className="grid gap-2 [grid-template-columns:repeat(auto-fill,minmax(96px,1fr))]">
         {AVATARS.map((a) => {
           const usedBy = taken[a]

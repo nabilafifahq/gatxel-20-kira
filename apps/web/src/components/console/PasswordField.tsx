@@ -30,7 +30,7 @@ export const PasswordField = forwardRef<
   const auto = useId()
   const fid = id ?? `pw${auto.replace(/:/g, '')}`
   const [shown, setShown] = useState(false)
-  const describedBy = [hint ? `${fid}-hint` : null, error ? `${fid}-error` : null].filter(Boolean).join(' ') || undefined
+  const describedBy = [required ? `${fid}-req` : null, hint ? `${fid}-hint` : null, error ? `${fid}-error` : null].filter(Boolean).join(' ') || undefined
   return (
     <FieldShell id={fid} label={label} hint={hint} error={error} labelAside={labelAside} required={required}>
       <div className="relative">

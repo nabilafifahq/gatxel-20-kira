@@ -264,7 +264,7 @@ function AddChildDialog({ open, onClose, taken, onDone }: { open: boolean; onClo
           options={['1', '2', '3', '4', '5', '6'].map((g) => ({ value: g, label: `Kelas ${g}` }))}
           layout="row"
         />
-        <AvatarPicker value={avatar} onChange={setAvatar} taken={used} />
+        <AvatarPicker required value={avatar} onChange={setAvatar} taken={used} />
         <UiLangChoice name="bahasa-baru" value={uiLang} onChange={setUiLang} required />
         <PinChooser
           required
@@ -322,6 +322,7 @@ function RegisterDeviceDialog({ open, onClose, children_ }: { open: boolean; onC
       }
     >
       <div className="flex flex-col gap-4">
+        <RequiredNote />
         <TextField label="Nama perangkat" required value={name} onChange={(e) => setName(e.target.value)} maxLength={60} />
         <fieldset className="m-0 flex flex-col gap-2 border-0 p-0">
           <legend className="mb-1 p-0 text-small font-bold">Anak yang memakai perangkat ini</legend>

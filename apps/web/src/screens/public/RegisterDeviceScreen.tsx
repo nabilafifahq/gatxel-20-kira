@@ -5,7 +5,7 @@ import { Avatar } from '@kira/figures'
 import type { RegisterDeviceScreenProps } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
 import { cx } from '@/components/console/cx'
-import { FieldError, TextField } from '@/components/console/Field'
+import { FieldError, RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
 import { ConsoleIcon } from '@/components/console/icons'
 import { CONSOLE_ROUTES } from '@/components/console/routes'
@@ -93,8 +93,10 @@ export function RegisterDeviceScreen({ learners, registered, registerDevice }: R
           </>
         ) : (
           <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
+            <RequiredNote />
             <TextField
               id="perangkat-nama"
+              required
               label="Nama tablet"
               hint="Terlihat di Pengaturan saat mencabut tablet."
               autoComplete="off"

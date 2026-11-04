@@ -443,6 +443,8 @@ function ChildCard({ child, onSaved }: { child: OnboardingChild; onSaved: () => 
         {PURPOSES.map((p) => (
           <Checkbox
             key={p.id}
+            required={p.id === 'learning'}
+            optional={p.id !== 'learning'}
             checked={consents[p.id]}
             onChange={(e) => {
               setSaved(false)

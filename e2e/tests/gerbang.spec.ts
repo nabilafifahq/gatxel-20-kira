@@ -169,7 +169,8 @@ test('jalur rekomendasi sekali ketuk: tambah anak, satu ketukan, cara anak masuk
     // Tidak ada izin yang tercentang dari awal, dan izin belajar wajib.
     const consent = page.getByRole('checkbox', { name: /Saya orang tua atau wali/ })
     await expect(consent).not.toBeChecked()
-    await page.getByRole('button', { name: 'Tambahkan anak' }).click()
+    await expect(page.getByRole('button', { name: 'Tambahkan anak' })).toHaveAttribute('aria-disabled', 'true')
+    await page.getByRole('button', { name: 'Tambahkan anak' }).click({ force: true })
     await expect(page.getByText('Centang persetujuan orang tua atau wali')).toBeVisible()
     await consent.check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()

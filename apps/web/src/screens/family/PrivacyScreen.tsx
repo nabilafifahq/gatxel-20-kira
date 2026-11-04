@@ -224,6 +224,8 @@ export function PrivacyScreen({ data, actions, accountSection }: PrivacyScreenPr
         </p>
       </section>
 
+      {accountSection}
+
       <section aria-labelledby="data-learner" className="flex flex-col gap-3">
         <h2 id="data-learner" className="m-0 text-h3 font-bold">
           Data {name}
@@ -278,8 +280,6 @@ export function PrivacyScreen({ data, actions, accountSection }: PrivacyScreenPr
           </dl>
         </section>
       ) : null}
-
-      {accountSection}
 
       <section aria-labelledby="riwayat" className="flex flex-col gap-3">
         <h2 id="riwayat" className="m-0 text-h3 font-bold">
