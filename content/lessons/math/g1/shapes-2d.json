@@ -66,6 +66,16 @@
         "alt": "A pattern of shapes: circle, square, circle, square, then a blank."
       },
       "show": "circle, square, circle, square, circle"
+    },
+    {
+      "say": "Your turn. Pick a piece, turn it, and tap a place to fit it into the outline.",
+      "tool": {
+        "kind": "tangram",
+        "pieces": [
+          "L",
+          "L"
+        ]
+      }
     }
   ],
   "check": [
@@ -114,6 +124,53 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m1.shapes-2d.903",
+      "skill": "m1.shapes-2d",
+      "type": "tangram",
+      "difficulty": 1,
+      "prompt": "Fit the two large triangles into the outline.",
+      "pieces": [
+        "L",
+        "L"
+      ],
+      "slots": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "hints": [
+        "Both pieces are large triangles.",
+        "Turn a piece until its long edge faces the right way.",
+        "The two triangles meet in the middle of the shape."
+      ],
+      "explanation": "Two large triangles fit together to make a bigger triangle."
     }
   ]
 }
