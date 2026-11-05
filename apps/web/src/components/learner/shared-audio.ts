@@ -24,9 +24,12 @@ export function unlockAudio(): void {
 
 // Ketukan pertama di halaman membuka elemen, supaya layar yang mulai bicara sendiri sesudahnya (penguji, pembawa acara, langkah berikutnya) tetap berbunyi.
 if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
-  const first = () => {
-    window.removeEventListener('touchend', first, true)
-    window.removeEventListener('click', first, true)
+  // touchend sesudah menggulir bukan ketukan bagi Safari, jadi load() di situ tidak membuka elemen. Pendengar baru dilepas setelah click, yang hanya datang dari ketukan sungguhan.
+  const first = (e: Event) => {
+    if (e.type === 'click') {
+      window.removeEventListener('touchend', first, true)
+      window.removeEventListener('click', first, true)
+    }
     if (sharedAudio().paused) unlockAudio()
   }
   window.addEventListener('touchend', first, true)
