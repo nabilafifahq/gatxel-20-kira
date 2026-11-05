@@ -241,7 +241,7 @@ function StepPath({ state }: { state: OnboardingState }) {
           {state.children.map((c) => (
             <li key={c.id} className="flex items-start gap-3">
               <Avatar name={c.avatar} size={36} className="flex-none" />
-              <span className="text-body">{c.setupPath === 'custom' && pending.length > 0 ? `${c.name} sudah diatur sendiri.` : recommendationSummary(c.name, c.grade)}</span>
+              <span className="min-w-0 text-body">{c.setupPath === 'custom' && pending.length > 0 ? `${c.name} sudah diatur sendiri.` : recommendationSummary(c.name, c.grade)}</span>
             </li>
           ))}
         </ul>
@@ -254,7 +254,7 @@ function StepPath({ state }: { state: OnboardingState }) {
         <p className="m-0 text-body text-fg-muted">Pilih mapel dan fitur untuk tiap anak. Setiap saklar menjelaskan apa yang dilakukannya.</p>
         <div className="flex flex-col gap-2">
           {state.children.map((c) => (
-            <ButtonLink key={c.id} href={`${stepHref(2)}&anak=${encodeURIComponent(c.id)}`} variant="secondary" iconAfter="arrowRight" className="h-12 w-full">
+            <ButtonLink key={c.id} href={`${stepHref(2)}&anak=${encodeURIComponent(c.id)}`} variant="secondary" iconAfter="arrowRight" className="h-12 w-full [overflow-wrap:anywhere]">
               Atur sendiri untuk {c.name}
             </ButtonLink>
           ))}

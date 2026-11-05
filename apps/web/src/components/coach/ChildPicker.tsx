@@ -15,12 +15,12 @@ export function ChildPicker({ children, selectedId, href }: { children: CoachChi
             href={href(c.id)}
             aria-current={on ? 'page' : undefined}
             className={cx(
-              'inline-flex h-11 items-center rounded-pill border-2 px-4 text-body no-underline',
+              'inline-flex min-h-11 max-w-full items-center rounded-pill border-2 px-4 py-1 text-body no-underline',
               on ? 'border-fg bg-fg font-extrabold text-white hover:text-white' : 'border-border bg-surface font-semibold text-fg hover:border-fg',
             )}
           >
-            {c.name}
-            <span className={cx('ml-2 text-small', on ? 'text-white' : 'text-fg-muted')}>Kelas {c.grade}</span>
+            <span className="min-w-0 [overflow-wrap:anywhere]">{c.name}</span>
+            <span className={cx('ml-2 flex-none text-small', on ? 'text-white' : 'text-fg-muted')}>Kelas {c.grade}</span>
           </Link>
         )
       })}

@@ -106,12 +106,12 @@ export function ChildCard({ c }: { c: ParentChildCard }) {
           {c.reading.reading ? ` Sedang membaca ${c.reading.reading}.` : ''}
         </p>
       ) : null}
-      <ButtonLink href={c.href} variant="primary" className="h-12 w-full">
+      <ButtonLink href={c.href} variant="primary" className="h-12 w-full [overflow-wrap:anywhere]">
         Lihat {c.name}
       </ButtonLink>
       <div className="grid gap-2 sm:grid-cols-2">
-        <Link href={`${c.href}#atur`} className="kira-press flex min-h-12 items-center gap-2 rounded-control bg-lavender px-4 font-bold text-fg no-underline hover:text-fg">
-          <UiIcon name="pencil" size={20} />
+        <Link href={`${c.href}#atur`} className="kira-press flex min-h-12 min-w-0 items-center gap-2 rounded-control bg-lavender px-4 font-bold text-fg no-underline [overflow-wrap:anywhere] hover:text-fg">
+          <UiIcon name="pencil" size={20} className="flex-none" />
           Pengaturan {c.name}
         </Link>
         <Link href={`${c.href}#fitur`} className="kira-press flex min-h-12 items-center gap-2 rounded-control bg-lavender px-4 font-bold text-fg no-underline hover:text-fg">
