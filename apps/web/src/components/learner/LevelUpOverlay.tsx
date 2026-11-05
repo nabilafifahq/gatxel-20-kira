@@ -44,22 +44,25 @@ export function LevelUpOverlay({
       role="status"
       aria-label={t.shell.levelUp.aria(level, trackName)}
       className={cx(
-        'kira-fade-in fixed inset-0 z-50 flex flex-col items-center justify-center gap-5 px-6 text-center',
+        'kira-fade-in fixed inset-0 z-50 flex flex-col items-center justify-center gap-5 overflow-y-auto px-6 text-center [@media(max-height:700px)]:gap-3',
         tone.bg,
         tone.fg,
       )}
     >
-      <span aria-hidden="true" className="relative flex h-56 w-56 items-center justify-center">
+      {/* Layar pendek (HP kecil, HP miring): lingkaran mengecil dan maskot disembunyikan supaya tombol Lanjut tetap di layar. */}
+      <span aria-hidden="true" className="relative flex h-56 w-56 flex-none items-center justify-center [@media(max-height:430px)]:h-20 [@media(max-height:430px)]:w-20 [@media(min-height:431px)_and_(max-height:700px)]:h-32 [@media(min-height:431px)_and_(max-height:700px)]:w-32">
         <span className={cx('kira-ring absolute inset-0 rounded-pill border-4', tone.ring)} />
         <span
           className={cx('kira-ring absolute inset-0 rounded-pill border-4', tone.ring)}
           style={{ '--kira-delay': '350ms' } as CSSProperties}
         />
-        <span className="kira-scale-in font-numbers text-[120px] leading-none font-semibold tabular-nums">
+        <span className="kira-scale-in font-numbers text-[120px] leading-none font-semibold tabular-nums [@media(max-height:430px)]:text-[48px] [@media(min-height:431px)_and_(max-height:700px)]:text-[72px]">
           {level}
         </span>
       </span>
-      <Mascot name={avatar} mood="celebrate" size={88} />
+      <span className="flex flex-none [@media(max-height:560px)]:hidden">
+        <Mascot name={avatar} mood="celebrate" size={88} />
+      </span>
       <p className="m-0 font-display text-display font-semibold">{t.shell.levelUp.title}</p>
       <p className="m-0 text-h3 font-bold">
         {t.shell.levelUp.trackLevel(trackName, level)}
