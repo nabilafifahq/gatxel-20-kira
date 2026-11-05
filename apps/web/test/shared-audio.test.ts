@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 /** Ketukan pertama membuka elemen audio bersama. touchend sesudah menggulir tidak boleh menghabiskan kesempatan itu. */
@@ -35,6 +37,10 @@ describe('ketukan pertama', () => {
     listeners.get('click')!({ type: 'click' } as Event)
     expect(audio.load).toHaveBeenCalledTimes(2)
     expect(listeners.size).toBe(0)
+  })
+
+  it('pendengar terpasang dari layout learner, bukan dari layar yang memakai suara', () => {
+    expect(readFileSync(join(__dirname, '../src/components/learner/SoundRuntime.tsx'), 'utf8')).toContain("import './shared-audio'")
   })
 
   it('klip yang sedang berbunyi tidak diganggu', async () => {

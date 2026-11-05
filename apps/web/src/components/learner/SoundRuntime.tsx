@@ -3,6 +3,8 @@
 import { useEffect } from 'react'
 import { setTutorSoundPolicy } from './sfx'
 import { syncMusic } from './music'
+// Pendengar ketukan pertama harus terpasang sejak layout dimuat. Kalau baru terpasang bersama layar yang memakainya, ketukan yang membuka layar itu terlewat dan kalimat pertama pembawa acara diam di iPhone.
+import './shared-audio'
 
 /**
  * Dipasang sekali di layout learner. Menerima pilihan tutor dari server, lalu menjaga musik latar tetap
