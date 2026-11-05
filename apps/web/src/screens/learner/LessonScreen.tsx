@@ -11,6 +11,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { NO_LOOKUP_SKILLS } from '@kira/core/dictionary'
 import { useT } from '@/lib/i18n/client'
+import { LessonShow } from '@/components/learner/LessonShow'
 import { TapWords } from '@/components/learner/TapWords'
 import { useReducedMotion } from '@/components/learner/hooks'
 import { useSpeech } from '@/components/learner/speech'
@@ -243,8 +244,9 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               isLast={at >= total - 1}
             />
           ) : part ? (
-            <div className="paper-grid relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden rounded-card bg-surface shadow-soft p-6 md:min-h-[380px]">
-              <div key={at} className={cx('motion-fade flex w-full flex-col items-center gap-4 starting:opacity-0', part.step.tool ? 'max-w-[640px] pt-10' : 'max-w-[520px]')}>
+            <div data-lesson-board className="paper-grid flex min-h-[300px] min-w-0 flex-1 items-center justify-center rounded-card bg-surface shadow-soft p-4 md:min-h-[380px] md:p-6">
+              <div key={at} className={cx('motion-fade flex w-full min-w-0 flex-col items-center gap-4 starting:opacity-0', part.step.tool ? 'max-w-[640px]' : 'max-w-[520px]')}>
+                {part.step.show ? <LessonShow text={part.step.show} borderClass={style.border} /> : null}
                 {part.step.tool ? (
                   <TapSound>
                     <div className="w-full">
@@ -257,11 +259,6 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                   </div>
                 ) : null}
               </div>
-              {part.step.show ? (
-                <span lang="en-GB" className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-numbers text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
-                  {part.step.show}
-                </span>
-              ) : null}
             </div>
           ) : null}
 
