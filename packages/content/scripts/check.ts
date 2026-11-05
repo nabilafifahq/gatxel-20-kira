@@ -5,6 +5,7 @@ import { SUBJECTS } from '../src/schema'
 import { GENERATORS } from '../src/math'
 import { loadSpelling } from '../src/spelling'
 import { loadFlashcards } from '../src/flashcards'
+import { translationReport } from '../src/translations'
 
 const dir = findContentDir()
 const started = Date.now()
@@ -21,7 +22,8 @@ const spelling = loadSpelling(dir)
 const extraProblems = checkExtras(dir, index).filter(inScope)
 const cards = loadFlashcards(dir)
 const dictProblems = checkDictionary(dir, new Map([...index.skills].map(([id, sk]) => [id, sk.strand]))).filter(inScope)
-const allErrors = [...errors, ...cards.errors.filter(inScope), ...genProblems, ...spelling.errors.filter(inScope), ...extraProblems, ...dictProblems]
+const translated = translationReport(dir)
+const allErrors = [...errors, ...cards.errors.filter(inScope), ...genProblems, ...spelling.errors.filter(inScope), ...extraProblems, ...dictProblems, ...translated.problems.map((p) => ({ file: `translations/id/${p.file}`, message: p.message }))]
 if (scopes.length) console.log(`Scope: ${scopes.join(', ')} (error di luar scope disembunyikan: ${loaded.errors.length - errors.length})`)
 
 const rows: string[] = []
@@ -49,6 +51,9 @@ for (const item of index.items.values()) {
 console.log(`Pembahasan: ${Object.entries(solved).map(([k, [a, b]]) => `${k} ${a}/${b}`).join(', ')}; olimpiade ber-gerakan ${olyAnimated}`)
 if (scopes.length === 0 && olyAnimated < MIN_OLY_ANIMATED) allErrors.push({ file: 'items/oly', message: `Soal olimpiade ber-gerakan ${olyAnimated}, minimal ${MIN_OLY_ANIMATED}` })
 
+// Terjemahan Indonesia: cakupan dan entri usang. Teks tanpa terjemahan tetap berbahasa Inggris, jadi ini bukan error.
+console.log(`Terjemahan id: ${translated.coverage.map((c) => `${c.kind} ${c.translated}/${c.total}`).join(', ')}; usang ${translated.stale.length}`)
+if (translated.stale.length > 0 && process.argv.includes('--warnings')) for (const s of translated.stale.slice(0, 50)) console.log(`  usang ${s.file}: ${s.en.slice(0, 80)}`)
 console.log(`Bacaan ${index.passages.size}, lomba ${index.competitions.length}, preset ${index.presets.length}`)
 console.log(`Dek kartu ${cards.decks.length}, kartu ${cards.decks.reduce((n, d) => n + d.cards.length, 0)}`)
 console.log(`Kata Spelling Bee: starters ${spelling.levels.starters.length}, movers ${spelling.levels.movers.length}, flyers ${spelling.levels.flyers.length}`)

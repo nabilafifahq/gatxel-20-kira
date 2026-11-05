@@ -521,11 +521,13 @@ function Sound({ c, learnerId, onSaved }: { c: ParentChildDTO['controls']; learn
 function UiLangSettings({ c, learnerId, name, onSaved }: { c: ParentChildDTO['controls']; learnerId: string; name: string; onSaved: () => void }) {
   const [lang, setLang] = useState<UiLang>(c.uiLang)
   const [allow, setAllow] = useState(c.uiLangSwitch)
+  const [idFirst, setIdFirst] = useState(c.explainIdFirst)
   const save = useAction(parentSaveUiLangAction)
-  async function commit(l: UiLang, a: boolean) {
+  async function commit(l: UiLang, a: boolean, first: boolean = idFirst) {
     setLang(l)
     setAllow(a)
-    const r = await save.run({ learnerId, uiLang: l, uiLangSwitch: a })
+    setIdFirst(first)
+    const r = await save.run({ learnerId, uiLang: l, uiLangSwitch: a, explainIdFirst: first })
     if (r.ok) onSaved()
   }
   return (
@@ -536,6 +538,12 @@ function UiLangSettings({ c, learnerId, name, onSaved }: { c: ParentChildDTO['co
           {name} boleh mengganti bahasa sendiri
         </span>
         <Switch checked={allow} onChange={(v) => void commit(lang, v)} labelledBy="bahasa-izin" busy={save.pending} />
+      </div>
+      <div className="flex items-center gap-3">
+        <span id="penjelasan-id" className="flex-1 text-body">
+          Tampilkan penjelasan dalam bahasa Indonesia lebih dulu
+        </span>
+        <Switch checked={idFirst} onChange={(v) => void commit(lang, allow, v)} labelledBy="penjelasan-id" busy={save.pending} />
       </div>
       <ActionError error={save.error} />
     </div>

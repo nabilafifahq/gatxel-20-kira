@@ -5,13 +5,13 @@ import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
 import { duckMusic } from './music'
 import { stopHostVoice } from './host-voice'
 import { sharedAudio, unlockAudio } from './shared-audio'
-import { clipPlan, fetchClipKeys, fetchClips, requestClips, ttsStatus, type SpeechPart } from './tts-client'
+import { fetchClipKeys, fetchClips, planForLang, requestClips, ttsStatus, type SpeechPart } from './tts-client'
 
 /**
  * Baca suara. Aturan pemilik: suara tidak boleh berganti. Hanya klip yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan
  * service worker bila offline) yang diputar. Tidak ada suara perangkat (speechSynthesis atau TextToSpeech Android) untuk anak:
  * suara itu bisa laki-laki atau robotik. Bila satu klip belum ada, tombol diam (dan klipnya diminta dibuat worker), tidak
- * pernah berganti suara. Teks Indonesia hanya dibacakan bila ada klip `id` yang nyata; selain itu diam.
+ * pernah berganti suara. Teks Indonesia hanya dibacakan klip `id` yang nyata (kuncinya memakai versi suara Indonesia); selain itu diam.
  * Hanya satu teks dibaca pada satu waktu; tombol lain kembali ke idle.
  */
 
@@ -113,12 +113,12 @@ export function useSpeech(lang: SpeechLang): {
   useEffect(() => {
     let cancelled = false
     void ttsStatus().then((s) => {
-      if (!cancelled) setClipsReady(Boolean(s?.enabled))
+      if (!cancelled) setClipsReady(Boolean(lang === 'id' ? s?.idVoiceVersion : s?.enabled))
     })
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [lang])
 
   // Tombol lain mulai membaca: yang ini kembali ke idle.
   useEffect(() => {
@@ -163,8 +163,8 @@ export function useSpeech(lang: SpeechLang): {
         setReading(false)
         onEnd?.()
       }
-      // Teks Indonesia tidak punya klip: diam. onEnd tetap dipanggil supaya pemutar langkah tidak menunggu selamanya.
-      const plan = lang === 'id' ? [] : clipPlan(input, opts?.style ?? TTS_DEFAULT_STYLE)
+      // Tidak ada teks yang layak dibacakan: diam. onEnd tetap dipanggil supaya pemutar langkah tidak menunggu selamanya.
+      const plan = planForLang(input, lang, opts?.style ?? TTS_DEFAULT_STYLE)
       if (plan.length === 0) {
         window.setTimeout(finish, 0)
         return
@@ -174,8 +174,8 @@ export function useSpeech(lang: SpeechLang): {
       void (async () => {
         const status = await ttsStatus()
         if (token.current !== my) return
-        if (!status?.enabled) {
-          setProblem('failed')
+        if (lang === 'id' ? !status?.idVoiceVersion : !status?.enabled) {
+          setProblem(lang === 'id' ? 'missing' : 'failed')
           finish()
           return
         }
@@ -239,8 +239,8 @@ export function useSpeech(lang: SpeechLang): {
     [reading, speak, stop],
   )
 
-  // Tombol disembunyikan/dinonaktifkan bila layanan klip mati, dan selalu untuk teks Indonesia (belum ada klip id).
-  const unavailable = lang === 'id' || clipsReady === false
+  // Tombol disembunyikan bila layanan klip mati; untuk teks Indonesia bila suara Indonesia belum dipromosikan.
+  const unavailable = clipsReady === false
   const status: SpeechStatus = unavailable ? 'unavailable' : reading ? 'reading' : 'idle'
   return { status, toggle, speak, playKeys, stop, problem }
 }

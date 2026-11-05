@@ -5,6 +5,7 @@ import type { ReactElement } from 'react'
 import type { ReviewDTO, ReviewListDTO } from '@/server/dal/lesson-review'
 import { ButtonLink } from '@/components/ui/Button'
 import { LearnerFrame, LearnerHeader } from '@/components/learner/LearnerHeader'
+import { TranslateToggle, useExplainLang } from '@/components/learner/explain-lang'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { useT } from '@/lib/i18n/client'
 
@@ -46,6 +47,9 @@ export function LessonReviewListScreen({ data }: { data: ReviewListDTO }): React
 
 export function LessonReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
   const t = useT().runner.review
+  const explain = useExplainLang()
+  const translated = data.steps.flatMap((s) => (s.sayId ? [s.sayId] : []))
+  const showId = explain.on && translated.length > 0
   return (
     <LearnerFrame shell={data.shell} current="practice" className="flex max-w-[760px] flex-col gap-5">
       <LearnerHeader shell={data.shell} title={<span lang="en-GB">{data.title}</span>} subline={t.subline} />
@@ -55,12 +59,15 @@ export function LessonReviewScreen({ data }: { data: ReviewDTO }): ReactElement 
       <ol className="m-0 flex list-none flex-col gap-3 p-0">
         {data.steps.map((s, i) => (
           <li key={i} className="flex flex-col gap-2 rounded-card border border-divider bg-surface p-4">
-            <p lang="en-GB" className="m-0 text-body-lg">{s.say}</p>
+            <p lang={showId && s.sayId ? 'id' : 'en-GB'} className="m-0 text-body-lg">{(showId ? s.sayId : null) ?? s.say}</p>
             {s.show ? <p lang="en-GB" className="m-0 text-h3 font-bold break-words">{s.show}</p> : null}
           </li>
         ))}
       </ol>
-      <ReadAloudButton text={data.steps.map((s) => s.say)} subject={data.subject} showNote={false} />
+      <div className="flex flex-wrap items-center gap-2.5">
+        {showId ? <ReadAloudButton text={translated} lang="id" subject={data.subject} showNote={false} /> : <ReadAloudButton text={data.steps.map((s) => s.say)} subject={data.subject} showNote={false} />}
+        <TranslateToggle available={translated.length > 0} />
+      </div>
       <div className="flex flex-wrap gap-3">
         <ButtonLink href={`/practice/review/${data.skillId}/start`} prefetch={false}>
           {t.tryQuestions}

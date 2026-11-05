@@ -60,6 +60,14 @@ export function isVoiceVersion(v: unknown): v is string {
  */
 export const TTS_SERVED_VERSION_FILE = 'served-version.txt'
 
+/**
+ * Suara Indonesia (peran `indonesian`, suara `id` lewat API Gatxel), hanya untuk terjemahan penjelasan. Versinya berdiri sendiri:
+ * penunjuk Inggris (`served-version.txt`) tidak pernah menyentuhnya dan sebaliknya. Tanpa berkas penunjuk ini tidak ada suara Indonesia
+ * sama sekali, jadi tombolnya tersembunyi. Berkas klip tetap <kunci>.mp3 di folder yang sama; kuncinya memuat versi ini.
+ */
+export const TTS_ID_VOICE_VERSION = 'id-piper1'
+export const TTS_ID_SERVED_VERSION_FILE = 'served-id-version.txt'
+
 /** Masukan yang di-hash sha256 untuk kunci klip. Memuat versi suara (bawaan: versi kode). */
 export function ttsKeyInput(text: string, style: TtsStyleId, version: string = TTS_VOICE_VERSION): string {
   return `${version}\n${style}\n${normalizeTtsText(text)}`
@@ -74,6 +82,39 @@ export function isTtsKey(v: unknown): v is string {
 export function ttsKeyFromFile(name: string): string | null {
   const m = /^([0-9a-f]{64})\.mp3$/.exec(name)
   return m ? m[1]! : null
+}
+
+/**
+ * Bentuk ucapan teks Indonesia, yang dikirim ke layanan suara. Teks yang tampil (dan kuncinya) tidak berubah.
+ * Angka di layar mengikuti soal berbahasa Inggris (1,000 dan 3.5), tetapi suara Indonesia membaca koma sebagai pemisah desimal,
+ * jadi bentuk itu diucapkan sebagai 1000 dan 3 koma 5. Lambang hitung ditulis sebagai katanya. Mengubah fungsi ini berarti menaikkan TTS_ID_VOICE_VERSION.
+ */
+export function spokenIndonesian(text: string): string {
+  return normalizeTtsText(text)
+    .replace(/(\d)[,.](\d{3})(?=\D|$)/g, '$1$2')
+    .replace(/(\d)[,.](\d{3})(?=\D|$)/g, '$1$2')
+    .replace(/(\d)\.(\d)/g, '$1 koma $2')
+    .replace(/(\d)\s*%/g, '$1 persen')
+    .replace(/(\d)\s*\/\s*(\d)/g, '$1 per $2')
+    .replace(/\s*[×✕]\s*|(?<=\d)\s+x\s+(?=\d)/g, ' kali ')
+    .replace(/\s*÷\s*/g, ' dibagi ')
+    .replace(/\s*\+\s*/g, ' tambah ')
+    .replace(/\s*=\s*/g, ' sama dengan ')
+    .replace(/(?<=\d|\s)\s*[−]\s*(?=\d)|(?<=\d)\s+-\s+(?=\d)/g, ' kurang ')
+    .replace(/_{3,}/g, 'kosong')
+    .replace(/°\s*C\b/g, ' derajat Celsius')
+    .replace(/(\d)\s*cm\b/g, '$1 sentimeter')
+    .replace(/(\d)\s*mm\b/g, '$1 milimeter')
+    .replace(/(\d)\s*km\b/g, '$1 kilometer')
+    .replace(/(\d)\s*kg\b/g, '$1 kilogram')
+    .replace(/(\d)\s*ml\b/g, '$1 mililiter')
+    .replace(/(\d)\s*m\b/g, '$1 meter')
+    .replace(/(\d)\s*g\b/g, '$1 gram')
+    .replace(/(\d)\s*l\b/g, '$1 liter')
+    .replace(/\bRp\s*(\d+)/g, '$1 rupiah')
+    .replace(/\$\s*(\d+)/g, '$1 dolar')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
 }
 
 export type TtsSentenceKind = 'praise' | 'question' | 'instruction' | 'statement'

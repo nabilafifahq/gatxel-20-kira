@@ -3,6 +3,7 @@ import { eq } from 'drizzle-orm'
 import { formatDateEn, formatDateId, jakartaDate, type IsoDate } from '@kira/core'
 import { tables } from '@kira/db'
 import { answerText, MANUAL_TYPES, type Item } from '@kira/content'
+import { translateSolution } from '@kira/content/walkthrough'
 import { analysePegs, blocksValue, formatLength, parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { bestIndex } from '@kira/core'
 import type { ResultsDTO, RetryDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
@@ -16,6 +17,7 @@ import { attemptTitle, exitFor, latestByPosition, loadAttempt, presentationSeed,
 import { worldPeek } from './kira-world'
 import { isFeatureOnTx } from './learner-features'
 import { familyOf, learnerLang, retryInfo, scoreOf, scoreText } from './learner-session'
+import { idText } from './translations'
 
 const { response } = tables
 
@@ -245,9 +247,12 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
       correctAnswerText: MANUAL_TYPES.includes(item.type) ? (marker === 'grownup' ? t.grownupMark : t.tutorMark) : answerText(item),
       status,
       explanation: item.explanation,
+      explanationId: idText(item.explanation),
       whyYourAnswer: why,
+      whyYourAnswerId: idText(why),
       tip: item.tip ?? null,
-      solution: item.solution ?? null,
+      tipId: idText(item.tip),
+      solution: item.solution ? translateSolution(item, item.solution, idText) : null,
       tutorFeedback: r?.feedback ?? null,
       similarHref: status === 'wrong' && item.skill ? `/practice/${item.skill}` : null,
     })

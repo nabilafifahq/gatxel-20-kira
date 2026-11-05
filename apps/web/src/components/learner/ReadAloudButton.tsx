@@ -13,7 +13,7 @@ import { preloadClips } from './tts-client'
  * Tombol baca suara (papan ReadAloudButton). Satu tombol untuk mulai dan berhenti
  * dengan aria-pressed. Tinggi 56 px. Saat membaca, latar memakai tint mapel.
  * Tidak tersedia berarti perangkat tidak punya suara bahasa Inggris dan klip suara belum aktif; tombol tetap
- * terlihat dengan garis putus-putus. Teks Indonesia tidak dibacakan, jadi untuk lang="id" tombol tidak tampil.
+ * terlihat dengan garis putus-putus. Teks Indonesia hanya dibacakan klip suara Indonesia; tanpa klip itu tombolnya tidak tampil sama sekali.
  * Klip yang memang belum ada (kebanyakan soal Matematika buatan generator): tombol disembunyikan diam-diam tanpa catatan,
  * dan ruangnya tetap dipegang supaya tata letak tidak bergeser. Catatan hanya untuk klip yang gagal dimuat karena jaringan.
  */
@@ -56,23 +56,23 @@ export function ReadAloudButton({
   const [checked, setChecked] = useState<{ key: string; missing: boolean } | null>(null)
   const [tappedKey, setTappedKey] = useState<string | null>(null)
   useEffect(() => {
-    if (lang !== 'en-GB') return
     let live = true
-    const wait = window.setTimeout(() => setChecked((c) => (c?.key === preloadKey ? c : { key: preloadKey, missing: false })), CLIP_CHECK_MS)
-    void preloadClips(text, style ?? TTS_DEFAULT_STYLE).then((result) => {
+    const wait = lang === 'id' ? 0 : window.setTimeout(() => setChecked((c) => (c?.key === preloadKey ? c : { key: preloadKey, missing: false })), CLIP_CHECK_MS)
+    void preloadClips(text, lang === 'id' ? 'indonesian' : (style ?? TTS_DEFAULT_STYLE)).then((result) => {
       if (!live) return
       window.clearTimeout(wait)
-      setChecked({ key: preloadKey, missing: result === 'missing' })
+      // Teks Indonesia: hanya 'ready' yang boleh menampilkan tombol.
+      setChecked({ key: preloadKey, missing: lang === 'id' ? result !== 'ready' : result === 'missing' })
     })
     return () => {
       live = false
       window.clearTimeout(wait)
     }
   }, [preloadKey, lang])
-  const known = lang !== 'en-GB' || checked?.key === preloadKey
+  const known = checked?.key === preloadKey
   const missing = (known && checked?.missing === true) || (problem === 'missing' && tappedKey === preloadKey)
-  // Teks Indonesia dibacakan suara perangkat; tanpa suara Indonesia di perangkat tombol disembunyikan.
   if (off) return null // tanpa klip tidak ada suara pengganti: tombol disembunyikan
+  if (lang === 'id' && (!known || missing)) return null
   return (
     <span className={cx('inline-flex flex-wrap items-center gap-2.5', !known || missing ? 'invisible' : '', className)}>
       <button

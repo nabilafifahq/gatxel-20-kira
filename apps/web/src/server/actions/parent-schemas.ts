@@ -52,6 +52,6 @@ export const parentSchemas = {
   edit: z.object({ learnerId: id, name, grade, avatar: z.enum(AVATARS) }).strict(),
   addChild: z.object({ name, grade, avatar: z.enum(AVATARS), pin, uiLang: z.enum(UI_LANGS).optional(), guardianConsent }).strict(),
   marketing: z.object({ optIn: z.boolean() }).strict(),
-  uiLang: z.object({ learnerId: id, uiLang: z.enum(UI_LANGS), uiLangSwitch: z.boolean() }).strict(),
+  uiLang: z.object({ learnerId: id, uiLang: z.enum(UI_LANGS), uiLangSwitch: z.boolean(), explainIdFirst: z.boolean().optional() }).strict(),
   markWork: z.object({ responseId: z.string().uuid(), verdict: z.enum(['good', 'again']), feedback: z.string().trim().max(500, 'Catatan paling panjang 500 karakter.') }).strict(),
 }

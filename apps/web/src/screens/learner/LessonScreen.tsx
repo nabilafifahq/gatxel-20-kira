@@ -14,6 +14,7 @@ import { useT } from '@/lib/i18n/client'
 import { LessonShow } from '@/components/learner/LessonShow'
 import { TapWords } from '@/components/learner/TapWords'
 import { useReducedMotion } from '@/components/learner/hooks'
+import { TranslateToggle, useExplainLang, useIdClipsReady } from '@/components/learner/explain-lang'
 import { useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
@@ -31,7 +32,8 @@ import { ActionError } from './common'
  * Selesai: completeLesson(skillId, benar, total) dipanggil sekali.
  */
 
-type Part = { kind: 'step'; step: LessonStep; n: number } | { kind: 'check'; item: ClientItem; n: number }
+type StepView = LessonStep & { sayId?: string }
+type Part = { kind: 'step'; step: StepView; n: number } | { kind: 'check'; item: ClientItem; n: number }
 type CheckState = { value: unknown | null; tries: number; status: 'open' | 'correct' | 'revealed'; firstTry: boolean | null }
 
 function firstSentence(text: string): string {
@@ -47,8 +49,8 @@ function passableAt(parts: Part[], checks: CheckState[], i: number): boolean {
   return checks[p.n]?.status !== 'open'
 }
 
-function dwellMs(step: LessonStep): number {
-  return Math.max(3000, step.say.length * 70)
+function dwellMs(text: string): number {
+  return Math.max(3000, text.length * 70)
 }
 
 export function LessonScreen({ data, actions }: { data: LessonDTO; actions: LessonActions }): ReactElement {
@@ -68,9 +70,17 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
   const reduced = useReducedMotion()
   const speech = useSpeech('en-GB')
   const speechRef = useRef(speech)
+  const speechId = useSpeech('id')
+  const speechIdRef = useRef(speechId)
   useEffect(() => {
     speechRef.current = speech
+    speechIdRef.current = speechId
   })
+  // Penjelasan dalam bahasa Indonesia hanya mengganti kalimat guru. Soal cek tetap berbahasa Inggris.
+  const explain = useExplainLang()
+  const translated = useMemo(() => data.steps.flatMap((s) => (s.sayId ? [s.sayId] : [])), [data.steps])
+  const showId = explain.on && translated.length > 0
+  const idReady = useIdClipsReady(showId ? translated : [])
   const style = SUBJECT_STYLE[data.subject]
   const part = parts[at]
   const total = parts.length
@@ -118,18 +128,23 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
     const advance = () => {
       if (!cancelled) goNext()
     }
-    if (sound && speechRef.current.status !== 'unavailable') {
+    const idText = showId ? part.step.sayId : undefined
+    if (sound && idText && idReady) {
+      speechIdRef.current.speak(idText, () => {
+        timer = window.setTimeout(advance, 700)
+      })
+    } else if (sound && !idText && speechRef.current.status !== 'unavailable') {
       speechRef.current.speak(part.step.say, () => {
         timer = window.setTimeout(advance, 700)
       })
     } else {
-      timer = window.setTimeout(advance, dwellMs(part.step))
+      timer = window.setTimeout(advance, dwellMs(idText ?? part.step.say))
     }
     return () => {
       cancelled = true
       window.clearTimeout(timer)
     }
-  }, [playing, part, reduced, finished, sound, goNext])
+  }, [playing, part, reduced, finished, sound, goNext, showId, idReady])
 
   useEffect(() => {
     if (!playing || !sound) speechRef.current.stop()
@@ -165,7 +180,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           <h1 lang="en-GB" className="m-0 text-h3 font-bold">{data.title}</h1>
           <span className="text-body text-fg-muted">{data.meta}</span>
         </div>
-        <div className="flex w-full gap-2 sm:w-auto">
+        <div className="flex w-full flex-wrap gap-2 sm:w-auto">
           <button
             type="button"
             aria-pressed={captions}
@@ -177,18 +192,21 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           >
             {copy.captions}
           </button>
-          <button
-            type="button"
-            aria-pressed={sound}
-            onClick={() => setSound((v) => !v)}
-            className={cx(
-              'inline-flex h-12 cursor-pointer items-center gap-2 rounded-control border-2 px-3.5 text-body font-bold text-fg',
-              sound ? 'border-fg bg-surface' : 'border-border bg-bg',
-            )}
-          >
-            <UiIcon name={sound ? 'speaker' : 'speaker-off'} size={20} />
-            {sound ? copy.soundOn : copy.soundOff}
-          </button>
+          {showId && !idReady ? null : (
+            <button
+              type="button"
+              aria-pressed={sound}
+              onClick={() => setSound((v) => !v)}
+              className={cx(
+                'inline-flex h-12 cursor-pointer items-center gap-2 rounded-control border-2 px-3.5 text-body font-bold text-fg',
+                sound ? 'border-fg bg-surface' : 'border-border bg-bg',
+              )}
+            >
+              <UiIcon name={sound ? 'speaker' : 'speaker-off'} size={20} />
+              {sound ? copy.soundOn : copy.soundOff}
+            </button>
+          )}
+          <TranslateToggle available={translated.length > 0} />
         </div>
       </header>
 
@@ -263,9 +281,15 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           ) : null}
 
           {!finished && part?.kind === 'step' && captions ? (
-            <p lang="en-GB" aria-live="polite" className="m-0 min-h-16.5 rounded-control border border-divider bg-surface px-4 py-2.5 font-reading text-h3 md:text-h2 md:font-normal">
-              <TapWords text={part.step.say} enabled={!NO_LOOKUP_SKILLS.includes(data.skillId)} />
-            </p>
+            showId && part.step.sayId ? (
+              <p lang="id" aria-live="polite" className="m-0 min-h-16.5 rounded-control border border-divider bg-surface px-4 py-2.5 font-reading text-h3 md:text-h2 md:font-normal">
+                {part.step.sayId}
+              </p>
+            ) : (
+              <p lang="en-GB" aria-live="polite" className="m-0 min-h-16.5 rounded-control border border-divider bg-surface px-4 py-2.5 font-reading text-h3 md:text-h2 md:font-normal">
+                <TapWords text={part.step.say} enabled={!NO_LOOKUP_SKILLS.includes(data.skillId)} />
+              </p>
+            )
           ) : null}
 
           {!finished ? (
@@ -329,8 +353,8 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                     >
                       {done ? <UiIcon name="check" size={16} strokeWidth={3} /> : p.kind === 'check' ? <UiIcon name="question" size={16} /> : i + 1}
                     </span>
-                    <span lang={p.kind === 'check' ? undefined : 'en-GB'} className="text-body-lg leading-6 font-bold">
-                      {p.kind === 'check' ? copy.checkPrefix(firstSentence(p.item.prompt)) : firstSentence(p.step.say)}
+                    <span lang={p.kind === 'check' ? undefined : showId && p.step.sayId ? 'id' : 'en-GB'} className="text-body-lg leading-6 font-bold">
+                      {p.kind === 'check' ? copy.checkPrefix(firstSentence(p.item.prompt)) : firstSentence((showId ? p.step.sayId : undefined) ?? p.step.say)}
                     </span>
                   </button>
                 </li>

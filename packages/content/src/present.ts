@@ -4,7 +4,8 @@ import { keyOf, type AnswerKey } from './check'
 import { flattenGrid, gridValues, type GridPuzzle } from './grid'
 import type { LabelPerm } from './labels'
 import type { PieceType, Pt } from './manip'
-import type { Item, Passage, SolutionStep } from './schema'
+import type { Item, Passage } from './schema'
+import { translateSolution, type SolutionStepView } from './walkthrough'
 
 /**
  * Item untuk perangkat learner. Kunci, hint, dan pembahasan hanya ikut bila
@@ -86,7 +87,7 @@ export type ClientItem = {
   /** Hanya mode latihan. */
   hints?: string[]
   key?: AnswerKey
-  reveal?: { explanation: string; tip?: string; solution?: SolutionStep[]; /** Pembahasan ada tetapi dimuat malas (runner Latihan). */ hasSolution?: boolean; answerText: string; whyWrong?: (string | null)[] }
+  reveal?: { explanation: string; /** Terjemahan bahasa Indonesia. Hanya ikut bersama kunci, tidak pernah lebih awal. */ explanationId?: string; tip?: string; tipId?: string; solution?: SolutionStepView[]; /** Pembahasan ada tetapi dimuat malas (runner Latihan). */ hasSolution?: boolean; answerText: string; whyWrong?: (string | null)[]; whyWrongId?: (string | null)[] }
 }
 
 export type PresentOptions = {
@@ -103,6 +104,8 @@ export type PresentOptions = {
   labels?: LabelPerm
   /** Jangan kirim teks dengar (soal dengar dan eja): di mode tanpa umpan balik teks itu adalah jawabannya. */
   hideSpoken?: boolean
+  /** Pencari terjemahan penjelasan. Hanya dipakai bersama includeKey, jadi terjemahan tidak pernah terkirim sebelum waktunya. */
+  translate?: (en: string) => string | null
 }
 
 /** Teks yang diputar tombol dengar: soal dengar memakai listenText, soal eja memakai kata lalu kalimat contoh. */
@@ -308,12 +311,19 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
   if (opt.includeHints && item.hints.length > 0) out.hints = item.hints
   if (opt.includeKey) {
     out.key = keyOf(item)
+    const t = opt.translate
+    const explanationId = t?.(item.explanation) ?? null
+    const tipId = item.tip ? (t?.(item.tip) ?? null) : null
+    const whyWrongId = t && (item.type === 'mcq' || item.type === 'multi') ? item.options.map((o) => (o.why ? t(o.why) : null)) : null
     out.reveal = {
       explanation: item.explanation,
       answerText: opt.answerText ?? '',
+      ...(explanationId ? { explanationId } : {}),
       ...(item.tip ? { tip: item.tip } : {}),
-      ...(item.solution ? { solution: item.solution } : {}),
+      ...(tipId ? { tipId } : {}),
+      ...(item.solution ? { solution: t ? translateSolution(item, item.solution, t) : item.solution } : {}),
       ...(item.type === 'mcq' || item.type === 'multi' ? { whyWrong: item.options.map((o) => o.why ?? null) } : {}),
+      ...(whyWrongId?.some(Boolean) ? { whyWrongId } : {}),
     }
   }
   return out

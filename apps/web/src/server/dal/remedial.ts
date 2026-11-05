@@ -2,14 +2,15 @@ import 'server-only'
 import { eq } from 'drizzle-orm'
 import { modeAllowsHints, modeShowsFeedback, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
-import type { SolutionStep } from '@kira/content/schema'
 import { clashKeys, type Item } from '@kira/content'
+import { translateSolution, type SolutionStepView } from '@kira/content/walkthrough'
 import type { RunnerItem } from '@/lib/dto'
 import { getT } from '@/lib/i18n/server'
 import type { Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, poolForSkill, resolveItems, toClient } from './content'
 import { pickSibling } from './remedial-logic'
+import { idText, withSayId } from './translations'
 import { latestByPosition, lazySolution, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
 
 /**
@@ -23,7 +24,7 @@ import { latestByPosition, lazySolution, loadAttempt, presentationSeed, type Att
 
 const { attempt, response } = tables
 
-export type RemedialLesson = { title: string; steps: SolutionStep[] }
+export type RemedialLesson = { title: string; steps: SolutionStepView[] }
 
 type Guarded = { a: Awaited<ReturnType<typeof loadAttempt>>; slot: AttemptItem; all: AttemptItem[] }
 
@@ -52,7 +53,7 @@ export async function remedialLesson(tx: Tx, learnerId: string, attemptId: strin
   if (!item) return null
   const l = lesson(item.skill)
   if (!l) return null
-  return { title: l.title, steps: l.steps.slice(0, 3) }
+  return { title: l.title, steps: l.steps.slice(0, 3).map(withSayId) }
 }
 
 /** Tambahkan soal saudara ke sesi dan kembalikan untuk ditampilkan. Satu soal saudara per soal salah. */
@@ -101,7 +102,7 @@ export async function addRemedialItem(tx: Tx, learnerId: string, orgId: string, 
  * Langkah pembahasan satu soal, dimuat malas. Hanya sesudah soal dijawab di mode umpan balik, atau sesudah
  * attempt dikumpulkan (mode berwaktu). Mode berwaktu yang masih berjalan tidak pernah mendapatkannya.
  */
-export async function walkthroughFor(tx: Tx, learnerId: string, attemptId: string, position: number): Promise<SolutionStep[] | null> {
+export async function walkthroughFor(tx: Tx, learnerId: string, attemptId: string, position: number): Promise<SolutionStepView[] | null> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   const all = (a.items as AttemptItem[]) ?? []
   const slot = all.find((i) => i.position === position)
@@ -113,5 +114,5 @@ export async function walkthroughFor(tx: Tx, learnerId: string, attemptId: strin
     if (!latestByPosition(rows).has(position)) throw invalid((await errors()).answerFirst)
   }
   const item = (await resolveItems(tx, [slot.ref])).get(slot.ref)
-  return item?.solution ?? null
+  return item?.solution ? translateSolution(item, item.solution, idText) : null
 }

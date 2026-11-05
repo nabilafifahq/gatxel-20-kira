@@ -8,6 +8,7 @@ import { loadContent, type ContentIndex } from '@kira/content/load'
 import type { Tx } from '../db'
 import { log } from '../log'
 import { spokenClipRefs } from './tts'
+import { idText } from './translations'
 
 /**
  * Konten repo dimuat sekali per proses dari folder content/ (KIRA_CONTENT_DIR).
@@ -114,6 +115,7 @@ export function toClient(item: Item, opts: { ref: string; seed: string; includeK
     ...(opts.labels ? { labels: opts.labels } : {}),
     ...(opts.hideSpoken ? { hideSpoken: true } : {}),
     answerText: answerText(item),
+    translate: idText,
     ...(item.passage && passage(item.passage) ? { passage: passage(item.passage)! } : {}),
   })
 }

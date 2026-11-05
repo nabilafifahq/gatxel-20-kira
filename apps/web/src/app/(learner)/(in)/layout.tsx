@@ -5,6 +5,7 @@ import { orgCtx, pageActor } from '@/server/auth/actor'
 import { inOrg } from '@/server/db'
 import { soundPolicyOf } from '@/server/dal/learner-motion'
 import { DictionaryProvider } from '@/components/learner/DictionaryProvider'
+import { ExplainLangProvider } from '@/components/learner/explain-lang'
 import { isFeatureOn } from '@/server/dal/learner-features'
 import { savedWordSet } from '@/server/dal/vocab'
 
@@ -32,7 +33,9 @@ export default async function LearnerInLayout({ children }: { children: React.Re
   const saved = dictOn ? await inOrg(orgCtx(actor), (tx) => savedWordSet(tx, actor.userId)).catch(() => []) : []
   return (
     <DictionaryProvider enabled={dictOn} initialSaved={saved}>
-      <PageTransition>{children}</PageTransition>
+      <ExplainLangProvider learnerId={actor.userId} idFirst={actor.explainIdFirst ?? false}>
+        <PageTransition>{children}</PageTransition>
+      </ExplainLangProvider>
       <LearnerRuntime screenLimitMin={60} />
       <SoundRuntime sfx={policy.sfx} music={policy.music} />
     </DictionaryProvider>

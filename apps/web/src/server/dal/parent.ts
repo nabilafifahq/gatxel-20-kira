@@ -323,6 +323,7 @@ export async function parentChildDTO(actor: Actor, learnerId: string): Promise<P
         musicEnabled: learner.musicEnabled,
         uiLang: prefs?.uiLang ?? 'id',
         uiLangSwitch: prefs?.uiLangSwitch ?? false,
+        explainIdFirst: prefs?.explainIdFirst ?? false,
         dayPreset: preset,
         features: await featureMapFor(tx, learnerId),
         dayRules: rules as never,

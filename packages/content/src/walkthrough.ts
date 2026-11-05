@@ -226,6 +226,42 @@ export function withWalkthrough<T extends Item>(item: T): T {
   return { ...item, solution }
 }
 
+/** Langkah pembahasan dengan terjemahan bahasa Indonesia, bila ada. `say` tetap teks Inggris yang asli. */
+export type SolutionStepView = SolutionStep & { sayId?: string }
+
+/**
+ * Terjemahan satu langkah. Langkah tulisan penulis soal dicari langsung. Langkah turunan dipecah per kalimat dari penjelasan,
+ * jadi kalimatnya dicocokkan dengan kalimat terjemahan penjelasan: hanya bila jumlah kalimatnya sama, supaya tidak salah pasangan.
+ * Langkah yang tidak punya terjemahan tetap berbahasa Inggris.
+ */
+export function translateSolution(item: Item, steps: readonly SolutionStep[], lookup: (en: string) => string | null): SolutionStepView[] {
+  const sentences = new Map<string, string>()
+  const idExplanation = lookup(item.explanation)
+  if (idExplanation) {
+    const en = splitSentences(item.explanation)
+    const id = splitSentences(idExplanation)
+    if (en.length === id.length) en.forEach((s, i) => sentences.set(clip(s, 220), id[i]!))
+  }
+  const notSteps = new Map<string, string>()
+  if (item.type === 'mcq' || item.type === 'multi') {
+    for (const o of item.options) {
+      if (!o.why || !o.text) continue
+      const shown = o.text.replace(/[.!?]+$/, '')
+      const idWhy = lookup(o.why)
+      if (idWhy) notSteps.set(clip(`Not ${shown}. ${o.why}`, 220), `Bukan ${shown}. ${idWhy}`)
+    }
+  }
+  const fromSentences = (say: string): string | null => {
+    if (sentences.size === 0) return null
+    const parts = splitSentences(say).map((s) => sentences.get(s))
+    return parts.length > 0 && parts.every(Boolean) ? parts.join(' ') : null
+  }
+  return steps.map((s) => {
+    const sayId = lookup(s.say) ?? notSteps.get(s.say) ?? fromSentences(s.say)
+    return sayId ? { ...s, sayId } : s
+  })
+}
+
 /** Langkah yang diturunkan otomatis (bukan tulisan penulis soal). Dipakai supaya klip suara tidak dibuat massal untuknya. */
 const DERIVED = new WeakSet<object>()
 export const isDerivedSolution = (solution: readonly SolutionStep[] | undefined): boolean => solution !== undefined && DERIVED.has(solution)
