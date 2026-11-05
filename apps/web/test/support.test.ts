@@ -117,7 +117,7 @@ describe('WhatsApp dan kategori', () => {
 describe('Kebijakan Privasi', () => {
   it('versi naik dan pesan bantuan beserta masa simpannya tercatat', () => {
     const notice = privacyNoticeData()
-    expect(notice.meta.version).toBe('2026-11-05.3')
+    expect(notice.meta.version).toBe('2026-11-05.4')
     const rows = notice.dataRows.map((r) => r.data)
     expect(rows).toContain('Pesan bantuan')
     expect(rows).toContain('Lampiran pesan bantuan')
