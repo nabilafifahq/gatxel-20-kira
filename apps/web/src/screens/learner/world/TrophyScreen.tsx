@@ -39,7 +39,7 @@ export function TrophyScreen({ data }: { data: TrophyDTO }): ReactElement {
               </div>
               <span className="text-body font-bold">{c.days(m.days)}</span>
               {m.certificate ? (
-                <ButtonLink href={`/world/certificate/${m.days}`} prefetch={false} variant="secondary" size="M">
+                <ButtonLink href={`/world/certificate/${m.days}`} prefetch={false} variant="secondary" size="M" className="h-auto! min-h-11 max-w-full px-2 py-1 whitespace-normal! sm:px-4">
                   {c.certificate}
                 </ButtonLink>
               ) : (

@@ -27,6 +27,7 @@ function BlankInput({
   disabled,
   feedback,
   subject,
+  wide = false,
 }: {
   index: number
   total: number
@@ -35,6 +36,8 @@ function BlankInput({
   disabled: boolean
   feedback: WidgetProps['feedback']
   subject: WidgetProps['subject']
+  /** Kotak di area jawaban: berdiri sendiri, jadi selebar kolom dan setinggi tombol. Tanpa ini kotaknya menempel di kalimat soal. */
+  wide?: boolean
 }): ReactElement {
   const t = useT()
   return (
@@ -51,9 +54,10 @@ function BlankInput({
       disabled={disabled}
       maxLength={60}
       onChange={(e) => onText(e.target.value)}
-      style={{ width: `${Math.max(6, text.length + 2)}ch` }}
+      style={wide ? undefined : { width: `${Math.max(6, text.length + 2)}ch` }}
       className={cx(
-        'mx-1 inline-block h-[1.7em] max-w-full rounded-control border-2 bg-surface px-2 align-baseline font-reading outline-offset-2',
+        'max-w-full rounded-control border-2 bg-surface font-reading outline-offset-2',
+        wide ? 'block h-14 w-full px-3 sm:max-w-[420px]' : 'mx-1 inline-block h-11 px-2 align-baseline',
         feedback === 'correct'
           ? 'border-3 border-success bg-success-50'
           : feedback === 'not-yet'
@@ -114,7 +118,7 @@ export function TextWidget({ item, value, onChange, disabled = false, feedback =
           <label key={i} className="flex flex-col gap-2">
             <span className="text-body font-semibold text-fg-muted">{total > 1 ? dict.widgets.text.answerN(i + 1) : dict.widgets.shared.yourAnswer}</span>
             <span className="text-question">
-              <BlankInput index={i} total={total} text={texts[i] ?? ''} onText={(t) => set(i, t)} disabled={disabled || !!feedback} feedback={feedback} subject={subject} />
+              <BlankInput wide index={i} total={total} text={texts[i] ?? ''} onText={(t) => set(i, t)} disabled={disabled || !!feedback} feedback={feedback} subject={subject} />
             </span>
           </label>
         ))

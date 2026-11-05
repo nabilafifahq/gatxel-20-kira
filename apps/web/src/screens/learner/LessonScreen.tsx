@@ -183,7 +183,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           <h1 lang="en-GB" className="m-0 text-h3 font-bold">{data.title}</h1>
           <span className="text-body text-fg-muted">{data.meta}</span>
         </div>
-        <div className="flex w-full flex-wrap gap-2 sm:w-auto">
+        <div className="flex w-full flex-wrap gap-2 xl:w-auto">
           <button
             type="button"
             aria-pressed={captions}
@@ -322,7 +322,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           ) : null}
         </section>
 
-        <aside aria-labelledby="lesson-parts" className="flex min-w-0 flex-col gap-3 rounded-card bg-surface shadow-soft p-5.5 lg:flex-1">
+        <aside aria-labelledby="lesson-parts" className="flex min-w-0 flex-col gap-3 rounded-card bg-surface shadow-soft p-5.5 lg:max-h-[calc(100svh-7.5rem)] lg:flex-1 lg:overflow-y-auto">
           <h2 id="lesson-parts" className="m-0 text-h3 font-bold">
             {copy.inThisLesson}
           </h2>
