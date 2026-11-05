@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useId, type ReactElement } from 'react'
+import { useEffect, useId, useState, type ReactElement } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
@@ -14,9 +14,13 @@ import { preloadClips } from './tts-client'
  * dengan aria-pressed. Tinggi 56 px. Saat membaca, latar memakai tint mapel.
  * Tidak tersedia berarti perangkat tidak punya suara bahasa Inggris dan klip suara belum aktif; tombol tetap
  * terlihat dengan garis putus-putus. Teks Indonesia tidak dibacakan, jadi untuk lang="id" tombol tidak tampil.
+ * Klip yang memang belum ada (kebanyakan soal Matematika buatan generator): tombol disembunyikan diam-diam tanpa catatan,
+ * dan ruangnya tetap dipegang supaya tata letak tidak bergeser. Catatan hanya untuk klip yang gagal dimuat karena jaringan.
  */
 
 const TINT: Record<Subject, string> = { math: 'bg-math-50', english: 'bg-english-50', science: 'bg-science-50' }
+/** Jaringan lambat: tombol tetap muncul setelah ini, tanpa menunggu semua klip selesai diperiksa. */
+const CLIP_CHECK_MS = 800
 
 export function ReadAloudButton({
   text,
@@ -49,20 +53,38 @@ export function ReadAloudButton({
   const off = status === 'unavailable'
   // Pramuat klip soal yang sedang tampil: bacaan mulai di bawah satu detik saat tombol ditekan.
   const preloadKey = JSON.stringify([text, style ?? null])
+  const [checked, setChecked] = useState<{ key: string; missing: boolean } | null>(null)
+  const [tappedKey, setTappedKey] = useState<string | null>(null)
   useEffect(() => {
-    if (lang === 'en-GB') preloadClips(text, style ?? TTS_DEFAULT_STYLE)
+    if (lang !== 'en-GB') return
+    let live = true
+    const wait = window.setTimeout(() => setChecked((c) => (c?.key === preloadKey ? c : { key: preloadKey, missing: false })), CLIP_CHECK_MS)
+    void preloadClips(text, style ?? TTS_DEFAULT_STYLE).then((result) => {
+      if (!live) return
+      window.clearTimeout(wait)
+      setChecked({ key: preloadKey, missing: result === 'missing' })
+    })
+    return () => {
+      live = false
+      window.clearTimeout(wait)
+    }
   }, [preloadKey, lang])
+  const known = lang !== 'en-GB' || checked?.key === preloadKey
+  const missing = (known && checked?.missing === true) || (problem === 'missing' && tappedKey === preloadKey)
   // Teks Indonesia dibacakan suara perangkat; tanpa suara Indonesia di perangkat tombol disembunyikan.
   if (off) return null // tanpa klip tidak ada suara pengganti: tombol disembunyikan
   return (
-    <span className={cx('inline-flex flex-wrap items-center gap-2.5', className)}>
+    <span className={cx('inline-flex flex-wrap items-center gap-2.5', !known || missing ? 'invisible' : '', className)}>
       <button
         type="button"
         aria-pressed={off ? undefined : reading}
         aria-label={compact ? (reading ? t.widgets.readAloud.stop : t.widgets.readAloud.idle) : undefined}
         aria-describedby={off ? noteId : undefined}
         disabled={off}
-        onClick={() => toggle(text, style ? { style } : undefined)}
+        onClick={() => {
+          setTappedKey(preloadKey)
+          toggle(text, style ? { style } : undefined)
+        }}
         className={cx(
           'inline-flex h-14 min-w-14 flex-none items-center justify-center gap-2 rounded-control text-body-lg font-bold transition-transform duration-150 ease-kira',
           compact ? 'px-0' : 'px-5',
@@ -80,9 +102,9 @@ export function ReadAloudButton({
         <span id={noteId} className={cx('text-body text-fg-muted', showNote ? '' : 'visually-hidden')}>
           {t.widgets.shared.noVoice}
         </span>
-      ) : problem ? (
+      ) : problem === 'failed' ? (
         <span role="status" className="text-body text-fg-muted">
-          {problem === 'failed' ? t.widgets.shared.audioFailed : t.widgets.shared.audioNotReady}
+          {t.widgets.shared.audioFailed}
         </span>
       ) : null}
     </span>

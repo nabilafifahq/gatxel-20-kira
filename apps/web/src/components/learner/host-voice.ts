@@ -3,6 +3,7 @@
 import { QUIZ_HOST_LINES, type TtsClipRequest } from '@kira/core/tts'
 import { fetchClips, requestClips, ttsStatus } from './tts-client'
 import { isSfxMuted } from './sfx'
+import { sharedAudio } from './shared-audio'
 
 /**
  * Suara pembawa acara Quiz Arena (gaya quizhost). Hanya memutar klip suara yang sudah dibuat lewat /tts/<kunci>.mp3.
@@ -44,12 +45,14 @@ export function hostSay(text: string, delayMs = 0): void {
       if (current) current.pause()
       window.dispatchEvent(new CustomEvent('kira:host-start')) // bacaan soal berhenti: tidak ada bunyi di atas pembawa acara
       const url = URL.createObjectURL(blob)
-      const audio = new Audio(url)
+      const audio = sharedAudio()
       current = audio
       audio.onended = () => {
+        audio.onended = null
         URL.revokeObjectURL(url)
         if (current === audio) current = null
       }
+      audio.src = url
       await audio.play().catch(() => URL.revokeObjectURL(url))
     } catch {
       // diam saja
