@@ -11,7 +11,7 @@ import { useT } from '@/lib/i18n/client'
 /**
  * Bingkai figur (papan FigureFrame). Membungkus SVG dari @kira/figures; alt teks
  * diambil dari FigureSpec sehingga sama di layar, pembahasan, dan PDF.
- * Tombol perbesar membuka figur selebar layar sampai ditutup.
+ * Tombol perbesar membuka figur selebar layar sampai ditutup. Tombolnya ikut alur di bawah figur supaya tidak menimpa isinya.
  */
 export function FigureFrame({
   spec,
@@ -36,9 +36,9 @@ export function FigureFrame({
   return (
     <figure
       className={cx(
-        'relative m-0 flex items-center justify-center rounded-control border border-divider p-4',
+        'm-0 flex flex-col items-center justify-center gap-2 rounded-control border border-divider p-4',
         paper ? 'paper-grid' : 'bg-surface',
-        zoom && 'min-h-22',
+        zoom && 'pb-2.5',
         className,
       )}
     >
@@ -47,7 +47,7 @@ export function FigureFrame({
       </div>
       {zoom ? (
         <>
-          <IconButton icon="zoom-in" label={t.widgets.figure.zoomIn} onClick={() => setOpen(true)} className="absolute right-2.5 bottom-2.5" />
+          <IconButton icon="zoom-in" label={t.widgets.figure.zoomIn} onClick={() => setOpen(true)} className="self-end" />
           <Dialog
             open={open}
             onClose={() => setOpen(false)}
