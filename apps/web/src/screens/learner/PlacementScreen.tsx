@@ -69,7 +69,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
         <ul className="m-0 flex list-none flex-col gap-3 p-0">
           {entry.subjects.map((s) => (
             <li key={s.subject}>
-              <ButtonLink href={`/placement?subject=${s.subject}`} variant="secondary" className="w-full justify-between">
+              <ButtonLink href={`/placement?subject=${s.subject}`} variant="secondary" className="w-full justify-between!">
                 <SubjectChip subject={s.subject} size="S" label={t.common.subject[s.subject]} />
                 <span className="text-body text-fg-muted">{s.status === 'in_progress' ? copy.carryOn : t.common.start}</span>
               </ButtonLink>
@@ -139,7 +139,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
             {error}
           </p>
         ) : null}
-        <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center md:mt-4">
           <Button onClick={() => (playSfx('tap'), setIntro(false))} iconAfter="arrow-right">
             {t.common.start}
           </Button>
