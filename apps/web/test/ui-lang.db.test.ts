@@ -68,7 +68,7 @@ describe.skipIf(!ready)('bahasa tampilan anak', () => {
   it('orang tua mengubah bahasa anaknya, dan pembacaan DTO mengikuti', async () => {
     await P.parentSaveUiLang(parentA(), { learnerId: a1, uiLang: 'en', uiLangSwitch: true })
     expect(await langOf(a1)).toEqual({ ui_lang: 'en', ui_lang_switch: true })
-    expect((await A.learnerUiPrefs([a1], orgA)).get(a1)).toEqual({ uiLang: 'en', uiLangSwitch: true })
+    expect((await A.learnerUiPrefs([a1], orgA)).get(a1)).toEqual({ uiLang: 'en', uiLangSwitch: true, explainIdFirst: false })
     const audit = await owner`select action from audit_log where org_id = ${orgA} and action = 'parent.uilang'`
     expect(audit.length).toBeGreaterThan(0)
     await P.parentSaveUiLang(parentA(), { learnerId: a1, uiLang: 'id', uiLangSwitch: false })

@@ -67,7 +67,7 @@ export const userAccount = auth.table(
     uiLang: text('ui_lang', { enum: ['id', 'en'] }).notNull().default('id'),
     /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
     uiLangSwitch: boolean('ui_lang_switch').notNull().default(false),
-    /** Penjelasan tampil dalam bahasa Indonesia lebih dulu (migrasi 0033). Bawaan: bahasa Inggris dulu, satu ketukan ke Indonesia. */
+    /** Penjelasan tampil dalam bahasa Indonesia lebih dulu (migrasi 0034). Bawaan: bahasa Inggris dulu, satu ketukan ke Indonesia. */
     explainIdFirst: boolean('explain_id_first').notNull().default(false),
     /** Email kabar produk: opsional, bawaan tidak berlangganan. Waktu setuju tetap disimpan sebagai bukti setelah berhenti. */
     marketingOptIn: boolean('marketing_opt_in').notNull().default(false),
