@@ -33,13 +33,13 @@ function glue<P extends { text: string; word: boolean; hit: unknown; pre: string
   out.forEach((p, i) => {
     if (!p.hit) return
     const next = out[i + 1]
-    const after = next && !next.word ? /^[^sp{L}p{N}]+/u.exec(next.text) : null
+    const after = next && !next.word ? /^[^\s\p{L}\p{N}]+/u.exec(next.text) : null
     if (next && after) {
       p.post = after[0]
       next.text = next.text.slice(after[0].length)
     }
     const prev = out[i - 1]
-    const before = prev && !prev.word ? /[^sp{L}p{N}]+$/u.exec(prev.text) : null
+    const before = prev && !prev.word ? /[^\s\p{L}\p{N}]+$/u.exec(prev.text) : null
     if (prev && before) {
       p.pre = before[0]
       prev.text = prev.text.slice(0, -before[0].length)
