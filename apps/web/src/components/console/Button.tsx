@@ -23,7 +23,7 @@ const SIZE: Record<ButtonSize, string> = {
   S: 'h-9 min-h-9 px-4 text-small',
 }
 
-const DISABLED = 'disabled:border-0 disabled:bg-lavender disabled:text-fg/55 aria-disabled:border-0 aria-disabled:bg-lavender aria-disabled:text-fg/55 aria-disabled:hover:text-fg/55'
+const DISABLED = 'disabled:border-0 disabled:bg-disabled disabled:text-disabled-fg aria-disabled:border-0 aria-disabled:bg-disabled aria-disabled:text-disabled-fg aria-disabled:hover:text-disabled-fg'
 
 const DANGER_TONE: Partial<Record<ButtonVariant, string>> = {
   secondary: 'border-2 border-danger bg-surface text-danger hover:text-danger ' + DISABLED,
