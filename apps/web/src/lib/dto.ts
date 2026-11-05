@@ -7,7 +7,8 @@ import type { FeatureMap } from '@kira/core/features'
  */
 
 import type { ClientItem } from '@kira/content/present'
-import type { LessonStep, SolutionStep } from '@kira/content/schema'
+import type { LessonStep } from '@kira/content/schema'
+import type { SolutionStepView } from '@kira/content/walkthrough'
 import type { FigureSpec } from '@kira/figures/spec'
 import type { AccessoryId } from '@kira/core'
 import type { AccessoryDTO, ArenaTutorDTO, XpTrackDTO } from './dto-arena'
@@ -219,8 +220,8 @@ export type AnswerResult = {
   /** Untuk mode tanpa umpan balik, status disembunyikan menjadi 'answered'. */
 }
 
-export type SolutionStepDTO = SolutionStep
-export type RemedialLessonDTO = { title: string; steps: SolutionStep[] }
+export type SolutionStepDTO = SolutionStepView
+export type RemedialLessonDTO = { title: string; steps: SolutionStepView[] }
 
 export type RunnerActions = {
   saveAnswer(p: AnswerPayload): Promise<ActionResult<AnswerResult>>
@@ -230,7 +231,7 @@ export type RunnerActions = {
   remedialLesson?(input: { attemptId: string; position: number }): Promise<ActionResult<{ lesson: RemedialLessonDTO | null }>>
   addRemedialItem?(input: { attemptId: string; position: number }): Promise<ActionResult<{ item: RunnerItem | null }>>
   /** Pembahasan bergerak satu soal, dimuat malas. */
-  walkthrough?(input: { attemptId: string; position: number }): Promise<ActionResult<{ steps: SolutionStep[] | null }>>
+  walkthrough?(input: { attemptId: string; position: number }): Promise<ActionResult<{ steps: SolutionStepView[] | null }>>
 }
 
 // ---------------------------------------------------------------------------
@@ -307,9 +308,13 @@ export type ReviewQuestionDTO = {
   correctAnswerText: string
   status: 'correct' | 'wrong' | 'blank' | 'pending'
   explanation: string
+  /** Terjemahan bahasa Indonesia, null bila belum ada. */
+  explanationId: string | null
   whyYourAnswer: string | null
+  whyYourAnswerId: string | null
   tip: string | null
-  solution: SolutionStep[] | null
+  tipId: string | null
+  solution: SolutionStepView[] | null
   tutorFeedback: string | null
   similarHref: string | null
 }
@@ -402,7 +407,7 @@ export type LessonDTO = {
   subject: Subject
   title: string
   meta: string
-  steps: LessonStep[]
+  steps: (LessonStep & { sayId?: string })[]
   check: ClientItem[]
   practiseHref: string
   backHref: string

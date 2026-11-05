@@ -303,17 +303,17 @@ export async function createLearnerAccount(ctx: { orgId: string; userId: string 
   return id
 }
 
-export async function learnerUiPrefs(userIds: string[], orgId: string): Promise<Map<string, { uiLang: UiLang; uiLangSwitch: boolean }>> {
+export async function learnerUiPrefs(userIds: string[], orgId: string): Promise<Map<string, { uiLang: UiLang; uiLangSwitch: boolean; explainIdFirst: boolean }>> {
   const rows = userIds.length
     ? await authDb()
-        .select({ id: userAccount.id, uiLang: userAccount.uiLang, uiLangSwitch: userAccount.uiLangSwitch })
+        .select({ id: userAccount.id, uiLang: userAccount.uiLang, uiLangSwitch: userAccount.uiLangSwitch, explainIdFirst: userAccount.explainIdFirst })
         .from(userAccount)
         .where(and(inArray(userAccount.id, userIds), eq(userAccount.orgId, orgId), eq(userAccount.kind, 'learner')))
     : []
-  return new Map(rows.map((r) => [r.id, { uiLang: r.uiLang, uiLangSwitch: r.uiLangSwitch }]))
+  return new Map(rows.map((r) => [r.id, { uiLang: r.uiLang, uiLangSwitch: r.uiLangSwitch, explainIdFirst: r.explainIdFirst }]))
 }
 
-export async function setLearnerUiPrefs(userId: string, orgId: string, prefs: { uiLang?: UiLang; uiLangSwitch?: boolean }): Promise<void> {
+export async function setLearnerUiPrefs(userId: string, orgId: string, prefs: { uiLang?: UiLang; uiLangSwitch?: boolean; explainIdFirst?: boolean }): Promise<void> {
   await authDb()
     .update(userAccount)
     .set(prefs)

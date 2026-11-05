@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState, type ReactElement } from 'rea
 import { checkAnswer } from '@kira/content/check'
 import { TTS_EXAMINER_INTRO } from '@kira/core/tts'
 import { answerXp } from '@kira/core'
-import type { SolutionStep } from '@kira/content/schema'
+import type { SolutionStepView } from '@kira/content/walkthrough'
 import type { RemedialLessonDTO, RunnerActions, RunnerDTO, RunnerItem, SegmentState } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/ui/Button'
 import type { FigureSpec } from '@kira/figures'
@@ -88,7 +88,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   // Putaran perbaikan (hanya Latihan): per nomor soal yang salah.
   const [rem, setRem] = useState<Record<number, Rem>>({})
   // Pembahasan bergerak dimuat malas per soal.
-  const [walk, setWalk] = useState<Record<number, SolutionStep[] | 'loading' | null>>({})
+  const [walk, setWalk] = useState<Record<number, SolutionStepView[] | 'loading' | null>>({})
   const [index, setIndex] = useState(() => {
     const st = initState(data, sortedItems(data))
     const first = st.findIndex((s) => !DONE.includes(s.phase))
@@ -489,8 +489,9 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               hintsUsed={st.hintsUsed}
               secondTry={st.attemptNo > 1}
               explanation={item.reveal?.explanation}
+              explanationId={item.reveal?.explanationId}
               answerText={item.reveal?.answerText}
-              solution={item.reveal?.solution ?? (Array.isArray(walk[item.position]) ? (walk[item.position] as SolutionStep[]) : null)}
+              solution={item.reveal?.solution ?? (Array.isArray(walk[item.position]) ? (walk[item.position] as SolutionStepView[]) : null)}
               hasSolution={Boolean(item.reveal?.hasSolution)}
               onLoadSolution={() => void loadWalk(item.position)}
               hint={st.phase === 'not-yet' && st.hintsUsed > 0 && hints[st.hintsUsed - 1] ? { label: t.runner.hints.of(st.hintsUsed, hints.length), text: hints[st.hintsUsed - 1] ?? '' } : null}

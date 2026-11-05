@@ -3,11 +3,13 @@
 import dynamic from 'next/dynamic'
 import { Fragment, useEffect, useRef, useState, type ReactElement } from 'react'
 import type { SolutionStep } from '@kira/content/schema'
+import type { SolutionStepView } from '@kira/content/walkthrough'
 import { Figure, type FigureSpec } from '@kira/figures'
 import type { Subject } from '@/lib/dto'
 import { Button, IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { useT } from '@/lib/i18n/client'
+import { TranslateToggle, useExplainLang, useIdClipsReady } from './explain-lang'
 import { useReducedMotion } from './hooks'
 import { useSpeech, type SpeechLang } from './speech'
 import { SUBJECT_STYLE } from './subject'
@@ -86,7 +88,7 @@ export function SolutionPlayer({
   prompt,
   onFinished,
 }: {
-  steps: SolutionStep[]
+  steps: SolutionStepView[]
   /** Figur soal, dipakai untuk langkah yang tidak membawa figur sendiri. */
   figure?: FigureSpec
   subject: Subject
@@ -110,15 +112,25 @@ export function SolutionPlayer({
   const [sound, setSound] = useState(narrate)
   const speech = useSpeech(lang)
   const speechRef = useRef(speech)
+  const speechId = useSpeech('id')
+  const speechIdRef = useRef(speechId)
   const finishedRef = useRef(onFinished)
   useEffect(() => {
     speechRef.current = speech
+    speechIdRef.current = speechId
     finishedRef.current = onFinished
   })
   const total = steps.length
   const current = steps[Math.min(step, Math.max(0, total - 1))]
   const style = SUBJECT_STYLE[subject]
-  const canSpeak = lang === 'en-GB' && speech.status !== 'unavailable'
+  const explain = useExplainLang()
+  const translatedKey = steps.flatMap((s) => (s.sayId ? [s.sayId] : [])).join('\n')
+  const translated = translatedKey ? translatedKey.split('\n') : []
+  const showId = explain.on && translated.length > 0
+  const idReady = useIdClipsReady(showId ? translated : [])
+  // Suara mengikuti bahasa teks yang tampil. Teks Indonesia tanpa klip: diam, tombol suaranya tidak tampil.
+  const idLine = showId ? current?.sayId : undefined
+  const canSpeak = showId ? idReady : lang === 'en-GB' && speech.status !== 'unavailable'
 
   useEffect(() => {
     if (total > 0 && step >= total - 1) finishedRef.current?.()
@@ -134,7 +146,11 @@ export function SolutionPlayer({
       if (step >= total - 1) setPlaying(false)
       else setStep(step + 1)
     }
-    if (sound && canSpeak && current) {
+    if (sound && canSpeak && current && idLine) {
+      speechIdRef.current.speak(idLine, () => {
+        timer = window.setTimeout(advance, 700)
+      })
+    } else if (sound && canSpeak && current) {
       speechRef.current.speak(
         current.say,
         () => {
@@ -149,7 +165,7 @@ export function SolutionPlayer({
       cancelled = true
       window.clearTimeout(timer)
     }
-  }, [playing, step, reduced, sound, canSpeak, total, current])
+  }, [playing, step, reduced, sound, canSpeak, total, current, idLine])
 
   useEffect(() => {
     if (!playing) speechRef.current.stop()
@@ -194,8 +210,8 @@ export function SolutionPlayer({
           <span className="absolute top-2.5 left-2.5 inline-flex h-7 items-center rounded-pill bg-fg px-2.5 text-body font-bold text-white">{t.paused}</span>
         ) : null}
       </div>
-      <p aria-live="polite" lang={lang} className="m-0 bg-fg px-4 py-3 font-reading text-h3 text-white">
-        {current.say}
+      <p aria-live="polite" lang={idLine ? 'id' : lang} className="m-0 bg-fg px-4 py-3 font-reading text-h3 text-white">
+        {idLine ?? current.say}
       </p>
       <div className="flex flex-col gap-2.5 p-3">
         <div className="flex flex-wrap items-center gap-2">
@@ -244,6 +260,7 @@ export function SolutionPlayer({
             </>
           )}
         </div>
+        <TranslateToggle available={translated.length > 0 && lang !== 'id'} className="self-start" />
         <div className="flex items-center justify-between text-body font-bold">
           <span className="tabular-nums">{t.stepOf(step + 1, total)}</span>
           <span className="font-semibold text-fg-muted">{reduced ? (atEnd ? t.lastStep : t.tapNext) : playing ? t.playing : t.tapPlay}</span>

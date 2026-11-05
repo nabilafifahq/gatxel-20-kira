@@ -8,6 +8,7 @@ import { dictionaryWordClips } from '@kira/core/dictionary'
 import { loadFlashcards } from '@kira/content/flashcards'
 import { CARDS, STORY } from '@kira/core'
 import { clipTextsOf, TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
+import { collectSourceTexts, loadTranslations, lookupTranslation, type SourceText } from '@kira/content/translations'
 
 /**
  * Kumpulkan semua teks bahasa Inggris yang dibacakan layar learner, dengan gaya yang sama persis
@@ -16,6 +17,32 @@ import { clipTextsOf, TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsC
  */
 
 export const itemClips = (item: Item): TtsClipRequest[] => itemSpeechClips(item)
+
+/**
+ * Klip suara Indonesia dari terjemahan penjelasan. Peran selalu `indonesian`, dan hanya teks hasil terjemahan yang masuk, jadi teks
+ * Inggris tidak pernah sampai ke suara Indonesia. Dipisah dari repoClips: set Inggris tidak ikut berubah. Urutan: jenis yang diminta dulu.
+ */
+export function translationClips(dir: string = findContentDir(), kinds: readonly SourceText['kind'][] = ['lesson', 'explanation', 'solution', 'tip', 'why']): TtsClipRequest[] {
+  const { map } = loadTranslations(dir)
+  const sources = collectSourceTexts(dir, new Set(kinds))
+  const seen = new Set<string>()
+  const out: TtsClipRequest[] = []
+  for (const kind of kinds) {
+    for (const f of sources) {
+      for (const t of f.texts) {
+        if (t.kind !== kind) continue
+        const id = lookupTranslation(map, t.en)
+        if (!id) continue
+        for (const text of clipTextsOf([id])) {
+          if (seen.has(text)) continue
+          seen.add(text)
+          out.push({ text, style: 'indonesian' })
+        }
+      }
+    }
+  }
+  return out
+}
 
 /** Klip dari konten repo, berurutan: English dulu, lalu Science, lalu Math, tiap mapel dari kelas rendah. */
 export function repoClips(index: ContentIndex): TtsClipRequest[] {

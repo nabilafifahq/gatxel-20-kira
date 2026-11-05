@@ -21,6 +21,7 @@
     "tts:generate": "tsx apps/worker/scripts/tts-generate.ts",
     "tts:samples": "tsx apps/worker/scripts/tts-samples.ts",
     "tts:promote": "tsx apps/worker/scripts/tts-promote.ts",
+    "tts:generate-id": "tsx apps/worker/scripts/tts-generate-id.ts",
     "content:generators": "tsx packages/content/scripts/generator-audit.ts",
     "content:check": "tsx packages/content/scripts/check.ts && node scripts/audit-duplicates.mjs",
     "db:generate": "drizzle-kit generate --config packages/db/drizzle.config.ts",

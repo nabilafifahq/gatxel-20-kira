@@ -26,6 +26,8 @@ export type SessionInfo = {
   uiLang?: UiLang
   /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
   uiLangSwitch?: boolean
+  /** Orang tua memilih penjelasan tampil dalam bahasa Indonesia lebih dulu. */
+  explainIdFirst?: boolean
 }
 
 /**
@@ -149,6 +151,7 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
       email: userAccount.email,
       uiLang: userAccount.uiLang,
       uiLangSwitch: userAccount.uiLangSwitch,
+      explainIdFirst: userAccount.explainIdFirst,
     })
     .from(session)
     .innerJoin(userAccount, eq(session.userId, userAccount.id))
@@ -183,6 +186,7 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
     createdAt: row.createdAt,
     uiLang: row.uiLang,
     uiLangSwitch: row.uiLangSwitch,
+    explainIdFirst: row.explainIdFirst,
   }
   await cachePut(id, { info: { ...info, createdAt: info.createdAt.toISOString() }, expiresAt: row.expiresAt.getTime(), lastSeenAt: Math.max(row.lastSeenAt.getTime(), now) })
   return info

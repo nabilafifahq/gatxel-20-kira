@@ -181,9 +181,10 @@ export async function parentEditChild(actor: Actor, input: { learnerId: string; 
  * KIRA_MAX_LEARNERS_PER_FAMILY, kunci per org, preset Seimbang, dan persetujuan orang tua yang wajib dicentang.
  */
 /** Bahasa tampilan anak dan izin anak menggantinya sendiri. Sesi anak membacanya lagi di request berikutnya. */
-export async function parentSaveUiLang(actor: Actor, input: { learnerId: string; uiLang: UiLang; uiLangSwitch: boolean }): Promise<void> {
-  await ownChild(actor, input.learnerId, 'uilang', { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch }, async () => undefined)
-  await setLearnerUiPrefs(input.learnerId, actor.orgId, { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch })
+export async function parentSaveUiLang(actor: Actor, input: { learnerId: string; uiLang: UiLang; uiLangSwitch: boolean; explainIdFirst?: boolean | undefined }): Promise<void> {
+  const explain = input.explainIdFirst === undefined ? {} : { explainIdFirst: input.explainIdFirst }
+  await ownChild(actor, input.learnerId, 'uilang', { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch, ...explain }, async () => undefined)
+  await setLearnerUiPrefs(input.learnerId, actor.orgId, { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch, ...explain })
 }
 
 export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang; guardianConsent: boolean }): Promise<{ learnerId: string }> {

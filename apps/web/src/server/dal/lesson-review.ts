@@ -12,6 +12,7 @@ import { featureMapFor } from './learner-features'
 import { learnerShell, loadLearner, QUICK_REVIEW_PREFIX } from './learner-core'
 import { buildQuestItems, learnerLang } from './learner-session'
 import { guardPracticeRefs } from './practice-guard'
+import { idText } from './translations'
 
 const { skillState, attempt } = tables
 
@@ -26,7 +27,7 @@ export type ReviewDTO = {
   skillId: string
   subject: Subject
   title: string
-  steps: { say: string; show: string | null }[]
+  steps: { say: string; sayId: string | null; show: string | null }[]
   lessonHref: string
 }
 
@@ -77,7 +78,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, skillId: string): Pro
     skillId,
     subject: sk.subject,
     title: l.title,
-    steps: coreSteps(l.steps).map((s) => ({ say: s.say, show: s.show ?? null })),
+    steps: coreSteps(l.steps).map((s) => ({ say: s.say, sayId: idText(s.say), show: s.show ?? null })),
     lessonHref: `/lesson/${skillId}`,
   }
 }

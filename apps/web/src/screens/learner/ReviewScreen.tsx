@@ -7,6 +7,7 @@ import { Button, ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { FigureFrame } from '@/components/learner/FigureFrame'
+import { TranslateToggle, useExplainLang } from '@/components/learner/explain-lang'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { SolutionPlayer } from '@/components/learner/SolutionPlayer'
@@ -90,6 +91,13 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
   const key = splitAnswer(q.correctAnswerText, q)
   const player = q.solution && q.solution.length > 0 ? q.solution : null
   const showFigure = !player && q.item.figure
+  const explain = useExplainLang()
+  const anyId = Boolean(q.explanationId || q.whyYourAnswerId || q.tipId)
+  const pick = (en: string | null, id: string | null): { text: string | null; lang: string } => (explain.on && id ? { text: id, lang: 'id' } : { text: en, lang: q.item.lang })
+  const whyText = pick(q.whyYourAnswer, q.whyYourAnswerId)
+  const howText = pick(q.explanation, q.explanationId)
+  const tipText = pick(q.tip, q.tipId)
+  const idParts = explain.on ? [ok ? null : q.whyYourAnswerId, q.explanationId].flatMap((t) => (t ? [t] : [])) : []
   return (
     <section aria-labelledby={`review-q-${q.position}`} className="flex min-w-0 flex-1 flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-7">
       <div className="flex items-start gap-3.5">
@@ -132,13 +140,19 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
           {!ok && q.whyYourAnswer ? (
             <div className="flex flex-col gap-1">
               <h3 className="m-0 text-body-lg font-bold">{copy.whyNot(yours.text)}</h3>
-              <p lang={q.item.lang} className="m-0 font-reading text-body-lg">{q.whyYourAnswer}</p>
+              <p lang={whyText.lang} className="m-0 font-reading text-body-lg">{whyText.text}</p>
             </div>
           ) : null}
           {q.explanation ? (
             <div className="flex flex-col gap-1">
               <h3 className="m-0 text-body-lg font-bold">{copy.howToSolve}</h3>
-              <p lang={q.item.lang} className="m-0 font-reading text-body-lg">{q.explanation}</p>
+              <p lang={howText.lang} className="m-0 font-reading text-body-lg">{howText.text}</p>
+            </div>
+          ) : null}
+          {anyId ? (
+            <div className="flex flex-wrap items-center gap-2.5">
+              <TranslateToggle available />
+              {idParts.length > 0 ? <ReadAloudButton text={idParts} lang="id" subject={data.subject} showNote={false} /> : null}
             </div>
           ) : null}
           {q.tip ? (
@@ -146,7 +160,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
               <UiIcon name="hint" size={22} className="mt-0.5 flex-none" />
               <div className="flex flex-col">
                 <span className="text-body font-bold">{copy.tip}</span>
-                <span lang={q.item.lang} className="text-body">{q.tip}</span>
+                <span lang={tipText.lang} className="text-body">{tipText.text}</span>
               </div>
             </div>
           ) : null}

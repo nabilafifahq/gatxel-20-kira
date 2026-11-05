@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import { stat } from 'node:fs/promises'
 import { join } from 'node:path'
-import { isTtsKey, isVoiceVersion, ttsKeyInput, TTS_SERVED_VERSION_FILE, TTS_VOICE_VERSION, type TtsStyleId } from '@kira/core/tts'
+import { isTtsKey, isVoiceVersion, ttsKeyInput, TTS_ID_SERVED_VERSION_FILE, TTS_SERVED_VERSION_FILE, TTS_VOICE_VERSION, type TtsStyleId } from '@kira/core/tts'
 import { env } from './env'
 import type { ClipFile } from './tts-serve'
 
@@ -44,6 +44,23 @@ export function servedVoiceVersion(): string {
     // belum ada penunjuk
   }
   served = { at: now, v }
+  return v
+}
+
+let servedId: { at: number; v: string | null } | null = null
+
+/** Versi suara Indonesia yang disajikan, atau null bila belum dipromosikan. Tidak bergantung pada penunjuk bahasa Inggris. */
+export function servedIdVoiceVersion(): string | null {
+  const now = Date.now()
+  if (servedId && now - servedId.at < 5000) return servedId.v
+  let v: string | null = null
+  try {
+    const raw = readFileSync(join(env().KIRA_DATA_DIR, 'tts', TTS_ID_SERVED_VERSION_FILE), 'utf8').trim()
+    if (isVoiceVersion(raw)) v = raw
+  } catch {
+    // belum dipromosikan
+  }
+  servedId = { at: now, v }
   return v
 }
 

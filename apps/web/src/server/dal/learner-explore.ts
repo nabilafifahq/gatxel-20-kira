@@ -17,6 +17,7 @@ import { badgesOf, learnerShell, loadLearner, lockLearnerScope, skillStates, str
 import { assertFeatureOnTx } from './learner-features'
 import { completeLinkedSession } from './learner-session'
 import { buildQuestItems, SUBJECT_ORDER } from './learner-today'
+import { withSayId } from './translations'
 
 const { reviewCard, attempt, skillState, quest } = tables
 
@@ -229,7 +230,7 @@ export async function lessonDTO(tx: Tx, learnerId: string, skillId: string, then
     subject: sk.subject,
     title: l.title,
     meta: dictFor(lang).shell.lessonMeta(strandName(sk.strand), minutes),
-    steps: l.steps,
+    steps: l.steps.map(withSayId),
     check: l.check.map((c) => toClient(c, { ref: c.id, seed: `${learnerId}:${skillId}`, includeKey: true, includeHints: true })),
     practiseHref: then && then.startsWith('/run/') ? then : `/practice/${skillId}`,
     backHref: then && then.startsWith('/run/') ? then : '/map',

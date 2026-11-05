@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getActor } from '@/server/auth/actor'
 import { throttleResponse } from '@/server/auth/ratelimit'
-import { clipsServed, servedVoiceVersion } from '@/server/tts'
+import { clipsServed, servedIdVoiceVersion, servedVoiceVersion } from '@/server/tts'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,5 +14,5 @@ export async function GET() {
   if (!actor) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
   const limited = await throttleResponse('tts-today', 120, actor.userId)
   if (limited) return limited
-  return NextResponse.json({ enabled: clipsServed(), urls: [], voiceVersion: servedVoiceVersion() }, { headers: { 'Cache-Control': 'no-store' } })
+  return NextResponse.json({ enabled: clipsServed(), urls: [], voiceVersion: servedVoiceVersion(), idVoiceVersion: servedIdVoiceVersion() }, { headers: { 'Cache-Control': 'no-store' } })
 }

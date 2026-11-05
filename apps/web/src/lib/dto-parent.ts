@@ -124,6 +124,7 @@ export type ParentChildDTO = {
     soundEnabled: boolean
     uiLang: UiLang
     uiLangSwitch: boolean
+    explainIdFirst: boolean
     musicEnabled: boolean
     dayPreset: DayPresetId
     features: FeatureMap

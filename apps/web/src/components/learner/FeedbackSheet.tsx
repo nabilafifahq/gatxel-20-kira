@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, type ReactElement, type ReactNode } from 'react'
-import type { SolutionStep } from '@kira/content/schema'
+import type { SolutionStepView } from '@kira/content/walkthrough'
 import type { FigureSpec } from '@kira/figures'
 import type { RemedialLessonDTO, Subject } from '@/lib/dto'
 import { Button } from '@/components/ui/Button'
@@ -10,6 +10,8 @@ import { Dialog } from '@/components/ui/Dialog'
 import { UiIcon } from '@/components/ui/icons'
 import { KiraStar } from '@/components/ui/KiraStar'
 import { useT } from '@/lib/i18n/client'
+import { TranslateToggle, useExplainLang } from './explain-lang'
+import { ReadAloudButton } from './ReadAloudButton'
 import { SolutionPlayer } from './SolutionPlayer'
 import type { SpeechLang } from './speech'
 import { XpPill } from './XpPill'
@@ -52,6 +54,7 @@ export function FeedbackSheet({
   hintsUsed = 0,
   secondTry = false,
   explanation,
+  explanationId,
   hint,
   onShowHint,
   showHintLabel,
@@ -75,13 +78,15 @@ export function FeedbackSheet({
   hintsUsed?: number
   secondTry?: boolean
   explanation?: string
+  /** Terjemahan penjelasan. Hanya ada bila penjelasannya memang sudah sampai di perangkat. */
+  explanationId?: string | undefined
   /** Hint yang sudah dibuka untuk ditampilkan di lembar not-yet. */
   hint?: { label: string; text: string } | null
   /** Tawarkan hint berikutnya tanpa membukanya otomatis. */
   onShowHint?: () => void
   showHintLabel?: string
   answerText?: string
-  solution?: SolutionStep[] | null
+  solution?: SolutionStepView[] | null
   /** Kalimat simpan offline, misalnya "Saved on this tablet. It will sync when you are back online." */
   savedLine?: string | null
   primary: Action
@@ -107,6 +112,16 @@ export function FeedbackSheet({
   const good = kind === 'correct' || kind === 'sent' || kind === 'saved'
   const dict = useT()
   const t = dict.runner.feedback
+  const explain = useExplainLang()
+  const showId = explain.on && Boolean(explanationId)
+  const shownExplanation = showId ? explanationId : explanation
+  const explanationLang = showId ? 'id' : contentLang
+  const translateRow = explanationId ? (
+    <div className="flex flex-wrap items-center gap-2.5">
+      <TranslateToggle available />
+      {showId ? <ReadAloudButton text={explanationId} lang="id" subject={subject} showNote={false} /> : null}
+    </div>
+  ) : null
 
   let title: ReactNode = dict.runner.correct
   if (kind === 'not-yet' || kind === 'revealed') title = dict.runner.notYet
@@ -159,14 +174,16 @@ export function FeedbackSheet({
         </div>
       ) : null}
 
-      {kind === 'correct' && explanation ? <p lang={contentLang} className="m-0 font-reading text-h3">{explanation}</p> : null}
+      {kind === 'correct' && explanation ? <p lang={explanationLang} className="m-0 font-reading text-h3">{shownExplanation}</p> : null}
+      {kind === 'correct' && explanation ? translateRow : null}
 
       {kind === 'revealed' && explanation ? (
         <div className={cx('flex flex-col gap-0.5 rounded-control px-4 py-3.5', 'bg-lavender')}>
           <div className="text-body font-bold">{t.howToSolve}</div>
-          <p lang={contentLang} className="m-0 font-reading text-h3">{explanation}</p>
+          <p lang={explanationLang} className="m-0 font-reading text-h3">{shownExplanation}</p>
         </div>
       ) : null}
+      {kind === 'revealed' && explanation ? translateRow : null}
 
       {kind === 'revealed' && fixItNote ? (
         <p className="m-0 rounded-control bg-bg px-4 py-3 text-body font-semibold">{t.fixItNote}</p>

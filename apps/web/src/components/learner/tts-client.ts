@@ -1,4 +1,4 @@
-import { isClipText, isVoiceVersion, splitClipText, ttsKeyInput, TTS_VOICE_VERSION, type TtsClipRequest, type TtsStyleId } from '@kira/core/tts'
+import { isClipText, isVoiceVersion, splitClipText, ttsKeyInput, TTS_DEFAULT_STYLE, TTS_VOICE_VERSION, type TtsClipRequest, type TtsStyleId } from '@kira/core/tts'
 
 /**
  * Sisi browser suara bahasa Inggris (Kokoro). Teks dipecah menjadi klip dengan aturan yang sama dengan
@@ -7,16 +7,18 @@ import { isClipText, isVoiceVersion, splitClipText, ttsKeyInput, TTS_VOICE_VERSI
  * Semua fungsi di sini tidak pernah melempar: kegagalan berarti pembaca memakai suara bawaan perangkat.
  */
 
-export type TtsStatus = { enabled: boolean; urls: string[]; voiceVersion?: string }
+export type TtsStatus = { enabled: boolean; urls: string[]; voiceVersion?: string; /** Versi suara Indonesia yang disajikan. Null: tidak ada suara Indonesia. */ idVoiceVersion?: string | null }
 
 /** Versi suara yang disajikan server. Diisi dari ttsStatus; kunci klip memakainya. Hanya satu suara pada satu waktu. */
 let voiceVersion = TTS_VOICE_VERSION
+/** Versi suara Indonesia, berdiri sendiri dari versi Inggris. */
+let idVoiceVersion: string | null = null
 
 const STATUS_KEY = 'kira.tts.status'
 
 function rememberStatus(s: TtsStatus): void {
   try {
-    localStorage.setItem(STATUS_KEY, JSON.stringify({ enabled: s.enabled, voiceVersion: s.voiceVersion }))
+    localStorage.setItem(STATUS_KEY, JSON.stringify({ enabled: s.enabled, voiceVersion: s.voiceVersion, idVoiceVersion: s.idVoiceVersion ?? null }))
   } catch {
     // tanpa penyimpanan: saat offline tombol suara mati
   }
@@ -24,9 +26,9 @@ function rememberStatus(s: TtsStatus): void {
 
 function lastStatus(): TtsStatus | null {
   try {
-    const v = JSON.parse(localStorage.getItem(STATUS_KEY) ?? 'null') as { enabled?: unknown; voiceVersion?: unknown } | null
+    const v = JSON.parse(localStorage.getItem(STATUS_KEY) ?? 'null') as { enabled?: unknown; voiceVersion?: unknown; idVoiceVersion?: unknown } | null
     if (!v || typeof v.enabled !== 'boolean' || !isVoiceVersion(v.voiceVersion)) return null
-    return { enabled: v.enabled, urls: [], voiceVersion: v.voiceVersion }
+    return { enabled: v.enabled, urls: [], voiceVersion: v.voiceVersion, idVoiceVersion: isVoiceVersion(v.idVoiceVersion) ? v.idVoiceVersion : null }
   } catch {
     return null
   }
@@ -44,6 +46,7 @@ export function ttsStatus(): Promise<TtsStatus | null> {
     .then((r) => (r.ok ? (r.json() as Promise<TtsStatus>) : null))
     .then((s) => {
       if (s && isVoiceVersion(s.voiceVersion)) voiceVersion = s.voiceVersion
+      if (s) idVoiceVersion = isVoiceVersion(s.idVoiceVersion) ? s.idVoiceVersion : null
       if (s) rememberStatus(s)
       return s
     })
@@ -57,6 +60,7 @@ export function ttsStatus(): Promise<TtsStatus | null> {
     if (v) return v
     const last = lastStatus()
     if (last?.voiceVersion) voiceVersion = last.voiceVersion
+    if (last) idVoiceVersion = last.idVoiceVersion ?? null
     return last
   })
   statusPromise = p
@@ -74,12 +78,24 @@ export function clipPlan(input: string | readonly SpeechPart[], style: TtsStyleI
     .filter((c) => isClipText(c.text))
 }
 
+/**
+ * Rencana klip menurut bahasa teks yang tampil. Inilah satu-satunya tempat suara ditentukan: teks Indonesia selalu peran
+ * `indonesian`, teks Inggris tidak pernah. Jadi bahasa Indonesia tidak pernah dibacakan suara Inggris, dan sebaliknya.
+ */
+export function planForLang(input: string | readonly SpeechPart[], lang: 'en-GB' | 'id', style: TtsStyleId): TtsClipRequest[] {
+  if (lang === 'id') return clipPlan(input, 'indonesian').map((c) => ({ text: c.text, style: 'indonesian' as const }))
+  const safe = style === 'indonesian' ? TTS_DEFAULT_STYLE : style
+  return clipPlan(input, safe).map((c) => (c.style === 'indonesian' ? { text: c.text, style: TTS_DEFAULT_STYLE } : c))
+}
+
 /** Kunci klip (sha256 hex), atau null bila SubtleCrypto tidak tersedia (alamat http biasa). */
 export async function clipKey(text: string, style: TtsStyleId): Promise<string | null> {
   try {
     const subtle = globalThis.crypto?.subtle
     if (!subtle) return null
-    const digest = await subtle.digest('SHA-256', new TextEncoder().encode(ttsKeyInput(text, style, voiceVersion)))
+    const version = style === 'indonesian' ? idVoiceVersion : voiceVersion
+    if (!version) return null
+    const digest = await subtle.digest('SHA-256', new TextEncoder().encode(ttsKeyInput(text, style, version)))
     return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
   } catch {
     return null
@@ -155,7 +171,7 @@ export function preloadClips(input: string | readonly SpeechPart[], style: TtsSt
   if (plan.length === 0) return Promise.resolve('skipped')
   return ttsStatus()
     .then(async (s): Promise<PreloadResult> => {
-      if (!s?.enabled) return 'skipped'
+      if (style === 'indonesian' ? !s?.idVoiceVersion : !s?.enabled) return 'skipped'
       const set = await fetchClips(plan)
       return set.failed ? 'failed' : set.missing.length > 0 ? 'missing' : 'ready'
     })
@@ -167,6 +183,8 @@ const requested = new Set<string>()
 /** Minta worker membuat klip yang belum ada. Satu teks hanya diminta sekali per halaman; hasilnya tidak ditunggu. */
 export function requestClips(clips: TtsClipRequest[]): void {
   const fresh = clips.filter((c) => {
+    // Klip Indonesia dibuat lewat set yang sudah diperiksa, bukan sesuai permintaan.
+    if (c.style === 'indonesian') return false
     const k = ttsKeyInput(c.text, c.style)
     if (requested.has(k)) return false
     requested.add(k)
