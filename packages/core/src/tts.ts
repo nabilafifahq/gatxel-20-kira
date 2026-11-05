@@ -89,6 +89,8 @@ export function ttsKeyFromFile(name: string): string | null {
  * Angka di layar mengikuti soal berbahasa Inggris (1,000 dan 3.5), tetapi suara Indonesia membaca koma sebagai pemisah desimal,
  * jadi bentuk itu diucapkan sebagai 1000 dan 3 koma 5. Lambang hitung ditulis sebagai katanya. Mengubah fungsi ini berarti menaikkan TTS_ID_VOICE_VERSION.
  */
+const UNIT_ID: Record<string, string> = { cm: 'sentimeter', m: 'meter', km: 'kilometer', mm: 'milimeter' }
+
 export function spokenIndonesian(text: string): string {
   return normalizeTtsText(text)
     .replace(/(\d)[,.](\d{3})(?=\D|$)/g, '$1$2')
@@ -102,7 +104,10 @@ export function spokenIndonesian(text: string): string {
     .replace(/\s*=\s*/g, ' sama dengan ')
     .replace(/(?<=\d|\s)\s*[−]\s*(?=\d)|(?<=\d)\s+-\s+(?=\d)/g, ' kurang ')
     .replace(/_{3,}/g, 'kosong')
+    .replace(/(^|[\s(])[-−](?=\d)/g, '$1minus ')
     .replace(/°\s*C\b/g, ' derajat Celsius')
+    .replace(/(\d)\s*(cm|m|km|mm)²/g, (_, d: string, u: string) => `${d} ${UNIT_ID[u]} persegi`)
+    .replace(/(\d)\s*(cm|m)³/g, (_, d: string, u: string) => `${d} ${UNIT_ID[u]} kubik`)
     .replace(/(\d)\s*cm\b/g, '$1 sentimeter')
     .replace(/(\d)\s*mm\b/g, '$1 milimeter')
     .replace(/(\d)\s*km\b/g, '$1 kilometer')

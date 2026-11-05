@@ -128,10 +128,11 @@ export function SolutionPlayer({
   const translatedKey = steps.flatMap((s) => (s.sayId ? [s.sayId] : [])).join('\n')
   const translated = translatedKey ? translatedKey.split('\n') : []
   const showId = explain.on && translated.length > 0
-  const idReady = useIdClipsReady(showId ? translated : [])
-  // Suara mengikuti bahasa teks yang tampil. Teks Indonesia tanpa klip: diam, tombol suaranya tidak tampil.
+  // Suara mengikuti bahasa teks yang tampil, diperiksa per langkah. Langkah tanpa klip Indonesia diam dan tombol suaranya tidak tampil;
+  // selama Indonesia aktif suara Inggris tidak pernah dipakai, jadi suara tidak berganti di tengah pembahasan.
   const idLine = showId ? current?.sayId : undefined
-  const canSpeak = showId ? idReady : lang === 'en-GB' && speech.status !== 'unavailable'
+  const idReady = useIdClipsReady(idLine ? [idLine] : [])
+  const canSpeak = showId ? Boolean(idLine) && idReady : lang === 'en-GB' && speech.status !== 'unavailable'
 
   useEffect(() => {
     if (total > 0 && step >= total - 1) finishedRef.current?.()

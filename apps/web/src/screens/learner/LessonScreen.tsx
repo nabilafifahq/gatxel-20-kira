@@ -80,10 +80,13 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
   const explain = useExplainLang()
   const translated = useMemo(() => data.steps.flatMap((s) => (s.sayId ? [s.sayId] : [])), [data.steps])
   const showId = explain.on && translated.length > 0
-  const idReady = useIdClipsReady(showId ? translated : [])
   const style = SUBJECT_STYLE[data.subject]
   const part = parts[at]
   const total = parts.length
+  // Suara Indonesia diperiksa per langkah: langkah tanpa klip (misalnya yang memuat kata Inggris) diam, langkah lain tetap bersuara.
+  const stepIdText = showId && part?.kind === 'step' ? part.step.sayId : undefined
+  const idReady = useIdClipsReady(stepIdText ? [stepIdText] : [])
+  const hideSound = Boolean(stepIdText) && !idReady
 
   // Bagian berikutnya terbuka bila bagian ini langkah biasa atau cek yang sudah selesai.
   const passable = (i: number) => passableAt(parts, checks, i)
@@ -133,7 +136,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
       speechIdRef.current.speak(idText, () => {
         timer = window.setTimeout(advance, 700)
       })
-    } else if (sound && !idText && speechRef.current.status !== 'unavailable') {
+    } else if (sound && !showId && speechRef.current.status !== 'unavailable') {
       speechRef.current.speak(part.step.say, () => {
         timer = window.setTimeout(advance, 700)
       })
@@ -192,20 +195,19 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           >
             {copy.captions}
           </button>
-          {showId && !idReady ? null : (
-            <button
-              type="button"
-              aria-pressed={sound}
-              onClick={() => setSound((v) => !v)}
-              className={cx(
-                'inline-flex h-12 cursor-pointer items-center gap-2 rounded-control border-2 px-3.5 text-body font-bold text-fg',
-                sound ? 'border-fg bg-surface' : 'border-border bg-bg',
-              )}
-            >
-              <UiIcon name={sound ? 'speaker' : 'speaker-off'} size={20} />
-              {sound ? copy.soundOn : copy.soundOff}
-            </button>
-          )}
+          <button
+            type="button"
+            aria-pressed={sound}
+            onClick={() => setSound((v) => !v)}
+            className={cx(
+              'inline-flex h-12 cursor-pointer items-center gap-2 rounded-control border-2 px-3.5 text-body font-bold text-fg',
+              sound ? 'border-fg bg-surface' : 'border-border bg-bg',
+              hideSound && 'invisible',
+            )}
+          >
+            <UiIcon name={sound ? 'speaker' : 'speaker-off'} size={20} />
+            {sound ? copy.soundOn : copy.soundOff}
+          </button>
           <TranslateToggle available={translated.length > 0} />
         </div>
       </header>

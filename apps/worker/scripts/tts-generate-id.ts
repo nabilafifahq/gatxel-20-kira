@@ -7,7 +7,7 @@
  * - Klip ditulis ke <out>/tts/<kunci>.mp3. manifest.jsonl berisi seluruh rencana (dibaca gerbang), manifest-<versi>.jsonl hanya klip
  *   yang sudah ada, jadi folder ini boleh disalin dan dipromosikan kapan saja, juga saat pembuatan masih berjalan.
  *   Kunci = sha256(versi suara Indonesia, peran indonesian, teks yang tampil). Teks yang dikirim ke API adalah bentuk ucapan
- *   (`spokenIndonesian`), jadi lambang dan angka dibaca benar tanpa mengubah kuncinya.
+ *   (`spokenIndonesian`, tanpa istilah Inggris di dalam kurung), jadi lambang dan angka dibaca benar tanpa mengubah kuncinya.
  * - Bisa dilanjutkan: klip yang sudah ada dilewati. Aman dihentikan kapan saja; berkas ditulis lewat berkas sementara lalu rename.
  * - Layanan itu dipakai bersama, jadi konkurensi paling banyak 2.
  * - Kunci API dibaca dari berkas --env dan tidak pernah dicetak.
@@ -18,7 +18,7 @@ import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { findContentDir } from '@kira/content/load'
 import type { SourceText } from '@kira/content/translations'
-import { spokenIndonesian, TTS_ID_VOICE_VERSION, TTS_STYLE_VOICE } from '@kira/core/tts'
+import { TTS_ID_VOICE_VERSION, TTS_STYLE_VOICE } from '@kira/core/tts'
 import { translationClips } from '../src/tts/collect'
 import { clipKey, hasClip, ttsRoot, writeClip } from '../src/tts/store'
 
@@ -51,7 +51,7 @@ const kinds = values.kinds!.split(',') as SourceText['kind'][]
 let clips = translationClips(findContentDir(), kinds)
 if (values.limit) clips = clips.slice(0, Number(values.limit))
 const version = TTS_ID_VOICE_VERSION
-const rows = clips.map((c) => ({ key: clipKey(c.text, 'indonesian', version), style: 'indonesian' as const, text: c.text, version }))
+const rows = clips.map((c) => ({ key: clipKey(c.text, 'indonesian', version), style: 'indonesian' as const, text: c.text, spoken: c.spoken, version }))
 
 await mkdir(ttsRoot(out), { recursive: true })
 const manifest = rows.map((r) => JSON.stringify(r)).join('\n') + '\n'
@@ -75,14 +75,14 @@ let made = 0
 let skipped = 0
 let failed = 0
 
-async function synth(text: string): Promise<Buffer> {
+async function synth(spoken: string): Promise<Buffer> {
   let lastError = ''
   for (let attempt = 0; attempt < 4; attempt++) {
     try {
       const res = await fetch(values.url!, {
         method: 'POST',
         headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-        body: JSON.stringify({ model: 'piper', voice: TTS_STYLE_VOICE.indonesian, input: spokenIndonesian(text) }),
+        body: JSON.stringify({ model: 'piper', voice: TTS_STYLE_VOICE.indonesian, input: spoken }),
         signal: AbortSignal.timeout(120_000),
       })
       if (!res.ok) throw new Error(`status ${res.status}`)
@@ -107,7 +107,7 @@ async function worker(): Promise<void> {
       continue
     }
     try {
-      await writeClip(out!, row.key, await synth(row.text))
+      await writeClip(out!, row.key, await synth(row.spoken))
       made++
     } catch (e) {
       failed++

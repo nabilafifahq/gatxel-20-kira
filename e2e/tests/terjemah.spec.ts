@@ -151,9 +151,27 @@ test('Tanpa klip id tombol suara tersembunyi dan tidak ada suara pengganti', asy
   await page.goto(`/lesson/${SKILL}`)
   await expect(page.getByRole('button', { name: /^Sound/ })).toBeVisible()
   await toggle(page).click()
-  await expect(page.getByRole('button', { name: /^Sound/ })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: /^Sound/ })).toBeHidden()
   await page.getByRole('button', { name: 'Play', exact: true }).click()
   await page.waitForTimeout(500)
+  expect(await deviceVoiceCalls(page)).toBe(0)
+})
+
+test('Suara per langkah: langkah tanpa klip diam, langkah lain tetap bersuara', async ({ page }) => {
+  await spyDeviceVoice(page)
+  const heldKey = clipKey(idOf(FIRST_STEP), 'indonesian', 'id-piper1')
+  const asked = await fakeClips(page, true)
+  await page.route(`**/tts/${heldKey}.mp3`, (r) => r.fulfill({ status: 404, body: '' }))
+  await registerTablet(page, ['Aisha'])
+  await pinLogin(page, 'Aisha')
+  await page.goto(`/lesson/${SKILL}`)
+  await toggle(page).click()
+  // Langkah pertama ditahan: tombol suara tersembunyi, dan klip Inggris tidak dipakai sebagai pengganti.
+  await expect(page.getByRole('button', { name: /^Sound/ })).toBeHidden()
+  await page.getByRole('button', { name: 'Next part', exact: true }).click()
+  // Langkah kedua punya klip: tombol suara kembali.
+  await expect(page.getByRole('button', { name: /^Sound/ })).toBeVisible()
+  expect(asked).not.toContain(clipKey(FIRST_STEP, 'teacher', 'k1'))
   expect(await deviceVoiceCalls(page)).toBe(0)
 })
 

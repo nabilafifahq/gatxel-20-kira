@@ -20,6 +20,8 @@ describe('suara Indonesia', () => {
     ['1/2 dari 8', '1 per 2 dari 8'],
     ['25°C', '25 derajat Celsius'],
     ['10 m dan 5 kg', '10 meter dan 5 kilogram'],
+    ['Suhunya -3 °C.', 'Suhunya minus 3 derajat Celsius.'],
+    ['Luasnya 12 m² dan volumenya 8 cm³.', 'Luasnya 12 meter persegi dan volumenya 8 sentimeter kubik.'],
   ])('%s diucapkan %s', (shown, spoken) => {
     expect(spokenIndonesian(shown)).toBe(spoken)
   })

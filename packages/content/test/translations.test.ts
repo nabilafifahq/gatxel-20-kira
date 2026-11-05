@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import { presentItem } from '../src/present'
 import type { Item } from '../src/schema'
-import { fillTemplate, loadTranslations, lookupTranslation, templateOf, translationHash, translationReport } from '../src/translations'
+import { englishOutsideBrackets, fillTemplate, loadTranslations, lookupTranslation, templateOf, translationHash, translationReport } from '../src/translations'
 import { translateSolution } from '../src/walkthrough'
 
 const dirs: string[] = []
@@ -78,6 +78,24 @@ const lookup = (en: string): string | null =>
     'That is one too few.': 'Itu kurang satu.',
     'Read what the question asks.': 'Baca apa yang ditanyakan soal.',
   })[en] ?? null
+
+describe('kata Inggris yang menahan klip suara', () => {
+  const opts = { notIndonesian: new Set(['disagree', 'caterpillar', 'half', 'rina']), names: new Set(['rina']) }
+
+  it('kata yang diajarkan di luar kurung menahan klip', () => {
+    expect(englishOutsideBrackets('Disagree berarti tidak setuju.', 'Disagree means not agree.', { ...opts, strict: true })).toEqual(['Disagree'])
+  })
+
+  it('kata di dalam kurung, nama, dan satuan tidak menahan klip', () => {
+    expect(englishOutsideBrackets('Lalu menjadi ulat (caterpillar).', 'It becomes a caterpillar.', { ...opts, strict: false })).toEqual([])
+    expect(englishOutsideBrackets('Rina punya 5 cm.', 'Rina has 5 cm.', { ...opts, strict: false })).toEqual([])
+  })
+
+  it('di mapel English kata yang kebetulan juga kata Indonesia tetap dihitung', () => {
+    expect(englishOutsideBrackets('Cat dimulai dengan huruf c.', 'Cat starts with c.', { ...opts, strict: true })).toEqual(['Cat'])
+    expect(englishOutsideBrackets('Cat itu basah.', 'Cat is wet.', { ...opts, strict: false })).toEqual([])
+  })
+})
 
 describe('terjemahan pada soal', () => {
   it('tidak terkirim tanpa kunci, termasuk di mode berwaktu', () => {

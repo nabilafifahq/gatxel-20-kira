@@ -9,8 +9,8 @@ import { itemSpeechClips, lessonSpeechClips, passageSpeechClips, spellingSpeechC
 import { dictionaryWordClips } from '@kira/core/dictionary'
 import { loadFlashcards } from '@kira/content/flashcards'
 import { CARDS, STORY } from '@kira/core'
-import { clipTextsOf, TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
-import { collectSourceTexts, loadTranslations, lookupTranslation, readTranslationFile, TRANSLATION_DIR, type SourceText } from '@kira/content/translations'
+import { clipTextsOf, spokenIndonesian, TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
+import { collectSourceTexts, loadTranslations, loadVoiceHeld, lookupTranslation, readTranslationFile, TRANSLATION_DIR, translationHash, type SourceText } from '@kira/content/translations'
 
 /**
  * Kumpulkan semua teks bahasa Inggris yang dibacakan layar learner, dengan gaya yang sama persis
@@ -21,14 +21,37 @@ import { collectSourceTexts, loadTranslations, lookupTranslation, readTranslatio
 export const itemClips = (item: Item): TtsClipRequest[] => itemSpeechClips(item)
 
 /**
+ * Bentuk ucapan satu teks terjemahan: istilah Inggris di dalam kurung (`ulat (caterpillar)`) tidak dibacakan, karena suara
+ * Indonesia membacanya dengan bunyi Indonesia. Teks di layar dan kuncinya tidak berubah. Kurung berisi arti Indonesia
+ * (`sweet (manis)`) atau angka tetap dibacakan: sebuah kurung hanya dibuang bila semua katanya ada di teks Inggris sumbernya.
+ */
+export function withoutEnglishGloss(id: string, en: string): string {
+  const source = (en.toLowerCase().match(/[a-z]+/g) ?? []).filter((w) => w.length >= 3)
+  const known = (w: string) => source.some((s) => s === w || (w.length >= 3 && (s.startsWith(w) || w.startsWith(s))))
+  return id
+    .replace(/\s*\(([^()]*)\)/g, (whole, inner: string) => {
+      if (/\d/.test(inner)) return whole
+      const words = inner.toLowerCase().match(/[a-z]+/g) ?? []
+      return words.length > 0 && words.every(known) ? '' : whole
+    })
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+}
+
+/** Klip Indonesia beserta bentuk ucapannya. */
+export type IdClip = TtsClipRequest & { spoken: string }
+
+/**
  * Klip suara Indonesia dari terjemahan penjelasan. Peran selalu `indonesian`, dan hanya teks hasil terjemahan yang masuk, jadi teks
  * Inggris tidak pernah sampai ke suara Indonesia. Dipisah dari repoClips: set Inggris tidak ikut berubah. Urutan: jenis yang diminta dulu.
  */
-export function translationClips(dir: string = findContentDir(), kinds: readonly SourceText['kind'][] = ['lesson', 'explanation', 'solution', 'tip', 'why']): TtsClipRequest[] {
+export function translationClips(dir: string = findContentDir(), kinds: readonly SourceText['kind'][] = ['lesson', 'explanation', 'solution', 'tip', 'why']): IdClip[] {
   const { map } = loadTranslations(dir)
   const sources = collectSourceTexts(dir, new Set(kinds))
+  // Terjemahan yang memuat kata Inggris di luar kurung tidak dibuatkan klip: anak tidak boleh mendengar pelafalan yang salah.
+  const held = loadVoiceHeld(dir)
   const seen = new Set<string>()
-  const out: TtsClipRequest[] = []
+  const out: IdClip[] = []
   // Kalimat tetap buatan kode untuk langkah pembahasan turunan.
   const shared = join(dir, TRANSLATION_DIR, '_shared.json')
   if (existsSync(shared)) {
@@ -36,7 +59,7 @@ export function translationClips(dir: string = findContentDir(), kinds: readonly
       for (const text of clipTextsOf([e.id])) {
         if (seen.has(text)) continue
         seen.add(text)
-        out.push({ text, style: 'indonesian' })
+        out.push({ text, style: 'indonesian', spoken: spokenIndonesian(text) })
       }
     }
   }
@@ -45,11 +68,11 @@ export function translationClips(dir: string = findContentDir(), kinds: readonly
       for (const t of f.texts) {
         if (t.kind !== kind) continue
         const id = lookupTranslation(map, t.en)
-        if (!id) continue
+        if (!id || held.has(translationHash(id))) continue
         for (const text of clipTextsOf([id])) {
           if (seen.has(text)) continue
           seen.add(text)
-          out.push({ text, style: 'indonesian' })
+          out.push({ text, style: 'indonesian', spoken: spokenIndonesian(withoutEnglishGloss(text, t.en)) })
         }
       }
     }

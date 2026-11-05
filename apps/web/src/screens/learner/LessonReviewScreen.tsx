@@ -60,12 +60,13 @@ export function LessonReviewScreen({ data }: { data: ReviewDTO }): ReactElement 
         {data.steps.map((s, i) => (
           <li key={i} className="flex flex-col gap-2 rounded-card border border-divider bg-surface p-4">
             <p lang={showId && s.sayId ? 'id' : 'en-GB'} className="m-0 text-body-lg">{(showId ? s.sayId : null) ?? s.say}</p>
+            {showId && s.sayId ? <ReadAloudButton text={s.sayId} lang="id" subject={data.subject} showNote={false} compact className="self-start" /> : null}
             {s.show ? <p lang="en-GB" className="m-0 text-h3 font-bold break-words">{s.show}</p> : null}
           </li>
         ))}
       </ol>
       <div className="flex flex-wrap items-center gap-2.5">
-        {showId ? <ReadAloudButton text={translated} lang="id" subject={data.subject} showNote={false} /> : <ReadAloudButton text={data.steps.map((s) => s.say)} subject={data.subject} showNote={false} />}
+        {showId ? null : <ReadAloudButton text={data.steps.map((s) => s.say)} subject={data.subject} showNote={false} />}
         <TranslateToggle available={translated.length > 0} />
       </div>
       <div className="flex flex-wrap gap-3">

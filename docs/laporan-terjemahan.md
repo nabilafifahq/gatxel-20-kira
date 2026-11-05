@@ -9,6 +9,7 @@ Permintaan pemilik: setiap penjelasan di pelajaran dan pembahasan bisa dibaca da
 - `content/translations/id/_generator.json`: pola teks generator, angka diganti `{0}`, `{1}`. Kata lain harus sama persis, jadi teks generator di luar pola tetap bahasa Inggris dan tombolnya tersembunyi.
 - Terjemahan penjelasan soal hanya ikut bersama kunci (`reveal`), jadi mode berwaktu (Tes, paper, boss, penempatan) tidak menerimanya sebelum dikumpulkan.
 - Tombol: `Terjemahkan` di tampilan Indonesia, `Bahasa Indonesia` di tampilan Inggris. Pilihan diingat per anak di perangkat itu. Setelan orang tua `Tampilkan penjelasan dalam bahasa Indonesia lebih dulu` mengubah bawaannya (migrasi 0034).
+- Suara per langkah. Terjemahan yang memuat kata Inggris di luar kurung tidak dibuatkan klip (`content/translations/id/_voice-held.json`, dibuat `translations.ts voice-held`), karena suara Indonesia membacanya dengan bunyi Indonesia. Tombol suara hanya tersembunyi pada langkah itu. Istilah Inggris di dalam kurung tetap tampil tetapi tidak dibacakan. Suara tidak pernah berganti di tengah bacaan.
 - Suara: teks Indonesia hanya klip peran `indonesian` dengan versi `id-piper1`. Penunjuknya `tts/served-id-version.txt`, terpisah dari `served-version.txt` bahasa Inggris. Tanpa penunjuk atau tanpa klip tombol suara tersembunyi. Tidak ada suara perangkat.
 
 ## Proses penerjemahan

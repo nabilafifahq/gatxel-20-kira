@@ -14,7 +14,8 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { findContentDir } from '../src/load'
-import { collectSourceTexts, GENERATOR_FILE, readTranslationFile, TRANSLATION_DIR, translationHash, translationReport, type SourceText, type TranslationEntry } from '../src/translations'
+import { spawnSync } from 'node:child_process'
+import { collectSourceTexts, englishOutsideBrackets, GENERATOR_FILE, loadTranslations, lookupTranslation, readTranslationFile, TRANSLATION_DIR, translationHash, translationReport, VOICE_HELD_FILE, type SourceText, type TranslationEntry } from '../src/translations'
 import { splitSentences } from '../src/walkthrough'
 
 const [cmd, ...rest] = process.argv.slice(2)
@@ -29,6 +30,7 @@ const { values } = parseArgs({
     grades: { type: 'string' },
     'max-words': { type: 'string', default: '4000' },
     share: { type: 'string' },
+    hunspell: { type: 'string' },
     dry: { type: 'boolean', default: false },
     unreviewed: { type: 'boolean', default: false },
     json: { type: 'boolean', default: false },
@@ -257,6 +259,47 @@ if (cmd === 'extract') {
   }
   console.log(`Batch dipakai ${batches}, menunggu ${waiting}. Diterima ${accepted}, ditolak ${rejected}. Berkas ${written}, entri ${entriesTotal}.`)
   if (rejected > 0) process.exitCode = 1
+} else if (cmd === 'voice-held') {
+  // Tulis daftar terjemahan yang tidak dibuatkan klip suara. Memakai Hunspell id_ID di kontainer (--hunspell, bawaan kw5-hunspell).
+  const { map } = loadTranslations(contentDir)
+  const sources = collectSourceTexts(contentDir)
+  const DAYS_MONTHS = new Set('monday tuesday wednesday thursday friday saturday sunday january february march april may june july august september october november december'.split(' '))
+  // Nama: kata berhuruf besar di tengah kalimat yang tidak pernah muncul dengan huruf kecil.
+  const capitals = new Set<string>()
+  const lowers = new Set<string>()
+  for (const f of sources) {
+    for (const t of f.texts) {
+      for (const text of [t.en, t.context ?? '']) {
+        for (const m of text.matchAll(/(?<=[a-z,] )[A-Z][a-z]+/g)) capitals.add(m[0].toLowerCase())
+        for (const m of text.matchAll(/(?<![A-Za-z'])[a-z]+/g)) lowers.add(m[0])
+      }
+    }
+  }
+  const names = new Set([...capitals].filter((w) => !lowers.has(w) && !DAYS_MONTHS.has(w)))
+  const vocab = new Set<string>()
+  for (const f of sources) for (const t of f.texts) for (const w of lookupTranslation(map, t.en)?.match(/[A-Za-z']+/g) ?? []) vocab.add(w.toLowerCase())
+  const res = spawnSync('docker', ['exec', '-i', values.hunspell ?? 'kw5-hunspell', 'hunspell', '-d', 'id_ID', '-l'], { input: [...vocab].join('\n') + '\n', encoding: 'utf8', maxBuffer: 1 << 27 })
+  if (res.status !== 0) throw new Error('Hunspell gagal')
+  const notIndonesian = new Set(res.stdout.split('\n').map((s) => s.trim().toLowerCase()).filter(Boolean))
+  const held = new Set<string>()
+  const stats = new Map<string, { total: number; held: number }>()
+  const seen = new Set<string>()
+  for (const f of sources) {
+    const row = stats.get(f.subject) ?? { total: 0, held: 0 }
+    stats.set(f.subject, row)
+    for (const t of f.texts) {
+      const id = lookupTranslation(map, t.en)
+      if (!id || seen.has(id)) continue
+      seen.add(id)
+      row.total++
+      if (englishOutsideBrackets(id, t.en, { strict: f.subject === 'english', notIndonesian, names }).length > 0) {
+        held.add(translationHash(id))
+        row.held++
+      }
+    }
+  }
+  writeFileSync(join(contentDir, TRANSLATION_DIR, VOICE_HELD_FILE), JSON.stringify({ held: [...held].sort() }, null, 0) + '\n')
+  for (const [s, r] of stats) console.log(`${s}: ${r.held} dari ${r.total} teks ditahan`)
 } else if (cmd === 'report') {
   const r = translationReport(contentDir)
   if (values.json) console.log(JSON.stringify({ coverage: r.coverage, stale: r.stale.length, problems: r.problems.length }))

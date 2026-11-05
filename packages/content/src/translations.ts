@@ -87,6 +87,36 @@ export function lookupTranslation(map: TranslationMap, en: string | null | undef
 
 /** Satu teks yang boleh diterjemahkan, dengan konteks untuk penerjemah. */
 export type SourceText = { en: string; kind: 'lesson' | 'explanation' | 'solution' | 'why' | 'tip'; context?: string }
+/**
+ * Terjemahan yang tidak dibuatkan klip suara: suara Indonesia membaca kata Inggris dengan bunyi Indonesia, dan anak tidak boleh
+ * belajar pelafalan yang salah. Teksnya tetap tampil; tombol suaranya tersembunyi hanya pada langkah itu. Isinya hash teks Indonesia.
+ */
+export const VOICE_HELD_FILE = '_voice-held.json'
+
+export function loadVoiceHeld(contentDir: string): Set<string> {
+  const path = join(contentDir, TRANSLATION_DIR, VOICE_HELD_FILE)
+  if (!existsSync(path)) return new Set()
+  return new Set((JSON.parse(readFileSync(path, 'utf8')) as { held?: string[] }).held ?? [])
+}
+
+const WORD_RE = /[A-Za-z']+/g
+const NEVER_ENGLISH = new Set(['rp', 'cm', 'mm', 'km', 'kg', 'ml', 'tv'])
+
+/**
+ * Kata Inggris di luar kurung pada teks Indonesia: kata yang juga ada di teks sumber, bukan nama, bukan satuan.
+ * Di luar mapel English, kata yang dikenal kamus Indonesia tidak dihitung (planet, magnet). Di mapel English semua kata yang sama dengan
+ * sumbernya dihitung, karena itulah kata yang sedang diajarkan, termasuk yang kebetulan juga kata Indonesia (cat, dan).
+ */
+export function englishOutsideBrackets(id: string, en: string, opts: { strict: boolean; notIndonesian: ReadonlySet<string>; names: ReadonlySet<string> }): string[] {
+  const source = new Set((en.match(WORD_RE) ?? []).map((w) => w.toLowerCase()))
+  const outside = id.replace(/\([^()]*\)/g, ' ').match(WORD_RE) ?? []
+  return outside.filter((w) => {
+    const l = w.toLowerCase()
+    if (l.length < 2 || NEVER_ENGLISH.has(l) || !source.has(l) || opts.names.has(l)) return false
+    return opts.strict || opts.notIndonesian.has(l)
+  })
+}
+
 /** Berkas pola teks generator. Awalan _ berarti bukan pasangan berkas konten. */
 export const GENERATOR_FILE = '_generator.json'
 export type SourceFile = { subject: string; grade: number; file: string; texts: SourceText[] }
