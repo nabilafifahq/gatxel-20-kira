@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { ChildEntryLink } from '@/components/auth/ChildEntryLink'
+import { GoogleButton } from '@/components/auth/GoogleButton'
 import { LoginClient } from '@/components/auth/LoginClient'
 import { SignupClient } from '@/components/auth/SignupClient'
 import { WaitlistForm } from '@/components/auth/WaitlistForm'
@@ -37,6 +38,7 @@ export function AuthGateway({
   seats,
   claim,
   turnstileSiteKey,
+  google = false,
   next = null,
   notice = null,
   below,
@@ -45,6 +47,8 @@ export function AuthGateway({
   seats: SeatsDTO
   claim: string | null
   turnstileSiteKey: string | null
+  /** Tombol Lanjutkan dengan Google: fitur aktif dan bukan WebView. */
+  google?: boolean
   next?: string | null
   notice?: LoginScreenProps['notice']
   /** Bagian tenang di bawah lipatan. */
@@ -78,6 +82,7 @@ export function AuthGateway({
   )
 
   const signupLabel = seats.full ? 'Daftar tunggu' : 'Daftar'
+  const googleSlot = google ? <GoogleButton next={next} /> : null
 
   return (
     <div className="flex min-h-svh flex-col bg-bg text-fg">
@@ -113,11 +118,11 @@ export function AuthGateway({
               />
               <div id="panel-akun" role="tabpanel" aria-labelledby={mode === 'login' ? 'tab-masuk' : 'tab-daftar'} key={mode} className={toggled ? 'kira-fade-up' : undefined}>
                 {mode === 'login' ? (
-                  <LoginClient bare next={next} notice={notice} turnstileSiteKey={turnstileSiteKey} onSwitchToSignup={() => setMode('signup')} sharedEmail={email} onEmailChange={setEmail} />
+                  <LoginClient bare googleSlot={googleSlot} next={next} notice={notice} turnstileSiteKey={turnstileSiteKey} onSwitchToSignup={() => setMode('signup')} sharedEmail={email} onEmailChange={setEmail} />
                 ) : seats.full ? (
                   <FullSeatsPanel turnstileSiteKey={turnstileSiteKey} onLogin={() => setMode('login')} />
                 ) : (
-                  <SignupClient bare turnstileSiteKey={turnstileSiteKey} seatsLeft={seats.left} onSwitchToLogin={() => setMode('login')} sharedEmail={email} onEmailChange={setEmail} />
+                  <SignupClient bare googleSlot={googleSlot} turnstileSiteKey={turnstileSiteKey} seatsLeft={seats.left} onSwitchToLogin={() => setMode('login')} sharedEmail={email} onEmailChange={setEmail} />
                 )}
               </div>
             </div>

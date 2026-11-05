@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import type { LoginScreenProps } from '@/lib/dto'
 import { Button } from '@/components/console/Button'
 import { RequiredNote, TextField } from '@/components/console/Field'
@@ -29,6 +29,17 @@ const NOTICE: Record<NonNullable<LoginScreenProps['notice']>, { tone: 'danger' |
   'signed-out': { tone: 'info', title: 'Sudah keluar dari Kira.', body: 'Masuk lagi kapan saja dengan email dan password.' },
   'session-expired': { tone: 'warn', title: 'Sesi berakhir.', body: 'Sesi berakhir karena lama tidak dipakai. Masuk lagi untuk melanjutkan.' },
   'invite-accepted': { tone: 'success', title: 'Akun sudah dibuat.', body: 'Masuk dengan email dan password yang baru dibuat.' },
+  'google-failed': { tone: 'danger', title: 'Masuk dengan Google belum berhasil.', body: 'Coba lagi, atau masuk dengan email dan password.' },
+  'google-cancelled': { tone: 'info', title: 'Masuk dengan Google dibatalkan.', body: 'Tidak ada yang berubah. Coba lagi kapan saja.' },
+  'google-unverified': { tone: 'warn', title: 'Email Google ini belum terverifikasi.', body: 'Verifikasi emailnya di akun Google Anda dulu, atau daftar dengan email dan password.' },
+  'google-other-account': { tone: 'warn', title: 'Akun Kira ini sudah tertaut ke akun Google lain.', body: 'Pakai akun Google yang pertama kali ditautkan, atau masuk dengan email dan password.' },
+  'google-disabled': { tone: 'warn', title: 'Akun ini sedang tidak aktif.', body: 'Hubungi kami lewat halaman Bantuan bila menurut Anda ini keliru.' },
+  'google-not-adult': { tone: 'warn', title: 'Google hanya untuk akun orang tua.', body: 'Anak masuk lewat tombol Masuk sebagai anak.' },
+  'google-use-password': { tone: 'warn', title: 'Email ini sudah terdaftar dengan penulisan lain.', body: 'Masuk dengan email dan password akun itu.' },
+  'google-disposable': { tone: 'warn', title: 'Alamat email sementara belum bisa dipakai di Kira.', body: 'Pakai akun Google dengan email yang Anda baca setiap hari, supaya kabar tentang akun Anda sampai.' },
+  'google-no-mail': { tone: 'warn', title: 'Email akun Google ini belum bisa menerima surat.', body: 'Pakai akun Google lain, atau daftar dengan email dan password.' },
+  'google-taken': { tone: 'info', title: 'Email ini sudah punya akun Kira.', body: 'Tekan Lanjutkan dengan Google sekali lagi untuk masuk.' },
+  'google-app': { tone: 'info', title: 'Google tidak bisa dibuka di aplikasi ini.', body: 'Masuk dengan email dan password, atau pakai Lupa password untuk membuat password.' },
 }
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
@@ -45,9 +56,11 @@ export type LoginPanelExtras = {
   /** Email yang dibawa dari form Daftar. */
   sharedEmail?: string
   onEmailChange?: (email: string) => void
+  /** Tombol Lanjutkan dengan Google, bila aktif. */
+  googleSlot?: ReactNode
 }
 
-export function LoginScreen({ bare = false, onSwitchToSignup, sharedEmail = '', onEmailChange, ...props }: LoginScreenProps & LoginPanelExtras) {
+export function LoginScreen({ bare = false, onSwitchToSignup, sharedEmail = '', onEmailChange, googleSlot, ...props }: LoginScreenProps & LoginPanelExtras) {
   const [mode, setMode] = useState<'login' | 'forgot'>('login')
   const [email, setEmailState] = useState(sharedEmail)
   const setEmail = (v: string) => {
@@ -56,7 +69,7 @@ export function LoginScreen({ bare = false, onSwitchToSignup, sharedEmail = '', 
   }
   const body =
     mode === 'login' ? (
-      <LoginForm {...props} bare={bare} onSwitchToSignup={onSwitchToSignup} email={email} setEmail={setEmail} onForgot={() => setMode('forgot')} />
+      <LoginForm {...props} googleSlot={googleSlot} bare={bare} onSwitchToSignup={onSwitchToSignup} email={email} setEmail={setEmail} onForgot={() => setMode('forgot')} />
     ) : (
       <ForgotForm bare={bare} requestReset={props.requestReset} turnstileSiteKey={props.turnstileSiteKey} email={email} setEmail={setEmail} onBack={() => setMode('login')} />
     )
@@ -76,7 +89,8 @@ function LoginForm({
   onForgot,
   bare = false,
   onSwitchToSignup,
-}: LoginScreenProps & { email: string; setEmail: (v: string) => void; onForgot: () => void; bare?: boolean; onSwitchToSignup?: () => void }) {
+  googleSlot,
+}: LoginScreenProps & { email: string; setEmail: (v: string) => void; onForgot: () => void; bare?: boolean; onSwitchToSignup?: () => void; googleSlot?: ReactNode }) {
   const H = bare ? 'h2' : 'h1'
   const [password, setPassword] = useState('')
   const [captcha, setCaptcha] = useState<string | null>(null)
@@ -175,6 +189,7 @@ function LoginForm({
           </InlineAlert>
         </div>
       ) : null}
+      {googleSlot}
       <form ref={form} method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
         <RequiredNote />
         <TextField

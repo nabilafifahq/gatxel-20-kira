@@ -401,3 +401,11 @@ Password orang dewasa yang baru: minimal 12 karakter, dengan huruf kapital, angk
 Yang tetap mengikuti standar: Argon2id m=19456, t=2, p=1, cek HaveIBeenPwned, paste tidak diblokir, tanpa rotasi paksa. Aturan baru hanya diperiksa saat password dibuat atau diganti, jadi password lama tetap bisa dipakai masuk.
 
 Risiko sisa, tingkat rendah: aturan komposisi mendorong pola yang mudah ditebak, misalnya kata dengan huruf awal kapital dan akhiran `2026!`, dan batas bawahnya tiga karakter lebih pendek dari standar. Karena itu `KIRA_HIBP=on` di produksi menjadi penyaring utama, dan batas masuk per email menahan tebakan.
+
+## Masuk dengan Google
+
+Mati sampai kedua nilai `KIRA_GOOGLE_*` diisi. Alur kode dengan PKCE di server. State, nonce, dan verifier ada di cookie httpOnly bertanda tangan 10 menit, sekali pakai. ID token diperiksa terhadap JWKS Google lewat `jose`: RS256, aud, iss, exp, azp bila ada, nonce, dan `email_verified` harus true. Yang disimpan hanya `sub` di `auth.google_identity`; token Google tidak disimpan dan tidak dicatat.
+
+Pembajakan lewat pendaftaran dini ditutup: pendaftar menunggu dengan email yang sama dibuang dan tidak pernah diaktifkan dengan password tersimpannya. Di luar Gmail hanya alamat persis yang boleh ditautkan, karena bentuk baku membuang +tag di semua domain.
+
+Risiko sisa, tingkat rendah: tutor bisa melihat tautan undangan dan membuka sendiri undangan untuk alamat orang lain, sehingga akun itu punya password yang diketahui tutor. Bila pemilik alamat lalu masuk dengan Google, akunnya tertaut dan password itu tetap berlaku. Hanya tutor yang bisa mengundang, dan pendaftaran publik tidak pernah menjadi tutor.

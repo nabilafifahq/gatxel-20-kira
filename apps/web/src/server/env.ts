@@ -34,6 +34,9 @@ const schema = z.object({
   /** Cloudflare Turnstile di halaman auth publik. Aktif hanya bila kedua nilai diisi. */
   KIRA_TURNSTILE_SITE_KEY: z.string().max(200).optional(),
   KIRA_TURNSTILE_SECRET: z.string().max(200).optional(),
+  /** Masuk dengan Google untuk orang tua. Aktif hanya bila kedua nilai diisi. */
+  KIRA_GOOGLE_CLIENT_ID: z.string().max(300).optional(),
+  KIRA_GOOGLE_CLIENT_SECRET: z.string().max(300).optional(),
   /** Rahasia bersama web dan worker untuk /api/internal/*. Tanpa nilai ini endpoint internal menolak semua permintaan. */
   KIRA_INTERNAL_TOKEN: z.string().min(32, 'KIRA_INTERNAL_TOKEN minimal 32 karakter').optional(),
   /** Alamat layanan suara (Kokoro) untuk worker. Web hanya memeriksa apakah ada: kosong berarti tablet memakai suara bawaan. */
