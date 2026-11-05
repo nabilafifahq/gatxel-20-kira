@@ -109,12 +109,12 @@ const AKUN: GuideFeature[] = [
     title: 'Verifikasi email',
     icon: con('mail'),
     what: 'Kursi beta baru menjadi milik keluarga setelah email dikonfirmasi. Langkah ini memastikan alamat itu benar milik Ayah/Bunda.',
-    suits: 'Ayah Dimas mendaftar di HP, lalu membaca email di laptop kantor. Tautannya boleh dibuka di perangkat mana pun, selama password yang tadi dibuat masih diingat.',
+    suits: 'Ayah Dimas mendaftar di HP, lalu membaca email di laptop kantor. Tautannya boleh dibuka di perangkat mana pun, dan tidak perlu memasukkan password lagi.',
     steps: [
-      'Buka email dari Kira, lalu tekan tautannya. Tautan berlaku 24 jam.',
-      'Masukkan lagi password yang tadi dibuat.',
+      'Buka email dari Kira, lalu tekan tautannya. Tautan berlaku 24 jam dan hanya bisa dipakai sekali.',
+      'Keluarga dibuat, kursi terisi, dan Ayah/Bunda langsung masuk ke langkah menambahkan anak. Email Akun Kira Anda aktif menyusul sebagai tanda.',
       <>
-        Tekan <L>Konfirmasi email</L>. Keluarga dibuat, kursi terisi, dan Ayah/Bunda langsung masuk ke langkah menambahkan anak.
+        Pernah mendaftar dua kali dengan password berbeda? Tautan membuka langkah <L>Buat password baru</L>: isi nama, password baru, dan persetujuan sekali lagi.
       </>,
     ],
     control: (

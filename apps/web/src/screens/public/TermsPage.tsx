@@ -70,7 +70,7 @@ export function TermsPage({ data, account }: TermsPageProps & { account?: ReactN
           akun yang dibuat orang dewasa dan setelah Orang Tua memberi persetujuan sesuai Kebijakan Privasi.
         </p>
         <p className="m-0">
-          Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa. Kalau perangkat hilang atau dipinjam orang lain, Orang Tua mengganti PIN gambar anak di halaman anak dan bisa meminta perangkat itu dicabut lewat {entity.email}. Keluarga bertutor mencabutnya sendiri dari Pengaturan konsol.
+          Anak masuk dengan kode keluarga, nama, dan PIN gambar, atau di perangkat yang didaftarkan orang dewasa. Kalau perangkat hilang atau dipinjam orang lain, Orang Tua mencabutnya di halaman Keluarga, mengganti kode keluarga, dan mengganti PIN gambar anak di halaman anak. Keluarga bertutor mencabutnya sendiri dari Pengaturan konsol.
         </p>
       </LegalSection>
 

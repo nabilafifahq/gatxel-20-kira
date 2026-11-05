@@ -73,6 +73,8 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | `--color-grape` (`--color-fg`) | #6546A5 | Semua teks, judul, ikon, garis kontrol, cincin fokus |
 | `--color-success` | #2E7D4F | Ikon dan garis jawaban benar; teks hijau hanya di atas putih |
 | `--color-danger` | #B42318 | Hapus dan error di layar dewasa; bukan untuk jawaban anak |
+| `--color-disabled` | #E4E2E8 | Latar tombol yang belum bisa dipakai; satu-satunya abu-abu |
+| `--color-disabled-fg` | #5F5C66 | Teks di atas `--color-disabled` (5,1:1) |
 
 Alias semantik (semuanya menunjuk ke enam warna di atas): `--fg`, `--fg-muted`, `--border`, `--accent`, `--warn` = Deep Grape; `--divider`, `--math-50`, `--english-50`, `--science-50`, `--mental-50`, `--warn-50` = Soft Lavender; `--knowledge-50` = Sky Blue (panel Quiz Arena, supaya berbeda dari panel Quick Maths yang Lavender); `--math`, `--knowledge`, `--review` = Sky Blue; `--english`, `--mental` = Kira Lilac; `--science`, `--star` = Butter Yellow; `--success-50`, `--danger-50` = putih.
 

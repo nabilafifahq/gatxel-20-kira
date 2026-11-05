@@ -59,7 +59,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
 export function termsData(): TermsData {
   return {
     entity: entity(),
-    meta: { version: TERMS_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-04' },
+    meta: { version: TERMS_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-05' },
     reportResponseWorkdays: 3,
   }
 }

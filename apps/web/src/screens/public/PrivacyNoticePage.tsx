@@ -83,7 +83,7 @@ export function PrivacyNoticePage({ data, account }: PrivacyNoticePageProps & { 
       <LegalSection id="anak" title="2. Data anak dan persetujuan">
         <p className="m-0">
           Anak berarti setiap orang yang berusia di bawah 18 tahun. Akun anak hanya dibuat oleh orang dewasa, dan baru aktif setelah Orang Tua memberi
-          persetujuan sesuai Pasal 25 UU PDP. Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa.
+          persetujuan sesuai Pasal 25 UU PDP. Anak masuk dengan kode keluarga, nama, dan PIN gambar, atau di perangkat yang didaftarkan orang dewasa. Orang Tua bisa mengganti kode keluarga dan mencabut perangkat di halaman Keluarga.
         </p>
         <p className="m-0">
           Persetujuan diberikan terpisah untuk {numberWordId(data.purposes.length)} tujuan. Setiap kotak kosong saat pertama dibuka dan tidak pernah dicentang

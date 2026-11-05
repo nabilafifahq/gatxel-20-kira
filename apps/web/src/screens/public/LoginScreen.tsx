@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import type { LoginScreenProps } from '@/lib/dto'
 import { Button } from '@/components/console/Button'
 import { RequiredNote, TextField } from '@/components/console/Field'
@@ -89,6 +89,16 @@ function LoginForm({
   const alertRef = useRef<HTMLDivElement>(null)
   const n = notice ? NOTICE[notice] : null
 
+  // Masuk ditekan saat pemeriksaan keamanan belum selesai: begitu token datang, kirim sendiri tanpa perlu menekan lagi.
+  const form = useRef<HTMLFormElement>(null)
+  const waitingCaptcha = useRef(false)
+  useEffect(() => {
+    if (!captcha || !waitingCaptcha.current) return
+    waitingCaptcha.current = false
+    setErrors({})
+    form.current?.requestSubmit()
+  }, [captcha])
+
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const next_: typeof errors = {}
@@ -103,6 +113,7 @@ function LoginForm({
     }
     passkey.reset()
     if (turnstileSiteKey && !captcha) {
+      waitingCaptcha.current = true
       setErrors({ password: 'Selesaikan pemeriksaan keamanan di bawah dulu.' })
       return
     }
@@ -164,7 +175,7 @@ function LoginForm({
           </InlineAlert>
         </div>
       ) : null}
-      <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
+      <form ref={form} method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
         <RequiredNote />
         <TextField
           required
