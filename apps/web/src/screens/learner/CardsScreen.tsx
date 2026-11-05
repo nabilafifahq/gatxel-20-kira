@@ -60,7 +60,7 @@ export function CardsHubScreen({ data }: { data: CardsHubDTO }): ReactElement {
   return (
     <LearnerFrame shell={data.shell} current="practice" className="flex flex-col gap-6">
       <LearnerHeader shell={data.shell} title={vocab ? tc.vocabDrill : tc.flashcards} subline={vocab ? tc.vocabSubline : tc.cardsSubline} />
-      <Link href="/practice" className="w-fit text-body font-bold text-fg underline underline-offset-3">
+      <Link href="/practice" className="inline-flex min-h-11 w-fit items-center text-body font-bold text-fg underline underline-offset-3">
         {tc.backToPractice}
       </Link>
       {data.decks.length === 0 ? <p className="m-0 text-body-lg text-fg-muted">{tc.noDecks}</p> : null}
@@ -395,7 +395,7 @@ export function CardsPlayerScreen({ session }: { session: CardSessionDTO }): Rea
   return (
     <LearnerFrame shell={session.shell} current="practice" className="flex flex-col gap-5">
       <LearnerHeader shell={session.shell} title={session.deck.personal ? tc.myWords : <span lang="en-GB">{session.deck.title}</span>} subline={session.mode === 'vocab' ? tc.vocabDrill : tc.flashcards} />
-      <Link href={`/practice/cards?mode=${session.mode}`} className="w-fit text-body font-bold text-fg underline underline-offset-3">
+      <Link href={`/practice/cards?mode=${session.mode}`} className="inline-flex min-h-11 w-fit items-center text-body font-bold text-fg underline underline-offset-3">
         {tc.allDecks}
       </Link>
       <FlashcardPlayer session={session} />
