@@ -108,7 +108,7 @@ export function CollectCard({ card, total, back = false, big = false, className 
   return (
     <div
       data-rarity={card.rarity}
-      className={cx('kw-card flex aspect-[5/7] w-full flex-col rounded-card border-2 border-fg bg-surface', shiny && 'kw-holo', card.rarity === 'legendary' && 'kw-sheen', className)}
+      className={cx('kw-card flex aspect-[5/7] min-h-fit w-full flex-col rounded-card border-2 border-fg bg-surface', shiny && 'kw-holo', card.rarity === 'legendary' && 'kw-sheen', className)}
     >
       <div className="relative z-10 flex items-center justify-between px-3 pt-2 text-small font-bold tabular-nums">
         <span>{w.album.cardNo(no)}</span>
