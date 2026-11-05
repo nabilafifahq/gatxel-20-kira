@@ -33,7 +33,7 @@ function QuestionMarks({ data }: { data: ResultsDTO }): ReactElement {
   const tr = useT().runner.results
   const many = data.questions.length > 20
   return (
-    <ol className={cx('m-0 grid list-none gap-3 p-0', many ? 'grid-cols-5 sm:grid-cols-8' : 'grid-cols-5')}>
+    <ol className={cx('m-0 grid list-none gap-3 p-0 max-[359px]:gap-1.5', many ? 'grid-cols-5 sm:grid-cols-8' : 'grid-cols-5')}>
       {data.questions.map((q) => {
         const ok = q.status === 'correct'
         const pending = q.status === 'pending'
@@ -43,7 +43,7 @@ function QuestionMarks({ data }: { data: ResultsDTO }): ReactElement {
               href={questionHref(data.reviewHref, q.position)}
               aria-label={tr.questionMark(q.position, tr.marks[q.status])}
               className={cx(
-                'flex w-full items-center justify-center gap-1.5 rounded-control text-h3 font-bold tabular-nums no-underline transition-transform duration-150 ease-kira active:scale-97',
+                'flex w-full items-center justify-center gap-1.5 rounded-control text-h3 font-bold tabular-nums no-underline transition-transform duration-150 ease-kira active:scale-97 max-[359px]:gap-0.5',
                 many ? 'h-14' : 'h-16',
                 ok && 'border-2 border-success bg-success text-white hover:text-white',
                 pending && 'border-2 border-border bg-bg text-fg hover:border-fg',

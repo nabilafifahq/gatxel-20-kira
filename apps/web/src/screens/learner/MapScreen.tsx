@@ -132,7 +132,7 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
               <section key={c.title} aria-label={t.shell.map.chapter(ci + 1, c.title)} className="flex min-w-0 flex-col gap-3">
                 <div className="flex min-h-11 items-start gap-2">
                   <span className={cx('inline-flex h-7 w-7 flex-none items-center justify-center rounded-pill text-body font-bold text-white', 'bg-fg')}>{ci + 1}</span>
-                  <h2 lang="en-GB" className="m-0 text-body leading-5.5 font-bold">{c.title}</h2>
+                  <h2 lang="en-GB" className="m-0 min-w-0 text-body leading-5.5 font-bold [overflow-wrap:anywhere]">{c.title}</h2>
                 </div>
                 {c.skills.map((s) => (
                   <SkillCard key={s.id} s={s} subject={subject} selected={sel?.id === s.id} onSelect={() => setSelectedId(s.id)} />
@@ -177,7 +177,7 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
               {(() => {
                 const cta = skillCta(sel, t)
                 return cta.href ? (
-                  <ButtonLink href={cta.href} iconAfter="arrow-right" className="min-w-0 flex-1 md:flex-none">
+                  <ButtonLink href={cta.href} iconAfter="arrow-right" className="min-w-0 flex-1 max-sm:h-auto max-sm:min-h-14 max-sm:whitespace-normal max-sm:px-3 max-sm:py-2 md:flex-none">
                     {cta.label}
                   </ButtonLink>
                 ) : null

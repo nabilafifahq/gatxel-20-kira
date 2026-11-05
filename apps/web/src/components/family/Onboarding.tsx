@@ -136,7 +136,7 @@ function StepChildren({ state, pins, onPin }: { state: OnboardingState; pins: Re
           <div className="flex items-center gap-3 rounded-card bg-surface p-4 shadow-soft">
             <Avatar name={c.avatar} size={52} className="flex-none" />
             <div className="flex min-w-0 flex-1 flex-col">
-              <p className="m-0 text-h3 font-bold">{c.name}</p>
+              <p className="m-0 text-h3 font-bold [overflow-wrap:anywhere]">{c.name}</p>
               <p className="m-0 text-small text-fg-muted">Kelas {c.grade}</p>
               {pins[c.id] ? <PinPreview name={c.name} pin={pins[c.id]!} /> : null}
             </div>
@@ -190,7 +190,7 @@ function BackLink({ href, label }: { href: string; label: string }) {
 function PinPreview({ name, pin }: { name: string; pin: PinPicture[] }) {
   return (
     <div className="mt-1 flex flex-wrap items-center gap-1">
-      <span className="text-small font-bold">PIN {name}:</span>
+      <span className="min-w-0 text-small font-bold [overflow-wrap:anywhere]">PIN {name}:</span>
       {pin.map((p, i) => (
         <span key={i} className="inline-flex size-8 items-center justify-center rounded-sm border-2 border-fg bg-surface" title={PIN_LABEL[p]}>
           <Icon name={p} size={22} />
@@ -241,7 +241,7 @@ function StepPath({ state }: { state: OnboardingState }) {
           {state.children.map((c) => (
             <li key={c.id} className="flex items-start gap-3">
               <Avatar name={c.avatar} size={36} className="flex-none" />
-              <span className="text-body">{c.setupPath === 'custom' && pending.length > 0 ? `${c.name} sudah diatur sendiri.` : recommendationSummary(c.name, c.grade)}</span>
+              <span className="min-w-0 text-body">{c.setupPath === 'custom' && pending.length > 0 ? `${c.name} sudah diatur sendiri.` : recommendationSummary(c.name, c.grade)}</span>
             </li>
           ))}
         </ul>
@@ -254,7 +254,7 @@ function StepPath({ state }: { state: OnboardingState }) {
         <p className="m-0 text-body text-fg-muted">Pilih mapel dan fitur untuk tiap anak. Setiap saklar menjelaskan apa yang dilakukannya.</p>
         <div className="flex flex-col gap-2">
           {state.children.map((c) => (
-            <ButtonLink key={c.id} href={`${stepHref(2)}&anak=${encodeURIComponent(c.id)}`} variant="secondary" iconAfter="arrowRight" className="h-12 w-full">
+            <ButtonLink key={c.id} href={`${stepHref(2)}&anak=${encodeURIComponent(c.id)}`} variant="secondary" iconAfter="arrowRight" className="h-12 w-full [overflow-wrap:anywhere]">
               Atur sendiri untuk {c.name}
             </ButtonLink>
           ))}

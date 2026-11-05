@@ -238,7 +238,7 @@ function LoginForm({
       <p className="m-0 text-body text-fg-muted">
         Belum punya akun?{' '}
         {onSwitchToSignup ? (
-          <button type="button" onClick={onSwitchToSignup} className="cursor-pointer border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
+          <button type="button" onClick={onSwitchToSignup} className="inline-flex min-h-11 cursor-pointer items-center border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
             Daftar kursi beta
           </button>
         ) : (

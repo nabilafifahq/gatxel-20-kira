@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactElement } from 'react'
+import { Fragment, useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement } from 'react'
 import { createPortal } from 'react-dom'
 import { DICT_CLIP_STYLE, DICT_POS_LABEL, lookupWord, normaliseWord, splitWords, type DictFile, type WordHit } from '@kira/core/dictionary'
 import { Button, IconButton } from '@/components/ui/Button'
@@ -134,8 +134,18 @@ function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): Re
   const titleId = useId()
   const [busy, setBusy] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [fitTop, setFitTop] = useState<number | null>(null)
   const { hit } = open
   const saved = ctx.saved.has(hit.lemma)
+
+  // Tinggi kartu baru diketahui setelah tampil: kartu yang melewati tepi layar digeser sampai utuh terlihat.
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const vh = window.innerHeight
+    if (r.bottom > vh - 8 || r.top < 8) setFitTop(Math.max(8, vh - 8 - r.height))
+  }, [])
 
   useEffect(() => {
     ref.current?.focus({ preventScroll: true })
@@ -147,7 +157,10 @@ function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): Re
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
     }
-    const onMove = () => onClose()
+    const onMove = (e: Event) => {
+      if (e.target instanceof Node && ref.current?.contains(e.target)) return
+      onClose()
+    }
     document.addEventListener('pointerdown', onDown)
     document.addEventListener('keydown', onKey)
     window.addEventListener('resize', onMove)
@@ -169,7 +182,7 @@ function WordPopover({ open, onClose }: { open: Open; onClose: () => void }): Re
       role="dialog"
       aria-labelledby={titleId}
       tabIndex={-1}
-      style={{ position: 'fixed', left: open.left, top: open.top, bottom: open.bottom, width: WIDTH }}
+      style={{ position: 'fixed', left: open.left, top: fitTop ?? open.top, bottom: fitTop === null ? open.bottom : undefined, width: WIDTH, maxHeight: 'calc(100svh - 16px)', overflowY: 'auto' }}
       className="z-50 flex flex-col gap-2 rounded-card border-2 border-fg bg-surface p-4 text-fg outline-none"
     >
       <div className="flex items-start gap-2">

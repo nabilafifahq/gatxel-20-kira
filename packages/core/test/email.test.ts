@@ -76,7 +76,7 @@ describe('semua jenis email', () => {
         expect(mail.html.startsWith('<!doctype html><html lang="id">')).toBe(true)
         expect(mail.html).toContain('role="presentation"')
         const imgs = mail.html.match(/<img\b[^>]*>/g) ?? []
-        expect(imgs).toHaveLength(1)
+        expect(imgs).toHaveLength(2)
         expect(imgs[0]).toContain(`src="${EMAIL_LOGO_URL}"`)
         expect(imgs[0]).toContain('alt="Kira"')
         expect(imgs[0]).toMatch(/width="\d+"/)

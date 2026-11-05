@@ -52,7 +52,7 @@ function Hatch({ actions }: { actions: PetActions }): ReactElement {
       </section>
     )
   return (
-    <section className="flex flex-col gap-4 rounded-card border-2 border-fg bg-surface p-4 md:p-6">
+    <section className="flex w-full max-w-3xl flex-col gap-4 rounded-card border-2 border-fg bg-surface p-4 md:p-6">
       <h2 className="m-0 text-h2 font-bold">{t.world.pet.choose}</h2>
       <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-3">
         {PET_KINDS.map((p) => (

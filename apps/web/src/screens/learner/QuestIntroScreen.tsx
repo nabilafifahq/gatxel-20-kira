@@ -143,7 +143,7 @@ export function QuestIntroScreen({
                 )
               )}
               {data.lessonHref ? (
-                <ButtonLink href={data.lessonHref} variant="quiet" icon="book">
+                <ButtonLink href={data.lessonHref} variant="quiet" icon="book" className="max-w-full max-sm:h-auto max-sm:min-h-14 max-sm:whitespace-normal max-sm:px-2 max-sm:py-2 max-sm:text-left">
                   {t.shell.intro.seeLessonFirst}
                 </ButtonLink>
               ) : null}

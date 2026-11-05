@@ -214,7 +214,8 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
         <span className="hidden md:inline-flex"><SubjectChip subject={subject} size="M" /></span>
         <div className="flex min-w-0 flex-1 flex-col">
           <span className="truncate text-body-lg font-bold">{data.title}</span>
-          <span className="text-body text-fg-muted tabular-nums">{tr.questionOf(index + 1, items.length)}</span>
+          <span className="text-body text-fg-muted tabular-nums max-[359px]:hidden">{tr.questionOf(index + 1, items.length)}</span>
+          <span className="hidden text-body text-fg-muted tabular-nums max-[359px]:inline">{index + 1}/{items.length}</span>
         </div>
         {syncState ? (
           <span className="hidden md:inline-flex">

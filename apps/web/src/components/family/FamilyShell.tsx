@@ -62,7 +62,7 @@ export function FamilyShell({
           {learnerName ? (
             <p className="mx-auto m-0 flex max-w-[720px] items-center gap-2 px-4 pb-1 text-small font-bold">
               <ConsoleIcon name="learners" size={18} />
-              {learnerName}
+              <span className="min-w-0 [overflow-wrap:anywhere]">{learnerName}</span>
             </p>
           ) : null}
           {/* Tepi kanan memudar di HP: tanda bahwa masih ada tab Lembar kerja, Rapor, dan Privasi di sebelah kanan. */}

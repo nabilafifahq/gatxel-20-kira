@@ -42,11 +42,15 @@ const PAGE = '#FFFCF5'
 const CARD = '#FFFFFF'
 const INK = '#6546A5'
 const SOFT = '#E9DDFB'
+const MUTED = '#6546A5'
 const ON_INK = '#FFFFFF'
 const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
 const MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace"
 
-export const EMAIL_LOGO_URL = 'https://kira.gatxel.com/icons/email-logo.png'
+export const EMAIL_LOGO_URL = 'https://kira.gatxel.com/icons/email-logo-v2.png'
+export const EMAIL_GATXEL_LOGO_URL = 'https://kira.gatxel.com/icons/email-gatxel.png'
+export const EMAIL_GATXEL_LOGO_WIDTH = 160
+export const EMAIL_GATXEL_LOGO_HEIGHT = 26
 /** Logo tampil 96x80 di sisi kiri. Kanvas putih berkas ini sama rasio dengan kotak lama 120x44, jadi email yang sudah terkirim tidak gepeng. */
 export const EMAIL_LOGO_WIDTH = 218
 export const EMAIL_LOGO_HEIGHT = 80
@@ -131,7 +135,11 @@ export function mailDomain(from: string | null | undefined): string | null {
 }
 
 function logoUrl(origin: string): string {
-  return origin.startsWith('https://') ? `${origin.replace(/\/$/, '')}/icons/email-logo.png` : EMAIL_LOGO_URL
+  return origin.startsWith('https://') ? `${origin.replace(/\/$/, '')}/icons/email-logo-v2.png` : EMAIL_LOGO_URL
+}
+
+function gatxelLogoUrl(origin: string): string {
+  return origin.startsWith('https://') ? `${origin.replace(/\/$/, '')}/icons/email-gatxel.png` : EMAIL_GATXEL_LOGO_URL
 }
 
 const base = (extra: string) => `font-family:${FONT};color:${INK};${extra}`
@@ -228,7 +236,7 @@ export function renderEmail(c: EmailContent, id: EmailIdentity): RenderedEmail {
   const links = footerLinks(c, id)
   const address = addressLine(id)
   const ignore: EmailBlock[] = c.ignoreLine ? [{ kind: 'text', text: EMAIL_IGNORE_LINE }] : []
-  const small = base('margin:0 0 8px 0;font-size:13px;line-height:20px;')
+  const foot = (extra: string) => base(`margin:0 0 12px 0;font-size:13px;line-height:20px;font-weight:400;${extra}`)
   const html =
     '<!doctype html><html lang="id"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width, initial-scale=1">' +
@@ -256,11 +264,12 @@ export function renderEmail(c: EmailContent, id: EmailIdentity): RenderedEmail {
             (c.after ?? []).map(blockHtml).join('') +
             ignore.map(blockHtml).join('') +
             `</td></tr>` +
-            `<tr><td class="kira-pad" style="padding:18px 36px 24px;border-top:1px solid ${SOFT};">` +
-            `<p style="${small}font-weight:700;">${escapeHtml(EMAIL_CREDIT)}</p>` +
-            `<p style="${small}">${escapeHtml(c.why)}</p>` +
-            `<p style="${small}">${links.map((l) => anchor(l.url, l.label)).join(' &#183; ')}</p>` +
-            (address ? `<p style="${base('margin:0;font-size:13px;line-height:20px;')}">${escapeHtml(address)}</p>` : '') +
+            `<tr><td class="kira-pad" style="padding:24px 36px 28px;border-top:1px solid ${SOFT};">` +
+            `<img src="${escapeHtml(gatxelLogoUrl(id.origin))}" width="${EMAIL_GATXEL_LOGO_WIDTH}" height="${EMAIL_GATXEL_LOGO_HEIGHT}" alt="Gatxel" style="display:block;width:${EMAIL_GATXEL_LOGO_WIDTH}px;height:${EMAIL_GATXEL_LOGO_HEIGHT}px;margin:0 0 14px 0;border:0;outline:none;text-decoration:none;">` +
+            `<p style="${foot('font-weight:700;')}">${escapeHtml(EMAIL_CREDIT)}</p>` +
+            `<p style="${foot(`color:${MUTED};`)}">${escapeHtml(c.why)}</p>` +
+            `<p style="${foot('')}">${links.map((l) => anchor(l.url, l.label)).join(`<span style="color:${MUTED};font-weight:400;"> &#183; </span>`)}</p>` +
+            (address ? `<p style="${foot(`margin:0;font-size:12px;line-height:18px;color:${MUTED};`)}">${escapeHtml(address)}</p>` : '') +
             `</td></tr>`,
         ) +
         `</td></tr>`,

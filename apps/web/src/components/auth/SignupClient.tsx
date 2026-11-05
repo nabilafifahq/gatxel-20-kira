@@ -130,7 +130,7 @@ export function SignupClient({
         ) : null}
         <p className="m-0 text-small text-fg-muted">
           Salah ketik email?{' '}
-          <button type="button" onClick={() => setSentTo(null)} className="cursor-pointer border-0 bg-transparent p-0 font-semibold text-accent underline underline-offset-3">
+          <button type="button" onClick={() => setSentTo(null)} className="inline-flex min-h-11 cursor-pointer items-center border-0 bg-transparent p-0 font-semibold text-accent underline underline-offset-3">
             Daftar lagi dengan email lain
           </button>
           .
@@ -230,7 +230,7 @@ export function SignupClient({
       <p className="m-0 text-body text-fg-muted">
         Sudah punya akun?{' '}
         {onSwitchToLogin ? (
-          <button type="button" onClick={onSwitchToLogin} className="cursor-pointer border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
+          <button type="button" onClick={onSwitchToLogin} className="inline-flex min-h-11 cursor-pointer items-center border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
             Masuk
           </button>
         ) : (

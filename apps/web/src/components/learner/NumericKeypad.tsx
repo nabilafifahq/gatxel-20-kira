@@ -153,7 +153,7 @@ export function NumericKeypad({
             disabled={disabled}
             aria-label={keyLabel(k)}
             onClick={() => press(k)}
-            className={cx(keyBase, k === 'clear' ? 'text-body font-extrabold' : k === 'del' ? 'bg-lavender' : 'font-numbers text-[30px]')}
+            className={cx(keyBase, k === 'clear' ? 'text-body font-extrabold max-[359px]:text-small' : k === 'del' ? 'bg-lavender' : 'font-numbers text-[30px]')}
           >
             {k === 'del' ? <UiIcon name="backspace" size={28} /> : k === 'clear' ? dict.widgets.shared.clear : k}
           </button>

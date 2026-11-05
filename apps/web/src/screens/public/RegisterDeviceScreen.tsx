@@ -43,12 +43,12 @@ export function RegisterDeviceScreen({ learners, registered, registerDevice }: R
             <p className="m-0 text-body">
               {registered.learnerNames.length
                 ? `${joinNames(registered.learnerNames)} bisa masuk di tablet ini dengan PIN gambar.`
-                : 'Tablet ini belum terhubung ke learner mana pun. Atur dari Pengaturan di konsol tutor.'}
+                : 'Tablet ini belum terhubung ke anak mana pun. Cabut dari Perangkat anak di halaman Keluarga, lalu daftarkan lagi.'}
             </p>
-            <p className="m-0 text-body text-fg-muted">Tablet bisa dicabut kapan saja dari Pengaturan di konsol tutor.</p>
+            <p className="m-0 text-body text-fg-muted">Tablet bisa dicabut kapan saja dari Perangkat anak di halaman Keluarga, atau Pengaturan di konsol tutor.</p>
           </div>
           <ButtonLink href={LEARNER_START_HREF} variant="primary" className="h-12! w-full">
-            Buka layar learner
+            Buka layar anak
           </ButtonLink>
         </AuthCard>
       </PublicFrame>
@@ -61,7 +61,7 @@ export function RegisterDeviceScreen({ learners, registered, registerDevice }: R
     const n = name.trim()
     if (!n) next.name = 'Beri nama tablet, misalnya Tablet Alya.'
     else if (n.length > 40) next.name = `Nama tablet paling banyak 40 karakter, sekarang ${n.length}.`
-    if (picked.size === 0) next.learners = 'Pilih minimal satu learner yang memakai tablet ini.'
+    if (picked.size === 0) next.learners = 'Pilih minimal satu anak yang memakai tablet ini.'
     setErrors(next)
     if (next.name || next.learners) {
       document.getElementById(next.name ? 'perangkat-nama' : 'perangkat-learner')?.focus()
@@ -79,13 +79,13 @@ export function RegisterDeviceScreen({ learners, registered, registerDevice }: R
             Daftarkan tablet ini
           </h1>
           <p className="m-0 text-body text-fg-muted">
-            Learner yang dipilih bisa masuk di tablet ini dengan PIN gambar, tanpa password orang dewasa. Daftarkan hanya tablet milik keluarga.
+            Anak yang dipilih bisa masuk di tablet ini dengan PIN gambar, tanpa password orang dewasa. Daftarkan hanya tablet milik keluarga.
           </p>
         </div>
         {learners.length === 0 ? (
           <>
-            <InlineAlert tone="info" title="Belum ada learner aktif." live="status">
-              Tambah learner dan catat persetujuan orang tua di konsol tutor, lalu buka halaman ini lagi.
+            <InlineAlert tone="info" title="Belum ada anak aktif." live="status">
+              Tambah anak dan beri izin belajar lebih dulu, lalu buka halaman ini lagi.
             </InlineAlert>
             <ButtonLink href={CONSOLE_ROUTES.learners} variant="secondary" className="h-12! w-full">
               Buka Learner di konsol
@@ -113,7 +113,7 @@ export function RegisterDeviceScreen({ learners, registered, registerDevice }: R
               className="m-0 flex min-w-0 flex-col gap-2 border-0 p-0 outline-none"
               aria-describedby={errors.learners ? 'perangkat-learner-error' : undefined}
             >
-              <legend className="mb-1.5 p-0 text-small font-bold">Learner yang memakai tablet ini</legend>
+              <legend className="mb-1.5 p-0 text-small font-bold">Anak yang memakai tablet ini</legend>
               {learners.map((l) => {
                 const on = picked.has(l.id)
                 return (

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { flushOutbox } from '@/lib/offline/outbox'
+import { CHUNK_RELOAD_KEY, mayAutoReload } from './route-error-logic'
 
 /**
  * Proses latar untuk layar learner: daftar service worker, kirim ulang jawaban offline,
@@ -11,6 +12,32 @@ import { flushOutbox } from '@/lib/offline/outbox'
 export function LearnerRuntime({ screenLimitMin }: { screenLimitMin: number }) {
   const router = useRouter()
   const [limitShown, setLimitShown] = useState(false)
+
+  // Deployment baru saat tab terbuka: id Server Action di tab ini sudah tidak dikenal server dan semua aksinya akan terus gagal.
+  // Kirim dulu jawaban yang tertahan lewat /api/sync, lalu muat ulang sekali untuk mengambil versi baru. Penjaga waktunya sama dengan chunk lama.
+  useEffect(() => {
+    const original = window.fetch
+    let reloading = false
+    window.fetch = async (...args) => {
+      const res = await original(...args)
+      if (!reloading && res.headers.get('x-nextjs-action-not-found') === '1') {
+        reloading = true
+        try {
+          const last = Number(sessionStorage.getItem(CHUNK_RELOAD_KEY)) || null
+          if (mayAutoReload(last, Date.now())) {
+            sessionStorage.setItem(CHUNK_RELOAD_KEY, String(Date.now()))
+            void Promise.race([flushOutbox().catch(() => 0), new Promise((r) => window.setTimeout(r, 3000))]).then(() => window.location.reload())
+          }
+        } catch {
+          // Tanpa penyimpanan tidak ada penjaga putaran: tombol coba lagi dan pindah layar tetap ada.
+        }
+      }
+      return res
+    }
+    return () => {
+      window.fetch = original
+    }
+  }, [])
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {

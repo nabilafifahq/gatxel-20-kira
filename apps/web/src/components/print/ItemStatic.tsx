@@ -58,7 +58,7 @@ function ruledLines(item: ClientItem): number {
 }
 
 /** Figur tambahan untuk tipe yang bentuknya datang dari data soal, bukan dari `figure`. */
-function derivedFigure(item: ClientItem): FigureSpec | null {
+export function derivedFigure(item: ClientItem): FigureSpec | null {
   if (item.figure) return null
   if (item.type === 'numberline' && item.numberline) {
     const { min, max, step } = item.numberline

@@ -69,7 +69,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
         <ul className="m-0 flex list-none flex-col gap-3 p-0">
           {entry.subjects.map((s) => (
             <li key={s.subject}>
-              <ButtonLink href={`/placement?subject=${s.subject}`} variant="secondary" className="w-full justify-between">
+              <ButtonLink href={`/placement?subject=${s.subject}`} variant="secondary" className="w-full justify-between!">
                 <SubjectChip subject={s.subject} size="S" label={t.common.subject[s.subject]} />
                 <span className="text-body text-fg-muted">{s.status === 'in_progress' ? copy.carryOn : t.common.start}</span>
               </ButtonLink>
@@ -92,7 +92,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
           {copy.doneNote(t.common.subject[done.subject])}
         </p>
         {done.nextSubject ? (
-          <ButtonLink href={`/placement?subject=${done.nextSubject}`} iconAfter="arrow-right">
+          <ButtonLink href={`/placement?subject=${done.nextSubject}`} iconAfter="arrow-right" className="max-sm:h-auto max-sm:min-h-14 max-sm:whitespace-normal max-sm:px-3 max-sm:py-2">
             {copy.nextSubject(t.common.subject[done.nextSubject])}
           </ButtonLink>
         ) : (
@@ -139,7 +139,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
             {error}
           </p>
         ) : null}
-        <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-auto flex flex-col gap-3 sm:flex-row sm:items-center md:mt-4">
           <Button onClick={() => (playSfx('tap'), setIntro(false))} iconAfter="arrow-right">
             {t.common.start}
           </Button>
@@ -215,10 +215,10 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
       ) : null}
       <footer className="sticky bottom-0 z-10 flex items-center gap-2 bg-bg px-4 pt-3 pb-[calc(12px+var(--safe-bottom))] sm:gap-3 md:px-8">
         <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={step.subject} showNote={false} compact={narrow} />
-        <Button variant="secondary" onClick={() => void submit(true)} disabled={busy} className="ml-auto max-sm:px-3">
+        <Button variant="secondary" onClick={() => void submit(true)} disabled={busy} className="ml-auto max-sm:px-3 max-[359px]:px-2 max-[359px]:text-body">
           {copy.notSure}
         </Button>
-        <Button onClick={() => void submit(false)} disabled={!complete || busy} loading={busy} className="max-sm:px-3" {...(narrow ? {} : { iconAfter: 'arrow-right' as const })}>
+        <Button onClick={() => void submit(false)} disabled={!complete || busy} loading={busy} className="max-sm:px-3 max-[359px]:px-2 max-[359px]:text-body" {...(narrow ? {} : { iconAfter: 'arrow-right' as const })}>
           {t.common.next}
         </Button>
       </footer>

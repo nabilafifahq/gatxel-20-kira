@@ -75,7 +75,7 @@ const RARITY_STARS: Record<Rarity, number> = { common: 1, rare: 2, epic: 3, lege
 export function RarityMark({ rarity }: { rarity: Rarity }): ReactElement {
   const w = useT().world
   return (
-    <span className="inline-flex items-center gap-1 text-small font-bold">
+    <span className="inline-flex flex-wrap items-center gap-1 text-small font-bold">
       <span aria-hidden className="inline-flex">
         {Array.from({ length: RARITY_STARS[rarity] }, (_, i) => (
           <UiIcon key={i} name="star" size={14} className="text-fg" />
@@ -108,7 +108,7 @@ export function CollectCard({ card, total, back = false, big = false, className 
   return (
     <div
       data-rarity={card.rarity}
-      className={cx('kw-card flex aspect-[5/7] w-full flex-col rounded-card border-2 border-fg bg-surface', shiny && 'kw-holo', card.rarity === 'legendary' && 'kw-sheen', className)}
+      className={cx('kw-card flex aspect-[5/7] min-h-fit w-full flex-col rounded-card border-2 border-fg bg-surface', shiny && 'kw-holo', card.rarity === 'legendary' && 'kw-sheen', className)}
     >
       <div className="relative z-10 flex items-center justify-between px-3 pt-2 text-small font-bold tabular-nums">
         <span>{w.album.cardNo(no)}</span>

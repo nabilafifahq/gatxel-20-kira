@@ -145,6 +145,10 @@
 }
 
 @layer base {
+  /* Layar besar: teks bacaan anak berhenti di sekitar 80 karakter per baris. Kelas max-w pada elemennya tetap menang. */
+  [data-jenjang] main p:not(.text-center) {
+    max-width: 68ch;
+  }
   html {
     background: var(--color-bg);
     color: var(--color-fg);
@@ -153,6 +157,7 @@
     text-rendering: optimizeLegibility;
   }
   body {
+    overflow-wrap: break-word;
     margin: 0;
     min-height: 100svh;
     background: var(--color-bg);

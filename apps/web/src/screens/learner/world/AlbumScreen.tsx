@@ -76,7 +76,7 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
         <p className="m-0 text-body-lg text-fg-muted">{a.intro(data.owned, data.total)}</p>
       </header>
       <WorldTabs current="cards" />
-      <section aria-label={a.byRarity} className="grid grid-cols-2 gap-3 md:grid-cols-4">
+      <section aria-label={a.byRarity} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {data.rarities.map((r) => (
           <div key={r.rarity} className="flex flex-col gap-1.5 rounded-card border-2 border-divider bg-surface p-3">
             <span className="flex flex-wrap items-baseline justify-between gap-x-2">
@@ -119,7 +119,7 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
               <span className="text-small text-fg-muted">{a.setReward(setText(current).reward)}</span>
             )}
           </div>
-          <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">
+          <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
             {current.cards.map((c) => (
               <li key={c.id} className="flex flex-col gap-1.5">
                 <button type="button" onClick={() => pick(c)} aria-label={c.owned ? a.cardLabel(c.name, a.rarityWord[c.rarity], c.no) : a.cardLabelNotEarned(c.no)} className="cursor-pointer border-0 bg-transparent p-0 text-left">

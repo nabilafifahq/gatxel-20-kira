@@ -70,11 +70,11 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
               const style = SUBJECT_STYLE[q.subject]
               const done = SCORE.test(q.score)
               return (
-                <li key={`${q.subject}-${q.session}-${i}`} className="flex min-h-21 items-center gap-4 border-b border-divider py-2">
+                <li key={`${q.subject}-${q.session}-${i}`} className="flex min-h-21 items-center gap-4 border-b border-divider py-2 max-sm:flex-wrap max-sm:gap-y-1">
                   <span className={cx('flex h-14 w-14 flex-none items-center justify-center rounded-control border-3', style.border, style.tint)}>
                     <SubjectIcon subject={q.subject} size={32} />
                   </span>
-                  <div className="flex min-w-0 flex-1 flex-col">
+                  <div className="flex min-w-0 flex-1 flex-col max-sm:basis-40">
                     <span className="text-body-lg font-bold">
                       {t.shell.sessionName(subjectName(q.subject, t), q.session)}
                       {q.required ? '' : t.shell.done.extra}
@@ -82,12 +82,12 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
                     <span lang="en-GB" className="text-body text-fg-muted">{q.title}</span>
                   </div>
                   {done ? (
-                    <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums">
+                    <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums max-sm:ml-18">
                       {q.score}
                       <UiIcon name="check-circle" size={24} strokeWidth={2.5} className="text-success" />
                     </span>
                   ) : (
-                    <span className="max-w-[190px] flex-none text-right text-body font-bold text-warn">{q.score}</span>
+                    <span className="max-w-[190px] flex-none text-right text-body font-bold text-warn max-sm:ml-18 max-sm:text-left">{q.score}</span>
                   )}
                 </li>
               )

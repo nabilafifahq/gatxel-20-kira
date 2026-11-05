@@ -157,10 +157,10 @@ export function SpellingBeeScreen({
       {!finished && current ? (
         <section aria-label={copy.spellTheWord} className="flex max-w-[640px] flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
           <div className="flex flex-wrap gap-3">
-            <Button variant="primary" icon={speech.status === 'reading' ? 'waveform' : 'speaker'} onClick={sayWord} disabled={speech.status === 'unavailable'}>
+            <Button variant="primary" icon={speech.status === 'reading' ? 'waveform' : 'speaker'} onClick={sayWord} disabled={speech.status === 'unavailable'} className="max-w-full max-sm:h-auto max-sm:min-h-14 max-sm:whitespace-normal max-sm:px-4 max-sm:py-2">
               {copy.hearWord}
             </Button>
-            <Button variant="secondary" icon="speaker" onClick={saySentence} disabled={speech.status === 'unavailable'}>
+            <Button variant="secondary" icon="speaker" onClick={saySentence} disabled={speech.status === 'unavailable'} className="max-w-full max-sm:h-auto max-sm:min-h-14 max-sm:whitespace-normal max-sm:px-4 max-sm:py-2">
               {copy.hearSentence}
             </Button>
           </div>
