@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { ClientItem } from '@kira/content/present'
-import { estimateItemHeight, paginate } from './paginate'
+import { estimateItemHeight, paginate } from '@/components/print/paginate'
 
 const base = { id: 'x', prompt: 'What time does the clock show?', points: 1, lang: 'en' }
 
