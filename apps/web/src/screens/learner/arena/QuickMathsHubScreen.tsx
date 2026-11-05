@@ -315,7 +315,7 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
             </div>
           </>
         )}
-        <p className="m-0 text-body text-fg-muted">{t.gradeNote}</p>
+        {data.shell.grade <= 2 ? <p className="m-0 text-body text-fg-muted">{t.gradeNote}</p> : null}
       </Card>
 
       <Card title={t.games} id="games">
