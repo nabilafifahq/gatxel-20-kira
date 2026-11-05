@@ -221,7 +221,7 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
 
   if (!vocab) {
     return (
-      <div className="flex flex-col gap-4">
+      <div className="flex w-full max-w-2xl flex-col gap-4">
         {progress}
         <button
           type="button"
@@ -285,7 +285,7 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
   const answered = picked !== null
   const right = answered && picked === answer
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex w-full max-w-2xl flex-col gap-4">
       <div className="flex flex-wrap gap-2" role="group" aria-label={tc.drillType}>
         {(
           [
