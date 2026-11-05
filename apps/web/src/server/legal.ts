@@ -1,6 +1,7 @@
 import 'server-only'
 import type { PrivacyNoticeData, TermsData } from '@/screens/public/legal'
 import { NOTICE_VERSION, TERMS_VERSION } from './auth/accounts'
+import { googleEnabled } from './auth/google'
 import { legalEnv } from './legal-env'
 
 /**
@@ -18,6 +19,8 @@ function entity() {
 }
 
 export function privacyNoticeData(): PrivacyNoticeData {
+  // Baris Google hanya tampil saat fitur menyala, jadi isi kebijakan tidak berubah selama fitur mati.
+  const google = googleEnabled()
   return {
     entity: entity(),
     meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-05' },
@@ -31,6 +34,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
     ],
     dataRows: [
       { data: 'Akun orang dewasa', detail: 'Nama, email, hash password, passkey', purpose: 'Masuk dan keamanan akun', basis: 'Persetujuan dan pelaksanaan layanan', retention: 'Selama akun aktif, dihapus paling lambat 30 hari setelah permintaan hapus ke Pengelola' },
+      ...(google ? [{ data: 'Masuk dengan Google (opsional)', detail: 'Pengenal akun Google. Token dari Google tidak disimpan', purpose: 'Mengenali orang tua yang memilih masuk dengan Google', basis: 'Persetujuan dan pelaksanaan layanan', retention: 'Selama akun aktif, dihapus bersama akun' }] : []),
       { data: 'Profil anak', detail: 'Nama panggilan, kelas, avatar, hash PIN gambar', purpose: 'Masuk di tablet dan menyesuaikan soal', basis: 'Persetujuan orang tua', retention: 'Selama akun aktif, dihapus 7 hari setelah permintaan hapus' },
       { data: 'Data belajar', detail: 'Jawaban, skor, waktu, XP, streak, catatan tutor', purpose: 'Belajar, laporan, rencana mingguan', basis: 'Persetujuan orang tua', retention: 'Selama akun aktif, dihapus 7 hari setelah permintaan hapus' },
       { data: 'Rincian ronde arena', detail: 'Soal, jawaban, dan waktu tiap ronde Quick Maths dan Quiz Arena', purpose: 'Rekor, statistik, dan laporan', basis: 'Persetujuan orang tua', retention: '90 hari; setelah itu hanya ringkasan rekor dan jumlah ronde yang disimpan, selama akun aktif' },
@@ -49,6 +53,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { name: 'Anthropic PBC (Claude), hanya untuk keluarga bertutor yang menyetujui Bantuan AI. Tidak dipakai keluarga yang mendaftar sendiri selama beta publik', data: 'Teks soal, jawaban, dan foto jawaban tanpa nama atau identitas anak', location: 'Amerika Serikat', abroad: true },
       { name: 'Penyedia email yang diatur pengelola, bila laporan email atau email kabar produk disetujui, atau Anda mengirim pesan bantuan', data: 'Email orang tua, isi ringkasan mingguan, dan isi email kabar; isi pesan bantuan beserta lampirannya', location: 'Mengikuti penyedia yang dipilih pengelola', abroad: true },
       { name: 'WhatsApp, hanya bila Anda sendiri memilih chat lewat WhatsApp di halaman Bantuan', data: 'Isi percakapan yang Anda tulis dan nomor Anda. Kira tidak mengirim data apa pun ke WhatsApp', location: 'Mengikuti kebijakan WhatsApp', abroad: true },
+      ...(google ? [{ name: 'Google LLC, hanya bila Anda sendiri memilih Lanjutkan dengan Google. Tidak dipakai untuk akun anak', data: 'Alamat IP dan permintaan masuk diterima Google. Google mengirim ke Kira nama, email, status verifikasi email, dan pengenal akun Anda', location: 'Amerika Serikat dan negara lain', abroad: true }] : []),
       { name: 'Have I Been Pwned (cek kebocoran password)', data: 'Lima karakter awal hash password, tanpa email atau nama', location: 'Australia', abroad: true },
     ],
     sessionHours: 24,
