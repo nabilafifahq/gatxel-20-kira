@@ -137,7 +137,7 @@ async function flows(page, engine, size, shot) {
     await page.goto(`${BASE}${deck}`, { waitUntil: 'domcontentloaded' })
     await settle(page)
     await record(page, 'flashcard-front', engine, size, shot)
-    await page.locator('main button, [data-jenjang] button').filter({ hasNotText: /^$/ }).first().click({ timeout: 3000 }).catch(() => {})
+    await page.locator('main button', { hasText: /Tap to flip|Ketuk/ }).first().click({ timeout: 3000 }).catch(() => {})
     await page.waitForTimeout(300)
     await record(page, 'flashcard-tap', engine, size, shot)
   }
