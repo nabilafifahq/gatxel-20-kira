@@ -207,7 +207,7 @@ function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: 
 
       {myWords ? (
         <section aria-labelledby="me-words" className="flex flex-wrap items-center gap-3 rounded-card border border-divider bg-surface p-5 md:p-7">
-          <h2 id="me-words" className="m-0 min-w-0 flex-1 text-h2 font-bold">
+          <h2 id="me-words" className="m-0 min-w-0 grow basis-40 text-h2 font-bold">
             {t.shell.me.myWords}
           </h2>
           <ButtonLink href={LEARNER_ROUTES.myWords} variant="secondary" size="M" icon="book">

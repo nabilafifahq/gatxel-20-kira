@@ -9,5 +9,10 @@ import type { WidgetProps } from './types'
 export function GeoboardWidget({ item, value, onChange, disabled = false, feedback = null }: WidgetProps): ReactElement | null {
   const cfg = item.geoboard
   if (!cfg) return null
-  return <Geoboard size={cfg.size} value={asPegs(value)} onChange={(g) => onChange({ pegs: g.pegs, closed: g.closed })} disabled={disabled} feedback={feedback} />
+  // Di HP maskot sudut duduk di atas jawaban: papan digeser turun supaya paku pojok kanan atas tetap terlihat.
+  return (
+    <div className="w-full max-md:pt-11">
+      <Geoboard size={cfg.size} value={asPegs(value)} onChange={(g) => onChange({ pegs: g.pegs, closed: g.closed })} disabled={disabled} feedback={feedback} />
+    </div>
+  )
 }

@@ -50,8 +50,9 @@ export function HintButton({
   const left = Math.max(0, total - opened)
   const off = disabled || left === 0
   return (
-    <Button variant="secondary" icon="hint" disabled={off} onClick={onOpen} className="px-4">
-      {t.hint}
+    <Button variant="secondary" icon="hint" disabled={off} onClick={onOpen} className={cx('px-4', compact && 'max-[359px]:w-14 max-[359px]:flex-none max-[359px]:px-0')}>
+      {/* HP 320 px: hanya ikon, supaya tombol Periksa di sebelahnya tetap muat. */}
+      <span className={cx(compact && 'max-[359px]:sr-only')}>{t.hint}</span>
       {compact ? (
         <span className="visually-hidden">, {t.left(left)}</span>
       ) : (

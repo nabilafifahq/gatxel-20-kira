@@ -107,7 +107,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
       </nav>
       <nav
         aria-label={t.shell.navUi.main}
-        className="fixed inset-x-0 bottom-0 z-30 flex h-[calc(76px+var(--safe-bottom))] gap-2 rounded-t-xl bg-surface px-4 pt-1.5 pb-[calc(6px+var(--safe-bottom))] shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 flex h-[calc(76px+var(--safe-bottom))] gap-2 rounded-t-xl bg-surface px-4 pt-1.5 max-[359px]:gap-1 max-[359px]:px-2 pb-[calc(6px+var(--safe-bottom))] shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
       >
         {phone.map((n) => {
           const on = n.key === current

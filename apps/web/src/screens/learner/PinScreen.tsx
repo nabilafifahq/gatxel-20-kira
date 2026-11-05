@@ -174,7 +174,7 @@ export function PinScreen({
               </ButtonLink>
             </div>
           ) : null}
-          <Link href={pickHref} className="text-body font-semibold text-fg underline underline-offset-3">
+          <Link href={pickHref} className="inline-flex min-h-11 items-center text-body font-semibold text-fg underline underline-offset-3">
             {t.shell.pin.notYou(data.name)}
           </Link>
         </section>

@@ -187,7 +187,7 @@ export function SolutionPlayer({
   const figure = (current.figure ?? fallbackFigure) as FigureSpec | undefined
 
   return (
-    <div role="region" aria-label={label ?? t.player} className={cx('flex flex-col overflow-hidden rounded-card bg-surface shadow-soft', className)}>
+    <div role="region" aria-label={label ?? t.player} className={cx('flex flex-none flex-col overflow-hidden rounded-card bg-surface shadow-soft', className)}>
       <div className="relative flex min-h-[200px] items-center justify-center bg-bg px-4 pt-5 pb-3">
         <div key={step} className="motion-fade flex w-full flex-col items-center gap-3 starting:opacity-0">
           {prompt && current.mark ? <MarkedPrompt prompt={prompt} marks={current.mark} reduced={reduced} lang={lang} /> : null}

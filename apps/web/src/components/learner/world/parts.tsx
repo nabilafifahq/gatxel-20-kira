@@ -75,7 +75,7 @@ const RARITY_STARS: Record<Rarity, number> = { common: 1, rare: 2, epic: 3, lege
 export function RarityMark({ rarity }: { rarity: Rarity }): ReactElement {
   const w = useT().world
   return (
-    <span className="inline-flex items-center gap-1 text-small font-bold">
+    <span className="inline-flex flex-wrap items-center gap-1 text-small font-bold">
       <span aria-hidden className="inline-flex">
         {Array.from({ length: RARITY_STARS[rarity] }, (_, i) => (
           <UiIcon key={i} name="star" size={14} className="text-fg" />

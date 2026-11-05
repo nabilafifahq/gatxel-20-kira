@@ -115,7 +115,7 @@ export function QuizHubScreen({ data, actions }: { data: QuizHubDTO; actions: Pi
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
 
       <section aria-label={t.mixedTitle} className="flex flex-wrap items-center gap-3 rounded-card bg-surface shadow-soft p-5">
-        <div className="flex min-w-0 flex-1 basis-64 flex-col">
+        <div className="flex min-w-0 grow basis-52 flex-col">
           <h2 className="m-0 text-h2 font-bold">{t.hub.surprise}</h2>
           <p className="m-0 text-body text-fg-muted">{t.hub.surpriseBlurb}{data.speedBest > 0 ? t.hub.speedBest(data.speedBest) : ''}</p>
         </div>

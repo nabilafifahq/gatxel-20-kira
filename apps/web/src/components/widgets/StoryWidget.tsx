@@ -69,7 +69,7 @@ export function StoryWidget(props: WidgetProps): ReactElement | null {
   const inner = { item: sub, value: given[k] ?? null, onChange: setPart, disabled, feedback: partFeedback(k), subject }
   return (
     <div className="flex w-full flex-col gap-4">
-      <div role="tablist" aria-label={t.widgets.story.tabs} className="flex flex-wrap gap-2">
+      <div role="tablist" aria-label={t.widgets.story.tabs} className="flex flex-wrap gap-2 max-md:pr-12">
         {parts.map((p, i) => {
           const done = isPartComplete(p, given[i])
           const pf = partFeedback(i)

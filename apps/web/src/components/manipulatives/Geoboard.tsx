@@ -124,10 +124,10 @@ export function Geoboard({ value, onChange, disabled = false, feedback = null, o
         ))}
       </div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p role="status" className="m-0 min-w-0 flex-1 text-body font-semibold">
+        <p role="status" className="m-0 min-w-0 grow basis-40 text-body font-semibold">
           {status}
         </p>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button variant="secondary" size="M" icon="undo" disabled={locked || pegs.length === 0} onClick={undo}>
             {t.widgets.shared.undo}
           </Button>
