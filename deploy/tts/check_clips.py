@@ -60,9 +60,13 @@ CLIP_DEVIATION_ST = 8.0  # simpangan median F0 klip dari median suara yang sama;
 DEVIATION_MIN_SECONDS = 1.2  # klip lebih pendek (satu kata) tidak punya cukup kontur nada untuk dibandingkan
 ASR_MIN_SCORE = 0.8
 ASR_MIN_SCORE_SHORT = 0.6  # klip 3 sampai 4 kata
+# Model lessac bisa menelan bunyi s di awal gugus: "spoon" terdengar "poon". Whisper tidak menangkapnya di gerbang ini karena kecocokan huruf poon dan spoon tetap tinggi.
+# Pada 200 klip: desis di bawah 40 md terjadi pada 128 klip lama dan 0 klip dengan penjaga di remote.py.
+S_CLUSTER = re.compile(r"""^["'“(]*s(?:p|t|k|w|c(?=[aoulr])|ch|qu)""", re.I)
+LEAD_HISS_MIN_MS = 40
 
 FIELDS = [
-    "key", "style", "mtime", "chars", "seconds", "cps", "peak_db", "clip_frac", "lead_sil", "trail_sil", "inner_sil", "silent_ratio",
+    "key", "style", "mtime", "chars", "seconds", "cps", "peak_db", "clip_frac", "lead_sil", "trail_sil", "inner_sil", "silent_ratio", "lead_hiss_ms",
     "f0_median", "phrase_jump_st", "f0_dev_st", "asr_score", "asr_text", "text", "flags", "pass",
 ]
 
@@ -212,6 +216,26 @@ def f0_phrases(y: np.ndarray) -> list[float]:
     return [float(np.median(p)) for p in phrases if len(p) >= 12]  # minimal 240 md bersuara
 
 
+def lead_hiss_ms(y: np.ndarray) -> int:
+    """Lama bagian berdesis (energi di atas 3,5 kHz lebih besar daripada di bawah 1,5 kHz) dalam 250 md pertama sesudah bunyi mulai."""
+    hop, win = int(SR * 0.005), int(SR * 0.015)
+    if len(y) < win:
+        return 0
+    starts = np.arange(0, len(y) - win, hop)
+    frames = y[starts[:, None] + np.arange(win)[None, :]].astype(np.float64)
+    level = np.sqrt(np.mean(frames**2, axis=1))
+    active = np.nonzero(level > 10 ** (-48 / 20))[0]
+    if active.size == 0:
+        return 0
+    first = int(active[0])
+    head = frames[first : first + 50]
+    spec = np.abs(np.fft.rfft(head * np.hanning(win)[None, :], axis=1)) ** 2
+    freq = np.fft.rfftfreq(win, 1 / SR)
+    high = spec[:, freq >= 3500].sum(axis=1)
+    low = spec[:, (freq > 80) & (freq < 1500)].sum(axis=1)
+    return int(5 * np.sum((high > low) & (level[first : first + 50] > 10 ** (-55 / 20))))
+
+
 def analyse(args: tuple[str, str, str]) -> dict[str, Any]:
     """Metrik akustik satu klip. Dijalankan di proses pekerja."""
     key, style, path = args
@@ -227,7 +251,7 @@ def analyse(args: tuple[str, str, str]) -> dict[str, Any]:
     row["peak_db"] = round(20 * math.log10(peak + 1e-9), 1)
     row["clip_frac"] = round(float(np.mean(np.abs(y) >= 0.99)), 5) if len(y) else 0.0
     lead, trail, inner, ratio = silence_stats(y)
-    row.update(lead_sil=round(lead, 2), trail_sil=round(trail, 2), inner_sil=round(inner, 2), silent_ratio=round(ratio, 2))
+    row.update(lead_sil=round(lead, 2), trail_sil=round(trail, 2), inner_sil=round(inner, 2), silent_ratio=round(ratio, 2), lead_hiss_ms=lead_hiss_ms(y))
     try:
         meds = f0_phrases(y) if secs >= 0.3 and peak > 0.01 else []
     except Exception:  # noqa: BLE001
@@ -278,6 +302,8 @@ def judge(row: dict[str, Any], text: str) -> list[str]:
         flags.append(f"durasi/teks {row['cps']} k/d")
     if row["peak_db"] < PEAK_LOW_DB:
         flags.append("terlalu pelan")
+    if S_CLUSTER.match(text) and row.get("lead_hiss_ms", LEAD_HISS_MIN_MS) < LEAD_HISS_MIN_MS:
+        flags.append(f"bunyi s awal hilang {row['lead_hiss_ms']} md")
     if row["clip_frac"] > CLIP_FRACTION:
         flags.append("clipping")
     if row["lead_sil"] > EDGE_SILENCE_S or row["trail_sil"] > EDGE_SILENCE_S:

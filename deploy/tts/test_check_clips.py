@@ -24,6 +24,13 @@ class Judge(unittest.TestCase):
         row.update(over)
         return row
 
+    def test_missing_initial_s_fails_only_on_s_clusters(self) -> None:
+        quiet = self.base(lead_hiss_ms=5)
+        self.assertTrue(any("bunyi s" in f for f in judge(dict(quiet), "Spoon and fork are on the table.")))
+        self.assertFalse(any("bunyi s" in f for f in judge(dict(quiet), "Moon and stars are in the sky now.")))
+        self.assertFalse(any("bunyi s" in f for f in judge(self.base(lead_hiss_ms=100), "Spoon and fork are on the table.")))
+        self.assertFalse(any("bunyi s" in f for f in judge(dict(quiet), "Science is the study of the world.")))
+
     def test_clean_clip_passes(self) -> None:
         self.assertEqual(judge(self.base(), "What can you see in the picture?"), [])
 
