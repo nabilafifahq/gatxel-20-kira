@@ -20,7 +20,7 @@ function boot(fetchImpl: (req: string | { url: string }) => Promise<Response>, c
     if (!s) stores.set(name, (s = new Map()))
     return s
   }
-  store('kira-v1-static').set(`${ORIGIN}/offline.html`, new Response('OFFLINE PAGE', { status: 200 }))
+  store('kira-v1-static-l1').set(`${ORIGIN}/offline.html`, new Response('OFFLINE PAGE', { status: 200 }))
   for (const [path, body] of Object.entries(cachedPages)) store('kira-v1-pages').set(`${ORIGIN}${path}`, new Response(body, { status: 200 }))
   const keyOf = (r: unknown) => (typeof r === 'string' ? new URL(r, ORIGIN).href : (r as { url: string }).url)
   const caches = {
@@ -75,7 +75,7 @@ function boot(fetchImpl: (req: string | { url: string }) => Promise<Response>, c
 const reply = (status: number, body = 'SERVER') => () => Promise.resolve(new Response(body, { status }))
 
 describe('halaman offline dua bahasa', () => {
-  const seed = (go: ReturnType<typeof boot>) => go.stores.get('kira-v1-static')!.set(`${ORIGIN}/offline-id.html`, new Response('HALAMAN OFFLINE', { status: 200 }))
+  const seed = (go: ReturnType<typeof boot>) => go.stores.get('kira-v1-static-l1')!.set(`${ORIGIN}/offline-id.html`, new Response('HALAMAN OFFLINE', { status: 200 }))
 
   it('belum ada pesan bahasa: Indonesia', async () => {
     const go = boot(reply(521))

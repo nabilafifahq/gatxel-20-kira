@@ -46,14 +46,20 @@ export function KiraStar({
   )
 }
 
-/** Logo Kira: bintang maskot dan nama dalam Fredoka (jarak kosong minimal seperempat tinggi logo). */
-export function KiraLogo({ size = 32, className, stacked = false }: { size?: number; className?: string; stacked?: boolean }): ReactElement {
+/**
+ * Logo resmi Kira: maskot bertopi, buku, dan tulisan Kira. `size` adalah tinggi dalam px, lebarnya 1,2 kali tinggi.
+ * Atribut width dan height menjaga tempatnya sebelum gambar termuat, jadi tata letak tidak bergeser.
+ */
+export function KiraLogo({ size = 40, className }: { size?: number; className?: string }): ReactElement {
   return (
-    <span className={cx('inline-flex items-center gap-2', stacked && 'flex-col gap-0.5', className)}>
-      <KiraStar size={size} animate={false} />
-      <span className="font-display text-h1 leading-none font-semibold" style={{ fontSize: Math.round(size * 0.9) }}>
-        Kira
-      </span>
-    </span>
+    <img
+      src={size > 44 ? '/icons/logo-240.webp' : '/icons/logo-header.webp'}
+      width={Math.round(size * 1.2)}
+      height={size}
+      alt="Kira"
+      decoding="async"
+      draggable={false}
+      className={cx('block flex-none select-none', className)}
+    />
   )
 }

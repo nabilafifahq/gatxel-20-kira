@@ -84,7 +84,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
         className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
         <Link href={LEARNER_ROUTES.today} aria-label={t.shell.logoLabel} className="kira-press mb-3 inline-flex text-fg no-underline hover:text-fg">
-          <KiraLogo size={36} stacked />
+          <KiraLogo size={64} />
         </Link>
         {items.map((n) => {
           const on = n.key === current
@@ -152,7 +152,7 @@ export function LearnerFrame({
       <div className="flex min-h-svh min-w-0 flex-1 flex-col pb-[calc(76px+var(--safe-bottom))] md:pb-0">
         <div className="pt-safe border-b border-divider bg-surface md:hidden">
           <Link href={LEARNER_ROUTES.today} aria-label={t.shell.logoLabel} className="kira-press flex h-12 items-center px-4 text-fg no-underline hover:text-fg">
-            <KiraLogo size={28} />
+            <KiraLogo size={40} />
           </Link>
         </div>
         <main className={cx('min-w-0 flex-1 px-4 pt-5 pb-8 md:px-10 md:pt-8 md:pl-8', className)}>{children}</main>

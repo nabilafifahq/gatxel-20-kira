@@ -5,7 +5,7 @@ import { FontPreload } from '@/components/ui/FontPreload'
 export const metadata: Metadata = {
   title: { default: 'Kira', template: '%s, Kira' },
   robots: { index: false, follow: false },
-  icons: { icon: [{ url: '/favicon.ico', sizes: '48x48' }, { url: '/icons/icon.svg', type: 'image/svg+xml' }], apple: '/icons/apple-touch-icon.png' },
+  icons: { icon: [{ url: '/favicon.ico', sizes: '16x16 32x32 48x48' }, { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' }], apple: '/icons/apple-touch-icon.png' },
   manifest: '/manifest.webmanifest',
 }
 

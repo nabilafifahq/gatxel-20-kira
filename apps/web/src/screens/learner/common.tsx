@@ -15,10 +15,7 @@ import { useT } from '@/lib/i18n/client'
 
 export function Wordmark({ className }: { className?: string }): ReactElement {
   return (
-    <>
-      <KiraLogo size={28} className={cx('sm:hidden', className)} />
-      <KiraLogo size={36} className={cx('max-sm:hidden', className)} />
-    </>
+    <KiraLogo size={40} className={className} />
   )
 }
 
