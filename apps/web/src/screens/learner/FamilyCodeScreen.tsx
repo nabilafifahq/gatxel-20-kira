@@ -30,7 +30,9 @@ function ChildFrame({ children }: { children: React.ReactNode }) {
 export function FamilyCodeStep({
   turnstileSiteKey,
   checkCode,
+  deviceEnded = false,
 }: {
+  deviceEnded?: boolean
   turnstileSiteKey: string | null
   checkCode: (input: { code: string; turnstile?: string }) => Promise<ActionResult<{ redirectTo: string }>>
 }): ReactElement {
@@ -79,6 +81,11 @@ export function FamilyCodeStep({
           <h1 className="m-0 text-h1 font-bold">{t.title}</h1>
           <p className="m-0 text-body-lg text-fg-muted">{t.intro}</p>
         </div>
+        {deviceEnded ? (
+          <p role="status" className="m-0 w-full rounded-card bg-lavender px-4 py-3 text-body font-semibold">
+            {t.deviceEnded}
+          </p>
+        ) : null}
         <form method="post" onSubmit={submit} noValidate className="flex w-full flex-col gap-4">
           <div className="flex flex-col gap-2">
             <label htmlFor="kode-keluarga" className="text-body-lg font-bold">

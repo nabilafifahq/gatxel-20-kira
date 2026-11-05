@@ -93,6 +93,7 @@ const en = {
     noChildrenBody: 'Ask your parent to add you in Kira first. After that, come back and type the code again.',
     otherCode: 'Type a different code',
     expired: 'That code can no longer be used. Go back and type the family code again.',
+    deviceEnded: 'You have been signed out on this device. Ask your parent for the code to come back in.',
   },
 
   pin: {
@@ -579,6 +580,7 @@ const id: typeof en = {
     noChildrenBody: 'Minta orang tuamu menambahkan namamu di Kira dulu, ya. Setelah itu, kembali ke sini dan ketik kodenya lagi.',
     otherCode: 'Ketik kode lain',
     expired: 'Kode itu sudah tidak bisa dipakai. Kembali, lalu ketik kode keluarga lagi.',
+    deviceEnded: 'Kamu sudah keluar dari perangkat ini. Minta kodenya ke orang tuamu untuk masuk lagi.',
   },
 
   pin: {

@@ -11,15 +11,15 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Masuk sebagai anak' }
 
 /** Anak masuk tanpa perangkat yang didaftarkan orang tua: kode keluarga, lalu nama, lalu PIN gambar. */
-export default async function ChildCodePage({ searchParams }: { searchParams: Promise<{ lain?: string }> }) {
+export default async function ChildCodePage({ searchParams }: { searchParams: Promise<{ lain?: string; perangkat?: string }> }) {
   const actor = await getActor()
   if (actor) redirect(homeFor(actor.role))
-  const { lain } = await searchParams
+  const { lain, perangkat } = await searchParams
   const ticket = await readFamilyTicket()
   if (!ticket) {
     // Perangkat terdaftar langsung ke nama dan PIN. ?lain=1 untuk saudara yang belum ada di perangkat ini.
     if (lain !== '1' && (await getDevice())) redirect('/')
-    return <FamilyCodeStep turnstileSiteKey={turnstileSiteKey()} checkCode={checkFamilyCodeAction} />
+    return <FamilyCodeStep turnstileSiteKey={turnstileSiteKey()} checkCode={checkFamilyCodeAction} deviceEnded={perangkat === 'berakhir'} />
   }
   return <FamilyNamesStep childrenList={await familyChildChoices(ticket.orgId)} forgetCode={forgetFamilyCodeAction} />
 }

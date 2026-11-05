@@ -200,7 +200,8 @@ test('orang tua melihat kode dan perangkat; ganti kode tidak mengeluarkan perang
   await page.getByRole('dialog').getByRole('button', { name: 'Cabut perangkat' }).click()
   await expect(device).toHaveCount(0)
   await child.goto('/today')
-  await waitForPath(child, (p) => p !== '/today')
+  await waitForPath(child, (p) => p === '/masuk/anak')
+  await expect(child.getByRole('status').filter({ hasText: 'Kamu sudah keluar dari perangkat ini' })).toBeVisible()
   await childContext.close()
 })
 
