@@ -21,12 +21,12 @@ import type { UiLang } from '@/lib/i18n/lang'
 
 const { userAccount, invite, resetToken, signup } = tables
 
-export const TERMS_VERSION = '2026-11-04'
+export const TERMS_VERSION = '2026-11-05'
 /**
  * Versi yang tercatat di setiap persetujuan, jadi harus berubah setiap kali isi kebijakan berubah, juga di hari yang sama.
  * Orang tua yang setuju sebelum baris email kabar produk ditambahkan tetap tercatat pada 2026-11-05.
  */
-export const NOTICE_VERSION = '2026-11-05.2'
+export const NOTICE_VERSION = '2026-11-05.3'
 
 const GENERIC_LOGIN_ERROR = 'Email atau password belum cocok. Periksa lagi, atau pakai Lupa password.'
 
