@@ -41,7 +41,7 @@ export function HubScreen({ data }: { data: WorldHubDTO }): ReactElement {
         </p>
       </header>
       <WorldTabs current="home" />
-      <Link href="/world/friend" prefetch={false} className="kw-animate flex items-center gap-4 rounded-card border-2 border-fg bg-science-50 p-4 text-fg no-underline">
+      <Link href="/world/friend" prefetch={false} className="kw-animate flex items-center gap-4 rounded-card border-2 border-fg bg-science-50 p-4 text-fg no-underline max-[359px]:gap-2">
         {data.pet ? <PetArt kind={data.pet.kind as PetArtKind} stage={data.pet.stage} costume={data.pet.costume} size={110} /> : <EggArt cracked={data.petState === 'ready'} size={110} />}
         <span className="flex min-w-0 flex-1 flex-col gap-1">
           <span className="text-h2 font-bold break-words">{data.pet ? data.pet.name : data.petState === 'ready' ? h.eggReady : h.mysteryEgg}</span>
@@ -49,7 +49,7 @@ export function HubScreen({ data }: { data: WorldHubDTO }): ReactElement {
             {data.pet ? data.pet.greeting : data.petState === 'ready' ? h.tapToHatch : h.earnToHatch(data.hatchAt)}
           </span>
         </span>
-        <UiIcon name="arrow-right" size={22} />
+        <UiIcon name="arrow-right" size={22} className="max-[359px]:hidden" />
       </Link>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         <Tile href="/world/shop" icon="gift" title={t.world.shopName} line={h.shopLine} />
