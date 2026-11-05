@@ -35,7 +35,7 @@ export function TrophyScreen({ data }: { data: TrophyDTO }): ReactElement {
           {data.milestones.map((m) => (
             <li key={m.days} className={cx('flex flex-col items-center gap-2 rounded-card border-2 p-3 text-center', m.reached ? 'kw-animate border-fg' : 'border-dashed border-border')}>
               <div className={m.reached ? 'kw-shine-medal' : 'opacity-40 grayscale'}>
-                <SealArt days={m.days} unit={c.sealUnit} size={88} />
+                <SealArt days={m.days} unit={c.sealUnit} size={88} className="max-[359px]:h-14 max-[359px]:w-14" />
               </div>
               <span className="text-body font-bold">{c.days(m.days)}</span>
               {m.certificate ? (

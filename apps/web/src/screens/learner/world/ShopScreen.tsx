@@ -22,7 +22,7 @@ const SECTIONS: ShopItemDTO['kind'][] = ['pethome', 'petcostume', 'outfit', 'fra
 
 function Thumb({ item, data }: { item: ShopItemDTO; data: ShopDTO }): ReactElement {
   const { shell } = data
-  if (item.kind === 'pethome') return <PetHomeArt id={item.id} width={150} className="rounded-control" />
+  if (item.kind === 'pethome') return <PetHomeArt id={item.id} width={150} className="h-auto max-w-full rounded-control" />
   if (item.kind === 'petcostume') return <PetCostumeThumb id={item.id} size={80} />
   if (item.kind === 'frame') return <FrameThumb id={item.id} size={80} />
   if (item.kind === 'outfit') return <Avatar name={shell.avatar} size={80} accessory={item.id} />
@@ -74,7 +74,7 @@ export function ShopScreen({ data, actions }: { data: ShopDTO; actions: ShopActi
                 const name = itemName(t.world, i.id, i.name)
                 return (
                   <li key={i.id} className={cx('flex flex-col items-center gap-2 rounded-card border-2 bg-surface p-3', i.equipped ? 'border-fg' : 'border-divider')}>
-                    <div className="flex h-24 items-center justify-center">
+                    <div className="flex h-24 w-full items-center justify-center">
                       <Thumb item={i} data={data} />
                     </div>
                     <span className="text-center text-body font-bold">{name}</span>
