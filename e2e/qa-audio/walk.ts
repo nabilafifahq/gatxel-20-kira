@@ -61,7 +61,7 @@ console.log('Soal: tunggal', mcqSingle?.id, 'jamak', mcqMulti?.id, 'dengar', lis
 const subjectOf = (id: string) => (id.startsWith('e') ? 'english' : id.startsWith('m') ? 'math' : 'science')
 const open = (ref: RawItem) => makeAttempt(kid, [{ id: ref.id, difficulty: ref.difficulty }], subjectOf(ref.id))
 
-const langOfVer = (v: string) => (v === ID_VER ? 'id' : v === EN_VER ? 'en' : '?')
+const langOfVer = (v: string) => (v === ID_VER ? 'id' : v.startsWith(EN_VER) ? 'en' : '?')
 const CPS: Record<string, [number, number]> = { teacher: [6, 26], quizhost: [6, 28], dictation: [3, 22], second: [6, 26], indonesian: [5, 28] }
 
 function judge(p: PlayRec): Clip {
@@ -711,9 +711,9 @@ async function main() {
         timezoneId: 'Asia/Jakarta',
         storageState: join(OUT, process.env.QA_STATE ?? kid.state),
         ignoreHTTPSErrors: true,
-        ...(process.env.QA_STAGING ? { serviceWorkers: 'block' as const } : {}),
+        ...(process.env.QA_STAGING && !process.env.QA_NOROUTE ? { serviceWorkers: 'block' as const } : {}),
       })
-      if (process.env.QA_STAGING) await useStaging(ctx, process.env.QA_STAGING, process.env.QA_VERSION!)
+      if (process.env.QA_STAGING && !process.env.QA_NOROUTE) await useStaging(ctx, process.env.QA_STAGING, process.env.QA_VERSION!)
       await ctx.addInitScript(INIT)
       const net: Net[] = []
       trackNet(ctx, net)

@@ -70,8 +70,8 @@ async function main() {
   const allNet: Net[] = []
   for (const k of kids) {
     if (ONLY_GRADES && !ONLY_GRADES.includes(k.grade)) continue
-    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, locale: 'en-GB', timezoneId: 'Asia/Jakarta', storageState: join(OUT, k.state), ...(process.env.QA_STAGING ? { serviceWorkers: 'block' as const } : {}) })
-    if (process.env.QA_STAGING) await useStaging(ctx, process.env.QA_STAGING, process.env.QA_VERSION!)
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, locale: 'en-GB', timezoneId: 'Asia/Jakarta', storageState: join(OUT, k.state), ...(process.env.QA_STAGING && !process.env.QA_NOROUTE ? { serviceWorkers: 'block' as const } : {}) })
+    if (process.env.QA_STAGING && !process.env.QA_NOROUTE) await useStaging(ctx, process.env.QA_STAGING, process.env.QA_VERSION!)
     await ctx.addInitScript(INIT)
     const net: Net[] = []
     const swFetch: string[] = []

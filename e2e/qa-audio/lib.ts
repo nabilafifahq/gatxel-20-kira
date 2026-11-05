@@ -17,7 +17,7 @@ function stackInfo(): { base: string; mailpit: string; db: string } {
   const mail = /Mailpit:\s*(http\S+)/i.exec(txt)?.[1] ?? 'http://127.0.0.1:8198'
   const web = /(?:Web|Proxy|URL):\s*(http\S+)/i.exec(txt)?.[1] ?? 'http://127.0.0.1:3198'
   const db = /docker exec -i (\S+)/.exec(txt)?.[1] ?? 'kiraqa3-db-1'
-  return { base: web.replace(/\/$/, ''), mailpit: mail.replace(/\/$/, ''), db }
+  return { base: web.replace(/\/$/, ''), mailpit: (process.env.QA_MAILPIT ?? mail).replace(/\/$/, ''), db: process.env.QA_DB ?? db }
 }
 export const STACK = stackInfo()
 export const BASE = process.env.E2E_BASE_URL ?? STACK.base
@@ -28,8 +28,9 @@ export function psql(sql: string): string {
 
 export type ManRow = { key: string; style: string; text: string; version: string; spoken?: string }
 export const man = new Map<string, ManRow>()
-for (const f of [`manifest-${EN_VER}.jsonl`, `manifest-${ID_VER}.jsonl`]) {
-  for (const line of readFileSync(join(TTS_DIR, f), 'utf8').split('\n')) {
+const manifests = [`${TTS_DIR}/manifest-${EN_VER}.jsonl`, `${TTS_DIR}/manifest-${ID_VER}.jsonl`, ...(process.env.QA_STAGING ? [`${process.env.QA_STAGING}/manifest-${process.env.QA_VERSION}.jsonl`] : [])]
+for (const f of manifests) {
+  for (const line of readFileSync(f, 'utf8').split('\n')) {
     if (!line.trim()) continue
     const m = JSON.parse(line) as ManRow
     man.set(m.key, m)
