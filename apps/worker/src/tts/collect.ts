@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { findContentDir, loadContent, type ContentIndex } from '@kira/content/load'
 import { loadSpelling } from '@kira/content/spelling'
 import type { Item } from '@kira/content/schema'
@@ -8,7 +10,7 @@ import { dictionaryWordClips } from '@kira/core/dictionary'
 import { loadFlashcards } from '@kira/content/flashcards'
 import { CARDS, STORY } from '@kira/core'
 import { clipTextsOf, TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
-import { collectSourceTexts, loadTranslations, lookupTranslation, type SourceText } from '@kira/content/translations'
+import { collectSourceTexts, loadTranslations, lookupTranslation, readTranslationFile, TRANSLATION_DIR, type SourceText } from '@kira/content/translations'
 
 /**
  * Kumpulkan semua teks bahasa Inggris yang dibacakan layar learner, dengan gaya yang sama persis
@@ -27,6 +29,17 @@ export function translationClips(dir: string = findContentDir(), kinds: readonly
   const sources = collectSourceTexts(dir, new Set(kinds))
   const seen = new Set<string>()
   const out: TtsClipRequest[] = []
+  // Kalimat tetap buatan kode untuk langkah pembahasan turunan.
+  const shared = join(dir, TRANSLATION_DIR, '_shared.json')
+  if (existsSync(shared)) {
+    for (const e of Object.values(readTranslationFile(shared).entries)) {
+      for (const text of clipTextsOf([e.id])) {
+        if (seen.has(text)) continue
+        seen.add(text)
+        out.push({ text, style: 'indonesian' })
+      }
+    }
+  }
   for (const kind of kinds) {
     for (const f of sources) {
       for (const t of f.texts) {

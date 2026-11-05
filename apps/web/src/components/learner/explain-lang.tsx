@@ -114,7 +114,7 @@ export function useIdClipsReady(texts: readonly string[]): boolean {
     return () => {
       live = false
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- key mewakili isi texts
+    // key mewakili isi texts
   }, [key])
   return texts.length > 0 && ready?.key === key && ready.ok
 }

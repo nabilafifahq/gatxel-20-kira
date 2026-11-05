@@ -14,7 +14,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { findContentDir } from '../src/load'
-import { collectSourceTexts, readTranslationFile, TRANSLATION_DIR, translationHash, translationReport, type SourceText, type TranslationEntry } from '../src/translations'
+import { collectSourceTexts, GENERATOR_FILE, readTranslationFile, TRANSLATION_DIR, translationHash, translationReport, type SourceText, type TranslationEntry } from '../src/translations'
 import { splitSentences } from '../src/walkthrough'
 
 const [cmd, ...rest] = process.argv.slice(2)
@@ -28,7 +28,9 @@ const { values } = parseArgs({
     subject: { type: 'string' },
     grades: { type: 'string' },
     'max-words': { type: 'string', default: '4000' },
+    share: { type: 'string' },
     dry: { type: 'boolean', default: false },
+    unreviewed: { type: 'boolean', default: false },
     json: { type: 'boolean', default: false },
   },
 })
@@ -36,7 +38,7 @@ const { values } = parseArgs({
 const contentDir = findContentDir()
 const words = (s: string) => s.trim().split(/\s+/).length
 
-type BatchRow = { k: string; en: string; kind: SourceText['kind']; ctx?: string }
+type BatchRow = { k: string; en: string; kind: SourceText['kind'] | 'template'; ctx?: string }
 
 /** Bilangan di teks, supaya angka tidak berubah saat diterjemahkan. */
 const numbersOf = (s: string) => (s.match(/\d+(?:[.,:/]\d+)*/g) ?? []).sort()
@@ -46,6 +48,7 @@ export function checkTranslation(en: string, id: string): { hard: string[]; warn
   const hard: string[] = []
   const warn: string[] = []
   if (!id || !id.trim()) hard.push('kosong')
+  // gtx-ignore-next-line dash
   if (/[–—]/.test(id)) hard.push('ada tanda pisah panjang')
   if (id !== id.trim()) hard.push('spasi di awal atau akhir')
   if (/\bAnda\b/.test(id)) warn.push('memakai Anda, seharusnya kamu')
@@ -123,6 +126,42 @@ if (cmd === 'extract') {
   }
   console.log(names.join('\n'))
   console.log(`Jumlah: ${total} teks unik, ${totalWords} kata, ${names.length} batch`)
+} else if (cmd === 'extract-templates') {
+  // Pola generator dari gen-templates-audit: --in daftar pola, --out folder batch, --share bagian kemunculan yang dicakup.
+  if (!values.in || !values.out) throw new Error('--in dan --out wajib')
+  const list = readJson<{ t: string; n: number; example: string }[]>(values.in)
+  const total = list.reduce((a, r) => a + r.n, 0)
+  const share = Number(values.share ?? '0.9')
+  const maxWords = Number(values['max-words'])
+  mkdirSync(values.out, { recursive: true })
+  const already = new Set(translationHashes())
+  let acc = 0
+  let n = 0
+  let w = 0
+  let batch: BatchRow[] = []
+  let count = 0
+  let wordsAll = 0
+  const flush = () => {
+    if (batch.length === 0) return
+    n++
+    writeFileSync(join(values.out!, `pola-${String(n).padStart(2, '0')}.in.json`), JSON.stringify(batch).replace(/\},\{/g, '},\n{') + '\n')
+    batch = []
+    w = 0
+  }
+  for (const r of list) {
+    if (acc / total >= share) break
+    acc += r.n
+    const hash = translationHash(r.t)
+    if (already.has(hash)) continue
+    const rw = words(r.t)
+    if (w + rw > maxWords) flush()
+    batch.push({ k: hash.slice(0, 10), en: r.t, kind: 'template', ctx: r.example.slice(0, 160) })
+    w += rw
+    count++
+    wordsAll += rw
+  }
+  flush()
+  console.log(`${count} pola, ${wordsAll} kata, ${n} batch, mencakup ${((acc / total) * 100).toFixed(1)}% kemunculan`)
 } else if (cmd === 'validate') {
   if (!values.in) throw new Error('--in wajib')
   const rows = readJson<BatchRow[]>(values.in)
@@ -166,9 +205,11 @@ if (cmd === 'extract') {
   let accepted = 0
   let waiting = 0
   let batches = 0
+  const templates: Record<string, TranslationEntry> = {}
   for (const inPath of walk(values.work).sort()) {
     const outPath = outOf(inPath, '.out.json')
-    if (!existsSync(outPath)) {
+    // Hanya batch yang sudah dibaca pembaca kedua, kecuali --unreviewed.
+    if (!existsSync(outPath) || (!values.unreviewed && !existsSync(outOf(inPath, '.fix.json')))) {
       waiting++
       continue
     }
@@ -182,7 +223,8 @@ if (cmd === 'extract') {
         rejected++
         continue
       }
-      byHash.set(translationHash(r.en), id)
+      if (r.kind === 'template') templates[translationHash(r.en)] = { en: r.en, id }
+      else byHash.set(translationHash(r.en), id)
       accepted++
     }
   }
@@ -207,6 +249,11 @@ if (cmd === 'extract') {
       writeFileSync(path, body)
     }
     written++
+  }
+  if (Object.keys(templates).length > 0 && !values.dry) {
+    const path = join(root, GENERATOR_FILE)
+    const prev = existsSync(path) ? readTranslationFile(path).entries : {}
+    writeFileSync(path, JSON.stringify({ entries: { ...prev, ...templates } }, null, 1) + '\n')
   }
   console.log(`Batch dipakai ${batches}, menunggu ${waiting}. Diterima ${accepted}, ditolak ${rejected}. Berkas ${written}, entri ${entriesTotal}.`)
   if (rejected > 0) process.exitCode = 1

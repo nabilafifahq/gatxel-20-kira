@@ -71,14 +71,24 @@ export function loadTranslations(contentDir: string): { map: Map<string, string>
   return { map, problems }
 }
 
-/** Terjemahan teks Inggris yang persis ini, atau null bila belum ada. */
+/**
+ * Terjemahan teks Inggris yang persis ini, atau pola generatornya (kata sama persis, hanya angka yang berbeda).
+ * Null bila belum ada: anak tetap membaca bahasa Inggris.
+ */
 export function lookupTranslation(map: TranslationMap, en: string | null | undefined): string | null {
   if (!en) return null
-  return map.get(translationHash(en)) ?? null
+  const exact = map.get(translationHash(en))
+  if (exact) return exact
+  const { template, values } = templateOf(en)
+  if (values.length === 0) return null
+  const pattern = map.get(translationHash(template))
+  return pattern ? fillTemplate(pattern, values) : null
 }
 
 /** Satu teks yang boleh diterjemahkan, dengan konteks untuk penerjemah. */
 export type SourceText = { en: string; kind: 'lesson' | 'explanation' | 'solution' | 'why' | 'tip'; context?: string }
+/** Berkas pola teks generator. Awalan _ berarti bukan pasangan berkas konten. */
+export const GENERATOR_FILE = '_generator.json'
 export type SourceFile = { subject: string; grade: number; file: string; texts: SourceText[] }
 
 type RawItem = {
@@ -187,4 +197,25 @@ export function translationReport(contentDir: string): TranslationReport {
     for (const [hash, e] of Object.entries(parsed.entries)) if (!live.has(hash)) stale.push({ file, hash, en: e?.en ?? '' })
   }
   return { coverage: [...counts.values()], stale, problems }
+}
+
+/**
+ * Pola teks buatan generator: angka diganti {0}, {1}, dan seterusnya, supaya satu terjemahan berlaku untuk semua soal dari
+ * generator yang sama. Hanya angka yang boleh berbeda; kata lain harus sama persis dengan polanya.
+ */
+export function templateOf(text: string): { template: string; values: string[] } {
+  const values: string[] = []
+  const template = text.replace(/\d+(?:[.,:/]\d+)*/g, (m) => `{${values.push(m) - 1}}`)
+  return { template, values }
+}
+
+/** Isi kembali angka ke terjemahan pola. Null bila terjemahan memakai nomor yang tidak ada. */
+export function fillTemplate(id: string, values: readonly string[]): string | null {
+  let ok = true
+  const out = id.replace(/\{(\d+)\}/g, (_, i: string) => {
+    const v = values[Number(i)]
+    if (v === undefined) ok = false
+    return v ?? ''
+  })
+  return ok ? out : null
 }

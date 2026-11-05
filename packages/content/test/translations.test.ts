@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import { presentItem } from '../src/present'
 import type { Item } from '../src/schema'
-import { loadTranslations, lookupTranslation, translationHash, translationReport } from '../src/translations'
+import { fillTemplate, loadTranslations, lookupTranslation, templateOf, translationHash, translationReport } from '../src/translations'
 import { translateSolution } from '../src/walkthrough'
 
 const dirs: string[] = []
@@ -33,6 +33,15 @@ describe('penyimpanan terjemahan', () => {
     expect(lookupTranslation(map, 'Add 2 and 4.')).toBeNull()
     expect(lookupTranslation(map, 'Add 2  and 3.')).toBeNull()
     expect(lookupTranslation(map, null)).toBeNull()
+  })
+
+  it('pola generator: hanya angka yang boleh berbeda', () => {
+    const dir = content(['Add 2 and 3.'], entry('{0} × {1} = {2}. Count on.', '{0} × {1} = {2}. Hitung maju.'))
+    const { map } = loadTranslations(dir)
+    expect(lookupTranslation(map, '12 × 3 = 36. Count on.')).toBe('12 × 3 = 36. Hitung maju.')
+    expect(lookupTranslation(map, '12 × 3 = 36. Count back.')).toBeNull()
+    expect(templateOf('Rp5.000 + 1,000').values).toEqual(['5.000', '1,000'])
+    expect(fillTemplate('{0} dan {1}', ['1'])).toBeNull()
   })
 
   it('entri yang hash-nya tidak cocok tidak dimuat dan dilaporkan', () => {
