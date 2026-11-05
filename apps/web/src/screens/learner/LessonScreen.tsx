@@ -156,7 +156,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
 
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
-      <header className="flex min-h-18 flex-none flex-wrap items-center gap-3 px-4 py-2 md:h-22 md:gap-4 md:px-8 md:py-0">
+      <header className="flex min-h-18 flex-none flex-wrap items-center gap-3 px-4 py-2 md:min-h-22 md:gap-4 md:px-8">
         <IconLink href={data.backHref} icon="arrow-left" label={copy.backToMap} />
         <span className="hidden sm:inline-flex">
           <SubjectChip subject={data.subject} size="M" />
@@ -281,17 +281,16 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               )}
               <IconButton icon="skip-back" label={copy.previousPart} disabled={at === 0} onClick={() => go(at - 1)} />
               <IconButton icon="skip-next" label={copy.nextPart} disabled={!passable(at)} onClick={() => (at >= total - 1 ? goNext() : go(at + 1))} />
-              <ol aria-label={copy.partOf(at + 1, total)} className="m-0 ml-1.5 flex min-w-0 flex-1 list-none gap-1.5 p-0">
-                {parts.map((p, i) => (
-                  <li key={i} className={cx('relative h-3 flex-1 rounded-pill', i < stepsDone ? style.bar : i === at ? 'border-2 border-fg bg-surface' : 'bg-divider')}>
-                    {p.kind === 'check' ? (
-                      <span
-                        aria-hidden="true"
-                        className={cx('absolute -top-1.5 left-1/2 -ml-2 h-4 w-4 rotate-45 border-2 border-fg', checks[p.n]?.status !== 'open' ? 'bg-star' : 'bg-surface')}
-                      />
-                    ) : null}
-                  </li>
-                ))}
+              <ol aria-label={copy.partOf(at + 1, total)} className="m-0 ml-1.5 flex min-w-0 flex-1 list-none items-center gap-1 p-0 sm:gap-1.5">
+                {parts.map((p, i) =>
+                  p.kind === 'check' ? (
+                    <li key={i} className="flex h-5 w-5 flex-none items-center justify-center">
+                      <span aria-hidden="true" className={cx('block h-3.5 w-3.5 rotate-45 border-2', i === at ? 'border-3 border-fg' : 'border-fg', checks[p.n]?.status !== 'open' ? 'bg-star' : 'bg-surface')} />
+                    </li>
+                  ) : (
+                    <li key={i} className={cx('h-3 min-w-0 flex-1 rounded-pill', i < stepsDone ? style.bar : i === at ? 'border-2 border-fg bg-surface' : 'bg-divider')} />
+                  ),
+                )}
               </ol>
             </div>
           ) : null}

@@ -2,12 +2,13 @@ import type { ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 
 /**
- * Ukuran huruf papan pelajaran mengikuti panjang teks. Batas dipilih supaya baris terpanjang tetap muat
- * di papan selebar 390 px tanpa memotong kata, dan teks pendek tetap terasa besar.
+ * Ukuran huruf teks `show` mengikuti panjang teks. Batas dipilih supaya baris terpanjang tetap muat
+ * di papan selebar 360 px tanpa memotong kata, dan teks pendek tetap terasa besar.
+ * `player` untuk pemutar langkah yang lebih sempit: tanpa ukuran display.
  */
-export function showSizeClass(text: string): string {
+export function showSizeClass(text: string, place: 'board' | 'player' = 'board'): string {
   const n = text.length
-  if (n <= 12) return 'text-h1 md:text-display'
+  if (n <= 12) return place === 'board' ? 'text-h1 md:py-4 md:text-display' : 'text-h1'
   if (n <= 24) return 'text-h2 md:text-h1'
   return 'text-h3 md:text-h2'
 }
