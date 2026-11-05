@@ -123,8 +123,9 @@ function keyRowHeight(q: Q): number {
 
 export function PrintPaper({ data }: { data: PrintPaperDTO }) {
   const all = data.sections.flatMap((s) => s.items)
-  const titleH = 38 + 4 + 24 + GAP + (data.cheer && !data.withKey ? 24 : 0)
-  const instrH = !data.withKey && data.instructions.length ? Math.ceil(data.instructions.join(' ').length / 80) * 24 + 26 + GAP : 0
+  // Judul panjang pindah ke baris kedua karena kolom kanan berisi nama dan tanggal.
+  const titleH = Math.ceil(data.title.length / 30) * 38 + 4 + 24 + GAP + (data.cheer && !data.withKey ? 24 : 0)
+  const instrH = !data.withKey && data.instructions.length ? Math.ceil(data.instructions.join(' ').length / 80) * 26 + 26 + GAP : 0
   const capacity = INNER - HEADER - FOOTER
 
   if (data.withKey) {

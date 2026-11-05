@@ -1,4 +1,7 @@
+import { figureBox } from '@kira/figures'
+import type { FigureSpec } from '@kira/figures/spec'
 import type { ClientItem } from '@kira/content/present'
+import { derivedFigure } from './ItemStatic'
 
 /**
  * Perkiraan tinggi blok (px pada 96 dpi) untuk membagi soal ke halaman A4.
@@ -9,6 +12,16 @@ import type { ClientItem } from '@kira/content/present'
 const CHARS_PER_LINE = 56
 const PROMPT_LINE = 30
 const OPTION_LINE = 30
+const FIGURE_W = 238
+const FIGURE_CHROME = 18
+const OPTION_FIGURE_W = 138
+const OPTION_FIGURE_CHROME = 14
+
+/** Tinggi kotak figur sesuai rasio viewBox: lebar isi di lembar ditambah padding dan garis tepi (lihat ItemStatic). */
+function figureHeight(spec: FigureSpec, contentWidth: number, chrome: number): number {
+  const box = figureBox(spec)
+  return Math.ceil((contentWidth * box.height) / Math.max(1, box.width)) + chrome
+}
 
 function lines(text: string, perLine = CHARS_PER_LINE): number {
   return Math.max(1, Math.ceil(text.length / perLine))
@@ -17,18 +30,29 @@ function lines(text: string, perLine = CHARS_PER_LINE): number {
 export function estimateItemHeight(item: ClientItem, workBox: boolean): number {
   let h = lines(item.prompt) * PROMPT_LINE
   const gap = 12
-  const hasFigure = Boolean(item.figure) || item.type === 'numberline' || item.type === 'fraction' || item.type === 'clock'
+  const fig = item.figure ?? derivedFigure(item)
   const numericLike = item.type === 'numeric' || item.type === 'clock' || item.type === 'numberline' || item.type === 'fraction'
   if (item.passage) h += gap + 50 + lines(item.passage.text, 60) * 29
   if (item.readText) h += gap + 26 + lines(item.readText, 55) * 29
-  if (hasFigure || (workBox && numericLike)) h += gap + (hasFigure ? 172 : 140)
+  const work = workBox && numericLike
+  // Kotak figur 256 px dan kotak kerja 140 px sebaris, jadi yang tertinggi yang menentukan.
+  if (fig || work) h += gap + Math.max(fig ? figureHeight(fig, FIGURE_W, FIGURE_CHROME) : 0, work ? 140 : 0)
   switch (item.type) {
     case 'mcq':
     case 'multi': {
       const n = item.options?.length ?? 4
-      const fig = item.options?.some((o) => o.figure)
-      const longest = Math.max(1, ...(item.options ?? []).map((o) => (o.text ? lines(o.text, 26) : 1)))
-      h += gap + (fig ? Math.ceil(n / 3) * 130 : Math.ceil(n / 2) * (longest * OPTION_LINE + 10))
+      const opts = item.options ?? []
+      const longest = Math.max(1, ...opts.map((o) => (o.text ? lines(o.text, 26) : 1)))
+      if (opts.some((o) => o.figure)) {
+        // Tiga kolom. Tinggi tiap baris mengikuti pilihan tertinggi di baris itu.
+        for (let r = 0; r < opts.length; r += 3) {
+          const row = opts.slice(r, r + 3).map((o) => (o.figure ? figureHeight(o.figure, OPTION_FIGURE_W, OPTION_FIGURE_CHROME) : OPTION_LINE))
+          h += Math.max(...row) + 10
+        }
+        h += gap
+      } else {
+        h += gap + Math.ceil(n / 2) * (longest * OPTION_LINE + 10)
+      }
       if (item.type === 'multi') h += 26
       break
     }
