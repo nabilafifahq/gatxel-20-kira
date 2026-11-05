@@ -29,7 +29,7 @@ export function SiteFooter({ area = 'public', note, current, className }: { area
               href={l.href}
               prefetch={false}
               aria-current={(current === 'privacy' && l.href === '/privasi') || (current === 'terms' && l.href === '/ketentuan') ? 'page' : undefined}
-              className="inline-flex min-h-11 items-center font-bold"
+              className="inline-flex min-h-11 min-w-11 items-center font-bold"
             >
               {l.label}
             </Link>

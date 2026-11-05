@@ -502,13 +502,13 @@ function Sound({ c, learnerId, onSaved }: { c: ParentChildDTO['controls']; learn
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">Suara dan musik</h3>
       <div className="flex items-center gap-3">
-        <span id="snd" className="flex-1 text-body">
+        <span id="snd" className="min-w-0 flex-1 text-body">
           Efek suara
         </span>
         <Switch checked={sound} onChange={(v) => void commit(v, music)} labelledBy="snd" busy={save.pending} />
       </div>
       <div className="flex items-center gap-3">
-        <span id="mus" className="flex-1 text-body">
+        <span id="mus" className="min-w-0 flex-1 text-body">
           Musik latar
         </span>
         <Switch checked={music} onChange={(v) => void commit(sound, v)} labelledBy="mus" busy={save.pending} />
@@ -534,13 +534,13 @@ function UiLangSettings({ c, learnerId, name, onSaved }: { c: ParentChildDTO['co
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <UiLangChoice name="bahasa-anak" value={lang} onChange={(v) => void commit(v, allow)} disabled={save.pending} />
       <div className="flex items-center gap-3">
-        <span id="bahasa-izin" className="flex-1 text-body">
+        <span id="bahasa-izin" className="min-w-0 flex-1 text-body">
           {name} boleh mengganti bahasa sendiri
         </span>
         <Switch checked={allow} onChange={(v) => void commit(lang, v)} labelledBy="bahasa-izin" busy={save.pending} />
       </div>
       <div className="flex items-center gap-3">
-        <span id="penjelasan-id" className="flex-1 text-body">
+        <span id="penjelasan-id" className="min-w-0 flex-1 text-body">
           Tampilkan penjelasan dalam bahasa Indonesia lebih dulu
         </span>
         <Switch checked={idFirst} onChange={(v) => void commit(lang, allow, v)} labelledBy="penjelasan-id" busy={save.pending} />

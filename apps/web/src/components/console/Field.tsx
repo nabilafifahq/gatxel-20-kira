@@ -355,7 +355,7 @@ export function RadioGroup<T extends string>({
         {legend}
         {required ? <RequiredMark /> : null}
       </legend>
-      <div className={cx(layout === 'stack' && 'flex flex-col gap-2', layout === 'row' && 'flex flex-wrap gap-x-5 gap-y-2', layout === 'tiles' && 'grid gap-2 sm:grid-cols-2')}>
+      <div className={cx(layout === 'stack' && 'flex flex-col', layout === 'row' && 'flex flex-wrap gap-x-5', layout === 'tiles' && 'grid gap-2 sm:grid-cols-2')}>
         {options.map((o) => {
           const oid = `${gid}-${o.value}`
           const checked = o.value === value
@@ -365,6 +365,7 @@ export function RadioGroup<T extends string>({
               htmlFor={oid}
               className={cx(
                 'flex cursor-pointer items-start gap-2.5',
+                layout !== 'tiles' && 'py-[9px]',
                 layout === 'tiles' &&
                   cx('min-h-11 rounded-control border-2 px-3 py-2', checked ? 'border-fg bg-lilac' : 'border-border bg-surface hover:border-fg'),
                 o.disabled && 'cursor-not-allowed opacity-60',
