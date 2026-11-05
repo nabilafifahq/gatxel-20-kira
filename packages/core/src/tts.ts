@@ -113,6 +113,7 @@ export function spokenIndonesian(text: string): string {
     .replace(/_{3,}/g, 'kosong')
     .replace(/(^|[\s(])[-−](?=\d)/g, '$1minus ')
     .replace(/°\s*C\b/g, ' derajat Celsius')
+    .replace(/(\d)\s*°/g, '$1 derajat')
     .replace(/(\d)\s*(cm|m|km|mm)²/g, (_, d: string, u: string) => `${d} ${UNIT_ID[u]} persegi`)
     .replace(/(\d)\s*(cm|m)³/g, (_, d: string, u: string) => `${d} ${UNIT_ID[u]} kubik`)
     .replace(/(\d)\s*cm\b/g, '$1 sentimeter')

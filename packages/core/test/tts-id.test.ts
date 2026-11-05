@@ -21,6 +21,7 @@ describe('suara Indonesia', () => {
     ['25°C', '25 derajat Celsius'],
     ['10 m dan 5 kg', '10 meter dan 5 kilogram'],
     ['Suhunya -3 °C.', 'Suhunya minus 3 derajat Celsius.'],
+    ['180 - 140 = 40°.', '180 kurang 140 sama dengan 40 derajat.'],
     ['7 ÷ 40 = 0.175', '7 dibagi 40 sama dengan 0 koma 1 7 5'],
     ['0.25 sama dengan 25%.', '0 koma 2 5 sama dengan 25 persen.'],
     ['3.125 kurang 1.5', '3 koma 1 2 5 kurang 1 koma 5'],

@@ -81,6 +81,11 @@ def main() -> int:
     if os.path.exists(args.report):
         with open(args.report, newline="", encoding="utf-8") as f:
             done = {r["key"]: r for r in csv.DictReader(f)}
+    # Klip yang dibuat ulang sesudah laporan terakhir diperiksa lagi.
+    report_time = os.path.getmtime(args.report) if os.path.exists(args.report) else 0
+    for m in present:
+        if m["key"] in done and os.path.getmtime(os.path.join(args.dir, m["key"] + ".mp3")) > report_time:
+            del done[m["key"]]
     todo = [os.path.join(args.dir, m["key"] + ".mp3") for m in present if m["key"] not in done]
     print(f"{len(manifest)} di manifest, {len(present)} ada, {len(done)} sudah diperiksa, {len(todo)} diperiksa sekarang", flush=True)
     with ProcessPoolExecutor(args.procs) as ex:
