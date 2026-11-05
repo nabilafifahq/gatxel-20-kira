@@ -320,7 +320,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
         ) : null}
       </div>
 
-      <footer className="sticky bottom-0 z-10 flex min-h-21 flex-none flex-wrap items-center gap-3 bg-bg px-4 py-3 md:min-h-24 md:px-8">
+      <footer className="sticky bottom-0 z-10 flex min-h-21 flex-none flex-wrap items-center gap-3 bg-bg px-4 pt-3 pb-[calc(12px+var(--safe-bottom))] md:min-h-24 md:px-8">
         <Button
           variant="secondary"
           aria-pressed={cur.flagged}

@@ -151,7 +151,7 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
         <section
           aria-label={t.shell.map.selectedSkill}
           aria-live="polite"
-          className="sticky bottom-21 z-10 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-card bg-surface shadow-soft px-4 py-3 md:static md:px-5 md:py-4"
+          className="sticky bottom-[calc(84px+var(--safe-bottom))] z-10 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-card bg-surface shadow-soft px-4 py-3 md:static md:px-5 md:py-4"
         >
           <div className="flex min-w-0 flex-1 flex-col">
             <span lang="en-GB" className="text-h3 font-bold">{sel.title}</span>
