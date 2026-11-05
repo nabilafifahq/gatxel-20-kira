@@ -102,6 +102,13 @@ export const signup = auth.table('signup', {
   createdAt: createdAt(),
 })
 
+/** Akun Google yang tertaut ke akun orang dewasa. Hanya pengenal sub dari Google; tidak ada token yang disimpan. */
+export const googleIdentity = auth.table('google_identity', {
+  sub: text('sub').primaryKey(),
+  userId: uuid('user_id').notNull().unique().references(() => userAccount.id, { onDelete: 'cascade' }),
+  createdAt: createdAt(),
+})
+
 export const betaSeat = auth.table('beta_seat', {
   orgId: uuid('org_id').primaryKey(),
   userId: uuid('user_id').notNull(),
