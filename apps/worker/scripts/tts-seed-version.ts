@@ -3,7 +3,10 @@
  * dan barisnya di laporan gerbang ikut pindah, jadi hanya klip terdampak yang dibuat ulang dan diperiksa.
  *
  *   pnpm tsx apps/worker/scripts/tts-seed-version.ts --data-dir <data> --from piper-lessac-medium --to piper-lessac-medium-2 \
- *     --report <laporan-lama.csv> --out-report <laporan-benih.csv> [--dry]
+ *     --report <laporan-lama.csv> --out-report <laporan-benih.csv> [--from-dir <folder klip lama>] [--dry]
+ *
+ * Dengan --from-dir klip dibaca dari folder itu (hanya dibaca) dan DISALIN ke <data-dir>/tts: dipakai untuk folder staging, jadi folder sumber tidak
+ * mendapat tautan keras baru. Tanpa --from-dir sumbernya <data-dir>/tts dan tautan keras dipakai bila bisa.
  *
  * Tidak mengubah penunjuk suara dan tidak menyentuh klip lama: kunci memuat versi, jadi berkas baru bernama lain. Sesudah ini:
  *   pnpm tts:generate -- --data-dir <data> --url <layanan dengan penjaga bunyi s> --token <token> --version <versi baru>
@@ -11,7 +14,7 @@
  *   pnpm tts:promote -- --data-dir <data> --version <versi baru> --report <laporan-baru.csv>
  * Tautan keras dipakai bila bisa: tanpa tambahan ruang disk, dan waktu berkas tetap sama, yang dipakai gerbang untuk melewati klip yang sudah diperiksa.
  */
-import { copyFile, link, readFile, stat, utimes, writeFile } from 'node:fs/promises'
+import { copyFile, link, mkdir, readFile, stat, utimes, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { isVoiceVersion, type TtsStyleId } from '@kira/core/tts'
@@ -24,6 +27,7 @@ const { values } = parseArgs({
     to: { type: 'string' },
     report: { type: 'string' },
     'out-report': { type: 'string' },
+    'from-dir': { type: 'string' },
     dry: { type: 'boolean', default: false },
   },
 })
@@ -37,7 +41,9 @@ if (!dataDir || !isVoiceVersion(from) || !isVoiceVersion(to) || from === to || !
 const AFFECTED = /(?:^|[.!?]["'”)]*\s+)["'“(]*s(?:p|t|k|w|c|q)/i
 
 type Row = { key: string; style: TtsStyleId; text: string }
-const rows = (await readFile(join(ttsRoot(dataDir), `manifest-${from}.jsonl`), 'utf8'))
+const fromDir = values['from-dir'] ?? ttsRoot(dataDir)
+await mkdir(ttsRoot(dataDir), { recursive: true })
+const rows = (await readFile(join(fromDir, `manifest-${from}.jsonl`), 'utf8'))
   .split('\n')
   .filter(Boolean)
   .map((l) => JSON.parse(l) as Row)
@@ -55,7 +61,7 @@ for (const r of rows) {
 }
 
 async function seed(r: Row): Promise<void> {
-  const src = join(ttsRoot(dataDir!), `${r.key}.mp3`)
+  const src = join(fromDir, `${r.key}.mp3`)
   const key = clipKey(r.text, r.style, to)
   const dest = join(ttsRoot(dataDir!), `${key}.mp3`)
   moved.set(r.key, key)
@@ -68,6 +74,7 @@ async function seed(r: Row): Promise<void> {
   }
   if (await stat(dest).catch(() => null)) return
   try {
+    if (values['from-dir']) throw new Error('salin')
     await link(src, dest)
     linked++
   } catch {
@@ -77,7 +84,7 @@ async function seed(r: Row): Promise<void> {
   }
 }
 
-const WORKERS = 16
+const WORKERS = 8
 let at = 0
 await Promise.all(
   Array.from({ length: WORKERS }, async () => {
