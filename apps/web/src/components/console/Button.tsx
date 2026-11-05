@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { forwardRef, type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from 'react'
+import { forwardRef, useSyncExternalStore, type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from 'react'
 import { cx } from './cx'
 import { ConsoleIcon, Spinner, type ConsoleIconName } from './icons'
 
@@ -59,11 +59,22 @@ type CommonProps = {
 
 export type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement>
 
+const noSubscribe = () => () => {}
+
+/**
+ * Sebelum JavaScript halaman jalan, tombol submit dikirim browser sebagai POST biasa: halaman dimuat ulang, isian kosong, tanpa pesan.
+ * Di HP lambat itu terlihat seperti tombol yang tidak bekerja. Jadi tombol submit baru aktif setelah form siap menangani ketukan.
+ */
+function useHydrated(): boolean {
+  return useSyncExternalStore(noSubscribe, () => true, () => false)
+}
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   { variant = 'secondary', size = 'M', tone, icon, iconAfter, loading = false, incomplete = false, className, children, type, onClick, disabled, ...rest },
   ref,
 ) {
   const iconSize = size === 'S' ? 16 : 18
+  const hydrated = useHydrated()
   return (
     <button
       ref={ref}
@@ -71,7 +82,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       className={cx(buttonClass(variant, size, undefined, tone), loading && 'cursor-progress', !loading && !disabled && !incomplete && 'cursor-pointer', (disabled || incomplete) && !loading && 'cursor-not-allowed', className)}
       aria-busy={loading || undefined}
       aria-disabled={incomplete || undefined}
-      disabled={disabled}
+      disabled={disabled || (type === 'submit' && !hydrated)}
       onClick={(e) => {
         if (loading) {
           e.preventDefault()
