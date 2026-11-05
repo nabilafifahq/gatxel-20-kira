@@ -114,6 +114,31 @@ class RemoteSynth:
         return normalise_audio(audio), voice
 
 
+# Model lessac menelan bunyi s bila kalimat mulai dengan s lalu p, t, k, atau w: "spoon" terdengar "poon". Satu fonem jeda di depan
+# kalimat mengembalikan bunyinya tanpa mengubah suara. Uji: test_remote.py, dan pengukuran di e2e/qa-audio.
+LOST_S_NEXT = frozenset("ptkw")
+LEAD_KEEP_S = 0.08
+LEAD_LEVEL = 10 ** (-48 / 20)
+
+
+def guard_initial_s(phonemes: list[str]) -> list[str]:
+    """Fonem satu kalimat, dengan jeda di depan bila kalimat itu mulai dengan gugus s yang tertelan."""
+    if len(phonemes) >= 2 and phonemes[0] == "s" and phonemes[1] in LOST_S_NEXT:
+        return [" ", *phonemes]
+    return phonemes
+
+
+def trim_lead_silence(audio: Any, sr: int) -> Any:
+    """Jeda tambahan tidak boleh membuat klip terlambat mulai: sisakan hening awal setara klip biasa. Hanya memotong bagian yang nyaris diam."""
+    import numpy as np
+
+    loud = np.nonzero(np.abs(audio) > LEAD_LEVEL)[0]
+    if loud.size == 0:
+        return audio
+    start = max(0, int(loud[0]) - int(sr * LEAD_KEEP_S))
+    return audio[start:]
+
+
 class PiperSynth:
     """Piper lokal (CPU, ONNX): model publik yang sama dengan server suara Gatxel (en_US-lessac-medium) dan parameter yang sama.
 
@@ -148,6 +173,21 @@ class PiperSynth:
         self.sr = config.sample_rate
         self.remote: RemoteSynth | None = RemoteSynth(styles) if os.environ.get("TTS_BASE_URL") and os.environ.get("TTS_VOICE") else None
 
+    def sentences(self, text: str, cfg: Any) -> list[Any]:
+        """Seperti PiperVoice.synthesize (puncak tiap kalimat disamakan), dengan penjaga bunyi s di awal kalimat."""
+        import numpy as np
+
+        out: list[Any] = []
+        for phonemes in self.voice.phonemize(text):
+            guarded = guard_initial_s(phonemes)
+            audio = np.asarray(self.voice.phoneme_ids_to_audio(self.voice.phonemes_to_ids(guarded), cfg), dtype=np.float32)
+            peak = float(np.max(np.abs(audio))) if audio.size else 0.0
+            audio = audio / peak if peak > 1e-8 else np.zeros_like(audio)
+            if guarded is not phonemes and not out:
+                audio = trim_lead_silence(audio, self.sr)
+            out.append(np.clip(audio, -1.0, 1.0).astype(np.float32))
+        return out
+
     def one(self, style_id: str, segments: list[dict[str, str]], variant: int = 0) -> tuple[Any, str]:
         import numpy as np
         from piper import SynthesisConfig
@@ -166,7 +206,7 @@ class PiperSynth:
         gap = np.zeros(int(SR * int(style.get("gapMs", 300)) / 1000), dtype=np.float32)
         parts: list[Any] = []
         for seg in segments:
-            chunks = [c.audio_float_array for c in self.voice.synthesize(prepare_text(seg["text"]), syn_config=cfg)]
+            chunks = self.sentences(prepare_text(seg["text"]), cfg)
             if not chunks:
                 raise RuntimeError("tidak ada audio untuk: " + seg["text"][:40])
             a = np.concatenate(chunks).astype(np.float32)

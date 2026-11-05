@@ -43,6 +43,26 @@ class VoiceVersion(unittest.TestCase):
             self.assertIn("host.docker.internal", str(cm.exception))
 
 
+class InitialSGuard(unittest.TestCase):
+    def test_guards_the_clusters_the_model_swallows(self) -> None:
+        for second in "ptkw":
+            self.assertEqual(remote.guard_initial_s(["s", second, "a"]), [" ", "s", second, "a"])
+
+    def test_leaves_other_starts_alone(self) -> None:
+        for phonemes in (["s", "l", "a"], ["s", "ˈ", "ʌ", "n"], ["ʃ", "p"], ["p", "s"], ["s"], []):
+            self.assertIs(remote.guard_initial_s(phonemes), phonemes)
+
+    def test_trim_keeps_a_short_lead_and_all_of_the_sound(self) -> None:
+        import numpy as np
+
+        sr = 1000
+        audio = np.concatenate([np.zeros(500), np.full(100, 0.5)])
+        out = remote.trim_lead_silence(audio, sr)
+        self.assertEqual(len(out), 180)
+        self.assertEqual(float(out[80]), 0.5)
+        self.assertEqual(len(remote.trim_lead_silence(np.zeros(10), sr)), 10)
+
+
 class LanguageRouting(unittest.TestCase):
     def synth(self) -> "tuple[remote.RemoteSynth, list[str]]":
         import json
