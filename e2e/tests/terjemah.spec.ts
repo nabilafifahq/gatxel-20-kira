@@ -175,6 +175,25 @@ test('Suara per langkah: langkah tanpa klip diam, langkah lain tetap bersuara', 
   expect(await deviceVoiceCalls(page)).toBe(0)
 })
 
+// Latihan promosi: hanya jalan bila klip Indonesia sungguhan ada di folder data server (E2E_ID_CLIPS=1).
+test('Klip id sungguhan: kunci browser sama dengan kunci pembuat klip', async ({ page }) => {
+  test.skip(!process.env.E2E_ID_CLIPS, 'butuh klip Indonesia di folder data')
+  await spyDeviceVoice(page)
+  const key = clipKey(idOf(FIRST_STEP), 'indonesian', 'id-piper1')
+  const answered = page.waitForResponse((r) => r.url().endsWith(`/tts/${key}.mp3`))
+  await registerTablet(page, ['Aisha'])
+  await pinLogin(page, 'Aisha')
+  await page.goto(`/lesson/${SKILL}`)
+  await toggle(page).click()
+  const res = await answered
+  expect(res.status()).toBe(200)
+  expect(res.headers()['content-type']).toContain('audio')
+  await expect(page.getByRole('button', { name: /^Sound/ })).toBeVisible()
+  await page.getByRole('button', { name: 'Play', exact: true }).click()
+  await page.waitForTimeout(800)
+  expect(await deviceVoiceCalls(page)).toBe(0)
+})
+
 test('Ulasan singkat: tombol terjemahan mengganti langkahnya', async ({ page }) => {
   const id = await learnerId('Aisha')
   const org = (await db()`select org_id from learner_profile where user_id = ${id}`)[0]!.org_id as string

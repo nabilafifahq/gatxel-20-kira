@@ -29,11 +29,12 @@ Lihat `pnpm content:check`, baris `Terjemahan id`, untuk angka terbaru.
 ## Menyalakan suara
 
 ```powershell
-robocopy C:\kw4\tts-id\tts C:\Kira\data\tts *.mp3 manifest-id-piper1.jsonl /XO /MT:8 /R:1 /W:1 /NFL /NDL
-pnpm.cmd tts:promote-id -- --data-dir C:\Kira\data --report C:\kw4\tts-id\tts-id-report.csv
+robocopy C:\kw4\tts-id\tts C:\Kira\data\tts *.mp3 /XO /MT:8 /R:1 /W:1 /NFL /NDL
+Copy-Item C:\kw4\tts-id\tahap1\manifest-id-piper1.jsonl C:\Kira\data\tts\manifest-id-piper1.jsonl -Force
+pnpm.cmd tts:promote-id --data-dir C:\Kira\data --report C:\kw4\tts-id\tts-id-report.csv
 ```
 
-Perintah kedua hanya menulis `served-id-version.txt`. `served-version.txt` dan `manifest.jsonl` tidak disentuh. Klip tambahan cukup disalin lagi dengan perintah pertama.
+Perintah terakhir hanya menulis `served-id-version.txt`. `served-version.txt` dan `manifest.jsonl` tidak disentuh. Klip tambahan cukup disalin lagi dengan perintah pertama. Daftar di `tahap1` dibekukan bersama laporan gerbangnya, jadi promosi tetap sah walaupun pembuatan klip masih berjalan.
 
 ## Yang belum tercakup
 

@@ -23,6 +23,8 @@ import { translationClips } from '../src/tts/collect'
 import { clipKey, hasClip, ttsRoot, writeClip } from '../src/tts/store'
 
 const { values } = parseArgs({
+  // pnpm meneruskan -- apa adanya; bentuk dengan dan tanpa -- sama-sama berlaku.
+  args: process.argv.slice(2).filter((a) => a !== '--'),
   options: {
     out: { type: 'string' },
     env: { type: 'string' },

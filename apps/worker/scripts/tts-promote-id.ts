@@ -14,6 +14,8 @@ import { isVoiceVersion, TTS_ID_SERVED_VERSION_FILE, TTS_ID_VOICE_VERSION } from
 import { hasClip, ttsRoot } from '../src/tts/store'
 
 const { values } = parseArgs({
+  // pnpm meneruskan -- apa adanya; bentuk dengan dan tanpa -- sama-sama berlaku.
+  args: process.argv.slice(2).filter((a) => a !== '--'),
   options: {
     'data-dir': { type: 'string' },
     report: { type: 'string' },
