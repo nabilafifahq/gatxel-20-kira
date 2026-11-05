@@ -51,7 +51,7 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
         aria-label={`${c.text}${ok === true ? t.widgets.sort.ariaRightGroup : ok === false ? t.widgets.shared.ariaNotYet : ''}`}
         onClick={() => tapCard(c.i)}
         className={cx(
-          'inline-flex min-h-14 items-center gap-2 rounded-control px-4 py-2 font-reading text-h3 font-bold text-fg transition-transform duration-150 ease-kira',
+          'inline-flex min-h-14 max-w-full items-center gap-2 rounded-control px-3 py-2 font-reading text-h3 font-bold text-fg transition-transform duration-150 ease-kira',
           ok === true
             ? 'border-3 border-success bg-success-50'
             : ok === false
@@ -63,7 +63,7 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
         )}
       >
         {ok === true ? <UiIcon name="check" size={18} className="text-success" /> : ok === false ? <UiIcon name="not-yet" size={18} className="text-warn" /> : null}
-        <span lang={item.lang}>{c.text}</span>
+        <span lang={item.lang} className="min-w-0 text-left wrap-anywhere">{c.text}</span>
       </button>
     )
   }
@@ -89,7 +89,7 @@ export function SortWidget({ item, value, onChange, disabled = false, feedback =
           <span className="self-center text-body text-fg-muted">{t.widgets.sort.allInGroup}</span>
         )}
       </section>
-      <div className={cx('grid gap-3', groupNames.length >= 3 ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-2')}>
+      <div className={cx('grid gap-3', groupNames.length >= 3 ? 'grid-cols-[repeat(auto-fit,minmax(min(100%,12rem),1fr))]' : 'grid-cols-2')}>
         {groupNames.map((name, g) => {
           const inside = cards.filter((c) => groups[c.i] === g)
           const target = picked !== null && groups[picked] !== g && !locked
