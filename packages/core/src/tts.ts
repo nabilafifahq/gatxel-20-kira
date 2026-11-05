@@ -87,15 +87,22 @@ export function ttsKeyFromFile(name: string): string | null {
 /**
  * Bentuk ucapan teks Indonesia, yang dikirim ke layanan suara. Teks yang tampil (dan kuncinya) tidak berubah.
  * Angka di layar mengikuti soal berbahasa Inggris (1,000 dan 3.5), tetapi suara Indonesia membaca koma sebagai pemisah desimal,
- * jadi bentuk itu diucapkan sebagai 1000 dan 3 koma 5. Lambang hitung ditulis sebagai katanya. Mengubah fungsi ini berarti menaikkan TTS_ID_VOICE_VERSION.
+ * jadi bentuk itu diucapkan sebagai 1000 dan 3 koma 5. Rupiah memakai titik ribuan (Rp27.500), jadi titik dengan tiga angka dianggap ribuan
+ * bila angka terakhirnya 0 atau ada Rp di depannya, selain itu desimal (0.175, 3.125). Angka di belakang koma dibaca satu per satu.
+ * Lambang hitung ditulis sebagai katanya. Mengubah fungsi ini setelah klip disajikan berarti menaikkan TTS_ID_VOICE_VERSION.
  */
+const digitsApart = (digits: string): string => digits.split('').join(' ')
+
 const UNIT_ID: Record<string, string> = { cm: 'sentimeter', m: 'meter', km: 'kilometer', mm: 'milimeter' }
 
 export function spokenIndonesian(text: string): string {
   return normalizeTtsText(text)
+    .replace(/Rp\s*(\d{1,3}(?:[.,]\d{3})+)/g, (_, n: string) => `Rp${n.replace(/[.,]/g, '')}`)
+    .replace(/(?<![\d.,])0\.(\d+)/g, (_, f: string) => `0 koma ${digitsApart(f)}`)
+    .replace(/(\d)\.(\d{2}[1-9])(?![\d.,])/g, (_, i: string, f: string) => `${i} koma ${digitsApart(f)}`)
     .replace(/(\d)[,.](\d{3})(?=\D|$)/g, '$1$2')
     .replace(/(\d)[,.](\d{3})(?=\D|$)/g, '$1$2')
-    .replace(/(\d)\.(\d)/g, '$1 koma $2')
+    .replace(/(\d)\.(\d+)/g, (_, i: string, f: string) => `${i} koma ${digitsApart(f)}`)
     .replace(/(\d)\s*%/g, '$1 persen')
     .replace(/(\d)\s*\/\s*(\d)/g, '$1 per $2')
     .replace(/\s*[×✕]\s*|(?<=\d)\s+x\s+(?=\d)/g, ' kali ')

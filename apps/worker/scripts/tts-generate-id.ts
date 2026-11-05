@@ -12,8 +12,8 @@
  * - Layanan itu dipakai bersama, jadi konkurensi paling banyak 2.
  * - Kunci API dibaca dari berkas --env dan tidak pernah dicetak.
  */
-import { appendFile, mkdir, rename, writeFile } from 'node:fs/promises'
-import { readFileSync } from 'node:fs'
+import { appendFile, mkdir, rename, rm, writeFile } from 'node:fs/promises'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { findContentDir } from '@kira/content/load'
@@ -54,6 +54,26 @@ const version = TTS_ID_VOICE_VERSION
 const rows = clips.map((c) => ({ key: clipKey(c.text, 'indonesian', version), style: 'indonesian' as const, text: c.text, spoken: c.spoken, version }))
 
 await mkdir(ttsRoot(out), { recursive: true })
+// Bentuk ucapan yang berubah sejak rencana terakhir: klip lamanya dihapus supaya dibuat ulang. Sebelum klip disajikan saja; sesudahnya naikkan versi.
+const previousPlan = join(ttsRoot(out), 'manifest.jsonl')
+if (existsSync(previousPlan)) {
+  const before = new Map(
+    readFileSync(previousPlan, 'utf8')
+      .split('\n')
+      .filter(Boolean)
+      .map((l) => JSON.parse(l) as { key: string; spoken?: string })
+      .map((r) => [r.key, r.spoken]),
+  )
+  let redo = 0
+  for (const r of rows) {
+    const was = before.get(r.key)
+    if (was !== undefined && was !== r.spoken && (await hasClip(out, r.key))) {
+      await rm(join(ttsRoot(out), `${r.key}.mp3`), { force: true })
+      redo++
+    }
+  }
+  if (redo > 0) console.log(`${redo} klip dibuat ulang karena bentuk ucapannya berubah`)
+}
 const manifest = rows.map((r) => JSON.stringify(r)).join('\n') + '\n'
 await writeFile(join(ttsRoot(out), 'manifest.jsonl'), manifest)
 /** Tulis daftar klip yang sudah ada, lewat berkas sementara lalu rename. */
