@@ -4,6 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
 import { duckMusic } from './music'
 import { stopHostVoice } from './host-voice'
+import { sharedAudio, unlockAudio } from './shared-audio'
 import { clipPlan, fetchClipKeys, fetchClips, requestClips, ttsStatus, type SpeechPart } from './tts-client'
 
 /**
@@ -24,9 +25,12 @@ const EVENT = 'kira:speech-start'
 const GAP_MS = 220
 
 let currentAudio: HTMLAudioElement | null = null
+/** Rantai klip yang berlaku. Elemennya sama untuk semua rantai, jadi rantai lama dikenali dari nomor ini. */
+let chainSeq = 0
 
 /** Diamkan klip yang sedang diputar, tanpa memberi tahu tombol. */
 function silence(): void {
+  chainSeq++
   if (currentAudio) {
     currentAudio.onended = null
     currentAudio.onerror = null
@@ -46,7 +50,9 @@ if (typeof window !== 'undefined') window.addEventListener('kira:host-start', ()
 
 /** Putar klip berurutan. onDone(true) bila semua selesai atau dihentikan; onDone(false) bila klip pertama tidak bisa diputar. */
 function playChain(blobs: Blob[], isCurrent: () => boolean, onDone: (ok: boolean) => void): void {
-  const audio = new Audio()
+  const chain = ++chainSeq
+  const live = () => chain === chainSeq
+  const audio = sharedAudio()
   currentAudio = audio
   let url: string | null = null
   let i = 0
@@ -56,14 +62,16 @@ function playChain(blobs: Blob[], isCurrent: () => boolean, onDone: (ok: boolean
   }
   const end = (ok: boolean) => {
     release()
+    // Rantai baru sudah memakai elemen yang sama: penangan dan tombolnya milik rantai itu.
+    if (!live()) return
     audio.onended = null
     audio.onerror = null
-    if (currentAudio === audio) currentAudio = null
+    currentAudio = null
     onDone(ok)
   }
   const next = () => {
     release()
-    if (!isCurrent() || currentAudio !== audio) {
+    if (!live() || !isCurrent()) {
       end(true)
       return
     }
@@ -146,6 +154,7 @@ export function useSpeech(lang: SpeechLang): {
       // Tidak ada yang diputar di atas bunyi lain: hentikan bacaan sebelumnya dan suara pembawa acara dulu.
       stopSpeech()
       stopHostVoice()
+      unlockAudio()
       // stopSpeech memberi tahu semua tombol, termasuk tombol ini. Token diambil sesudahnya: kalau sebelumnya, bacaan ini langsung usang dan klip tidak pernah diputar.
       const my = ++token.current
       window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
@@ -196,6 +205,7 @@ export function useSpeech(lang: SpeechLang): {
     (keys: readonly string[], onFail: () => void) => {
       stopSpeech()
       stopHostVoice()
+      unlockAudio()
       const my = ++token.current // sesudah stopSpeech, yang memberi tahu semua tombol termasuk ini
       window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
       setReading(true)
