@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto'
 import postgres from 'postgres'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { sql } from 'drizzle-orm'
+import { sessionCompletionXp } from '@kira/core'
 import type { Item } from '@kira/content'
 import { createDb, withOrg, type Db, type OrgContext, type Tx } from '@kira/db/client'
 
@@ -55,6 +56,19 @@ describe.skipIf(!ready)('konkurensi', () => {
       }
       return out
     })
+  }
+
+  /**
+   * Sisakan hanya soal yang bisa dijawab `correct`. Soal tiap sesi dipilih acak per anak, jadi tanpa ini sesi yang sama
+   * kadang terjawab di bawah separuh (tidak dihitung, tanpa XP selesai) dan kadang semua benar (bonus sempurna).
+   * Hasil dua attempt lalu berbeda tanpa ada balapan apa pun. Dengan ini kedua attempt sama-sama dihitung dan sempurna.
+   */
+  async function onlyAnswerable(attemptId: string): Promise<{ position: number; answer: unknown }[]> {
+    const items = await answerable(attemptId)
+    expect(items.length).toBeGreaterThan(0)
+    const positions = items.map((i) => i.position)
+    await owner`update attempt set items = (select jsonb_agg(i order by (i->>'position')::int) from jsonb_array_elements(items) i where (i->>'position')::int = any(${positions}::int[])) where id = ${attemptId}`
+    return items
   }
 
   const payload = (attemptId: string, position: number, answer: unknown, clientId = randomUUID()) => ({
@@ -141,7 +155,7 @@ describe.skipIf(!ready)('konkurensi', () => {
     const paralel = await questAttempt('english', 'latihan')
     const urut = await questAttempt('science', 'latihan')
     for (const id of [paralel, urut]) {
-      for (const it of await answerable(id)) await run((tx) => m.runner.saveAnswer(tx, ctx, learnerId, payload(id, it.position, it.answer)))
+      for (const it of await onlyAnswerable(id)) await run((tx) => m.runner.saveAnswer(tx, ctx, learnerId, payload(id, it.position, it.answer)))
     }
     const shape = async (id: string) => {
       // Peristiwa XP selain per jawaban (bonus sesi) harus sama dengan kumpul tunggal; XP jawaban harus sama dengan XP di baris response.
@@ -153,12 +167,56 @@ describe.skipIf(!ready)('konkurensi', () => {
     await run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, urut))
     const settled = await Promise.allSettled(Array.from({ length: 4 }, () => run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, paralel))))
     expect(settled.every((s) => s.status === 'fulfilled')).toBe(true)
-    expect(await shape(paralel)).toEqual(await shape(urut))
+    // Pembanding ditulis eksplisit: kumpul tunggal harus benar-benar memberi satu XP selesai, jadi [] sama dengan [] tidak bisa lolos.
+    const tunggal = await shape(urut)
+    expect(tunggal).toEqual([`quest:1:${sessionCompletionXp({ session: 'latihan', perfect: true })}`])
+    expect(await shape(paralel)).toEqual(tunggal)
+    // Bintang bacaan bergantung pada skill yang terpilih, jadi hanya bintang selesai dan sempurna yang dibandingkan.
+    const stars = async (id: string) => (await owner`select reason, count(*)::int as n from star_ledger where learner_id = ${learnerId} and source in (${'session:' + id}, ${'perfect:' + id}) group by reason order by reason`).map((x) => `${x.reason}:${x.n}`)
+    expect(await stars(urut)).toEqual(['perfect:1', 'session:1'])
+    expect(await stars(paralel)).toEqual(['perfect:1', 'session:1'])
     const { n } = (await owner`select count(*)::int as n from quest where learner_id = ${learnerId} and date = ${WEDNESDAY} and status = 'done'`)[0]!
     expect(n).toBe(2)
     const badges = await owner`select badge_id, count(*)::int as n from badge_award where learner_id = ${learnerId} group by badge_id`
     expect(badges.every((b) => b.n === 1)).toBe(true)
-  })
+  }, 120_000)
+
+  it('kumpul ganda bersamaan pada sesi yang belum separuh dijawab: tanpa XP selesai dan bintang, lalu terbuka lagi dan selesai sekali', async () => {
+    const hari = '2026-10-15'
+    const buka = () => run(async (tx) => m.session.ensureTodayQuests(tx, ctx, await m.core.loadLearner(tx, learnerId), hari))
+    const kumpul = (id: string) => Promise.allSettled(Array.from({ length: 4 }, () => run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, id))))
+    await buka()
+    const [q] = await owner`select id, attempt_id from quest where learner_id = ${learnerId} and date = ${hari} and subject = 'science' and session = 'latihan' and kind = 'daily'`
+    const questId = q!.id as string
+    const lama = q!.attempt_id as string
+    const baris = async () => (await owner`select status, attempt_id from quest where id = ${questId}`)[0]!
+    const [satu] = await answerable(lama)
+    await run((tx) => m.runner.saveAnswer(tx, ctx, learnerId, payload(lama, satu!.position, satu!.answer)))
+
+    expect((await kumpul(lama)).every((r) => r.status === 'fulfilled')).toBe(true)
+    expect(await baris()).toMatchObject({ status: 'ready', attempt_id: null })
+    const sisa = (await owner`select
+      (select count(*)::int from xp_event where learner_id = ${learnerId} and ref = ${lama} and reason <> 'answer') as xp,
+      (select count(*)::int from star_ledger where learner_id = ${learnerId} and source like ${'%:' + lama}) as stars,
+      (select result->'notCounted' is not null from attempt where id = ${lama}) as nc`)[0]!
+    expect({ ...sisa }).toEqual({ xp: 0, stars: 0, nc: true })
+
+    // Hari dibuka bersamaan setelah itu: tepat satu attempt baru. Tab lama yang mengumpulkan lagi tidak mengubah apa pun.
+    await Promise.all(Array.from({ length: 4 }, buka))
+    const baru = (await baris()).attempt_id as string
+    expect(baru).toBeTruthy()
+    expect(baru).not.toBe(lama)
+    expect((await owner`select count(*)::int as n from attempt where ref_id = ${questId}`)[0]!.n).toBe(2)
+    await run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, lama))
+    expect(await baris()).toMatchObject({ status: 'ready', attempt_id: baru })
+
+    for (const it of await onlyAnswerable(baru)) await run((tx) => m.runner.saveAnswer(tx, ctx, learnerId, payload(baru, it.position, it.answer)))
+    expect((await kumpul(baru)).every((r) => r.status === 'fulfilled')).toBe(true)
+    expect(await baris()).toMatchObject({ status: 'done', attempt_id: baru })
+    const refs = [lama, baru]
+    expect((await owner`select count(*)::int as n from xp_event where learner_id = ${learnerId} and reason = 'quest' and ref = any(${refs}::text[])`)[0]!.n).toBe(1)
+    expect((await owner`select count(*)::int as n from star_ledger where learner_id = ${learnerId} and source = ${'session:' + baru}`)[0]!.n).toBe(1)
+  }, 120_000)
 
   it('peti harian dibuka bersamaan: hanya satu yang berhasil', async () => {
     const today = { variant: 'all-done', progress: { done: 9, total: 9, extraDone: 0, extraTotal: 0 } } as never
