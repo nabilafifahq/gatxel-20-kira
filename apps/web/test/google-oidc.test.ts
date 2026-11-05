@@ -119,6 +119,19 @@ describe('masuk Google: protokol', () => {
     expect(jar.size).toBe(0)
   }, 30000)
 
+  it('prefetch tidak memulai alur, dan batas laju berlaku', async () => {
+    on()
+    const start = await import('@/app/api/auth/google/start/route')
+    const prefetch = await start.GET(new Request('https://kira.test/api/auth/google/start', { headers: { purpose: 'prefetch' } }))
+    expect(prefetch.status).toBe(204)
+    expect(jar.size).toBe(0)
+    reqHeaders.set('cf-connecting-ip', '198.51.100.7')
+    let last = 0
+    for (let i = 0; i < 200 && last !== 429; i++) last = (await start.GET(new Request('https://kira.test/api/auth/google/start'))).status
+    reqHeaders.delete('cf-connecting-ip')
+    expect(last).toBe(429)
+  }, 30000)
+
   it('alamat persetujuan: kode dan PKCE S256, tiga cakupan saja, state dan nonce dari cookie', async () => {
     on()
     const start = await import('@/app/api/auth/google/start/route')

@@ -28,6 +28,7 @@ vi.mock('next/headers', () => ({
   }),
 }))
 // Batas laju dan MX bukan yang diuji di sini. Domain uji memakai .test, yang tidak punya MX.
+vi.mock('@/server/limiter', async (orig) => ({ ...(await orig<typeof import('@/server/limiter')>()), takeToken: async () => 0 }))
 vi.mock('node:dns/promises', () => ({ resolveMx: async () => [{ exchange: 'mx.uji.test', priority: 1 }] }))
 
 describe.skipIf(!ready)('masuk dengan Google', () => {
