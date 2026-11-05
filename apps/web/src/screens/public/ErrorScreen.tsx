@@ -107,7 +107,7 @@ export function ErrorScreen({ kind, reference, homeHref, lang, retry }: ErrorScr
       <PublicFrame brandHref={learner ? null : PUBLIC_ROUTES.login} showLegal={!learner}>
         <div className="flex w-full max-w-[640px] flex-col items-start gap-[18px]">
           <div className="flex items-center gap-4">
-            <KiraStar size={96} mood="calm" />
+            {learner ? <KiraStar size={96} mood="calm" /> : null}
             <div className="flex size-16 items-center justify-center rounded-pill bg-lavender">
               <ConsoleIcon name={icon.name} size={34} strokeWidth={2} className={icon.className} />
             </div>

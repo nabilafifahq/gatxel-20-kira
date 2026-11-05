@@ -47,8 +47,9 @@ const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial
 const MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace"
 
 export const EMAIL_LOGO_URL = 'https://kira.gatxel.com/icons/email-logo.png'
-export const EMAIL_LOGO_WIDTH = 120
-export const EMAIL_LOGO_HEIGHT = 44
+/** Logo tampil 96x80 di sisi kiri. Kanvas putih berkas ini sama rasio dengan kotak lama 120x44, jadi email yang sudah terkirim tidak gepeng. */
+export const EMAIL_LOGO_WIDTH = 218
+export const EMAIL_LOGO_HEIGHT = 80
 export const EMAIL_CREDIT = 'Build by Gatxel @ 2026 Made with Love by GATteam'
 /** Kalimat wajib di email yang dipicu permintaan seseorang. */
 export const EMAIL_IGNORE_LINE = 'Kalau bukan Anda, abaikan email ini.'

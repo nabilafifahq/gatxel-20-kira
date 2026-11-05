@@ -40,11 +40,11 @@ export function SiteHeader({
       <div className={cx('mx-auto flex h-14 w-full items-center gap-1 px-4', inner)}>
         {brandHref ? (
           <Link href={brandHref} aria-label="Kira, halaman utama" className="kira-press mr-auto inline-flex min-h-11 items-center text-fg no-underline hover:text-fg">
-            <KiraLogo size={32} />
+            <KiraLogo size={40} />
           </Link>
         ) : (
           <span className="mr-auto inline-flex">
-            <KiraLogo size={32} />
+            <KiraLogo size={40} />
           </span>
         )}
         {showNav ? (
