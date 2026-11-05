@@ -23,7 +23,7 @@ export function unlockAudio(): void {
 }
 
 // Ketukan pertama di halaman membuka elemen, supaya layar yang mulai bicara sendiri sesudahnya (penguji, pembawa acara, langkah berikutnya) tetap berbunyi.
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
   const first = () => {
     window.removeEventListener('touchend', first, true)
     window.removeEventListener('click', first, true)
