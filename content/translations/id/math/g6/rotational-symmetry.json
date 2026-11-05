@@ -34,7 +34,7 @@
   },
   "f2ddfe90bf57cf576ac8": {
    "en": "A square has order 4.",
-   "id": "Persegi punya tingkat (order) 4."
+   "id": "Persegi punya simetri putar tingkat 4."
   },
   "5bb1c655f4f8ad3c793b": {
    "en": "A rhombus looks the same after a half turn and a full turn, so its order is 2.",
@@ -60,25 +60,69 @@
    "en": "An equilateral triangle matches itself 3 times in a full turn.",
    "id": "Segitiga sama sisi cocok dengan dirinya sendiri 3 kali dalam satu putaran penuh."
   },
+  "41e0a69a8ad6ba816dfd": {
+   "en": "A rectangle has order 2, or order 4 if it is a square.",
+   "id": "Persegi panjang punya tingkat (order) 2, atau tingkat 4 kalau bentuknya persegi."
+  },
   "ba46106199245db5f345": {
    "en": "A non-equilateral isosceles triangle only looks the same after a full turn, so it has order 1.",
    "id": "Segitiga sama kaki yang bukan segitiga sama sisi hanya terlihat sama setelah satu putaran penuh, jadi tingkatnya (order) 1."
+  },
+  "30c71e0c21238b196ffb": {
+   "en": "A rectangle looks the same after a half turn, so its order is at least 2.",
+   "id": "Persegi panjang terlihat sama setelah setengah putaran, jadi tingkatnya paling sedikit 2."
+  },
+  "aebfe101b6b0234c32bc": {
+   "en": "A parallelogram looks the same after a half turn, so its order is at least 2.",
+   "id": "Jajar genjang (parallelogram) terlihat sama setelah setengah putaran, jadi tingkatnya paling sedikit 2."
   },
   "0e469b1e5c023da6eba0": {
    "en": "A shape that only matches after a full turn has order 1, which means no rotational symmetry.",
    "id": "Bangun yang hanya cocok setelah satu putaran penuh punya tingkat (order) 1, artinya tidak punya simetri putar."
   },
+  "fc46fdacefb5ab09b602": {
+   "en": "The order is at least 1.",
+   "id": "Tingkatnya paling sedikit 1."
+  },
+  "bf6bca23ec961733fe4e": {
+   "en": "It would look the same after a half turn.",
+   "id": "Kalau begitu, bangun itu akan terlihat sama setelah setengah putaran."
+  },
   "fff7b5bfa63ab117ba16": {
    "en": "If it matches after each quarter turn, it matches 4 times in a full turn, so its order is 4.",
    "id": "Kalau bangun itu cocok setelah setiap seperempat putaran, bangun itu cocok 4 kali dalam satu putaran penuh, jadi tingkatnya (order) 4."
+  },
+  "e20ad6f74a295d9c5a67": {
+   "en": "Order 2 means a half turn.",
+   "id": "Tingkat 2 berarti setengah putaran."
+  },
+  "24b31a82c8c424e26d46": {
+   "en": "Order 1 means a full turn only.",
+   "id": "Tingkat 1 berarti hanya satu putaran penuh."
   },
   "71d9c37815664f750a1c": {
    "en": "N looks the same after a half turn, so it has order 2.",
    "id": "N terlihat sama setelah setengah putaran, jadi tingkatnya (order) 2."
   },
+  "e538772cecf11a9deb0b": {
+   "en": "E has order 1.",
+   "id": "E punya tingkat 1."
+  },
+  "10c2858dfa0ec21f52f2": {
+   "en": "T has order 1.",
+   "id": "T punya tingkat 1."
+  },
   "0190beaf1ea2c5433071": {
    "en": "The letter H and a non-square rectangle both match after a half turn.",
    "id": "Huruf H dan persegi panjang yang bukan persegi sama-sama cocok setelah setengah putaran."
+  },
+  "b3b0a43e43a678634f8a": {
+   "en": "A kite has order 1.",
+   "id": "Layang-layang (kite) punya tingkat 1."
+  },
+  "949e76f7f6da735de692": {
+   "en": "F has order 1.",
+   "id": "F punya tingkat 1."
   },
   "ab17a4ee8cd2acd89a62": {
    "en": "A kite and F have order 1, a non-square rectangle and H have order 2, and an equilateral triangle and a square have orders 3 and 4.",
@@ -100,21 +144,57 @@
    "en": "A square matches itself after turns of 90 degrees, so 45 degrees does not match.",
    "id": "Persegi cocok dengan dirinya sendiri setelah putaran 90 derajat, jadi 45 derajat tidak cocok."
   },
+  "421ee741bbd032ef1809": {
+   "en": "Only certain turns match.",
+   "id": "Hanya putaran tertentu yang cocok."
+  },
+  "d4c5af2ca2f88536bcda": {
+   "en": "A square has order 4, not 8.",
+   "id": "Persegi punya tingkat 4, bukan 8."
+  },
   "f60ad77d8b6d1c26263f": {
    "en": "An equilateral triangle has order 3, so it matches after each 120 degree turn.",
    "id": "Segitiga sama sisi punya tingkat (order) 3, jadi cocok setelah setiap putaran 120 derajat."
+  },
+  "503e08e701741ffbbceb": {
+   "en": "That would be a square.",
+   "id": "Yang seperti itu adalah persegi."
+  },
+  "243f55d2794fcae83324": {
+   "en": "That would match a rectangle.",
+   "id": "Itu cocok untuk persegi panjang."
   },
   "73913dbea1338959b80f": {
    "en": "With 4 identical blades equally spaced, the pinwheel matches 4 times in a full turn, so its order is 4.",
    "id": "Dengan 4 bilah yang sama dan berjarak sama, kincir itu cocok 4 kali dalam satu putaran penuh, jadi tingkatnya (order) 4."
   },
+  "b1794e82f97f09841924": {
+   "en": "Four identical blades give four matching positions.",
+   "id": "Empat bilah yang sama memberi empat posisi yang cocok."
+  },
+  "0922fa5f5bae0399071d": {
+   "en": "There are only four blades.",
+   "id": "Bilahnya hanya ada empat."
+  },
   "b37f45fc38528ba4d9c7": {
    "en": "360 ÷ 3 = 120 degrees.",
    "id": "360 ÷ 3 = 120 derajat."
   },
+  "7c8749913f5542c8ad02": {
+   "en": "That would give 4 petals.",
+   "id": "Kalau begitu, kelopaknya ada 4."
+  },
+  "b5cf5064254908e721a6": {
+   "en": "That would give 6 petals.",
+   "id": "Kalau begitu, kelopaknya ada 6."
+  },
   "8d90e041ccd76cc6091d": {
    "en": "Both the letter H and a non-square rectangle have order 2.",
    "id": "Huruf H dan persegi panjang yang bukan persegi sama-sama punya tingkat (order) 2."
+  },
+  "a626178257c9410fe7ba": {
+   "en": "An equilateral triangle has order 3.",
+   "id": "Segitiga sama sisi (equilateral triangle) punya tingkat 3."
   },
   "8e24e6520705e06dbcca": {
    "en": "A first match at a half turn means order 2.",
