@@ -26,7 +26,7 @@ export const TERMS_VERSION = '2026-11-05'
  * Versi yang tercatat di setiap persetujuan, jadi harus berubah setiap kali isi kebijakan berubah, juga di hari yang sama.
  * Orang tua yang setuju sebelum baris email kabar produk ditambahkan tetap tercatat pada 2026-11-05.
  */
-export const NOTICE_VERSION = '2026-11-05.3'
+export const NOTICE_VERSION = '2026-11-05.4'
 
 const GENERIC_LOGIN_ERROR = 'Email atau password belum cocok. Periksa lagi, atau pakai Lupa password.'
 

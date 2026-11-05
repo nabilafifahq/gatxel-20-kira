@@ -70,6 +70,8 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | `--color-sky` | #9DD8F7 | Info, petunjuk, ilustrasi, mapel Math |
 | `--color-cloud` (`--color-bg`) | #FFFCF5 | Latar utama aplikasi |
 | `--color-surface` | #FFFFFF | Kartu dan input |
+| `--color-google-surface`, `--color-google-hover`, `--color-google-border`, `--color-google-text` | #FFFFFF, #F2F2F2, #747775, #1F1F1F | Tombol Lanjutkan dengan Google saja, tema terang panduan merek Google, bersama `--font-google` (Roboto Medium) |
+| `--color-google-blue`, `--color-google-green`, `--color-google-yellow`, `--color-google-red` | #4285F4, #34A853, #FBBC05, #EA4335 | Logo G di tombol Google saja, warna asli yang tidak boleh diubah |
 | `--color-grape` (`--color-fg`) | #6546A5 | Semua teks, judul, ikon, garis kontrol, cincin fokus |
 | `--color-success` | #2E7D4F | Ikon dan garis jawaban benar; teks hijau hanya di atas putih |
 | `--color-danger` | #B42318 | Hapus dan error di layar dewasa; bukan untuk jawaban anak |

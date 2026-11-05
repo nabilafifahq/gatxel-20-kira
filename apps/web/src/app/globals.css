@@ -33,6 +33,15 @@
  */
 @theme {
   --color-*: initial;
+  /* Tombol Google saja, panduan merek Google (DESIGN.md bagian 4). */
+  --color-google-surface: #ffffff;
+  --color-google-hover: #f2f2f2;
+  --color-google-border: #747775;
+  --color-google-text: #1f1f1f;
+  --color-google-blue: #4285f4;
+  --color-google-green: #34a853;
+  --color-google-yellow: #fbbc05;
+  --color-google-red: #ea4335;
   --color-grape: #6546a5;
   --color-lilac: #b99aef;
   --color-lavender: #e9ddfb;
@@ -79,6 +88,8 @@
   --font-reading: Nunito, system-ui, sans-serif;
   --font-display: Fredoka, Nunito, system-ui, sans-serif;
   --font-numbers: 'Baloo 2', Nunito, system-ui, sans-serif;
+  /* Tombol Google saja, panduan merek Google (DESIGN.md bagian 4). */
+  --font-google: Roboto, Arial, sans-serif;
 
   --text-display: 64px;
   --text-display--line-height: 68px;

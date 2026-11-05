@@ -33,7 +33,7 @@ function OptionContent({ o, lang, exam = false, short = true }: { o: ClientOptio
       </>
     )
   }
-  return <span lang={lang} className="text-question block">{o.text}</span>
+  return <span lang={lang} className="text-question block min-w-0 [overflow-wrap:anywhere]">{o.text}</span>
 }
 
 /** Kata terpanjang di opsi: kata utuh tidak bisa dilipat, jadi menentukan apakah dua kolom muat di layar HP. */
@@ -43,7 +43,7 @@ function useLayout(options: ClientOption[]): { pictures: boolean; columns: strin
   const pictures = options.some((o) => !!o.figure)
   const wide = !pictures && options.some((o) => (o.text ?? '').length > 14)
   const word = longestWord(options)
-  const columns = pictures ? 'grid-cols-2' : wide ? 'grid-cols-1 @lg:grid-cols-2' : word >= 8 ? 'grid-cols-1 @sm:grid-cols-2' : 'grid-cols-2'
+  const columns = pictures ? 'grid-cols-2' : wide ? 'grid-cols-1 @lg:grid-cols-2' : word >= 6 ? 'grid-cols-1 @sm:grid-cols-2' : 'grid-cols-2'
   return { pictures, columns }
 }
 

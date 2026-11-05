@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, type ReactElement } from 'react'
-import { KiraStar } from '@/components/ui/KiraStar'
+import { KiraLogo, KiraStar } from '@/components/ui/KiraStar'
 import { useT } from '@/lib/i18n/client'
 import { CHUNK_RELOAD_KEY, isChunkError, mayAutoReload } from './route-error-logic'
 
@@ -43,7 +43,7 @@ export function RouteError({ error, reset, area }: { error: Error & { digest?: s
 
   return (
     <main className="mx-auto flex min-h-svh max-w-[560px] flex-col items-center justify-center gap-4 p-6 text-center">
-      <KiraStar size={96} mood="calm" />
+      {area === 'learner' ? <KiraStar size={96} mood="calm" /> : <KiraLogo size={96} />}
       <h1 className="m-0 font-display text-h1 font-bold">{chunk ? t.chunkTitle : t.title}</h1>
       <p className="m-0 text-body-lg">{chunk ? t.chunkBody : t.body}</p>
       <button

@@ -460,7 +460,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             />
           </div>
         </section>
-        <footer className="sticky bottom-0 z-10 -mx-4 flex h-21 items-center gap-3 bg-bg px-4 md:-mx-8 md:h-24 md:px-8 lg:static lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:px-0">
+        <footer className="sticky bottom-0 z-10 -mx-4 flex h-[calc(84px+var(--safe-bottom))] items-center gap-3 bg-bg px-4 pb-(--safe-bottom) md:-mx-8 md:h-24 md:px-8 lg:static lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:px-0">
           {hints.length > 0 ? <HintButton total={hints.length} opened={st.hintsUsed} onOpen={openHint} disabled={!answering} compact={narrow} /> : null}
           {englishArea === 'listening' ? null : (
             <ReadAloudButton key={item.ref} text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
@@ -470,7 +470,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               onClick={() => void check()}
               disabled={!canCheck}
               loading={st.phase === 'checking'}
-              className="ml-auto min-w-0 flex-1 sm:min-w-35 sm:flex-none md:min-w-50"
+              className="ml-auto min-w-0 flex-1 max-sm:px-3 sm:min-w-35 sm:flex-none md:min-w-50"
               icon={manual ? 'send' : undefined}
             >
               {manual ? tp.sendToTutor : t.common.check}

@@ -52,6 +52,15 @@ export function replacementProblems(v: { name: string; password: string; consent
   ])
 }
 
+export type GoogleConsentField = 'consent' | 'captcha'
+
+export function googleConsentProblems(v: { consent: boolean; captchaNeeded: boolean }): Problems<GoogleConsentField> {
+  return collect<GoogleConsentField>([
+    ['consent', !v.consent && TERMS_MESSAGE],
+    ['captcha', v.captchaNeeded && CAPTCHA_MESSAGE],
+  ])
+}
+
 export type WaitlistField = 'email' | 'consent' | 'captcha'
 
 export function waitlistProblems(v: { email: string; consent: boolean; captchaNeeded: boolean }): Problems<WaitlistField> {

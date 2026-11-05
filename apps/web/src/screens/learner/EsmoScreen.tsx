@@ -160,7 +160,7 @@ export function EsmoScreen({ data, actions, backHref = LEARNER_ROUTES.today }: {
           <p className="m-0 text-body-lg text-fg-muted">{started ? t.introStarted : t.introNew}</p>
         </div>
         {data.finalDate || data.daysToGo !== null ? (
-          <div className="flex h-18 w-full flex-none items-center gap-3.5 rounded-card bg-surface shadow-soft px-5 lg:w-auto">
+          <div className="flex min-h-18 w-full flex-none items-center gap-3.5 rounded-card bg-surface shadow-soft px-5 lg:w-auto">
             <UiIcon name="trophy" size={28} className="flex-none" />
             <div className="flex min-w-0 flex-1 flex-col">
               <span className="text-body text-fg-muted">{t.final}</span>

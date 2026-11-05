@@ -11,6 +11,7 @@ import { cx } from '@/components/ui/cx'
 import { useT } from '@/lib/i18n/client'
 import { TranslateToggle, useExplainLang, useIdClipsReady } from './explain-lang'
 import { useReducedMotion } from './hooks'
+import { showSizeClass } from './LessonShow'
 import { useSpeech, type SpeechLang } from './speech'
 import { SUBJECT_STYLE } from './subject'
 
@@ -195,7 +196,7 @@ export function SolutionPlayer({
               <Figure spec={figure} />
             </div>
           ) : null}
-          {current.show && !current.anim ? <div lang={lang} className="text-center font-numbers text-h1 font-semibold tabular-nums">{current.show}</div> : null}
+          {current.show && !current.anim ? <div lang={lang} className={cx('max-w-full text-center font-numbers font-semibold text-balance tabular-nums [overflow-wrap:anywhere]', showSizeClass(current.show, 'player'))}>{current.show}</div> : null}
           {!current.anim && !figure && !current.show && !current.mark ? (
             <div aria-hidden="true" className="font-numbers text-display font-semibold text-border tabular-nums">
               {step + 1}

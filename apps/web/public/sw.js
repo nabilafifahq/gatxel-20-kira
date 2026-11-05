@@ -16,7 +16,7 @@
  *   ini dihapus bersama simpanan halaman saat learner berganti.
  */
 const VERSION = 'kira-v1'
-const STATIC_CACHE = `${VERSION}-static`
+const STATIC_CACHE = `${VERSION}-static-l1` // l1 = logo resmi; ikon lama di kira-v1-static dibuang saat aktivasi
 const PAGE_CACHE = `${VERSION}-pages`
 const AUDIO_CACHE = `${VERSION}-audio-k1` // k1 = versi suara; klip suara lama di kira-v1-audio dibuang saat aktivasi
 const MEDIA_CACHE = `${VERSION}-media`
@@ -75,7 +75,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
       .open(STATIC_CACHE)
-      .then((cache) => cache.addAll([OFFLINE_URL, OFFLINE_ID_URL, '/icons/icon-192.png', '/manifest.webmanifest', ...SOUNDS]))
+      .then((cache) => cache.addAll([OFFLINE_URL, OFFLINE_ID_URL, '/icons/icon-192.png', '/icons/logo-240.webp', '/manifest.webmanifest', ...SOUNDS]))
       .then(() => self.skipWaiting()),
   )
 })
@@ -84,7 +84,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => !k.startsWith(`${VERSION}-`) || k === `${VERSION}-audio`).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => !k.startsWith(`${VERSION}-`) || k === `${VERSION}-audio` || k === `${VERSION}-static`).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   )
 })

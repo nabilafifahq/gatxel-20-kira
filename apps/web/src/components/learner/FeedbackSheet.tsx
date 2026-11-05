@@ -241,7 +241,7 @@ export function FeedbackSheet({
         </div>
       ) : null}
 
-      <div className={cx('sticky bottom-0 z-10 -mx-5 -mb-5 flex flex-wrap justify-end gap-3 rounded-b-xl px-5 pb-5 pt-2 md:-mx-6 md:-mb-6 md:px-6 md:pb-6', good ? 'bg-surface' : 'bg-lavender')}>
+      <div className={cx('sticky bottom-0 z-10 -mx-5 -mb-5 flex flex-wrap justify-end gap-3 rounded-b-xl px-5 pt-2 pb-[calc(20px+var(--safe-bottom))] md:-mx-6 md:-mb-6 md:px-6 md:pb-6', good ? 'bg-surface' : 'bg-lavender')}>
         {kind === 'not-yet' && onShowHint ? (
           <Button variant="secondary" icon="hint" onClick={onShowHint}>
             {showHintLabel ?? t.showHint}

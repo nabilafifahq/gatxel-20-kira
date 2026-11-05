@@ -11,6 +11,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { NO_LOOKUP_SKILLS } from '@kira/core/dictionary'
 import { useT } from '@/lib/i18n/client'
+import { LessonShow } from '@/components/learner/LessonShow'
 import { TapWords } from '@/components/learner/TapWords'
 import { useReducedMotion } from '@/components/learner/hooks'
 import { TranslateToggle, useExplainLang, useIdClipsReady } from '@/components/learner/explain-lang'
@@ -170,7 +171,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
 
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
-      <header className="flex min-h-18 flex-none flex-wrap items-center gap-3 px-4 py-2 md:h-22 md:gap-4 md:px-8 md:py-0">
+      <header className="flex min-h-18 flex-none flex-wrap items-center gap-3 px-4 py-2 md:min-h-22 md:gap-4 md:px-8">
         <IconLink href={data.backHref} icon="arrow-left" label={copy.backToMap} />
         <span className="hidden sm:inline-flex">
           <SubjectChip subject={data.subject} size="M" />
@@ -261,8 +262,9 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               isLast={at >= total - 1}
             />
           ) : part ? (
-            <div className="paper-grid relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden rounded-card bg-surface shadow-soft p-6 md:min-h-[380px]">
-              <div key={at} className={cx('motion-fade flex w-full flex-col items-center gap-4 starting:opacity-0', part.step.tool ? 'max-w-[640px] pt-10' : 'max-w-[520px]')}>
+            <div data-lesson-board className="paper-grid flex min-h-[300px] min-w-0 flex-1 items-center justify-center rounded-card bg-surface shadow-soft p-4 md:min-h-[380px] md:p-6">
+              <div key={at} className={cx('motion-fade flex w-full min-w-0 flex-col items-center gap-4 starting:opacity-0', part.step.tool ? 'max-w-[640px]' : 'max-w-[520px]')}>
+                {part.step.show ? <LessonShow text={part.step.show} borderClass={style.border} /> : null}
                 {part.step.tool ? (
                   <TapSound>
                     <div className="w-full">
@@ -275,11 +277,6 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                   </div>
                 ) : null}
               </div>
-              {part.step.show ? (
-                <span lang="en-GB" className={cx('absolute top-4 right-4 inline-flex h-14 items-center rounded-card border-3 bg-surface px-5 font-numbers text-h1 font-semibold tabular-nums md:top-6 md:right-6 md:h-18 md:text-display', style.border)}>
-                  {part.step.show}
-                </span>
-              ) : null}
             </div>
           ) : null}
 
@@ -308,17 +305,16 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               )}
               <IconButton icon="skip-back" label={copy.previousPart} disabled={at === 0} onClick={() => go(at - 1)} />
               <IconButton icon="skip-next" label={copy.nextPart} disabled={!passable(at)} onClick={() => (at >= total - 1 ? goNext() : go(at + 1))} />
-              <ol aria-label={copy.partOf(at + 1, total)} className="m-0 ml-1.5 flex min-w-0 flex-1 list-none gap-1.5 p-0">
-                {parts.map((p, i) => (
-                  <li key={i} className={cx('relative h-3 flex-1 rounded-pill', i < stepsDone ? style.bar : i === at ? 'border-2 border-fg bg-surface' : 'bg-divider')}>
-                    {p.kind === 'check' ? (
-                      <span
-                        aria-hidden="true"
-                        className={cx('absolute -top-1.5 left-1/2 -ml-2 h-4 w-4 rotate-45 border-2 border-fg', checks[p.n]?.status !== 'open' ? 'bg-star' : 'bg-surface')}
-                      />
-                    ) : null}
-                  </li>
-                ))}
+              <ol aria-label={copy.partOf(at + 1, total)} className="m-0 ml-1.5 flex min-w-0 flex-1 list-none items-center gap-1 p-0 sm:gap-1.5">
+                {parts.map((p, i) =>
+                  p.kind === 'check' ? (
+                    <li key={i} className="flex h-5 w-5 flex-none items-center justify-center">
+                      <span aria-hidden="true" className={cx('block h-3.5 w-3.5 rotate-45 border-2', i === at ? 'border-3 border-fg' : 'border-fg', checks[p.n]?.status !== 'open' ? 'bg-star' : 'bg-surface')} />
+                    </li>
+                  ) : (
+                    <li key={i} className={cx('h-3 min-w-0 flex-1 rounded-pill', i < stepsDone ? style.bar : i === at ? 'border-2 border-fg bg-surface' : 'bg-divider')} />
+                  ),
+                )}
               </ol>
             </div>
           ) : null}

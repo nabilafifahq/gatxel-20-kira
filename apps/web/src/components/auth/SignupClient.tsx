@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
 import { Button } from '@/components/console/Button'
 import { FieldError, focusFirstProblem, RequiredNote, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
@@ -25,6 +25,7 @@ export function SignupClient({
   onSwitchToLogin,
   sharedEmail = '',
   onEmailChange,
+  googleSlot,
 }: {
   turnstileSiteKey: string | null
   seatsLeft: number
@@ -35,6 +36,8 @@ export function SignupClient({
   /** Email yang dibawa dari form Masuk. */
   sharedEmail?: string
   onEmailChange?: (email: string) => void
+  /** Tombol Lanjutkan dengan Google, bila aktif. */
+  googleSlot?: ReactNode
 }) {
   const H = bare ? 'h2' : 'h1'
   const [name, setName] = useState('')
@@ -147,6 +150,7 @@ export function SignupClient({
         </p>
         <RequiredNote className="mt-1" />
       </div>
+      {googleSlot}
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
         <TextField
           name="name"

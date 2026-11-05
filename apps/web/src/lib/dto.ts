@@ -1000,9 +1000,11 @@ export type { FigureSpec }
 // ---------------------------------------------------------------------------
 // Publik: masuk, setup, reset, undangan, daftar perangkat, error
 
+export type GoogleNotice = 'google-failed' | 'google-cancelled' | 'google-unverified' | 'google-other-account' | 'google-disabled' | 'google-not-adult' | 'google-use-password' | 'google-disposable' | 'google-no-mail' | 'google-taken' | 'google-app'
+
 export type LoginScreenProps = {
   next: string | null
-  notice: 'locked' | 'reset-done' | 'signed-out' | 'session-expired' | 'invite-accepted' | null
+  notice: 'locked' | 'reset-done' | 'signed-out' | 'session-expired' | 'invite-accepted' | GoogleNotice | null
   passwordLogin(input: { email: string; password: string; next: string | null; turnstile?: string }): Promise<ActionResult<{ redirectTo: string }>>
   /** Upacara WebAuthn dijalankan di client oleh pembungkus; layar hanya memanggilnya. */
   passkeyLogin(next: string | null): Promise<ActionResult<{ redirectTo: string }>>
