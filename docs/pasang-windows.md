@@ -192,6 +192,17 @@ Laporan mingguan otomatis terkirim setiap Minggu pukul 19.00 WIB ke orang tua ya
 
 Pesan dari halaman Bantuan (`/feedback`) dikirim ke `KIRA_SUPPORT_EMAIL` (boleh beberapa, dipisah koma; kosong berarti `KIRA_LEGAL_EMAIL`). Alamat pertama juga menjadi `Reply-To` email keluar. Supaya pesan tidak masuk spam, domain di `SMTP_FROM` perlu SPF, DKIM, dan DMARC yang benar di DNS. Isi juga `KIRA_TURNSTILE_SITE_KEY` dan `KIRA_TURNSTILE_SECRET`, karena pengirim publik baru menerima balasan otomatis bila lolos Turnstile.
 
+### Masuk dengan Google (opsional)
+
+Fitur ini mati dan tidak terlihat sampai `KIRA_GOOGLE_CLIENT_ID` dan `KIRA_GOOGLE_CLIENT_SECRET` sama-sama diisi di `.env`. Di Google Cloud Console, buat OAuth client jenis Web application:
+
+- Authorized JavaScript origins: `https://kira.gatxel.com`
+- Authorized redirect URIs: `https://kira.gatxel.com/api/auth/google/callback`
+- Scope di layar persetujuan: `openid`, `.../auth/userinfo.email`, `.../auth/userinfo.profile`
+- Layar persetujuan: isi tautan `https://kira.gatxel.com/privasi` dan `https://kira.gatxel.com/ketentuan`, lalu terbitkan (Publish app), karena status Testing hanya menerima pengguna uji.
+
+Jalankan `docker compose up -d web`. Tombol tidak tampil di aplikasi Android, karena Google menolak OAuth di WebView; orang tua di sana memakai email dan password, dan akun yang dibuat lewat Google bisa membuat password lewat Lupa password. Saat fitur menyala, Kebijakan Privasi menampilkan Google sebagai penerima, jadi naikkan `NOTICE_VERSION` pada waktu yang sama.
+
 Untuk mengirim satu contoh setiap jenis email lewat SMTP produksi:
 
 ```powershell
