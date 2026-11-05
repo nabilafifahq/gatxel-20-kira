@@ -4,7 +4,7 @@ import { forwardRef, useId, useState, type InputHTMLAttributes, type ReactNode }
 import { UiIcon } from '@/components/ui/icons'
 import { passwordInputProblem, PASSWORD_RULES } from '@/lib/password-rules'
 import { cx } from './cx'
-import { controlBorder, FieldShell } from './Field'
+import { controlBorder, FieldShell, useKeepEarlyInput } from './Field'
 
 /**
  * Kotak password (papan MasukDewasa): tombol Tampilkan di dalam kotak dengan
@@ -30,12 +30,13 @@ export const PasswordField = forwardRef<
   const auto = useId()
   const fid = id ?? `pw${auto.replace(/:/g, '')}`
   const [shown, setShown] = useState(false)
+  const inner = useKeepEarlyInput(ref, rest.value, rest.onChange)
   const describedBy = [required ? `${fid}-req` : null, hint ? `${fid}-hint` : null, error ? `${fid}-error` : null].filter(Boolean).join(' ') || undefined
   return (
     <FieldShell id={fid} label={label} hint={hint} error={error} labelAside={labelAside} required={required}>
       <div className="relative">
         <input
-          ref={ref}
+          ref={inner}
           id={fid}
           type={shown ? 'text' : 'password'}
           autoCapitalize="none"

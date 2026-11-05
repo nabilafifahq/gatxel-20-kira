@@ -3,6 +3,12 @@
 import {
   forwardRef,
   useId,
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef,
+  type ChangeEvent,
+  type ChangeEventHandler,
+  type ForwardedRef,
   type InputHTMLAttributes,
   type ReactNode,
   type SelectHTMLAttributes,
@@ -20,6 +26,20 @@ import { ConsoleIcon } from './icons'
 export const CONTROL =
   'h-12 w-full min-w-0 rounded-md border-2 bg-surface px-3 text-body text-fg placeholder:text-fg-muted focus-visible:ring-4 focus-visible:ring-lilac ' +
   'disabled:cursor-not-allowed disabled:border-lavender disabled:bg-lavender disabled:text-fg-muted'
+
+/**
+ * Isian yang diketik, atau diisi pengelola password, sebelum JavaScript halaman jalan belum masuk ke state form dan terhapus pada
+ * render berikutnya. Saat kontrol pertama kali hidup, nilai yang sudah ada di kotak diteruskan lewat onChange.
+ */
+export function useKeepEarlyInput<T extends HTMLInputElement | HTMLTextAreaElement>(forwarded: ForwardedRef<T>, value: unknown, onChange: ChangeEventHandler<T> | undefined) {
+  const inner = useRef<T>(null)
+  useImperativeHandle(forwarded, () => inner.current as T, [])
+  useLayoutEffect(() => {
+    const el = inner.current
+    if (el?.value && value === '') onChange?.({ target: el, currentTarget: el } as unknown as ChangeEvent<T>)
+  }, [])
+  return inner
+}
 
 export function controlBorder(error?: string | null): string {
   return error ? 'border-danger' : 'border-border hover:border-fg'
@@ -140,11 +160,12 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
 ) {
   const auto = useId()
   const fid = id ?? `f${auto.replace(/:/g, '')}`
+  const inner = useKeepEarlyInput(ref, rest.value, rest.onChange)
   return (
     <FieldShell id={fid} label={label} hint={hint} error={error} labelAside={labelAside} className={fieldClassName} hideLabel={hideLabel} required={required} optional={optional}>
       <div className="relative min-w-0">
         <input
-          ref={ref}
+          ref={inner}
           id={fid}
           type={type}
           aria-required={required || undefined}
@@ -255,6 +276,12 @@ type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'id'> 
 export function Checkbox({ id, label, description, indeterminate, className, required, optional, error, ...rest }: CheckboxProps) {
   const auto = useId()
   const fid = id ?? `c${auto.replace(/:/g, '')}`
+  const box = useRef<HTMLInputElement>(null)
+  // Kotak yang dicentang sebelum JavaScript jalan: lihat useKeepEarlyInput.
+  useLayoutEffect(() => {
+    const el = box.current
+    if (el?.checked && rest.checked === false) rest.onChange?.({ target: el, currentTarget: el } as unknown as ChangeEvent<HTMLInputElement>)
+  }, [])
   return (
     <div className={cx('flex min-h-6 items-start gap-2.5', className)}>
       {/* Kotak 20 px dengan area tekan 44 px: label pembungkus melebar 12 px ke tiap sisi tanpa menggeser tata letak. */}
@@ -263,6 +290,7 @@ export function Checkbox({ id, label, description, indeterminate, className, req
           id={fid}
           type="checkbox"
           ref={(el) => {
+            box.current = el
             if (el) el.indeterminate = Boolean(indeterminate)
           }}
           aria-required={required || undefined}
