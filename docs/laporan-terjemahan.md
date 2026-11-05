@@ -32,7 +32,7 @@ Lihat `pnpm content:check`, baris `Terjemahan id`, untuk angka terbaru.
 
 Teks tertulis: pelajaran 1.957, penjelasan 9.856, alasan jawaban 11.945, langkah bawaan 2.391, tip 7. Semuanya punya terjemahan dan tidak ada yang usang.
 
-Teks generator: 2.830 pola yang dipakai mencakup 80,1% penjelasan generator pada sampel 40 benih per tingkat. Sisanya tetap bahasa Inggris dan tombolnya tersembunyi. Pola bisa ditambah dengan `extract-templates --share`.
+Teks generator: 2.974 pola yang dipakai mencakup 81,7% penjelasan generator pada sampel 40 benih per tingkat. Sisanya tetap bahasa Inggris dan tombolnya tersembunyi. Pola bisa ditambah dengan `extract-templates --share`.
 
 Terjemahan yang ditahan dari suara, per teks unik: English 5.803 dari 9.440, Matematika 513 dari 7.304, Sains 402 dari 7.755. Per langkah pelajaran: English 247 dari 626, Matematika 49 dari 826, Sains 9 dari 505. Pelajaran yang semua langkahnya bersuara: English 25 dari 124, Matematika 149 dari 172, Sains 81 dari 90.
 
