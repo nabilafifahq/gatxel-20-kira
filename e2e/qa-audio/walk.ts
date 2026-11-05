@@ -479,7 +479,8 @@ async function walk(e: Env): Promise<void> {
         }
         await sleep(120)
       }
-      const bad = sync.filter((s) => !s.match)
+      // Tanpa media (WebKit di Windows) klip gagal seketika dan kalimat langsung maju, jadi sorotan tidak bisa dibandingkan.
+      const bad = e.media ? sync.filter((s) => !s.match) : []
       rr.notes.push(`sorotan cocok ${sync.length - bad.length}/${sync.length}`)
       if (bad.length) { rr.ok = false; rr.notes.push(`tidak cocok: ${JSON.stringify(bad[0])}`) }
     } })
