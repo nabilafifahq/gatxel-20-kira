@@ -2,7 +2,7 @@
 import { chromium, webkit, type BrowserContext, type Locator, type Page } from '@playwright/test'
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { BASE, EN_VER, ID_VER, INIT, OUT, ROOT, SIZES, WEBVIEW_UA, allContentItems, allIn, heldSet, idOf, isHeld, makeAttempt, man, pinIn, psql, qa, sleep, trackNet, type Net, type PlayRec, type RawItem } from './lib'
+import { BASE, EN_VER, ID_VER, INIT, OUT, ROOT, SIZES, WEBVIEW_UA, allContentItems, allIn, heldSet, idOf, isHeld, makeAttempt, man, pinIn, psql, useStaging, qa, sleep, trackNet, type Net, type PlayRec, type RawItem } from './lib'
 
 type Kid = { name: string; grade: number; id: string; org: string; state: string; uiLang: string }
 type Clip = { key: string | null; ver: string; style: string; text: string; resolved: boolean | null; err: string | null; ct: number; dur: number | null; ended: boolean; cps: number | null; byteLen: number | null }
@@ -711,7 +711,9 @@ async function main() {
         timezoneId: 'Asia/Jakarta',
         storageState: join(OUT, process.env.QA_STATE ?? kid.state),
         ignoreHTTPSErrors: true,
+        ...(process.env.QA_STAGING ? { serviceWorkers: 'block' as const } : {}),
       })
+      if (process.env.QA_STAGING) await useStaging(ctx, process.env.QA_STAGING, process.env.QA_VERSION!)
       await ctx.addInitScript(INIT)
       const net: Net[] = []
       trackNet(ctx, net)

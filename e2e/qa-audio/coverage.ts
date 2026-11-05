@@ -3,7 +3,7 @@
 import { chromium, type Page } from '@playwright/test'
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { EN_VER, ID_VER, INIT, OUT, ROOT, WEBVIEW_UA, clipKey, idOf, makeAttempt, man, pinIn, psql, qa, sleep, trackNet, type Net } from './lib'
+import { EN_VER, ID_VER, INIT, OUT, ROOT, WEBVIEW_UA, clipKey, idOf, makeAttempt, man, pinIn, psql, qa, sleep, trackNet, useStaging, type Net } from './lib'
 import { allItems } from '../qa-soal/lib'
 import { generateItem, isGenRef } from '../../packages/content/src/math'
 import { itemSpeechClips } from '../../packages/content/src/speech'
@@ -70,7 +70,8 @@ async function main() {
   const allNet: Net[] = []
   for (const k of kids) {
     if (ONLY_GRADES && !ONLY_GRADES.includes(k.grade)) continue
-    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, locale: 'en-GB', timezoneId: 'Asia/Jakarta', storageState: join(OUT, k.state) })
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, locale: 'en-GB', timezoneId: 'Asia/Jakarta', storageState: join(OUT, k.state), ...(process.env.QA_STAGING ? { serviceWorkers: 'block' as const } : {}) })
+    if (process.env.QA_STAGING) await useStaging(ctx, process.env.QA_STAGING, process.env.QA_VERSION!)
     await ctx.addInitScript(INIT)
     const net: Net[] = []
     const swFetch: string[] = []
@@ -239,8 +240,8 @@ async function main() {
     report.push(rowOut)
     console.log(JSON.stringify(rowOut).slice(0, 1800))
     allNet.push(...net)
-    writeFileSync(join(OUT, 'coverage.json'), JSON.stringify(report, null, 1))
-    writeFileSync(join(OUT, 'net-coverage.json'), JSON.stringify(allNet))
+    writeFileSync(join(OUT, `coverage${process.env.QA_TAG ?? ''}.json`), JSON.stringify(report, null, 1))
+    writeFileSync(join(OUT, `net-coverage${process.env.QA_TAG ?? ''}.json`), JSON.stringify(allNet))
     await ctx.close()
   }
   await browser.close()

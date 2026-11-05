@@ -162,6 +162,16 @@ export function trackNet(ctx: BrowserContext, sink: Net[], swSink?: string[]): v
   })
 }
 
+/** Sajikan versi suara dari folder staging lewat jaringan peramban, tanpa mengubah stack: klip di staging dipakai, selain itu diteruskan ke stack. */
+export async function useStaging(ctx: BrowserContext, dir: string, version: string): Promise<void> {
+  await ctx.route('**/api/tts/today', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ enabled: true, urls: [], voiceVersion: version, idVoiceVersion: ID_VER }) }))
+  await ctx.route(/\/tts\/[0-9a-f]{64}\.mp3$/, (r) => {
+    const key = /([0-9a-f]{64})\.mp3$/.exec(r.request().url())![1]!
+    const file = join(dir, `${key}.mp3`)
+    return existsSync(file) ? r.fulfill({ status: 200, contentType: 'audio/mpeg', body: readFileSync(file) }) : r.continue()
+  })
+}
+
 // ---------------------------------------------------------------- keluarga dan anak
 const PASSWORD = 'Kalimat-Uji-Suara-Fiktif-2026!'
 export const PICS = ['Matahari', 'Bulan', 'Bintang', 'Kucing'] as const
