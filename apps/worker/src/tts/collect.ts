@@ -5,11 +5,13 @@ import { loadSpelling } from '@kira/content/spelling'
 import type { Item } from '@kira/content/schema'
 import { bookSpeechClips, loadBooks } from '@kira/content/books'
 import { loadDictionary } from '@kira/content/dictionary'
-import { itemSpeechClips, lessonSpeechClips, passageSpeechClips, spellingSpeechClips } from '@kira/content/speech'
+import { generateUncached, genRef, GENERATORS } from '@kira/content/math'
+import { listenTextOf } from '@kira/content/present'
+import { itemSpeechClips, lessonSpeechClips, passageSpeechClips, speakableFieldsOf, spellingSpeechClips } from '@kira/content/speech'
 import { dictionaryWordClips } from '@kira/core/dictionary'
 import { loadFlashcards } from '@kira/content/flashcards'
 import { CARDS, STORY } from '@kira/core'
-import { clipTextsOf, spokenIndonesian, TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
+import { clipTextsOf, isClipText, speakableParts, splitClipText, spokenIndonesian, styleForSkill, TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 import { collectSourceTexts, loadTranslations, loadVoiceHeld, lookupTranslation, readTranslationFile, TRANSLATION_DIR, translationHash, type SourceText } from '@kira/content/translations'
 
 /**
@@ -92,6 +94,32 @@ export function repoClips(index: ContentIndex): TtsClipRequest[] {
   }
   for (const p of index.passages.values()) out.push(...passageSpeechClips(p))
   return out
+}
+
+/**
+ * Klip yang dibutuhkan tombol baca pada soal generator kelas tertentu: kalimat soal dan pilihannya, tanpa langkah pembahasan. Benih tetap, jadi daftarnya
+ * sama di setiap jalan. Urut dari yang paling sering muncul, supaya bila dipotong (--generator-max) yang tersisa tetap menutup soal terbanyak.
+ */
+export function generatorClips(grades: readonly number[], seeds: number): TtsClipRequest[] {
+  const counts = new Map<string, { clip: TtsClipRequest; n: number }>()
+  for (const g of GENERATORS.values()) {
+    if (!grades.some((grade) => new RegExp(`^[mes]${grade}\\.`).test(g.skill))) continue
+    const style = styleForSkill(g.skill)
+    for (const level of g.levels) {
+      for (let i = 0; i < seeds; i++) {
+        const item = generateUncached(genRef(g.skill, level, i.toString(36)))
+        const heard = listenTextOf(item)
+        const texts = [...clipTextsOf(speakableParts(speakableFieldsOf(item))), ...(heard ? splitClipText(heard).filter(isClipText) : [])]
+        for (const text of new Set(texts)) {
+          const k = `${style}|${text}`
+          const row = counts.get(k)
+          if (row) row.n++
+          else counts.set(k, { clip: { text, style }, n: 1 })
+        }
+      }
+    }
+  }
+  return [...counts.values()].sort((a, b) => b.n - a.n || a.clip.text.localeCompare(b.clip.text)).map((r) => r.clip)
 }
 
 /** Kalimat buku Ruang Baca (content/books), suara utama, satu klip per kalimat. */

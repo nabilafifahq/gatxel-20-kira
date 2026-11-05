@@ -9,7 +9,7 @@ import { generate } from '../src/handlers/tts'
 import type { HandlerCtx } from '../src/handlers/types'
 import { createTtsClient } from '../src/tts/client'
 import { passageSpeechClips as passageClips } from '@kira/content/speech'
-import { dedupe, dictionaryClips, itemClips, repoClips } from '../src/tts/collect'
+import { dedupe, dictionaryClips, generatorClips, itemClips, repoClips } from '../src/tts/collect'
 import { clipKey, hasClip, writeClip } from '../src/tts/store'
 
 const mcq = (over: Partial<Item> = {}): Item =>
@@ -220,5 +220,21 @@ describe('tts.clip saat layanan tts berhenti', () => {
     expect(await ttsBatchHandler.run(h)).toMatchObject({ skipped: expect.any(String) })
     vi.unstubAllGlobals()
     await rm(dir, { recursive: true, force: true })
+  })
+})
+
+describe('klip soal generator', () => {
+  it('daftarnya sama di setiap jalan, tanpa langkah pembahasan, dan yang paling sering lebih dulu', () => {
+    const a = generatorClips([1], 3)
+    expect(a).toEqual(generatorClips([1], 3))
+    expect(a.length).toBeGreaterThan(0)
+    expect(a.every((c) => isClipText(c.text) && c.style === 'teacher')).toBe(true)
+    expect(new Set(a.map((c) => c.text)).size).toBe(a.length)
+    // Penanda pilihan muncul di banyak soal, jadi ada di depan kalimat yang hanya muncul sekali.
+    expect(a.findIndex((c) => c.text === 'Option A.')).toBeLessThan(a.length / 2)
+  })
+
+  it('kelas lain tidak ikut', () => {
+    expect(generatorClips([], 3)).toEqual([])
   })
 })

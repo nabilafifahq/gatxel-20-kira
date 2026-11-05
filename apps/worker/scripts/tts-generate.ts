@@ -19,7 +19,7 @@ import { loadSpelling } from '@kira/content/spelling'
 import { spellingSpeechClips } from '@kira/content/speech'
 import { isClipText, TTS_VOICE_VERSION } from '@kira/core/tts'
 import { createTtsClient } from '../src/tts/client'
-import { bookClips, dedupe, dictionaryClips, repoClips, worldClips } from '../src/tts/collect'
+import { bookClips, dedupe, dictionaryClips, generatorClips, repoClips, worldClips } from '../src/tts/collect'
 import { clipKey, hasClip, ttsRoot, writeClip } from '../src/tts/store'
 
 const { values } = parseArgs({
@@ -33,6 +33,11 @@ const { values } = parseArgs({
     dry: { type: 'boolean', default: false },
     'content-dir': { type: 'string' },
     version: { type: 'string' },
+    /** Kelas yang soal generatornya ikut dibuat klipnya, misalnya 1 atau 1,2. Kosong: tidak ada klip generator. */
+    'generator-grades': { type: 'string' },
+    'generator-seeds': { type: 'string', default: '5000' },
+    /** Hanya N klip generator yang paling sering muncul. */
+    'generator-max': { type: 'string' },
   },
 })
 
@@ -48,11 +53,20 @@ const health = values.dry && !values.version ? { ok: false as const } : await cl
 const version = values.version ?? health.voiceVersion ?? TTS_VOICE_VERSION
 console.log(`versi suara: ${version}${health.ok ? ` (layanan ${health.backend ?? '?'})` : ' (layanan tidak menjawab, memakai versi kode)'}`)
 
+function generatorList() {
+  const grades = values['generator-grades']?.split(',').map(Number) ?? []
+  if (grades.length === 0) return []
+  const list = generatorClips(grades, Number(values['generator-seeds']))
+  const max = values['generator-max'] ? Number(values['generator-max']) : list.length
+  console.log(`klip generator kelas ${grades.join(',')}: ${list.length}, dipakai ${Math.min(max, list.length)}`)
+  return list.slice(0, max)
+}
+
 const { index, errors } = loadContent(values['content-dir'] ?? findContentDir())
 if (errors.length > 0) console.warn(`konten punya ${errors.length} error, soal yang rusak dilewati`)
 const spelling = loadSpelling(values['content-dir'] ?? findContentDir())
 const contentDir = values['content-dir'] ?? findContentDir()
-let clips = dedupe([...repoClips(index), ...Object.values(spelling.levels).flatMap((w) => spellingSpeechClips(w)), ...dictionaryClips(contentDir), ...bookClips(contentDir), ...worldClips(contentDir)]).filter((c) => isClipText(c.text))
+let clips = dedupe([...repoClips(index), ...Object.values(spelling.levels).flatMap((w) => spellingSpeechClips(w)), ...dictionaryClips(contentDir), ...bookClips(contentDir), ...worldClips(contentDir), ...generatorList()]).filter((c) => isClipText(c.text))
 if (values.limit) clips = clips.slice(0, Number(values.limit))
 
 await mkdir(ttsRoot(dataDir), { recursive: true })
