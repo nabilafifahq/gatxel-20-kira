@@ -40,7 +40,7 @@ export function BookDetailScreen({ data }: { data: BookDetailDTO }): ReactElemen
         <h2 id="chapters" className="m-0 text-h2 font-bold">
           {tr.book.chapters}
         </h2>
-        <ol className="m-0 flex list-none flex-col gap-2 p-0">
+        <ol className="m-0 flex max-w-3xl list-none flex-col gap-2 p-0">
           {data.chapters.map((c, i) => (
             <li key={c.id}>
               <Link
