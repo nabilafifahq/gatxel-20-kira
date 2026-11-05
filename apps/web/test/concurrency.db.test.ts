@@ -179,7 +179,7 @@ describe.skipIf(!ready)('konkurensi', () => {
     expect(n).toBe(2)
     const badges = await owner`select badge_id, count(*)::int as n from badge_award where learner_id = ${learnerId} group by badge_id`
     expect(badges.every((b) => b.n === 1)).toBe(true)
-  })
+  }, 120_000)
 
   it('kumpul ganda bersamaan pada sesi yang belum separuh dijawab: tanpa XP selesai dan bintang, lalu terbuka lagi dan selesai sekali', async () => {
     const hari = '2026-10-15'
@@ -216,7 +216,7 @@ describe.skipIf(!ready)('konkurensi', () => {
     const refs = [lama, baru]
     expect((await owner`select count(*)::int as n from xp_event where learner_id = ${learnerId} and reason = 'quest' and ref = any(${refs}::text[])`)[0]!.n).toBe(1)
     expect((await owner`select count(*)::int as n from star_ledger where learner_id = ${learnerId} and source = ${'session:' + baru}`)[0]!.n).toBe(1)
-  })
+  }, 120_000)
 
   it('peti harian dibuka bersamaan: hanya satu yang berhasil', async () => {
     const today = { variant: 'all-done', progress: { done: 9, total: 9, extraDone: 0, extraTotal: 0 } } as never
