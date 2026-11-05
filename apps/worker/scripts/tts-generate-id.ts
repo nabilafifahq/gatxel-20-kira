@@ -4,14 +4,15 @@
  *   pnpm tts:generate-id -- --out C:/kw4/tts-id --env C:/kw4/_secrets/voice.env [--kinds lesson,explanation,solution,tip,why]
  *       [--url http://127.0.0.1:3000/api/v1/audio/speech] [--concurrency 2] [--limit N] [--dry]
  *
- * - Klip ditulis ke <out>/tts/<kunci>.mp3 dan daftarnya ke <out>/tts/manifest.jsonl dan manifest-<versi>.jsonl.
+ * - Klip ditulis ke <out>/tts/<kunci>.mp3. manifest.jsonl berisi seluruh rencana (dibaca gerbang), manifest-<versi>.jsonl hanya klip
+ *   yang sudah ada, jadi folder ini boleh disalin dan dipromosikan kapan saja, juga saat pembuatan masih berjalan.
  *   Kunci = sha256(versi suara Indonesia, peran indonesian, teks yang tampil). Teks yang dikirim ke API adalah bentuk ucapan
  *   (`spokenIndonesian`), jadi lambang dan angka dibaca benar tanpa mengubah kuncinya.
  * - Bisa dilanjutkan: klip yang sudah ada dilewati. Aman dihentikan kapan saja; berkas ditulis lewat berkas sementara lalu rename.
  * - Layanan itu dipakai bersama, jadi konkurensi paling banyak 2.
  * - Kunci API dibaca dari berkas --env dan tidak pernah dicetak.
  */
-import { appendFile, mkdir, writeFile } from 'node:fs/promises'
+import { appendFile, mkdir, rename, writeFile } from 'node:fs/promises'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
@@ -55,7 +56,15 @@ const rows = clips.map((c) => ({ key: clipKey(c.text, 'indonesian', version), st
 await mkdir(ttsRoot(out), { recursive: true })
 const manifest = rows.map((r) => JSON.stringify(r)).join('\n') + '\n'
 await writeFile(join(ttsRoot(out), 'manifest.jsonl'), manifest)
-await writeFile(join(ttsRoot(out), `manifest-${version}.jsonl`), manifest)
+/** Tulis daftar klip yang sudah ada, lewat berkas sementara lalu rename. */
+async function writeDone(): Promise<void> {
+  const done: string[] = []
+  for (const r of rows) if (await hasClip(out!, r.key)) done.push(JSON.stringify(r))
+  const dest = join(ttsRoot(out!), `manifest-${version}.jsonl`)
+  await writeFile(`${dest}.tmp`, done.join('\n') + '\n')
+  await rename(`${dest}.tmp`, dest)
+}
+await writeDone()
 console.log(`versi suara ${version}, jenis ${kinds.join(',')}: ${rows.length} klip`)
 if (values.dry) process.exit(0)
 
@@ -104,10 +113,12 @@ async function worker(): Promise<void> {
       failed++
       await appendFile(join(ttsRoot(out!), 'gagal.jsonl'), JSON.stringify({ key: row.key, error: e instanceof Error ? e.message : 'gagal' }) + '\n')
     }
+    if ((made + failed) % 500 === 0) await writeDone()
     if ((made + failed) % 200 === 0) console.log(`dibuat ${made}, dilewati ${skipped}, gagal ${failed}, ${Math.round((Date.now() - started) / 1000)} detik`)
   }
 }
 
 await Promise.all(Array.from({ length: concurrency }, worker))
+await writeDone()
 console.log(`Selesai: dibuat ${made}, sudah ada ${skipped}, gagal ${failed}, dari ${rows.length}, ${Math.round((Date.now() - started) / 1000)} detik`)
 if (failed > 0) process.exitCode = 1
