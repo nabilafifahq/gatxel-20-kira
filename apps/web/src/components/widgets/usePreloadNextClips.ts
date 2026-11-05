@@ -13,7 +13,7 @@ export function usePreloadNextClips(next: ClientItem | undefined): void {
   const ref = next?.ref
   useEffect(() => {
     if (!next || next.lang !== 'en-GB') return
-    preloadClips(speakableClipParts(next), speakableStyle(next))
+    void preloadClips(speakableClipParts(next), speakableStyle(next))
     // Hanya saat soal berikutnya berganti.
   }, [ref])
 }

@@ -144,15 +144,22 @@ export async function fetchClipKeys(keys: readonly string[]): Promise<Blob[] | n
 
 /**
  * Ambil klip lebih dulu (soal yang sedang tampil), supaya tombol baca mulai di bawah satu detik. Hanya bila suara
- * server aktif; tidak meminta klip yang belum ada dan tidak pernah melempar.
+ * server aktif; tidak meminta klip yang belum ada dan tidak pernah melempar. Hasilnya memberi tahu tombol baca:
+ * 'missing' berarti server menjawab bahwa klipnya memang belum ada, 'failed' berarti jaringan gagal, 'skipped' berarti belum diperiksa.
  */
-export function preloadClips(input: string | readonly SpeechPart[], style: TtsStyleId): void {
-  if (typeof window === 'undefined' || !navigator.onLine) return
+export type PreloadResult = 'ready' | 'missing' | 'failed' | 'skipped'
+
+export function preloadClips(input: string | readonly SpeechPart[], style: TtsStyleId): Promise<PreloadResult> {
+  if (typeof window === 'undefined' || !navigator.onLine) return Promise.resolve('skipped')
   const plan = clipPlan(input, style)
-  if (plan.length === 0) return
-  void ttsStatus()
-    .then((s) => (s?.enabled ? fetchClips(plan) : undefined))
-    .catch(() => undefined)
+  if (plan.length === 0) return Promise.resolve('skipped')
+  return ttsStatus()
+    .then(async (s): Promise<PreloadResult> => {
+      if (!s?.enabled) return 'skipped'
+      const set = await fetchClips(plan)
+      return set.failed ? 'failed' : set.missing.length > 0 ? 'missing' : 'ready'
+    })
+    .catch((): PreloadResult => 'failed')
 }
 
 const requested = new Set<string>()
